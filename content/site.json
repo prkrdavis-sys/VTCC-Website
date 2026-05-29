@@ -1,0 +1,71 @@
+{
+  "defaultLocale": "en",
+  "localeLabels": {
+    "en": "English",
+    "es": "Español"
+  },
+  "localeStorageKey": "vtcc-locale",
+  "shared": {
+    "assets": {
+      "logo": "/assets/vtcc-logo.png",
+      "heroImage": "/assets/hero-banner.png",
+      "whoWeServeImage": "/assets/who-we-serve.png",
+      "insuranceProviders": [
+        {
+          "name": "Aetna Better Health",
+          "logo": "/assets/aetna.svg"
+        },
+        {
+          "name": "Anthem HealthKeepers Plus",
+          "logo": "/assets/anthem-healthkeepers.svg"
+        },
+        {
+          "name": "BlueCross BlueShield",
+          "logo": "/assets/blue-cross.svg"
+        },
+        {
+          "name": "Cigna",
+          "logo": "/assets/cigna.svg"
+        },
+        {
+          "name": "Kaiser Permanente Behavioral Health",
+          "logo": "/assets/kaiser.png"
+        },
+        {
+          "name": "Molina Healthcare",
+          "logo": "/assets/molina.png"
+        },
+        {
+          "name": "Optima Health",
+          "logo": "/assets/optima.png"
+        },
+        {
+          "name": "UnitedHealthcare",
+          "logo": "/assets/unitedhealthcare.svg"
+        }
+      ]
+    },
+    "downloads": {
+      "abaIntake": {
+        "file": "/assets/forms/aba-intake.pdf",
+        "type": "pdf"
+      },
+      "iihIntake": {
+        "file": "/assets/forms/iih-intake.pdf",
+        "type": "pdf"
+      },
+      "faptReferralQuestionnaire": {
+        "file": "/assets/forms/fapt-referral-questionnaire.docx",
+        "type": "docx"
+      },
+      "clientRightsEnglish": {
+        "file": "/assets/forms/client-rights-english.pdf",
+        "type": "pdf"
+      },
+      "clientRightsSpanish": {
+        "file": "/assets/forms/client-rights-spanish.pdf",
+        "type": "pdf"
+      }
+    }
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "eyebrow": "FAQs & Guides",
+  "title": "Find answers fast",
+  "intro": "Browse common questions about ABA therapy, Intensive In-Home services, intake, funding, parent involvement, and referrals. Select a topic below to jump to answers.",
+  "cardLabel": "FAQ",
+  "formsPromo": {
+    "label": "Forms",
+    "title": "Intake and referral forms",
+    "summary": "Print and complete the intake form for your service, referral questionnaires, and client rights notices.",
+    "linkLabel": "View all forms",
+    "linkHref": "/resources/forms"
+  },
+  "items": [
+    {
+      "title": "What Is ABA Therapy?",
+      "slug": "what-is-aba-therapy",
+      "summary": "How ABA works, who it may help, and what families should expect."
+    },
+    {
+      "title": "What To Expect During Intake",
+      "slug": "what-to-expect-during-intake",
+      "summary": "Forms, first calls, timelines, and next steps after you reach out."
+    },
+    {
+      "title": "Medicaid and FAPT Funding Basics",
+      "slug": "medicaid-fapt-funding-basics",
+      "summary": "Coverage pathways, verification, and what to prepare."
+    },
+    {
+      "title": "Parent Training FAQs",
+      "slug": "parent-training-faqs",
+      "summary": "How caregivers participate in therapy and practice skills at home."
+    },
+    {
+      "title": "Intensive In-Home Services",
+      "slug": "intensive-in-home-basics",
+      "summary": "When IIH may fit, how it differs from ABA, and typical goals."
+    },
+    {
+      "title": "Referrals and Eligibility",
+      "slug": "referrals-and-eligibility",
+      "summary": "Who can refer, what to send, and how VTCC responds."
+    }
+  ],
+  "categories": [
+    {
+      "slug": "what-is-aba-therapy",
+      "title": "What Is ABA Therapy?",
+      "intro": "Applied Behavior Analysis uses positive, individualized strategies to help children build skills that support learning, communication, and daily life.",
+      "faqs": [
+        {
+          "question": "What is ABA therapy?",
+          "answer": "ABA is an evidence-based approach that focuses on teaching meaningful skills and reducing behaviors that interfere with learning, safety, or daily routines. Treatment plans are individualized and adjusted as the child progresses."
+        },
+        {
+          "question": "Who may benefit from ABA?",
+          "answer": "ABA is often used for children and adolescents with autism spectrum disorder or related developmental needs, but every plan depends on assessment, clinical recommendation, funding, and family goals."
+        },
+        {
+          "question": "What happens during a typical ABA session?",
+          "answer": "Sessions may include structured teaching, play-based learning, communication practice, daily living routines, and caregiver coaching. Activities depend on the child's treatment plan and current goals."
+        },
+        {
+          "question": "How is progress measured?",
+          "answer": "The clinical team tracks progress toward specific goals over time. Plans are reviewed regularly so strategies can be updated as skills improve or new needs emerge."
+        },
+        {
+          "question": "How long does ABA last?",
+          "answer": "Length of services varies by child, funding authorization, and clinical need. Some families receive support for months, while others may continue longer depending on goals and plan approval."
+        },
+        {
+          "question": "Is ABA only for young children?",
+          "answer": "No. ABA can support a wide age range depending on clinical need, funding, and service authorization. VTCC can help families understand whether ABA may be appropriate for their child."
+        }
+      ]
+    },
+    {
+      "slug": "what-to-expect-during-intake",
+      "title": "What To Expect During Intake",
+      "intro": "Intake is the process of gathering information, reviewing funding, and determining whether VTCC services are a fit.",
+      "faqs": [
+        {
+          "question": "How do I start the intake process?",
+          "answer": "Call VTCC or submit the request form on this site. A team member can help identify the service you need, explain paperwork, and outline funding review steps."
+        },
+        {
+          "question": "What information should I have ready?",
+          "answer": "It helps to have parent or guardian contact information, the child's age, the service you are requesting, your city or county, and basic funding details such as Medicaid, MCO, commercial insurance, or county/FAPT information if known."
+        },
+        {
+          "question": "What forms may be required?",
+          "answer": "Required forms depend on the service and funding source. Download the intake and referral forms from the Forms & Downloads page, or contact VTCC if you are unsure which documents apply."
+        },
+        {
+          "question": "How long does intake take?",
+          "answer": "Timelines vary. Some steps move quickly after contact, while funding verification, authorization, and scheduling may take longer depending on the payer or referral source."
+        },
+        {
+          "question": "What happens after I reach out?",
+          "answer": "VTCC reviews your request, confirms service and funding fit when possible, and guides you through paperwork, verification, assessment scheduling, and treatment planning."
+        },
+        {
+          "question": "What if I am not sure which service I need?",
+          "answer": "That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Intensive In-Home services, or another pathway should be explored."
+        }
+      ]
+    },
+    {
+      "slug": "medicaid-fapt-funding-basics",
+      "title": "Medicaid and FAPT Funding Basics",
+      "intro": "Coverage questions can be confusing. These answers explain common funding pathways families and referrers ask about most often.",
+      "faqs": [
+        {
+          "question": "Does VTCC accept Medicaid?",
+          "answer": "VTCC's public materials reference Medicaid and managed care options. Families should contact VTCC to confirm current participation for their specific plan and service."
+        },
+        {
+          "question": "What is an MCO?",
+          "answer": "A managed care organization, or MCO, administers Medicaid benefits for many Virginia families. Coverage and authorization rules may differ by plan and service type."
+        },
+        {
+          "question": "What is FAPT or county funding?",
+          "answer": "Some families may access services through county or FAPT-related funding pathways. Eligibility, required documents, and approval steps vary by locality and service."
+        },
+        {
+          "question": "How do I verify my coverage?",
+          "answer": "Have your insurance or funding information ready when you contact VTCC. The team can help identify what may be needed before services begin, though final approval depends on the payer or funding agency."
+        },
+        {
+          "question": "What if my plan is not listed on the website?",
+          "answer": "Plan participation can change. Contact VTCC directly to ask whether your current plan or funding source may be accepted for the service you need."
+        },
+        {
+          "question": "Does commercial insurance cover these services?",
+          "answer": "Commercial coverage depends on the plan, service type, and authorization requirements. VTCC can help families understand what questions to ask, but the insurance plan makes the final coverage decision."
+        }
+      ]
+    },
+    {
+      "slug": "parent-training-faqs",
+      "title": "Parent Training FAQs",
+      "intro": "Parents and caregivers are essential partners in both ABA and family-centered services.",
+      "faqs": [
+        {
+          "question": "Why is parent training part of ABA?",
+          "answer": "Children practice skills across daily routines at home, school, and in the community. Parent training helps caregivers use strategies consistently when therapists are not present."
+        },
+        {
+          "question": "Do I need to be present during every session?",
+          "answer": "Participation expectations vary by treatment plan and funding requirements. VTCC can explain what involvement is recommended for your family."
+        },
+        {
+          "question": "What if more than one caregiver supports the child?",
+          "answer": "Multiple caregivers can participate when appropriate. The clinical team may provide guidance so routines stay consistent across parents, grandparents, or other supports."
+        },
+        {
+          "question": "Can parent training help between sessions?",
+          "answer": "Yes. Training often focuses on everyday moments such as transitions, communication, meals, bedtime, and community outings."
+        },
+        {
+          "question": "What if English is not my first language?",
+          "answer": "VTCC was founded to support multicultural families. Ask the team about language support, translated materials, and communication options during intake."
+        },
+        {
+          "question": "What if I feel overwhelmed as a caregiver?",
+          "answer": "Many families feel that way when starting services. Parent training is designed to offer practical strategies and support, not to add pressure. Tell your team what feels manageable."
+        }
+      ]
+    },
+    {
+      "slug": "intensive-in-home-basics",
+      "title": "Intensive In-Home Services",
+      "intro": "Intensive In-Home services provide short-term, family-centered mental health support in the home.",
+      "faqs": [
+        {
+          "question": "What is Intensive In-Home service?",
+          "answer": "IIH is short-term mental health support provided in the home to help stabilize serious behavioral or emotional challenges and strengthen the family system."
+        },
+        {
+          "question": "Who may qualify for IIH?",
+          "answer": "Eligibility depends on clinical need, funding, referral source, and authorization requirements. VTCC can help families and referrers understand whether IIH may be appropriate."
+        },
+        {
+          "question": "How is IIH different from ABA?",
+          "answer": "ABA focuses on skill building through individualized behavioral treatment plans. IIH focuses on stabilizing intense behavioral or emotional concerns in the home and supporting the family during a crisis period."
+        },
+        {
+          "question": "How long do IIH services usually last?",
+          "answer": "IIH is typically short term, but exact duration depends on treatment goals, clinical progress, and funding authorization."
+        },
+        {
+          "question": "Can IIH help prevent out-of-home placement?",
+          "answer": "IIH is designed to support families when a child or adolescent is at risk of disruption or out-of-home placement, when clinically appropriate and authorized."
+        },
+        {
+          "question": "Where are IIH services provided?",
+          "answer": "Services are generally provided in the home and community settings tied to the treatment plan. Contact VTCC to confirm service area details for your location."
+        }
+      ]
+    },
+    {
+      "slug": "referrals-and-eligibility",
+      "title": "Referrals and Eligibility",
+      "intro": "Schools, doctors, case managers, county partners, and families can all start the conversation with VTCC.",
+      "faqs": [
+        {
+          "question": "Who can refer to VTCC?",
+          "answer": "Families, schools, pediatricians, therapists, case managers, county partners, and other community professionals may contact VTCC to ask about services and referral requirements."
+        },
+        {
+          "question": "What information should referrers include?",
+          "answer": "Helpful details often include the child's age, parent or guardian contact information, service requested, reason for referral, funding source if known, and any required referral paperwork."
+        },
+        {
+          "question": "Can families refer themselves?",
+          "answer": "Yes. A parent or guardian can contact VTCC directly to ask about services, intake steps, and funding review."
+        },
+        {
+          "question": "How should documents be sent?",
+          "answer": "Use only the contact methods VTCC provides for referral and intake documents. Do not send sensitive records through an unsecured form or email unless VTCC has approved a secure process."
+        },
+        {
+          "question": "How quickly will VTCC respond?",
+          "answer": "Response times vary by urgency, completeness of information, and office workload. If there is an immediate safety emergency, call 911."
+        },
+        {
+          "question": "Can VTCC tell me if a child is eligible before I refer?",
+          "answer": "VTCC can often discuss general service fit and required next steps, but final eligibility may depend on funding authorization, clinical assessment, and documentation."
+        }
+      ]
+    }
+  ]
+}

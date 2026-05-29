@@ -1,0 +1,233 @@
+{
+  "eyebrow": "Preguntas y Guías",
+  "title": "Encuentre respuestas rápidamente",
+  "intro": "Explore preguntas comunes sobre terapia ABA, servicios intensivos en el hogar, admisión, financiamiento, participación de padres y referencias. Seleccione un tema a continuación para ver respuestas.",
+  "cardLabel": "Pregunta frecuente",
+  "formsPromo": {
+    "label": "Formularios",
+    "title": "Formularios de admisión y referencia",
+    "summary": "Imprima y complete el formulario de admisión para su servicio, cuestionarios de referencia y avisos de derechos del cliente.",
+    "linkLabel": "Ver todos los formularios",
+    "linkHref": "/resources/forms"
+  },
+  "items": [
+    {
+      "title": "¿Qué es la Terapia ABA?",
+      "slug": "what-is-aba-therapy",
+      "summary": "Cómo funciona la ABA, a quién puede ayudar y qué deben esperar las familias."
+    },
+    {
+      "title": "Qué Esperar Durante la Admisión",
+      "slug": "what-to-expect-during-intake",
+      "summary": "Formularios, primeras llamadas, plazos y próximos pasos después de contactarnos."
+    },
+    {
+      "title": "Conceptos Básicos de Medicaid y Financiamiento FAPT",
+      "slug": "medicaid-fapt-funding-basics",
+      "summary": "Vías de cobertura, verificación y qué preparar."
+    },
+    {
+      "title": "Preguntas Frecuentes sobre Capacitación para Padres",
+      "slug": "parent-training-faqs",
+      "summary": "Cómo participan los cuidadores en la terapia y practican habilidades en casa."
+    },
+    {
+      "title": "Servicios Intensivos en el Hogar",
+      "slug": "intensive-in-home-basics",
+      "summary": "Cuándo pueden ser adecuados los SIH, en qué se diferencian de la ABA y metas típicas."
+    },
+    {
+      "title": "Referencias y Elegibilidad",
+      "slug": "referrals-and-eligibility",
+      "summary": "Quién puede referir, qué enviar y cómo responde VTCC."
+    }
+  ],
+  "categories": [
+    {
+      "slug": "what-is-aba-therapy",
+      "title": "¿Qué es la Terapia ABA?",
+      "intro": "El Análisis de Conducta Aplicado utiliza estrategias positivas e individualizadas para ayudar a los niños a desarrollar habilidades que apoyan el aprendizaje, la comunicación y la vida diaria.",
+      "faqs": [
+        {
+          "question": "¿Qué es la terapia ABA?",
+          "answer": "La ABA es un enfoque basado en evidencia que se centra en enseñar habilidades significativas y reducir conductas que interfieren con el aprendizaje, la seguridad o las rutinas diarias. Los planes de tratamiento son individualizados y se ajustan a medida que el niño progresa."
+        },
+        {
+          "question": "¿Quién puede beneficiarse de la ABA?",
+          "answer": "La ABA se utiliza con frecuencia para niños y adolescentes con trastorno del espectro autista o necesidades del desarrollo relacionadas, pero cada plan depende de la evaluación, la recomendación clínica, el financiamiento y las metas familiares."
+        },
+        {
+          "question": "¿Qué ocurre durante una sesión típica de ABA?",
+          "answer": "Las sesiones pueden incluir enseñanza estructurada, aprendizaje basado en el juego, práctica de comunicación, rutinas de vida diaria y orientación para cuidadores. Las actividades dependen del plan de tratamiento y de las metas actuales del niño."
+        },
+        {
+          "question": "¿Cómo se mide el progreso?",
+          "answer": "El equipo clínico hace seguimiento del progreso hacia metas específicas con el tiempo. Los planes se revisan con regularidad para que las estrategias puedan actualizarse a medida que mejoran las habilidades o surgen nuevas necesidades."
+        },
+        {
+          "question": "¿Cuánto dura la ABA?",
+          "answer": "La duración varía según el niño, la autorización de financiamiento y la necesidad clínica. Algunas familias reciben apoyo durante meses, mientras que otras pueden continuar más tiempo según las metas y la aprobación del plan."
+        },
+        {
+          "question": "¿La ABA es solo para niños pequeños?",
+          "answer": "No. La ABA puede apoyar una amplia variedad de edades según la necesidad clínica, el financiamiento y la autorización del servicio. VTCC puede ayudar a las familias a entender si la ABA puede ser apropiada para su hijo."
+        }
+      ]
+    },
+    {
+      "slug": "what-to-expect-during-intake",
+      "title": "Qué Esperar Durante la Admisión",
+      "intro": "La admisión es el proceso de recopilar información, revisar el financiamiento y determinar si los servicios de VTCC son adecuados.",
+      "faqs": [
+        {
+          "question": "¿Cómo inicio el proceso de admisión?",
+          "answer": "Llame a VTCC o envíe el formulario de solicitud en este sitio. Un miembro del equipo puede ayudar a identificar el servicio que necesita, explicar la documentación y describir los pasos de revisión de financiamiento."
+        },
+        {
+          "question": "¿Qué información debo tener lista?",
+          "answer": "Ayuda tener información de contacto del padre o tutor, la edad del niño, el servicio solicitado, su ciudad o condado y detalles básicos de financiamiento como Medicaid, MCO, seguro comercial o información del condado/FAPT si la conoce."
+        },
+        {
+          "question": "¿Qué formularios pueden ser necesarios?",
+          "answer": "Los formularios requeridos dependen del servicio y de la fuente de financiamiento. Descargue los formularios de admisión y referencia en la página de Formularios, o contacte a VTCC si no está seguro de qué documentos aplican."
+        },
+        {
+          "question": "¿Cuánto tarda la admisión?",
+          "answer": "Los plazos varían. Algunos pasos avanzan rápidamente después del contacto, mientras que la verificación de financiamiento, la autorización y la programación pueden tardar más según el pagador o la fuente de referencia."
+        },
+        {
+          "question": "¿Qué ocurre después de que me comunico?",
+          "answer": "VTCC revisa su solicitud, confirma la compatibilidad del servicio y del financiamiento cuando es posible, y le guía a través de la documentación, la verificación, la programación de evaluaciones y la planificación del tratamiento."
+        },
+        {
+          "question": "¿Qué pasa si no estoy seguro de qué servicio necesito?",
+          "answer": "Es muy común. Contacte a VTCC y describa sus inquietudes. El equipo puede ayudar a determinar si deben explorarse la ABA, los servicios intensivos en el hogar u otra vía."
+        }
+      ]
+    },
+    {
+      "slug": "medicaid-fapt-funding-basics",
+      "title": "Conceptos Básicos de Medicaid y Financiamiento FAPT",
+      "intro": "Las preguntas sobre cobertura pueden resultar confusas. Estas respuestas explican las vías de financiamiento que las familias y referentes preguntan con más frecuencia.",
+      "faqs": [
+        {
+          "question": "¿VTCC acepta Medicaid?",
+          "answer": "Los materiales públicos de VTCC hacen referencia a Medicaid y opciones de atención administrada. Las familias deben contactar a VTCC para confirmar la participación actual para su plan y servicio específicos."
+        },
+        {
+          "question": "¿Qué es un MCO?",
+          "answer": "Una organización de atención administrada, o MCO, administra los beneficios de Medicaid para muchas familias de Virginia. Las reglas de cobertura y autorización pueden diferir según el plan y el tipo de servicio."
+        },
+        {
+          "question": "¿Qué es FAPT o financiamiento del condado?",
+          "answer": "Algunas familias pueden acceder a servicios a través de vías de financiamiento del condado o relacionadas con FAPT. La elegibilidad, los documentos requeridos y los pasos de aprobación varían según la localidad y el servicio."
+        },
+        {
+          "question": "¿Cómo verifico mi cobertura?",
+          "answer": "Tenga lista su información de seguro o financiamiento cuando contacte a VTCC. El equipo puede ayudar a identificar qué puede necesitarse antes de que comiencen los servicios, aunque la aprobación final depende del pagador o agencia de financiamiento."
+        },
+        {
+          "question": "¿Qué pasa si mi plan no aparece en el sitio web?",
+          "answer": "La participación de planes puede cambiar. Contacte directamente a VTCC para preguntar si su plan o fuente de financiamiento actual puede ser aceptado para el servicio que necesita."
+        },
+        {
+          "question": "¿El seguro comercial cubre estos servicios?",
+          "answer": "La cobertura comercial depende del plan, del tipo de servicio y de los requisitos de autorización. VTCC puede ayudar a las familias a entender qué preguntas hacer, pero el plan de seguros toma la decisión final de cobertura."
+        }
+      ]
+    },
+    {
+      "slug": "parent-training-faqs",
+      "title": "Preguntas Frecuentes sobre Capacitación para Padres",
+      "intro": "Los padres y cuidadores son socios esenciales tanto en la ABA como en los servicios centrados en la familia.",
+      "faqs": [
+        {
+          "question": "¿Por qué la capacitación para padres forma parte de la ABA?",
+          "answer": "Los niños practican habilidades en rutinas diarias en casa, la escuela y la comunidad. La capacitación para padres ayuda a los cuidadores a usar estrategias de forma consistente cuando los terapeutas no están presentes."
+        },
+        {
+          "question": "¿Debo estar presente en cada sesión?",
+          "answer": "Las expectativas de participación varían según el plan de tratamiento y los requisitos de financiamiento. VTCC puede explicar qué nivel de participación se recomienda para su familia."
+        },
+        {
+          "question": "¿Qué pasa si más de un cuidador apoya al niño?",
+          "answer": "Varios cuidadores pueden participar cuando sea apropiado. El equipo clínico puede ofrecer orientación para que las rutinas se mantengan consistentes entre padres, abuelos u otros apoyos."
+        },
+        {
+          "question": "¿La capacitación para padres ayuda entre sesiones?",
+          "answer": "Sí. La capacitación a menudo se centra en momentos cotidianos como transiciones, comunicación, comidas, hora de dormir y salidas a la comunidad."
+        },
+        {
+          "question": "¿Qué pasa si el inglés no es mi primer idioma?",
+          "answer": "VTCC fue fundado para apoyar a familias multiculturales. Pregunte al equipo sobre apoyo lingüístico, materiales traducidos y opciones de comunicación durante la admisión."
+        },
+        {
+          "question": "¿Qué pasa si me siento abrumado como cuidador?",
+          "answer": "Muchas familias se sienten así al comenzar servicios. La capacitación para padres está diseñada para ofrecer estrategias prácticas y apoyo, no para aumentar la presión. Dígale a su equipo qué le resulta manejable."
+        }
+      ]
+    },
+    {
+      "slug": "intensive-in-home-basics",
+      "title": "Servicios Intensivos en el Hogar",
+      "intro": "Los servicios intensivos en el hogar brindan apoyo de salud mental a corto plazo y centrado en la familia en el hogar.",
+      "faqs": [
+        {
+          "question": "¿Qué es el servicio intensivo en el hogar?",
+          "answer": "Los SIH son apoyo de salud mental a corto plazo proporcionado en el hogar para ayudar a estabilizar desafíos conductuales o emocionales serios y fortalecer el sistema familiar."
+        },
+        {
+          "question": "¿Quién puede calificar para SIH?",
+          "answer": "La elegibilidad depende de la necesidad clínica, el financiamiento, la fuente de referencia y los requisitos de autorización. VTCC puede ayudar a familias y referentes a entender si los SIH pueden ser apropiados."
+        },
+        {
+          "question": "¿En qué se diferencian los SIH de la ABA?",
+          "answer": "La ABA se centra en desarrollar habilidades mediante planes de tratamiento conductual individualizados. Los SIH se centran en estabilizar preocupaciones conductuales o emocionales intensas en el hogar y apoyar a la familia durante un periodo de crisis."
+        },
+        {
+          "question": "¿Cuánto suelen durar los servicios SIH?",
+          "answer": "Los SIH suelen ser a corto plazo, pero la duración exacta depende de las metas del tratamiento, el progreso clínico y la autorización de financiamiento."
+        },
+        {
+          "question": "¿Pueden los SIH ayudar a prevenir una colocación fuera del hogar?",
+          "answer": "Los SIH están diseñados para apoyar a familias cuando un niño o adolescente está en riesgo de disrupción o colocación fuera del hogar, cuando es clínica y autorizadamente apropiado."
+        },
+        {
+          "question": "¿Dónde se brindan los servicios SIH?",
+          "answer": "Los servicios generalmente se proporcionan en el hogar y en entornos comunitarios vinculados al plan de tratamiento. Contacte a VTCC para confirmar los detalles del área de servicio para su ubicación."
+        }
+      ]
+    },
+    {
+      "slug": "referrals-and-eligibility",
+      "title": "Referencias y Elegibilidad",
+      "intro": "Escuelas, médicos, administradores de casos, socios del condado y familias pueden iniciar la conversación con VTCC.",
+      "faqs": [
+        {
+          "question": "¿Quién puede referir a VTCC?",
+          "answer": "Familias, escuelas, pediatras, terapeutas, administradores de casos, socios del condado y otros profesionales comunitarios pueden contactar a VTCC para preguntar sobre servicios y requisitos de referencia."
+        },
+        {
+          "question": "¿Qué información deben incluir los referentes?",
+          "answer": "Los detalles útiles suelen incluir la edad del niño, información de contacto del padre o tutor, servicio solicitado, motivo de la referencia, fuente de financiamiento si se conoce y cualquier documentación de referencia requerida."
+        },
+        {
+          "question": "¿Pueden las familias referirse a sí mismas?",
+          "answer": "Sí. Un padre o tutor puede contactar directamente a VTCC para preguntar sobre servicios, pasos de admisión y revisión de financiamiento."
+        },
+        {
+          "question": "¿Cómo deben enviarse los documentos?",
+          "answer": "Use solo los métodos de contacto que VTCC proporciona para documentos de referencia y admisión. No envíe registros sensibles a través de un formulario o correo no seguro a menos que VTCC haya aprobado un proceso seguro."
+        },
+        {
+          "question": "¿Qué tan rápido responderá VTCC?",
+          "answer": "Los tiempos de respuesta varían según la urgencia, la completitud de la información y la carga de trabajo de la oficina. Si hay una emergencia de seguridad inmediata, llame al 911."
+        },
+        {
+          "question": "¿Puede VTCC decirme si un niño es elegible antes de referir?",
+          "answer": "VTCC a menudo puede discutir la compatibilidad general del servicio y los próximos pasos requeridos, pero la elegibilidad final puede depender de la autorización de financiamiento, la evaluación clínica y la documentación."
+        }
+      ]
+    }
+  ]
+}

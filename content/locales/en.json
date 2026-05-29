@@ -1,0 +1,1272 @@
+{
+  "ui": {
+    "languageLabel": "Language",
+    "faxLabel": "Fax",
+    "payerListTitle": "Accepted payers and funding pathways",
+    "fullPayerListLabel": "See the full list of payers and funding sources",
+    "backToResources": "Back to all resources",
+    "downloadLabel": "Download",
+    "expandAll": "Expand all",
+    "collapseAll": "Collapse all",
+    "faqSearchLabel": "Search FAQs",
+    "faqSearchPlaceholder": "Search questions and answers",
+    "faqSearchNoResults": "No FAQs match your search. Try different keywords or browse the topics below.",
+    "faqSearchResultsCount": "{count} matching questions",
+    "faqSearchInTopic": "In {topic}",
+    "menuLabel": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "callLabel": "Call",
+    "guidesNavLabel": "FAQs and guides",
+    "contactSwitchFamilyPrompt": "Looking for services for your family?",
+    "contactSwitchFamilyLink": "Use the family request form",
+    "contactSwitchReferralPrompt": "Submitting a professional referral?",
+    "contactSwitchReferralLink": "Use the referral inquiry form"
+  },
+  "company": {
+    "name": "Victoria Transcultural Clinical Center",
+    "shortName": "VTCC",
+    "tagline": "Behavioral and mental health services for diverse families"
+  },
+  "topBar": {
+    "address": "10565 Fairfax Blvd Ste 300, Fairfax, VA 22030",
+    "addressHref": "https://www.google.com/maps/search/?api=1&query=10565+Fairfax+Blvd+Ste+300,+Fairfax,+VA+22030",
+    "phone": "703.218.6599",
+    "phoneHref": "tel:17032186599",
+    "email": "info@vtccmail.com",
+    "emailHref": "mailto:info@vtccmail.com"
+  },
+  "navigation": {
+    "main": [
+      {
+        "label": "Services",
+        "href": "/#services"
+      },
+      {
+        "label": "Get Started",
+        "href": "/get-started"
+      },
+      {
+        "label": "Insurance",
+        "href": "/insurance"
+      },
+      {
+        "label": "Referrers",
+        "href": "/referrers"
+      },
+      {
+        "label": "FAQs & Guides",
+        "href": "/resources"
+      },
+      {
+        "label": "About",
+        "href": "/about"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "utility": [
+      {
+        "label": "Request Services",
+        "href": "/contact",
+        "style": "cta"
+      },
+      {
+        "label": "Refer a Client",
+        "href": "/referrers"
+      },
+      {
+        "label": "Call Fairfax",
+        "href": "tel:17032186599"
+      },
+      {
+        "label": "Call Fredericksburg",
+        "href": "tel:15404129969"
+      }
+    ],
+    "headerGroups": [
+      {
+        "label": "Services",
+        "href": "/#services"
+      },
+      {
+        "label": "FAQs & Guides",
+        "links": [
+          {
+            "label": "Get Started",
+            "href": "/get-started"
+          },
+          {
+            "label": "Insurance",
+            "href": "/insurance"
+          },
+          {
+            "label": "ABA Therapy",
+            "href": "/aba"
+          },
+          {
+            "label": "Intensive In-Home",
+            "href": "/intensive-in-home"
+          },
+          {
+            "label": "FAQs & Guides",
+            "href": "/resources"
+          }
+        ]
+      },
+      {
+        "label": "For Providers",
+        "links": [
+          {
+            "label": "Refer a Client",
+            "href": "/referrers"
+          }
+        ]
+      },
+      {
+        "label": "About VTCC",
+        "links": [
+          {
+            "label": "About",
+            "href": "/about"
+          },
+          {
+            "label": "Contact",
+            "href": "/contact"
+          }
+        ]
+      },
+      {
+        "label": "Forms",
+        "href": "/resources/forms"
+      }
+    ],
+    "headerActions": [
+      {
+        "label": "Request Services",
+        "href": "/contact",
+        "style": "primary"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Serving children, adolescents, and families in Northern Virginia",
+    "headline": "ABA and Intensive In-Home Services",
+    "headlineLead": "For children, adolescents, and families",
+    "serviceTags": ["ABA Therapy", "Intensive In-Home"],
+    "subheadlineLead": "Culturally responsive behavioral and mental health services.",
+    "subheadline": "VTCC supports families through individualized ABA therapy, Intensive In-Home services, parent collaboration, and funding guidance.",
+    "supportingLine": "Serving families through Medicaid, managed care, commercial insurance, and county/FAPT funding pathways, pending eligibility and plan verification.",
+    "actions": [
+      {
+        "label": "Request Services",
+        "href": "/contact",
+        "style": "primary"
+      },
+      {
+        "label": "Refer a Client",
+        "href": "/referrers",
+        "style": "secondary"
+      },
+      {
+        "label": "Call VTCC",
+        "href": "tel:17032186599",
+        "style": "ghost"
+      }
+    ]
+  },
+  "heroCard": {
+    "title": "How VTCC Helps",
+    "items": [
+      "ABA therapy with individualized goals",
+      "Intensive In-Home family support",
+      "Medicaid, MCO, commercial, and FAPT guidance pending verification",
+      "English and Spanish resources"
+    ]
+  },
+  "trustStrip": [
+    {
+      "title": "Family-centered",
+      "body": "Care plans shaped by child and caregiver needs"
+    },
+    {
+      "title": "Culturally responsive",
+      "body": "Support for diverse Northern Virginia families"
+    },
+    {
+      "title": "Clear next steps",
+      "body": "Intake, funding review, assessment, and treatment planning"
+    }
+  ],
+  "sections": {
+    "services": {
+      "eyebrow": "Services",
+      "title": "How VTCC helps families and referrers",
+      "intro": "Choose the path that fits your family or your referral. VTCC supports both with clear next steps.",
+      "cards": [
+        {
+          "label": "ABA Therapy",
+          "title": "Build meaningful skills with an individualized plan",
+          "body": "Applied Behavior Analysis helps children build meaningful skills through individualized goals, positive reinforcement, parent training, and ongoing progress monitoring.",
+          "linkLabel": "Learn about ABA",
+          "href": "/aba"
+        },
+        {
+          "label": "Intensive In-Home",
+          "title": "Stabilize serious challenges in the family setting",
+          "body": "Intensive In-Home services provide short-term, family-centered mental health support in the home to help stabilize serious behavioral or emotional challenges.",
+          "linkLabel": "Learn about IIH",
+          "href": "/intensive-in-home"
+        },
+        {
+          "label": "Referral Support",
+          "title": "Help families and professionals take the next step",
+          "body": "Families, schools, doctors, case managers, and county partners can contact VTCC to ask about services, eligibility, required forms, and funding next steps.",
+          "linkLabel": "Refer a client",
+          "href": "/referrers"
+        }
+      ]
+    },
+    "process": {
+      "eyebrow": "How to get started",
+      "title": "How to start services with VTCC",
+      "intro": "Starting services can feel overwhelming. Here is what to expect, step by step.",
+      "formsLinkLabel": "Intake and referral forms",
+      "formsLinkHref": "/resources/forms",
+      "steps": [
+        {
+          "title": "Reach out",
+          "body": "Contact VTCC by phone or through the request form."
+        },
+        {
+          "title": "Review funding",
+          "body": "Tell us which service you are seeking and how the service may be funded."
+        },
+        {
+          "title": "Complete intake",
+          "body": "Submit intake or referral paperwork."
+        },
+        {
+          "title": "Schedule assessment",
+          "body": "VTCC reviews insurance, Medicaid, managed care, commercial coverage, or county/FAPT funding as applicable."
+        },
+        {
+          "title": "Build a plan",
+          "body": "A clinical assessment or intake appointment is scheduled and an individualized treatment plan is created."
+        },
+        {
+          "title": "Begin services",
+          "body": "Services begin after approval, scheduling, and required documentation are complete."
+        }
+      ]
+    },
+    "aba": {
+      "eyebrow": "ABA Therapy",
+      "title": "ABA Services",
+      "intro": "Applied Behavior Analysis uses positive techniques and principles to bring about meaningful and positive change in behavior.",
+      "topics": [
+        {
+          "title": "What is Applied Behavior Analysis (ABA)?",
+          "paragraphs": [
+            "Considered by many experts the gold standard therapy for autism spectrum disorder (ASD) and other developmental conditions among children, ABA focuses on gradually improving social, communication, and daily living skills using positive reinforcement.",
+            "VTCC has experienced autism specialists in Virginia who use an evidence-based approach to improve functional, social capacity, and quality of life for children and families."
+          ]
+        },
+        {
+          "title": "Where can ABA be used?",
+          "paragraphs": [
+            "These techniques can be used in structured situations such as at home, during family meals, or at a neighborhood playground.",
+            "Some ABA sessions involve one-on-one interaction between the therapist and the child. Group instruction can also be useful."
+          ]
+        },
+        {
+          "title": "How is ABA therapy provided to children with ASD or developmental disorders?",
+          "paragraphs": [
+            "ABA therapy provides comprehensive, individualized, and intensive early intervention programs for children with autism. These interventions are designed to begin before the age of 4 and address a full range of life skills, from communication and sociability to self-care and school readiness.",
+            "Programs often range from 20–40 hours per week for 1–3 years, depending on clinical recommendation and authorization."
+          ]
+        },
+        {
+          "title": "How successful is ABA as an approach?",
+          "paragraphs": [
+            "Research and academic literature indicate ABA is one of the most effective tools available to assist children with ASD. It is a joint effort between therapists and parents to stabilize behaviors associated with ASD by reinforcing positive behaviors, strengthening communication and social skills, and training parents to communicate effectively with their children.",
+            "ABA aims to reduce symptoms, improve skills and ability, and maximize the child's function and participation in the community. It is a widely accepted treatment approach among healthcare professionals and is used globally.",
+            "ABA is tailored to the specific needs of the child based on analysis of the family and physical environment and its effects on the child's behaviors. The focus of ABA remains on improving social and communication skills and on training parents in effective management of behaviors associated with ASD. Participation and a strong alliance between parents and therapists play a crucial role in reaching milestones."
+          ]
+        },
+        {
+          "title": "What is the process of receiving ABA services from VTCC?",
+          "items": [
+            "A Board-Certified Behavior Analyst (BCBA) assesses the child to determine needs, define treatment goals, and identify beneficial milestones.",
+            "Parents provide additional information about the child's abilities and areas that are difficult for them.",
+            "Based on assessment, review of reports, and parent input, the BCBA develops the treatment plan and sets initial and terminal goals.",
+            "Goals incrementally increase the skills the child needs to learn and help them function to the best of their ability.",
+            "To decrease interfering behaviors, the BCBA develops a behavior intervention plan for the child.",
+            "One or more technicians then provide treatment to the child under the supervision and direction of the BCBA.",
+            "The BCBA monitors progress across the child's goals."
+          ]
+        },
+        {
+          "title": "What are some basic ABA philosophies followed at VTCC?",
+          "items": [
+            "The analyst meets regularly with family members and program staff to plan, review progress, and make adjustments as needed.",
+            "Parents and other family members and caregivers receive training so they can support learning and skill practice throughout the day.",
+            "The child's day is structured to provide many opportunities—both planned and naturally occurring—to acquire and practice skills in structured and unstructured situations.",
+            "The child receives abundant positive reinforcement for demonstrating useful skills and socially appropriate behaviors. The emphasis is on positive social interactions and enjoyable learning.",
+            "The child receives no reinforcement for behaviors that pose harm or prevent learning."
+          ]
+        },
+        {
+          "title": "What kind of progress can be expected with ABA?",
+          "paragraphs": [
+            "The aim of ABA is to give the child the ability to communicate effectively and to fully function within their environment. Interventions are tailored to achieve maximum progress. Every child improves at a different pace depending on the skill areas involved.",
+            "Consistent, repeated, and intensive effort—and partnership with parents—often leads to the best outcomes from therapy."
+          ]
+        },
+        {
+          "title": "Who can provide ABA services to my child or the child I am referring?",
+          "paragraphs": [
+            "In most cases, a therapist or behavior technician (BT) trained and supervised by a BCBA will provide direct therapy to your child.",
+            "The BCBA holds a post-graduate degree in psychology or behavior analysis, is certified through a national board certification exam, and holds a state license to provide treatment."
+          ]
+        }
+      ],
+      "columns": [
+        {
+          "title": "What ABA may support",
+          "items": [
+            "Communication and social interaction",
+            "Daily living routines and school readiness",
+            "Play, leisure, and independence skills",
+            "Behavior goals and safer replacement behaviors"
+          ]
+        },
+        {
+          "title": "How VTCC provides ABA",
+          "items": [
+            "Assessment and treatment planning",
+            "BCBA oversight and progress monitoring",
+            "Direct therapy from trained staff as appropriate",
+            "Parent training and caregiver collaboration"
+          ]
+        }
+      ]
+    },
+    "iih": {
+      "eyebrow": "Intensive In-Home Services",
+      "title": "Family-centered support in the home",
+      "intro": "VTCC's Intensive In-Home services provide short-term, family-centered mental health support in the home. The goal is to help stabilize serious behavioral or emotional challenges while strengthening the family system.",
+      "columns": [
+        {
+          "title": "Common goals",
+          "items": [
+            "Improve coping and communication skills",
+            "Strengthen family routines and problem-solving",
+            "Reduce risk of out-of-home placement",
+            "Support transition back into the home when appropriate"
+          ]
+        },
+        {
+          "title": "Who may inquire",
+          "items": [
+            "Parents and guardians",
+            "Schools and pediatric providers",
+            "Case managers and county partners",
+            "Community professionals supporting the family"
+          ]
+        }
+      ]
+    },
+    "funding": {
+      "eyebrow": "Insurance and funding",
+      "title": "Help with insurance and funding",
+      "intro": "VTCC can help families and referrers understand the funding pathways most often used for our services.",
+      "payers": [
+        "Anthem HealthKeepers Plus Medicaid of Virginia",
+        "Anthem Commercial of Virginia",
+        "Cigna",
+        "UnitedHealthcare",
+        "BlueCross BlueShield",
+        "Aetna Better Health",
+        "Molina Healthcare",
+        "Optima Health",
+        "Kaiser Permanente Behavioral Health",
+        "County/FAPT funding"
+      ],
+      "note": "Before publishing, VTCC should confirm which plans are currently accepted, whether commercial coverage is active for each service, and which office or team member handles verification.",
+      "ctaLabel": "Check Insurance & Funding",
+      "ctaHref": "/contact"
+    },
+    "referrers": {
+      "eyebrow": "For families and referrers",
+      "title": "Where would you like to start?",
+      "paths": [
+        {
+          "title": "For Families",
+          "body": "Learn what services may fit your child, what paperwork may be needed, and what to expect during intake.",
+          "buttonLabel": "Start as a family",
+          "buttonStyle": "primary",
+          "buttonHref": "/contact"
+        },
+        {
+          "title": "For Referrers",
+          "body": "Schools, doctors, case managers, county partners, and community professionals can contact VTCC to ask about eligibility and referral requirements.",
+          "buttonLabel": "Start a referral",
+          "buttonStyle": "secondary",
+          "buttonHref": "/contact/referral"
+        }
+      ]
+    },
+    "whoWeServe": {
+      "eyebrow": "Who we serve",
+      "title": "Support for children, adolescents, and families",
+      "intro": "VTCC serves children, adolescents, and families in Northern Virginia who may need behavioral, developmental, or mental health support.",
+      "missionStatement": "At VTCC, we understand every child is unique",
+      "items": [
+        "Autism spectrum disorder and developmental needs",
+        "Communication, social, daily living, or school-readiness skills",
+        "Significant behavioral or emotional difficulties",
+        "Family stress related to a child's care needs",
+        "Youth who may be at risk of out-of-home placement",
+        "Referrals connected to Medicaid, managed care, commercial insurance, or county/FAPT funding"
+      ]
+    },
+    "multiculturalCare": {
+      "eyebrow": "Multicultural care",
+      "title": "Care that respects every family's culture",
+      "body": "Every family brings its own culture, language, history, and strengths. VTCC was built to support families from diverse backgrounds with respect and collaboration. Our goal is to make services understandable, welcoming, and responsive to each family's needs."
+    },
+    "resources": {
+      "eyebrow": "FAQs & Guides",
+      "title": "Find answers fast",
+      "intro": "Browse common questions about ABA therapy, Intensive In-Home services, intake, funding, parent involvement, and referrals. Select a topic below to jump to answers.",
+      "cardLabel": "FAQ",
+      "formsPromo": {
+        "label": "Forms",
+        "title": "Intake and referral forms",
+        "summary": "Print and complete the intake form for your service, referral questionnaires, and client rights notices.",
+        "linkLabel": "View all forms",
+        "linkHref": "/resources/forms"
+      },
+      "items": [
+        {
+          "title": "What Is ABA Therapy?",
+          "slug": "what-is-aba-therapy",
+          "summary": "How ABA works, who it may help, and what families should expect."
+        },
+        {
+          "title": "What To Expect During Intake",
+          "slug": "what-to-expect-during-intake",
+          "summary": "Forms, first calls, timelines, and next steps after you reach out."
+        },
+        {
+          "title": "Medicaid and FAPT Funding Basics",
+          "slug": "medicaid-fapt-funding-basics",
+          "summary": "Coverage pathways, verification, and what to prepare."
+        },
+        {
+          "title": "Parent Training FAQs",
+          "slug": "parent-training-faqs",
+          "summary": "How caregivers participate in therapy and practice skills at home."
+        },
+        {
+          "title": "Intensive In-Home Services",
+          "slug": "intensive-in-home-basics",
+          "summary": "When IIH may fit, how it differs from ABA, and typical goals."
+        },
+        {
+          "title": "Referrals and Eligibility",
+          "slug": "referrals-and-eligibility",
+          "summary": "Who can refer, what to send, and how VTCC responds."
+        }
+      ],
+      "categories": [
+        {
+          "slug": "what-is-aba-therapy",
+          "title": "What Is ABA Therapy?",
+          "intro": "Applied Behavior Analysis uses positive, individualized strategies to help children build skills that support learning, communication, and daily life.",
+          "faqs": [
+            {
+              "question": "What is ABA therapy?",
+              "answer": "ABA is an evidence-based approach that focuses on teaching meaningful skills and reducing behaviors that interfere with learning, safety, or daily routines. Treatment plans are individualized and adjusted as the child progresses."
+            },
+            {
+              "question": "Who may benefit from ABA?",
+              "answer": "ABA is often used for children and adolescents with autism spectrum disorder or related developmental needs, but every plan depends on assessment, clinical recommendation, funding, and family goals."
+            },
+            {
+              "question": "What happens during a typical ABA session?",
+              "answer": "Sessions may include structured teaching, play-based learning, communication practice, daily living routines, and caregiver coaching. Activities depend on the child's treatment plan and current goals."
+            },
+            {
+              "question": "How is progress measured?",
+              "answer": "The clinical team tracks progress toward specific goals over time. Plans are reviewed regularly so strategies can be updated as skills improve or new needs emerge."
+            },
+            {
+              "question": "How long does ABA last?",
+              "answer": "Length of services varies by child, funding authorization, and clinical need. Some families receive support for months, while others may continue longer depending on goals and plan approval."
+            },
+            {
+              "question": "Is ABA only for young children?",
+              "answer": "No. ABA can support a wide age range depending on clinical need, funding, and service authorization. VTCC can help families understand whether ABA may be appropriate for their child."
+            }
+          ]
+        },
+        {
+          "slug": "what-to-expect-during-intake",
+          "title": "What To Expect During Intake",
+          "intro": "Intake is the process of gathering information, reviewing funding, and determining whether VTCC services are a fit.",
+          "faqs": [
+            {
+              "question": "How do I start the intake process?",
+              "answer": "Call VTCC or submit the request form on this site. A team member can help identify the service you need, explain paperwork, and outline funding review steps."
+            },
+            {
+              "question": "What information should I have ready?",
+              "answer": "It helps to have parent or guardian contact information, the child's age, the service you are requesting, your city or county, and basic funding details such as Medicaid, MCO, commercial insurance, or county/FAPT information if known."
+            },
+            {
+              "question": "What forms may be required?",
+              "answer": "Required forms depend on the service and funding source. Download the intake and referral forms from the Forms & Downloads page, or contact VTCC if you are unsure which documents apply."
+            },
+            {
+              "question": "How long does intake take?",
+              "answer": "Timelines vary. Some steps move quickly after contact, while funding verification, authorization, and scheduling may take longer depending on the payer or referral source."
+            },
+            {
+              "question": "What happens after I reach out?",
+              "answer": "VTCC reviews your request, confirms service and funding fit when possible, and guides you through paperwork, verification, assessment scheduling, and treatment planning."
+            },
+            {
+              "question": "What if I am not sure which service I need?",
+              "answer": "That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Intensive In-Home services, or another pathway should be explored."
+            }
+          ]
+        },
+        {
+          "slug": "medicaid-fapt-funding-basics",
+          "title": "Medicaid and FAPT Funding Basics",
+          "intro": "Coverage questions can be confusing. These answers explain common funding pathways families and referrers ask about most often.",
+          "faqs": [
+            {
+              "question": "Does VTCC accept Medicaid?",
+              "answer": "VTCC's public materials reference Medicaid and managed care options. Families should contact VTCC to confirm current participation for their specific plan and service."
+            },
+            {
+              "question": "What is an MCO?",
+              "answer": "A managed care organization, or MCO, administers Medicaid benefits for many Virginia families. Coverage and authorization rules may differ by plan and service type."
+            },
+            {
+              "question": "What is FAPT or county funding?",
+              "answer": "Some families may access services through county or FAPT-related funding pathways. Eligibility, required documents, and approval steps vary by locality and service."
+            },
+            {
+              "question": "How do I verify my coverage?",
+              "answer": "Have your insurance or funding information ready when you contact VTCC. The team can help identify what may be needed before services begin, though final approval depends on the payer or funding agency."
+            },
+            {
+              "question": "What if my plan is not listed on the website?",
+              "answer": "Plan participation can change. Contact VTCC directly to ask whether your current plan or funding source may be accepted for the service you need."
+            },
+            {
+              "question": "Does commercial insurance cover these services?",
+              "answer": "Commercial coverage depends on the plan, service type, and authorization requirements. VTCC can help families understand what questions to ask, but the insurance plan makes the final coverage decision."
+            }
+          ]
+        },
+        {
+          "slug": "parent-training-faqs",
+          "title": "Parent Training FAQs",
+          "intro": "Parents and caregivers are essential partners in both ABA and family-centered services.",
+          "faqs": [
+            {
+              "question": "Why is parent training part of ABA?",
+              "answer": "Children practice skills across daily routines at home, school, and in the community. Parent training helps caregivers use strategies consistently when therapists are not present."
+            },
+            {
+              "question": "Do I need to be present during every session?",
+              "answer": "Participation expectations vary by treatment plan and funding requirements. VTCC can explain what involvement is recommended for your family."
+            },
+            {
+              "question": "What if more than one caregiver supports the child?",
+              "answer": "Multiple caregivers can participate when appropriate. The clinical team may provide guidance so routines stay consistent across parents, grandparents, or other supports."
+            },
+            {
+              "question": "Can parent training help between sessions?",
+              "answer": "Yes. Training often focuses on everyday moments such as transitions, communication, meals, bedtime, and community outings."
+            },
+            {
+              "question": "What if English is not my first language?",
+              "answer": "VTCC was founded to support multicultural families. Ask the team about language support, translated materials, and communication options during intake."
+            },
+            {
+              "question": "What if I feel overwhelmed as a caregiver?",
+              "answer": "Many families feel that way when starting services. Parent training is designed to offer practical strategies and support, not to add pressure. Tell your team what feels manageable."
+            }
+          ]
+        },
+        {
+          "slug": "intensive-in-home-basics",
+          "title": "Intensive In-Home Services",
+          "intro": "Intensive In-Home services provide short-term, family-centered mental health support in the home.",
+          "faqs": [
+            {
+              "question": "What is Intensive In-Home service?",
+              "answer": "IIH is short-term mental health support provided in the home to help stabilize serious behavioral or emotional challenges and strengthen the family system."
+            },
+            {
+              "question": "Who may qualify for IIH?",
+              "answer": "Eligibility depends on clinical need, funding, referral source, and authorization requirements. VTCC can help families and referrers understand whether IIH may be appropriate."
+            },
+            {
+              "question": "How is IIH different from ABA?",
+              "answer": "ABA focuses on skill building through individualized behavioral treatment plans. IIH focuses on stabilizing intense behavioral or emotional concerns in the home and supporting the family during a crisis period."
+            },
+            {
+              "question": "How long do IIH services usually last?",
+              "answer": "IIH is typically short term, but exact duration depends on treatment goals, clinical progress, and funding authorization."
+            },
+            {
+              "question": "Can IIH help prevent out-of-home placement?",
+              "answer": "IIH is designed to support families when a child or adolescent is at risk of disruption or out-of-home placement, when clinically appropriate and authorized."
+            },
+            {
+              "question": "Where are IIH services provided?",
+              "answer": "Services are generally provided in the home and community settings tied to the treatment plan. Contact VTCC to confirm service area details for your location."
+            }
+          ]
+        },
+        {
+          "slug": "referrals-and-eligibility",
+          "title": "Referrals and Eligibility",
+          "intro": "Schools, doctors, case managers, county partners, and families can all start the conversation with VTCC.",
+          "faqs": [
+            {
+              "question": "Who can refer to VTCC?",
+              "answer": "Families, schools, pediatricians, therapists, case managers, county partners, and other community professionals may contact VTCC to ask about services and referral requirements."
+            },
+            {
+              "question": "What information should referrers include?",
+              "answer": "Helpful details often include the child's age, parent or guardian contact information, service requested, reason for referral, funding source if known, and any required referral paperwork."
+            },
+            {
+              "question": "Can families refer themselves?",
+              "answer": "Yes. A parent or guardian can contact VTCC directly to ask about services, intake steps, and funding review."
+            },
+            {
+              "question": "How should documents be sent?",
+              "answer": "Use only the contact methods VTCC provides for referral and intake documents. Do not send sensitive records through an unsecured form or email unless VTCC has approved a secure process."
+            },
+            {
+              "question": "How quickly will VTCC respond?",
+              "answer": "Response times vary by urgency, completeness of information, and office workload. If there is an immediate safety emergency, call 911."
+            },
+            {
+              "question": "Can VTCC tell me if a child is eligible before I refer?",
+              "answer": "VTCC can often discuss general service fit and required next steps, but final eligibility may depend on funding authorization, clinical assessment, and documentation."
+            }
+          ]
+        }
+      ]
+    },
+    "forms": {
+      "eyebrow": "Forms",
+      "title": "Intake and referral forms",
+      "intro": "Select the form that applies to your service, download and print it, and return the completed document before your intake appointment.",
+      "steps": [
+        "Choose the form for your service",
+        "Download and print the form",
+        "Complete it and return it to VTCC"
+      ],
+      "assistanceText": "Need help? Call {phone}.",
+      "insuranceTitle": "Insurance and funding",
+      "insuranceBody": "VTCC accepts clients with Medicaid or county funding. Contact your local or state Medicaid office to verify your child's coverage, or call VTCC for help with verification.",
+      "insuranceLinkLabel": "Learn about insurance and funding",
+      "insuranceLinkHref": "/insurance",
+      "categories": [
+        {
+          "title": "Intakes",
+          "intro": "Please download, print, and complete the intake form and questionnaire that matches the service you are requesting.",
+          "items": [
+            {
+              "id": "abaIntake",
+              "title": "ABA services VTCC intake form and referral source questionnaire"
+            },
+            {
+              "id": "iihIntake",
+              "title": "Intensive In-Home services VTCC intake form",
+              "note": "Please also use for FAPT cases."
+            },
+            {
+              "id": "faptReferralQuestionnaire",
+              "title": "Supervised visitation and/or FAPT services referral source questionnaire"
+            }
+          ]
+        },
+        {
+          "title": "Client's rights",
+          "intro": "The safety, rights, and privacy of our clients and families are our top priority. This notice is reviewed with every client in the presence of their parents or guardians before any VTCC service begins.",
+          "items": [
+            {
+              "id": "clientRightsEnglish",
+              "title": "It is Your Right (English)"
+            },
+            {
+              "id": "clientRightsSpanish",
+              "title": "It is Your Right (Spanish)"
+            }
+          ]
+        }
+      ]
+    },
+    "about": {
+      "eyebrow": "About VTCC",
+      "title": "Our team and our mission",
+      "intro": "VTCC provides culturally responsive behavioral and mental health services for children, adolescents, and families across Northern Virginia.",
+      "items": [
+        "Mission and multicultural/transcultural care",
+        "Director bio and clinical leadership",
+        "BCBA/RBT or therapist bios where approved",
+        "Office locations in Fairfax and Fredericksburg"
+      ]
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Request services or ask a referral question",
+      "intro": "Have questions about services, referrals, insurance, or next steps? Contact VTCC and a team member can help direct you.",
+      "callEyebrow": "Call VTCC",
+      "callTitle": "Prefer to talk with someone?",
+      "callIntro": "Choose the office that is closest to you. A team member can help with services, referral questions, and next steps."
+    },
+    "contactFamily": {
+      "eyebrow": "For families",
+      "title": "Request services for your child",
+      "intro": "Tell us how to reach you and a little about your child. A VTCC team member can explain intake steps, forms, and funding review.",
+      "callEyebrow": "Call VTCC",
+      "callTitle": "Prefer to talk with someone?",
+      "callIntro": "Choose the office closest to you. A team member can help with services, paperwork, and next steps."
+    },
+    "contactReferral": {
+      "eyebrow": "For referrers",
+      "title": "Start a referral or ask about eligibility",
+      "intro": "Schools, doctors, case managers, county partners, and community professionals can use this form to ask about referral requirements. Do not send protected health information here.",
+      "callEyebrow": "Call VTCC",
+      "callTitle": "Need to discuss a referral by phone?",
+      "callIntro": "Choose the office closest to the family. A team member can help with eligibility, required paperwork, and next steps."
+    }
+  },
+  "form": {
+    "notice": "Please do not include private medical details, diagnosis reports, Social Security numbers, or urgent safety concerns in this form. If this is an emergency, call 911 or go to the nearest emergency room.",
+    "consentLabel": "I understand this form is not for emergencies or sensitive medical details.",
+    "submitLabel": "Submit Request",
+    "fields": [
+      {
+        "name": "name",
+        "label": "Parent/guardian or referrer name",
+        "type": "text",
+        "autocomplete": "name"
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "autocomplete": "email"
+      },
+      {
+        "name": "phone",
+        "label": "Phone",
+        "type": "tel",
+        "autocomplete": "tel"
+      },
+      {
+        "name": "preferredContact",
+        "label": "Preferred contact method",
+        "type": "select",
+        "options": [
+          "Phone",
+          "Email",
+          "Either"
+        ]
+      },
+      {
+        "name": "ageRange",
+        "label": "Child's age range",
+        "type": "select",
+        "options": [
+          "0-2",
+          "3-5",
+          "6-8",
+          "9-11",
+          "12-14",
+          "15-17",
+          "18+",
+          "Not applicable"
+        ]
+      },
+      {
+        "name": "service",
+        "label": "Service interest",
+        "type": "select",
+        "options": [
+          "ABA",
+          "Intensive In-Home",
+          "Not sure",
+          "Referral question"
+        ]
+      },
+      {
+        "name": "funding",
+        "label": "Funding source",
+        "type": "select",
+        "options": [
+          "Medicaid",
+          "MCO",
+          "Commercial insurance",
+          "County/FAPT",
+          "Not sure"
+        ]
+      },
+      {
+        "name": "location",
+        "label": "City or county",
+        "type": "text"
+      },
+      {
+        "name": "message",
+        "label": "Short non-sensitive message",
+        "type": "textarea",
+        "rows": 4
+      }
+    ]
+  },
+  "formFamily": {
+    "notice": "Please do not include private medical details, diagnosis reports, Social Security numbers, or urgent safety concerns in this form. If this is an emergency, call 911 or go to the nearest emergency room.",
+    "consentLabel": "I understand this form is not for emergencies or sensitive medical details.",
+    "submitLabel": "Submit service request",
+    "fields": [
+      {
+        "name": "name",
+        "label": "Parent or guardian name",
+        "type": "text",
+        "autocomplete": "name"
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "autocomplete": "email"
+      },
+      {
+        "name": "phone",
+        "label": "Phone",
+        "type": "tel",
+        "autocomplete": "tel"
+      },
+      {
+        "name": "preferredContact",
+        "label": "Preferred contact method",
+        "type": "select",
+        "options": [
+          "Phone",
+          "Email",
+          "Either"
+        ]
+      },
+      {
+        "name": "ageRange",
+        "label": "Child's age range",
+        "type": "select",
+        "options": [
+          "0-2",
+          "3-5",
+          "6-8",
+          "9-11",
+          "12-14",
+          "15-17",
+          "18+"
+        ]
+      },
+      {
+        "name": "service",
+        "label": "Service you are interested in",
+        "type": "select",
+        "options": [
+          "ABA",
+          "Intensive In-Home",
+          "Not sure yet"
+        ]
+      },
+      {
+        "name": "funding",
+        "label": "Funding source (if known)",
+        "type": "select",
+        "options": [
+          "Medicaid",
+          "MCO",
+          "Commercial insurance",
+          "County/FAPT",
+          "Not sure"
+        ]
+      },
+      {
+        "name": "location",
+        "label": "City or county",
+        "type": "text"
+      },
+      {
+        "name": "message",
+        "label": "What would you like help with?",
+        "type": "textarea",
+        "rows": 4
+      }
+    ]
+  },
+  "formReferral": {
+    "notice": "Please do not include diagnosis reports, IEPs, treatment records, Social Security numbers, or urgent safety concerns in this form. Use VTCC's approved secure process for referral documents. If this is an emergency, call 911.",
+    "consentLabel": "I understand this form is for referral questions only and is not for emergencies or protected health information.",
+    "submitLabel": "Submit referral inquiry",
+    "fields": [
+      {
+        "name": "name",
+        "label": "Referrer name",
+        "type": "text",
+        "autocomplete": "name"
+      },
+      {
+        "name": "organization",
+        "label": "Organization or agency",
+        "type": "text"
+      },
+      {
+        "name": "role",
+        "label": "Your role",
+        "type": "select",
+        "options": [
+          "School staff",
+          "Physician or nurse",
+          "Therapist or counselor",
+          "Case manager",
+          "County or FAPT partner",
+          "Other community professional"
+        ]
+      },
+      {
+        "name": "email",
+        "label": "Work email",
+        "type": "email",
+        "autocomplete": "email"
+      },
+      {
+        "name": "phone",
+        "label": "Work phone",
+        "type": "tel",
+        "autocomplete": "tel"
+      },
+      {
+        "name": "preferredContact",
+        "label": "Preferred contact method",
+        "type": "select",
+        "options": [
+          "Phone",
+          "Email",
+          "Either"
+        ]
+      },
+      {
+        "name": "parentName",
+        "label": "Parent or guardian name (if known)",
+        "type": "text"
+      },
+      {
+        "name": "parentPhone",
+        "label": "Parent or guardian phone (if known)",
+        "type": "tel",
+        "autocomplete": "tel"
+      },
+      {
+        "name": "ageRange",
+        "label": "Child's age range",
+        "type": "select",
+        "options": [
+          "0-2",
+          "3-5",
+          "6-8",
+          "9-11",
+          "12-14",
+          "15-17",
+          "18+",
+          "Not sure"
+        ]
+      },
+      {
+        "name": "service",
+        "label": "Service requested",
+        "type": "select",
+        "options": [
+          "ABA",
+          "Intensive In-Home",
+          "Not sure"
+        ]
+      },
+      {
+        "name": "funding",
+        "label": "Funding source (if known)",
+        "type": "select",
+        "options": [
+          "Medicaid",
+          "MCO",
+          "Commercial insurance",
+          "County/FAPT",
+          "Not sure"
+        ]
+      },
+      {
+        "name": "location",
+        "label": "Child's city or county",
+        "type": "text"
+      },
+      {
+        "name": "message",
+        "label": "Reason for referral (non-sensitive summary only)",
+        "type": "textarea",
+        "rows": 4
+      }
+    ]
+  },
+  "offices": [
+    {
+      "name": "Fairfax Office",
+      "street": "10565 Fairfax Boulevard, Suite 300",
+      "city": "Fairfax, VA 22030",
+      "phone": "703.218.6599",
+      "phoneHref": "tel:17032186599",
+      "fax": "703.891.7167"
+    },
+    {
+      "name": "Fredericksburg Office",
+      "street": "3920 Plank Road, Suite 220",
+      "city": "Fredericksburg, VA 22407",
+      "phone": "540.412.9969",
+      "phoneHref": "tel:15404129969",
+      "fax": "703.891.7167"
+    }
+  ],
+  "footer": {
+    "text": "Victoria Transcultural Clinical Center website improvement prototype.",
+    "links": [
+      {
+        "label": "Services",
+        "href": "/#services"
+      },
+      {
+        "label": "Insurance",
+        "href": "/insurance"
+      },
+      {
+        "label": "FAQs & Guides",
+        "href": "/resources"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
+    ]
+  },
+  "pages": {
+    "abaTherapy": {
+      "title": "ABA Therapy Page",
+      "hero": {
+        "headline": "ABA Therapy Designed Around Each Child",
+        "body": "Applied Behavior Analysis is an evidence-based approach that uses positive strategies to help children build meaningful skills. VTCC creates individualized ABA plans based on assessment, family input, and each child's strengths and needs.",
+        "buttons": [
+          "Request ABA Services",
+          "Call About ABA"
+        ]
+      },
+      "sections": [
+        {
+          "title": "What ABA Can Support",
+          "items": [
+            "Communication",
+            "Social interaction",
+            "Daily living routines",
+            "School readiness",
+            "Play and leisure skills",
+            "Emotional and behavioral regulation",
+            "Safer replacement behaviors",
+            "Caregiver-supported skill practice at home"
+          ],
+          "note": "Every child is different. VTCC designs goals based on assessment, observation, caregiver input, and clinical recommendations."
+        },
+        {
+          "title": "How VTCC Provides ABA",
+          "steps": [
+            "A Board Certified Behavior Analyst reviews the child's needs.",
+            "The family shares information about strengths, challenges, routines, and priorities.",
+            "The BCBA creates treatment goals and a behavior support plan when appropriate.",
+            "Behavior technicians or therapists may provide direct services under BCBA supervision.",
+            "Parents and caregivers receive guidance so skills can be practiced across daily routines.",
+            "Progress is monitored and plans are updated as the child grows."
+          ]
+        },
+        {
+          "title": "Parent Training",
+          "body": "Parents and caregivers are essential partners in ABA therapy. VTCC supports families with strategies they can use during everyday routines, transitions, communication moments, and challenging situations."
+        }
+      ],
+      "cta": {
+        "body": "Not sure if ABA is the right fit? Contact VTCC and our team can explain the intake process, funding requirements, and next steps.",
+        "button": "Ask About ABA Services"
+      }
+    },
+    "intensiveInHome": {
+      "title": "Intensive In-Home Services Page",
+      "hero": {
+        "headline": "Intensive In-Home Support For Children, Adolescents, And Families",
+        "body": "VTCC's Intensive In-Home services provide short-term, family-centered mental health support in the home. The goal is to help stabilize serious behavioral or emotional challenges while strengthening the family system.",
+        "buttons": [
+          "Request IIH Services",
+          "Make A Referral"
+        ]
+      },
+      "sections": [
+        {
+          "title": "What Intensive In-Home Services Address",
+          "intro": "IIH may support families when a child or adolescent is experiencing severe, intense, or frequent behaviors that create safety concerns, family disruption, or risk of out-of-home placement.",
+          "items": [
+            "Stabilizing urgent behavioral or emotional concerns",
+            "Improving coping and communication skills",
+            "Supporting parents and caregivers",
+            "Strengthening family routines and problem-solving",
+            "Reducing risk of out-of-home placement",
+            "Supporting transition back into the home when appropriate"
+          ]
+        },
+        {
+          "title": "Family-Centered Care",
+          "body": "VTCC believes families have strengths that can support growth and change. Intensive In-Home services work with the family unit, not just the individual child, so new strategies can be practiced in the setting where challenges often happen."
+        }
+      ],
+      "cta": {
+        "body": "If you are a parent, guardian, school professional, case manager, or county partner, contact VTCC to ask about Intensive In-Home eligibility and referral steps.",
+        "button": "Contact VTCC About IIH"
+      }
+    },
+    "insuranceFunding": {
+      "title": "Insurance & Funding Page",
+      "hero": {
+        "headline": "Insurance And Funding Guidance",
+        "body": "Understanding coverage can be confusing. VTCC helps families and referral partners review available funding pathways and identify what information may be needed before services begin."
+      },
+      "sections": [
+        {
+          "title": "Funding Pathways",
+          "body": "VTCC's current public website references Medicaid, managed care organizations, commercial plans, and county/FAPT funding. Before this page is published, leadership should confirm the exact accepted plans and funding requirements for each service."
+        },
+        {
+          "title": "Verification Process",
+          "intro": "Families can help by preparing:",
+          "items": [
+            "Child's full name and date of birth",
+            "Parent or guardian contact information",
+            "Insurance card or funding source",
+            "Service being requested",
+            "Referral documents, if required",
+            "Diagnosis or clinical documentation only if requested through an approved secure process"
+          ]
+        },
+        {
+          "title": "Important Note",
+          "body": "Coverage and eligibility vary by service, plan, authorization requirements, and funding source. VTCC can help verify information, but final coverage decisions may depend on the insurance plan, managed care organization, or funding agency."
+        }
+      ],
+      "cta": "Ask About Insurance & Funding"
+    },
+    "forReferrers": {
+      "title": "For Referrers Page",
+      "hero": {
+        "headline": "Refer A Child Or Family To VTCC",
+        "body": "VTCC welcomes appropriate referrals from families, schools, pediatricians, therapists, case managers, county partners, and community professionals."
+      },
+      "sections": [
+        {
+          "title": "Referral Information To Include",
+          "intro": "To help VTCC respond efficiently, referrers may be asked for:",
+          "items": [
+            "Child or adolescent's name and age",
+            "Parent or guardian contact information",
+            "Service requested",
+            "Reason for referral",
+            "Funding source or insurance information",
+            "Relevant referral paperwork",
+            "Urgency or safety concerns, if applicable"
+          ],
+          "note": "Do not send sensitive documents through an unsecured form or email unless VTCC has provided an approved secure method."
+        }
+      ],
+      "cta": {
+        "body": "Questions about eligibility or referral fit? Contact VTCC before sending documents.",
+        "button": "Start A Referral"
+      }
+    },
+    "resourcesFaq": {
+      "title": "Resources / FAQ Page",
+      "hero": {
+        "headline": "Resources For Families And Referral Partners",
+        "body": "VTCC offers educational resources to help families understand ABA therapy, Intensive In-Home services, parent involvement, intake steps, and funding questions."
+      },
+      "faqs": [
+        {
+          "question": "What services does VTCC provide?",
+          "answer": "VTCC provides ABA therapy and Intensive In-Home services for children, adolescents, and families. Services depend on eligibility, funding, clinical need, and availability."
+        },
+        {
+          "question": "Where does VTCC provide services?",
+          "answer": "The current site describes home-based services and offices in Fairfax and Fredericksburg. VTCC should confirm the exact service area before publishing final language."
+        },
+        {
+          "question": "Does VTCC accept insurance?",
+          "answer": "The current site lists several Medicaid, managed care, and commercial payers, and also references county/FAPT funding. Families should contact VTCC to verify current coverage for their plan and service."
+        },
+        {
+          "question": "What is ABA therapy?",
+          "answer": "ABA is an evidence-based approach that uses positive strategies to help children build skills and reduce behaviors that interfere with learning, safety, or daily life."
+        },
+        {
+          "question": "What is Intensive In-Home service?",
+          "answer": "Intensive In-Home service is short-term mental health support provided in the home to help stabilize serious behavioral or emotional challenges and support the family unit."
+        },
+        {
+          "question": "Do parents participate?",
+          "answer": "Yes. Parent and caregiver involvement is an important part of both ABA and family-centered services."
+        },
+        {
+          "question": "How do I get started?",
+          "answer": "Call VTCC or complete the request form. The team can explain required forms, funding review, intake, assessment, and scheduling."
+        },
+        {
+          "question": "Can professionals refer a child?",
+          "answer": "Yes. Schools, doctors, case managers, county partners, and other professionals can contact VTCC to ask about referral requirements."
+        }
+      ]
+    }
+  },
+  "compliance": {
+    "contentApproval": "Leadership should review and approve all final service, eligibility, insurance, and compliance language.",
+    "formSecurity": "Do not collect diagnosis reports, clinical details, or protected health information through a normal contact form unless VTCC confirms the form is secure, approved, and compliant."
+  },
+  "home": {
+    "processTeaser": {
+      "linkLabel": "See the full intake path",
+      "linkHref": "/get-started"
+    },
+    "resourcesTeaser": {
+      "title": "Helpful guides and FAQs",
+      "intro": "Explore common topics about intake, funding, ABA therapy, in-home services, and referrals.",
+      "linkLabel": "Browse FAQs & guides",
+      "linkHref": "/resources"
+    }
+  }
+}
