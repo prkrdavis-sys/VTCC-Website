@@ -167,13 +167,15 @@ function getHeaderActions(content) {
 }
 
 function renderFormField(field) {
+  const required = field.name === 'name' ? ' required' : ''
+
   if (field.type === 'select') {
     const options = field.options
       .map((option) => `<option>${escapeHtml(option)}</option>`)
       .join('\n              ')
     return `<label>
             ${escapeHtml(field.label)}
-            <select name="${escapeHtml(field.name)}">
+            <select name="${escapeHtml(field.name)}"${required}>
               ${options}
             </select>
           </label>`
@@ -182,7 +184,7 @@ function renderFormField(field) {
   if (field.type === 'textarea') {
     return `<label>
             ${escapeHtml(field.label)}
-            <textarea name="${escapeHtml(field.name)}" rows="${field.rows ?? 4}"></textarea>
+            <textarea name="${escapeHtml(field.name)}" rows="${field.rows ?? 4}"${required}></textarea>
           </label>`
   }
 
@@ -192,7 +194,7 @@ function renderFormField(field) {
 
   return `<label>
             ${escapeHtml(field.label)}
-            <input type="${escapeHtml(field.type)}" name="${escapeHtml(field.name)}"${autocomplete} />
+            <input type="${escapeHtml(field.type)}" name="${escapeHtml(field.name)}"${autocomplete}${required} />
           </label>`
 }
 
@@ -950,6 +952,7 @@ function getContactPageConfig(content) {
 
 function renderContactPage(content) {
   const { contact, form, variant } = getContactPageConfig(content)
+  const formType = variant === 'referral' ? 'referral' : 'service_request'
   const switchLink =
     variant === 'referral'
       ? `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchFamilyPrompt)} <a href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.ui.contactSwitchFamilyLink)}</a>.</p>`
@@ -987,11 +990,12 @@ function renderContactPage(content) {
         </div>
         <div class="contact-form-panel">
           ${switchLink}
-          <form class="request-form request-form--${escapeHtml(variant)}">
+          <form class="request-form request-form--${escapeHtml(variant)}" data-form-type="${escapeHtml(formType)}">
           ${form.fields.map(renderFormField).join('')}
           <label class="consent-field"><input type="checkbox" name="consent" required /> ${escapeHtml(form.consentLabel)}</label>
           <p class="form-note">${escapeHtml(form.notice)}</p>
-          <button type="button">${escapeHtml(form.submitLabel)}</button>
+          <button type="submit" data-default-label="${escapeHtml(form.submitLabel)}">${escapeHtml(form.submitLabel)}</button>
+          <p class="form-status" data-form-status aria-live="polite"></p>
         </form>
         </div>
       </section>`
@@ -1163,6 +1167,85 @@ function bindMobileMenu() {
   document.addEventListener('keydown', bindMobileMenu.escapeHandler)
 }
 
+function setFormStatus(form, message, status = 'idle') {
+  const statusNode = form.querySelector('[data-form-status]')
+  if (!statusNode) {
+    return
+  }
+
+  statusNode.textContent = message
+  statusNode.dataset.status = status
+}
+
+function getFormSubmissionPayload(form) {
+  const formData = new FormData(form)
+  const fields = {}
+
+  for (const [name, value] of formData.entries()) {
+    fields[name] = typeof value === 'string' ? value.trim() : value
+  }
+
+  fields.consent = formData.get('consent') === 'on'
+
+  return {
+    formType: form.dataset.formType,
+    locale: getLocale(),
+    sourcePage: PAGE_SECTION_PATHS[PAGE] ?? window.location.pathname,
+    fields,
+  }
+}
+
+function bindRequestForms(content) {
+  document.querySelectorAll('.request-form[data-form-type]').forEach((form) => {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault()
+
+      if (!form.checkValidity()) {
+        form.reportValidity()
+        return
+      }
+
+      const submitButton = form.querySelector('button[type="submit"]')
+      const defaultLabel = submitButton?.dataset.defaultLabel ?? submitButton?.textContent ?? ''
+
+      submitButton.disabled = true
+      submitButton.textContent = content.ui.formSubmitting ?? 'Sending...'
+      setFormStatus(form, '', 'idle')
+
+      try {
+        const response = await fetch('/api/submit-form', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(getFormSubmissionPayload(form)),
+        })
+
+        if (!response.ok) {
+          throw new Error('Form submission failed')
+        }
+
+        form.reset()
+        setFormStatus(
+          form,
+          content.ui.formSuccess ?? 'Thank you. Your request was received.',
+          'success',
+        )
+      } catch {
+        setFormStatus(
+          form,
+          content.ui.formError ??
+            'We could not send this form. Please call VTCC or try again later.',
+          'error',
+        )
+      } finally {
+        submitButton.disabled = false
+        submitButton.textContent = defaultLabel
+      }
+    })
+  })
+}
+
 function applyDocumentSeo(locale) {
   const seo = window.VTCC_SEO
   if (!seo) return
@@ -1206,6 +1289,7 @@ function render() {
   bindHeaderMenus()
   bindMobileMenu()
   bindFaqSearch(content)
+  bindRequestForms(content)
 
   const toggleAll = document.querySelector('[data-faq-toggle-all]')
   const faqList = document.querySelector('[data-faq-list]')

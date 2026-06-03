@@ -2641,9 +2641,32 @@ address strong {
   background: var(--white);
 }
 
+.request-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
 .form-note {
   margin: 0;
   font-size: 0.9rem;
+}
+
+.form-status {
+  margin: 0;
+  font-weight: 800;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-status[data-status='success'] {
+  color: var(--brand-deep);
+}
+
+.form-status[data-status='error'] {
+  color: #a83b2f;
 }
 
 .site-footer {

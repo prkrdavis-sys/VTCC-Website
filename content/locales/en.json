@@ -21,7 +21,10 @@
     "contactSwitchFamilyPrompt": "Looking for services for your family?",
     "contactSwitchFamilyLink": "Use the family request form",
     "contactSwitchReferralPrompt": "Submitting a professional referral?",
-    "contactSwitchReferralLink": "Use the referral inquiry form"
+    "contactSwitchReferralLink": "Use the referral inquiry form",
+    "formSubmitting": "Sending...",
+    "formSuccess": "Thank you. Your request was received. A VTCC team member will follow up.",
+    "formError": "We could not send this form. Please call VTCC or try again later."
   },
   "company": {
     "name": "Victoria Transcultural Clinical Center",
