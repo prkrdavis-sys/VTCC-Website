@@ -155,7 +155,10 @@
     "eyebrow": "Atendiendo a niños, adolescentes y familias en el norte de Virginia",
     "headline": "Servicios de ABA e Intensivos en el Hogar",
     "headlineLead": "Para niños, adolescentes y familias",
-    "serviceTags": ["Terapia ABA", "Intensivo en el Hogar"],
+    "serviceTags": [
+      "Terapia ABA",
+      "Intensivo en el Hogar"
+    ],
     "subheadlineLead": "Servicios de salud mental y conductual culturalmente responsivos.",
     "subheadline": "VTCC apoya a las familias con terapia ABA individualizada, servicios intensivos en el hogar, colaboración con padres y orientación sobre financiamiento.",
     "supportingLine": "Atendemos a familias a través de Medicaid, organizaciones de atención administrada, seguros comerciales y vías de financiamiento del condado/FAPT, sujeto a elegibilidad y verificación del plan.",
@@ -415,7 +418,7 @@
           "body": "Escuelas, médicos, administradores de casos, socios del condado y profesionales comunitarios pueden contactar a VTCC para preguntar sobre elegibilidad y requisitos de referencia.",
           "buttonLabel": "Iniciar una referencia",
           "buttonStyle": "secondary",
-          "buttonHref": "/contact/referral"
+          "buttonHref": "/contact"
         }
       ]
     },

@@ -24,6 +24,7 @@ npm run build
 - `content/locales/en.json` and `content/locales/es.json`: canonical website copy in English and Spanish.
 - `content/locales/resources-faq.en.json` and `content/locales/resources-faq.es.json`: Resources topic cards and long FAQ content (synced into locale files on `npm run build`).
 - `content/site.json`: shared assets, default locale, and language labels.
+- `content/seo-from-vtcc-health.json`: verbatim SEO metadata scraped from `https://vtcc.health/` (`npm run scrape:seo` to refresh).
 - `current-site-audit.md`: what exists today, what is working, and what should be improved.
 - `sitemap-and-homepage.md`: recommended navigation and homepage section order.
 - `page-copy.md`: generated from `content/site.json` for WordPress paste workflows.

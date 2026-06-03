@@ -1,6 +1,7 @@
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { loadSiteContent, rootDir } from './lib.mjs'
+import { renderSeoHeadHtml } from './seo-head.mjs'
 
 const fontLinks = `<link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,6 +11,12 @@ const site = loadSiteContent()
 const prototypeDir = join(rootDir, 'prototype')
 
 writeFileSync(join(prototypeDir, 'site-content.js'), `window.VTCC_SITE = ${JSON.stringify(site)};\n`)
+
+const seoPath = join(rootDir, 'content', 'seo-from-vtcc-health.json')
+writeFileSync(
+  join(prototypeDir, 'seo-content.js'),
+  `window.VTCC_SEO = ${readFileSync(seoPath, 'utf8').trim()};\n`,
+)
 
 const pages = [
   { file: 'index.html', page: 'home', base: '' },
@@ -43,20 +50,22 @@ mkdirSync(join(prototypeDir, 'contact'), { recursive: true })
 
 for (const entry of pages) {
   const slugScript = entry.slug ? `\n    <script>window.VTCC_RESOURCE_SLUG = ${JSON.stringify(entry.slug)};</script>` : ''
+  const pageKey = entry.page === 'resource' ? 'resource' : entry.page
+  const seoHead = renderSeoHeadHtml(pageKey, 'en')
+
   writeFileSync(
     join(prototypeDir, entry.file),
     `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>VTCC Website Prototype</title>
-    ${fontLinks}
+${seoHead}    ${fontLinks}
     <link rel="stylesheet" href="${entry.base}styles.css" />
   </head>
   <body>
     <div id="app"></div>
     <script>window.VTCC_PAGE = ${JSON.stringify(entry.page)}; window.VTCC_BASE = ${JSON.stringify(entry.base)};</script>${slugScript}
+    <script src="${entry.base}seo-content.js"></script>
     <script src="${entry.base}site-content.js"></script>
     <script src="${entry.base}i18n.js"></script>
   </body>

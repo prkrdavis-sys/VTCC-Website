@@ -10,11 +10,11 @@ Leadership should review and approve all final service, eligibility, insurance, 
 
 Headline:
 
-ABA and Intensive In-Home Services for Children and Families in Northern Virginia
+ABA and Intensive In-Home Services
 
 Subheadline:
 
-Victoria Transcultural Clinical Center provides culturally responsive behavioral and mental health services for children, adolescents, and families. Our team supports families through individualized ABA therapy, Intensive In-Home services, parent collaboration, and funding guidance.
+VTCC supports families through individualized ABA therapy, Intensive In-Home services, parent collaboration, and funding guidance.
 
 Primary buttons:
 

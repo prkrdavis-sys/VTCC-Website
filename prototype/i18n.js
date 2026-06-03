@@ -1163,9 +1163,37 @@ function bindMobileMenu() {
   document.addEventListener('keydown', bindMobileMenu.escapeHandler)
 }
 
+function applyDocumentSeo(locale) {
+  const seo = window.VTCC_SEO
+  if (!seo) return
+
+  const pageKey = PAGE === 'resource' ? 'resource' : PAGE
+  const url = seo.routeMap[locale]?.[pageKey] ?? seo.routeMap.en?.[pageKey]
+  const entry = url ? seo.pages[url] : null
+  if (!entry?.headLines?.length) return
+
+  document.title = entry.title ?? document.title
+
+  document.querySelectorAll('[data-vtcc-seo]').forEach((node) => node.remove())
+
+  entry.headLines.forEach((line) => {
+    if (/^<title/i.test(line)) return
+
+    const template = document.createElement('template')
+    template.innerHTML = line.trim()
+    const node = template.content.firstElementChild
+    if (!node) return
+
+    node.setAttribute('data-vtcc-seo', '')
+    document.head.appendChild(node)
+  })
+}
+
 function render() {
+  const locale = getLocale()
   const content = getContent()
-  document.documentElement.lang = getLocale()
+  document.documentElement.lang = locale
+  applyDocumentSeo(locale)
   document.getElementById('app').innerHTML = renderShell(content, renderMain(content))
 
   document.querySelectorAll('[data-language-select]').forEach((select) => {

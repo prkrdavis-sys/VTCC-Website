@@ -155,7 +155,10 @@
     "eyebrow": "Serving children, adolescents, and families in Northern Virginia",
     "headline": "ABA and Intensive In-Home Services",
     "headlineLead": "For children, adolescents, and families",
-    "serviceTags": ["ABA Therapy", "Intensive In-Home"],
+    "serviceTags": [
+      "ABA Therapy",
+      "Intensive In-Home"
+    ],
     "subheadlineLead": "Culturally responsive behavioral and mental health services.",
     "subheadline": "VTCC supports families through individualized ABA therapy, Intensive In-Home services, parent collaboration, and funding guidance.",
     "supportingLine": "Serving families through Medicaid, managed care, commercial insurance, and county/FAPT funding pathways, pending eligibility and plan verification.",
@@ -415,7 +418,7 @@
           "body": "Schools, doctors, case managers, county partners, and community professionals can contact VTCC to ask about eligibility and referral requirements.",
           "buttonLabel": "Start a referral",
           "buttonStyle": "secondary",
-          "buttonHref": "/contact/referral"
+          "buttonHref": "/contact"
         }
       ]
     },
