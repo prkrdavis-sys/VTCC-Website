@@ -8,9 +8,16 @@
     "dev": "node scripts/dev-server.mjs",
     "dev:redesign": "npm run dev --prefix ../vtcc-redesign",
     "scrape:seo": "node scripts/scrape-seo.mjs",
-    "build": "node scripts/update-routes.mjs && node scripts/patch-resources.mjs && node scripts/build-prototype.mjs && node scripts/build-page-copy.mjs",
+    "build": "node scripts/update-routes.mjs && node scripts/patch-resources.mjs && node scripts/bundle-analytics.mjs && node scripts/build-prototype.mjs && node scripts/build-page-copy.mjs",
+    "build:analytics": "node scripts/bundle-analytics.mjs",
     "build:prototype": "node scripts/build-prototype.mjs",
     "build:copy": "node scripts/build-page-copy.mjs",
     "generate:es": "node scripts/generate-es-locale.mjs"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
   }
 }

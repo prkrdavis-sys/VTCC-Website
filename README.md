@@ -63,6 +63,16 @@ npm run dev
 
 The React demo imports locale files from this project but still uses an older flat navigation layout and does not yet include the forms page UI.
 
+## Vercel Web Analytics
+
+This project uses [`@vercel/analytics`](https://www.npmjs.com/package/@vercel/analytics). The prototype build bundles it into `prototype/analytics.js` and loads it on every page.
+
+1. In the [Vercel dashboard](https://vercel.com), open the **VTCC-Website** project.
+2. Go to **Analytics** → **Enable** Web Analytics.
+3. Redeploy (push to `main` or trigger a new deployment) so production picks up the script.
+
+After deploy, page views appear in the project Analytics tab. Local `npm run dev` does not send production analytics events.
+
 ## Important Notes
 
 - Do not collect diagnosis reports, clinical details, or protected health information through a normal contact form unless VTCC confirms the form is secure, approved, and compliant.

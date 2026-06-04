@@ -68,6 +68,7 @@ ${seoHead}    ${fontLinks}
     <script src="${entry.base}seo-content.js"></script>
     <script src="${entry.base}site-content.js"></script>
     <script src="${entry.base}i18n.js"></script>
+    <script defer src="${entry.base}analytics.js"></script>
   </body>
 </html>
 `,
