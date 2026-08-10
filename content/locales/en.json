@@ -24,7 +24,15 @@
     "contactSwitchReferralLink": "Use the referral inquiry form",
     "formSubmitting": "Sending...",
     "formSuccess": "Thank you. Your request was received. A VTCC team member will follow up.",
-    "formError": "We could not send this form. Please call VTCC or try again later."
+    "formError": "We could not send this form. Please call VTCC or try again later.",
+    "careerFileChoose": "Choose a file",
+    "careerFileDrop": "Drop your resume or supporting document here",
+    "careerFileHint": "PDF, DOC, DOCX, or TXT. Maximum file size: 5 MB.",
+    "careerFileError": "Please choose a PDF, DOC, DOCX, or TXT file up to 5 MB.",
+    "careerFileRemove": "Remove file",
+    "careerFormSubmitting": "Preparing application...",
+    "careerFormSuccess": "Your sample application is ready. In a production version, VTCC would receive it through an approved secure process.",
+    "careerFormError": "We could not prepare the application. Please review the highlighted fields and try again."
   },
   "company": {
     "name": "Victoria Transcultural Clinical Center",
@@ -68,6 +76,10 @@
       {
         "label": "Contact",
         "href": "/contact"
+      },
+      {
+        "label": "Careers",
+        "href": "/career"
       }
     ],
     "utility": [
@@ -110,8 +122,16 @@
             "href": "/aba"
           },
           {
-            "label": "Intensive In-Home",
-            "href": "/intensive-in-home"
+            "label": "Early Learners",
+            "href": "/early-learners"
+          },
+          {
+            "label": "Feeding Program",
+            "href": "/feeding-program"
+          },
+          {
+            "label": "Social Skills Group",
+            "href": "/social-skills-group"
           },
           {
             "label": "FAQs & Guides",
@@ -142,6 +162,10 @@
         ]
       },
       {
+        "label": "Careers",
+        "href": "/career"
+      },
+      {
         "label": "Forms",
         "href": "/resources/forms"
       }
@@ -156,14 +180,16 @@
   },
   "hero": {
     "eyebrow": "Serving children, adolescents, and families in Northern Virginia",
-    "headline": "ABA and Intensive In-Home Services",
+    "headline": "ABA and Specialized Programs for Children and Families",
     "headlineLead": "For children, adolescents, and families",
     "serviceTags": [
       "ABA Therapy",
-      "Intensive In-Home"
+      "Early Learners",
+      "Feeding Program",
+      "Social Skills Group"
     ],
     "subheadlineLead": "Culturally responsive behavioral and mental health services.",
-    "subheadline": "VTCC supports families through individualized ABA therapy, Intensive In-Home services, parent collaboration, and funding guidance.",
+    "subheadline": "VTCC supports families through individualized ABA therapy, early learning, feeding, and advanced social skills programs.",
     "supportingLine": "Serving families through Medicaid, managed care, commercial insurance, and county/FAPT funding pathways, pending eligibility and plan verification.",
     "actions": [
       {
@@ -187,9 +213,9 @@
     "title": "How VTCC Helps",
     "items": [
       "ABA therapy with individualized goals",
-      "Intensive In-Home family support",
-      "Medicaid, MCO, commercial, and FAPT guidance pending verification",
-      "English and Spanish resources"
+      "Early Learners support for preschool-aged children",
+      "Feeding support to expand food repertoire and preferences",
+      "Social Skills Group practice for advanced peer interaction"
     ]
   },
   "trustStrip": [
@@ -220,11 +246,25 @@
           "href": "/aba"
         },
         {
-          "label": "Intensive In-Home",
-          "title": "Stabilize serious challenges in the family setting",
-          "body": "Intensive In-Home services provide short-term, family-centered mental health support in the home to help stabilize serious behavioral or emotional challenges.",
-          "linkLabel": "Learn about IIH",
-          "href": "/intensive-in-home"
+          "label": "Early Learners",
+          "title": "Prepare for school and social settings",
+          "body": "The Early Learners program helps preschool-aged children practice communication, play, routines, and early learning skills for school and social settings.",
+          "linkLabel": "Learn about Early Learners",
+          "href": "/early-learners"
+        },
+        {
+          "label": "Feeding Program",
+          "title": "Expand food repertoire and preferences",
+          "body": "The Feeding Program uses ABA practices to support children as they build comfort with a wider variety of foods, tastes, textures, and mealtime routines.",
+          "linkLabel": "Learn about Feeding",
+          "href": "/feeding-program"
+        },
+        {
+          "label": "Social Skills Group",
+          "title": "Practice advanced social skills with peers",
+          "body": "The Social Skills Group supports clients who are ready to practice skills such as sarcasm, conversation, flexible thinking, and age-appropriate peer play.",
+          "linkLabel": "Learn about Social Skills",
+          "href": "/social-skills-group"
         },
         {
           "label": "Referral Support",
@@ -360,31 +400,6 @@
         }
       ]
     },
-    "iih": {
-      "eyebrow": "Intensive In-Home Services",
-      "title": "Family-centered support in the home",
-      "intro": "VTCC's Intensive In-Home services provide short-term, family-centered mental health support in the home. The goal is to help stabilize serious behavioral or emotional challenges while strengthening the family system.",
-      "columns": [
-        {
-          "title": "Common goals",
-          "items": [
-            "Improve coping and communication skills",
-            "Strengthen family routines and problem-solving",
-            "Reduce risk of out-of-home placement",
-            "Support transition back into the home when appropriate"
-          ]
-        },
-        {
-          "title": "Who may inquire",
-          "items": [
-            "Parents and guardians",
-            "Schools and pediatric providers",
-            "Case managers and county partners",
-            "Community professionals supporting the family"
-          ]
-        }
-      ]
-    },
     "funding": {
       "eyebrow": "Insurance and funding",
       "title": "Help with insurance and funding",
@@ -433,9 +448,9 @@
       "items": [
         "Autism spectrum disorder and developmental needs",
         "Communication, social, daily living, or school-readiness skills",
-        "Significant behavioral or emotional difficulties",
-        "Family stress related to a child's care needs",
-        "Youth who may be at risk of out-of-home placement",
+        "Early learners preparing for school and social settings",
+        "Feeding goals related to food repertoire and preferences",
+        "Advanced social skills and age-appropriate peer play",
         "Referrals connected to Medicaid, managed care, commercial insurance, or county/FAPT funding"
       ]
     },
@@ -447,7 +462,7 @@
     "resources": {
       "eyebrow": "FAQs & Guides",
       "title": "Find answers fast",
-      "intro": "Browse common questions about ABA therapy, Intensive In-Home services, intake, funding, parent involvement, and referrals. Select a topic below to jump to answers.",
+      "intro": "Browse common questions about ABA therapy, our specialized programs, intake, funding, parent involvement, and referrals. Select a topic below to jump to answers.",
       "cardLabel": "FAQ",
       "formsPromo": {
         "label": "Forms",
@@ -478,14 +493,24 @@
           "summary": "How caregivers participate in therapy and practice skills at home."
         },
         {
-          "title": "Intensive In-Home Services",
-          "slug": "intensive-in-home-basics",
-          "summary": "When IIH may fit, how it differs from ABA, and typical goals."
-        },
-        {
           "title": "Referrals and Eligibility",
           "slug": "referrals-and-eligibility",
           "summary": "Who can refer, what to send, and how VTCC responds."
+        },
+        {
+          "title": "Early Learners Program",
+          "slug": "early-learners",
+          "summary": "School-readiness and social-readiness support for preschool-aged children."
+        },
+        {
+          "title": "Feeding Program",
+          "slug": "feeding-program",
+          "summary": "How ABA practices can support a broader food repertoire and preferences."
+        },
+        {
+          "title": "Social Skills Group",
+          "slug": "social-skills-group",
+          "summary": "Advanced social practice for conversation, sarcasm, and age-appropriate peer play."
         }
       ],
       "categories": [
@@ -547,7 +572,7 @@
             },
             {
               "question": "What if I am not sure which service I need?",
-              "answer": "That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Intensive In-Home services, or another pathway should be explored."
+              "answer": "That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, the Social Skills Group, or another pathway should be explored."
             }
           ]
         },
@@ -614,37 +639,6 @@
           ]
         },
         {
-          "slug": "intensive-in-home-basics",
-          "title": "Intensive In-Home Services",
-          "intro": "Intensive In-Home services provide short-term, family-centered mental health support in the home.",
-          "faqs": [
-            {
-              "question": "What is Intensive In-Home service?",
-              "answer": "IIH is short-term mental health support provided in the home to help stabilize serious behavioral or emotional challenges and strengthen the family system."
-            },
-            {
-              "question": "Who may qualify for IIH?",
-              "answer": "Eligibility depends on clinical need, funding, referral source, and authorization requirements. VTCC can help families and referrers understand whether IIH may be appropriate."
-            },
-            {
-              "question": "How is IIH different from ABA?",
-              "answer": "ABA focuses on skill building through individualized behavioral treatment plans. IIH focuses on stabilizing intense behavioral or emotional concerns in the home and supporting the family during a crisis period."
-            },
-            {
-              "question": "How long do IIH services usually last?",
-              "answer": "IIH is typically short term, but exact duration depends on treatment goals, clinical progress, and funding authorization."
-            },
-            {
-              "question": "Can IIH help prevent out-of-home placement?",
-              "answer": "IIH is designed to support families when a child or adolescent is at risk of disruption or out-of-home placement, when clinically appropriate and authorized."
-            },
-            {
-              "question": "Where are IIH services provided?",
-              "answer": "Services are generally provided in the home and community settings tied to the treatment plan. Contact VTCC to confirm service area details for your location."
-            }
-          ]
-        },
-        {
           "slug": "referrals-and-eligibility",
           "title": "Referrals and Eligibility",
           "intro": "Schools, doctors, case managers, county partners, and families can all start the conversation with VTCC.",
@@ -674,6 +668,63 @@
               "answer": "VTCC can often discuss general service fit and required next steps, but final eligibility may depend on funding authorization, clinical assessment, and documentation."
             }
           ]
+        },
+        {
+          "slug": "early-learners",
+          "title": "Early Learners Program",
+          "intro": "The Early Learners program helps preschool-aged children practice skills for school and social settings.",
+          "faqs": [
+            {
+              "question": "What is the Early Learners program?",
+              "answer": "It is a program for preschool-aged children focused on communication, play, routines, early learning, and participation in school and social settings."
+            },
+            {
+              "question": "What skills may children practice?",
+              "answer": "Goals may include transitions, following directions, communication, play, social engagement, early learning, and independence. Goals are individualized for each child."
+            },
+            {
+              "question": "How are caregivers involved?",
+              "answer": "Caregivers collaborate with the team so children can practice useful skills across everyday routines and prepare for settings outside the program."
+            }
+          ]
+        },
+        {
+          "slug": "feeding-program",
+          "title": "Feeding Program",
+          "intro": "The Feeding Program uses ABA practices and positive support to help children expand food repertoire and preferences.",
+          "faqs": [
+            {
+              "question": "What does the Feeding Program do?",
+              "answer": "The program supports children as they practice accepting and exploring a wider variety of foods, tastes, textures, and presentations."
+            },
+            {
+              "question": "How are feeding goals chosen?",
+              "answer": "Goals are individualized around the child’s current eating patterns, family priorities, and response to gradual practice and positive reinforcement."
+            },
+            {
+              "question": "Are caregivers included?",
+              "answer": "Yes. Caregiver collaboration helps connect program goals with practical mealtime routines at home."
+            }
+          ]
+        },
+        {
+          "slug": "social-skills-group",
+          "title": "Social Skills Group",
+          "intro": "The Social Skills Group gives clients who are ready for advanced practice a supported setting to learn with peers.",
+          "faqs": [
+            {
+              "question": "Who may be a fit for the group?",
+              "answer": "The group is for clients who are ready to work on more advanced social skills and who may benefit from supported practice with peers."
+            },
+            {
+              "question": "What skills may the group address?",
+              "answer": "Topics may include sarcasm, humor, conversation, flexible thinking, joining activities, problem-solving, and age-appropriate peer play."
+            },
+            {
+              "question": "How are group goals individualized?",
+              "answer": "Staff provide coaching and feedback while each client works toward goals that match their current skills and social priorities."
+            }
+          ]
         }
       ]
     },
@@ -699,11 +750,6 @@
             {
               "id": "abaIntake",
               "title": "ABA services VTCC intake form and referral source questionnaire"
-            },
-            {
-              "id": "iihIntake",
-              "title": "Intensive In-Home services VTCC intake form",
-              "note": "Please also use for FAPT cases."
             },
             {
               "id": "faptReferralQuestionnaire",
@@ -761,7 +807,215 @@
       "callEyebrow": "Call VTCC",
       "callTitle": "Need to discuss a referral by phone?",
       "callIntro": "Choose the office closest to the family. A team member can help with eligibility, required paperwork, and next steps."
+    },
+    "careers": {
+      "eyebrow": "Careers at VTCC",
+      "title": "Bring your strengths to work that matters",
+      "intro": "Join a team that helps children, adolescents, and families move forward with care that is practical, respectful, and culturally responsive.",
+      "applyLabel": "Apply Now",
+      "applyHref": "/career/apply",
+      "overviewLabel": "Explore opportunities",
+      "pillars": [
+        {
+          "title": "People first",
+          "body": "We support one another so every team member can do thoughtful, dependable work."
+        },
+        {
+          "title": "Culturally responsive",
+          "body": "We listen to families and colleagues, respect lived experience, and make room for different perspectives."
+        },
+        {
+          "title": "Room to grow",
+          "body": "We value supervision, collaboration, and steady development at every stage of a career."
+        }
+      ],
+      "opportunity": {
+        "eyebrow": "Why work with VTCC",
+        "title": "A workplace built around meaningful progress",
+        "body": "Our work is grounded in relationships. We look for people who bring professional care, curiosity, and respect to every interaction.",
+        "items": [
+          "Collaborate with a multidisciplinary team",
+          "Support children, adolescents, and families in Northern Virginia",
+          "Learn through supervision, feedback, and shared problem-solving",
+          "Contribute to a growing organization with a clear community mission"
+        ]
+      },
+      "steps": {
+        "eyebrow": "What to expect",
+        "title": "A clear path from application to conversation",
+        "intro": "We want the process to feel straightforward, respectful, and worth your time.",
+        "items": [
+          {
+            "title": "Share your background",
+            "body": "Tell us about your experience, interests, and the kind of work you hope to do."
+          },
+          {
+            "title": "Meet the team",
+            "body": "If your experience aligns with an opening, we will invite you to a conversation."
+          },
+          {
+            "title": "Discuss the role",
+            "body": "We will talk through responsibilities, support, availability, and next steps."
+          }
+        ]
+      },
+      "closing": {
+        "title": "Ready to take the next step?",
+        "body": "Submit a sample application to preview the information VTCC would request from future candidates.",
+        "buttonLabel": "Apply Now"
+      }
+    },
+    "earlyLearners": {
+      "eyebrow": "Early Learners Program",
+      "title": "Build confidence for school and social settings",
+      "intro": "The Early Learners program supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.",
+      "columns": [
+        {
+          "title": "What the program supports",
+          "items": [
+            "School-readiness routines and transitions",
+            "Communication and early learning skills",
+            "Play, participation, and social engagement",
+            "Following directions and building independence"
+          ]
+        },
+        {
+          "title": "How families are included",
+          "items": [
+            "Individualized goals based on the child’s strengths and needs",
+            "Practice across familiar routines and settings",
+            "Caregiver collaboration and skill coaching",
+            "Progress monitoring and plan adjustments"
+          ]
+        }
+      ]
+    },
+    "feedingProgram": {
+      "eyebrow": "Feeding Program",
+      "title": "Make mealtimes more flexible and successful",
+      "intro": "The Feeding Program uses ABA practices to help children expand their food repertoire and preferences through individualized goals, positive support, and gradual practice.",
+      "columns": [
+        {
+          "title": "What the program may support",
+          "items": [
+            "Expanding the variety of foods a child accepts",
+            "Building comfort with new tastes, textures, and presentation",
+            "Supporting positive mealtime routines",
+            "Practicing flexible food preferences at a manageable pace"
+          ]
+        },
+        {
+          "title": "How support is planned",
+          "items": [
+            "Assessment of current eating patterns and family priorities",
+            "Individualized goals and positive reinforcement",
+            "Caregiver collaboration during everyday meals",
+            "Progress monitoring and adjustments based on the child’s response"
+          ]
+        }
+      ]
+    },
+    "socialSkillsGroup": {
+      "eyebrow": "Social Skills Group",
+      "title": "Practice advanced social skills with peers",
+      "intro": "The Social Skills Group is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.",
+      "columns": [
+        {
+          "title": "Skills the group may address",
+          "items": [
+            "Understanding sarcasm, humor, and implied meaning",
+            "Back-and-forth conversation and flexible thinking",
+            "Age-appropriate peer play and shared activities",
+            "Joining groups, solving problems, and repairing misunderstandings"
+          ]
+        },
+        {
+          "title": "A supported group setting",
+          "items": [
+            "Small-group practice with individualized goals",
+            "Coaching and positive feedback from trained staff",
+            "Opportunities to practice skills in realistic interactions",
+            "Family collaboration to support carryover beyond the group"
+          ]
+        }
+      ]
     }
+  },
+  "careerApplication": {
+    "eyebrow": "Apply to VTCC",
+    "title": "Tell us how you could contribute",
+    "intro": "This is a front-end preview of a future application flow. Your information stays in this browser and is not sent to VTCC.",
+    "privacyTitle": "Privacy matters",
+    "privacyNote": "Do not upload clinical records, client information, Social Security numbers, or other sensitive documents. A production application portal would use an approved secure process.",
+    "selectPlaceholder": "Select one",
+    "submitLabel": "Review Application",
+    "backLabel": "Back to Careers",
+    "backHref": "/career",
+    "consentLabel": "I understand this is a preview and my information will not be submitted.",
+    "fileLabel": "Resume or supporting document",
+    "fileRequiredMessage": "Please attach a resume or supporting document.",
+    "fileTypes": ".pdf,.doc,.docx,.txt",
+    "fileAcceptLabel": "Accepted file types",
+    "fields": [
+      {
+        "name": "fullName",
+        "label": "Full name",
+        "type": "text",
+        "autocomplete": "name"
+      },
+      {
+        "name": "email",
+        "label": "Email address",
+        "type": "email",
+        "autocomplete": "email"
+      },
+      {
+        "name": "phone",
+        "label": "Phone number",
+        "type": "tel",
+        "autocomplete": "tel"
+      },
+      {
+        "name": "role",
+        "label": "Role of interest",
+        "type": "select",
+        "options": [
+          "Registered Behavior Technician",
+          "Board Certified Behavior Analyst",
+          "Program Clinician",
+          "Administrative or operations",
+          "Other"
+        ]
+      },
+      {
+        "name": "location",
+        "label": "City and state",
+        "type": "text",
+        "autocomplete": "address-level2"
+      },
+      {
+        "name": "workAuthorization",
+        "label": "Are you authorized to work in the United States?",
+        "type": "select",
+        "options": [
+          "Yes",
+          "No",
+          "I would like to discuss this"
+        ]
+      },
+      {
+        "name": "experience",
+        "label": "Relevant experience",
+        "type": "textarea",
+        "rows": 4
+      },
+      {
+        "name": "coverLetter",
+        "label": "What interests you about working with VTCC?",
+        "type": "textarea",
+        "rows": 5
+      }
+    ]
   },
   "form": {
     "notice": "Please do not include private medical details, diagnosis reports, Social Security numbers, or urgent safety concerns in this form. If this is an emergency, call 911 or go to the nearest emergency room.",
@@ -817,9 +1071,10 @@
         "type": "select",
         "options": [
           "ABA",
-          "Intensive In-Home",
-          "Not sure",
-          "Referral question"
+          "Early Learners",
+          "Feeding Program",
+          "Social Skills Group",
+          "Not sure"
         ]
       },
       {
@@ -900,8 +1155,10 @@
         "type": "select",
         "options": [
           "ABA",
-          "Intensive In-Home",
-          "Not sure yet"
+          "Early Learners",
+          "Feeding Program",
+          "Social Skills Group",
+          "Not sure"
         ]
       },
       {
@@ -1012,7 +1269,9 @@
         "type": "select",
         "options": [
           "ABA",
-          "Intensive In-Home",
+          "Early Learners",
+          "Feeding Program",
+          "Social Skills Group",
           "Not sure"
         ]
       },
@@ -1077,6 +1336,10 @@
       {
         "label": "Contact",
         "href": "/contact"
+      },
+      {
+        "label": "Careers",
+        "href": "/career"
       }
     ]
   },
@@ -1125,39 +1388,6 @@
       "cta": {
         "body": "Not sure if ABA is the right fit? Contact VTCC and our team can explain the intake process, funding requirements, and next steps.",
         "button": "Ask About ABA Services"
-      }
-    },
-    "intensiveInHome": {
-      "title": "Intensive In-Home Services Page",
-      "hero": {
-        "headline": "Intensive In-Home Support For Children, Adolescents, And Families",
-        "body": "VTCC's Intensive In-Home services provide short-term, family-centered mental health support in the home. The goal is to help stabilize serious behavioral or emotional challenges while strengthening the family system.",
-        "buttons": [
-          "Request IIH Services",
-          "Make A Referral"
-        ]
-      },
-      "sections": [
-        {
-          "title": "What Intensive In-Home Services Address",
-          "intro": "IIH may support families when a child or adolescent is experiencing severe, intense, or frequent behaviors that create safety concerns, family disruption, or risk of out-of-home placement.",
-          "items": [
-            "Stabilizing urgent behavioral or emotional concerns",
-            "Improving coping and communication skills",
-            "Supporting parents and caregivers",
-            "Strengthening family routines and problem-solving",
-            "Reducing risk of out-of-home placement",
-            "Supporting transition back into the home when appropriate"
-          ]
-        },
-        {
-          "title": "Family-Centered Care",
-          "body": "VTCC believes families have strengths that can support growth and change. Intensive In-Home services work with the family unit, not just the individual child, so new strategies can be practiced in the setting where challenges often happen."
-        }
-      ],
-      "cta": {
-        "body": "If you are a parent, guardian, school professional, case manager, or county partner, contact VTCC to ask about Intensive In-Home eligibility and referral steps.",
-        "button": "Contact VTCC About IIH"
       }
     },
     "insuranceFunding": {
@@ -1221,16 +1451,28 @@
       "title": "Resources / FAQ Page",
       "hero": {
         "headline": "Resources For Families And Referral Partners",
-        "body": "VTCC offers educational resources to help families understand ABA therapy, Intensive In-Home services, parent involvement, intake steps, and funding questions."
+        "body": "VTCC offers educational resources to help families understand ABA therapy, the Early Learners program, the Feeding Program, the Social Skills Group, parent involvement, intake steps, and funding questions."
       },
       "faqs": [
         {
           "question": "What services does VTCC provide?",
-          "answer": "VTCC provides ABA therapy and Intensive In-Home services for children, adolescents, and families. Services depend on eligibility, funding, clinical need, and availability."
+          "answer": "VTCC provides ABA therapy, an Early Learners program, a Feeding Program, and a Social Skills Group for children and families. Services depend on eligibility, funding, clinical need, and availability."
+        },
+        {
+          "question": "What is the Early Learners program?",
+          "answer": "The Early Learners program is for preschool-aged children and focuses on building communication, play, routines, and early learning skills that help children participate in school and social settings."
+        },
+        {
+          "question": "What does the Feeding Program support?",
+          "answer": "The Feeding Program uses ABA practices to help children gradually expand their food repertoire and preferences through individualized goals, positive support, and caregiver collaboration."
+        },
+        {
+          "question": "Who may be a fit for the Social Skills Group?",
+          "answer": "The Social Skills Group is for clients who are ready to practice more advanced social skills, such as understanding sarcasm, navigating conversation, and participating in age-appropriate peer play."
         },
         {
           "question": "Where does VTCC provide services?",
-          "answer": "The current site describes home-based services and offices in Fairfax and Fredericksburg. VTCC should confirm the exact service area before publishing final language."
+          "answer": "Services may be provided through individualized and group settings based on the program, treatment plan, and availability. Contact VTCC to confirm current service options for your location."
         },
         {
           "question": "Does VTCC accept insurance?",
@@ -1241,22 +1483,111 @@
           "answer": "ABA is an evidence-based approach that uses positive strategies to help children build skills and reduce behaviors that interfere with learning, safety, or daily life."
         },
         {
-          "question": "What is Intensive In-Home service?",
-          "answer": "Intensive In-Home service is short-term mental health support provided in the home to help stabilize serious behavioral or emotional challenges and support the family unit."
-        },
-        {
           "question": "Do parents participate?",
-          "answer": "Yes. Parent and caregiver involvement is an important part of both ABA and family-centered services."
+          "answer": "Yes. Parent and caregiver involvement is an important part of individualized services and helps children practice skills across daily routines."
         },
         {
           "question": "How do I get started?",
-          "answer": "Call VTCC or complete the request form. The team can explain required forms, funding review, intake, assessment, and scheduling."
+          "answer": "Call VTCC or complete the request form. The team can explain which program may fit, required forms, funding review, intake, assessment, and scheduling."
         },
         {
           "question": "Can professionals refer a child?",
           "answer": "Yes. Schools, doctors, case managers, county partners, and other professionals can contact VTCC to ask about referral requirements."
         }
       ]
+    },
+    "earlyLearners": {
+      "title": "Early Learners Program Page",
+      "hero": {
+        "headline": "Early Learning Support For School And Social Readiness",
+        "body": "The Early Learners program supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.",
+        "buttons": [
+          "Request Early Learners Services",
+          "Ask About Eligibility"
+        ]
+      },
+      "sections": [
+        {
+          "title": "What Early Learners May Practice",
+          "intro": "The Early Learners program supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.",
+          "items": [
+            "School-readiness routines and transitions",
+            "Communication and early learning skills",
+            "Play, participation, and social engagement",
+            "Following directions and building independence"
+          ]
+        },
+        {
+          "title": "Family Collaboration",
+          "body": "VTCC works with caregivers to identify meaningful goals and practice skills across everyday routines. Plans are adjusted as the child grows and gains confidence."
+        }
+      ],
+      "cta": {
+        "body": "Contact VTCC to ask whether the Early Learners program may fit your preschool-aged child and to learn about the next intake steps.",
+        "button": "Ask About Early Learners"
+      }
+    },
+    "feedingProgram": {
+      "title": "Feeding Program Page",
+      "hero": {
+        "headline": "Support For A Broader Food Repertoire",
+        "body": "The Feeding Program uses ABA practices to help children expand their food repertoire and preferences through individualized goals, positive support, and gradual practice.",
+        "buttons": [
+          "Request Feeding Program Services",
+          "Ask About Eligibility"
+        ]
+      },
+      "sections": [
+        {
+          "title": "What the Feeding Program May Support",
+          "intro": "The Feeding Program uses ABA practices to help children expand their food repertoire and preferences through individualized goals, positive support, and gradual practice.",
+          "items": [
+            "Expanding the variety of foods a child accepts",
+            "Building comfort with new tastes, textures, and presentation",
+            "Supporting positive mealtime routines",
+            "Practicing flexible food preferences at a manageable pace"
+          ]
+        },
+        {
+          "title": "Individualized, Positive Practice",
+          "body": "The team partners with caregivers to set practical goals, use positive support, and introduce practice at a pace that respects the child’s needs and family routines."
+        }
+      ],
+      "cta": {
+        "body": "Contact VTCC to ask whether the Feeding Program may be appropriate for your child and to learn about the intake process.",
+        "button": "Ask About the Feeding Program"
+      }
+    },
+    "socialSkillsGroup": {
+      "title": "Social Skills Group Page",
+      "hero": {
+        "headline": "Build More Advanced Social Skills With Peers",
+        "body": "The Social Skills Group is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.",
+        "buttons": [
+          "Request Social Skills Group Services",
+          "Ask About Eligibility"
+        ]
+      },
+      "sections": [
+        {
+          "title": "What the Group May Practice",
+          "intro": "The Social Skills Group is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.",
+          "items": [
+            "Understanding sarcasm, humor, and implied meaning",
+            "Back-and-forth conversation and flexible thinking",
+            "Age-appropriate peer play and shared activities",
+            "Joining groups, solving problems, and repairing misunderstandings"
+          ]
+        },
+        {
+          "title": "Learning Through Supported Practice",
+          "body": "Clients receive coaching and feedback while practicing realistic interactions with peers. Group goals are individualized and designed to support carryover into school, community, and social settings."
+        }
+      ],
+      "cta": {
+        "body": "Contact VTCC to ask whether the Social Skills Group may be a fit for your child and to learn about current group availability.",
+        "button": "Ask About Social Skills Group"
+      }
     }
   },
   "compliance": {
@@ -1270,7 +1601,7 @@
     },
     "resourcesTeaser": {
       "title": "Helpful guides and FAQs",
-      "intro": "Explore common topics about intake, funding, ABA therapy, in-home services, and referrals.",
+      "intro": "Explore common topics about intake, funding, ABA therapy, specialized programs, and referrals.",
       "linkLabel": "Browse FAQs & guides",
       "linkHref": "/resources"
     }

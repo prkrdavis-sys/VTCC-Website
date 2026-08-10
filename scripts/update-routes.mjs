@@ -7,7 +7,6 @@ const rootDir = join(dirname(fileURLToPath(import.meta.url)), '..')
 const routeMap = {
   '#services': '/#services',
   '#aba': '/aba',
-  '#iih': '/intensive-in-home',
   '#process': '/get-started',
   '#funding': '/insurance',
   '#referrers': '/referrers',
@@ -67,8 +66,8 @@ function updateLocale(localePath, locale) {
     resourcesTeaser: {
       title: isSpanish ? 'Guías y preguntas frecuentes' : 'Helpful guides and FAQs',
       intro: isSpanish
-        ? 'Explore temas comunes sobre admisión, financiamiento, terapia ABA, servicios en el hogar y referencias.'
-        : 'Explore common topics about intake, funding, ABA therapy, in-home services, and referrals.',
+        ? 'Explore temas comunes sobre admisión, financiamiento, terapia ABA, programas especializados y referencias.'
+        : 'Explore common topics about intake, funding, ABA therapy, specialized programs, and referrals.',
       linkLabel: isSpanish ? 'Ver preguntas y guías' : 'Browse FAQs & guides',
       linkHref: '/resources',
     },

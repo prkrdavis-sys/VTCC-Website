@@ -10,11 +10,11 @@ Leadership should review and approve all final service, eligibility, insurance, 
 
 Headline:
 
-ABA and Intensive In-Home Services
+ABA and Specialized Programs for Children and Families
 
 Subheadline:
 
-VTCC supports families through individualized ABA therapy, Intensive In-Home services, parent collaboration, and funding guidance.
+VTCC supports families through individualized ABA therapy, early learning, feeding, and advanced social skills programs.
 
 Primary buttons:
 
@@ -34,9 +34,17 @@ ABA Therapy:
 
 Applied Behavior Analysis helps children build meaningful skills through individualized goals, positive reinforcement, parent training, and ongoing progress monitoring.
 
-Intensive In-Home Services:
+Early Learners:
 
-Intensive In-Home services provide short-term, family-centered mental health support in the home to help stabilize serious behavioral or emotional challenges.
+The Early Learners program helps preschool-aged children practice communication, play, routines, and early learning skills for school and social settings.
+
+Feeding Program:
+
+The Feeding Program uses ABA practices to support children as they build comfort with a wider variety of foods, tastes, textures, and mealtime routines.
+
+Social Skills Group:
+
+The Social Skills Group supports clients who are ready to practice skills such as sarcasm, conversation, flexible thinking, and age-appropriate peer play.
 
 Referral and Funding Support:
 
@@ -61,9 +69,9 @@ Families may contact VTCC for support with:
 
 - Autism spectrum disorder and developmental needs
 - Communication, social, daily living, or school-readiness skills
-- Significant behavioral or emotional difficulties
-- Family stress related to a child's care needs
-- Youth who may be at risk of out-of-home placement
+- Early learners preparing for school and social settings
+- Feeding goals related to food repertoire and preferences
+- Advanced social skills and age-appropriate peer play
 - Referrals connected to Medicaid, managed care, commercial insurance, or county/FAPT funding
 
 ### Multicultural Care
@@ -156,42 +164,110 @@ Button:
 
 - Ask About ABA Services
 
-## Intensive In-Home Services Page
+## Early Learners Program Page
 
 ### Page Hero
 
 Headline:
 
-Intensive In-Home Support For Children, Adolescents, And Families
+Early Learning Support For School And Social Readiness
 
-VTCC's Intensive In-Home services provide short-term, family-centered mental health support in the home. The goal is to help stabilize serious behavioral or emotional challenges while strengthening the family system.
+The Early Learners program supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.
 
 Buttons:
 
-- Request IIH Services
-- Make A Referral
+- Request Early Learners Services
+- Ask About Eligibility
 
-### What Intensive In-Home Services Address
+### What Early Learners May Practice
 
-IIH may support families when a child or adolescent is experiencing severe, intense, or frequent behaviors that create safety concerns, family disruption, or risk of out-of-home placement.
+The Early Learners program supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.
 
-- Stabilizing urgent behavioral or emotional concerns
-- Improving coping and communication skills
-- Supporting parents and caregivers
-- Strengthening family routines and problem-solving
-- Reducing risk of out-of-home placement
-- Supporting transition back into the home when appropriate
-### Family-Centered Care
+- School-readiness routines and transitions
+- Communication and early learning skills
+- Play, participation, and social engagement
+- Following directions and building independence
+### Family Collaboration
 
-VTCC believes families have strengths that can support growth and change. Intensive In-Home services work with the family unit, not just the individual child, so new strategies can be practiced in the setting where challenges often happen.
+VTCC works with caregivers to identify meaningful goals and practice skills across everyday routines. Plans are adjusted as the child grows and gains confidence.
 
-### IIH CTA
+### Program CTA
 
-If you are a parent, guardian, school professional, case manager, or county partner, contact VTCC to ask about Intensive In-Home eligibility and referral steps.
+Contact VTCC to ask whether the Early Learners program may fit your preschool-aged child and to learn about the next intake steps.
 
 Button:
 
-- Contact VTCC About IIH
+- Ask About Early Learners
+
+## Feeding Program Page
+
+### Page Hero
+
+Headline:
+
+Support For A Broader Food Repertoire
+
+The Feeding Program uses ABA practices to help children expand their food repertoire and preferences through individualized goals, positive support, and gradual practice.
+
+Buttons:
+
+- Request Feeding Program Services
+- Ask About Eligibility
+
+### What the Feeding Program May Support
+
+The Feeding Program uses ABA practices to help children expand their food repertoire and preferences through individualized goals, positive support, and gradual practice.
+
+- Expanding the variety of foods a child accepts
+- Building comfort with new tastes, textures, and presentation
+- Supporting positive mealtime routines
+- Practicing flexible food preferences at a manageable pace
+### Individualized, Positive Practice
+
+The team partners with caregivers to set practical goals, use positive support, and introduce practice at a pace that respects the child’s needs and family routines.
+
+### Program CTA
+
+Contact VTCC to ask whether the Feeding Program may be appropriate for your child and to learn about the intake process.
+
+Button:
+
+- Ask About the Feeding Program
+
+## Social Skills Group Page
+
+### Page Hero
+
+Headline:
+
+Build More Advanced Social Skills With Peers
+
+The Social Skills Group is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.
+
+Buttons:
+
+- Request Social Skills Group Services
+- Ask About Eligibility
+
+### What the Group May Practice
+
+The Social Skills Group is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.
+
+- Understanding sarcasm, humor, and implied meaning
+- Back-and-forth conversation and flexible thinking
+- Age-appropriate peer play and shared activities
+- Joining groups, solving problems, and repairing misunderstandings
+### Learning Through Supported Practice
+
+Clients receive coaching and feedback while practicing realistic interactions with peers. Group goals are individualized and designed to support carryover into school, community, and social settings.
+
+### Program CTA
+
+Contact VTCC to ask whether the Social Skills Group may be a fit for your child and to learn about current group availability.
+
+Button:
+
+- Ask About Social Skills Group
 
 ## Insurance & Funding Page
 
@@ -258,7 +334,7 @@ Button:
 
 ## Resources / FAQ
 
-Browse common questions about ABA therapy, Intensive In-Home services, intake, funding, parent involvement, and referrals. Select a topic below to jump to answers.
+Browse common questions about ABA therapy, our specialized programs, intake, funding, parent involvement, and referrals. Select a topic below to jump to answers.
 
 ### What Is ABA Therapy?
 
@@ -314,7 +390,7 @@ VTCC reviews your request, confirms service and funding fit when possible, and g
 
 What if I am not sure which service I need?
 
-That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Intensive In-Home services, or another pathway should be explored.
+That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, the Social Skills Group, or another pathway should be explored.
 
 ### Medicaid and FAPT Funding Basics
 
@@ -372,34 +448,6 @@ What if I feel overwhelmed as a caregiver?
 
 Many families feel that way when starting services. Parent training is designed to offer practical strategies and support, not to add pressure. Tell your team what feels manageable.
 
-### Intensive In-Home Services
-
-Intensive In-Home services provide short-term, family-centered mental health support in the home.
-
-What is Intensive In-Home service?
-
-IIH is short-term mental health support provided in the home to help stabilize serious behavioral or emotional challenges and strengthen the family system.
-
-Who may qualify for IIH?
-
-Eligibility depends on clinical need, funding, referral source, and authorization requirements. VTCC can help families and referrers understand whether IIH may be appropriate.
-
-How is IIH different from ABA?
-
-ABA focuses on skill building through individualized behavioral treatment plans. IIH focuses on stabilizing intense behavioral or emotional concerns in the home and supporting the family during a crisis period.
-
-How long do IIH services usually last?
-
-IIH is typically short term, but exact duration depends on treatment goals, clinical progress, and funding authorization.
-
-Can IIH help prevent out-of-home placement?
-
-IIH is designed to support families when a child or adolescent is at risk of disruption or out-of-home placement, when clinically appropriate and authorized.
-
-Where are IIH services provided?
-
-Services are generally provided in the home and community settings tied to the treatment plan. Contact VTCC to confirm service area details for your location.
-
 ### Referrals and Eligibility
 
 Schools, doctors, case managers, county partners, and families can all start the conversation with VTCC.
@@ -427,6 +475,54 @@ Response times vary by urgency, completeness of information, and office workload
 Can VTCC tell me if a child is eligible before I refer?
 
 VTCC can often discuss general service fit and required next steps, but final eligibility may depend on funding authorization, clinical assessment, and documentation.
+
+### Early Learners Program
+
+The Early Learners program helps preschool-aged children practice skills for school and social settings.
+
+What is the Early Learners program?
+
+It is a program for preschool-aged children focused on communication, play, routines, early learning, and participation in school and social settings.
+
+What skills may children practice?
+
+Goals may include transitions, following directions, communication, play, social engagement, early learning, and independence. Goals are individualized for each child.
+
+How are caregivers involved?
+
+Caregivers collaborate with the team so children can practice useful skills across everyday routines and prepare for settings outside the program.
+
+### Feeding Program
+
+The Feeding Program uses ABA practices and positive support to help children expand food repertoire and preferences.
+
+What does the Feeding Program do?
+
+The program supports children as they practice accepting and exploring a wider variety of foods, tastes, textures, and presentations.
+
+How are feeding goals chosen?
+
+Goals are individualized around the child’s current eating patterns, family priorities, and response to gradual practice and positive reinforcement.
+
+Are caregivers included?
+
+Yes. Caregiver collaboration helps connect program goals with practical mealtime routines at home.
+
+### Social Skills Group
+
+The Social Skills Group gives clients who are ready for advanced practice a supported setting to learn with peers.
+
+Who may be a fit for the group?
+
+The group is for clients who are ready to work on more advanced social skills and who may benefit from supported practice with peers.
+
+What skills may the group address?
+
+Topics may include sarcasm, humor, conversation, flexible thinking, joining activities, problem-solving, and age-appropriate peer play.
+
+How are group goals individualized?
+
+Staff provide coaching and feedback while each client works toward goals that match their current skills and social priorities.
 
 ## Contact Page
 

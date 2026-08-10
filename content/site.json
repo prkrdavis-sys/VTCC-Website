@@ -50,10 +50,6 @@
         "file": "/assets/forms/aba-intake.pdf",
         "type": "pdf"
       },
-      "iihIntake": {
-        "file": "/assets/forms/iih-intake.pdf",
-        "type": "pdf"
-      },
       "faptReferralQuestionnaire": {
         "file": "/assets/forms/fapt-referral-questionnaire.docx",
         "type": "docx"

@@ -33,6 +33,7 @@ es.navigation.main = [
   { label: 'Preguntas y Guías', href: '/resources' },
   { label: 'Acerca de', href: '/about' },
   { label: 'Contacto', href: '/contact' },
+  { label: 'Carreras', href: '/career' },
 ]
 
 es.navigation.utility = [
@@ -53,7 +54,9 @@ es.navigation.headerGroups = [
       { label: 'Comenzar', href: '/get-started' },
       { label: 'Seguro', href: '/insurance' },
       { label: 'Terapia ABA', href: '/aba' },
-      { label: 'Intensivos en el Hogar', href: '/intensive-in-home' },
+      { label: 'Programa de Primeros Aprendices', href: '/early-learners' },
+      { label: 'Programa de Alimentación', href: '/feeding-program' },
+      { label: 'Grupo de Habilidades Sociales', href: '/social-skills-group' },
       { label: 'Preguntas y Guías', href: '/resources' },
     ],
   },
@@ -69,6 +72,10 @@ es.navigation.headerGroups = [
     ],
   },
   {
+    label: 'Carreras',
+    href: '/career',
+  },
+  {
     label: 'Formularios',
     href: '/resources/forms',
   },
@@ -78,12 +85,23 @@ es.navigation.headerActions = [
   { label: 'Solicitar servicios', href: '/contact', style: 'primary' },
 ]
 
+Object.assign(es.ui, {
+  careerFileChoose: 'Elegir un archivo',
+  careerFileDrop: 'Suelte aquí su currículum o documento de apoyo',
+  careerFileHint: 'PDF, DOC, DOCX o TXT. Tamaño máximo: 5 MB.',
+  careerFileError: 'Elija un archivo PDF, DOC, DOCX o TXT de hasta 5 MB.',
+  careerFileRemove: 'Eliminar archivo',
+  careerFormSubmitting: 'Preparando la solicitud...',
+  careerFormSuccess: 'Su solicitud de muestra está lista. En una versión de producción, VTCC la recibiría mediante un proceso seguro aprobado.',
+  careerFormError: 'No pudimos preparar la solicitud. Revise los campos marcados e inténtelo de nuevo.',
+})
+
 Object.assign(es.hero, {
   eyebrow: 'Atendiendo a niños, adolescentes y familias en el norte de Virginia',
   headline:
-    'Servicios de ABA e Intensivos en el Hogar para Niños y Familias en el Norte de Virginia',
+    'ABA y programas especializados para niños y familias',
   subheadline:
-    'Victoria Transcultural Clinical Center ofrece servicios de salud mental y conductual culturalmente responsivos para niños, adolescentes y familias. Nuestro equipo apoya a las familias mediante terapia ABA individualizada, servicios intensivos en el hogar, colaboración con padres y orientación sobre financiamiento.',
+    'Victoria Transcultural Clinical Center ofrece servicios conductuales y de salud mental culturalmente responsivos para niños, adolescentes y familias. Nuestro equipo apoya a las familias mediante terapia ABA individualizada, programas especializados, colaboración con padres y orientación sobre financiamiento.',
   supportingLine:
     'Atendemos a familias a través de Medicaid, organizaciones de atención administrada, seguros comerciales y vías de financiamiento del condado/FAPT, sujeto a elegibilidad y verificación del plan.',
 })
@@ -94,11 +112,153 @@ es.hero.actions = [
   { label: 'Llamar a VTCC', href: 'tel:17032186599', style: 'ghost' },
 ]
 
+es.sections.careers = {
+  eyebrow: 'Carreras en VTCC',
+  title: 'Aporte sus fortalezas a un trabajo que importa',
+  intro:
+    'Únase a un equipo que ayuda a niños, adolescentes y familias a avanzar con atención práctica, respetuosa y culturalmente responsiva.',
+  applyLabel: 'Solicitar empleo',
+  applyHref: '/career/apply',
+  overviewLabel: 'Explore oportunidades',
+  pillars: [
+    {
+      title: 'Las personas primero',
+      body: 'Nos apoyamos para que cada miembro del equipo pueda hacer un trabajo cuidadoso y confiable.',
+    },
+    {
+      title: 'Atención culturalmente responsiva',
+      body: 'Escuchamos a las familias y colegas, respetamos sus experiencias y damos espacio a distintas perspectivas.',
+    },
+    {
+      title: 'Espacio para crecer',
+      body: 'Valoramos la supervisión, la colaboración y el desarrollo constante en cada etapa profesional.',
+    },
+  ],
+  opportunity: {
+    eyebrow: 'Por qué trabajar con VTCC',
+    title: 'Un lugar de trabajo enfocado en el progreso significativo',
+    body: 'Nuestro trabajo se basa en las relaciones. Buscamos personas que aporten cuidado profesional, curiosidad y respeto a cada interacción.',
+    items: [
+      'Colabore con un equipo multidisciplinario',
+      'Apoye a niños, adolescentes y familias en el norte de Virginia',
+      'Aprenda mediante supervisión, comentarios y resolución compartida de problemas',
+      'Contribuya a una organización en crecimiento con una misión comunitaria clara',
+    ],
+  },
+  steps: {
+    eyebrow: 'Qué puede esperar',
+    title: 'Un camino claro desde la solicitud hasta la conversación',
+    intro: 'Queremos que el proceso sea claro, respetuoso y valioso para su tiempo.',
+    items: [
+      {
+        title: 'Comparta su experiencia',
+        body: 'Cuéntenos sobre su experiencia, intereses y el tipo de trabajo que espera realizar.',
+      },
+      {
+        title: 'Conozca al equipo',
+        body: 'Si su experiencia coincide con una oportunidad, le invitaremos a conversar.',
+      },
+      {
+        title: 'Hablemos del puesto',
+        body: 'Conversaremos sobre responsabilidades, apoyo, disponibilidad y próximos pasos.',
+      },
+    ],
+  },
+  closing: {
+    title: '¿Listo para dar el siguiente paso?',
+    body: 'Envíe una solicitud de muestra para conocer la información que VTCC pediría a futuros candidatos.',
+    buttonLabel: 'Solicitar empleo',
+  },
+}
+
+es.careerApplication = {
+  eyebrow: 'Solicite empleo en VTCC',
+  title: 'Cuéntenos cómo puede contribuir',
+  intro:
+    'Esta es una vista previa del futuro proceso de solicitud. Su información permanece en este navegador y no se envía a VTCC.',
+  privacyTitle: 'La privacidad importa',
+  privacyNote:
+    'No cargue expedientes clínicos, información de clientes, números de Seguro Social ni otros documentos confidenciales. Una plataforma de producción usaría un proceso seguro aprobado.',
+  selectPlaceholder: 'Seleccione una opción',
+  submitLabel: 'Revisar solicitud',
+  backLabel: 'Volver a Carreras',
+  backHref: '/career',
+  consentLabel: 'Entiendo que esta es una vista previa y que mi información no se enviará.',
+  fileLabel: 'Currículum o documento de apoyo',
+  fileRequiredMessage: 'Adjunte un currículum o documento de apoyo.',
+  fileTypes: '.pdf,.doc,.docx,.txt',
+  fileAcceptLabel: 'Tipos de archivo aceptados',
+  fields: [
+    {
+      name: 'fullName',
+      label: 'Nombre completo',
+      type: 'text',
+      autocomplete: 'name',
+    },
+    {
+      name: 'email',
+      label: 'Correo electrónico',
+      type: 'email',
+      autocomplete: 'email',
+    },
+    {
+      name: 'phone',
+      label: 'Número de teléfono',
+      type: 'tel',
+      autocomplete: 'tel',
+    },
+    {
+      name: 'role',
+      label: 'Puesto de interés',
+      type: 'select',
+      options: [
+        'Técnico de conducta registrado',
+        'Analista de conducta certificado por la junta',
+        'Profesional clínico de programas',
+        'Administración u operaciones',
+        'Otro',
+      ],
+    },
+    {
+      name: 'location',
+      label: 'Ciudad y estado',
+      type: 'text',
+      autocomplete: 'address-level2',
+    },
+    {
+      name: 'workAuthorization',
+      label: '¿Tiene autorización para trabajar en Estados Unidos?',
+      type: 'select',
+      options: ['Sí', 'No', 'Me gustaría hablar sobre esto'],
+    },
+    {
+      name: 'experience',
+      label: 'Experiencia relevante',
+      type: 'textarea',
+      rows: 4,
+    },
+    {
+      name: 'coverLetter',
+      label: '¿Qué le interesa de trabajar con VTCC?',
+      type: 'textarea',
+      rows: 5,
+    },
+  ],
+}
+
+es.footer.links = [
+  { label: 'Servicios', href: '/#services' },
+  { label: 'Seguro', href: '/insurance' },
+  { label: 'Preguntas y Guías', href: '/resources' },
+  { label: 'Carreras', href: '/career' },
+  { label: 'Contacto', href: '/contact' },
+]
+
 Object.assign(es.heroCard, {
   title: 'Cómo ayuda VTCC',
   items: [
     'Terapia ABA con metas individualizadas',
-    'Apoyo familiar con servicios intensivos en el hogar',
+    'Programas especializados para las necesidades de cada niño',
     'Orientación sobre Medicaid, MCO, seguros comerciales y FAPT pendiente de verificación',
     'Recursos en inglés y español',
   ],
@@ -135,11 +295,25 @@ es.sections.services.cards = [
     href: '/aba',
   },
   {
-    label: 'Intensivos en el Hogar',
-    title: 'Estabilice desafíos serios en el entorno familiar',
-    body: 'Los servicios intensivos en el hogar brindan apoyo de salud mental a corto plazo y centrado en la familia para ayudar a estabilizar desafíos conductuales o emocionales serios.',
-    linkLabel: 'Conozca los SIH',
-    href: '/intensive-in-home',
+    label: 'Primeros Aprendices',
+    title: 'Prepárese para la escuela y los entornos sociales',
+    body: 'El programa de Primeros Aprendices ayuda a niños en edad preescolar a practicar comunicación, juego, rutinas y habilidades de aprendizaje temprano para la escuela y los entornos sociales.',
+    linkLabel: 'Conozca Primeros Aprendices',
+    href: '/early-learners',
+  },
+  {
+    label: 'Programa de Alimentación',
+    title: 'Amplíe el repertorio y las preferencias alimentarias',
+    body: 'El Programa de Alimentación utiliza prácticas ABA para apoyar a los niños mientras desarrollan comodidad con una mayor variedad de alimentos, sabores, texturas y rutinas de comida.',
+    linkLabel: 'Conozca el programa de alimentación',
+    href: '/feeding-program',
+  },
+  {
+    label: 'Grupo de Habilidades Sociales',
+    title: 'Practique habilidades sociales avanzadas con compañeros',
+    body: 'El Grupo de Habilidades Sociales apoya a clientes que están listos para practicar sarcasmo, conversación, pensamiento flexible y juego apropiado para su edad con compañeros.',
+    linkLabel: 'Conozca el grupo social',
+    href: '/social-skills-group',
   },
   {
     label: 'Apoyo de Referencias',
@@ -271,33 +445,86 @@ es.sections.aba.columns = [
   },
 ]
 
-Object.assign(es.sections.iih, {
-  eyebrow: 'Servicios Intensivos en el Hogar',
-  title: 'Apoyo centrado en la familia en el hogar',
-  intro:
-    'Los servicios intensivos en el hogar de VTCC brindan apoyo de salud mental a corto plazo y centrado en la familia. El objetivo es ayudar a estabilizar desafíos conductuales o emocionales serios mientras se fortalece el sistema familiar.',
+Object.assign(es.sections, {
+  earlyLearners: {
+    eyebrow: 'Programa de Primeros Aprendices',
+    title: 'Desarrolle confianza para la escuela y los entornos sociales',
+    intro:
+      'El programa de Primeros Aprendices apoya a niños en edad preescolar mientras practican rutinas, comunicación, juego y habilidades de aprendizaje temprano que les ayudan a participar en la escuela y en entornos sociales.',
+    columns: [
+      {
+        title: 'Lo que apoya el programa',
+        items: [
+          'Rutinas y transiciones para la preparación escolar',
+          'Comunicación y habilidades de aprendizaje temprano',
+          'Juego, participación y conexión social',
+          'Seguir instrucciones y desarrollar independencia',
+        ],
+      },
+      {
+        title: 'Cómo participan las familias',
+        items: [
+          'Metas individualizadas según las fortalezas y necesidades del niño',
+          'Práctica en rutinas y entornos conocidos',
+          'Colaboración y orientación para cuidadores',
+          'Seguimiento del progreso y ajustes al plan',
+        ],
+      },
+    ],
+  },
+  feedingProgram: {
+    eyebrow: 'Programa de Alimentación',
+    title: 'Haga que las comidas sean más flexibles y exitosas',
+    intro:
+      'El Programa de Alimentación utiliza prácticas ABA para ayudar a los niños a ampliar su repertorio y sus preferencias alimentarias mediante metas individualizadas, apoyo positivo y práctica gradual.',
+    columns: [
+      {
+        title: 'Lo que puede apoyar el programa',
+        items: [
+          'Ampliar la variedad de alimentos que acepta el niño',
+          'Desarrollar comodidad con nuevos sabores, texturas y presentaciones',
+          'Apoyar rutinas positivas durante las comidas',
+          'Practicar preferencias alimentarias flexibles a un ritmo manejable',
+        ],
+      },
+      {
+        title: 'Cómo se planifica el apoyo',
+        items: [
+          'Evaluación de los patrones actuales y las prioridades familiares',
+          'Metas individualizadas y refuerzo positivo',
+          'Colaboración con cuidadores durante las comidas cotidianas',
+          'Seguimiento del progreso y ajustes según la respuesta del niño',
+        ],
+      },
+    ],
+  },
+  socialSkillsGroup: {
+    eyebrow: 'Grupo de Habilidades Sociales',
+    title: 'Practique habilidades sociales avanzadas con compañeros',
+    intro:
+      'El Grupo de Habilidades Sociales es para clientes que están listos para trabajar en habilidades sociales más avanzadas, incluyendo la comprensión del sarcasmo, la conversación y el juego apropiado para su edad con compañeros.',
+    columns: [
+      {
+        title: 'Habilidades que puede abordar el grupo',
+        items: [
+          'Comprender el sarcasmo, el humor y los significados implícitos',
+          'Conversación de ida y vuelta y pensamiento flexible',
+          'Juego y actividades compartidas apropiadas para la edad',
+          'Unirse a grupos, resolver problemas y reparar malentendidos',
+        ],
+      },
+      {
+        title: 'Un entorno grupal con apoyo',
+        items: [
+          'Práctica en grupos pequeños con metas individualizadas',
+          'Orientación y comentarios positivos del personal capacitado',
+          'Oportunidades para practicar habilidades en interacciones realistas',
+          'Colaboración familiar para apoyar la práctica fuera del grupo',
+        ],
+      },
+    ],
+  },
 })
-
-es.sections.iih.columns = [
-  {
-    title: 'Metas comunes',
-    items: [
-      'Mejorar habilidades de afrontamiento y comunicación',
-      'Fortalecer rutinas familiares y resolución de problemas',
-      'Reducir el riesgo de colocación fuera del hogar',
-      'Apoyar la transición de regreso al hogar cuando corresponda',
-    ],
-  },
-  {
-    title: 'Quién puede consultar',
-    items: [
-      'Padres y tutores',
-      'Escuelas y proveedores pediátricos',
-      'Administradores de casos y socios del condado',
-      'Profesionales comunitarios que apoyan a la familia',
-    ],
-  },
-]
 
 Object.assign(es.sections.funding, {
   eyebrow: 'Seguro y financiamiento',
@@ -340,7 +567,9 @@ Object.assign(es.sections.whoWeServe, {
     'Habilidades de comunicación, sociales, vida diaria o preparación escolar',
     'Dificultades conductuales o emocionales significativas',
     'Estrés familiar relacionado con las necesidades de cuidado del niño',
-    'Jóvenes que pueden estar en riesgo de colocación fuera del hogar',
+    'Niños pequeños que se preparan para la escuela y los entornos sociales',
+    'Metas de alimentación relacionadas con el repertorio y las preferencias alimentarias',
+    'Habilidades sociales avanzadas y juego apropiado para la edad con compañeros',
     'Referencias conectadas con Medicaid, atención administrada, seguro comercial o financiamiento del condado/FAPT',
   ],
 })
@@ -402,7 +631,7 @@ es.form.fields = [
     name: 'service',
     label: 'Interés en servicios',
     type: 'select',
-    options: ['ABA', 'Intensivos en el Hogar', 'No estoy seguro', 'Pregunta de referencia'],
+    options: ['ABA', 'Primeros Aprendices', 'Programa de Alimentación', 'Grupo de Habilidades Sociales', 'No estoy seguro', 'Pregunta de referencia'],
   },
   {
     name: 'funding',
@@ -508,35 +737,88 @@ es.pages = {
       button: 'Preguntar sobre servicios de ABA',
     },
   },
-  intensiveInHome: {
-    title: 'Página de Servicios Intensivos en el Hogar',
+  earlyLearners: {
+    title: 'Página del Programa de Primeros Aprendices',
     hero: {
-      headline: 'Apoyo intensivo en el hogar para niños, adolescentes y familias',
-      body: 'Los servicios intensivos en el hogar de VTCC brindan apoyo de salud mental a corto plazo y centrado en la familia. El objetivo es ayudar a estabilizar desafíos conductuales o emocionales serios mientras se fortalece el sistema familiar.',
-      buttons: ['Solicitar servicios SIH', 'Hacer una referencia'],
+      headline: 'Apoyo para el aprendizaje temprano y la preparación social',
+      body: 'El programa de Primeros Aprendices apoya a niños en edad preescolar mientras practican rutinas, comunicación, juego y habilidades de aprendizaje temprano para la escuela y los entornos sociales.',
+      buttons: ['Solicitar servicios de Primeros Aprendices', 'Preguntar sobre elegibilidad'],
     },
     sections: [
       {
-        title: 'Lo que abordan los servicios intensivos en el hogar',
-        intro:
-          'Los SIH pueden apoyar a familias cuando un niño o adolescente experimenta conductas severas, intensas o frecuentes que generan preocupaciones de seguridad, disrupción familiar o riesgo de colocación fuera del hogar.',
+        title: 'Lo que pueden practicar los primeros aprendices',
+        intro: 'Las metas pueden incluir transiciones, instrucciones, comunicación, juego, participación social, aprendizaje temprano e independencia.',
         items: [
-          'Estabilizar preocupaciones conductuales o emocionales urgentes',
-          'Mejorar habilidades de afrontamiento y comunicación',
-          'Apoyar a padres y cuidadores',
-          'Fortalecer rutinas familiares y resolución de problemas',
-          'Reducir el riesgo de colocación fuera del hogar',
-          'Apoyar la transición de regreso al hogar cuando corresponda',
+          'Rutinas y transiciones para la preparación escolar',
+          'Comunicación y habilidades de aprendizaje temprano',
+          'Juego, participación y conexión social',
+          'Seguir instrucciones y desarrollar independencia',
         ],
       },
       {
-        title: 'Atención centrada en la familia',
-        body: 'VTCC cree que las familias tienen fortalezas que pueden apoyar el crecimiento y el cambio. Los servicios intensivos en el hogar trabajan con la unidad familiar, no solo con el niño, para que las nuevas estrategias puedan practicarse en el entorno donde a menudo ocurren los desafíos.',
+        title: 'Colaboración con la familia',
+        body: 'VTCC trabaja con los cuidadores para identificar metas significativas y practicar habilidades en las rutinas cotidianas. Los planes se ajustan a medida que el niño crece y desarrolla confianza.',
       },
     ],
     cta: {
-      body: 'Si usted es padre, tutor, profesional escolar, administrador de casos o socio del condado, contacte a VTCC para preguntar sobre elegibilidad y pasos de referencia para servicios intensivos en el hogar.',
-      button: 'Contactar a VTCC sobre SIH',
+      body: 'Contacte a VTCC para preguntar si el programa de Primeros Aprendices puede ser adecuado para su hijo en edad preescolar y conocer los próximos pasos de admisión.',
+      button: 'Preguntar sobre Primeros Aprendices',
+    },
+  },
+  feedingProgram: {
+    title: 'Página del Programa de Alimentación',
+    hero: {
+      headline: 'Apoyo para ampliar el repertorio alimentario',
+      body: 'El Programa de Alimentación utiliza prácticas ABA para ayudar a los niños a ampliar su repertorio y sus preferencias alimentarias mediante metas individualizadas, apoyo positivo y práctica gradual.',
+      buttons: ['Solicitar servicios de alimentación', 'Preguntar sobre elegibilidad'],
+    },
+    sections: [
+      {
+        title: 'Lo que puede apoyar el programa de alimentación',
+        intro: 'El programa ayuda a los niños a practicar la aceptación y exploración de una mayor variedad de alimentos, sabores, texturas y presentaciones.',
+        items: [
+          'Ampliar la variedad de alimentos que acepta el niño',
+          'Desarrollar comodidad con nuevos sabores y texturas',
+          'Apoyar rutinas positivas durante las comidas',
+          'Practicar preferencias alimentarias flexibles a un ritmo manejable',
+        ],
+      },
+      {
+        title: 'Práctica positiva e individualizada',
+        body: 'El equipo colabora con los cuidadores para establecer metas prácticas, usar apoyo positivo e introducir la práctica a un ritmo que respete las necesidades del niño y las rutinas familiares.',
+      },
+    ],
+    cta: {
+      body: 'Contacte a VTCC para preguntar si el Programa de Alimentación puede ser apropiado para su hijo y conocer el proceso de admisión.',
+      button: 'Preguntar sobre el Programa de Alimentación',
+    },
+  },
+  socialSkillsGroup: {
+    title: 'Página del Grupo de Habilidades Sociales',
+    hero: {
+      headline: 'Desarrolle habilidades sociales avanzadas con compañeros',
+      body: 'El Grupo de Habilidades Sociales es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
+      buttons: ['Solicitar servicios del grupo social', 'Preguntar sobre elegibilidad'],
+    },
+    sections: [
+      {
+        title: 'Lo que puede practicar el grupo',
+        intro: 'Los clientes reciben orientación y comentarios mientras practican interacciones realistas con compañeros.',
+        items: [
+          'Comprender el sarcasmo, el humor y los significados implícitos',
+          'Conversación de ida y vuelta y pensamiento flexible',
+          'Juego y actividades compartidas apropiadas para la edad',
+          'Unirse a grupos, resolver problemas y reparar malentendidos',
+        ],
+      },
+      {
+        title: 'Aprendizaje mediante práctica con apoyo',
+        body: 'Los clientes reciben orientación y comentarios mientras practican interacciones realistas con compañeros. Las metas son individualizadas y apoyan la práctica en la escuela, la comunidad y otros entornos sociales.',
+      },
+    ],
+    cta: {
+      body: 'Contacte a VTCC para preguntar si el Grupo de Habilidades Sociales puede ser adecuado para su hijo y conocer la disponibilidad actual.',
+      button: 'Preguntar sobre el Grupo de Habilidades Sociales',
     },
   },
   insuranceFunding: {
@@ -600,23 +882,38 @@ es.pages = {
     title: 'Página de Recursos / Preguntas Frecuentes',
     hero: {
       headline: 'Recursos para familias y socios de referencia',
-      body: 'VTCC ofrece recursos educativos para ayudar a las familias a entender la terapia ABA, los servicios intensivos en el hogar, la participación de los padres, los pasos de admisión y las preguntas sobre financiamiento.',
+      body: 'VTCC ofrece recursos educativos para ayudar a las familias a entender la terapia ABA, el programa de Primeros Aprendices, el Programa de Alimentación, el Grupo de Habilidades Sociales, la participación de los padres, los pasos de admisión y las preguntas sobre financiamiento.',
     },
     faqs: [
       {
         question: '¿Qué servicios brinda VTCC?',
         answer:
-          'VTCC brinda terapia ABA y servicios intensivos en el hogar para niños, adolescentes y familias. Los servicios dependen de la elegibilidad, el financiamiento, la necesidad clínica y la disponibilidad.',
+          'VTCC brinda terapia ABA, un programa de Primeros Aprendices, un Programa de Alimentación y un Grupo de Habilidades Sociales para niños y familias. Los servicios dependen de la elegibilidad, el financiamiento, la necesidad clínica y la disponibilidad.',
+      },
+      {
+        question: '¿Qué es el programa de Primeros Aprendices?',
+        answer:
+          'Es un programa para niños en edad preescolar que se enfoca en desarrollar comunicación, juego, rutinas y habilidades de aprendizaje temprano para ayudarles a participar en la escuela y en entornos sociales.',
+      },
+      {
+        question: '¿Qué apoya el Programa de Alimentación?',
+        answer:
+          'El Programa de Alimentación utiliza prácticas ABA para ayudar a los niños a ampliar gradualmente su repertorio y sus preferencias alimentarias mediante metas individualizadas, apoyo positivo y colaboración con los cuidadores.',
+      },
+      {
+        question: '¿Quién puede beneficiarse del Grupo de Habilidades Sociales?',
+        answer:
+          'El Grupo de Habilidades Sociales es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
       },
       {
         question: '¿Dónde brinda servicios VTCC?',
         answer:
-          'El sitio actual describe servicios en el hogar y oficinas en Fairfax y Fredericksburg. VTCC debe confirmar el área de servicio exacta antes de publicar el lenguaje final.',
+          'Los servicios pueden brindarse en entornos individuales y grupales según el programa, el plan de tratamiento y la disponibilidad. Contacte a VTCC para confirmar las opciones actuales para su ubicación.',
       },
       {
         question: '¿VTCC acepta seguros?',
         answer:
-          'El sitio actual enumera varios pagadores de Medicaid, atención administrada y comerciales, y también hace referencia al financiamiento del condado/FAPT. Las familias deben contactar a VTCC para verificar la cobertura actual para su plan y servicio.',
+          'Los materiales actuales enumeran varios pagadores de Medicaid, atención administrada y comerciales, y también hacen referencia al financiamiento del condado/FAPT. Contacte a VTCC para verificar la cobertura actual para su plan y servicio.',
       },
       {
         question: '¿Qué es la terapia ABA?',
@@ -624,19 +921,14 @@ es.pages = {
           'La ABA es un enfoque basado en evidencia que utiliza estrategias positivas para ayudar a los niños a desarrollar habilidades y reducir conductas que interfieren con el aprendizaje, la seguridad o la vida diaria.',
       },
       {
-        question: '¿Qué son los servicios intensivos en el hogar?',
-        answer:
-          'Los servicios intensivos en el hogar son apoyo de salud mental a corto plazo brindado en el hogar para ayudar a estabilizar desafíos conductuales o emocionales serios y apoyar la unidad familiar.',
-      },
-      {
         question: '¿Participan los padres?',
         answer:
-          'Sí. La participación de padres y cuidadores es una parte importante tanto de la ABA como de los servicios centrados en la familia.',
+          'Sí. La participación de padres y cuidadores es una parte importante de los servicios individualizados y ayuda a los niños a practicar habilidades en las rutinas diarias.',
       },
       {
         question: '¿Cómo empiezo?',
         answer:
-          'Llame a VTCC o complete el formulario de solicitud. El equipo puede explicar los formularios requeridos, la revisión de financiamiento, la admisión, la evaluación y la programación.',
+          'Llame a VTCC o complete el formulario de solicitud. El equipo puede explicar qué programa puede ser adecuado, los formularios requeridos, la revisión de financiamiento, la admisión, la evaluación y la programación.',
       },
       {
         question: '¿Pueden los profesionales referir a un niño?',
@@ -686,11 +978,6 @@ Object.assign(es.sections.forms, {
             'Formulario de admisión de VTCC para servicios ABA y cuestionario para fuentes de referencia',
         },
         {
-          id: 'iihIntake',
-          title: 'Formulario de admisión de VTCC para servicios intensivos en el hogar',
-          note: 'Utilícelo también para casos FAPT.',
-        },
-        {
           id: 'faptReferralQuestionnaire',
           title:
             'Cuestionario para fuentes de referencia de visitas supervisadas y/o servicios FAPT',
@@ -708,6 +995,19 @@ Object.assign(es.sections.forms, {
     },
   ],
 })
+
+for (const form of [es.formFamily, es.formReferral]) {
+  const serviceField = form.fields.find((field) => field.name === 'service')
+  if (serviceField) {
+    serviceField.options = [
+      'ABA',
+      'Primeros Aprendices',
+      'Programa de Alimentación',
+      'Grupo de Habilidades Sociales',
+      'Aún no estoy seguro',
+    ]
+  }
+}
 
 const intakeCategory = es.sections.resources.categories.find(
   (category) => category.slug === 'what-to-expect-during-intake',

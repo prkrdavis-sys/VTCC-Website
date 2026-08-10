@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { loadSiteContent, rootDir } from './lib.mjs'
 import { renderSeoHeadHtml } from './seo-head.mjs'
@@ -9,6 +9,13 @@ const fontLinks = `<link rel="preconnect" href="https://fonts.googleapis.com" />
 
 const site = loadSiteContent()
 const prototypeDir = join(rootDir, 'prototype')
+
+for (const obsoleteFile of [
+  'intensive-in-home.html',
+  join('resources', 'intensive-in-home-basics.html'),
+]) {
+  rmSync(join(prototypeDir, obsoleteFile), { force: true })
+}
 
 writeFileSync(join(prototypeDir, 'site-content.js'), `window.VTCC_SITE = ${JSON.stringify(site)};\n`)
 
@@ -21,11 +28,15 @@ writeFileSync(
 const pages = [
   { file: 'index.html', page: 'home', base: '' },
   { file: 'aba.html', page: 'aba', base: '' },
-  { file: 'intensive-in-home.html', page: 'intensive-in-home', base: '' },
+  { file: 'early-learners.html', page: 'early-learners', base: '' },
+  { file: 'feeding-program.html', page: 'feeding-program', base: '' },
+  { file: 'social-skills-group.html', page: 'social-skills-group', base: '' },
   { file: 'get-started.html', page: 'get-started', base: '' },
   { file: 'insurance.html', page: 'insurance', base: '' },
   { file: 'referrers.html', page: 'referrers', base: '' },
   { file: 'about.html', page: 'about', base: '' },
+  { file: 'career.html', page: 'career', base: '' },
+  { file: join('career', 'apply.html'), page: 'career-apply', base: '../', seoPage: 'career' },
   { file: 'contact.html', page: 'contact', base: '' },
   { file: join('contact', 'referral.html'), page: 'contact-referral', base: '../' },
   { file: join('resources', 'index.html'), page: 'resources', base: '../' },
@@ -35,7 +46,9 @@ const pages = [
     'what-to-expect-during-intake',
     'medicaid-fapt-funding-basics',
     'parent-training-faqs',
-    'intensive-in-home-basics',
+    'early-learners',
+    'feeding-program',
+    'social-skills-group',
     'referrals-and-eligibility',
   ].map((slug) => ({
     file: join('resources', `${slug}.html`),
@@ -47,11 +60,12 @@ const pages = [
 
 mkdirSync(join(prototypeDir, 'resources'), { recursive: true })
 mkdirSync(join(prototypeDir, 'contact'), { recursive: true })
+mkdirSync(join(prototypeDir, 'career'), { recursive: true })
 
 for (const entry of pages) {
   const slugScript = entry.slug ? `\n    <script>window.VTCC_RESOURCE_SLUG = ${JSON.stringify(entry.slug)};</script>` : ''
   const pageKey = entry.page === 'resource' ? 'resource' : entry.page
-  const seoHead = renderSeoHeadHtml(pageKey, 'en')
+  const seoHead = renderSeoHeadHtml(entry.seoPage ?? pageKey, 'en')
 
   writeFileSync(
     join(prototypeDir, entry.file),

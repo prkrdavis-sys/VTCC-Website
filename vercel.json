@@ -2,5 +2,52 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "buildCommand": "npm run build",
-  "outputDirectory": "prototype"
+  "outputDirectory": "prototype",
+  "redirects": [
+    {
+      "source": "/intensive-in-home",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/intensive-in-home/",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/intensive-in-home.html",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/programa-de-servicios-intensivos-en-el-hogar",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/programa-de-servicios-intensivos-en-el-hogar/",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/programa-de-servicios-intensivos-en-el-hogar.html",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/resources/intensive-in-home-basics",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/resources/intensive-in-home-basics/",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/resources/intensive-in-home-basics.html",
+      "destination": "/get-started",
+      "permanent": true
+    }
+  ]
 }

@@ -32,12 +32,16 @@ function toStaticHref(path) {
     '/': `${BASE}index.html`,
     '/#services': `${BASE}index.html#services`,
     '/aba': `${BASE}aba.html`,
-    '/intensive-in-home': `${BASE}intensive-in-home.html`,
+    '/early-learners': `${BASE}early-learners.html`,
+    '/feeding-program': `${BASE}feeding-program.html`,
+    '/social-skills-group': `${BASE}social-skills-group.html`,
     '/get-started': `${BASE}get-started.html`,
     '/insurance': `${BASE}insurance.html`,
     '/referrers': `${BASE}referrers.html`,
     '/resources': `${BASE}resources/index.html`,
     '/about': `${BASE}about.html`,
+    '/career': `${BASE}career.html`,
+    '/career/apply': `${BASE}career/apply.html`,
     '/contact': `${BASE}contact.html`,
     '/contact/referral': `${BASE}contact/referral.html`,
   }
@@ -60,7 +64,8 @@ function renderNavLink(item) {
 
 function renderNavMenu(group, className = 'nav-menu') {
   if (group.href) {
-    return `<a class="nav-menu-link" href="${escapeHtml(toStaticHref(group.href))}">${escapeHtml(group.label)}</a>`
+    const isActive = linkMatchesCurrentPage(group.href)
+    return `<a class="nav-menu-link${isActive ? ' is-active' : ''}" href="${escapeHtml(toStaticHref(group.href))}"${isActive ? ' aria-current="page"' : ''}>${escapeHtml(group.label)}</a>`
   }
 
   const links = group.links.map(renderNavLink).join('\n            ')
@@ -93,7 +98,9 @@ function getHeaderGroups(content) {
 const PAGE_SECTION_PATHS = {
   home: '/',
   aba: '/aba',
-  'intensive-in-home': '/intensive-in-home',
+  'early-learners': '/early-learners',
+  'feeding-program': '/feeding-program',
+  'social-skills-group': '/social-skills-group',
   'get-started': '/get-started',
   insurance: '/insurance',
   resources: '/resources',
@@ -101,6 +108,8 @@ const PAGE_SECTION_PATHS = {
   forms: '/resources/forms',
   referrers: '/referrers',
   about: '/about',
+  career: '/career',
+  'career-apply': '/career/apply',
   contact: '/contact',
   'contact-referral': '/contact/referral',
 }
@@ -124,6 +133,10 @@ function linkMatchesCurrentPage(linkHref) {
   }
 
   if (linkHref === '/contact' && (PAGE === 'contact' || PAGE === 'contact-referral')) {
+    return true
+  }
+
+  if (linkHref === '/career' && (PAGE === 'career' || PAGE === 'career-apply')) {
     return true
   }
 
@@ -939,6 +952,165 @@ function renderAboutPage(content) {
       </section>`
 }
 
+function renderCareerPage(content) {
+  const careers = content.sections.careers
+  const pillars = careers.pillars
+    .map(
+      (pillar) => `<article class="career-pillar">
+          <h3>${escapeHtml(pillar.title)}</h3>
+          <p>${escapeHtml(pillar.body)}</p>
+        </article>`,
+    )
+    .join('\n          ')
+  const opportunityItems = careers.opportunity.items
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .join('')
+  const steps = careers.steps.items
+    .map(
+      (step, index) => `<li class="career-step">
+          <span class="career-step-number" aria-hidden="true">${index + 1}</span>
+          <div>
+            <h3>${escapeHtml(step.title)}</h3>
+            <p>${escapeHtml(step.body)}</p>
+          </div>
+        </li>`,
+    )
+    .join('\n          ')
+
+  return `<section class="career-hero page-section">
+        <div class="career-hero-copy">
+          <p class="eyebrow">${escapeHtml(careers.eyebrow)}</p>
+          <h1>${escapeHtml(careers.title)}</h1>
+          <p class="career-hero-intro">${escapeHtml(careers.intro)}</p>
+          <div class="button-row">
+            <a class="button" href="${escapeHtml(toStaticHref(careers.applyHref))}">${escapeHtml(careers.applyLabel)}</a>
+            <a class="button secondary" href="#career-opportunity">${escapeHtml(careers.overviewLabel)}</a>
+          </div>
+        </div>
+        <div class="career-hero-media">
+          <img src="${escapeHtml(`${BASE}assets/who-we-serve.png`)}" alt="" loading="eager" />
+          <div class="career-hero-note">
+            <strong>${escapeHtml(careers.opportunity.title)}</strong>
+            <span>${escapeHtml(careers.opportunity.body)}</span>
+          </div>
+        </div>
+      </section>
+      <section class="section career-pillars">
+        <div class="career-pillars-grid">${pillars}</div>
+      </section>
+      <section id="career-opportunity" class="section career-opportunity">
+        <div class="career-opportunity-copy">
+          ${renderSectionHeading(careers.opportunity.eyebrow, careers.opportunity.title, careers.opportunity.body)}
+          <ul class="check-list">${opportunityItems}</ul>
+        </div>
+      </section>
+      <section class="section career-steps">
+        ${renderSectionHeading(careers.steps.eyebrow, careers.steps.title, careers.steps.intro)}
+        <ol class="career-step-list">${steps}</ol>
+      </section>
+      <section class="section career-closing">
+        <div>
+          <h2>${escapeHtml(careers.closing.title)}</h2>
+          <p>${escapeHtml(careers.closing.body)}</p>
+        </div>
+        <a class="button" href="${escapeHtml(toStaticHref(careers.applyHref))}">${escapeHtml(careers.closing.buttonLabel)}</a>
+      </section>`
+}
+
+function renderCareerApplicationField(field, content) {
+  const required = ' required'
+  const fieldClass = `career-field career-field--${escapeHtml(field.type)}`
+
+  if (field.type === 'select') {
+    const options = field.options
+      .map((option) => `<option value="${escapeHtml(option)}">${escapeHtml(option)}</option>`)
+      .join('\n              ')
+    return `<label class="${fieldClass}">
+            ${escapeHtml(field.label)}
+            <select name="${escapeHtml(field.name)}"${required}>
+              <option value="" selected disabled>${escapeHtml(content.careerApplication.selectPlaceholder)}</option>
+              ${options}
+            </select>
+          </label>`
+  }
+
+  if (field.type === 'textarea') {
+    return `<label class="${fieldClass}">
+            ${escapeHtml(field.label)}
+            <textarea name="${escapeHtml(field.name)}" rows="${field.rows ?? 4}"${required}></textarea>
+          </label>`
+  }
+
+  const autocomplete = field.autocomplete
+    ? ` autocomplete="${escapeHtml(field.autocomplete)}"`
+    : ''
+
+  return `<label class="${fieldClass}">
+            ${escapeHtml(field.label)}
+            <input type="${escapeHtml(field.type)}" name="${escapeHtml(field.name)}"${autocomplete}${required} />
+          </label>`
+}
+
+function renderCareerApplicationPage(content) {
+  const application = content.careerApplication
+  const fields = application.fields
+    .map((field) => renderCareerApplicationField(field, content))
+    .join('\n          ')
+
+  return `<section class="section career-application page-section">
+        <div class="career-application-intro">
+          <a class="back-button" href="${escapeHtml(toStaticHref(application.backHref))}">
+            <span aria-hidden="true">←</span> ${escapeHtml(application.backLabel)}
+          </a>
+          ${renderSectionHeading(application.eyebrow, application.title, application.intro)}
+          <aside class="career-privacy-note">
+            <strong>${escapeHtml(application.privacyTitle)}</strong>
+            <p>${escapeHtml(application.privacyNote)}</p>
+          </aside>
+        </div>
+        <div class="career-form-panel">
+          <form class="career-application-form" data-career-form>
+            ${fields}
+            <div class="career-file-field">
+              <span class="career-field-label">${escapeHtml(application.fileLabel)}</span>
+              <div
+                class="career-upload"
+                data-career-dropzone
+                tabindex="0"
+                role="button"
+                aria-controls="career-file-input"
+                aria-describedby="career-file-hint"
+              >
+                <input
+                  id="career-file-input"
+                  class="visually-hidden"
+                  type="file"
+                  name="document"
+                  accept="${escapeHtml(application.fileTypes)}"
+                  data-career-file-input
+                  required
+                />
+                <span class="career-upload-icon" aria-hidden="true">↑</span>
+                <strong data-career-file-prompt>${escapeHtml(content.ui.careerFileDrop)}</strong>
+                <span class="career-upload-action">${escapeHtml(content.ui.careerFileChoose)}</span>
+                <span id="career-file-hint" class="career-upload-hint">${escapeHtml(content.ui.careerFileHint)}</span>
+                <span class="career-file-name" data-career-file-name hidden></span>
+                <button type="button" class="career-file-remove" data-career-file-remove hidden>${escapeHtml(content.ui.careerFileRemove)}</button>
+              </div>
+              <p class="career-file-error" data-career-file-error role="alert" hidden></p>
+            </div>
+            <label class="consent-field">
+              <input type="checkbox" name="consent" required />
+              ${escapeHtml(application.consentLabel)}
+            </label>
+            <p class="form-note">${escapeHtml(application.privacyNote)}</p>
+            <button type="submit" data-default-label="${escapeHtml(application.submitLabel)}">${escapeHtml(application.submitLabel)}</button>
+            <p class="form-status" data-career-form-status aria-live="polite"></p>
+          </form>
+        </div>
+      </section>`
+}
+
 function getContactPageConfig(content) {
   const isReferral = PAGE === 'contact-referral'
 
@@ -1035,8 +1207,14 @@ function renderMain(content) {
     case 'aba':
       mainHtml = renderAbaPage(content)
       break
-    case 'intensive-in-home':
-      mainHtml = renderDetailSection(content.sections.iih, true)
+    case 'early-learners':
+      mainHtml = renderDetailSection(content.sections.earlyLearners, true)
+      break
+    case 'feeding-program':
+      mainHtml = renderDetailSection(content.sections.feedingProgram, true)
+      break
+    case 'social-skills-group':
+      mainHtml = renderDetailSection(content.sections.socialSkillsGroup, true)
       break
     case 'get-started':
       mainHtml = renderProcessPage(content)
@@ -1058,6 +1236,12 @@ function renderMain(content) {
       break
     case 'about':
       mainHtml = renderAboutPage(content)
+      break
+    case 'career':
+      mainHtml = renderCareerPage(content)
+      break
+    case 'career-apply':
+      mainHtml = renderCareerApplicationPage(content)
       break
     case 'contact':
     case 'contact-referral':
@@ -1246,11 +1430,173 @@ function bindRequestForms(content) {
   })
 }
 
+function bindCareerApplication(content) {
+  const form = document.querySelector('[data-career-form]')
+  const fileInput = form?.querySelector('[data-career-file-input]')
+  const dropzone = form?.querySelector('[data-career-dropzone]')
+  const fileName = form?.querySelector('[data-career-file-name]')
+  const filePrompt = form?.querySelector('[data-career-file-prompt]')
+  const removeButton = form?.querySelector('[data-career-file-remove]')
+  const fileError = form?.querySelector('[data-career-file-error]')
+  const status = form?.querySelector('[data-career-form-status]')
+  const submitButton = form?.querySelector('button[type="submit"]')
+
+  if (!form || !fileInput || !dropzone || !fileName || !filePrompt || !removeButton || !fileError || !status || !submitButton) {
+    return
+  }
+
+  const maxFileSize = 5 * 1024 * 1024
+  const allowedExtensions = ['.pdf', '.doc', '.docx', '.txt']
+  let selectedFile = null
+
+  const setStatus = (message, state = 'idle') => {
+    status.textContent = message
+    status.dataset.status = state
+  }
+
+  const setFileError = (message) => {
+    fileError.textContent = message
+    fileError.hidden = !message
+    dropzone.classList.toggle('is-invalid', Boolean(message))
+    fileInput.setAttribute('aria-invalid', message ? 'true' : 'false')
+  }
+
+  const resetFile = () => {
+    selectedFile = null
+    fileInput.value = ''
+    fileInput.setCustomValidity('')
+    fileName.textContent = ''
+    fileName.hidden = true
+    removeButton.hidden = true
+    filePrompt.hidden = false
+    dropzone.classList.remove('has-file', 'is-invalid', 'is-dragging')
+    setFileError('')
+  }
+
+  const getFileError = (file) => {
+    if (!file) {
+      return content.careerApplication.fileRequiredMessage
+    }
+
+    const extension = `.${file.name.split('.').pop()?.toLowerCase() ?? ''}`
+    if (!allowedExtensions.includes(extension) || file.size > maxFileSize) {
+      return content.ui.careerFileError
+    }
+
+    return ''
+  }
+
+  const selectFile = (file) => {
+    const error = getFileError(file)
+    if (error) {
+      resetFile()
+      fileInput.setCustomValidity(error)
+      setFileError(error)
+      return
+    }
+
+    selectedFile = file
+    fileInput.setCustomValidity('')
+    fileName.textContent = file.name
+    fileName.hidden = false
+    removeButton.hidden = false
+    filePrompt.hidden = true
+    dropzone.classList.add('has-file')
+    setFileError('')
+  }
+
+  fileInput.addEventListener('change', () => {
+    selectFile(fileInput.files?.[0] ?? null)
+  })
+
+  removeButton.addEventListener('click', (event) => {
+    event.stopPropagation()
+    resetFile()
+    fileInput.focus()
+  })
+
+  dropzone.addEventListener('click', (event) => {
+    if (event.target instanceof Element && event.target.closest('button')) {
+      return
+    }
+
+    fileInput.click()
+  })
+
+  dropzone.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') {
+      return
+    }
+
+    event.preventDefault()
+    fileInput.click()
+  })
+
+  dropzone.addEventListener('dragenter', (event) => {
+    event.preventDefault()
+    dropzone.classList.add('is-dragging')
+  })
+
+  dropzone.addEventListener('dragover', (event) => {
+    event.preventDefault()
+    dropzone.classList.add('is-dragging')
+  })
+
+  dropzone.addEventListener('dragleave', (event) => {
+    if (event.relatedTarget && dropzone.contains(event.relatedTarget)) {
+      return
+    }
+
+    dropzone.classList.remove('is-dragging')
+  })
+
+  dropzone.addEventListener('drop', (event) => {
+    event.preventDefault()
+    dropzone.classList.remove('is-dragging')
+    selectFile(event.dataTransfer?.files?.[0] ?? null)
+  })
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault()
+
+    if (!selectedFile) {
+      const message = content.careerApplication.fileRequiredMessage
+      fileInput.setCustomValidity(message)
+      setFileError(message)
+    }
+
+    if (!form.checkValidity()) {
+      form.reportValidity()
+      if (!selectedFile) {
+        dropzone.focus()
+      }
+      return
+    }
+
+    const defaultLabel = submitButton.dataset.defaultLabel ?? submitButton.textContent ?? ''
+    submitButton.disabled = true
+    submitButton.textContent = content.ui.careerFormSubmitting
+    setStatus('', 'idle')
+
+    try {
+      await new Promise((resolve) => window.setTimeout(resolve, 350))
+      form.reset()
+      resetFile()
+      setStatus(content.ui.careerFormSuccess, 'success')
+    } catch {
+      setStatus(content.ui.careerFormError, 'error')
+    } finally {
+      submitButton.disabled = false
+      submitButton.textContent = defaultLabel
+    }
+  })
+}
+
 function applyDocumentSeo(locale) {
   const seo = window.VTCC_SEO
   if (!seo) return
 
-  const pageKey = PAGE === 'resource' ? 'resource' : PAGE
+  const pageKey = PAGE === 'resource' || PAGE === 'career-apply' ? 'career' : PAGE
   const url = seo.routeMap[locale]?.[pageKey] ?? seo.routeMap.en?.[pageKey]
   const entry = url ? seo.pages[url] : null
   if (!entry?.headLines?.length) return
@@ -1290,6 +1636,7 @@ function render() {
   bindMobileMenu()
   bindFaqSearch(content)
   bindRequestForms(content)
+  bindCareerApplication(content)
 
   const toggleAll = document.querySelector('[data-faq-toggle-all]')
   const faqList = document.querySelector('[data-faq-list]')
