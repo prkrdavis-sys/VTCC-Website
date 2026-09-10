@@ -319,6 +319,18 @@ function renderHeroServiceTags(tags) {
         </ul>`
 }
 
+function renderHeroIconRow() {
+  const house = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z"/></svg>`
+  const people = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.4"/><circle cx="16" cy="8.5" r="2.1"/><path d="M3.8 19c.4-3 2.3-4.6 4.2-4.6s3.8 1.6 4.2 4.6"/><path d="M12.6 19c.3-2.4 1.7-3.7 3.4-3.7 1.8 0 3.2 1.4 3.6 3.7"/></svg>`
+  const spark = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 13.6 9H19l-4.3 3.3L16.4 18 12 14.8 7.6 18l1.7-5.7L5 9h5.4z"/></svg>`
+
+  return `<div class="hero-icon-row" aria-hidden="true">
+          <span class="hero-icon-badge hero-icon-badge--orange">${house}</span>
+          <span class="hero-icon-badge hero-icon-badge--lime">${people}</span>
+          <span class="hero-icon-badge hero-icon-badge--magenta">${spark}</span>
+        </div>`
+}
+
 function renderHeroText(hero) {
   if (hero.subheadlineLead) {
     return `<div class="hero-text-block">
@@ -384,10 +396,15 @@ function renderShell(content, mainHtml) {
     ${renderMobileMenu(content)}
     <main id="top">${mainHtml}</main>
     <footer class="site-footer">
-      <p>${escapeHtml(content.footer.text)}</p>
-      <nav aria-label="Footer navigation">
-        ${content.footer.links.map(renderNavLink).join('\n        ')}
-      </nav>
+      <div class="site-footer-inner">
+        <div class="site-footer-copy">
+          <p>${escapeHtml(content.footer.text)}</p>
+          <nav aria-label="Footer navigation">
+            ${content.footer.links.map(renderNavLink).join('\n            ')}
+          </nav>
+        </div>
+        <p class="site-footer-address">${escapeHtml(content.topBar?.address ?? '')}</p>
+      </div>
     </footer>
   `
 }
@@ -696,9 +713,10 @@ function renderHome(content) {
     )
     .join('')
 
+  const serviceThemes = ['periwinkle', 'magenta', 'lime', 'orange', 'cream']
   const serviceCards = sections.services.cards
     .map(
-      (card) => `<article class="service-card home-service-card">
+      (card, index) => `<article class="service-card home-service-card home-service-card--${serviceThemes[index] ?? 'cream'}">
             <span class="card-label">${escapeHtml(card.label)}</span>
             <h3>${escapeHtml(card.title)}</h3>
             <p>${escapeHtml(card.body)}</p>
@@ -746,8 +764,13 @@ function renderHome(content) {
     )
     .join('')
 
+  const missionLine = sections.whoWeServe.missionStatement || content.hero.supportingLine
+
   return `
       <section class="home-hero">
+        <span class="blob blob--magenta" aria-hidden="true"></span>
+        <span class="blob blob--orange" aria-hidden="true"></span>
+        <span class="hero-squiggle" aria-hidden="true"></span>
         <div class="home-hero-copy">
           <p class="eyebrow">${escapeHtml(content.hero.eyebrow)}</p>
           ${renderHeroHeading(content.hero)}
@@ -758,12 +781,22 @@ function renderHome(content) {
         </div>
         ${
           heroImage
-            ? `<div class="home-hero-media">
+            ? `<div class="home-hero-media-stack">
+          <div class="home-hero-media">
           <img src="${escapeHtml(heroImage)}" alt="" loading="eager" />
+          </div>
+          ${renderHeroIconRow()}
         </div>`
             : ''
         }
       </section>
+      ${
+        missionLine
+          ? `<section class="grow-band">
+        <p>${escapeHtml(missionLine)}</p>
+      </section>`
+          : ''
+      }
       <section id="services" class="section home-services">
         ${renderSectionHeading(sections.services.eyebrow, sections.services.title, sections.services.intro)}
         <div class="card-grid home-service-grid">${serviceCards}</div>
@@ -822,11 +855,17 @@ function renderFeatureColumns(columns) {
     .join('')}</div>`
 }
 
-function renderDetailSection(section, soft = false) {
-  return `<section class="section detail-section page-section${soft ? ' soft' : ''}">
+function renderDetailSection(section, options = {}) {
+  const soft = options === true || options.soft === true
+  const theme = typeof options === 'object' ? options.theme : ''
+  const themeClass = theme ? ` program-page program-page--${theme}` : ''
+
+  return `<section class="section detail-section page-section${soft ? ' soft' : ''}${themeClass}">
+        <div class="program-panel">
         ${renderSectionHeading(section.eyebrow, section.title, section.intro)}
         ${renderFeatureColumns(section.columns)}
         <a class="button page-link-cta" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(getContent().hero.actions[0].label)}</a>
+        </div>
       </section>`
 }
 
@@ -1208,13 +1247,13 @@ function renderMain(content) {
       mainHtml = renderAbaPage(content)
       break
     case 'early-learners':
-      mainHtml = renderDetailSection(content.sections.earlyLearners, true)
+      mainHtml = renderDetailSection(content.sections.earlyLearners, { soft: true, theme: 'magenta' })
       break
     case 'feeding-program':
-      mainHtml = renderDetailSection(content.sections.feedingProgram, true)
+      mainHtml = renderDetailSection(content.sections.feedingProgram, { soft: true, theme: 'lime' })
       break
     case 'social-skills-group':
-      mainHtml = renderDetailSection(content.sections.socialSkillsGroup, true)
+      mainHtml = renderDetailSection(content.sections.socialSkillsGroup, { soft: true, theme: 'orange' })
       break
     case 'get-started':
       mainHtml = renderProcessPage(content)
