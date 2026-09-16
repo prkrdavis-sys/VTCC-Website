@@ -30,7 +30,6 @@ function toStaticHref(path) {
 
   const routes = {
     '/': `${BASE}index.html`,
-    '/#services': `${BASE}index.html#services`,
     '/aba': `${BASE}aba.html`,
     '/early-learners': `${BASE}early-learners.html`,
     '/feeding-program': `${BASE}feeding-program.html`,
@@ -46,11 +45,63 @@ function toStaticHref(path) {
     '/contact/referral': `${BASE}contact/referral.html`,
   }
 
+  if (path.startsWith('/#')) {
+    return `${BASE}index.html${path.slice(1)}`
+  }
+
   if (path.startsWith('/resources/')) {
     return `${BASE}resources/${path.replace('/resources/', '')}.html`
   }
 
   return routes[path] ?? path
+}
+
+function assetSrc(path) {
+  return `${BASE}${String(path ?? '').replace(/^\//, '')}`
+}
+
+function getServicePrograms(content) {
+  return content.sections.services.cards ?? []
+}
+
+function getProgramById(content, id) {
+  return getServicePrograms(content).find((program) => program.id === id)
+}
+
+function pageHasProgramPanel(programId) {
+  if (PAGE === 'home') {
+    return true
+  }
+
+  if (PAGE === 'aba') {
+    return programId === 'aba'
+  }
+
+  if (PAGE === 'early-learners') {
+    return programId === 'early-learners'
+  }
+
+  if (PAGE === 'feeding-program') {
+    return programId === 'feeding'
+  }
+
+  if (PAGE === 'social-skills-group') {
+    return programId === 'social-skills'
+  }
+
+  if (PAGE === 'referrers') {
+    return programId === 'referral'
+  }
+
+  return false
+}
+
+function relatedProgramHref(program) {
+  if (pageHasProgramPanel(program.id)) {
+    return `#program-${program.id}`
+  }
+
+  return toStaticHref(`/#program-${program.id}`)
 }
 
 function renderButton(action) {
@@ -722,6 +773,120 @@ function renderFaqCategory(category, content) {
         </article>`
 }
 
+function renderListItems(items, ordered = false) {
+  const tag = ordered ? 'ol' : 'ul'
+  return `<${tag}>${(items ?? [])
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .join('')}</${tag}>`
+}
+
+function renderProgramTeam(program, content) {
+  const leader = program.leader
+  const team = program.team ?? []
+
+  if (!leader) {
+    return ''
+  }
+
+  return `<div class="program-team">
+            <h4>${escapeHtml(content.ui.meetTheTeamLabel)}</h4>
+            <figure class="program-leader">
+              <img src="${escapeHtml(assetSrc(leader.photo))}" alt="${escapeHtml(leader.name)}" width="200" height="250" />
+              <figcaption>
+                <strong>${escapeHtml(leader.name)}</strong>
+                <span>${escapeHtml(leader.role)}</span>
+                <p>${escapeHtml(leader.bio)}</p>
+              </figcaption>
+            </figure>
+            ${
+              team.length
+                ? `<ul class="program-team-list">${team
+                    .map(
+                      (member) => `<li>
+                <img src="${escapeHtml(assetSrc(member.photo))}" alt="${escapeHtml(member.name)}" width="72" height="90" />
+                <div>
+                  <strong>${escapeHtml(member.name)}</strong>
+                  <span>${escapeHtml(member.role)}</span>
+                </div>
+              </li>`,
+                    )
+                    .join('')}</ul>`
+                : ''
+            }
+            <p class="program-placeholder-note">${escapeHtml(content.ui.placeholderStaffNote)}</p>
+          </div>`
+}
+
+function renderRelatedPrograms(program, content) {
+  const related = (program.related ?? [])
+    .map((id) => getProgramById(content, id))
+    .filter(Boolean)
+
+  if (!related.length) {
+    return ''
+  }
+
+  return `<div class="program-related">
+            <h4>${escapeHtml(content.ui.relatedProgramsLabel)}</h4>
+            <ul>
+              ${related
+                .map(
+                  (item) => `<li>
+                <a href="${escapeHtml(relatedProgramHref(item))}" data-open-program="${escapeHtml(item.id)}">
+                  <span class="program-related-label">${escapeHtml(item.label)}</span>
+                  <span class="program-related-age">${escapeHtml(item.ageRange ?? '')}</span>
+                </a>
+              </li>`,
+                )
+                .join('')}
+            </ul>
+          </div>`
+}
+
+function renderProgramPanel(program, content, { open = false } = {}) {
+  const ageLabel = content.ui.ageRangeLabel
+  const ageRange = program.ageRange ?? ''
+
+  return `<details class="program-panel" id="program-${escapeHtml(program.id)}"${open ? ' open' : ''}>
+            <summary>
+              <span class="program-panel-summary">
+                <span class="card-label">${escapeHtml(program.label)}</span>
+                <span class="program-panel-title">${escapeHtml(program.title)}</span>
+                ${
+                  ageRange
+                    ? `<span class="program-age-badge">${escapeHtml(ageLabel)}: ${escapeHtml(ageRange)}</span>`
+                    : ''
+                }
+              </span>
+              <span class="program-panel-indicator" aria-hidden="true"></span>
+            </summary>
+            <div class="program-panel-body">
+              <p class="program-summary">${escapeHtml(program.body)}</p>
+              <div class="program-panel-grid">
+                <div class="program-copy">
+                  <section>
+                    <h4>${escapeHtml(ageLabel)}</h4>
+                    <p class="program-age-range"><strong>${escapeHtml(ageRange)}</strong></p>
+                    ${program.ageNote ? `<p>${escapeHtml(program.ageNote)}</p>` : ''}
+                  </section>
+                  <section>
+                    <h4>${escapeHtml(content.ui.programGoalsLabel)}</h4>
+                    ${program.description ? `<p>${escapeHtml(program.description)}</p>` : ''}
+                    ${renderListItems(program.goals)}
+                  </section>
+                  <section>
+                    <h4>${escapeHtml(content.ui.programStructureLabel)}</h4>
+                    ${renderListItems(program.structure, true)}
+                  </section>
+                  <a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(program.href))}">${escapeHtml(program.linkLabel)}</a>
+                </div>
+                ${renderProgramTeam(program, content)}
+              </div>
+              ${renderRelatedPrograms(program, content)}
+            </div>
+          </details>`
+}
+
 function renderHome(content) {
   const { sections, home } = content
   const assets = window.VTCC_SITE?.shared?.assets ?? {}
@@ -739,15 +904,8 @@ function renderHome(content) {
     )
     .join('')
 
-  const serviceCards = sections.services.cards
-    .map(
-      (card) => `<article class="service-card home-service-card">
-            <span class="card-label">${escapeHtml(card.label)}</span>
-            <h3>${escapeHtml(card.title)}</h3>
-            <p>${escapeHtml(card.body)}</p>
-            <a href="${escapeHtml(toStaticHref(card.href))}">${escapeHtml(card.linkLabel)}</a>
-          </article>`,
-    )
+  const serviceCards = getServicePrograms(content)
+    .map((program) => renderProgramPanel(program, content))
     .join('')
 
   const processSteps = sections.process.steps
@@ -809,7 +967,7 @@ function renderHome(content) {
       </section>
       <section id="services" class="section home-services">
         ${renderSectionHeading(sections.services.eyebrow, sections.services.title, sections.services.intro)}
-        <div class="card-grid home-service-grid">${serviceCards}</div>
+        <div class="program-panel-list home-service-grid">${serviceCards}</div>
       </section>
       <section class="section home-start">
         <div class="home-start-panel">
@@ -873,6 +1031,17 @@ function renderDetailSection(section, soft = false) {
       </section>`
 }
 
+function renderProgramDetailPage(content, programId, section) {
+  const program = getProgramById(content, programId)
+  const panel = program
+    ? `<section class="section page-section program-page-intro">
+        <div class="program-panel-list">${renderProgramPanel(program, content, { open: true })}</div>
+      </section>`
+    : ''
+
+  return `${panel}${renderDetailSection(section, true)}`
+}
+
 function renderAbaTopicBody(topic) {
   const paragraphs = (topic.paragraphs ?? [])
     .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
@@ -888,9 +1057,11 @@ function renderAbaTopicBody(topic) {
 
 function renderAbaPage(content) {
   const aba = content.sections.aba
+  const program = getProgramById(content, 'aba')
 
   return `<section class="section aba-page page-section">
         ${renderSectionHeading(aba.eyebrow, aba.title, aba.intro)}
+        ${program ? `<div class="program-panel-list">${renderProgramPanel(program, content, { open: true })}</div>` : ''}
         <div class="aba-topic-list">
           ${aba.topics
             .map(
@@ -973,8 +1144,10 @@ function renderInsurancePage(content) {
 
 function renderReferrersPage(content) {
   const referrers = content.sections.referrers
+  const program = getProgramById(content, 'referral')
   return `<section class="section page-section">
         ${renderSectionHeading(referrers.eyebrow, referrers.title)}
+        ${program ? `<div class="program-panel-list">${renderProgramPanel(program, content, { open: true })}</div>` : ''}
         <div class="path-grid">${referrers.paths
           .map(
             (path) => `<article>
@@ -1237,10 +1410,16 @@ function renderResourceTopic(content) {
     return `<section class="section page-section"><p>Resource not found.</p></section>`
   }
 
+  const programBySlug = {
+    'parent-training-faqs': 'parent-training',
+  }
+  const program = getProgramById(content, programBySlug[RESOURCE_SLUG])
+
   return `<section class="section resources-section page-section">
         <a class="back-button" href="${escapeHtml(toStaticHref('/resources'))}">
           <span aria-hidden="true">←</span> ${escapeHtml(content.ui.backToResources)}
         </a>
+        ${program ? `<div class="program-panel-list">${renderProgramPanel(program, content, { open: true })}</div>` : ''}
         ${renderFaqCategory(category, content)}
       </section>`
 }
@@ -1253,13 +1432,13 @@ function renderMain(content) {
       mainHtml = renderAbaPage(content)
       break
     case 'early-learners':
-      mainHtml = renderDetailSection(content.sections.earlyLearners, true)
+      mainHtml = renderProgramDetailPage(content, 'early-learners', content.sections.earlyLearners)
       break
     case 'feeding-program':
-      mainHtml = renderDetailSection(content.sections.feedingProgram, true)
+      mainHtml = renderProgramDetailPage(content, 'feeding', content.sections.feedingProgram)
       break
     case 'social-skills-group':
-      mainHtml = renderDetailSection(content.sections.socialSkillsGroup, true)
+      mainHtml = renderProgramDetailPage(content, 'social-skills', content.sections.socialSkillsGroup)
       break
     case 'get-started':
       mainHtml = renderProcessPage(content)
@@ -1663,6 +1842,71 @@ function applyDocumentSeo(locale) {
   })
 }
 
+function bindProgramPanels() {
+  const openProgram = (id, { updateHash = true } = {}) => {
+    if (!id) {
+      return false
+    }
+
+    const panel = document.getElementById(`program-${id}`)
+    if (!(panel instanceof HTMLDetailsElement)) {
+      return false
+    }
+
+    panel.open = true
+
+    if (updateHash) {
+      history.replaceState(null, '', `#program-${id}`)
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    panel.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' })
+    return true
+  }
+
+  const openFromHash = () => {
+    const hash = window.location.hash.replace(/^#/, '')
+    if (!hash.startsWith('program-')) {
+      return
+    }
+
+    openProgram(hash.replace(/^program-/, ''), { updateHash: false })
+  }
+
+  document.querySelectorAll('[data-open-program]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const id = link.getAttribute('data-open-program')
+      if (!document.getElementById(`program-${id}`)) {
+        return
+      }
+
+      event.preventDefault()
+      openProgram(id)
+    })
+  })
+
+  document.querySelectorAll('details.program-panel').forEach((panel) => {
+    panel.addEventListener('toggle', () => {
+      if (panel.open) {
+        history.replaceState(null, '', `#${panel.id}`)
+        return
+      }
+
+      if (window.location.hash === `#${panel.id}`) {
+        history.replaceState(null, '', `${window.location.pathname}${window.location.search}`)
+      }
+    })
+  })
+
+  if (bindProgramPanels.hashHandler) {
+    window.removeEventListener('hashchange', bindProgramPanels.hashHandler)
+  }
+
+  bindProgramPanels.hashHandler = openFromHash
+  window.addEventListener('hashchange', openFromHash)
+  openFromHash()
+}
+
 function render() {
   const locale = getLocale()
   const content = getContent()
@@ -1682,6 +1926,7 @@ function render() {
   bindFaqSearch(content)
   bindRequestForms(content)
   bindCareerApplication(content)
+  bindProgramPanels()
 
   const toggleAll = document.querySelector('[data-faq-toggle-all]')
   const faqList = document.querySelector('[data-faq-list]')

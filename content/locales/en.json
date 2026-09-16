@@ -32,7 +32,13 @@
     "careerFileRemove": "Remove file",
     "careerFormSubmitting": "Preparing application...",
     "careerFormSuccess": "Your sample application is ready. In a production version, VTCC would receive it through an approved secure process.",
-    "careerFormError": "We could not prepare the application. Please review the highlighted fields and try again."
+    "careerFormError": "We could not prepare the application. Please review the highlighted fields and try again.",
+    "ageRangeLabel": "Ages served",
+    "meetTheTeamLabel": "Meet the team",
+    "relatedProgramsLabel": "Related programs",
+    "programGoalsLabel": "Goals",
+    "programStructureLabel": "How the program is structured",
+    "placeholderStaffNote": "Staff names, photos, and titles are placeholders until VTCC approves published bios."
   },
   "company": {
     "name": "Victoria Transcultural Clinical Center",
@@ -235,37 +241,237 @@
       "intro": "Choose the path that fits your family or your referral. VTCC supports both with clear next steps.",
       "cards": [
         {
+          "id": "aba",
           "label": "ABA Therapy",
           "title": "Build meaningful skills with an individualized plan",
           "body": "Applied Behavior Analysis helps children build meaningful skills through individualized goals, positive reinforcement, parent training, and ongoing progress monitoring.",
+          "ageRange": "Typically 18 months–21 years",
+          "ageNote": "Early intervention often begins before age 4. ABA can also support school-age children and adolescents when clinically appropriate. Final eligibility depends on assessment, funding, and authorization.",
+          "description": "ABA is built around each child's strengths, routines, and family priorities. A BCBA assesses current skills, writes measurable goals, and updates the plan as the child grows.",
+          "goals": [
+            "Strengthen communication, social interaction, and play",
+            "Build daily living, self-care, and school-readiness skills",
+            "Teach safer replacement behaviors and emotional regulation",
+            "Help caregivers practice strategies across everyday routines"
+          ],
+          "structure": [
+            "A BCBA completes an assessment and reviews family priorities.",
+            "An individualized treatment plan and behavior support plan are created.",
+            "Behavior technicians provide direct therapy under BCBA supervision.",
+            "Caregivers receive coaching so skills can be practiced between sessions.",
+            "Progress is monitored regularly and goals are updated over time."
+          ],
+          "leader": {
+            "name": "Jordan Hale, BCBA",
+            "role": "ABA Program Lead (placeholder)",
+            "bio": "Placeholder lead for ABA. Coordinates assessment, supervision, and family coaching once VTCC publishes approved staff bios.",
+            "photo": "/assets/team/jordan-hale.svg"
+          },
+          "team": [
+            {
+              "name": "Sam Rivera, RBT",
+              "role": "Lead behavior technician (placeholder)",
+              "photo": "/assets/team/sam-rivera.svg"
+            },
+            {
+              "name": "Priya Shah, BCBA",
+              "role": "Supervising analyst (placeholder)",
+              "photo": "/assets/team/priya-shah.svg"
+            }
+          ],
+          "related": [
+            "early-learners",
+            "feeding",
+            "social-skills",
+            "referral"
+          ],
           "linkLabel": "Learn about ABA",
           "href": "/aba"
         },
         {
+          "id": "early-learners",
           "label": "Early Learners",
           "title": "Prepare for school and social settings",
           "body": "The Early Learners program helps preschool-aged children practice communication, play, routines, and early learning skills for school and social settings.",
+          "ageRange": "Typically ages 2–5",
+          "ageNote": "This program is designed for preschool-aged children. Eligibility depends on assessment, funding, and authorization.",
+          "description": "Early Learners focuses on the routines and skills that help a child participate in school and social settings: communication, play, following directions, and independence.",
+          "goals": [
+            "Build school-readiness routines and transitions",
+            "Strengthen communication and early learning skills",
+            "Support play, participation, and social engagement",
+            "Practice following directions and growing independence"
+          ],
+          "structure": [
+            "A clinician reviews the child's current skills and family priorities.",
+            "Individualized goals are written for routines, communication, and play.",
+            "Sessions practice those skills in familiar settings.",
+            "Caregivers receive coaching so practice can continue at home.",
+            "Progress is monitored and the plan is updated as skills grow."
+          ],
+          "leader": {
+            "name": "Nia Brooks, BCBA",
+            "role": "Early Learners Program Lead (placeholder)",
+            "bio": "Placeholder lead for Early Learners. Represents the clinician who would guide preschool-age skill building once VTCC approves published bios.",
+            "photo": "/assets/team/nia-brooks.svg"
+          },
+          "team": [
+            {
+              "name": "Jordan Hale, BCBA",
+              "role": "ABA Program Lead (placeholder)",
+              "photo": "/assets/team/jordan-hale.svg"
+            },
+            {
+              "name": "Avery Patel",
+              "role": "Family coach (placeholder)",
+              "photo": "/assets/team/avery-patel.svg"
+            }
+          ],
+          "related": [
+            "aba",
+            "social-skills",
+            "feeding"
+          ],
           "linkLabel": "Learn about Early Learners",
           "href": "/early-learners"
         },
         {
+          "id": "feeding",
           "label": "Feeding Program",
           "title": "Expand food repertoire and preferences",
           "body": "The Feeding Program uses ABA practices to support children as they build comfort with a wider variety of foods, tastes, textures, and mealtime routines.",
+          "ageRange": "Typically ages 2–12",
+          "ageNote": "Feeding support is individualized. Age fit, goals, and duration depend on assessment, family priorities, funding, and authorization.",
+          "description": "The program uses positive, gradual practice so children can become more comfortable with new foods and more flexible at meals. Caregivers are partners in everyday mealtime routines.",
+          "goals": [
+            "Expand the variety of foods a child accepts",
+            "Build comfort with new tastes, textures, and presentation",
+            "Support calmer, more predictable mealtime routines",
+            "Practice flexible food preferences at a manageable pace"
+          ],
+          "structure": [
+            "The team assesses current eating patterns and family priorities.",
+            "Individualized goals and positive reinforcement strategies are written.",
+            "Practice happens in sessions and, when appropriate, during everyday meals.",
+            "Caregivers learn how to support new foods without extra pressure.",
+            "Progress is reviewed and the plan is adjusted based on the child's response."
+          ],
+          "leader": {
+            "name": "Leo Garcia, BCBA",
+            "role": "Feeding Program Lead (placeholder)",
+            "bio": "Placeholder lead for the Feeding Program. Represents the clinician who would guide mealtime goals once VTCC approves published bios.",
+            "photo": "/assets/team/leo-garcia.svg"
+          },
+          "team": [
+            {
+              "name": "Priya Shah, BCBA",
+              "role": "Supervising analyst (placeholder)",
+              "photo": "/assets/team/priya-shah.svg"
+            },
+            {
+              "name": "Sam Rivera, RBT",
+              "role": "Lead behavior technician (placeholder)",
+              "photo": "/assets/team/sam-rivera.svg"
+            }
+          ],
+          "related": [
+            "aba",
+            "early-learners"
+          ],
           "linkLabel": "Learn about Feeding",
           "href": "/feeding-program"
         },
         {
+          "id": "social-skills",
           "label": "Social Skills Group",
           "title": "Practice advanced social skills with peers",
           "body": "The Social Skills Group supports clients who are ready to practice skills such as sarcasm, conversation, flexible thinking, and age-appropriate peer play.",
+          "ageRange": "Typically school-age children and adolescents",
+          "ageNote": "The group is for clients who are ready for more advanced peer practice. Fit depends on assessment, current goals, funding, and authorization.",
+          "description": "Participants practice realistic social interactions in a small group with coaching from trained staff. Families help carry the same skills into school, home, and community settings.",
+          "goals": [
+            "Understand sarcasm, humor, and implied meaning",
+            "Practice back-and-forth conversation and flexible thinking",
+            "Join age-appropriate peer play and shared activities",
+            "Repair misunderstandings and solve problems with peers"
+          ],
+          "structure": [
+            "A clinician confirms group fit and current social goals.",
+            "Sessions use small-group practice with individualized targets.",
+            "Staff coach and give positive feedback during realistic interactions.",
+            "Families receive guidance so skills can be practiced outside the group.",
+            "Goals are updated as the child or adolescent becomes more independent."
+          ],
+          "leader": {
+            "name": "Maya Okonkwo, BCBA",
+            "role": "Social Skills Group Lead (placeholder)",
+            "bio": "Placeholder lead for the Social Skills Group. Represents the clinician who would guide peer-practice groups once VTCC approves published bios.",
+            "photo": "/assets/team/maya-okonkwo.svg"
+          },
+          "team": [
+            {
+              "name": "Riley Chen, BCBA",
+              "role": "Parent Training Lead (placeholder)",
+              "photo": "/assets/team/riley-chen.svg"
+            },
+            {
+              "name": "Taylor Brooks",
+              "role": "Group facilitator (placeholder)",
+              "photo": "/assets/team/taylor-brooks.svg"
+            }
+          ],
+          "related": [
+            "aba",
+            "early-learners"
+          ],
           "linkLabel": "Learn about Social Skills",
           "href": "/social-skills-group"
         },
         {
+          "id": "referral",
           "label": "Referral Support",
           "title": "Help families and professionals take the next step",
           "body": "Families, schools, doctors, case managers, and county partners can contact VTCC to ask about services, eligibility, required forms, and funding next steps.",
+          "ageRange": "Children, adolescents, and families VTCC may serve",
+          "ageNote": "Referral support is available to families and professionals who want to understand whether ABA, Early Learners, Feeding, Social Skills, or another pathway should be explored. It is not a clinical program by itself.",
+          "description": "This pathway helps callers share basic information, identify likely funding routes, and gather the right paperwork before intake. VTCC can discuss general fit, but final eligibility depends on authorization and assessment.",
+          "goals": [
+            "Make it easier to start the program that may fit",
+            "Help families and referrers understand forms and funding questions",
+            "Collect the non-sensitive details VTCC needs to respond",
+            "Point callers to the right office, form, or next conversation"
+          ],
+          "structure": [
+            "A family or professional contacts VTCC by phone or form.",
+            "The team asks which service is needed and how it may be funded.",
+            "Callers receive guidance on intake or referral paperwork.",
+            "VTCC reviews available information and outlines next steps.",
+            "If appropriate, assessment scheduling and treatment planning follow."
+          ],
+          "leader": {
+            "name": "Cameron Ortiz",
+            "role": "Referral and intake coordinator (placeholder)",
+            "bio": "Placeholder coordinator for referrals and first-contact questions. Helps families and professionals know what to send and whom to call.",
+            "photo": "/assets/team/cameron-ortiz.svg"
+          },
+          "team": [
+            {
+              "name": "Quinn Alvarez",
+              "role": "Funding specialist (placeholder)",
+              "photo": "/assets/team/quinn-alvarez.svg"
+            },
+            {
+              "name": "Dana Kim",
+              "role": "Family navigator (placeholder)",
+              "photo": "/assets/team/dana-kim.svg"
+            }
+          ],
+          "related": [
+            "aba",
+            "early-learners",
+            "feeding",
+            "social-skills"
+          ],
           "linkLabel": "Refer a client",
           "href": "/referrers"
         }

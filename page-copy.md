@@ -34,21 +34,136 @@ ABA Therapy:
 
 Applied Behavior Analysis helps children build meaningful skills through individualized goals, positive reinforcement, parent training, and ongoing progress monitoring.
 
+Ages served: Typically 18 months–21 years
+
+Early intervention often begins before age 4. ABA can also support school-age children and adolescents when clinically appropriate. Final eligibility depends on assessment, funding, and authorization.
+
+ABA is built around each child's strengths, routines, and family priorities. A BCBA assesses current skills, writes measurable goals, and updates the plan as the child grows.
+
+Goals:
+
+- Strengthen communication, social interaction, and play
+- Build daily living, self-care, and school-readiness skills
+- Teach safer replacement behaviors and emotional regulation
+- Help caregivers practice strategies across everyday routines
+
+Structure:
+
+1. A BCBA completes an assessment and reviews family priorities.
+2. An individualized treatment plan and behavior support plan are created.
+3. Behavior technicians provide direct therapy under BCBA supervision.
+4. Caregivers receive coaching so skills can be practiced between sessions.
+5. Progress is monitored regularly and goals are updated over time.
+
+Related programs: early-learners, feeding, social-skills, referral
+
 Early Learners:
 
 The Early Learners program helps preschool-aged children practice communication, play, routines, and early learning skills for school and social settings.
+
+Ages served: Typically ages 2–5
+
+This program is designed for preschool-aged children. Eligibility depends on assessment, funding, and authorization.
+
+Early Learners focuses on the routines and skills that help a child participate in school and social settings: communication, play, following directions, and independence.
+
+Goals:
+
+- Build school-readiness routines and transitions
+- Strengthen communication and early learning skills
+- Support play, participation, and social engagement
+- Practice following directions and growing independence
+
+Structure:
+
+1. A clinician reviews the child's current skills and family priorities.
+2. Individualized goals are written for routines, communication, and play.
+3. Sessions practice those skills in familiar settings.
+4. Caregivers receive coaching so practice can continue at home.
+5. Progress is monitored and the plan is updated as skills grow.
+
+Related programs: aba, social-skills, feeding
 
 Feeding Program:
 
 The Feeding Program uses ABA practices to support children as they build comfort with a wider variety of foods, tastes, textures, and mealtime routines.
 
+Ages served: Typically ages 2–12
+
+Feeding support is individualized. Age fit, goals, and duration depend on assessment, family priorities, funding, and authorization.
+
+The program uses positive, gradual practice so children can become more comfortable with new foods and more flexible at meals. Caregivers are partners in everyday mealtime routines.
+
+Goals:
+
+- Expand the variety of foods a child accepts
+- Build comfort with new tastes, textures, and presentation
+- Support calmer, more predictable mealtime routines
+- Practice flexible food preferences at a manageable pace
+
+Structure:
+
+1. The team assesses current eating patterns and family priorities.
+2. Individualized goals and positive reinforcement strategies are written.
+3. Practice happens in sessions and, when appropriate, during everyday meals.
+4. Caregivers learn how to support new foods without extra pressure.
+5. Progress is reviewed and the plan is adjusted based on the child's response.
+
+Related programs: aba, early-learners
+
 Social Skills Group:
 
 The Social Skills Group supports clients who are ready to practice skills such as sarcasm, conversation, flexible thinking, and age-appropriate peer play.
 
-Referral and Funding Support:
+Ages served: Typically school-age children and adolescents
+
+The group is for clients who are ready for more advanced peer practice. Fit depends on assessment, current goals, funding, and authorization.
+
+Participants practice realistic social interactions in a small group with coaching from trained staff. Families help carry the same skills into school, home, and community settings.
+
+Goals:
+
+- Understand sarcasm, humor, and implied meaning
+- Practice back-and-forth conversation and flexible thinking
+- Join age-appropriate peer play and shared activities
+- Repair misunderstandings and solve problems with peers
+
+Structure:
+
+1. A clinician confirms group fit and current social goals.
+2. Sessions use small-group practice with individualized targets.
+3. Staff coach and give positive feedback during realistic interactions.
+4. Families receive guidance so skills can be practiced outside the group.
+5. Goals are updated as the child or adolescent becomes more independent.
+
+Related programs: aba, early-learners
+
+Referral Support:
 
 Families, schools, doctors, case managers, and county partners can contact VTCC to ask about services, eligibility, required forms, and funding next steps.
+
+Ages served: Children, adolescents, and families VTCC may serve
+
+Referral support is available to families and professionals who want to understand whether ABA, Early Learners, Feeding, Social Skills, or another pathway should be explored. It is not a clinical program by itself.
+
+This pathway helps callers share basic information, identify likely funding routes, and gather the right paperwork before intake. VTCC can discuss general fit, but final eligibility depends on authorization and assessment.
+
+Goals:
+
+- Make it easier to start the program that may fit
+- Help families and referrers understand forms and funding questions
+- Collect the non-sensitive details VTCC needs to respond
+- Point callers to the right office, form, or next conversation
+
+Structure:
+
+1. A family or professional contacts VTCC by phone or form.
+2. The team asks which service is needed and how it may be funded.
+3. Callers receive guidance on intake or referral paperwork.
+4. VTCC reviews available information and outlines next steps.
+5. If appropriate, assessment scheduling and treatment planning follow.
+
+Related programs: aba, early-learners, feeding, social-skills
 
 ### How To Get Started
 
