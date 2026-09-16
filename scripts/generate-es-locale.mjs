@@ -17,6 +17,13 @@ Object.assign(es.ui, {
   expandAll: 'Expandir todo',
   collapseAll: 'Contraer todo',
   guidesNavLabel: 'Preguntas y guías',
+  ageRangeLabel: 'Edades que atiende',
+  meetTheTeamLabel: 'Conozca al equipo',
+  relatedProgramsLabel: 'Programas relacionados',
+  programGoalsLabel: 'Metas',
+  programStructureLabel: 'Cómo está estructurado el programa',
+  placeholderStaffNote:
+    'Los nombres, fotos y cargos del personal son marcadores de posición hasta que VTCC apruebe las biografías publicadas.',
 })
 
 Object.assign(es.company, {
@@ -561,40 +568,240 @@ Object.assign(es.sections.services, {
 
 es.sections.services.cards = [
   {
-    label: 'Terapia ABA',
-    title: 'Desarrolle habilidades significativas con un plan individualizado',
-    body: 'El Análisis de Conducta Aplicado ayuda a los niños a desarrollar habilidades significativas mediante metas individualizadas, refuerzo positivo, capacitación para padres y monitoreo continuo del progreso.',
-    linkLabel: 'Conozca la ABA',
-    href: '/aba',
+    "id": "aba",
+    "label": "Terapia ABA",
+    "title": "Desarrolle habilidades significativas con un plan individualizado",
+    "body": "El Análisis de Conducta Aplicado ayuda a los niños a desarrollar habilidades significativas mediante metas individualizadas, refuerzo positivo, capacitación para padres y monitoreo continuo del progreso.",
+    "ageRange": "Por lo general, de 18 meses a 21 años",
+    "ageNote": "La intervención temprana suele comenzar antes de los 4 años. ABA también puede apoyar a niños en edad escolar y adolescentes cuando es clínicamente apropiado. La elegibilidad final depende de la evaluación, el financiamiento y la autorización.",
+    "description": "ABA se construye alrededor de las fortalezas, rutinas y prioridades de cada familia. Un BCBA evalúa las habilidades actuales, escribe metas medibles y actualiza el plan a medida que el niño crece.",
+    "goals": [
+      "Fortalecer la comunicación, la interacción social y el juego",
+      "Desarrollar habilidades de la vida diaria, autocuidado y preparación escolar",
+      "Enseñar conductas de reemplazo más seguras y regulación emocional",
+      "Ayudar a los cuidadores a practicar estrategias en las rutinas diarias"
+    ],
+    "structure": [
+      "Un BCBA completa una evaluación y revisa las prioridades de la familia.",
+      "Se crea un plan de tratamiento individualizado y un plan de apoyo conductual.",
+      "Los técnicos de conducta brindan terapia directa bajo supervisión del BCBA.",
+      "Los cuidadores reciben orientación para practicar habilidades entre sesiones.",
+      "El progreso se monitorea con regularidad y las metas se actualizan con el tiempo."
+    ],
+    "leader": {
+      "name": "Jordan Hale, BCBA",
+      "role": "Líder del programa ABA (marcador de posición)",
+      "bio": "Líder provisional de ABA. Coordina la evaluación, la supervisión y la orientación familiar hasta que VTCC publique biografías aprobadas.",
+      "photo": "/assets/team/jordan-hale.svg"
+    },
+    "team": [
+      {
+        "name": "Sam Rivera, RBT",
+        "role": "Técnico de conducta principal (marcador de posición)",
+        "photo": "/assets/team/sam-rivera.svg"
+      },
+      {
+        "name": "Priya Shah, BCBA",
+        "role": "Analista supervisora (marcador de posición)",
+        "photo": "/assets/team/priya-shah.svg"
+      }
+    ],
+    "related": [
+      "early-learners",
+      "feeding",
+      "social-skills",
+      "referral"
+    ],
+    "linkLabel": "Conozca la ABA",
+    "href": "/aba"
   },
   {
-    label: 'Primeros Aprendices',
-    title: 'Prepárese para la escuela y los entornos sociales',
-    body: 'El programa de Primeros Aprendices ayuda a niños en edad preescolar a practicar comunicación, juego, rutinas y habilidades de aprendizaje temprano para la escuela y los entornos sociales.',
-    linkLabel: 'Conozca Primeros Aprendices',
-    href: '/early-learners',
+    "id": "early-learners",
+    "label": "Primeros Aprendices",
+    "title": "Prepárese para la escuela y los entornos sociales",
+    "body": "El programa de Primeros Aprendices ayuda a niños en edad preescolar a practicar comunicación, juego, rutinas y habilidades de aprendizaje temprano para la escuela y los entornos sociales.",
+    "ageRange": "Por lo general, de 2 a 5 años",
+    "ageNote": "Este programa está diseñado para niños en edad preescolar. La elegibilidad depende de la evaluación, el financiamiento y la autorización.",
+    "description": "Primeros Aprendices se centra en las rutinas y habilidades que ayudan a un niño a participar en la escuela y en entornos sociales: comunicación, juego, seguir instrucciones e independencia.",
+    "goals": [
+      "Construir rutinas y transiciones de preparación escolar",
+      "Fortalecer la comunicación y las habilidades de aprendizaje temprano",
+      "Apoyar el juego, la participación y el compromiso social",
+      "Practicar seguir instrucciones y crecer en independencia"
+    ],
+    "structure": [
+      "Un clínico revisa las habilidades actuales del niño y las prioridades de la familia.",
+      "Se escriben metas individualizadas para rutinas, comunicación y juego.",
+      "Las sesiones practican esas habilidades en entornos familiares.",
+      "Los cuidadores reciben orientación para continuar la práctica en casa.",
+      "El progreso se monitorea y el plan se actualiza a medida que crecen las habilidades."
+    ],
+    "leader": {
+      "name": "Nia Brooks, BCBA",
+      "role": "Líder de Primeros Aprendices (marcador de posición)",
+      "bio": "Líder provisional de Primeros Aprendices. Representa al clínico que guiaría el desarrollo de habilidades en edad preescolar una vez que VTCC apruebe las biografías publicadas.",
+      "photo": "/assets/team/nia-brooks.svg"
+    },
+    "team": [
+      {
+        "name": "Jordan Hale, BCBA",
+        "role": "Líder del programa ABA (marcador de posición)",
+        "photo": "/assets/team/jordan-hale.svg"
+      },
+      {
+        "name": "Avery Patel",
+        "role": "Coach familiar (marcador de posición)",
+        "photo": "/assets/team/avery-patel.svg"
+      }
+    ],
+    "related": [
+      "aba",
+      "social-skills",
+      "feeding"
+    ],
+    "linkLabel": "Conozca Primeros Aprendices",
+    "href": "/early-learners"
   },
   {
-    label: 'Programa de Alimentación',
-    title: 'Amplíe el repertorio y las preferencias alimentarias',
-    body: 'El Programa de Alimentación utiliza prácticas ABA para apoyar a los niños mientras desarrollan comodidad con una mayor variedad de alimentos, sabores, texturas y rutinas de comida.',
-    linkLabel: 'Conozca el programa de alimentación',
-    href: '/feeding-program',
+    "id": "feeding",
+    "label": "Programa de Alimentación",
+    "title": "Amplíe el repertorio y las preferencias alimentarias",
+    "body": "El Programa de Alimentación utiliza prácticas ABA para apoyar a los niños mientras desarrollan comodidad con una mayor variedad de alimentos, sabores, texturas y rutinas de comida.",
+    "ageRange": "Por lo general, de 2 a 12 años",
+    "ageNote": "El apoyo de alimentación es individualizado. La edad, las metas y la duración dependen de la evaluación, las prioridades familiares, el financiamiento y la autorización.",
+    "description": "El programa usa práctica positiva y gradual para que los niños se sientan más cómodos con alimentos nuevos y más flexibles en las comidas. Los cuidadores son socios en las rutinas diarias.",
+    "goals": [
+      "Ampliar la variedad de alimentos que el niño acepta",
+      "Desarrollar comodidad con nuevos sabores, texturas y presentaciones",
+      "Apoyar rutinas de comida más tranquilas y predecibles",
+      "Practicar preferencias alimentarias flexibles a un ritmo manejable"
+    ],
+    "structure": [
+      "El equipo evalúa los patrones actuales de alimentación y las prioridades familiares.",
+      "Se escriben metas individualizadas y estrategias de refuerzo positivo.",
+      "La práctica ocurre en sesiones y, cuando es apropiado, durante las comidas diarias.",
+      "Los cuidadores aprenden a apoyar alimentos nuevos sin añadir presión.",
+      "El progreso se revisa y el plan se ajusta según la respuesta del niño."
+    ],
+    "leader": {
+      "name": "Leo Garcia, BCBA",
+      "role": "Líder del Programa de Alimentación (marcador de posición)",
+      "bio": "Líder provisional del Programa de Alimentación. Representa al clínico que guiaría las metas de comida una vez que VTCC apruebe las biografías publicadas.",
+      "photo": "/assets/team/leo-garcia.svg"
+    },
+    "team": [
+      {
+        "name": "Priya Shah, BCBA",
+        "role": "Analista supervisora (marcador de posición)",
+        "photo": "/assets/team/priya-shah.svg"
+      },
+      {
+        "name": "Sam Rivera, RBT",
+        "role": "Técnico de conducta principal (marcador de posición)",
+        "photo": "/assets/team/sam-rivera.svg"
+      }
+    ],
+    "related": [
+      "aba",
+      "early-learners"
+    ],
+    "linkLabel": "Conozca el programa de alimentación",
+    "href": "/feeding-program"
   },
   {
-    label: 'Grupo de Habilidades Sociales',
-    title: 'Practique habilidades sociales avanzadas con compañeros',
-    body: 'El Grupo de Habilidades Sociales apoya a clientes que están listos para practicar sarcasmo, conversación, pensamiento flexible y juego apropiado para su edad con compañeros.',
-    linkLabel: 'Conozca el grupo social',
-    href: '/social-skills-group',
+    "id": "social-skills",
+    "label": "Grupo de Habilidades Sociales",
+    "title": "Practique habilidades sociales avanzadas con compañeros",
+    "body": "El Grupo de Habilidades Sociales apoya a clientes que están listos para practicar sarcasmo, conversación, pensamiento flexible y juego apropiado para su edad con compañeros.",
+    "ageRange": "Por lo general, niños en edad escolar y adolescentes",
+    "ageNote": "El grupo es para clientes listos para una práctica más avanzada con compañeros. La compatibilidad depende de la evaluación, las metas actuales, el financiamiento y la autorización.",
+    "description": "Los participantes practican interacciones sociales reales en un grupo pequeño con orientación del personal. Las familias ayudan a llevar las mismas habilidades a la escuela, el hogar y la comunidad.",
+    "goals": [
+      "Comprender el sarcasmo, el humor y el significado implícito",
+      "Practicar la conversación de ida y vuelta y el pensamiento flexible",
+      "Unirse al juego y a actividades compartidas apropiadas para la edad",
+      "Reparar malentendidos y resolver problemas con compañeros"
+    ],
+    "structure": [
+      "Un clínico confirma la compatibilidad con el grupo y las metas sociales actuales.",
+      "Las sesiones usan práctica en grupo pequeño con objetivos individualizados.",
+      "El personal orienta y da retroalimentación positiva durante interacciones reales.",
+      "Las familias reciben guía para practicar las habilidades fuera del grupo.",
+      "Las metas se actualizan a medida que el niño o adolescente gana independencia."
+    ],
+    "leader": {
+      "name": "Maya Okonkwo, BCBA",
+      "role": "Líder del Grupo de Habilidades Sociales (marcador de posición)",
+      "bio": "Líder provisional del Grupo de Habilidades Sociales. Representa al clínico que guiaría los grupos de práctica con compañeros una vez que VTCC apruebe las biografías publicadas.",
+      "photo": "/assets/team/maya-okonkwo.svg"
+    },
+    "team": [
+      {
+        "name": "Riley Chen, BCBA",
+        "role": "Líder de capacitación para padres (marcador de posición)",
+        "photo": "/assets/team/riley-chen.svg"
+      },
+      {
+        "name": "Taylor Brooks",
+        "role": "Facilitador de grupo (marcador de posición)",
+        "photo": "/assets/team/taylor-brooks.svg"
+      }
+    ],
+    "related": [
+      "aba",
+      "early-learners"
+    ],
+    "linkLabel": "Conozca el grupo social",
+    "href": "/social-skills-group"
   },
   {
-    label: 'Apoyo de Referencias',
-    title: 'Ayude a familias y profesionales a dar el siguiente paso',
-    body: 'Familias, escuelas, médicos, administradores de casos y socios del condado pueden contactar a VTCC para preguntar sobre servicios, elegibilidad, formularios requeridos y pasos de financiamiento.',
-    linkLabel: 'Referir un cliente',
-    href: '/referrers',
-  },
+    "id": "referral",
+    "label": "Apoyo de Referencias",
+    "title": "Ayude a familias y profesionales a dar el siguiente paso",
+    "body": "Familias, escuelas, médicos, administradores de casos y socios del condado pueden contactar a VTCC para preguntar sobre servicios, elegibilidad, formularios requeridos y pasos de financiamiento.",
+    "ageRange": "Niños, adolescentes y familias que VTCC puede atender",
+    "ageNote": "El apoyo de referencias está disponible para familias y profesionales que quieren entender si se debe explorar ABA, Primeros Aprendices, Alimentación, Habilidades Sociales u otra vía. No es un programa clínico por sí mismo.",
+    "description": "Esta vía ayuda a quienes llaman a compartir información básica, identificar posibles rutas de financiamiento y reunir la documentación correcta antes de la admisión. VTCC puede hablar sobre la compatibilidad general, pero la elegibilidad final depende de la autorización y la evaluación.",
+    "goals": [
+      "Facilitar el inicio del programa que pueda ser adecuado",
+      "Ayudar a familias y referentes a entender formularios y preguntas de financiamiento",
+      "Reunir los detalles no sensibles que VTCC necesita para responder",
+      "Dirigir a las personas a la oficina, el formulario o la conversación correcta"
+    ],
+    "structure": [
+      "Una familia o un profesional contacta a VTCC por teléfono o formulario.",
+      "El equipo pregunta qué servicio se necesita y cómo podría financiarse.",
+      "Quienes llaman reciben orientación sobre la documentación de admisión o referencia.",
+      "VTCC revisa la información disponible y describe los siguientes pasos.",
+      "Si es apropiado, siguen la programación de la evaluación y la planificación del tratamiento."
+    ],
+    "leader": {
+      "name": "Cameron Ortiz",
+      "role": "Coordinador de referencias y admisión (marcador de posición)",
+      "bio": "Coordinador provisional para referencias y primeras preguntas. Ayuda a familias y profesionales a saber qué enviar y a quién llamar.",
+      "photo": "/assets/team/cameron-ortiz.svg"
+    },
+    "team": [
+      {
+        "name": "Quinn Alvarez",
+        "role": "Especialista en financiamiento (marcador de posición)",
+        "photo": "/assets/team/quinn-alvarez.svg"
+      },
+      {
+        "name": "Dana Kim",
+        "role": "Navegador familiar (marcador de posición)",
+        "photo": "/assets/team/dana-kim.svg"
+      }
+    ],
+    "related": [
+      "aba",
+      "early-learners",
+      "feeding",
+      "social-skills"
+    ],
+    "linkLabel": "Referir un cliente",
+    "href": "/referrers"
+  }
 ]
 
 Object.assign(es.sections.process, {

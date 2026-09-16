@@ -196,25 +196,22 @@ ${content.hero.supportingLine}
 
 ${content.sections.services.intro}
 
-ABA Therapy:
+${content.sections.services.cards
+  .map((program) => {
+    const goals = program.goals?.length ? `\n\nGoals:\n\n${bulletList(program.goals)}` : ''
+    const structure = program.structure?.length
+      ? `\n\nStructure:\n\n${numberedList(program.structure)}`
+      : ''
+    const ages = program.ageRange ? `\n\nAges served: ${program.ageRange}` : ''
+    const related = program.related?.length
+      ? `\n\nRelated programs: ${program.related.join(', ')}`
+      : ''
 
-${content.sections.services.cards[0].body}
-
-Early Learners:
-
-${content.sections.services.cards[1].body}
-
-Feeding Program:
-
-${content.sections.services.cards[2].body}
-
-Social Skills Group:
-
-${content.sections.services.cards[3].body}
-
-Referral and Funding Support:
-
-${content.sections.services.cards[4].body}
+    return `${program.label}:\n\n${program.body}${ages}${
+      program.ageNote ? `\n\n${program.ageNote}` : ''
+    }${program.description ? `\n\n${program.description}` : ''}${goals}${structure}${related}`
+  })
+  .join('\n\n')}
 
 ### How To Get Started
 
