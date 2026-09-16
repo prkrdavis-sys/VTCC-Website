@@ -36,6 +36,7 @@ const pages = [
   { file: 'referrers.html', page: 'referrers', base: '' },
   { file: 'about.html', page: 'about', base: '' },
   { file: 'career.html', page: 'career', base: '' },
+  { file: 'careers.html', page: 'career', base: '', seoPage: 'career' },
   { file: join('career', 'apply.html'), page: 'career-apply', base: '../', seoPage: 'career' },
   { file: 'contact.html', page: 'contact', base: '' },
   { file: join('contact', 'referral.html'), page: 'contact-referral', base: '../' },

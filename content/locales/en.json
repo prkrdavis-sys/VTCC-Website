@@ -1009,6 +1009,10 @@
             "style": "speech"
           }
         ]
+      },
+      "careersLink": {
+        "label": "Explore careers at VTCC",
+        "href": "/career"
       }
     },
     "contact": {
@@ -1115,6 +1119,252 @@
         "title": "Ready to take the next step?",
         "body": "Submit a sample application to preview the information VTCC would request from future candidates.",
         "buttonLabel": "Apply Now"
+      },
+      "facts": [
+        {
+          "value": "Fairfax clinic",
+          "label": "10565 Fairfax Boulevard, Suite 300"
+        },
+        {
+          "value": "Founded 2001",
+          "label": "Serving children, adolescents, and families"
+        },
+        {
+          "value": "ABA programs",
+          "label": "Therapy, Early Learners, Feeding, and Social Skills"
+        }
+      ],
+      "factsNote": "Fairfax is the only office listed on the current site. This page does not list staff headcount because VTCC has not published an employee total.",
+      "structure": {
+        "eyebrow": "How the team is organized",
+        "title": "Clear clinical roles, from technician to analyst",
+        "intro": "ABA cases are designed by a Board Certified Behavior Analyst and carried out by trained technicians under that supervision. Specialized programs sit alongside that clinical structure. Titles below describe how care is organized—not a published org chart or headcount.",
+        "roles": [
+          {
+            "title": "Behavior Technician (BT)",
+            "level": "Direct care",
+            "body": "BTs provide most day-to-day ABA sessions. They implement the treatment plan, collect data, and practice skills with the child under a BCBA's direction. Many BTs complete VTCC's RBT training pathway while they work."
+          },
+          {
+            "title": "Senior Lead Behavior Technician (SLBT)",
+            "level": "Lead clinical support",
+            "body": "SLBTs are experienced technicians who take on higher-level clinical help: assessment support, new-hire training, side-by-side coaching, Safety-Care instruction, and Initial Home checklist interviews."
+          },
+          {
+            "title": "Student Analyst",
+            "level": "Graduate fieldwork",
+            "body": "RBTs enrolled in a qualifying master's program who accrue BACB restricted and unrestricted fieldwork hours on the job, under a qualified supervisor and a signed fieldwork contract."
+          },
+          {
+            "title": "Board Certified Behavior Analyst (BCBA)",
+            "level": "Clinical leadership",
+            "body": "BCBAs assess needs, write treatment and behavior-support plans, supervise technicians, train caregivers, and monitor progress. Independent practice in Virginia also requires state licensure."
+          },
+          {
+            "title": "Specialized program clinicians",
+            "level": "Early Learners, Feeding, and Social Skills",
+            "body": "Clinicians in VTCC’s specialized programs support early learning, feeding, and social-skills work under the same culturally responsive, family-centered approach."
+          },
+          {
+            "title": "Office and operations support",
+            "level": "Clinic operations",
+            "body": "VTCC's public career form also accepts interest in office administrative roles and internships that keep scheduling, intake, and clinic operations running."
+          }
+        ]
+      },
+      "differentiator": {
+        "eyebrow": "How VTCC differs from many ABA clinics",
+        "title": "We run the RBT training program in-house",
+        "body": "A common hiring path in ABA is to send new technicians to a third-party 40-hour course and an outside assessor. VTCC conducts the RBT training program itself. New Behavior Technicians complete the 40-hour RBT credentialing coursework here, VTCC conducts the competency assessment in-house, and the RBT exam is taken at a Pearson VUE / Pearson Professional Center.",
+        "steps": [
+          {
+            "title": "40-hour RBT coursework",
+            "body": "Training includes the 40-hour Registered Behavior Technician credentialing curriculum that meets BACB training requirements. The BACB does not itself teach this course; employers, universities, or approved trainers deliver it. VTCC provides that coursework as part of employment training."
+          },
+          {
+            "title": "In-house competency assessment",
+            "body": "After coursework, a qualified assessor at VTCC conducts the initial RBT competency assessment. The assessment checks that the technician can perform required tasks competently before they apply to the BACB."
+          },
+          {
+            "title": "Exam at Pearson VUE",
+            "body": "The RBT examination is administered by Pearson VUE at a Pearson Professional Center or other authorized Pearson VUE site. VTCC does not administer the exam. After BACB application approval, the candidate schedules the computer-based exam through Pearson."
+          }
+        ]
+      },
+      "tabsLabel": "Careers sections",
+      "tabs": [
+        {
+          "id": "behavior-technician",
+          "label": "Behavior Technician"
+        },
+        {
+          "id": "bcba",
+          "label": "BCBA"
+        },
+        {
+          "id": "programs",
+          "label": "Employee programs"
+        },
+        {
+          "id": "clinic",
+          "label": "Clinic & recognition"
+        }
+      ],
+      "postings": {
+        "bt": {
+          "kicker": "Primary opening",
+          "title": "Behavior Technician (BT)",
+          "meta": "Full-time, part-time, and internship interest · Fairfax, Virginia",
+          "summary": "Behavior Technicians provide direct ABA therapy under BCBA supervision. This is VTCC's primary clinical hiring role and the usual entry point into the RBT pathway.",
+          "youWill": {
+            "title": "What you will do",
+            "items": [
+              "Implement skill-acquisition and behavior-support plans written by the BCBA",
+              "Collect session data so the clinical team can review progress",
+              "Practice communication, daily-living, play, and safer replacement skills with the child",
+              "Work in homes and other natural settings, and at the clinic when a case is scheduled there",
+              "Share observations with the supervising BCBA and follow the treatment plan as written",
+              "Partner with caregivers during sessions so strategies can be used in daily routines"
+            ]
+          },
+          "training": {
+            "title": "Training and RBT credentialing",
+            "body": "VTCC's Behavior Technician training includes the 40-hour RBT credentialing coursework. After that coursework, the company conducts the initial competency assessment in-house. The RBT exam is taken at a Pearson VUE / Pearson center—not at the clinic. Certification still depends on BACB eligibility, application approval, and the exam. VTCC's role is to provide the coursework, the in-house competency assessment, and supervised practice."
+          },
+          "requirements": {
+            "title": "What this role asks of you",
+            "items": [
+              "A genuine interest in working with children, adolescents, and families",
+              "Reliability for scheduled sessions and clear communication with supervisors",
+              "Willingness to complete VTCC's 40-hour RBT coursework and in-house competency assessment",
+              "Comfort implementing written plans and collecting data under BCBA supervision",
+              "Ability to meet BACB RBT eligibility rules if you pursue certification (including any education and background or abuse-registry checks the BACB or Virginia requires)"
+            ],
+            "note": "VTCC's public career form also lists Qualified Behavior Technician (QBT) as an interest option. Some technicians begin direct work while they complete RBT credentialing."
+          },
+          "applyLabel": "Apply as a Behavior Technician",
+          "applyRole": "Behavior Technician (BT)",
+          "applyHref": "/career/apply"
+        },
+        "bcba": {
+          "kicker": "Clinical leadership",
+          "title": "Board Certified Behavior Analyst (BCBA)",
+          "meta": "Supervisory clinical role · Virginia practice requires state licensure",
+          "summary": "BCBAs lead ABA assessment, treatment planning, technician supervision, and caregiver training. This section lists the education, certification, and licensing baseline for practicing as a behavior analyst in Virginia.",
+          "education": {
+            "title": "Minimum education",
+            "body": "Applicants need a graduate degree that meets current Behavior Analyst Certification Board (BACB) degree requirements. In practice that is typically a master's degree in behavior analysis, education, psychology, or a related field, plus the required graduate coursework in behavior analysis. Coursework and degree rules are set by the BACB and can change; candidates should confirm current requirements on bacb.com before applying."
+          },
+          "certification": {
+            "title": "BACB certification",
+            "body": "Independent work in this role requires current Board Certified Behavior Analyst (BCBA) certification from the BACB. Certification is earned by completing the required degree and coursework, accruing supervised fieldwork, and passing the BCBA examination. VTCC expects BCBAs to practice under the BACB Ethics Code for Behavior Analysts."
+          },
+          "licensing": {
+            "title": "Virginia licensing",
+            "body": "Virginia law requires a license to practice as a behavior analyst. The Virginia Board of Medicine issues the Licensed Behavior Analyst (LBA) credential to people who hold current BCBA certification and meet the Board's application rules. Candidates who are not yet licensed in Virginia should be eligible to obtain the LBA before practicing independently. Holding a BCBA certificate alone is not a license to practice in Virginia."
+          },
+          "youWill": {
+            "title": "What you will do",
+            "items": [
+              "Assess children and write individualized treatment and behavior-support plans",
+              "Supervise Behavior Technicians and review session data",
+              "Train parents and caregivers so skills can be practiced across daily routines",
+              "Adjust goals as the child progresses and as authorizations allow",
+              "Support Student Analysts who are accruing restricted and unrestricted fieldwork hours",
+              "Uphold ethical, culturally responsive care for diverse Northern Virginia families"
+            ]
+          },
+          "applyLabel": "Apply as a BCBA",
+          "applyRole": "Board Certified Behavior Analyst",
+          "applyHref": "/career/apply"
+        }
+      },
+      "otherOpenings": {
+        "title": "Other ways people apply",
+        "body": "The current VTCC career form also accepts interest in office administrative staff roles and internships, and in full-time or part-time schedules. Use the application page to tell us which path you are asking about. This page does not invent openings that are not already represented on the public career form or in the programs described here."
+      },
+      "programs": {
+        "eyebrow": "Employee programs",
+        "title": "Support after you are hired",
+        "intro": "These programs sit alongside day-to-day case work. They are written to match how the terms are used in ABA practice. Details of schedules, pay, and enrollment are confirmed with the clinical team after hire.",
+        "items": [
+          {
+            "title": "Student Analyst Program",
+            "summary": "Graduate fieldwork while you work as an RBT",
+            "body": "The Student Analyst Program is for RBTs who are enrolled in a master's program that can lead toward BCBA (or related) certification. On the job, those staff accrue BACB supervised fieldwork hours—not just a second job title.",
+            "details": [
+              "Restricted hours are time spent delivering therapeutic and instructional procedures directly to clients. Much of ordinary RBT session work falls here. Restricted hours may count toward fieldwork when they meet BACB rules, but they cannot make up the majority of a BCBA trainee's accepted hours.",
+              "Unrestricted hours are analyst-level work: observing and analyzing data, helping design programs, training staff or caregivers, contributing to assessments, and other tasks that resemble what a BCBA does. BACB rules require a substantial share of fieldwork to be unrestricted—currently at least 60% for BCBA trainees.",
+              "Hours only count when a qualified supervisor, a signed fieldwork contract, monthly contacts and observations, and BACB documentation are in place. Routine RBT work does not automatically become fieldwork."
+            ]
+          },
+          {
+            "title": "Monthly RBT PDUs",
+            "summary": "Continued education, training, and clinical quality",
+            "body": "Professional Development Units (PDUs) are employer-sponsored learning hours. VTCC's monthly RBT PDUs are continued education for technicians: skill refreshers, ethics and documentation, treatment integrity, and other clinical-quality topics.",
+            "details": [
+              "These sessions are about staying sharp on the job and raising the quality of care—not a substitute for BACB certification itself.",
+              "RBT recertification with the BACB is a separate process (including supervision and a competency assessment). Monthly PDUs support clinical quality and professional growth; they should not be described as official BACB continuing-education units unless a given session is later approved as such.",
+              "Attendance expectations and topics are set by the clinical team."
+            ]
+          },
+          {
+            "title": "Senior Lead Behavior Technician (SLBT)",
+            "summary": "Higher-level clinical help from experienced technicians",
+            "body": "The SLBT role is a senior technician track. SLBTs still provide excellent direct care, and they also take on structured leadership tasks that keep cases and new staff moving.",
+            "details": [
+              "Assessment support: assisting BCBAs with portions of assessment activities that a trained senior technician can carry out under direction.",
+              "New-hire trainers: teaching recently hired BTs how VTCC runs sessions, collects data, and communicates with families and supervisors.",
+              "Shadowing BTs: joining sessions to give hands-on assistance and side-by-side training when a technician needs coaching.",
+              "Safety-Care trainers: delivering Safety-Care, a crisis-prevention and safety curriculum used so staff can prevent and respond to unsafe behavior with approved strategies. Trainers teach colleagues; they do not replace clinical or emergency protocols.",
+              "Initial Home checklist interviews: structured conversations that walk through the home-start checklist before a case begins—setting, materials, safety considerations, and caregiver contacts—so the first sessions are prepared."
+            ]
+          }
+        ]
+      },
+      "recognition": {
+        "eyebrow": "Employee recognition",
+        "title": "Employee of the Month and Grounds for Greatness",
+        "intro": "VTCC recognizes people who show up for families and for each other. Names and photos of current honorees are published only when leadership approves them. The programs themselves are described here so applicants know recognition is part of clinic life.",
+        "items": [
+          {
+            "title": "Employee of the Month",
+            "body": "A monthly honor for a staff member whose work stood out—clinical quality, reliability with families, teamwork, or culturally responsive care. It is a formal, time-bound recognition, not a job title or a change in credentials."
+          },
+          {
+            "title": "Grounds for Greatness",
+            "body": "Shoutouts for specific moments of excellence: a well-run session, support for a new hire, careful documentation, or a kindness that made a hard day easier. Grounds for Greatness is meant to catch everyday work that might otherwise go unseen, alongside the monthly honor."
+          }
+        ],
+        "photoCaption": "A VTCC employee appreciation gathering",
+        "photoAlt": "VTCC staff gathered outdoors at an employee appreciation event"
+      },
+      "clinic": {
+        "eyebrow": "Clinic life",
+        "title": "Where the team is based",
+        "intro": "VTCC’s published clinic is the Fairfax office. Much ABA work also happens in family homes; the office is the base for meetings, training, and cases scheduled on site.",
+        "galleryTitle": "Inside the clinic",
+        "galleryIntro": "This gallery is reserved for photographs of VTCC's own clinic. Kitchen and other interior feature photos are not in the current website library, so those frames stay empty rather than filling with stock.",
+        "photoPendingLabel": "Photo coming",
+        "gallery": [
+          {
+            "id": "kitchen",
+            "caption": "Clinic kitchen",
+            "pending": true,
+            "pendingDetail": "A kitchen photo will be added when VTCC provides an approved interior image."
+          },
+          {
+            "id": "interior",
+            "caption": "Clinic interior",
+            "pending": true,
+            "pendingDetail": "Additional clinic-feature photos will be added when approved photography is available."
+          },
+          {
+            "id": "employeeAppreciation",
+            "caption": "Team gathering",
+            "asset": "employeeAppreciationImage"
+          }
+        ]
       }
     },
     "earlyLearners": {
@@ -1232,7 +1482,10 @@
         "label": "Role of interest",
         "type": "select",
         "options": [
+          "Behavior Technician (BT)",
           "Registered Behavior Technician",
+          "Senior Lead Behavior Technician (SLBT)",
+          "Student Analyst Program",
           "Board Certified Behavior Analyst",
           "Program Clinician",
           "Administrative or operations",

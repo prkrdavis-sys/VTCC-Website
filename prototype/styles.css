@@ -3596,6 +3596,226 @@ address strong {
   }
 }
 
+.careers-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.careers-fact {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 1.1rem;
+  padding: 1.1rem 1.15rem;
+  background: var(--white);
+}
+
+.careers-fact dt {
+  color: var(--brand-deep);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-heading);
+}
+
+.careers-fact dd {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+}
+
+.careers-note {
+  max-width: 46rem;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.careers-differentiator {
+  background: var(--soft);
+}
+
+.careers-steps {
+  max-width: 52rem;
+}
+
+.careers-role-grid,
+.careers-program-grid,
+.careers-recognition-grid,
+.careers-office-grid,
+.careers-gallery {
+  display: grid;
+  gap: 1rem;
+}
+
+.careers-role-grid,
+.careers-program-grid {
+  grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
+}
+
+.careers-role-card,
+.careers-program-card,
+.careers-posting,
+.careers-other-openings,
+.careers-recognition-grid article,
+.careers-office,
+.careers-gallery-block {
+  border: 1px solid rgba(31, 111, 91, 0.14);
+  border-radius: 1.2rem;
+  padding: 1.25rem 1.3rem;
+  background: var(--white);
+  box-shadow: 0 8px 24px rgba(23, 33, 29, 0.04);
+}
+
+.careers-role-card h3,
+.careers-program-card h3,
+.careers-posting h2,
+.careers-other-openings h3,
+.careers-recognition-grid h3,
+.careers-gallery-block h3,
+.careers-office strong {
+  margin: 0 0 0.55rem;
+  color: var(--brand-deep);
+}
+
+.careers-role-card p,
+.careers-program-card p,
+.careers-posting p,
+.careers-other-openings p,
+.careers-recognition-grid p,
+.careers-gallery-block > p {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+}
+
+.careers-board {
+  background: var(--paper);
+}
+
+.careers-tabs-wrap {
+  margin-bottom: 1.5rem;
+}
+
+.careers-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.careers-tab {
+  min-height: 2.6rem;
+  border: 1px solid rgba(31, 111, 91, 0.16);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  color: var(--brand-deep);
+  background: var(--white);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.careers-tab:hover,
+.careers-tab:focus-visible {
+  border-color: var(--brand);
+  background: var(--soft);
+}
+
+.careers-tab.is-active {
+  color: var(--white);
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
+}
+
+.careers-tab:focus-visible {
+  outline: 3px solid rgba(56, 155, 178, 0.45);
+  outline-offset: 2px;
+}
+
+.careers-posting-meta {
+  font-weight: 700;
+  color: var(--brand-dark) !important;
+}
+
+.careers-posting-block {
+  margin: 1.25rem 0;
+}
+
+.careers-posting-block h3 {
+  margin: 0 0 0.55rem;
+  color: var(--brand-deep);
+}
+
+.careers-other-openings {
+  margin-top: 1rem;
+  background: linear-gradient(135deg, var(--soft), var(--white));
+}
+
+.careers-office-grid,
+.careers-recognition-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.careers-office {
+  color: var(--muted);
+  font-style: normal;
+}
+
+.careers-gallery {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.careers-photo {
+  margin: 0;
+}
+
+.careers-photo img,
+.careers-photo-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 1rem;
+  background: var(--soft);
+}
+
+.careers-photo-frame {
+  display: grid;
+  place-items: center;
+  border: 1px dashed rgba(31, 111, 91, 0.35);
+  color: var(--brand-dark);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.careers-photo figcaption {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.careers-photo figcaption strong {
+  display: block;
+  color: var(--ink);
+}
+
+.careers-gallery-block {
+  margin-top: 1.25rem;
+}
+
+.careers-recognition {
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .careers-facts,
+  .careers-gallery,
+  .careers-office-grid,
+  .careers-recognition-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .site-footer {
   display: flex;
   align-items: center;

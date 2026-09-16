@@ -19,6 +19,24 @@ const FORM_CONFIG = {
       ageRange: 'age_range',
     },
   },
+  career: {
+    table: 'career_inquiries',
+    label: 'Career Inquiry',
+    fields: [
+      'name',
+      'email',
+      'phone',
+      'preferredContact',
+      'position',
+      'schedule',
+      'location',
+      'message',
+      'consent',
+    ],
+    columnMap: {
+      preferredContact: 'preferred_contact',
+    },
+  },
   referral: {
     table: 'referrals',
     label: 'Referral Inquiry',

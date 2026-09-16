@@ -1011,6 +1011,10 @@
             "style": "speech"
           }
         ]
+      },
+      "careersLink": {
+        "label": "Ver empleo en VTCC",
+        "href": "/career"
       }
     },
     "contact": {
@@ -1117,6 +1121,252 @@
         "title": "¿Listo para dar el siguiente paso?",
         "body": "Envíe una solicitud de muestra para conocer la información que VTCC pediría a futuros candidatos.",
         "buttonLabel": "Solicitar empleo"
+      },
+      "facts": [
+        {
+          "value": "Clínica de Fairfax",
+          "label": "10565 Fairfax Boulevard, Suite 300"
+        },
+        {
+          "value": "Fundado en 2001",
+          "label": "Atención a niños, adolescentes y familias"
+        },
+        {
+          "value": "Programas de ABA",
+          "label": "Terapia, primeros aprendices, alimentación y habilidades sociales"
+        }
+      ],
+      "factsNote": "Fairfax es la única oficina publicada en el sitio actual. Esta página no indica una cifra de empleados porque VTCC no ha publicado un total de personal.",
+      "structure": {
+        "eyebrow": "Cómo se organiza el equipo",
+        "title": "Roles clínicos claros, del técnico al analista",
+        "intro": "Los casos de ABA los diseña un analista de conducta certificado por la junta y los llevan a cabo técnicos capacitados bajo esa supervisión. Los programas especializados acompañan esa estructura clínica. Los títulos siguientes describen cómo se organiza la atención, no un organigrama ni una plantilla publicados.",
+        "roles": [
+          {
+            "title": "Técnico de conducta (BT)",
+            "level": "Atención directa",
+            "body": "Los BT brindan la mayoría de las sesiones diarias de ABA. Implementan el plan de tratamiento, recopilan datos y practican habilidades con el niño bajo la dirección de un BCBA. Muchos BT completan la ruta de capacitación RBT de VTCC mientras trabajan."
+          },
+          {
+            "title": "Técnico de conducta líder sénior (SLBT)",
+            "level": "Apoyo clínico avanzado",
+            "body": "Los SLBT son técnicos con experiencia que asumen ayuda clínica de mayor nivel: apoyo en evaluaciones, capacitación de nuevos empleados, acompañamiento en sesión, instrucción de Safety-Care y entrevistas de la lista inicial del hogar."
+          },
+          {
+            "title": "Analista estudiante",
+            "level": "Práctica de posgrado",
+            "body": "RBT inscritos en una maestría que califica y que acumulan horas de trabajo de campo restringidas y no restringidas de la BACB en el empleo, bajo un supervisor calificado y un contrato de trabajo de campo firmado."
+          },
+          {
+            "title": "Analista de conducta certificado por la junta (BCBA)",
+            "level": "Liderazgo clínico",
+            "body": "Los BCBA evalúan necesidades, redactan planes de tratamiento y de apoyo conductual, supervisan a los técnicos, capacitan a los cuidadores y dan seguimiento al progreso. La práctica independiente en Virginia también requiere licencia estatal."
+          },
+          {
+            "title": "Clínicos de programas especializados",
+            "level": "Primeros aprendices, alimentación y habilidades sociales",
+            "body": "Los clínicos de los programas especializados de VTCC apoyan el aprendizaje temprano, la alimentación y las habilidades sociales con el mismo enfoque familiar y culturalmente responsivo."
+          },
+          {
+            "title": "Apoyo de oficina y operaciones",
+            "level": "Operaciones de la clínica",
+            "body": "El formulario público de empleo de VTCC también recibe interés en puestos administrativos de oficina y pasantías que sostienen la programación, la admisión y el funcionamiento de la clínica."
+          }
+        ]
+      },
+      "differentiator": {
+        "eyebrow": "En qué se diferencia VTCC de muchas clínicas ABA",
+        "title": "Nosotros impartimos el programa de capacitación RBT",
+        "body": "Una ruta común en ABA es enviar a los técnicos nuevos a un curso de 40 horas de un tercero y a un evaluador externo. VTCC imparte el programa de capacitación RBT. Los técnicos de conducta nuevos completan aquí el curso de credencialización RBT de 40 horas, VTCC realiza la evaluación de competencia internamente y el examen RBT se presenta en un centro Pearson VUE / Pearson.",
+        "steps": [
+          {
+            "title": "Curso RBT de 40 horas",
+            "body": "La capacitación incluye el plan de estudios de 40 horas de Técnico de Conducta Registrado que cumple los requisitos de la BACB. La BACB no imparte este curso; lo ofrecen empleadores, universidades o capacitadores aprobados. VTCC ofrece ese curso como parte de la capacitación laboral."
+          },
+          {
+            "title": "Evaluación de competencia interna",
+            "body": "Después del curso, un evaluador calificado de VTCC realiza la evaluación inicial de competencia RBT. La evaluación comprueba que el técnico puede desempeñar las tareas requeridas antes de solicitar la certificación a la BACB."
+          },
+          {
+            "title": "Examen en Pearson VUE",
+            "body": "El examen RBT lo administra Pearson VUE en un Pearson Professional Center u otro sitio autorizado. VTCC no administra el examen. Tras la aprobación de la solicitud ante la BACB, el candidato programa el examen por computadora a través de Pearson."
+          }
+        ]
+      },
+      "tabsLabel": "Secciones de empleo",
+      "tabs": [
+        {
+          "id": "behavior-technician",
+          "label": "Técnico de conducta"
+        },
+        {
+          "id": "bcba",
+          "label": "BCBA"
+        },
+        {
+          "id": "programs",
+          "label": "Programas para empleados"
+        },
+        {
+          "id": "clinic",
+          "label": "Clínica y reconocimiento"
+        }
+      ],
+      "postings": {
+        "bt": {
+          "kicker": "Puesto principal",
+          "title": "Técnico de conducta (BT)",
+          "meta": "Interés de tiempo completo, tiempo parcial y pasantía · Fairfax, Virginia",
+          "summary": "Los técnicos de conducta brindan terapia ABA directa bajo supervisión de un BCBA. Este es el puesto clínico principal de contratación de VTCC y el punto de entrada habitual a la ruta RBT.",
+          "youWill": {
+            "title": "Qué hará",
+            "items": [
+              "Implementar planes de adquisición de habilidades y de apoyo conductual escritos por el BCBA",
+              "Recopilar datos de sesión para que el equipo clínico revise el progreso",
+              "Practicar con el niño habilidades de comunicación, vida diaria, juego y conductas de reemplazo más seguras",
+              "Trabajar en hogares y otros entornos naturales, y en la clínica cuando el caso esté programado allí",
+              "Compartir observaciones con el BCBA supervisor y seguir el plan de tratamiento tal como está escrito",
+              "Colaborar con los cuidadores durante las sesiones para que las estrategias se usen en la rutina diaria"
+            ]
+          },
+          "training": {
+            "title": "Capacitación y credencial RBT",
+            "body": "La capacitación de técnico de conducta de VTCC incluye el curso de credencialización RBT de 40 horas. Después de ese curso, la empresa realiza internamente la evaluación inicial de competencia. El examen RBT se presenta en un centro Pearson VUE / Pearson, no en la clínica. La certificación sigue dependiendo de la elegibilidad de la BACB, de la aprobación de la solicitud y del examen. El papel de VTCC es ofrecer el curso, la evaluación de competencia interna y la práctica supervisada."
+          },
+          "requirements": {
+            "title": "Qué pide este puesto",
+            "items": [
+              "Interés genuino en trabajar con niños, adolescentes y familias",
+              "Puntualidad en las sesiones programadas y comunicación clara con los supervisores",
+              "Disposición para completar el curso RBT de 40 horas de VTCC y la evaluación de competencia interna",
+              "Comodidad para implementar planes escritos y recopilar datos bajo supervisión de un BCBA",
+              "Capacidad de cumplir las reglas de elegibilidad RBT de la BACB si busca la certificación (incluida la educación y las verificaciones de antecedentes o de registro de abuso que exijan la BACB o Virginia)"
+            ],
+            "note": "El formulario público de empleo de VTCC también incluye Técnico de Conducta Calificado (QBT) como opción de interés. Algunos técnicos comienzan el trabajo directo mientras completan la credencial RBT."
+          },
+          "applyLabel": "Solicitar como técnico de conducta",
+          "applyRole": "Behavior Technician (BT)",
+          "applyHref": "/career/apply"
+        },
+        "bcba": {
+          "kicker": "Liderazgo clínico",
+          "title": "Analista de conducta certificado por la junta (BCBA)",
+          "meta": "Puesto clínico de supervisión · La práctica en Virginia requiere licencia estatal",
+          "summary": "Los BCBA lideran la evaluación ABA, la planificación del tratamiento, la supervisión de técnicos y la capacitación de cuidadores. Esta sección indica la base de educación, certificación y licencia para ejercer como analista de conducta en Virginia.",
+          "education": {
+            "title": "Educación mínima",
+            "body": "Los solicitantes necesitan un título de posgrado que cumpla los requisitos actuales de grado de la Behavior Analyst Certification Board (BACB). En la práctica, suele ser una maestría en análisis de conducta, educación, psicología o un campo relacionado, más el curso de posgrado requerido en análisis de conducta. Las reglas de curso y de grado las establece la BACB y pueden cambiar; los candidatos deben confirmar los requisitos vigentes en bacb.com antes de solicitar."
+          },
+          "certification": {
+            "title": "Certificación BACB",
+            "body": "El trabajo independiente en este puesto requiere la certificación vigente de Board Certified Behavior Analyst (BCBA) de la BACB. La certificación se obtiene al completar el grado y el curso requeridos, acumular trabajo de campo supervisado y aprobar el examen BCBA. VTCC espera que los BCBA ejerzan según el Código de Ética para Analistas de Conducta de la BACB."
+          },
+          "licensing": {
+            "title": "Licencia en Virginia",
+            "body": "La ley de Virginia exige una licencia para ejercer como analista de conducta. La Junta de Medicina de Virginia otorga la credencial de Licensed Behavior Analyst (LBA) a quienes tienen certificación BCBA vigente y cumplen las reglas de solicitud de la Junta. Quienes aún no estén licenciados en Virginia deben poder obtener el LBA antes de ejercer de forma independiente. Tener solo el certificado BCBA no es una licencia para ejercer en Virginia."
+          },
+          "youWill": {
+            "title": "Qué hará",
+            "items": [
+              "Evaluar a los niños y redactar planes individualizados de tratamiento y de apoyo conductual",
+              "Supervisar a los técnicos de conducta y revisar los datos de sesión",
+              "Capacitar a padres y cuidadores para que las habilidades se practiquen en la rutina diaria",
+              "Ajustar las metas a medida que el niño avanza y según lo permita la autorización",
+              "Apoyar a los analistas estudiantes que acumulan horas de trabajo de campo restringidas y no restringidas",
+              "Sostener una atención ética y culturalmente responsiva para familias diversas del norte de Virginia"
+            ]
+          },
+          "applyLabel": "Solicitar como BCBA",
+          "applyRole": "Board Certified Behavior Analyst",
+          "applyHref": "/career/apply"
+        }
+      },
+      "otherOpenings": {
+        "title": "Otras formas de postular",
+        "body": "El formulario de empleo actual de VTCC también recibe interés en puestos administrativos de oficina y pasantías, y en horarios de tiempo completo o parcial. Use la página de solicitud para indicar la ruta que le interesa. Esta página no inventa vacantes que no estén ya representadas en el formulario público o en los programas descritos aquí."
+      },
+      "programs": {
+        "eyebrow": "Programas para empleados",
+        "title": "Apoyo después de la contratación",
+        "intro": "Estos programas acompañan el trabajo diario de los casos. Están escritos para coincidir con el uso de estos términos en la práctica ABA. Los detalles de horarios, pago e inscripción se confirman con el equipo clínico después de la contratación.",
+        "items": [
+          {
+            "title": "Programa de analista estudiante",
+            "summary": "Trabajo de campo de posgrado mientras trabaja como RBT",
+            "body": "El Programa de analista estudiante es para RBT inscritos en una maestría que puede conducir hacia la certificación BCBA (o una relacionada). En el empleo, ese personal acumula horas de trabajo de campo supervisado de la BACB, no solo un segundo título de puesto.",
+            "details": [
+              "Las horas restringidas son el tiempo dedicado a aplicar procedimientos terapéuticos e instructivos directamente con los clientes. Gran parte del trabajo habitual de sesión RBT entra aquí. Esas horas pueden contar como trabajo de campo cuando cumplen las reglas de la BACB, pero no pueden constituir la mayoría de las horas aceptadas de un aprendiz de BCBA.",
+              "Las horas no restringidas son trabajo de nivel de analista: observar y analizar datos, ayudar a diseñar programas, capacitar a personal o cuidadores, contribuir a evaluaciones y otras tareas similares a las de un BCBA. Las reglas de la BACB exigen que una parte sustancial del trabajo de campo sea no restringida; actualmente al menos el 60% para aprendices de BCBA.",
+              "Las horas solo cuentan cuando hay un supervisor calificado, un contrato de trabajo de campo firmado, contactos y observaciones mensuales y la documentación de la BACB. El trabajo rutinario de RBT no se convierte automáticamente en trabajo de campo."
+            ]
+          },
+          {
+            "title": "PDU mensuales para RBT",
+            "summary": "Educación continua, capacitación y calidad clínica",
+            "body": "Las unidades de desarrollo profesional (PDU) son horas de aprendizaje patrocinadas por el empleador. Las PDU mensuales para RBT de VTCC son educación continua para técnicos: repaso de habilidades, ética y documentación, integridad del tratamiento y otros temas de calidad clínica.",
+            "details": [
+              "Estas sesiones buscan mantener el desempeño en el trabajo y elevar la calidad de la atención; no sustituyen la certificación de la BACB.",
+              "La recertificación RBT ante la BACB es un proceso aparte (incluye supervisión y una evaluación de competencia). Las PDU mensuales apoyan la calidad clínica y el crecimiento profesional; no deben describirse como unidades oficiales de educación continua de la BACB, salvo que una sesión concreta se apruebe después como tal.",
+              "Las expectativas de asistencia y los temas los define el equipo clínico."
+            ]
+          },
+          {
+            "title": "Técnico de conducta líder sénior (SLBT)",
+            "summary": "Ayuda clínica de mayor nivel de técnicos con experiencia",
+            "body": "El rol de SLBT es una vía sénior de técnico. Los SLBT siguen brindando atención directa de calidad y también asumen tareas estructuradas de liderazgo que mantienen en marcha los casos y al personal nuevo.",
+            "details": [
+              "Apoyo en evaluaciones: asistir a los BCBA en partes de la evaluación que un técnico sénior capacitado puede realizar bajo dirección.",
+              "Capacitadores de nuevos empleados: enseñar a los BT recién contratados cómo VTCC conduce las sesiones, recopila datos y se comunica con familias y supervisores.",
+              "Acompañamiento de BT: unirse a las sesiones para dar ayuda práctica y capacitación en el momento cuando un técnico necesita orientación.",
+              "Capacitadores de Safety-Care: impartir Safety-Care, un plan de prevención de crisis y seguridad para que el personal prevenga y responda a conductas inseguras con estrategias aprobadas. Los capacitadores enseñan a colegas; no reemplazan los protocolos clínicos o de emergencia.",
+              "Entrevistas de la lista inicial del hogar: conversaciones estructuradas que recorren la lista de inicio en el hogar antes de que comience un caso—entorno, materiales, consideraciones de seguridad y contactos del cuidador—para que las primeras sesiones estén preparadas."
+            ]
+          }
+        ]
+      },
+      "recognition": {
+        "eyebrow": "Reconocimiento a empleados",
+        "title": "Empleado del mes y Grounds for Greatness",
+        "intro": "VTCC reconoce a las personas que están presentes para las familias y para sus compañeros. Los nombres y fotos de los homenajeados actuales se publican solo cuando el liderazgo lo aprueba. Los programas se describen aquí para que los solicitantes sepan que el reconocimiento forma parte de la vida de la clínica.",
+        "items": [
+          {
+            "title": "Empleado del mes",
+            "body": "Un honor mensual para un miembro del personal cuyo trabajo se destacó: calidad clínica, confiabilidad con las familias, trabajo en equipo o atención culturalmente responsiva. Es un reconocimiento formal y por un período, no un título de puesto ni un cambio de credenciales."
+          },
+          {
+            "title": "Grounds for Greatness",
+            "body": "Menciones por momentos concretos de excelencia: una sesión bien conducida, apoyo a un empleado nuevo, documentación cuidadosa o un gesto que alivió un día difícil. Grounds for Greatness busca reconocer el trabajo cotidiano que de otro modo pasaría inadvertido, junto con el honor mensual."
+          }
+        ],
+        "photoCaption": "Una reunión de reconocimiento a empleados de VTCC",
+        "photoAlt": "Personal de VTCC reunido al aire libre en un evento de reconocimiento a empleados"
+      },
+      "clinic": {
+        "eyebrow": "Vida en la clínica",
+        "title": "Dónde está el equipo",
+        "intro": "La clínica publicada de VTCC es la oficina de Fairfax. Gran parte del trabajo de ABA también ocurre en los hogares; la oficina es la base para reuniones, capacitación y casos programados en el sitio.",
+        "galleryTitle": "Dentro de la clínica",
+        "galleryIntro": "Esta galería está reservada para fotografías de la propia clínica de VTCC. Las fotos de la cocina y de otros espacios interiores no están en la biblioteca actual del sitio, así que esos marcos permanecen vacíos en lugar de llenarse con imágenes de archivo.",
+        "photoPendingLabel": "Foto pendiente",
+        "gallery": [
+          {
+            "id": "kitchen",
+            "caption": "Cocina de la clínica",
+            "pending": true,
+            "pendingDetail": "Se añadirá una foto de la cocina cuando VTCC proporcione una imagen interior aprobada."
+          },
+          {
+            "id": "interior",
+            "caption": "Interior de la clínica",
+            "pending": true,
+            "pendingDetail": "Se añadirán más fotos de la clínica cuando haya fotografía aprobada."
+          },
+          {
+            "id": "employeeAppreciation",
+            "caption": "Reunión del equipo",
+            "asset": "employeeAppreciationImage"
+          }
+        ]
       }
     },
     "earlyLearners": {
@@ -1234,11 +1484,14 @@
         "label": "Puesto de interés",
         "type": "select",
         "options": [
-          "Técnico de conducta registrado",
-          "Analista de conducta certificado por la junta",
-          "Profesional clínico de programas",
-          "Administración u operaciones",
-          "Otro"
+          "Behavior Technician (BT)",
+          "Registered Behavior Technician",
+          "Senior Lead Behavior Technician (SLBT)",
+          "Student Analyst Program",
+          "Board Certified Behavior Analyst",
+          "Program Clinician",
+          "Administrative or operations",
+          "Other"
         ]
       },
       {

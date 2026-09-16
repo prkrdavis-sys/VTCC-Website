@@ -10,6 +10,7 @@
       "logo": "/assets/vtcc-logo.png",
       "heroImage": "/assets/hero-banner.png",
       "whoWeServeImage": "/assets/who-we-serve.png",
+      "employeeAppreciationImage": "/assets/employee-appreciation.jpg",
       "insuranceProviders": [
         {
           "name": "Aetna Better Health",

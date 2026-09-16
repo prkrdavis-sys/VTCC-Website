@@ -286,6 +286,64 @@ ${(() => {
   ].join('\n')
 })()}
 
+${(() => {
+  const careers = content.sections.careers
+  if (!careers) {
+    return ''
+  }
+
+  const programs = (careers.programs.items ?? [])
+    .map((program) => `### ${program.title}\n\n${program.body}\n\n${bulletList(program.details)}`)
+    .join('\n\n')
+
+  return [
+    '## Careers Page',
+    '',
+    '### Page Hero',
+    '',
+    careers.title,
+    '',
+    careers.intro,
+    '',
+    `### ${careers.differentiator.title}`,
+    '',
+    careers.differentiator.body,
+    '',
+    '### Role structure',
+    '',
+    bulletList(careers.structure.roles.map((role) => `${role.title}: ${role.body}`)),
+    '',
+    '### Behavior Technician',
+    '',
+    careers.postings.bt.summary,
+    '',
+    careers.postings.bt.training.body,
+    '',
+    '### BCBA',
+    '',
+    careers.postings.bcba.summary,
+    '',
+    careers.postings.bcba.education.body,
+    '',
+    careers.postings.bcba.certification.body,
+    '',
+    careers.postings.bcba.licensing.body,
+    '',
+    '### Employee programs',
+    '',
+    programs,
+    '',
+    '### Recognition',
+    '',
+    careers.recognition.intro,
+    '',
+    '### Clinic photos',
+    '',
+    careers.clinic.galleryIntro,
+    '',
+  ].join('\n')
+})()}
+
 ## Contact Page
 
 ### Page Hero
