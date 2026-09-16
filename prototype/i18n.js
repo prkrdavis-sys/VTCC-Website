@@ -2248,7 +2248,7 @@ function renderDiagnosisDialog(quiz) {
   return `<dialog class="quiz-dialog" data-quiz-diagnosis-dialog>
             <h3>${escapeHtml(copy.title)}</h3>
             <p>${escapeHtml(copy.intro)}</p>
-            <ol class="quiz-result-list quiz-result-list--numbered">${steps}</ol>
+            <ol class="quiz-dialog-steps">${steps}</ol>
             <div class="quiz-dialog-actions">
               <button type="button" class="button ghost" data-quiz-dialog-close>${escapeHtml(quiz.closeLabel)}</button>
               ${renderQuizCta('/contact/request', copy.modalCtaLabel)}
@@ -2352,19 +2352,18 @@ function bindContactQuizControls(content) {
       const name = field.dataset.quizField
       if (name === 'childAge') {
         quizState.childAge = parseChildAge(field.value)
-      } else {
-        quizState[name] = field.value
+        resetDependentQuizFields(name)
+        window.clearTimeout(bindContactQuizControls.ageTimer)
+        bindContactQuizControls.ageTimer = window.setTimeout(() => {
+          refreshContactQuiz(content)
+          document.querySelector('[data-quiz-field="childAge"]')?.focus()
+        }, 350)
+        return
       }
+
+      quizState[name] = field.value
       resetDependentQuizFields(name)
       refreshContactQuiz(content)
-      const nextField = document.querySelector(`[data-quiz-field="${name}"]`)
-      if (nextField instanceof HTMLInputElement || nextField instanceof HTMLSelectElement) {
-        nextField.focus()
-        if (nextField instanceof HTMLInputElement && nextField.type === 'number') {
-          const end = nextField.value.length
-          nextField.setSelectionRange(end, end)
-        }
-      }
     })
   })
 
