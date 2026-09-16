@@ -1,5 +1,6 @@
 const STORAGE_KEY = window.VTCC_SITE?.localeStorageKey ?? 'vtcc-locale'
 const CAREER_ROLE_STORAGE_KEY = 'vtcc-career-role'
+const QUIZ_PREFILL_STORAGE_KEY = 'vtcc-quiz-prefill'
 const PAGE = window.VTCC_PAGE ?? 'home'
 const BASE = window.VTCC_BASE ?? ''
 const RESOURCE_SLUG = window.VTCC_RESOURCE_SLUG
@@ -45,6 +46,7 @@ function toStaticHref(path) {
     '/careers': `${BASE}career.html`,
     '/career/apply': `${BASE}career/apply.html`,
     '/contact': `${BASE}contact.html`,
+    '/contact/request': `${BASE}contact/request.html`,
     '/contact/referral': `${BASE}contact/referral.html`,
   }
 
@@ -166,6 +168,7 @@ const PAGE_SECTION_PATHS = {
   careers: '/career',
   'career-apply': '/career/apply',
   contact: '/contact',
+  'contact-request': '/contact/request',
   'contact-referral': '/contact/referral',
 }
 
@@ -187,7 +190,7 @@ function linkMatchesCurrentPage(linkHref) {
     return true
   }
 
-  if (linkHref === '/contact' && (PAGE === 'contact' || PAGE === 'contact-referral')) {
+  if (linkHref === '/contact' && (PAGE === 'contact' || PAGE === 'contact-request' || PAGE === 'contact-referral')) {
     return true
   }
 
@@ -1586,17 +1589,8 @@ function getContactPageConfig(content) {
   }
 }
 
-function renderContactPage(content) {
-  const { contact, form, variant } = getContactPageConfig(content)
-  const formType = variant === 'referral' ? 'referral' : 'service_request'
-  const switchLink =
-    variant === 'referral'
-      ? `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchFamilyPrompt)} <a href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.ui.contactSwitchFamilyLink)}</a>.</p>`
-      : `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchReferralPrompt)} <a href="${escapeHtml(toStaticHref('/contact/referral'))}">${escapeHtml(content.ui.contactSwitchReferralLink)}</a>.</p>`
-
-  return `<section class="section contact-section page-section">
-        <div>
-          ${renderSectionHeading(contact.eyebrow, contact.title, contact.intro)}
+function renderContactSidebar(content, contact) {
+  return `${renderSectionHeading(contact.eyebrow, contact.title, contact.intro)}
           <div class="contact-call-card">
             <p class="eyebrow">${escapeHtml(contact.callEyebrow)}</p>
             <h3>${escapeHtml(contact.callTitle)}</h3>
@@ -1622,10 +1616,30 @@ function renderContactPage(content) {
               ${escapeHtml(content.ui.faxLabel)}: ${escapeHtml(office.fax)}
             </address>`,
             )
-            .join('')}</div>
+            .join('')}</div>`
+}
+
+function renderContactFormSwitch(content, variant) {
+  const quizSwitch = `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchQuizPrompt)} <a href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.ui.contactSwitchQuizLink)}</a>.</p>`
+  const otherSwitch =
+    variant === 'referral'
+      ? `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchFamilyPrompt)} <a href="${escapeHtml(toStaticHref('/contact/request'))}">${escapeHtml(content.ui.contactSwitchFamilyLink)}</a>.</p>`
+      : `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchReferralPrompt)} <a href="${escapeHtml(toStaticHref('/contact/referral'))}">${escapeHtml(content.ui.contactSwitchReferralLink)}</a>.</p>`
+
+  return `${quizSwitch}
+          ${otherSwitch}`
+}
+
+function renderContactPage(content) {
+  const { contact, form, variant } = getContactPageConfig(content)
+  const formType = variant === 'referral' ? 'referral' : 'service_request'
+
+  return `<section class="section contact-section page-section">
+        <div>
+          ${renderContactSidebar(content, contact)}
         </div>
         <div class="contact-form-panel">
-          ${switchLink}
+          ${renderContactFormSwitch(content, variant)}
           <form class="request-form request-form--${escapeHtml(variant)}" data-form-type="${escapeHtml(formType)}">
           ${form.fields.map(renderFormField).join('')}
           <label class="consent-field"><input type="checkbox" name="consent" required /> ${escapeHtml(form.consentLabel)}</label>
@@ -1635,6 +1649,821 @@ function renderContactPage(content) {
         </form>
         </div>
       </section>`
+}
+
+function createEmptyQuizState() {
+  return {
+    role: '',
+    parentDiagnosis: '',
+    childAge: null,
+    child18Months: '',
+    feeding: '',
+    social: '',
+    classroom: '',
+    credentials: [],
+    experienceSettings: [],
+    experienceLength: '',
+    experienceAges: [],
+    doctorDiagnosis: '',
+    diagnosisModalDismissed: false,
+  }
+}
+
+let quizState = createEmptyQuizState()
+
+function getQuiz(content) {
+  return content.contactQuiz
+}
+
+function parseChildAge(value) {
+  if (value === '' || value == null) {
+    return null
+  }
+
+  const age = Number.parseInt(String(value), 10)
+  if (!Number.isFinite(age) || age < 0 || age > 30) {
+    return null
+  }
+
+  return age
+}
+
+function ageToBand(age) {
+  if (age <= 2) {
+    return '0-2'
+  }
+  if (age <= 5) {
+    return '3-5'
+  }
+  if (age <= 8) {
+    return '6-8'
+  }
+  if (age <= 11) {
+    return '9-11'
+  }
+  if (age <= 14) {
+    return '12-14'
+  }
+  if (age <= 17) {
+    return '15-17'
+  }
+
+  return '18+'
+}
+
+function isAbaEligible(state) {
+  if (state.childAge == null) {
+    return false
+  }
+  if (state.childAge >= 2 && state.childAge <= 21) {
+    return true
+  }
+  return state.childAge === 1 && state.child18Months === 'yes'
+}
+
+function parentProgramIds(age) {
+  const questions = []
+  if (age >= 2 && age <= 12) {
+    questions.push('feeding')
+  }
+  if (age >= 5 && age <= 17) {
+    questions.push('social')
+  }
+  if (age >= 2 && age <= 5) {
+    questions.push('classroom')
+  }
+  return questions
+}
+
+function parentSpecializedMatches(state) {
+  const matches = []
+  if (state.childAge == null) {
+    return matches
+  }
+  if (state.childAge >= 2 && state.childAge <= 12 && state.feeding === 'yes') {
+    matches.push('feeding')
+  }
+  if (state.childAge >= 5 && state.childAge <= 17 && state.social === 'yes') {
+    matches.push('social-skills')
+  }
+  if (state.childAge >= 2 && state.childAge <= 5 && state.classroom === 'yes') {
+    matches.push('early-learners')
+  }
+  return matches
+}
+
+function parentReadyForResult(state) {
+  if (state.role !== 'parent') {
+    return false
+  }
+  if (state.parentDiagnosis === 'no') {
+    return true
+  }
+  if (state.parentDiagnosis !== 'yes' || state.childAge == null) {
+    return false
+  }
+  if (state.childAge === 1 && !state.child18Months) {
+    return false
+  }
+
+  return parentProgramIds(state.childAge).every((questionId) => state[questionId])
+}
+
+function applicantHasCredentials(state) {
+  return state.credentials.length > 0
+}
+
+function applicantReadyForResult(state) {
+  if (state.role !== 'applicant' || !applicantHasCredentials(state) || !state.experienceLength) {
+    return false
+  }
+  if (state.experienceLength === 'none') {
+    return true
+  }
+  return state.experienceSettings.length > 0 && state.experienceAges.length > 0
+}
+
+function collectCredentialOptions(quiz) {
+  return (quiz.applicantCredentialsQuestion.groups ?? []).flatMap((group) => group.options)
+}
+
+function labelForOption(options, id) {
+  return options.find((option) => option.id === id)?.label ?? id
+}
+
+function formatSelectedCount(quiz, count) {
+  return (quiz.multiSelectSelected ?? '{count} selected').replace('{count}', String(count))
+}
+
+function suggestApplicantRole(state, quiz) {
+  const selected = new Set(state.credentials)
+  if (selected.has('bcba') || selected.has('bcba-d')) {
+    return 'bcba'
+  }
+  if (selected.has('bcaba')) {
+    return 'bcaba'
+  }
+  if (selected.has('masters')) {
+    return 'masters'
+  }
+  if (selected.has('rbt') || selected.has('qbt')) {
+    return 'rbt'
+  }
+  return 'bt'
+}
+
+function buildParentPrefill(state, quiz) {
+  if (state.parentDiagnosis === 'no') {
+    return {
+      form: 'family',
+      fields: {
+        message: quiz.parentMessages.noDiagnosis,
+      },
+    }
+  }
+
+  const specialized = parentSpecializedMatches(state)
+  const abaEligible = isAbaEligible(state)
+  const programs = [...specialized]
+  if (abaEligible) {
+    programs.unshift('aba')
+  }
+
+  let serviceId = 'not-sure'
+  if (specialized.length === 1) {
+    serviceId = specialized[0]
+  } else if (specialized.length === 0 && abaEligible) {
+    serviceId = 'aba'
+  }
+
+  const programLabels = programs.map((id) => quiz.programLabels[id] ?? id)
+  const message =
+    programs.length > 0
+      ? quiz.parentMessages.programs.replace('{programs}', programLabels.join(', '))
+      : quiz.parentMessages.outsideAge
+
+  const fields = {
+    serviceId,
+    message,
+  }
+  if (state.childAge != null) {
+    fields.ageRange = ageToBand(state.childAge)
+  }
+
+  return { form: 'family', fields }
+}
+
+function buildDoctorPrefill(quiz) {
+  return {
+    form: 'referral',
+    fields: {
+      role: quiz.referralRoleValue,
+      message: quiz.doctorMessage,
+    },
+  }
+}
+
+function buildApplicantPrefill(state, quiz) {
+  const roleKey = suggestApplicantRole(state, quiz)
+  const credentialOptions = collectCredentialOptions(quiz)
+  const credentialLabels = state.credentials.map((id) => labelForOption(credentialOptions, id))
+  const settingLabels = state.experienceSettings.map((id) =>
+    labelForOption(quiz.applicantExperienceSettingsQuestion.options, id),
+  )
+  const lengthLabel = labelForOption(quiz.applicantExperienceLengthQuestion.options, state.experienceLength)
+  const ageLabels = state.experienceAges.map((id) =>
+    labelForOption(quiz.applicantExperienceAgesQuestion.options, id),
+  )
+
+  const experienceLines = [
+    `${quiz.applicantCredentialsQuestion.label} ${credentialLabels.join(', ') || '—'}`,
+    `${quiz.applicantExperienceLengthQuestion.label} ${lengthLabel}`,
+  ]
+  if (settingLabels.length) {
+    experienceLines.push(`${quiz.applicantExperienceSettingsQuestion.label} ${settingLabels.join(', ')}`)
+  }
+  if (ageLabels.length) {
+    experienceLines.push(`${quiz.applicantExperienceAgesQuestion.label} ${ageLabels.join(', ')}`)
+  }
+
+  return {
+    form: 'career',
+    fields: {
+      role: quiz.careerRoles[roleKey],
+      experience: `${quiz.applicantResult.experienceLabel}\n${experienceLines.join('\n')}`,
+    },
+    careerRole: quiz.careerRoles[roleKey],
+  }
+}
+
+function buildQuizPrefill(state, quiz) {
+  switch (state.role) {
+    case 'parent':
+      return buildParentPrefill(state, quiz)
+    case 'doctor':
+      return buildDoctorPrefill(quiz)
+    case 'applicant':
+      return buildApplicantPrefill(state, quiz)
+    case '':
+      return null
+    default: {
+      const _exhaustiveCheck = state.role
+      return _exhaustiveCheck ? null : null
+    }
+  }
+}
+
+function writeQuizPrefill(payload) {
+  sessionStorage.setItem(QUIZ_PREFILL_STORAGE_KEY, JSON.stringify(payload))
+  if (payload.careerRole) {
+    sessionStorage.setItem(CAREER_ROLE_STORAGE_KEY, payload.careerRole)
+  }
+}
+
+function readQuizPrefill() {
+  try {
+    const raw = sessionStorage.getItem(QUIZ_PREFILL_STORAGE_KEY)
+    return raw ? JSON.parse(raw) : null
+  } catch {
+    return null
+  }
+}
+
+function clearQuizPrefill() {
+  sessionStorage.removeItem(QUIZ_PREFILL_STORAGE_KEY)
+}
+
+function renderQuizSelect(quiz, fieldName, label, options, selectedValue) {
+  const optionMarkup = [
+    `<option value="">${escapeHtml(quiz.selectPlaceholder)}</option>`,
+    ...options.map(
+      (option) =>
+        `<option value="${escapeHtml(option.id)}"${option.id === selectedValue ? ' selected' : ''}>${escapeHtml(option.label)}</option>`,
+    ),
+  ].join('\n              ')
+
+  return `<label class="quiz-field">
+            <span>${escapeHtml(label)}</span>
+            <select data-quiz-field="${escapeHtml(fieldName)}">
+              ${optionMarkup}
+            </select>
+          </label>`
+}
+
+function renderQuizYesNo(quiz, fieldName, label, selectedValue) {
+  return renderQuizSelect(
+    quiz,
+    fieldName,
+    label,
+    [
+      { id: 'yes', label: quiz.yesLabel },
+      { id: 'no', label: quiz.noLabel },
+    ],
+    selectedValue,
+  )
+}
+
+function renderQuizMultiSelect(quiz, fieldName, label, groups, selectedIds) {
+  const selected = new Set(selectedIds)
+  const selectedCount = selectedIds.length
+  const summary =
+    selectedCount > 0 ? formatSelectedCount(quiz, selectedCount) : quiz.multiSelectPlaceholder
+  const groupMarkup = groups
+    .map((group) => {
+      const hideLegend = groups.length === 1 && group.label === label
+      const options = group.options
+        .map((option) => {
+          const inputId = `quiz-${fieldName}-${option.id}`
+          return `<label class="quiz-check" for="${escapeHtml(inputId)}">
+                    <input id="${escapeHtml(inputId)}" type="checkbox" data-quiz-multi="${escapeHtml(fieldName)}" value="${escapeHtml(option.id)}"${selected.has(option.id) ? ' checked' : ''} />
+                    <span>${escapeHtml(option.label)}</span>
+                  </label>`
+        })
+        .join('\n                ')
+      return `<fieldset class="quiz-multiselect-group">
+                <legend class="${hideLegend ? 'visually-hidden' : ''}">${escapeHtml(group.label)}</legend>
+                ${options}
+              </fieldset>`
+    })
+    .join('\n              ')
+
+  return `<div class="quiz-field quiz-multiselect" data-quiz-multiselect>
+            <span class="quiz-field-label">${escapeHtml(label)}</span>
+            <button type="button" class="quiz-multiselect-toggle" aria-expanded="false" aria-haspopup="listbox">
+              ${escapeHtml(summary)}
+            </button>
+            <div class="quiz-multiselect-panel" hidden>
+              ${groupMarkup}
+            </div>
+          </div>`
+}
+
+function renderQuizCta(href, label) {
+  return `<a class="button" href="${escapeHtml(toStaticHref(href))}" data-quiz-prefill>${escapeHtml(label)}</a>`
+}
+
+function renderParentResultCard(state, quiz) {
+  if (state.parentDiagnosis === 'no') {
+    const copy = quiz.parentNoDiagnosis
+    return `<article class="quiz-result" data-quiz-result>
+            <h3>${escapeHtml(copy.resultTitle)}</h3>
+            <p>${escapeHtml(copy.resultBody)}</p>
+            ${renderQuizCta('/contact/request', copy.ctaLabel)}
+          </article>`
+  }
+
+  const specialized = parentSpecializedMatches(state)
+  const abaEligible = isAbaEligible(state)
+  const copy = quiz.parentResult
+
+  if (!abaEligible && specialized.length === 0) {
+    return `<article class="quiz-result" data-quiz-result>
+            <h3>${escapeHtml(copy.outsideAgeTitle)}</h3>
+            <p>${escapeHtml(copy.outsideAgeBody)}</p>
+            ${renderQuizCta('/contact/request', copy.ctaLabel)}
+          </article>`
+  }
+
+  if (specialized.length === 0) {
+    return `<article class="quiz-result" data-quiz-result>
+            <h3>${escapeHtml(copy.onlyAbaTitle)}</h3>
+            <p>${escapeHtml(copy.onlyAbaBody)}</p>
+            ${renderQuizCta('/contact/request', copy.ctaLabel)}
+          </article>`
+  }
+
+  const items = specialized
+    .map((id) => `<li>${escapeHtml(quiz.programLabels[id] ?? id)}</li>`)
+    .join('')
+  const abaNote = abaEligible ? `<p>${escapeHtml(copy.abaNote)}</p>` : ''
+
+  return `<article class="quiz-result" data-quiz-result>
+            <h3>${escapeHtml(copy.title)}</h3>
+            <p>${escapeHtml(copy.body)}</p>
+            <ul class="quiz-result-list">${items}</ul>
+            ${abaNote}
+            ${renderQuizCta('/contact/request', copy.ctaLabel)}
+          </article>`
+}
+
+function renderDoctorResultCard(state, quiz) {
+  const answered = state.doctorDiagnosis
+  if (!answered) {
+    return ''
+  }
+
+  if (answered === 'yes') {
+    const copy = quiz.doctorYes
+    const steps = copy.steps
+      .map(
+        (step, index) => `<li class="quiz-step">
+              <span class="quiz-step-index">${index + 1}</span>
+              <div>
+                <strong>${escapeHtml(step.title)}</strong>
+                <p>${escapeHtml(step.body)}</p>
+              </div>
+            </li>`,
+      )
+      .join('')
+    return `<article class="quiz-result" data-quiz-result>
+            <h3>${escapeHtml(copy.title)}</h3>
+            <p>${escapeHtml(copy.intro)}</p>
+            <ol class="quiz-stepper">${steps}</ol>
+            <p class="quiz-result-note">${escapeHtml(copy.notice)}</p>
+            ${renderQuizCta('/contact/referral', copy.ctaLabel)}
+          </article>`
+  }
+
+  const copy = quiz.doctorNo
+  const items = copy.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')
+  return `<article class="quiz-result" data-quiz-result>
+            <h3>${escapeHtml(copy.title)}</h3>
+            <p>${escapeHtml(copy.intro)}</p>
+            <ul class="quiz-result-list">${items}</ul>
+            ${renderQuizCta('/contact/referral', copy.ctaLabel)}
+          </article>`
+}
+
+function renderApplicantResultCard(state, quiz) {
+  const roleKey = suggestApplicantRole(state, quiz)
+  const copy = quiz.applicantResult
+  return `<article class="quiz-result" data-quiz-result>
+            <h3>${escapeHtml(copy.title)}</h3>
+            <p class="quiz-result-role">${escapeHtml(quiz.careerRoles[roleKey])}</p>
+            <p>${escapeHtml(quiz.roleReasons[roleKey])}</p>
+            <p>${escapeHtml(copy.body)}</p>
+            ${renderQuizCta('/career/apply', copy.ctaLabel)}
+          </article>`
+}
+
+function renderQuizResult(state, quiz) {
+  switch (state.role) {
+    case 'parent':
+      return parentReadyForResult(state) ? renderParentResultCard(state, quiz) : ''
+    case 'doctor':
+      return state.doctorDiagnosis ? renderDoctorResultCard(state, quiz) : ''
+    case 'applicant':
+      return applicantReadyForResult(state) ? renderApplicantResultCard(state, quiz) : ''
+    case '':
+      return ''
+    default: {
+      const _exhaustiveCheck = state.role
+      return _exhaustiveCheck ? '' : ''
+    }
+  }
+}
+
+function renderParentQuestions(state, quiz) {
+  const fields = [
+    renderQuizYesNo(quiz, 'parentDiagnosis', quiz.parentDiagnosisQuestion.label, state.parentDiagnosis),
+  ]
+
+  if (state.parentDiagnosis !== 'yes') {
+    return fields.join('\n          ')
+  }
+
+  fields.push(`<label class="quiz-field">
+            <span>${escapeHtml(quiz.parentAgeQuestion.label)}</span>
+            <span class="quiz-age-row">
+              <input type="number" inputmode="numeric" min="0" max="30" data-quiz-field="childAge" value="${state.childAge == null ? '' : escapeHtml(String(state.childAge))}" />
+              <span class="quiz-age-suffix">${escapeHtml(quiz.ageSuffix)}</span>
+            </span>
+            <small>${escapeHtml(quiz.ageHelp)}</small>
+          </label>`)
+
+  if (state.childAge == null) {
+    return fields.join('\n          ')
+  }
+
+  if (state.childAge === 1) {
+    fields.push(
+      renderQuizYesNo(quiz, 'child18Months', quiz.parent18MonthsQuestion.label, state.child18Months),
+    )
+    if (!state.child18Months) {
+      return fields.join('\n          ')
+    }
+  }
+
+  const questionCopy = {
+    feeding: quiz.parentFeedingQuestion.label,
+    social: quiz.parentSocialQuestion.label,
+    classroom: quiz.parentClassroomQuestion.label,
+  }
+
+  for (const questionId of parentProgramIds(state.childAge)) {
+    fields.push(renderQuizYesNo(quiz, questionId, questionCopy[questionId], state[questionId]))
+    if (!state[questionId]) {
+      break
+    }
+  }
+
+  return fields.join('\n          ')
+}
+
+function renderDoctorQuestions(state, quiz) {
+  return renderQuizYesNo(
+    quiz,
+    'doctorDiagnosis',
+    quiz.doctorDiagnosisQuestion.label,
+    state.doctorDiagnosis,
+  )
+}
+
+function renderApplicantQuestions(state, quiz) {
+  const fields = [
+    renderQuizMultiSelect(
+      quiz,
+      'credentials',
+      quiz.applicantCredentialsQuestion.label,
+      quiz.applicantCredentialsQuestion.groups,
+      state.credentials,
+    ),
+  ]
+
+  if (!applicantHasCredentials(state)) {
+    return fields.join('\n          ')
+  }
+
+  fields.push(
+    renderQuizSelect(
+      quiz,
+      'experienceLength',
+      quiz.applicantExperienceLengthQuestion.label,
+      quiz.applicantExperienceLengthQuestion.options,
+      state.experienceLength,
+    ),
+  )
+
+  if (!state.experienceLength) {
+    return fields.join('\n          ')
+  }
+
+  if (state.experienceLength !== 'none') {
+    fields.push(
+      renderQuizMultiSelect(
+        quiz,
+        'experienceSettings',
+        quiz.applicantExperienceSettingsQuestion.label,
+        [{ label: quiz.applicantExperienceSettingsQuestion.label, options: quiz.applicantExperienceSettingsQuestion.options }],
+        state.experienceSettings,
+      ),
+    )
+
+    if (state.experienceSettings.length > 0) {
+      fields.push(
+        renderQuizMultiSelect(
+          quiz,
+          'experienceAges',
+          quiz.applicantExperienceAgesQuestion.label,
+          [{ label: quiz.applicantExperienceAgesQuestion.label, options: quiz.applicantExperienceAgesQuestion.options }],
+          state.experienceAges,
+        ),
+      )
+    }
+  }
+
+  return fields.join('\n          ')
+}
+
+function renderQuizBranch(state, quiz) {
+  switch (state.role) {
+    case 'parent':
+      return renderParentQuestions(state, quiz)
+    case 'doctor':
+      return renderDoctorQuestions(state, quiz)
+    case 'applicant':
+      return renderApplicantQuestions(state, quiz)
+    case '':
+      return ''
+    default: {
+      const _exhaustiveCheck = state.role
+      return _exhaustiveCheck ? '' : ''
+    }
+  }
+}
+
+function renderDiagnosisDialog(quiz) {
+  const copy = quiz.parentNoDiagnosis
+  const steps = copy.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join('')
+  return `<dialog class="quiz-dialog" data-quiz-diagnosis-dialog>
+            <h3>${escapeHtml(copy.title)}</h3>
+            <p>${escapeHtml(copy.intro)}</p>
+            <ol class="quiz-result-list quiz-result-list--numbered">${steps}</ol>
+            <div class="quiz-dialog-actions">
+              <button type="button" class="button ghost" data-quiz-dialog-close>${escapeHtml(quiz.closeLabel)}</button>
+              ${renderQuizCta('/contact/request', copy.modalCtaLabel)}
+            </div>
+          </dialog>`
+}
+
+function renderContactQuizInner(content) {
+  const quiz = getQuiz(content)
+  const roleOptions = quiz.roleQuestion.options
+  const branch = renderQuizBranch(quizState, quiz)
+  const result = renderQuizResult(quizState, quiz)
+
+  return `${renderQuizSelect(quiz, 'role', quiz.roleQuestion.label, roleOptions, quizState.role)}
+          <p class="quiz-skip">${escapeHtml(quiz.skipLinkPrompt)} <a href="${escapeHtml(toStaticHref(quiz.skipLinkHref))}">${escapeHtml(quiz.skipLinkLabel)}</a></p>
+          ${branch}
+          ${result}
+          <p class="quiz-disclaimer">${escapeHtml(quiz.disclaimer)}</p>
+          ${renderDiagnosisDialog(quiz)}`
+}
+
+function renderContactQuizPage(content) {
+  const quiz = getQuiz(content)
+  return `<section class="section contact-section page-section">
+        <div>
+          ${renderContactSidebar(content, quiz)}
+        </div>
+        <div class="contact-form-panel quiz-panel">
+          <div class="contact-quiz" data-contact-quiz>
+            ${renderContactQuizInner(content)}
+          </div>
+        </div>
+      </section>`
+}
+
+function resetDependentQuizFields(fieldName) {
+  if (fieldName === 'role') {
+    const role = quizState.role
+    quizState = createEmptyQuizState()
+    quizState.role = role
+    return
+  }
+
+  if (fieldName === 'parentDiagnosis') {
+    quizState.childAge = null
+    quizState.child18Months = ''
+    quizState.feeding = ''
+    quizState.social = ''
+    quizState.classroom = ''
+    quizState.diagnosisModalDismissed = quizState.parentDiagnosis === 'no' ? false : true
+    return
+  }
+
+  if (fieldName === 'childAge') {
+    quizState.child18Months = ''
+    quizState.feeding = ''
+    quizState.social = ''
+    quizState.classroom = ''
+    return
+  }
+
+  if (fieldName === 'experienceLength' && quizState.experienceLength === 'none') {
+    quizState.experienceSettings = []
+    quizState.experienceAges = []
+  }
+}
+
+function syncQuizMultiValue(fieldName, values) {
+  const unique = [...new Set(values)]
+  if (fieldName === 'credentials' && unique.includes('none-yet') && unique.length > 1) {
+    const last = unique[unique.length - 1]
+    quizState.credentials = last === 'none-yet' ? ['none-yet'] : unique.filter((id) => id !== 'none-yet')
+    return
+  }
+
+  quizState[fieldName] = unique
+}
+
+function refreshContactQuiz(content) {
+  const root = document.querySelector('[data-contact-quiz]')
+  if (!root) {
+    return
+  }
+
+  root.innerHTML = renderContactQuizInner(content)
+  bindContactQuizControls(content)
+}
+
+function bindContactQuizControls(content) {
+  const root = document.querySelector('[data-contact-quiz]')
+  if (!root) {
+    return
+  }
+
+  const quiz = getQuiz(content)
+  clearQuizPrefill()
+
+  root.querySelectorAll('[data-quiz-field]').forEach((field) => {
+    const eventName = field.type === 'number' ? 'input' : 'change'
+    field.addEventListener(eventName, () => {
+      const name = field.dataset.quizField
+      if (name === 'childAge') {
+        quizState.childAge = parseChildAge(field.value)
+      } else {
+        quizState[name] = field.value
+      }
+      resetDependentQuizFields(name)
+      refreshContactQuiz(content)
+      const nextField = document.querySelector(`[data-quiz-field="${name}"]`)
+      if (nextField instanceof HTMLInputElement || nextField instanceof HTMLSelectElement) {
+        nextField.focus()
+        if (nextField instanceof HTMLInputElement && nextField.type === 'number') {
+          const end = nextField.value.length
+          nextField.setSelectionRange(end, end)
+        }
+      }
+    })
+  })
+
+  root.querySelectorAll('[data-quiz-multiselect]').forEach((wrapper) => {
+    const toggle = wrapper.querySelector('.quiz-multiselect-toggle')
+    const panel = wrapper.querySelector('.quiz-multiselect-panel')
+    if (!toggle || !panel) {
+      return
+    }
+
+    toggle.addEventListener('click', () => {
+      const open = panel.hidden
+      panel.hidden = !open
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false')
+    })
+
+    wrapper.querySelectorAll('[data-quiz-multi]').forEach((input) => {
+      input.addEventListener('change', () => {
+        const fieldName = input.dataset.quizMulti
+        const values = Array.from(wrapper.querySelectorAll('[data-quiz-multi]:checked')).map(
+          (node) => node.value,
+        )
+        syncQuizMultiValue(fieldName, values)
+        if (fieldName === 'experienceSettings') {
+          if (quizState.experienceSettings.length === 0) {
+            quizState.experienceAges = []
+          }
+        }
+        refreshContactQuiz(content)
+      })
+    })
+  })
+
+  root.querySelectorAll('[data-quiz-prefill]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const payload = buildQuizPrefill(quizState, quiz)
+      if (payload) {
+        writeQuizPrefill(payload)
+      }
+    })
+  })
+
+  const dialog = root.querySelector('[data-quiz-diagnosis-dialog]')
+  const closeButton = root.querySelector('[data-quiz-dialog-close]')
+  if (dialog) {
+    closeButton?.addEventListener('click', () => {
+      quizState.diagnosisModalDismissed = true
+      dialog.close()
+    })
+
+    dialog.addEventListener('close', () => {
+      quizState.diagnosisModalDismissed = true
+    })
+
+    if (
+      quizState.role === 'parent' &&
+      quizState.parentDiagnosis === 'no' &&
+      !quizState.diagnosisModalDismissed &&
+      typeof dialog.showModal === 'function'
+    ) {
+      dialog.showModal()
+    }
+  }
+}
+
+function bindQuizMultiSelectOutside() {
+  if (bindQuizMultiSelectOutside.handler) {
+    document.removeEventListener('click', bindQuizMultiSelectOutside.handler)
+  }
+
+  bindQuizMultiSelectOutside.handler = (event) => {
+    if (!(event.target instanceof Element)) {
+      return
+    }
+
+    document.querySelectorAll('[data-quiz-multiselect]').forEach((wrapper) => {
+      if (wrapper.contains(event.target)) {
+        return
+      }
+
+      const panel = wrapper.querySelector('.quiz-multiselect-panel')
+      const toggle = wrapper.querySelector('.quiz-multiselect-toggle')
+      if (panel) {
+        panel.hidden = true
+      }
+      toggle?.setAttribute('aria-expanded', 'false')
+    })
+  }
+
+  document.addEventListener('click', bindQuizMultiSelectOutside.handler)
+}
+
+function bindContactQuiz(content) {
+  if (PAGE !== 'contact' || !getQuiz(content)) {
+    return
+  }
+
+  bindContactQuizControls(content)
+  bindQuizMultiSelectOutside()
 }
 
 function renderResourcesIndex(content) {
@@ -1715,6 +2544,9 @@ function renderMain(content) {
       mainHtml = renderCareerApplicationPage(content)
       break
     case 'contact':
+      mainHtml = renderContactQuizPage(content)
+      break
+    case 'contact-request':
     case 'contact-referral':
       mainHtml = renderContactPage(content)
       break
@@ -1879,8 +2711,48 @@ function getFormSubmissionPayload(form) {
   }
 }
 
+function applyQuizPrefillToForm(form, content, expectedForm) {
+  const prefill = readQuizPrefill()
+  if (!prefill || prefill.form !== expectedForm) {
+    return
+  }
+
+  const fields = { ...prefill.fields }
+  if (fields.serviceId) {
+    const quiz = getQuiz(content)
+    fields.service = quiz?.serviceValues?.[fields.serviceId] ?? fields.serviceId
+    delete fields.serviceId
+  }
+
+  Object.entries(fields).forEach(([name, value]) => {
+    if (value == null || value === '') {
+      return
+    }
+
+    const field = form.elements.namedItem(name)
+    if (!field || !('value' in field)) {
+      return
+    }
+
+    if (field instanceof HTMLSelectElement) {
+      const hasOption = Array.from(field.options).some((option) => option.value === value)
+      if (hasOption) {
+        field.value = value
+      }
+      return
+    }
+
+    field.value = String(value)
+  })
+
+  clearQuizPrefill()
+}
+
 function bindRequestForms(content) {
   document.querySelectorAll('.request-form[data-form-type]').forEach((form) => {
+    const expectedForm = form.dataset.formType === 'referral' ? 'referral' : 'family'
+    applyQuizPrefillToForm(form, content, expectedForm)
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault()
 
@@ -2037,6 +2909,8 @@ function bindCareerApplication(content) {
     sessionStorage.removeItem(CAREER_ROLE_STORAGE_KEY)
   }
 
+  applyQuizPrefillToForm(form, content, 'career')
+
   const maxFileSize = 5 * 1024 * 1024
   const allowedExtensions = ['.pdf', '.doc', '.docx', '.txt']
   let selectedFile = null
@@ -2188,7 +3062,12 @@ function applyDocumentSeo(locale) {
   const seo = window.VTCC_SEO
   if (!seo) return
 
-  const pageKey = PAGE === 'resource' || PAGE === 'career-apply' || PAGE === 'careers' ? 'career' : PAGE
+  const pageKey =
+    PAGE === 'contact-request'
+      ? 'contact'
+      : PAGE === 'resource' || PAGE === 'career-apply' || PAGE === 'careers'
+        ? 'career'
+        : PAGE
   const url = seo.routeMap[locale]?.[pageKey] ?? seo.routeMap.en?.[pageKey]
   const entry = url ? seo.pages[url] : null
   if (!entry?.headLines?.length) return
@@ -2296,6 +3175,7 @@ function render() {
   bindRequestForms(content)
   bindCareersPage()
   bindCareerApplication(content)
+  bindContactQuiz(content)
   bindProgramPanels()
 
   const toggleAll = document.querySelector('[data-faq-toggle-all]')

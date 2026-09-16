@@ -22,6 +22,8 @@
     "contactSwitchFamilyLink": "Use the family request form",
     "contactSwitchReferralPrompt": "Submitting a professional referral?",
     "contactSwitchReferralLink": "Use the referral inquiry form",
+    "contactSwitchQuizPrompt": "Want help choosing a path?",
+    "contactSwitchQuizLink": "Start with the contact quiz",
     "formSubmitting": "Sending...",
     "formSuccess": "Thank you. Your request was received. A VTCC team member will follow up.",
     "formError": "We could not send this form. Please call VTCC or try again later.",
@@ -1815,6 +1817,315 @@
         "rows": 4
       }
     ]
+  },
+  "contactQuiz": {
+    "eyebrow": "Contact",
+    "title": "Find the right next step",
+    "intro": "Answer a few questions. We will suggest a path and open the matching form with what you already shared. Suggestions are a starting point, not a clinical decision.",
+    "callEyebrow": "Call VTCC",
+    "callTitle": "Prefer to talk with someone?",
+    "callIntro": "Call our Fairfax office. A team member can help with services, referrals, careers, and next steps.",
+    "selectPlaceholder": "Select one",
+    "multiSelectPlaceholder": "Select all that apply",
+    "multiSelectSelected": "{count} selected",
+    "yesLabel": "Yes",
+    "noLabel": "No",
+    "closeLabel": "Close",
+    "ageSuffix": "years old",
+    "ageHelp": "Enter your child's age in whole years.",
+    "skipLinkPrompt": "School, case manager, or other professional?",
+    "skipLinkLabel": "Start a referral",
+    "skipLinkHref": "/contact/referral",
+    "disclaimer": "This quiz does not determine eligibility. Final fit depends on assessment, funding, and authorization. Do not enter diagnosis reports or other protected health information here.",
+    "roleQuestion": {
+      "label": "I am a…",
+      "options": [
+        {
+          "id": "parent",
+          "label": "Parent or guardian"
+        },
+        {
+          "id": "doctor",
+          "label": "Doctor"
+        },
+        {
+          "id": "applicant",
+          "label": "Applicant"
+        }
+      ]
+    },
+    "parentDiagnosisQuestion": {
+      "label": "Do you have a diagnosis from your child's doctor?"
+    },
+    "parentAgeQuestion": {
+      "label": "How old is your child?"
+    },
+    "parent18MonthsQuestion": {
+      "label": "Is your child at least 18 months old?"
+    },
+    "parentFeedingQuestion": {
+      "label": "Does your child have rigidity with food or a hard time eating enough nutrition?"
+    },
+    "parentSocialQuestion": {
+      "label": "Does your child need support with social skills in groups?"
+    },
+    "parentClassroomQuestion": {
+      "label": "Is your child classroom-ready for the Early Learners program?"
+    },
+    "doctorDiagnosisQuestion": {
+      "label": "Do you have the referral and diagnosis?"
+    },
+    "applicantCredentialsQuestion": {
+      "label": "What qualifications do you have?",
+      "groups": [
+        {
+          "label": "Degrees",
+          "options": [
+            {
+              "id": "hs",
+              "label": "High school diploma or GED"
+            },
+            {
+              "id": "associate",
+              "label": "Associate degree"
+            },
+            {
+              "id": "bachelors",
+              "label": "Bachelor's degree"
+            },
+            {
+              "id": "masters",
+              "label": "Master's degree (ABA, psychology, education, or related)"
+            },
+            {
+              "id": "doctorate",
+              "label": "Doctoral degree"
+            }
+          ]
+        },
+        {
+          "label": "Certifications",
+          "options": [
+            {
+              "id": "rbt",
+              "label": "Registered Behavior Technician (RBT)"
+            },
+            {
+              "id": "qbt",
+              "label": "Qualified Behavior Technician (QBT)"
+            },
+            {
+              "id": "bcaba",
+              "label": "Board Certified Assistant Behavior Analyst (BCaBA)"
+            },
+            {
+              "id": "bcba",
+              "label": "Board Certified Behavior Analyst (BCBA)"
+            },
+            {
+              "id": "bcba-d",
+              "label": "Board Certified Behavior Analyst-Doctoral (BCBA-D)"
+            }
+          ]
+        },
+        {
+          "label": "Licenses",
+          "options": [
+            {
+              "id": "lba",
+              "label": "Virginia Licensed Behavior Analyst (LBA)"
+            },
+            {
+              "id": "teaching",
+              "label": "Teaching license"
+            },
+            {
+              "id": "other-license",
+              "label": "Other professional license"
+            }
+          ]
+        },
+        {
+          "label": "Other",
+          "options": [
+            {
+              "id": "none-yet",
+              "label": "None of these yet"
+            }
+          ]
+        }
+      ]
+    },
+    "applicantExperienceSettingsQuestion": {
+      "label": "What type of experience have you had in children's environments?",
+      "options": [
+        {
+          "id": "aba",
+          "label": "ABA or behavior therapy setting"
+        },
+        {
+          "id": "school",
+          "label": "Classroom or school"
+        },
+        {
+          "id": "daycare",
+          "label": "Daycare or preschool"
+        },
+        {
+          "id": "clinic",
+          "label": "Hospital or outpatient clinic"
+        },
+        {
+          "id": "in-home",
+          "label": "In-home caregiving"
+        },
+        {
+          "id": "community",
+          "label": "Community or recreational program"
+        },
+        {
+          "id": "other",
+          "label": "Other children's setting"
+        }
+      ]
+    },
+    "applicantExperienceLengthQuestion": {
+      "label": "How much experience do you have in those settings?",
+      "options": [
+        {
+          "id": "none",
+          "label": "No experience"
+        },
+        {
+          "id": "under-year",
+          "label": "Less than a year total"
+        },
+        {
+          "id": "over-year",
+          "label": "Over a year total"
+        }
+      ]
+    },
+    "applicantExperienceAgesQuestion": {
+      "label": "What age range did you work with?",
+      "options": [
+        {
+          "id": "early-childhood",
+          "label": "Early childhood (0–5)"
+        },
+        {
+          "id": "school-age",
+          "label": "School-age (6–12)"
+        },
+        {
+          "id": "adolescents",
+          "label": "Adolescents (13–17)"
+        },
+        {
+          "id": "mixed",
+          "label": "Mixed ages"
+        }
+      ]
+    },
+    "serviceValues": {
+      "aba": "ABA",
+      "early-learners": "Early Learners",
+      "feeding": "Feeding Program",
+      "social-skills": "Social Skills Group",
+      "not-sure": "Not sure"
+    },
+    "programLabels": {
+      "aba": "ABA Therapy",
+      "early-learners": "Early Learners",
+      "feeding": "Feeding Program",
+      "social-skills": "Social Skills Group"
+    },
+    "referralRoleValue": "Physician or nurse",
+    "careerRoles": {
+      "bcba": "Board Certified Behavior Analyst",
+      "bcaba": "Other",
+      "masters": "Student Analyst Program",
+      "rbt": "Registered Behavior Technician",
+      "bt": "Behavior Technician (BT)"
+    },
+    "roleReasons": {
+      "bcba": "Your BCBA credential is the best match for the Board Certified Behavior Analyst application.",
+      "bcaba": "VTCC does not have a separate BCaBA posting. Apply under Other and mention your BCaBA credential.",
+      "masters": "A related master's degree is a strong fit for the Student Analyst Program.",
+      "rbt": "Your RBT or QBT credential matches the Registered Behavior Technician role.",
+      "bt": "The Behavior Technician role is the usual starting point with this background."
+    },
+    "parentNoDiagnosis": {
+      "title": "A diagnosis helps, and you can still reach VTCC",
+      "intro": "A diagnosis from your child's doctor is often needed for funding and eligibility. You do not have to wait to ask about next steps.",
+      "steps": [
+        "Talk with your child's pediatrician about a developmental evaluation.",
+        "Ask whether a referral to a specialist is appropriate.",
+        "Call VTCC or continue to the request form. Do not include diagnosis reports on the form."
+      ],
+      "resultTitle": "Request help with next steps",
+      "resultBody": "Share a non-sensitive request so a team member can explain evaluation, intake, and funding review.",
+      "ctaLabel": "Continue to the service request form",
+      "modalCtaLabel": "See the request form"
+    },
+    "parentResult": {
+      "title": "Programs that may be a good match",
+      "body": "Based on your child's age and what you shared, these programs may be worth discussing with VTCC.",
+      "abaNote": "ABA therapy is often the foundation. Specialized programs can be added when they are a fit.",
+      "outsideAgeTitle": "We can still help you find a path",
+      "outsideAgeBody": "Your child's age is outside the typical range published for VTCC programs. You can still send a request so the team can advise.",
+      "onlyAbaTitle": "ABA may be the best place to start",
+      "onlyAbaBody": "Your answers did not point to a specialized program. ABA is typically available from 18 months to 21 years when clinically appropriate.",
+      "ctaLabel": "Continue to the service request form"
+    },
+    "parentMessages": {
+      "noDiagnosis": "Contact quiz: parent or guardian asking about next steps.",
+      "programs": "Contact quiz: interested in {programs}.",
+      "outsideAge": "Contact quiz: child age is outside the typical published program range."
+    },
+    "doctorYes": {
+      "title": "How to submit a referral",
+      "intro": "Use this inquiry first. Do not attach diagnosis reports, IEPs, or other protected health information on the web form.",
+      "steps": [
+        {
+          "title": "Submit this inquiry",
+          "body": "Send a short, non-sensitive referral question through the referral form."
+        },
+        {
+          "title": "VTCC follows up",
+          "body": "A team member confirms contacts, service interest, and the secure way to send documents."
+        },
+        {
+          "title": "Send documents securely",
+          "body": "Share the referral and diagnosis through VTCC's approved secure process, not this form."
+        },
+        {
+          "title": "Assessment and authorization",
+          "body": "VTCC reviews funding and outlines next steps for assessment when appropriate."
+        }
+      ],
+      "notice": "This form is for referral questions only. Use VTCC's approved secure process for protected documents.",
+      "ctaLabel": "Continue to the referral form"
+    },
+    "doctorNo": {
+      "title": "What a complete referral usually includes",
+      "intro": "You can still send an inquiry. These items help VTCC follow up faster.",
+      "items": [
+        "Child's age",
+        "Parent or guardian contact information",
+        "Service requested",
+        "Funding source, if known",
+        "Referral and diagnosis documents through VTCC's approved secure process, not this form"
+      ],
+      "ctaLabel": "Continue to the referral form"
+    },
+    "doctorMessage": "Contact quiz: physician referral inquiry.",
+    "applicantResult": {
+      "title": "A role that matches your qualifications",
+      "body": "This is a suggested starting point. You can change the role on the application form.",
+      "ctaLabel": "Continue to the application",
+      "experienceLabel": "Experience from the contact quiz"
+    }
   },
   "offices": [
     {
