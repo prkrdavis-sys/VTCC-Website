@@ -185,10 +185,22 @@
     "headline": "ABA y programas especializados para niños y familias",
     "headlineLead": "For children, adolescents, and families",
     "serviceTags": [
-      "ABA Therapy",
-      "Early Learners",
-      "Feeding Program",
-      "Social Skills Group"
+      {
+        "label": "Terapia ABA",
+        "href": "/aba"
+      },
+      {
+        "label": "Primeros Aprendices",
+        "href": "/early-learners"
+      },
+      {
+        "label": "Programa de Alimentación",
+        "href": "/feeding-program"
+      },
+      {
+        "label": "Grupo de Habilidades Sociales",
+        "href": "/social-skills-group"
+      }
     ],
     "subheadlineLead": "Culturally responsive behavioral and mental health services.",
     "subheadline": "Victoria Transcultural Clinical Center ofrece servicios conductuales y de salud mental culturalmente responsivos para niños, adolescentes y familias. Nuestro equipo apoya a las familias mediante terapia ABA individualizada, programas especializados, colaboración con padres y orientación sobre financiamiento.",
@@ -1446,8 +1458,7 @@
     }
   },
   "careerApplication": {
-    "eyebrow": "Solicite empleo en VTCC",
-    "title": "Cuéntenos cómo puede contribuir",
+    "title": "Solicite unirse a nuestro equipo",
     "intro": "Esta es una vista previa del futuro proceso de solicitud. Su información permanece en este navegador y no se envía a VTCC.",
     "privacyTitle": "La privacidad importa",
     "privacyNote": "No cargue expedientes clínicos, información de clientes, números de Seguro Social ni otros documentos confidenciales. Una plataforma de producción usaría un proceso seguro aprobado.",

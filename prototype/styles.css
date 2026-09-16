@@ -155,16 +155,18 @@ textarea {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
-  padding: 0.85rem clamp(1rem, 4vw, 4rem);
-  background: rgba(251, 248, 241, 0.92);
-  backdrop-filter: blur(16px);
+  z-index: 30;
+  isolation: isolate;
+  padding: 0;
+  background: var(--paper);
   overflow: visible;
   container-type: inline-size;
   container-name: site-header;
 }
 
 .site-header-inner {
+  position: relative;
+  z-index: 2;
   display: grid;
   align-items: center;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -172,6 +174,7 @@ textarea {
     'brand controls'
     'nav nav';
   gap: 0.55rem 1rem;
+  padding: 0.85rem clamp(1rem, 4vw, 4rem);
 }
 
 @media (min-width: 981px) {
@@ -382,17 +385,19 @@ textarea {
 
 .service-subnav-band,
 .guides-subnav-band {
+  position: relative;
+  z-index: 1;
   padding: 0 clamp(1rem, 4vw, 4rem);
   background: color-mix(in srgb, var(--soft) 62%, var(--paper));
   border-bottom: 1px solid rgba(31, 111, 91, 0.12);
 }
 
-.service-subnav-band + .section.page-section,
-.guides-subnav-band + .section.page-section {
+body:has(.service-subnav-band) main > .section.page-section:first-child,
+body:has(.guides-subnav-band) main > .section.page-section:first-child {
   padding-top: clamp(1.35rem, 3vw, 2.25rem);
 }
 
-.guides-subnav-band + .payer-band {
+body:has(.guides-subnav-band) main > .payer-band:first-child {
   border-top: 0;
   padding-top: clamp(1.1rem, 2.5vw, 1.65rem);
 }
@@ -483,7 +488,7 @@ textarea {
   }
 }
 
-.service-subnav-band + .home-hero {
+body:has(.service-subnav-band) main > .home-hero:first-child {
   padding-top: clamp(1.5rem, 3vw, 2.25rem);
 }
 
@@ -786,7 +791,7 @@ textarea {
   list-style: none;
 }
 
-.hero-service-tags li {
+.hero-service-tags a {
   display: inline-flex;
   align-items: center;
   min-height: 2rem;
@@ -798,6 +803,39 @@ textarea {
   font-size: 0.82rem;
   font-weight: var(--weight-semibold);
   letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.hero-service-tags a:hover {
+  background: var(--white);
+  border-color: rgba(31, 111, 91, 0.38);
+  color: var(--brand-dark);
+}
+
+.hero-service-tags a:focus-visible {
+  outline: 3px solid rgba(72, 157, 126, 0.45);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-service-tags a {
+    transition:
+      background-color 150ms ease,
+      border-color 150ms ease,
+      color 150ms ease,
+      box-shadow 150ms ease,
+      transform 150ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .hero-service-tags a:hover {
+    box-shadow: 0 6px 14px rgba(23, 33, 29, 0.08);
+    transform: translateY(-1px);
+  }
+
+  .hero-service-tags a:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: none;
+  }
 }
 
 .hero-text-block {
@@ -3145,24 +3183,22 @@ address strong {
   padding: clamp(1.85rem, 4vw, 2.85rem) clamp(1.1rem, 3vw, 2.35rem) clamp(1.6rem, 4vw, 2.4rem);
   border: 1px solid rgba(31, 111, 91, 0.14);
   border-radius: 1.85rem;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(251, 248, 241, 0.98));
+  background: var(--white);
 }
 
 .quote-board-frame::before {
   content: '';
   position: absolute;
-  inset: 0.75rem -0.7rem -0.85rem 0.6rem;
+  inset: 0.7rem -0.55rem -0.7rem 0.55rem;
   z-index: -1;
   border-radius: inherit;
-  background: rgba(29, 90, 68, 0.12);
-  box-shadow: 0 18px 40px rgba(23, 33, 29, 0.08);
+  background: #b7c8bf;
 }
 
 .quote-board-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2.4rem 1.4rem;
+  gap: 2.6rem 1.85rem;
   align-items: start;
 }
 
@@ -3172,30 +3208,24 @@ address strong {
   width: 100%;
   max-width: 24rem;
   margin: 0;
+  --quote-shade: #9eb8ae;
 }
 
 .quote-bubble:nth-child(2) {
   margin-top: 2.35rem;
   justify-self: center;
+  --quote-shade: #8fbcc6;
 }
 
 .quote-bubble:nth-child(3) {
   margin-top: 0.7rem;
   justify-self: end;
+  --quote-shade: #d2b197;
 }
 
 .quote-bubble-panel {
   position: relative;
   z-index: 1;
-  filter: drop-shadow(0.55rem 0.7rem 0 rgba(29, 90, 68, 0.16));
-}
-
-.quote-bubble:nth-child(2) .quote-bubble-panel {
-  filter: drop-shadow(0.55rem 0.7rem 0 rgba(56, 155, 178, 0.22));
-}
-
-.quote-bubble:nth-child(3) .quote-bubble-panel {
-  filter: drop-shadow(0.55rem 0.7rem 0 rgba(201, 124, 67, 0.2));
 }
 
 .quote-bubble-panel blockquote {
@@ -3205,6 +3235,7 @@ address strong {
   padding: 1.25rem 1.3rem 1.35rem;
   border: 2px solid var(--brand-deep);
   background: var(--white);
+  box-shadow: 0.62rem 0.72rem 0 var(--quote-shade);
 }
 
 .quote-bubble-panel blockquote p {
@@ -3216,7 +3247,7 @@ address strong {
 }
 
 .quote-bubble--thought .quote-bubble-panel {
-  padding: 1.55rem 0.2rem 2.15rem;
+  padding: 1.2rem 0 1.7rem;
 }
 
 .quote-bubble--thought .quote-bubble-panel blockquote {
@@ -3272,7 +3303,7 @@ address strong {
 .quote-bubble--thought .quote-bubble-tail {
   position: absolute;
   left: 1.65rem;
-  bottom: 0.55rem;
+  bottom: 0.28rem;
   width: 1.15rem;
   height: 1.15rem;
   border: 2px solid var(--brand-deep);
@@ -3304,7 +3335,7 @@ address strong {
 }
 
 .quote-bubble--speech .quote-bubble-panel {
-  padding-bottom: 0.95rem;
+  padding-bottom: 0.85rem;
 }
 
 .quote-bubble--speech .quote-bubble-panel blockquote {
@@ -3336,7 +3367,7 @@ address strong {
 .quote-bubble figcaption {
   display: grid;
   gap: 0.1rem;
-  padding: 0.55rem 0.4rem 0 1.15rem;
+  padding: 0.45rem 0.4rem 0 1.15rem;
 }
 
 .quote-bubble--end figcaption {
@@ -3985,15 +4016,21 @@ address strong {
     position: sticky;
     top: 0;
     z-index: 40;
-    padding:
-      0.65rem max(1rem, env(safe-area-inset-right))
-      0.65rem max(1rem, env(safe-area-inset-left));
+    padding: 0;
   }
 
   .site-header-inner {
     grid-template-columns: minmax(0, 1fr) auto auto;
     grid-template-areas: 'brand phone menu';
     gap: 0.45rem 0.55rem;
+    padding:
+      0.65rem max(1rem, env(safe-area-inset-right))
+      0.65rem max(1rem, env(safe-area-inset-left));
+  }
+
+  .service-subnav-band,
+  .guides-subnav-band {
+    padding-inline: max(1rem, env(safe-area-inset-left)) max(1rem, env(safe-area-inset-right));
   }
 
   .brand {

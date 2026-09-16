@@ -185,10 +185,22 @@
     "headline": "ABA and Specialized Programs for Children and Families",
     "headlineLead": "For children, adolescents, and families",
     "serviceTags": [
-      "ABA Therapy",
-      "Early Learners",
-      "Feeding Program",
-      "Social Skills Group"
+      {
+        "label": "ABA Therapy",
+        "href": "/aba"
+      },
+      {
+        "label": "Early Learners",
+        "href": "/early-learners"
+      },
+      {
+        "label": "Feeding Program",
+        "href": "/feeding-program"
+      },
+      {
+        "label": "Social Skills Group",
+        "href": "/social-skills-group"
+      }
     ],
     "subheadlineLead": "Culturally responsive behavioral and mental health services.",
     "subheadline": "VTCC supports families through individualized ABA therapy, early learning, feeding, and advanced social skills programs.",
@@ -1444,8 +1456,7 @@
     }
   },
   "careerApplication": {
-    "eyebrow": "Apply to VTCC",
-    "title": "Tell us how you could contribute",
+    "title": "Apply to join our team",
     "intro": "This is a front-end preview of a future application flow. Your information stays in this browser and is not sent to VTCC.",
     "privacyTitle": "Privacy matters",
     "privacyNote": "Do not upload clinical records, client information, Social Security numbers, or other sensitive documents. A production application portal would use an approved secure process.",

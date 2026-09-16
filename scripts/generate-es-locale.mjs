@@ -112,6 +112,13 @@ Object.assign(es.hero, {
     'Atendemos a familias a través de Medicaid, organizaciones de atención administrada, seguros comerciales y vías de financiamiento del condado/FAPT, sujeto a elegibilidad y verificación del plan.',
 })
 
+es.hero.serviceTags = [
+  { label: 'Terapia ABA', href: '/aba' },
+  { label: 'Primeros Aprendices', href: '/early-learners' },
+  { label: 'Programa de Alimentación', href: '/feeding-program' },
+  { label: 'Grupo de Habilidades Sociales', href: '/social-skills-group' },
+]
+
 es.hero.actions = [
   { label: 'Solicitar Servicios', href: '#contact', style: 'primary' },
   { label: 'Referir un Cliente', href: '#referrers', style: 'secondary' },
@@ -449,8 +456,7 @@ es.sections.careers = {
 }
 
 es.careerApplication = {
-  eyebrow: 'Solicite empleo en VTCC',
-  title: 'Cuéntenos cómo puede contribuir',
+  title: 'Solicite unirse a nuestro equipo',
   intro:
     'Esta es una vista previa del futuro proceso de solicitud. Su información permanece en este navegador y no se envía a VTCC.',
   privacyTitle: 'La privacidad importa',

@@ -347,7 +347,7 @@ function renderMobileMenu(content) {
 
 function renderSectionHeading(eyebrow, title, intro = '') {
   return `<div class="section-heading">
-          <p class="eyebrow">${escapeHtml(eyebrow)}</p>
+          ${eyebrow ? `<p class="eyebrow">${escapeHtml(eyebrow)}</p>` : ''}
           <h2>${escapeHtml(title)}</h2>
           ${intro ? `<p>${escapeHtml(intro)}</p>` : ''}
         </div>`
@@ -413,7 +413,17 @@ function renderHeroServiceTags(tags) {
   }
 
   return `<ul class="hero-service-tags" aria-label="Services">
-          ${tags.map((tag) => `<li>${escapeHtml(tag)}</li>`).join('\n          ')}
+          ${tags
+            .map((tag) => {
+              const label = typeof tag === 'string' ? tag : tag.label
+              const href = typeof tag === 'string' ? '' : tag.href
+              if (!href) {
+                return `<li>${escapeHtml(label)}</li>`
+              }
+
+              return `<li><a href="${escapeHtml(toStaticHref(href))}">${escapeHtml(label)}</a></li>`
+            })
+            .join('\n          ')}
         </ul>`
 }
 
@@ -478,6 +488,7 @@ function renderShell(content, mainHtml) {
         </div>
       </nav>
       </div>
+      ${renderSectionSubnav(content)}
     </header>
     ${renderMobileMenu(content)}
     <main id="top">${mainHtml}</main>
@@ -1711,7 +1722,7 @@ function renderMain(content) {
       mainHtml = renderHome(content)
   }
 
-  return renderSectionSubnav(content) + mainHtml
+  return mainHtml
 }
 
 function bindHeaderMenus() {
@@ -1761,6 +1772,35 @@ function bindHeaderMenus() {
   }
 
   document.addEventListener('click', bindHeaderMenus.outsideHandler)
+}
+
+function syncHeaderOffset() {
+  const header = document.querySelector('.site-header')
+  if (!header) {
+    return
+  }
+
+  const height = Math.ceil(header.getBoundingClientRect().height)
+  document.documentElement.style.setProperty('--header-offset', `${height}px`)
+}
+
+function bindHeaderOffset() {
+  if (bindHeaderOffset.observer) {
+    bindHeaderOffset.observer.disconnect()
+    bindHeaderOffset.observer = null
+  }
+
+  syncHeaderOffset()
+
+  const header = document.querySelector('.site-header')
+  if (!header || typeof ResizeObserver !== 'function') {
+    return
+  }
+
+  bindHeaderOffset.observer = new ResizeObserver(() => {
+    syncHeaderOffset()
+  })
+  bindHeaderOffset.observer.observe(header)
 }
 
 function bindMobileMenu() {
@@ -2250,6 +2290,7 @@ function render() {
   })
 
   bindHeaderMenus()
+  bindHeaderOffset()
   bindMobileMenu()
   bindFaqSearch(content)
   bindRequestForms(content)
