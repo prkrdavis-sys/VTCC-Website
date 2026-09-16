@@ -301,19 +301,16 @@ Subheadline:
 
 ${content.sections.contact.intro}
 
-### Fairfax Office
+${content.offices
+  .map(
+    (office) => `### ${office.name}
 
-${content.offices[0].street}  
-${content.offices[0].city}  
-Phone: ${content.offices[0].phone}  
-Fax: ${content.offices[0].fax}
-
-### Fredericksburg Office
-
-${content.offices[1].street}  
-${content.offices[1].city}  
-Phone: ${content.offices[1].phone}  
-Fax: ${content.offices[1].fax}
+${office.street}  
+${office.city}  
+Phone: ${office.phone}  
+Fax: ${office.fax}`,
+  )
+  .join('\n\n')}
 
 ### Short Request Form Fields
 

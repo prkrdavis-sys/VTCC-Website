@@ -95,10 +95,6 @@
       {
         "label": "Llamar a Fairfax",
         "href": "tel:17032186599"
-      },
-      {
-        "label": "Llamar a Fredericksburg",
-        "href": "tel:15404129969"
       }
     ],
     "headerGroups": [
@@ -783,7 +779,7 @@
         "Misión y atención multicultural/transcultural",
         "Biografía del director y liderazgo clínico",
         "Biografías de BCBA/RBT o terapeutas cuando estén aprobadas",
-        "Ubicaciones de oficinas en Fairfax y Fredericksburg"
+        "Ubicación de la oficina en Fairfax"
       ]
     },
     "contact": {
@@ -792,7 +788,7 @@
       "intro": "¿Tiene preguntas sobre servicios, referencias, seguro o próximos pasos? Contacte a VTCC y un miembro del equipo puede orientarlo.",
       "callEyebrow": "Llame a VTCC",
       "callTitle": "¿Prefiere hablar con alguien?",
-      "callIntro": "Elija la oficina más cercana a usted. Un miembro del equipo puede ayudar con servicios, preguntas de referencia y próximos pasos."
+      "callIntro": "Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con servicios, preguntas de referencia y próximos pasos."
     },
     "contactFamily": {
       "eyebrow": "For families",
@@ -800,7 +796,7 @@
       "intro": "Tell us how to reach you and a little about your child. A VTCC team member can explain intake steps, forms, and funding review.",
       "callEyebrow": "Call VTCC",
       "callTitle": "Prefer to talk with someone?",
-      "callIntro": "Choose the office closest to you. A team member can help with services, paperwork, and next steps."
+      "callIntro": "Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con servicios, trámites y próximos pasos."
     },
     "contactReferral": {
       "eyebrow": "For referrers",
@@ -808,7 +804,7 @@
       "intro": "Schools, doctors, case managers, county partners, and community professionals can use this form to ask about referral requirements. Do not send protected health information here.",
       "callEyebrow": "Call VTCC",
       "callTitle": "Need to discuss a referral by phone?",
-      "callIntro": "Choose the office closest to the family. A team member can help with eligibility, required paperwork, and next steps."
+      "callIntro": "Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con elegibilidad, documentación requerida y próximos pasos."
     },
     "careers": {
       "eyebrow": "Carreras en VTCC",
@@ -1310,14 +1306,6 @@
       "city": "Fairfax, VA 22030",
       "phone": "703.218.6599",
       "phoneHref": "tel:17032186599",
-      "fax": "703.891.7167"
-    },
-    {
-      "name": "Oficina de Fredericksburg",
-      "street": "3920 Plank Road, Suite 220",
-      "city": "Fredericksburg, VA 22407",
-      "phone": "540.412.9969",
-      "phoneHref": "tel:15404129969",
       "fax": "703.891.7167"
     }
   ],

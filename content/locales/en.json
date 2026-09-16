@@ -95,10 +95,6 @@
       {
         "label": "Call Fairfax",
         "href": "tel:17032186599"
-      },
-      {
-        "label": "Call Fredericksburg",
-        "href": "tel:15404129969"
       }
     ],
     "headerGroups": [
@@ -781,7 +777,7 @@
         "Mission and multicultural/transcultural care",
         "Director bio and clinical leadership",
         "BCBA/RBT or therapist bios where approved",
-        "Office locations in Fairfax and Fredericksburg"
+        "Fairfax office location"
       ]
     },
     "contact": {
@@ -790,7 +786,7 @@
       "intro": "Have questions about services, referrals, insurance, or next steps? Contact VTCC and a team member can help direct you.",
       "callEyebrow": "Call VTCC",
       "callTitle": "Prefer to talk with someone?",
-      "callIntro": "Choose the office that is closest to you. A team member can help with services, referral questions, and next steps."
+      "callIntro": "Call our Fairfax office. A team member can help with services, referral questions, and next steps."
     },
     "contactFamily": {
       "eyebrow": "For families",
@@ -798,7 +794,7 @@
       "intro": "Tell us how to reach you and a little about your child. A VTCC team member can explain intake steps, forms, and funding review.",
       "callEyebrow": "Call VTCC",
       "callTitle": "Prefer to talk with someone?",
-      "callIntro": "Choose the office closest to you. A team member can help with services, paperwork, and next steps."
+      "callIntro": "Call our Fairfax office. A team member can help with services, paperwork, and next steps."
     },
     "contactReferral": {
       "eyebrow": "For referrers",
@@ -806,7 +802,7 @@
       "intro": "Schools, doctors, case managers, county partners, and community professionals can use this form to ask about referral requirements. Do not send protected health information here.",
       "callEyebrow": "Call VTCC",
       "callTitle": "Need to discuss a referral by phone?",
-      "callIntro": "Choose the office closest to the family. A team member can help with eligibility, required paperwork, and next steps."
+      "callIntro": "Call our Fairfax office. A team member can help with eligibility, required paperwork, and next steps."
     },
     "careers": {
       "eyebrow": "Careers at VTCC",
@@ -1307,14 +1303,6 @@
       "city": "Fairfax, VA 22030",
       "phone": "703.218.6599",
       "phoneHref": "tel:17032186599",
-      "fax": "703.891.7167"
-    },
-    {
-      "name": "Fredericksburg Office",
-      "street": "3920 Plank Road, Suite 220",
-      "city": "Fredericksburg, VA 22407",
-      "phone": "540.412.9969",
-      "phoneHref": "tel:15404129969",
       "fax": "703.891.7167"
     }
   ],

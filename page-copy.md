@@ -543,13 +543,6 @@ Fairfax, VA 22030
 Phone: 703.218.6599  
 Fax: 703.891.7167
 
-### Fredericksburg Office
-
-3920 Plank Road, Suite 220  
-Fredericksburg, VA 22407  
-Phone: 540.412.9969  
-Fax: 703.891.7167
-
 ### Short Request Form Fields
 
 Recommended fields for a simple non-clinical inquiry form:

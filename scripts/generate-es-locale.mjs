@@ -40,7 +40,6 @@ es.navigation.utility = [
   { label: 'Solicitar Servicios', href: '/contact', style: 'cta' },
   { label: 'Referir un Cliente', href: '/referrers' },
   { label: 'Llamar a Fairfax', href: 'tel:17032186599' },
-  { label: 'Llamar a Fredericksburg', href: 'tel:15404129969' },
 ]
 
 es.navigation.headerGroups = [
@@ -589,7 +588,7 @@ Object.assign(es.sections.about, {
     'Misión y atención multicultural/transcultural',
     'Biografía del director y liderazgo clínico',
     'Biografías de BCBA/RBT o terapeutas cuando estén aprobadas',
-    'Ubicaciones de oficinas en Fairfax y Fredericksburg',
+    'Ubicación de la oficina en Fairfax',
   ],
 })
 
@@ -601,7 +600,17 @@ Object.assign(es.sections.contact, {
   callEyebrow: 'Llame a VTCC',
   callTitle: '¿Prefiere hablar con alguien?',
   callIntro:
-    'Elija la oficina más cercana a usted. Un miembro del equipo puede ayudar con servicios, preguntas de referencia y próximos pasos.',
+    'Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con servicios, preguntas de referencia y próximos pasos.',
+})
+
+Object.assign(es.sections.contactFamily, {
+  callIntro:
+    'Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con servicios, trámites y próximos pasos.',
+})
+
+Object.assign(es.sections.contactReferral, {
+  callIntro:
+    'Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con elegibilidad, documentación requerida y próximos pasos.',
 })
 
 Object.assign(es.form, {
@@ -650,14 +659,6 @@ es.offices = [
     city: 'Fairfax, VA 22030',
     phone: '703.218.6599',
     phoneHref: 'tel:17032186599',
-    fax: '703.891.7167',
-  },
-  {
-    name: 'Oficina de Fredericksburg',
-    street: '3920 Plank Road, Suite 220',
-    city: 'Fredericksburg, VA 22407',
-    phone: '540.412.9969',
-    phoneHref: 'tel:15404129969',
     fax: '703.891.7167',
   },
 ]
