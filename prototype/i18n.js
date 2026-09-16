@@ -299,26 +299,22 @@ function renderMotifs(preset) {
     hero: [
       motif('blob', 'magenta', 'motif-xl motif-tl'),
       motif('blob', 'orange', 'motif-xl motif-tr'),
-      motif('squiggle', 'cyan', 'motif-tl-in'),
       motif('squiggle', 'magenta', 'motif-tr-in'),
-      motif('dashes', 'magenta', 'motif-hero-mid'),
-      motif('circle', 'lime', 'motif-md motif-br'),
+      motif('dashes', 'lime', 'motif-tr-cluster'),
+      motif('circle', 'cyan', 'motif-md motif-br'),
       motif('circle', 'heading', 'motif-sm motif-br-shift'),
-      motif('scatter', 'orange', 'motif-mr'),
-      motif('dots', 'heading', 'motif-br-in'),
+      motif('dots', 'orange', 'motif-br-in'),
     ],
     grow: [
       motif('blob', 'orange', 'motif-lg motif-tl'),
       motif('circle', 'gold', 'motif-md motif-br'),
       motif('squiggle', 'magenta', 'motif-tr-in'),
-      motif('dots', 'ink', 'motif-bl-in'),
-      motif('circle', 'heading', 'motif-sm motif-ml'),
+      motif('circle', 'cyan', 'motif-sm motif-ml'),
     ],
     services: [
-      motif('circle', 'orange', 'motif-md motif-tr'),
-      motif('squiggle', 'lime', 'motif-br-in'),
-      motif('blob', 'magenta', 'motif-sm motif-bl'),
-      motif('dashes', 'cyan', 'motif-mr'),
+      motif('circle', 'heading', 'motif-md motif-tr'),
+      motif('squiggle', 'gold', 'motif-br-in'),
+      motif('blob', 'orange', 'motif-sm motif-bl'),
     ],
     start: [
       motif('circle', 'lime', 'motif-lg motif-tl'),
@@ -328,52 +324,46 @@ function renderMotifs(preset) {
       motif('scatter', 'heading', 'motif-mr'),
     ],
     who: [
-      motif('squiggle', 'cyan', 'motif-tl-in'),
-      motif('dashes', 'magenta', 'motif-tr'),
-      motif('dots', 'heading', 'motif-bl-in'),
-      motif('circle', 'lime', 'motif-sm motif-mr'),
+      motif('squiggle', 'cyan', 'motif-tl'),
+      motif('dots', 'heading', 'motif-bl'),
+      motif('circle', 'gold', 'motif-sm motif-mr'),
     ],
     resources: [
-      motif('dots', 'heading', 'motif-tr-in'),
+      motif('dots', 'heading', 'motif-tr'),
       motif('blob', 'lime', 'motif-md motif-bl'),
-      motif('squiggle', 'magenta', 'motif-tl-in'),
       motif('circle', 'orange', 'motif-sm motif-br'),
       motif('scatter', 'cyan', 'motif-ml'),
     ],
     page: [
       motif('blob', 'magenta', 'motif-lg motif-tl'),
-      motif('squiggle', 'cyan', 'motif-tl-in'),
-      motif('dots', 'heading', 'motif-tr-in'),
+      motif('dots', 'heading', 'motif-tr'),
       motif('circle', 'orange', 'motif-md motif-br'),
       motif('circle', 'lime', 'motif-sm motif-br-shift'),
-      motif('dashes', 'magenta', 'motif-bl-in'),
+      motif('dashes', 'gold', 'motif-bl'),
       motif('scatter', 'orange', 'motif-mr'),
     ],
     program: [
-      motif('dots', 'white', 'motif-tl-in'),
-      motif('circle', 'lime', 'motif-sm motif-tr'),
-      motif('squiggle', 'cyan', 'motif-br-in'),
-      motif('circle', 'gold', 'motif-xs motif-bl-in'),
+      motif('circle', 'orange', 'motif-sm motif-tr'),
+      motif('squiggle', 'cyan', 'motif-br'),
     ],
     contact: [
       motif('blob', 'orange', 'motif-lg motif-tr'),
       motif('dots', 'heading', 'motif-tr-in'),
       motif('circle', 'magenta', 'motif-md motif-bl'),
-      motif('dashes', 'magenta', 'motif-mr'),
+      motif('dashes', 'cyan', 'motif-mr'),
     ],
     career: [
       motif('blob', 'magenta', 'motif-lg motif-tl'),
       motif('blob', 'orange', 'motif-lg motif-tr'),
-      motif('squiggle', 'cyan', 'motif-tl-in'),
-      motif('dots', 'heading', 'motif-ml'),
-      motif('circle', 'lime', 'motif-md motif-br'),
-      motif('dashes', 'magenta', 'motif-hero-mid'),
+      motif('dashes', 'lime', 'motif-tr-cluster'),
+      motif('circle', 'cyan', 'motif-md motif-br'),
+      motif('dots', 'cyan', 'motif-tr-in'),
     ],
     footer: [
-      motif('squiggle', 'magenta', 'motif-tl-in'),
-      motif('dots', 'heading', 'motif-ml'),
-      motif('circle', 'orange', 'motif-sm motif-tr'),
-      motif('scatter', 'heading', 'motif-mr'),
+      motif('squiggle', 'magenta', 'motif-tl'),
+      motif('dots', 'heading', 'motif-bl'),
+      motif('circle', 'lime', 'motif-sm motif-tr'),
+      motif('scatter', 'cyan', 'motif-mr'),
     ],
   }
 
@@ -387,7 +377,7 @@ function renderMotifs(preset) {
 
 function renderCircleCluster(placement = 'br') {
   return `<div class="motif-cluster motif-cluster--${placement}" aria-hidden="true">
-          ${motif('circle', 'lime', 'motif-lg')}
+          ${motif('circle', 'cyan', 'motif-lg')}
           ${motif('circle', 'orange', 'motif-md')}
           ${motif('circle', 'magenta', 'motif-sm')}
           ${motif('circle', 'heading', 'motif-xs')}
@@ -472,6 +462,12 @@ function renderShell(content, mainHtml) {
   return `
     ${renderTopBar(content)}
     <header class="site-header">
+      <div class="header-motifs" aria-hidden="true">
+        <span class="header-circle header-circle--orange"></span>
+        <span class="header-circle header-circle--magenta"></span>
+        <span class="header-circle header-circle--cyan"></span>
+        <span class="header-circle header-circle--heading"></span>
+      </div>
       <div class="site-header-inner">
       <a class="brand" href="${escapeHtml(toStaticHref('/'))}" aria-label="${escapeHtml(content.company.shortName)} home">
         <img class="brand-mark" src="${escapeHtml(BASE)}assets/vtcc-logo.png" alt="" />
@@ -936,6 +932,7 @@ function renderHome(content) {
               ? `<figure class="home-who-media">
             <img src="${escapeHtml(whoImage)}" alt="" loading="lazy" />
             <span class="motif motif-circle motif--orange motif-md motif-photo-br" aria-hidden="true"></span>
+            <span class="motif motif-dashes motif--magenta motif-photo-dashes" aria-hidden="true"></span>
           </figure>`
               : ''
           }
