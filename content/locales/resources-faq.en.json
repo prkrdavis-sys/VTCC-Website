@@ -1,7 +1,7 @@
 {
   "eyebrow": "FAQs & Guides",
   "title": "Find answers fast",
-  "intro": "Browse common questions about ABA therapy, Intensive In-Home services, intake, funding, parent involvement, and referrals. Select a topic below to jump to answers.",
+  "intro": "Browse common questions about ABA therapy, our specialized programs, intake, funding, parent involvement, and referrals. Select a topic below to jump to answers.",
   "cardLabel": "FAQ",
   "formsPromo": {
     "label": "Forms",
@@ -32,14 +32,24 @@
       "summary": "How caregivers participate in therapy and practice skills at home."
     },
     {
-      "title": "Intensive In-Home Services",
-      "slug": "intensive-in-home-basics",
-      "summary": "When IIH may fit, how it differs from ABA, and typical goals."
-    },
-    {
       "title": "Referrals and Eligibility",
       "slug": "referrals-and-eligibility",
       "summary": "Who can refer, what to send, and how VTCC responds."
+    },
+    {
+      "title": "Early Learners Program",
+      "slug": "early-learners",
+      "summary": "School-readiness and social-readiness support for preschool-aged children."
+    },
+    {
+      "title": "Feeding Program",
+      "slug": "feeding-program",
+      "summary": "How ABA practices can support a broader food repertoire and preferences."
+    },
+    {
+      "title": "Social Skills Group",
+      "slug": "social-skills-group",
+      "summary": "Advanced social practice for conversation, sarcasm, and age-appropriate peer play."
     }
   ],
   "categories": [
@@ -101,7 +111,7 @@
         },
         {
           "question": "What if I am not sure which service I need?",
-          "answer": "That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Intensive In-Home services, or another pathway should be explored."
+          "answer": "That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, the Social Skills Group, or another pathway should be explored."
         }
       ]
     },
@@ -168,37 +178,6 @@
       ]
     },
     {
-      "slug": "intensive-in-home-basics",
-      "title": "Intensive In-Home Services",
-      "intro": "Intensive In-Home services provide short-term, family-centered mental health support in the home.",
-      "faqs": [
-        {
-          "question": "What is Intensive In-Home service?",
-          "answer": "IIH is short-term mental health support provided in the home to help stabilize serious behavioral or emotional challenges and strengthen the family system."
-        },
-        {
-          "question": "Who may qualify for IIH?",
-          "answer": "Eligibility depends on clinical need, funding, referral source, and authorization requirements. VTCC can help families and referrers understand whether IIH may be appropriate."
-        },
-        {
-          "question": "How is IIH different from ABA?",
-          "answer": "ABA focuses on skill building through individualized behavioral treatment plans. IIH focuses on stabilizing intense behavioral or emotional concerns in the home and supporting the family during a crisis period."
-        },
-        {
-          "question": "How long do IIH services usually last?",
-          "answer": "IIH is typically short term, but exact duration depends on treatment goals, clinical progress, and funding authorization."
-        },
-        {
-          "question": "Can IIH help prevent out-of-home placement?",
-          "answer": "IIH is designed to support families when a child or adolescent is at risk of disruption or out-of-home placement, when clinically appropriate and authorized."
-        },
-        {
-          "question": "Where are IIH services provided?",
-          "answer": "Services are generally provided in the home and community settings tied to the treatment plan. Contact VTCC to confirm service area details for your location."
-        }
-      ]
-    },
-    {
       "slug": "referrals-and-eligibility",
       "title": "Referrals and Eligibility",
       "intro": "Schools, doctors, case managers, county partners, and families can all start the conversation with VTCC.",
@@ -226,6 +205,63 @@
         {
           "question": "Can VTCC tell me if a child is eligible before I refer?",
           "answer": "VTCC can often discuss general service fit and required next steps, but final eligibility may depend on funding authorization, clinical assessment, and documentation."
+        }
+      ]
+    },
+    {
+      "slug": "early-learners",
+      "title": "Early Learners Program",
+      "intro": "The Early Learners program helps preschool-aged children practice skills for school and social settings.",
+      "faqs": [
+        {
+          "question": "What is the Early Learners program?",
+          "answer": "It is a program for preschool-aged children focused on communication, play, routines, early learning, and participation in school and social settings."
+        },
+        {
+          "question": "What skills may children practice?",
+          "answer": "Goals may include transitions, following directions, communication, play, social engagement, early learning, and independence. Goals are individualized for each child."
+        },
+        {
+          "question": "How are caregivers involved?",
+          "answer": "Caregivers collaborate with the team so children can practice useful skills across everyday routines and prepare for settings outside the program."
+        }
+      ]
+    },
+    {
+      "slug": "feeding-program",
+      "title": "Feeding Program",
+      "intro": "The Feeding Program uses ABA practices and positive support to help children expand food repertoire and preferences.",
+      "faqs": [
+        {
+          "question": "What does the Feeding Program do?",
+          "answer": "The program supports children as they practice accepting and exploring a wider variety of foods, tastes, textures, and presentations."
+        },
+        {
+          "question": "How are feeding goals chosen?",
+          "answer": "Goals are individualized around the child’s current eating patterns, family priorities, and response to gradual practice and positive reinforcement."
+        },
+        {
+          "question": "Are caregivers included?",
+          "answer": "Yes. Caregiver collaboration helps connect program goals with practical mealtime routines at home."
+        }
+      ]
+    },
+    {
+      "slug": "social-skills-group",
+      "title": "Social Skills Group",
+      "intro": "The Social Skills Group gives clients who are ready for advanced practice a supported setting to learn with peers.",
+      "faqs": [
+        {
+          "question": "Who may be a fit for the group?",
+          "answer": "The group is for clients who are ready to work on more advanced social skills and who may benefit from supported practice with peers."
+        },
+        {
+          "question": "What skills may the group address?",
+          "answer": "Topics may include sarcasm, humor, conversation, flexible thinking, joining activities, problem-solving, and age-appropriate peer play."
+        },
+        {
+          "question": "How are group goals individualized?",
+          "answer": "Staff provide coaching and feedback while each client works toward goals that match their current skills and social priorities."
         }
       ]
     }

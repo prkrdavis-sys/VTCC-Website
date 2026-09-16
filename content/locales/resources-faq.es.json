@@ -1,7 +1,7 @@
 {
   "eyebrow": "Preguntas y Guías",
   "title": "Encuentre respuestas rápidamente",
-  "intro": "Explore preguntas comunes sobre terapia ABA, servicios intensivos en el hogar, admisión, financiamiento, participación de padres y referencias. Seleccione un tema a continuación para ver respuestas.",
+  "intro": "Explore preguntas comunes sobre terapia ABA, nuestros programas especializados, admisión, financiamiento, participación de padres y referencias. Seleccione un tema a continuación para ver respuestas.",
   "cardLabel": "Pregunta frecuente",
   "formsPromo": {
     "label": "Formularios",
@@ -32,14 +32,24 @@
       "summary": "Cómo participan los cuidadores en la terapia y practican habilidades en casa."
     },
     {
-      "title": "Servicios Intensivos en el Hogar",
-      "slug": "intensive-in-home-basics",
-      "summary": "Cuándo pueden ser adecuados los SIH, en qué se diferencian de la ABA y metas típicas."
-    },
-    {
       "title": "Referencias y Elegibilidad",
       "slug": "referrals-and-eligibility",
       "summary": "Quién puede referir, qué enviar y cómo responde VTCC."
+    },
+    {
+      "title": "Programa de Primeros Aprendices",
+      "slug": "early-learners",
+      "summary": "Apoyo para la preparación escolar y social de niños en edad preescolar."
+    },
+    {
+      "title": "Programa de Alimentación",
+      "slug": "feeding-program",
+      "summary": "Cómo las prácticas ABA pueden apoyar un repertorio y preferencias alimentarias más amplios."
+    },
+    {
+      "title": "Grupo de Habilidades Sociales",
+      "slug": "social-skills-group",
+      "summary": "Práctica social avanzada para conversación, sarcasmo y juego apropiado para la edad con compañeros."
     }
   ],
   "categories": [
@@ -101,7 +111,7 @@
         },
         {
           "question": "¿Qué pasa si no estoy seguro de qué servicio necesito?",
-          "answer": "Es muy común. Contacte a VTCC y describa sus inquietudes. El equipo puede ayudar a determinar si deben explorarse la ABA, los servicios intensivos en el hogar u otra vía."
+          "answer": "Es muy común. Contacte a VTCC y describa sus inquietudes. El equipo puede ayudar a determinar si deben explorarse la ABA, Primeros Aprendices, el Programa de Alimentación, el Grupo de Habilidades Sociales u otra vía."
         }
       ]
     },
@@ -168,37 +178,6 @@
       ]
     },
     {
-      "slug": "intensive-in-home-basics",
-      "title": "Servicios Intensivos en el Hogar",
-      "intro": "Los servicios intensivos en el hogar brindan apoyo de salud mental a corto plazo y centrado en la familia en el hogar.",
-      "faqs": [
-        {
-          "question": "¿Qué es el servicio intensivo en el hogar?",
-          "answer": "Los SIH son apoyo de salud mental a corto plazo proporcionado en el hogar para ayudar a estabilizar desafíos conductuales o emocionales serios y fortalecer el sistema familiar."
-        },
-        {
-          "question": "¿Quién puede calificar para SIH?",
-          "answer": "La elegibilidad depende de la necesidad clínica, el financiamiento, la fuente de referencia y los requisitos de autorización. VTCC puede ayudar a familias y referentes a entender si los SIH pueden ser apropiados."
-        },
-        {
-          "question": "¿En qué se diferencian los SIH de la ABA?",
-          "answer": "La ABA se centra en desarrollar habilidades mediante planes de tratamiento conductual individualizados. Los SIH se centran en estabilizar preocupaciones conductuales o emocionales intensas en el hogar y apoyar a la familia durante un periodo de crisis."
-        },
-        {
-          "question": "¿Cuánto suelen durar los servicios SIH?",
-          "answer": "Los SIH suelen ser a corto plazo, pero la duración exacta depende de las metas del tratamiento, el progreso clínico y la autorización de financiamiento."
-        },
-        {
-          "question": "¿Pueden los SIH ayudar a prevenir una colocación fuera del hogar?",
-          "answer": "Los SIH están diseñados para apoyar a familias cuando un niño o adolescente está en riesgo de disrupción o colocación fuera del hogar, cuando es clínica y autorizadamente apropiado."
-        },
-        {
-          "question": "¿Dónde se brindan los servicios SIH?",
-          "answer": "Los servicios generalmente se proporcionan en el hogar y en entornos comunitarios vinculados al plan de tratamiento. Contacte a VTCC para confirmar los detalles del área de servicio para su ubicación."
-        }
-      ]
-    },
-    {
       "slug": "referrals-and-eligibility",
       "title": "Referencias y Elegibilidad",
       "intro": "Escuelas, médicos, administradores de casos, socios del condado y familias pueden iniciar la conversación con VTCC.",
@@ -226,6 +205,63 @@
         {
           "question": "¿Puede VTCC decirme si un niño es elegible antes de referir?",
           "answer": "VTCC a menudo puede discutir la compatibilidad general del servicio y los próximos pasos requeridos, pero la elegibilidad final puede depender de la autorización de financiamiento, la evaluación clínica y la documentación."
+        }
+      ]
+    },
+    {
+      "slug": "early-learners",
+      "title": "Programa de Primeros Aprendices",
+      "intro": "El programa de Primeros Aprendices ayuda a niños en edad preescolar a practicar habilidades para la escuela y los entornos sociales.",
+      "faqs": [
+        {
+          "question": "¿Qué es el programa de Primeros Aprendices?",
+          "answer": "Es un programa para niños en edad preescolar que se enfoca en comunicación, juego, rutinas, aprendizaje temprano y participación en la escuela y en entornos sociales."
+        },
+        {
+          "question": "¿Qué habilidades pueden practicar los niños?",
+          "answer": "Las metas pueden incluir transiciones, seguir instrucciones, comunicación, juego, conexión social, aprendizaje temprano e independencia. Las metas son individualizadas para cada niño."
+        },
+        {
+          "question": "¿Cómo participan los cuidadores?",
+          "answer": "Los cuidadores colaboran con el equipo para que los niños practiquen habilidades útiles en las rutinas diarias y se preparen para entornos fuera del programa."
+        }
+      ]
+    },
+    {
+      "slug": "feeding-program",
+      "title": "Programa de Alimentación",
+      "intro": "El Programa de Alimentación utiliza prácticas ABA y apoyo positivo para ayudar a los niños a ampliar su repertorio y sus preferencias alimentarias.",
+      "faqs": [
+        {
+          "question": "¿Qué hace el Programa de Alimentación?",
+          "answer": "El programa apoya a los niños mientras practican aceptar y explorar una mayor variedad de alimentos, sabores, texturas y presentaciones."
+        },
+        {
+          "question": "¿Cómo se eligen las metas de alimentación?",
+          "answer": "Las metas se individualizan según los patrones actuales de alimentación del niño, las prioridades familiares y su respuesta a la práctica gradual y al refuerzo positivo."
+        },
+        {
+          "question": "¿Se incluye a los cuidadores?",
+          "answer": "Sí. La colaboración con los cuidadores ayuda a conectar las metas del programa con rutinas prácticas de comida en el hogar."
+        }
+      ]
+    },
+    {
+      "slug": "social-skills-group",
+      "title": "Grupo de Habilidades Sociales",
+      "intro": "El Grupo de Habilidades Sociales brinda a clientes que están listos para practicar habilidades avanzadas un entorno con apoyo para aprender con compañeros.",
+      "faqs": [
+        {
+          "question": "¿Quién puede beneficiarse del grupo?",
+          "answer": "El grupo es para clientes que están listos para trabajar en habilidades sociales más avanzadas y que pueden beneficiarse de la práctica con apoyo junto a compañeros."
+        },
+        {
+          "question": "¿Qué habilidades puede abordar el grupo?",
+          "answer": "Los temas pueden incluir sarcasmo, humor, conversación, pensamiento flexible, unirse a actividades, resolución de problemas y juego apropiado para la edad con compañeros."
+        },
+        {
+          "question": "¿Cómo se individualizan las metas del grupo?",
+          "answer": "El personal ofrece orientación y comentarios mientras cada cliente trabaja en metas que corresponden a sus habilidades actuales y prioridades sociales."
         }
       ]
     }

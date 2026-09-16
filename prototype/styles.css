@@ -382,8 +382,9 @@ textarea {
 
 .service-subnav-band,
 .guides-subnav-band {
-  padding: 0.55rem clamp(1rem, 4vw, 4rem) 0.35rem;
-  background: var(--paper);
+  padding: 0 clamp(1rem, 4vw, 4rem);
+  background: color-mix(in srgb, var(--soft) 62%, var(--paper));
+  border-bottom: 1px solid rgba(31, 111, 91, 0.12);
 }
 
 .service-subnav-band + .section.page-section,
@@ -404,17 +405,17 @@ textarea {
 
 .service-subnav-bar,
 .guides-subnav-bar {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  gap: 0.12rem;
-  width: fit-content;
-  max-width: 100%;
-  padding: 0.18rem;
-  border: 1px solid rgba(31, 111, 91, 0.22);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
+  gap: 0.1rem 0.2rem;
+  width: 100%;
+  max-width: 72rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .service-subnav-link,
@@ -422,32 +423,64 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2rem;
-  padding: 0.34rem 0.75rem;
-  border-radius: 999px;
-  color: var(--brand-dark);
-  font-size: 0.82rem;
-  font-weight: 800;
+  min-height: 2.55rem;
+  padding: 0.55rem 0.78rem 0.5rem;
+  border: 0;
+  border-radius: 0;
+  color: var(--muted);
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.01em;
   line-height: 1.2;
   text-decoration: none;
   white-space: nowrap;
+  box-shadow: inset 0 -2px 0 transparent;
+  transition:
+    color 140ms ease,
+    box-shadow 140ms ease;
 }
 
 .service-subnav-link:hover,
 .guides-subnav-link:hover {
-  background: rgba(236, 246, 239, 0.95);
+  color: var(--brand-dark);
+  background: transparent;
+  box-shadow: inset 0 -2px 0 rgba(47, 122, 94, 0.28);
 }
 
 .service-subnav-link.is-active,
 .guides-subnav-link.is-active {
-  background: var(--brand-dark);
-  color: var(--white);
+  color: var(--brand-deep);
+  background: transparent;
+  font-weight: var(--weight-bold);
+  box-shadow: inset 0 -2.5px 0 var(--brand);
 }
 
 .service-subnav-link:focus-visible,
 .guides-subnav-link:focus-visible {
   outline: 3px solid rgba(72, 157, 126, 0.45);
   outline-offset: 2px;
+}
+
+@media (max-width: 980px) {
+  .service-subnav-band,
+  .guides-subnav-band {
+    padding-inline: 1rem;
+  }
+
+  .service-subnav,
+  .guides-subnav,
+  .service-subnav-bar,
+  .guides-subnav-bar {
+    justify-content: flex-start;
+  }
+
+  .service-subnav-link,
+  .guides-subnav-link {
+    min-height: 2.3rem;
+    padding: 0.42rem 0.62rem 0.38rem;
+  }
 }
 
 .service-subnav-band + .home-hero {
@@ -495,6 +528,11 @@ textarea {
 .nav-menu-link:hover {
   color: var(--brand-dark);
   background: rgba(236, 246, 239, 0.95);
+}
+
+.nav-menu-link.is-active {
+  color: var(--white);
+  background: var(--brand-dark);
 }
 
 .nav-menu summary,
@@ -2669,8 +2707,649 @@ address strong {
   color: #a83b2f;
 }
 
-.careers-hero .button-row {
-  margin-bottom: 2rem;
+.career-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 1.1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  min-height: min(46rem, 78vh);
+  padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 4vw, 4rem);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(205, 237, 130, 0.32), transparent 28rem),
+    var(--soft);
+}
+
+.career-hero-copy {
+  max-width: 38rem;
+}
+
+.career-hero-copy h1 {
+  max-width: 11ch;
+}
+
+.career-hero-intro {
+  max-width: 34rem;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: var(--leading-relaxed);
+}
+
+.career-hero-media {
+  display: grid;
+  gap: 1rem;
+}
+
+.career-hero-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.career-hero-note {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 30rem;
+  margin-left: auto;
+  padding: 1.15rem 1.25rem;
+  border-left: 4px solid var(--accent);
+  color: var(--muted);
+  background: var(--white);
+  box-shadow: 0 12px 28px rgba(23, 33, 29, 0.07);
+}
+
+.career-hero-note strong {
+  color: var(--brand-deep);
+  font-size: 1.05rem;
+}
+
+.career-pillars {
+  background: var(--white);
+}
+
+.career-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 86rem;
+  margin: 0 auto;
+}
+
+.career-pillar {
+  min-height: 12rem;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: var(--paper);
+}
+
+.career-pillar h3 {
+  margin-bottom: 0.5rem;
+  color: var(--brand-deep);
+}
+
+.career-pillar p,
+.career-opportunity p,
+.career-step p,
+.career-closing p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.career-opportunity {
+  background: var(--paper);
+}
+
+.career-opportunity-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.8fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: start;
+  max-width: 86rem;
+  margin: 0 auto;
+}
+
+.career-opportunity-copy .section-heading {
+  margin-bottom: 0;
+}
+
+.career-opportunity-copy .check-list {
+  padding-top: 0.25rem;
+}
+
+.career-steps {
+  background: var(--white);
+}
+
+.career-step-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  max-width: 86rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.career-step {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  min-height: 12rem;
+  padding: 1.25rem 0;
+  border-top: 3px solid var(--brand-light);
+}
+
+.career-step-number {
+  display: inline-grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--brand-dark);
+  font-weight: 800;
+}
+
+.career-step h3 {
+  margin-bottom: 0.45rem;
+  color: var(--brand-deep);
+}
+
+.career-closing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  color: var(--white);
+  background: var(--brand-deep);
+}
+
+.career-closing h2 {
+  margin-bottom: 0.5rem;
+}
+
+.career-closing p {
+  max-width: 42rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.career-closing .button {
+  flex: 0 0 auto;
+  color: var(--brand-deep);
+  background: var(--brand-bar);
+}
+
+.quote-board {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(205, 237, 130, 0.28), transparent 22rem),
+    radial-gradient(circle at 92% 100%, rgba(56, 155, 178, 0.12), transparent 20rem),
+    var(--soft);
+}
+
+.quote-board .section-heading {
+  max-width: 46rem;
+}
+
+.quote-board-frame {
+  position: relative;
+  z-index: 0;
+  max-width: 86rem;
+  margin: 0 auto;
+  padding: clamp(1.85rem, 4vw, 2.85rem) clamp(1.1rem, 3vw, 2.35rem) clamp(1.6rem, 4vw, 2.4rem);
+  border: 1px solid rgba(31, 111, 91, 0.14);
+  border-radius: 1.85rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(251, 248, 241, 0.98));
+}
+
+.quote-board-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0.75rem -0.7rem -0.85rem 0.6rem;
+  z-index: -1;
+  border-radius: inherit;
+  background: rgba(29, 90, 68, 0.12);
+  box-shadow: 0 18px 40px rgba(23, 33, 29, 0.08);
+}
+
+.quote-board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.4rem 1.4rem;
+  align-items: start;
+}
+
+.quote-bubble {
+  display: grid;
+  align-content: start;
+  width: 100%;
+  max-width: 24rem;
+  margin: 0;
+}
+
+.quote-bubble:nth-child(2) {
+  margin-top: 2.35rem;
+  justify-self: center;
+}
+
+.quote-bubble:nth-child(3) {
+  margin-top: 0.7rem;
+  justify-self: end;
+}
+
+.quote-bubble-panel {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0.55rem 0.7rem 0 rgba(29, 90, 68, 0.16));
+}
+
+.quote-bubble:nth-child(2) .quote-bubble-panel {
+  filter: drop-shadow(0.55rem 0.7rem 0 rgba(56, 155, 178, 0.22));
+}
+
+.quote-bubble:nth-child(3) .quote-bubble-panel {
+  filter: drop-shadow(0.55rem 0.7rem 0 rgba(201, 124, 67, 0.2));
+}
+
+.quote-bubble-panel blockquote {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 1.25rem 1.3rem 1.35rem;
+  border: 2px solid var(--brand-deep);
+  background: var(--white);
+}
+
+.quote-bubble-panel blockquote p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.02rem;
+  font-weight: var(--weight-medium);
+  line-height: 1.5;
+}
+
+.quote-bubble--thought .quote-bubble-panel {
+  padding: 1.55rem 0.2rem 2.15rem;
+}
+
+.quote-bubble--thought .quote-bubble-panel blockquote {
+  border-radius: 2.4rem;
+}
+
+.quote-cloud-puff {
+  position: absolute;
+  z-index: 2;
+  border: 2px solid var(--brand-deep);
+  border-radius: 50%;
+  background: var(--white);
+  clip-path: inset(0 0 48% 0);
+  pointer-events: none;
+}
+
+.quote-cloud-puff--a {
+  top: 0.05rem;
+  left: 0.7rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.quote-cloud-puff--b {
+  top: -0.05rem;
+  left: 2.85rem;
+  width: 2.55rem;
+  height: 2.55rem;
+}
+
+.quote-cloud-puff--c {
+  top: 0.18rem;
+  right: 2.55rem;
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.quote-cloud-puff--d {
+  top: 0.18rem;
+  right: 0.55rem;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.quote-cloud-puff--e {
+  top: 0;
+  left: 50%;
+  width: 2.4rem;
+  height: 2.4rem;
+  transform: translateX(-50%);
+}
+
+.quote-bubble--thought .quote-bubble-tail {
+  position: absolute;
+  left: 1.65rem;
+  bottom: 0.55rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 2px solid var(--brand-deep);
+  border-radius: 50%;
+  background: var(--white);
+  pointer-events: none;
+}
+
+.quote-bubble--thought .quote-bubble-tail::after {
+  content: '';
+  position: absolute;
+  left: -0.95rem;
+  bottom: -0.72rem;
+  width: 0.62rem;
+  height: 0.62rem;
+  border: 2px solid var(--brand-deep);
+  border-radius: 50%;
+  background: var(--white);
+}
+
+.quote-bubble--thought.quote-bubble--end .quote-bubble-tail {
+  left: auto;
+  right: 1.65rem;
+}
+
+.quote-bubble--thought.quote-bubble--end .quote-bubble-tail::after {
+  left: auto;
+  right: -0.95rem;
+}
+
+.quote-bubble--speech .quote-bubble-panel {
+  padding-bottom: 0.95rem;
+}
+
+.quote-bubble--speech .quote-bubble-panel blockquote {
+  border-radius: 1.55rem 1.75rem 1.75rem 1.55rem;
+}
+
+.quote-bubble--speech .quote-bubble-tail {
+  position: absolute;
+  z-index: 2;
+  left: 1.7rem;
+  bottom: 0.08rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-right: 2px solid var(--brand-deep);
+  border-bottom: 2px solid var(--brand-deep);
+  border-radius: 0 0 0.2rem 0;
+  background: var(--white);
+  transform: rotate(45deg);
+}
+
+.quote-bubble--speech.quote-bubble--end .quote-bubble-tail {
+  left: auto;
+  right: 1.85rem;
+  border-right: 0;
+  border-left: 2px solid var(--brand-deep);
+  transform: rotate(-45deg);
+}
+
+.quote-bubble figcaption {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.55rem 0.4rem 0 1.15rem;
+}
+
+.quote-bubble--end figcaption {
+  padding-right: 1.15rem;
+  padding-left: 0.4rem;
+  text-align: right;
+}
+
+.quote-bubble figcaption strong {
+  color: var(--brand-deep);
+  font-size: 0.98rem;
+}
+
+.quote-bubble figcaption span {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.career-application {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(24rem, 1.28fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  background: var(--white);
+}
+
+.career-application-intro {
+  align-self: start;
+}
+
+.career-privacy-note {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 2rem;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  color: var(--muted);
+  background: var(--soft);
+}
+
+.career-privacy-note strong {
+  color: var(--brand-deep);
+}
+
+.career-privacy-note p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.career-form-panel {
+  min-width: 0;
+}
+
+.career-application-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgba(31, 111, 91, 0.14);
+  border-radius: 1.5rem;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.career-application-form label {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--brand-deep);
+  font-weight: 800;
+}
+
+.career-field--textarea,
+.career-file-field,
+.career-application-form .consent-field,
+.career-application-form .form-note,
+.career-application-form button,
+.career-application-form .form-status {
+  grid-column: 1 / -1;
+}
+
+.career-application-form input:not([type='checkbox']),
+.career-application-form select,
+.career-application-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  padding: 0.8rem 0.9rem;
+  color: var(--ink);
+  background: var(--white);
+}
+
+.career-application-form input.visually-hidden {
+  width: 1px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.career-application-form textarea {
+  resize: vertical;
+}
+
+.career-application-form input:focus-visible,
+.career-application-form select:focus-visible,
+.career-application-form textarea:focus-visible,
+.career-upload:focus-visible,
+.career-file-remove:focus-visible {
+  outline: 3px solid rgba(222, 105, 88, 0.38);
+  outline-offset: 2px;
+  border-color: var(--brand-dark);
+}
+
+.career-field-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--brand-deep);
+  font-weight: 800;
+}
+
+.career-upload {
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  min-height: 12rem;
+  padding: 1.5rem;
+  border: 2px dashed rgba(47, 122, 94, 0.38);
+  border-radius: 1.25rem;
+  color: var(--muted);
+  background: var(--white);
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.career-upload:hover,
+.career-upload.is-dragging {
+  border-color: var(--brand-dark);
+  background: var(--soft);
+}
+
+.career-upload.is-dragging {
+  transform: scale(1.01);
+}
+
+.career-upload.has-file {
+  border-style: solid;
+  border-color: var(--brand-dark);
+}
+
+.career-upload.is-invalid {
+  border-color: #a83b2f;
+  background: #fff7f5;
+}
+
+.career-upload-icon {
+  display: inline-grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--brand-dark);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.career-upload strong {
+  color: var(--brand-deep);
+}
+
+.career-upload-action {
+  color: var(--brand-dark);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.career-upload-hint,
+.career-file-name {
+  font-size: 0.9rem;
+}
+
+.career-file-name {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--brand-deep);
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.career-file-remove {
+  border: 0;
+  padding: 0.2rem 0.4rem;
+  color: #a83b2f;
+  background: transparent;
+  font-weight: 800;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.career-file-error {
+  margin: 0.45rem 0 0;
+  color: #a83b2f;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.career-application-form .form-note {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+.career-application-form button[type='submit'] {
+  min-height: 3rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.8rem 1.1rem;
+  color: var(--white);
+  background: var(--brand-dark);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.career-application-form button[type='submit']:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.career-application-form .form-status {
+  margin: 0;
+  font-weight: 800;
+}
+
+.career-application-form .form-status:empty {
+  display: none;
+}
+
+.career-application-form .form-status[data-status='success'] {
+  color: var(--brand-deep);
+}
+
+.career-application-form .form-status[data-status='error'] {
+  color: #a83b2f;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .career-upload {
+    transition: none;
+  }
+
+  .career-upload.is-dragging {
+    transform: none;
+  }
 }
 
 .careers-facts {
@@ -2884,10 +3563,6 @@ address strong {
   margin-top: 2.5rem;
 }
 
-.careers-apply {
-  background: var(--white);
-}
-
 @media (max-width: 900px) {
   .careers-facts,
   .careers-gallery,
@@ -2973,8 +3648,34 @@ address strong {
   .home-who-grid,
   .forms-layout,
   .split-section,
-  .contact-section {
+  .contact-section,
+  .career-hero,
+  .career-application {
     grid-template-columns: 1fr;
+  }
+
+  .career-opportunity-copy {
+    grid-template-columns: 1fr;
+  }
+
+  .career-pillars-grid,
+  .career-step-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quote-board-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quote-bubble:nth-child(2) {
+    margin-top: 2rem;
+  }
+
+  .quote-bubble:nth-child(3) {
+    grid-column: 1 / -1;
+    max-width: 28rem;
+    margin-top: 0.25rem;
+    justify-self: center;
   }
 
   .form-download-card {
@@ -3308,9 +4009,73 @@ address strong {
   }
 
   .hero,
-  .home-hero {
+  .home-hero,
+  .career-hero {
     min-height: auto;
     padding-top: clamp(2rem, 8vw, 3rem);
+  }
+
+  .career-hero-copy h1 {
+    max-width: none;
+  }
+
+  .career-application-form {
+    grid-template-columns: 1fr;
+  }
+
+  .career-field--textarea,
+  .career-file-field,
+  .career-application-form .consent-field,
+  .career-application-form .form-note,
+  .career-application-form button,
+  .career-application-form .form-status {
+    grid-column: auto;
+  }
+
+  .career-closing {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .career-closing .button {
+    width: 100%;
+  }
+
+  .career-pillars-grid,
+  .career-step-list,
+  .quote-board-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-bubble,
+  .quote-bubble:nth-child(2),
+  .quote-bubble:nth-child(3) {
+    max-width: none;
+    margin-top: 0;
+    justify-self: stretch;
+  }
+
+  .quote-bubble--end figcaption {
+    padding-right: 0.4rem;
+    padding-left: 1.15rem;
+    text-align: left;
+  }
+
+  .quote-bubble--thought.quote-bubble--end .quote-bubble-tail,
+  .quote-bubble--speech.quote-bubble--end .quote-bubble-tail {
+    left: 1.55rem;
+    right: auto;
+  }
+
+  .quote-bubble--speech.quote-bubble--end .quote-bubble-tail {
+    border-left: 0;
+    border-right: 2px solid var(--brand-deep);
+    transform: rotate(45deg);
+  }
+
+  .quote-bubble--thought.quote-bubble--end .quote-bubble-tail::after {
+    left: -0.85rem;
+    right: auto;
   }
 
   h1 {
@@ -3346,13 +4111,7 @@ address strong {
   .feature-list,
   .path-grid,
   .resource-list,
-  .provider-grid,
-  .careers-facts,
-  .careers-role-grid,
-  .careers-program-grid,
-  .careers-office-grid,
-  .careers-recognition-grid,
-  .careers-gallery {
+  .provider-grid {
     grid-template-columns: 1fr;
   }
 

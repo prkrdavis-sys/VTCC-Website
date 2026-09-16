@@ -63,7 +63,7 @@ function renderAbaPage(page) {
   ].join('\n')
 }
 
-function renderIihPage(page) {
+function renderProgramPage(page) {
   const sections = page.sections.map((section) => {
     if (section.items) {
       return [
@@ -87,7 +87,7 @@ function renderIihPage(page) {
     '',
     ...sections,
     '',
-    '### IIH CTA',
+    '### Program CTA',
     '',
     page.cta.body,
     '',
@@ -200,13 +200,21 @@ ABA Therapy:
 
 ${content.sections.services.cards[0].body}
 
-Intensive In-Home Services:
+Early Learners:
 
 ${content.sections.services.cards[1].body}
 
-Referral and Funding Support:
+Feeding Program:
 
 ${content.sections.services.cards[2].body}
+
+Social Skills Group:
+
+${content.sections.services.cards[3].body}
+
+Referral and Funding Support:
+
+${content.sections.services.cards[4].body}
 
 ### How To Get Started
 
@@ -260,7 +268,11 @@ Button:
 
 ${renderAbaPage(content.pages.abaTherapy)}
 
-${renderIihPage(content.pages.intensiveInHome)}
+${renderProgramPage(content.pages.earlyLearners)}
+
+${renderProgramPage(content.pages.feedingProgram)}
+
+${renderProgramPage(content.pages.socialSkillsGroup)}
 
 ${renderInsurancePage(content.pages.insuranceFunding)}
 
@@ -347,19 +359,16 @@ Subheadline:
 
 ${content.sections.contact.intro}
 
-### Fairfax Office
+${content.offices
+  .map(
+    (office) => `### ${office.name}
 
-${content.offices[0].street}  
-${content.offices[0].city}  
-Phone: ${content.offices[0].phone}  
-Fax: ${content.offices[0].fax}
-
-### Fredericksburg Office
-
-${content.offices[1].street}  
-${content.offices[1].city}  
-Phone: ${content.offices[1].phone}  
-Fax: ${content.offices[1].fax}
+${office.street}  
+${office.city}  
+Phone: ${office.phone}  
+Fax: ${office.fax}`,
+  )
+  .join('\n\n')}
 
 ### Short Request Form Fields
 
