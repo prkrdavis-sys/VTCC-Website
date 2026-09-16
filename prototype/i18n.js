@@ -38,6 +38,7 @@ function toStaticHref(path) {
     '/referrers': `${BASE}referrers.html`,
     '/resources': `${BASE}resources/index.html`,
     '/about': `${BASE}about.html`,
+    '/careers': `${BASE}careers.html`,
     '/contact': `${BASE}contact.html`,
     '/contact/referral': `${BASE}contact/referral.html`,
   }
@@ -101,6 +102,7 @@ const PAGE_SECTION_PATHS = {
   forms: '/resources/forms',
   referrers: '/referrers',
   about: '/about',
+  careers: '/careers',
   contact: '/contact',
   'contact-referral': '/contact/referral',
 }
@@ -167,7 +169,7 @@ function getHeaderActions(content) {
 }
 
 function renderFormField(field) {
-  const required = field.name === 'name' ? ' required' : ''
+  const required = field.required || field.name === 'name' ? ' required' : ''
 
   if (field.type === 'select') {
     const options = field.options
@@ -933,9 +935,270 @@ function renderReferrersPage(content) {
 
 function renderAboutPage(content) {
   const about = content.sections.about
+  const careersLink = about.careersLink
+    ? `<a class="button page-link-cta" href="${escapeHtml(toStaticHref(about.careersLink.href))}">${escapeHtml(about.careersLink.label)}</a>`
+    : ''
+
   return `<section class="section split-section page-section">
         ${renderSectionHeading(about.eyebrow, about.title, about.intro)}
         <ul class="check-list">${about.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+        ${careersLink}
+      </section>`
+}
+
+function getSharedAssetPath(assetKey) {
+  const path = window.VTCC_SITE?.shared?.assets?.[assetKey]
+  if (!path) {
+    return ''
+  }
+
+  return `${BASE}${String(path).replace(/^\//, '')}`
+}
+
+function renderCareersList(items) {
+  return `<ul class="check-list">${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
+}
+
+function renderCareersPosting(posting) {
+  const blocks = []
+
+  if (posting.youWill) {
+    blocks.push(`<div class="careers-posting-block">
+            <h3>${escapeHtml(posting.youWill.title)}</h3>
+            ${renderCareersList(posting.youWill.items)}
+          </div>`)
+  }
+
+  if (posting.training) {
+    blocks.push(`<div class="careers-posting-block">
+            <h3>${escapeHtml(posting.training.title)}</h3>
+            <p>${escapeHtml(posting.training.body)}</p>
+          </div>`)
+  }
+
+  if (posting.education) {
+    blocks.push(`<div class="careers-posting-block">
+            <h3>${escapeHtml(posting.education.title)}</h3>
+            <p>${escapeHtml(posting.education.body)}</p>
+          </div>`)
+  }
+
+  if (posting.certification) {
+    blocks.push(`<div class="careers-posting-block">
+            <h3>${escapeHtml(posting.certification.title)}</h3>
+            <p>${escapeHtml(posting.certification.body)}</p>
+          </div>`)
+  }
+
+  if (posting.licensing) {
+    blocks.push(`<div class="careers-posting-block">
+            <h3>${escapeHtml(posting.licensing.title)}</h3>
+            <p>${escapeHtml(posting.licensing.body)}</p>
+          </div>`)
+  }
+
+  if (posting.requirements) {
+    blocks.push(`<div class="careers-posting-block">
+            <h3>${escapeHtml(posting.requirements.title)}</h3>
+            ${renderCareersList(posting.requirements.items)}
+            ${
+              posting.requirements.note
+                ? `<p class="careers-note">${escapeHtml(posting.requirements.note)}</p>`
+                : ''
+            }
+          </div>`)
+  }
+
+  return `<article class="careers-posting">
+          <p class="card-label">${escapeHtml(posting.kicker)}</p>
+          <h2>${escapeHtml(posting.title)}</h2>
+          <p class="careers-posting-meta">${escapeHtml(posting.meta)}</p>
+          <p>${escapeHtml(posting.summary)}</p>
+          ${blocks.join('\n          ')}
+          <a class="button" href="#apply" data-apply-role="${escapeHtml(posting.applyRole)}">${escapeHtml(posting.applyLabel)}</a>
+        </article>`
+}
+
+function renderCareersGallery(clinic, recognition) {
+  const figures = (clinic.gallery ?? [])
+    .map((item) => {
+      const imagePath = item.asset ? getSharedAssetPath(item.asset) : ''
+
+      if (imagePath) {
+        return `<figure class="careers-photo">
+            <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(recognition.photoAlt ?? item.caption)}" loading="lazy" />
+            <figcaption>${escapeHtml(item.caption)}</figcaption>
+          </figure>`
+      }
+
+      return `<figure class="careers-photo careers-photo--pending">
+            <div class="careers-photo-frame" role="img" aria-label="${escapeHtml(item.pendingDetail ?? clinic.photoPendingLabel)}">
+              <span>${escapeHtml(clinic.photoPendingLabel)}</span>
+            </div>
+            <figcaption>
+              <strong>${escapeHtml(item.caption)}</strong>
+              ${item.pendingDetail ? `<span>${escapeHtml(item.pendingDetail)}</span>` : ''}
+            </figcaption>
+          </figure>`
+    })
+    .join('\n          ')
+
+  return `<div class="careers-gallery">${figures}</div>`
+}
+
+function renderCareersPage(content) {
+  const careers = content.sections.careers
+  const form = content.formCareers ?? content.form
+  const applyActions = (careers.actions ?? []).map((action) => ({
+    ...action,
+    href: action.href.startsWith('#') ? action.href : toStaticHref(action.href),
+  }))
+
+  const facts = (careers.facts ?? [])
+    .map(
+      (fact) => `<div class="careers-fact">
+            <dt>${escapeHtml(fact.value)}</dt>
+            <dd>${escapeHtml(fact.label)}</dd>
+          </div>`,
+    )
+    .join('')
+
+  const structureCards = (careers.structure.roles ?? [])
+    .map(
+      (role) => `<article class="careers-role-card">
+            <p class="card-label">${escapeHtml(role.level)}</p>
+            <h3>${escapeHtml(role.title)}</h3>
+            <p>${escapeHtml(role.body)}</p>
+          </article>`,
+    )
+    .join('')
+
+  const differentiatorSteps = (careers.differentiator.steps ?? [])
+    .map(
+      (step) => `<li>
+            <strong>${escapeHtml(step.title)}</strong>
+            <span>${escapeHtml(step.body)}</span>
+          </li>`,
+    )
+    .join('')
+
+  const tabs = (careers.tabs ?? [])
+    .map((tab, index) => {
+      const selected = index === 0
+      return `<button type="button" class="careers-tab${selected ? ' is-active' : ''}" role="tab" id="careers-tab-${escapeHtml(tab.id)}" aria-controls="careers-panel-${escapeHtml(tab.id)}" aria-selected="${selected ? 'true' : 'false'}" tabindex="${selected ? '0' : '-1'}" data-careers-tab="${escapeHtml(tab.id)}">${escapeHtml(tab.label)}</button>`
+    })
+    .join('\n          ')
+
+  const programCards = (careers.programs.items ?? [])
+    .map(
+      (program) => `<article class="careers-program-card">
+            <p class="card-label">${escapeHtml(program.summary)}</p>
+            <h3>${escapeHtml(program.title)}</h3>
+            <p>${escapeHtml(program.body)}</p>
+            ${renderCareersList(program.details)}
+          </article>`,
+    )
+    .join('')
+
+  const recognitionItems = (careers.recognition.items ?? [])
+    .map(
+      (item) => `<article>
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.body)}</p>
+          </article>`,
+    )
+    .join('')
+
+  const officeCards = content.offices
+    .map(
+      (office) => `<address class="careers-office">
+            <strong>${escapeHtml(office.name)}</strong>
+            ${escapeHtml(office.street)}<br />
+            ${escapeHtml(office.city)}<br />
+            <a href="${escapeHtml(office.phoneHref)}">${escapeHtml(office.phone)}</a><br />
+            ${escapeHtml(content.ui.faxLabel)}: ${escapeHtml(office.fax)}
+          </address>`,
+    )
+    .join('')
+
+  return `<section class="section careers-hero page-section">
+        ${renderSectionHeading(careers.eyebrow, careers.title, careers.intro)}
+        <div class="button-row">${applyActions.map(renderButton).join('\n            ')}</div>
+        <dl class="careers-facts">${facts}</dl>
+        <p class="careers-note">${escapeHtml(careers.factsNote)}</p>
+      </section>
+      <section class="section careers-differentiator">
+        ${renderSectionHeading(careers.differentiator.eyebrow, careers.differentiator.title, careers.differentiator.body)}
+        <ol class="home-steps careers-steps">${differentiatorSteps}</ol>
+      </section>
+      <section class="section careers-structure page-section">
+        ${renderSectionHeading(careers.structure.eyebrow, careers.structure.title, careers.structure.intro)}
+        <div class="careers-role-grid">${structureCards}</div>
+      </section>
+      <section class="section careers-board page-section" data-careers-board>
+        <div class="careers-tabs-wrap">
+          <div class="careers-tabs" role="tablist" aria-label="${escapeHtml(careers.tabsLabel)}">
+          ${tabs}
+          </div>
+        </div>
+        <div class="careers-panels">
+          <div class="careers-panel" role="tabpanel" id="careers-panel-behavior-technician" aria-labelledby="careers-tab-behavior-technician" data-careers-panel="behavior-technician">
+            ${renderCareersPosting(careers.postings.bt)}
+            <aside class="careers-other-openings">
+              <h3>${escapeHtml(careers.otherOpenings.title)}</h3>
+              <p>${escapeHtml(careers.otherOpenings.body)}</p>
+            </aside>
+          </div>
+          <div class="careers-panel" role="tabpanel" id="careers-panel-bcba" aria-labelledby="careers-tab-bcba" data-careers-panel="bcba" hidden>
+            ${renderCareersPosting(careers.postings.bcba)}
+          </div>
+          <div class="careers-panel" role="tabpanel" id="careers-panel-programs" aria-labelledby="careers-tab-programs" data-careers-panel="programs" hidden>
+            ${renderSectionHeading(careers.programs.eyebrow, careers.programs.title, careers.programs.intro)}
+            <div class="careers-program-grid">${programCards}</div>
+          </div>
+          <div class="careers-panel" role="tabpanel" id="careers-panel-clinic" aria-labelledby="careers-tab-clinic" data-careers-panel="clinic" hidden>
+            ${renderSectionHeading(careers.clinic.eyebrow, careers.clinic.title, careers.clinic.intro)}
+            <div class="careers-office-grid">${officeCards}</div>
+            <div class="careers-gallery-block">
+              <h3>${escapeHtml(careers.clinic.galleryTitle)}</h3>
+              <p>${escapeHtml(careers.clinic.galleryIntro)}</p>
+              ${renderCareersGallery(careers.clinic, careers.recognition)}
+            </div>
+            <div class="careers-recognition">
+              ${renderSectionHeading(careers.recognition.eyebrow, careers.recognition.title, careers.recognition.intro)}
+              <div class="careers-recognition-grid">${recognitionItems}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="apply" class="section contact-section page-section careers-apply">
+        <div>
+          ${renderSectionHeading(careers.apply.eyebrow, careers.apply.title, careers.apply.intro)}
+          <p class="careers-note">${escapeHtml(careers.apply.resumeNote)}</p>
+          <div class="contact-call-card">
+            <p class="eyebrow">${escapeHtml(content.sections.contact.callEyebrow)}</p>
+            <h3>${escapeHtml(content.sections.contact.callTitle)}</h3>
+            <div class="call-button-list">
+              ${content.offices
+                .map(
+                  (office) => `<a class="call-button" href="${escapeHtml(office.phoneHref)}">
+                <span>${escapeHtml(office.name)}</span>
+                <strong>${escapeHtml(office.phone)}</strong>
+              </a>`,
+                )
+                .join('\n              ')}
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-panel">
+          <form class="request-form request-form--career" data-form-type="career">
+          ${form.fields.map(renderFormField).join('')}
+          <label class="consent-field"><input type="checkbox" name="consent" required /> ${escapeHtml(form.consentLabel)}</label>
+          <p class="form-note">${escapeHtml(form.notice)}</p>
+          <button type="submit" data-default-label="${escapeHtml(form.submitLabel)}">${escapeHtml(form.submitLabel)}</button>
+          <p class="form-status" data-form-status aria-live="polite"></p>
+        </form>
+        </div>
       </section>`
 }
 
@@ -1058,6 +1321,9 @@ function renderMain(content) {
       break
     case 'about':
       mainHtml = renderAboutPage(content)
+      break
+    case 'careers':
+      mainHtml = renderCareersPage(content)
       break
     case 'contact':
     case 'contact-referral':
@@ -1195,6 +1461,94 @@ function getFormSubmissionPayload(form) {
   }
 }
 
+const CAREERS_TAB_IDS = ['behavior-technician', 'bcba', 'programs', 'clinic']
+
+function setCareersTab(tabId) {
+  const board = document.querySelector('[data-careers-board]')
+  if (!board || !CAREERS_TAB_IDS.includes(tabId)) {
+    return
+  }
+
+  board.querySelectorAll('[data-careers-tab]').forEach((button) => {
+    const selected = button.dataset.careersTab === tabId
+    button.classList.toggle('is-active', selected)
+    button.setAttribute('aria-selected', selected ? 'true' : 'false')
+    button.tabIndex = selected ? 0 : -1
+  })
+
+  board.querySelectorAll('[data-careers-panel]').forEach((panel) => {
+    panel.hidden = panel.dataset.careersPanel !== tabId
+  })
+}
+
+function bindCareersPage() {
+  const board = document.querySelector('[data-careers-board]')
+  if (!board) {
+    return
+  }
+
+  const tabButtons = Array.from(board.querySelectorAll('[data-careers-tab]'))
+
+  const activate = (tabId, { updateHash = true } = {}) => {
+    setCareersTab(tabId)
+
+    if (updateHash) {
+      const nextHash = `#${tabId}`
+      if (window.location.hash !== nextHash) {
+        history.replaceState(null, '', nextHash)
+      }
+    }
+  }
+
+  tabButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      activate(button.dataset.careersTab)
+    })
+
+    button.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') {
+        return
+      }
+
+      event.preventDefault()
+      const offset = event.key === 'ArrowRight' ? 1 : -1
+      const next = tabButtons[(index + offset + tabButtons.length) % tabButtons.length]
+      next.focus()
+      activate(next.dataset.careersTab)
+    })
+  })
+
+  document.querySelectorAll('[data-apply-role]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const select = document.querySelector('.request-form--career select[name="position"]')
+      if (select && link.dataset.applyRole) {
+        const hasOption = Array.from(select.options).some((option) => option.value === link.dataset.applyRole)
+        if (hasOption) {
+          select.value = link.dataset.applyRole
+        }
+      }
+    })
+  })
+
+  const initialHash = window.location.hash.replace('#', '')
+  if (CAREERS_TAB_IDS.includes(initialHash)) {
+    activate(initialHash, { updateHash: false })
+  }
+
+  if (bindCareersPage.hashHandler) {
+    window.removeEventListener('hashchange', bindCareersPage.hashHandler)
+  }
+
+  bindCareersPage.hashHandler = () => {
+    const hash = window.location.hash.replace('#', '')
+    if (CAREERS_TAB_IDS.includes(hash)) {
+      activate(hash, { updateHash: false })
+    }
+  }
+
+  window.addEventListener('hashchange', bindCareersPage.hashHandler)
+}
+
 function bindRequestForms(content) {
   document.querySelectorAll('.request-form[data-form-type]').forEach((form) => {
     form.addEventListener('submit', async (event) => {
@@ -1290,6 +1644,7 @@ function render() {
   bindMobileMenu()
   bindFaqSearch(content)
   bindRequestForms(content)
+  bindCareersPage()
 
   const toggleAll = document.querySelector('[data-faq-toggle-all]')
   const faqList = document.querySelector('[data-faq-list]')

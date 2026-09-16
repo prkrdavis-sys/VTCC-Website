@@ -32,6 +32,7 @@ es.navigation.main = [
   { label: 'Referentes', href: '/referrers' },
   { label: 'Preguntas y Guías', href: '/resources' },
   { label: 'Acerca de', href: '/about' },
+  { label: 'Empleo', href: '/careers' },
   { label: 'Contacto', href: '/contact' },
 ]
 
@@ -65,6 +66,7 @@ es.navigation.headerGroups = [
     label: 'Acerca de VTCC',
     links: [
       { label: 'Acerca de', href: '/about' },
+      { label: 'Empleo', href: '/careers' },
       { label: 'Contacto', href: '/contact' },
     ],
   },

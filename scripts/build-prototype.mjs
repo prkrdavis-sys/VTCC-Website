@@ -26,6 +26,7 @@ const pages = [
   { file: 'insurance.html', page: 'insurance', base: '' },
   { file: 'referrers.html', page: 'referrers', base: '' },
   { file: 'about.html', page: 'about', base: '' },
+  { file: 'careers.html', page: 'careers', base: '' },
   { file: 'contact.html', page: 'contact', base: '' },
   { file: join('contact', 'referral.html'), page: 'contact-referral', base: '../' },
   { file: join('resources', 'index.html'), page: 'resources', base: '../' },

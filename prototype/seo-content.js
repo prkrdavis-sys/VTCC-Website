@@ -131,6 +131,21 @@ window.VTCC_SEO = {
       "title": "Victoria Transcultural Clinical Center | Career at VTCC",
       "description": "Fill the form below so that we will let you know about the job opening at vtcc.\r\n"
     },
+    "https://vtcc.health/carrera/": {
+      "headLines": [
+        "<title>Victoria Transcultural Clinical Center | Carrera - VTCC</title>",
+        "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,user-scalable=no\">",
+        "<meta name=\"description\" content=\"Fill the form below so that we will let you know about the job opening at vtcc.\r\n\">",
+        "<meta name='robots' content='max-image-preview:large' />",
+        "<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"https://vtcc.health/wp-content/uploads/2020/10/fav-2.png\">",
+        "<link rel=\"apple-touch-icon\" href=\"https://vtcc.health/wp-content/uploads/2020/10/fav-2.png\"/>",
+        "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"Victoria Transcultural Clinical Center &raquo; Feed\" href=\"https://vtcc.health/feed/\" />",
+        "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"Victoria Transcultural Clinical Center &raquo; Comments Feed\" href=\"https://vtcc.health/comments/feed/\" />",
+        "<link rel=\"canonical\" href=\"https://vtcc.health/carrera/\" />"
+      ],
+      "title": "Victoria Transcultural Clinical Center | Carrera - VTCC",
+      "description": "Fill the form below so that we will let you know about the job opening at vtcc.\r\n"
+    },
     "https://vtcc.health/blog/": {
       "headLines": [
         "<title>Victoria Transcultural Clinical Center | Blog</title>",
@@ -235,6 +250,7 @@ window.VTCC_SEO = {
       "contact": "https://vtcc.health/contact/",
       "contact-referral": "https://vtcc.health/contact/",
       "career": "https://vtcc.health/career/",
+      "careers": "https://vtcc.health/career/",
       "blog": "https://vtcc.health/blog/"
     },
     "es": {
@@ -250,7 +266,8 @@ window.VTCC_SEO = {
       "about": "https://vtcc.health/about-our-director/",
       "contact": "https://vtcc.health/contactenos/",
       "contact-referral": "https://vtcc.health/contactenos/",
-      "career": "https://vtcc.health/career/",
+      "career": "https://vtcc.health/carrera/",
+      "careers": "https://vtcc.health/carrera/",
       "blog": "https://vtcc.health/blog/"
     }
   }

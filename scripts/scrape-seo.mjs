@@ -82,6 +82,7 @@ const output = {
       contact: 'https://vtcc.health/contact/',
       'contact-referral': 'https://vtcc.health/contact/',
       career: 'https://vtcc.health/career/',
+      careers: 'https://vtcc.health/career/',
       blog: 'https://vtcc.health/blog/',
     },
     es: {
@@ -97,7 +98,8 @@ const output = {
       about: 'https://vtcc.health/about-our-director/',
       contact: 'https://vtcc.health/contactenos/',
       'contact-referral': 'https://vtcc.health/contactenos/',
-      career: 'https://vtcc.health/career/',
+      career: 'https://vtcc.health/carrera/',
+      careers: 'https://vtcc.health/carrera/',
       blog: 'https://vtcc.health/blog/',
     },
   },
