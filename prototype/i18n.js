@@ -298,6 +298,49 @@ function renderSectionHeading(eyebrow, title, intro = '') {
         </div>`
 }
 
+function renderQuoteBoard(quotes, extraClass = '') {
+  const items = quotes?.items ?? []
+  if (!items.length) {
+    return ''
+  }
+
+  const bubbles = items
+    .map((item, index) => {
+      const style = item.style === 'speech' ? 'speech' : 'thought'
+      const align = index === items.length - 1 ? 'quote-bubble--end' : 'quote-bubble--start'
+      const puffs =
+        style === 'thought'
+          ? `<span class="quote-cloud-puff quote-cloud-puff--a" aria-hidden="true"></span>
+            <span class="quote-cloud-puff quote-cloud-puff--b" aria-hidden="true"></span>
+            <span class="quote-cloud-puff quote-cloud-puff--c" aria-hidden="true"></span>
+            <span class="quote-cloud-puff quote-cloud-puff--d" aria-hidden="true"></span>
+            <span class="quote-cloud-puff quote-cloud-puff--e" aria-hidden="true"></span>`
+          : ''
+
+      return `<figure class="quote-bubble quote-bubble--${style} ${align}">
+          <div class="quote-bubble-panel">
+            ${puffs}
+            <blockquote>
+              <p>${escapeHtml(item.quote)}</p>
+            </blockquote>
+            <span class="quote-bubble-tail" aria-hidden="true"></span>
+          </div>
+          <figcaption>
+            <strong>${escapeHtml(item.name)}</strong>
+            <span>${escapeHtml(item.role)}</span>
+          </figcaption>
+        </figure>`
+    })
+    .join('\n          ')
+
+  return `<section class="section quote-board ${extraClass}">
+        ${renderSectionHeading(quotes.eyebrow, quotes.title, quotes.intro)}
+        <div class="quote-board-frame">
+          <div class="quote-board-grid">${bubbles}</div>
+        </div>
+      </section>`
+}
+
 function renderHeroHeading(hero) {
   if (!hero.headlineLead) {
     return `<h1>${escapeHtml(hero.headline)}</h1>`
@@ -949,7 +992,8 @@ function renderAboutPage(content) {
   return `<section class="section split-section page-section">
         ${renderSectionHeading(about.eyebrow, about.title, about.intro)}
         <ul class="check-list">${about.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
-      </section>`
+      </section>
+      ${renderQuoteBoard(about.quotes, 'about-quotes')}`
 }
 
 function renderCareerPage(content) {
@@ -998,6 +1042,7 @@ function renderCareerPage(content) {
       <section class="section career-pillars">
         <div class="career-pillars-grid">${pillars}</div>
       </section>
+      ${renderQuoteBoard(careers.quotes, 'career-quotes')}
       <section id="career-opportunity" class="section career-opportunity">
         <div class="career-opportunity-copy">
           ${renderSectionHeading(careers.opportunity.eyebrow, careers.opportunity.title, careers.opportunity.body)}

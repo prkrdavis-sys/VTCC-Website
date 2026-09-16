@@ -133,6 +133,35 @@ es.sections.careers = {
       body: 'Valoramos la supervisión, la colaboración y el desarrollo constante en cada etapa profesional.',
     },
   ],
+  quotes: {
+    eyebrow: 'Del equipo',
+    title: 'Cómo es trabajar en VTCC',
+    intro:
+      'Los colegas comparten cómo se siente el trabajo, el apoyo y el día a día. Estas citas son marcadores de posición hasta que el personal comparta comentarios aprobados.',
+    items: [
+      {
+        quote:
+          'Aquí irá una cita de un compañero de equipo sobre la colaboración, la supervisión y el apoyo en el trabajo.',
+        name: 'Nombre del empleado',
+        role: 'Marcador de posición · Puesto, credenciales',
+        style: 'thought',
+      },
+      {
+        quote:
+          'Aquí irá una cita de un colega sobre la atención culturalmente responsiva y el trabajo con las familias.',
+        name: 'Nombre del empleado',
+        role: 'Marcador de posición · Puesto, credenciales',
+        style: 'speech',
+      },
+      {
+        quote:
+          'Aquí irá una cita del personal sobre el crecimiento profesional y el sentido del trabajo.',
+        name: 'Nombre del empleado',
+        role: 'Marcador de posición · Puesto, credenciales',
+        style: 'thought',
+      },
+    ],
+  },
   opportunity: {
     eyebrow: 'Por qué trabajar con VTCC',
     title: 'Un lugar de trabajo enfocado en el progreso significativo',
@@ -590,6 +619,35 @@ Object.assign(es.sections.about, {
     'Biografías de BCBA/RBT o terapeutas cuando estén aprobadas',
     'Ubicación de la oficina en Fairfax',
   ],
+  quotes: {
+    eyebrow: 'De las familias',
+    title: 'Lo que dicen los padres sobre la atención en VTCC',
+    intro:
+      'Los padres y cuidadores comparten cómo ha sido trabajar con nuestro equipo. Estas citas son marcadores de posición hasta que las familias compartan comentarios aprobados.',
+    items: [
+      {
+        quote:
+          'Aquí irá una cita de un padre o madre sobre sentirse escuchado, apoyado e incluido durante la admisión y los servicios.',
+        name: 'Nombre del padre o madre',
+        role: 'Marcador de posición · Padre o madre de un cliente de VTCC',
+        style: 'speech',
+      },
+      {
+        quote:
+          'Aquí irá una cita de un cuidador sobre el progreso que notó y cómo el equipo colaboró con su familia.',
+        name: 'Nombre del padre o madre',
+        role: 'Marcador de posición · Padre o madre de un cliente de VTCC',
+        style: 'thought',
+      },
+      {
+        quote:
+          'Aquí irá una cita de un padre o madre sobre una atención respetuosa de la cultura y una comunicación clara con VTCC.',
+        name: 'Nombre del padre o madre',
+        role: 'Marcador de posición · Padre o madre de un cliente de VTCC',
+        style: 'speech',
+      },
+    ],
+  },
 })
 
 Object.assign(es.sections.contact, {

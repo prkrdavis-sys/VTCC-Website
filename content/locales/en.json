@@ -778,7 +778,32 @@
         "Director bio and clinical leadership",
         "BCBA/RBT or therapist bios where approved",
         "Fairfax office location"
-      ]
+      ],
+      "quotes": {
+        "eyebrow": "From families",
+        "title": "What parents say about care at VTCC",
+        "intro": "Parents and caregivers share what it has been like to work with our team. These quotes are placeholders until families share approved comments.",
+        "items": [
+          {
+            "quote": "A parent quote about feeling heard, supported, and included during intake and services will go here.",
+            "name": "Parent name",
+            "role": "Placeholder · Parent of a VTCC client",
+            "style": "speech"
+          },
+          {
+            "quote": "A caregiver quote about progress they noticed and how the team partnered with their family will go here.",
+            "name": "Parent name",
+            "role": "Placeholder · Parent of a VTCC client",
+            "style": "thought"
+          },
+          {
+            "quote": "A parent quote about culturally respectful care and clear communication with VTCC will go here.",
+            "name": "Parent name",
+            "role": "Placeholder · Parent of a VTCC client",
+            "style": "speech"
+          }
+        ]
+      }
     },
     "contact": {
       "eyebrow": "Contact",
@@ -825,6 +850,31 @@
           "body": "We value supervision, collaboration, and steady development at every stage of a career."
         }
       ],
+      "quotes": {
+        "eyebrow": "From the team",
+        "title": "What it is like to work at VTCC",
+        "intro": "Colleagues share what the work, support, and day-to-day culture feel like. These quotes are placeholders until staff share approved comments.",
+        "items": [
+          {
+            "quote": "A teammate quote about collaboration, supervision, and feeling supported at work will go here.",
+            "name": "Employee name",
+            "role": "Placeholder · Role, credentials",
+            "style": "thought"
+          },
+          {
+            "quote": "A colleague quote about culturally responsive care and working with families will go here.",
+            "name": "Employee name",
+            "role": "Placeholder · Role, credentials",
+            "style": "speech"
+          },
+          {
+            "quote": "A staff quote about professional growth and the meaning of the work will go here.",
+            "name": "Employee name",
+            "role": "Placeholder · Role, credentials",
+            "style": "thought"
+          }
+        ]
+      },
       "opportunity": {
         "eyebrow": "Why work with VTCC",
         "title": "A workplace built around meaningful progress",
