@@ -109,7 +109,6 @@ Object.assign(es.ui, {
 })
 
 Object.assign(es.hero, {
-  eyebrow: 'Atendiendo a niños, adolescentes y familias en el norte de Virginia',
   headline:
     'ABA y programas especializados para niños y familias',
   subheadline:

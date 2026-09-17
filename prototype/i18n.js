@@ -968,7 +968,6 @@ function renderHome(content) {
   return `
       <section class="home-hero">
         <div class="home-hero-copy">
-          <p class="eyebrow">${escapeHtml(content.hero.eyebrow)}</p>
           ${renderHeroHeading(content.hero)}
           ${renderHeroServiceTags(content.hero.serviceTags)}
           ${renderHeroText(content.hero)}
