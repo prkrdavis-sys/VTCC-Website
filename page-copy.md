@@ -14,7 +14,7 @@ ABA and Specialized Programs for Children and Families
 
 Subheadline:
 
-VTCC supports families through individualized ABA therapy, early learning, feeding, social skills, and group parent training programs.
+VTCC supports families through individualized ABA therapy, early learning, feeding, social enrichment, social skills, and group parent training programs.
 
 Primary buttons:
 
@@ -55,7 +55,7 @@ Structure:
 4. Caregivers receive coaching so skills can be practiced between sessions.
 5. Progress is monitored regularly and goals are updated over time.
 
-Related programs: early-learners, feeding, social-skills, group-parent-training
+Related programs: early-learners, feeding, social-enrichment, social-skills, group-parent-training
 
 Early Learners:
 
@@ -82,7 +82,7 @@ Structure:
 4. Caregivers receive coaching so practice can continue at home.
 5. Progress is monitored and the plan is updated as skills grow.
 
-Related programs: aba, social-skills, feeding, group-parent-training
+Related programs: aba, social-enrichment, social-skills, feeding, group-parent-training
 
 Feeding Program:
 
@@ -109,7 +109,34 @@ Structure:
 4. Caregivers learn how to support new foods without extra pressure.
 5. Progress is reviewed and the plan is adjusted based on the child's response.
 
-Related programs: aba, early-learners, group-parent-training
+Related programs: aba, early-learners, social-enrichment, group-parent-training
+
+Social Enrichment:
+
+The Social Enrichment program helps children ages 8-12 join group activities, build friendships, and practice everyday social skills with peers.
+
+Ages served: Typically ages 8-12
+
+This group is designed for school-age children. Fit depends on assessment, current goals, funding, and authorization.
+
+Children practice joining games, taking turns, sharing attention, and staying engaged with peers in a small group. Brieanna Rollocks, BCaBA, leads the program so practice stays structured, positive, and matched to each child's goals.
+
+Goals:
+
+- Join group games and shared activities
+- Practice turn-taking, waiting, and flexible play
+- Build conversation and friendship skills with peers
+- Stay engaged during group routines and transitions
+
+Structure:
+
+1. A clinician confirms group fit and current social goals.
+2. Children join a small group with peers in the same age range.
+3. Staff coach during games, conversation, and shared activities.
+4. Families receive guidance so skills can be practiced at home and school.
+5. Goals are updated as the child becomes more confident with peers.
+
+Related programs: aba, early-learners, social-skills, group-parent-training
 
 Social Skills Group:
 
@@ -136,7 +163,7 @@ Structure:
 4. Families receive guidance so skills can be practiced outside the group.
 5. Goals are updated as the child or adolescent becomes more independent.
 
-Related programs: aba, early-learners, group-parent-training
+Related programs: aba, early-learners, social-enrichment, group-parent-training
 
 Group Parent Training:
 
@@ -163,7 +190,7 @@ Structure:
 4. Families receive guidance for using the same tools at home.
 5. Goals are updated as caregivers become more confident.
 
-Related programs: aba, early-learners, social-skills
+Related programs: aba, early-learners, social-enrichment, social-skills
 
 ### How To Get Started
 
@@ -186,6 +213,7 @@ Families may contact VTCC for support with:
 - Communication, social, daily living, or school-readiness skills
 - Early learners preparing for school and social settings
 - Feeding goals related to food repertoire and preferences
+- Social enrichment for children ages 8-12
 - Advanced social skills and age-appropriate peer play
 - Group parent training for caregivers who want practical strategies they can use at home
 - Referrals connected to Medicaid, managed care, commercial insurance, or county/FAPT funding
@@ -288,7 +316,7 @@ Headline:
 
 Early Learning Support For School And Social Readiness
 
-The Early Learners program supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.
+The Early Learners program, led by Brieanna Rollocks, BCaBA, supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.
 
 Buttons:
 
@@ -350,6 +378,41 @@ Button:
 
 - Ask About the Feeding Program
 
+## Social Enrichment Page
+
+### Page Hero
+
+Headline:
+
+Peer Skills For Children Ages 8-12
+
+Social Enrichment, led by Brieanna Rollocks, BCaBA, helps children ages 8-12 join group activities, build friendships, and practice everyday social skills with peers.
+
+Buttons:
+
+- Request Social Enrichment Services
+- Ask About Eligibility
+
+### What Children May Practice
+
+The group focuses on everyday peer skills that help children participate in games, conversation, and shared activities.
+
+- Joining group games and shared activities
+- Turn-taking, waiting, and flexible play
+- Conversation and friendship skills with peers
+- Staying engaged during group routines and transitions
+### Learning With Peers
+
+Children practice in a small group with coaching from Brieanna Rollocks, BCaBA, and trained staff. Goals are individualized so each child can build confidence with peers at a manageable pace.
+
+### Program CTA
+
+Contact VTCC to ask whether Social Enrichment may be a fit for your child and to learn about current group availability.
+
+Button:
+
+- Ask About Social Enrichment
+
 ## Social Skills Group Page
 
 ### Page Hero
@@ -358,7 +421,7 @@ Headline:
 
 Build More Advanced Social Skills With Peers
 
-The Social Skills Group is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.
+The Social Skills Group, led by Laurel Kokilananda, BCBA, is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.
 
 Buttons:
 
@@ -367,7 +430,7 @@ Buttons:
 
 ### What the Group May Practice
 
-The Social Skills Group is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.
+The Social Skills Group, led by Laurel Kokilananda, BCBA, is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.
 
 - Understanding sarcasm, humor, and implied meaning
 - Back-and-forth conversation and flexible thinking
@@ -541,7 +604,7 @@ VTCC reviews your request, confirms service and funding fit when possible, and g
 
 What if I am not sure which service I need?
 
-That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, the Social Skills Group, Group Parent Training, or another pathway should be explored.
+That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, Social Enrichment, the Social Skills Group, Group Parent Training, or another pathway should be explored.
 
 ### Medicaid and FAPT Funding Basics
 
@@ -633,11 +696,11 @@ VTCC can often discuss general service fit and required next steps, but final el
 
 ### Early Learners Program
 
-The Early Learners program helps preschool-aged children practice skills for school and social settings.
+The Early Learners program helps preschool-aged children practice skills for school and social settings. It is led by Brieanna Rollocks, BCaBA.
 
 What is the Early Learners program?
 
-It is a program for preschool-aged children focused on communication, play, routines, early learning, and participation in school and social settings.
+It is a program for preschool-aged children focused on communication, play, routines, early learning, and participation in school and social settings. Brieanna Rollocks, BCaBA, leads the program.
 
 What skills may children practice?
 
@@ -663,13 +726,33 @@ Are caregivers included?
 
 Yes. Caregiver collaboration helps connect program goals with practical mealtime routines at home.
 
+### Social Enrichment
+
+Social Enrichment is a peer-group program for children ages 8-12, led by Brieanna Rollocks, BCaBA.
+
+What is the Social Enrichment program?
+
+Social Enrichment helps children ages 8-12 practice everyday social skills with peers. The group focuses on joining activities, taking turns, conversation, and staying engaged during shared play.
+
+Who leads Social Enrichment?
+
+Brieanna Rollocks, BCaBA, leads Social Enrichment. She also leads the Early Learners program, so families can see a consistent approach as children grow.
+
+How is this different from the Social Skills Group?
+
+Social Enrichment is for ages 8-12 and focuses on everyday peer play, friendship skills, and group participation. The Social Skills Group, led by Laurel Kokilananda, BCBA, is for clients who are ready for more advanced practice such as sarcasm, conversation, and flexible thinking.
+
+How are caregivers involved?
+
+Families receive guidance so the same peer skills can be practiced at home, at school, and in the community.
+
 ### Social Skills Group
 
-The Social Skills Group gives clients who are ready for advanced practice a supported setting to learn with peers.
+The Social Skills Group, led by Laurel Kokilananda, BCBA, gives clients who are ready for advanced practice a supported setting to learn with peers.
 
 Who may be a fit for the group?
 
-The group is for clients who are ready to work on more advanced social skills and who may benefit from supported practice with peers.
+The group is for clients who are ready to work on more advanced social skills and who may benefit from supported practice with peers. Laurel Kokilananda, BCBA, leads the group.
 
 What skills may the group address?
 
@@ -697,7 +780,7 @@ A common hiring path in ABA is to send new technicians to a third-party 40-hour 
 - Senior Lead Behavior Technician (SLBT): SLBTs are experienced technicians who take on higher-level clinical help: assessment support, new-hire training, side-by-side coaching, Safety-Care instruction, and Initial Home checklist interviews.
 - Student Analyst: RBTs enrolled in a qualifying master's program who accrue BACB restricted and unrestricted fieldwork hours on the job, under a qualified supervisor and a signed fieldwork contract.
 - Board Certified Behavior Analyst (BCBA): BCBAs assess needs, write treatment and behavior-support plans, supervise technicians, train caregivers, and monitor progress. Independent practice in Virginia also requires state licensure.
-- Specialized program clinicians: Clinicians in VTCC’s specialized programs support early learning, feeding, social-skills, and group parent-training work under the same culturally responsive, family-centered approach.
+- Specialized program clinicians: Clinicians in VTCC’s specialized programs support early learning, feeding, social enrichment, social-skills, and group parent-training work under the same culturally responsive, family-centered approach.
 - Office and operations support: VTCC's public career form also accepts interest in office administrative roles and internships that keep scheduling, intake, and clinic operations running.
 
 ### Behavior Technician

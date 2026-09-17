@@ -23,6 +23,7 @@ Object.assign(es.ui, {
   relatedProgramsLabel: 'Programas relacionados',
   programGoalsLabel: 'Metas',
   programStructureLabel: 'Cómo está estructurado el programa',
+  programLeadLabel: 'Liderado por',
   placeholderStaffNote:
     'Los nombres, fotos y cargos del personal son marcadores de posición hasta que VTCC apruebe las biografías publicadas.',
   contactSwitchFamilyPrompt: '¿Busca servicios para su familia?',
@@ -63,6 +64,7 @@ es.navigation.headerGroups = [
       { label: 'Terapia ABA', href: '/aba' },
       { label: 'Primeros Aprendices', href: '/early-learners' },
       { label: 'Programa de Alimentación', href: '/feeding-program' },
+      { label: 'Enriquecimiento Social', href: '/social-enrichment' },
       { label: 'Grupo de Habilidades Sociales', href: '/social-skills-group' },
       { label: 'Capacitación Grupal para Padres', href: '/group-parent-training' },
     ],
@@ -75,6 +77,7 @@ es.navigation.headerGroups = [
       { label: '¿Qué es la Terapia ABA?', href: '/resources/what-is-aba-therapy' },
       { label: 'Programa de Primeros Aprendices', href: '/resources/early-learners' },
       { label: 'Programa de Alimentación', href: '/resources/feeding-program' },
+      { label: 'Enriquecimiento Social', href: '/resources/social-enrichment' },
       { label: 'Grupo de Habilidades Sociales', href: '/resources/social-skills-group' },
       { label: 'Preguntas Frecuentes sobre Capacitación para Padres', href: '/resources/parent-training-faqs' },
       { label: 'Todas las preguntas y guías', href: '/resources' },
@@ -130,6 +133,7 @@ es.hero.serviceTags = [
   { label: 'Terapia ABA', href: '/aba' },
   { label: 'Primeros Aprendices', href: '/early-learners' },
   { label: 'Programa de Alimentación', href: '/feeding-program' },
+  { label: 'Enriquecimiento Social', href: '/social-enrichment' },
   { label: 'Grupo de Habilidades Sociales', href: '/social-skills-group' },
   { label: 'Capacitación Grupal para Padres', href: '/group-parent-training' },
 ]
@@ -241,7 +245,7 @@ es.sections.careers = {
     },
     {
       value: 'Programas de ABA',
-      label: 'Terapia, primeros aprendices, alimentación, habilidades sociales y capacitación grupal para padres',
+      label: 'Terapia, primeros aprendices, alimentación, enriquecimiento social, habilidades sociales y capacitación grupal para padres',
     },
   ],
   factsNote:
@@ -274,8 +278,8 @@ es.sections.careers = {
       },
       {
         title: 'Clínicos de programas especializados',
-        level: 'Primeros aprendices, alimentación, habilidades sociales y capacitación grupal para padres',
-        body: 'Los clínicos de los programas especializados de VTCC apoyan el aprendizaje temprano, la alimentación, las habilidades sociales y la capacitación grupal para padres con el mismo enfoque familiar y culturalmente responsivo.',
+        level: 'Primeros aprendices, alimentación, enriquecimiento social, habilidades sociales y capacitación grupal para padres',
+        body: 'Los clínicos de los programas especializados de VTCC apoyan el aprendizaje temprano, la alimentación, el enriquecimiento social, las habilidades sociales y la capacitación grupal para padres con el mismo enfoque familiar y culturalmente responsivo.',
       },
       {
         title: 'Apoyo de oficina y operaciones',
@@ -634,6 +638,7 @@ es.sections.services.cards = [
     "related": [
       "early-learners",
       "feeding",
+      "social-enrichment",
       "social-skills",
       "group-parent-training"
     ],
@@ -662,25 +667,16 @@ es.sections.services.cards = [
       "El progreso se monitorea y el plan se actualiza a medida que crecen las habilidades."
     ],
     "leader": {
-      "name": "Nia Brooks, BCBA",
-      "role": "Líder de Primeros Aprendices (marcador de posición)",
-      "bio": "Líder provisional de Primeros Aprendices. Representa al clínico que guiaría el desarrollo de habilidades en edad preescolar una vez que VTCC apruebe las biografías publicadas.",
-      "photo": "/assets/team/nia-brooks.svg"
+      "name": "Brieanna Rollocks, BCaBA",
+      "role": "Líder de Primeros Aprendices y Enriquecimiento Social",
+      "bio": "Lidera el programa de Primeros Aprendices para niños en edad preescolar y el programa de Enriquecimiento Social para edades de 8 a 12 años. Ayuda a los niños a desarrollar comunicación, juego, rutinas y habilidades con compañeros en entornos con apoyo.",
+      "photo": "/assets/team/brieanna-rollocks.svg",
+      "published": true
     },
-    "team": [
-      {
-        "name": "Jordan Hale, BCBA",
-        "role": "Líder del programa ABA (marcador de posición)",
-        "photo": "/assets/team/jordan-hale.svg"
-      },
-      {
-        "name": "Avery Patel",
-        "role": "Coach familiar (marcador de posición)",
-        "photo": "/assets/team/avery-patel.svg"
-      }
-    ],
+    "team": [],
     "related": [
       "aba",
+      "social-enrichment",
       "social-skills",
       "feeding",
       "group-parent-training"
@@ -730,10 +726,49 @@ es.sections.services.cards = [
     "related": [
       "aba",
       "early-learners",
+      "social-enrichment",
       "group-parent-training"
     ],
     "linkLabel": "Conozca el programa de alimentación",
     "href": "/feeding-program"
+  },
+  {
+    "id": "social-enrichment",
+    "label": "Enriquecimiento Social",
+    "title": "Practique habilidades con compañeros en un grupo con apoyo",
+    "body": "El programa de Enriquecimiento Social ayuda a niños de 8 a 12 años a unirse a actividades grupales, construir amistades y practicar habilidades sociales cotidianas con compañeros.",
+    "ageRange": "Por lo general, de 8 a 12 años",
+    "ageNote": "Este grupo está diseñado para niños en edad escolar. La compatibilidad depende de la evaluación, las metas actuales, el financiamiento y la autorización.",
+    "description": "Los niños practican unirse a juegos, turnarse, compartir atención y mantenerse involucrados con compañeros en un grupo pequeño. Brieanna Rollocks, BCaBA, lidera el programa para que la práctica sea estructurada, positiva y ajustada a las metas de cada niño.",
+    "goals": [
+      "Unirse a juegos grupales y actividades compartidas",
+      "Practicar turnos, espera y juego flexible",
+      "Desarrollar conversación y habilidades de amistad con compañeros",
+      "Mantenerse involucrado durante rutinas y transiciones del grupo"
+    ],
+    "structure": [
+      "Un clínico confirma la compatibilidad con el grupo y las metas sociales actuales.",
+      "Los niños se unen a un grupo pequeño con compañeros de la misma edad.",
+      "El personal orienta durante juegos, conversación y actividades compartidas.",
+      "Las familias reciben guía para practicar las habilidades en casa y en la escuela.",
+      "Las metas se actualizan a medida que el niño gana confianza con sus compañeros."
+    ],
+    "leader": {
+      "name": "Brieanna Rollocks, BCaBA",
+      "role": "Líder de Primeros Aprendices y Enriquecimiento Social",
+      "bio": "Lidera el programa de Primeros Aprendices para niños en edad preescolar y el programa de Enriquecimiento Social para edades de 8 a 12 años. Ayuda a los niños a desarrollar comunicación, juego, rutinas y habilidades con compañeros en entornos con apoyo.",
+      "photo": "/assets/team/brieanna-rollocks.svg",
+      "published": true
+    },
+    "team": [],
+    "related": [
+      "aba",
+      "early-learners",
+      "social-skills",
+      "group-parent-training"
+    ],
+    "linkLabel": "Conozca Enriquecimiento Social",
+    "href": "/social-enrichment"
   },
   {
     "id": "social-skills",
@@ -757,26 +792,17 @@ es.sections.services.cards = [
       "Las metas se actualizan a medida que el niño o adolescente gana independencia."
     ],
     "leader": {
-      "name": "Maya Okonkwo, BCBA",
-      "role": "Líder del Grupo de Habilidades Sociales (marcador de posición)",
-      "bio": "Líder provisional del Grupo de Habilidades Sociales. Representa al clínico que guiaría los grupos de práctica con compañeros una vez que VTCC apruebe las biografías publicadas.",
-      "photo": "/assets/team/maya-okonkwo.svg"
+      "name": "Laurel Kokilananda, BCBA",
+      "role": "Líder del Grupo de Habilidades Sociales",
+      "bio": "Lidera el Grupo de Habilidades Sociales de VTCC. Ayuda a niños en edad escolar y adolescentes a practicar habilidades avanzadas con compañeros, como conversación, pensamiento flexible y juego apropiado para su edad.",
+      "photo": "/assets/team/laurel-kokilananda.svg",
+      "published": true
     },
-    "team": [
-      {
-        "name": "Riley Chen, BCBA",
-        "role": "Líder de capacitación para padres (marcador de posición)",
-        "photo": "/assets/team/riley-chen.svg"
-      },
-      {
-        "name": "Taylor Brooks",
-        "role": "Facilitador de grupo (marcador de posición)",
-        "photo": "/assets/team/taylor-brooks.svg"
-      }
-    ],
+    "team": [],
     "related": [
       "aba",
       "early-learners",
+      "social-enrichment",
       "group-parent-training"
     ],
     "linkLabel": "Conozca el grupo social",
@@ -807,12 +833,14 @@ es.sections.services.cards = [
       "name": "Olivia Roth",
       "role": "Líder del programa de Capacitación Grupal para Padres",
       "bio": "Lidera el programa de Capacitación Grupal para Padres de VTCC. Ayuda a los cuidadores a aprender estrategias prácticas que pueden usar juntos en un entorno grupal con apoyo.",
-      "photo": "/assets/team/olivia-roth.svg"
+      "photo": "/assets/team/olivia-roth.svg",
+      "published": true
     },
     "team": [],
     "related": [
       "aba",
       "early-learners",
+      "social-enrichment",
       "social-skills"
     ],
     "linkLabel": "Conozca la capacitación grupal para padres",
@@ -946,7 +974,7 @@ Object.assign(es.sections, {
     eyebrow: 'Programa de Primeros Aprendices',
     title: 'Desarrolle confianza para la escuela y los entornos sociales',
     intro:
-      'El programa de Primeros Aprendices apoya a niños en edad preescolar mientras practican rutinas, comunicación, juego y habilidades de aprendizaje temprano que les ayudan a participar en la escuela y en entornos sociales.',
+      'El programa de Primeros Aprendices, liderado por Brieanna Rollocks, BCaBA, apoya a niños en edad preescolar mientras practican rutinas, comunicación, juego y habilidades de aprendizaje temprano que les ayudan a participar en la escuela y en entornos sociales.',
     columns: [
       {
         title: 'Lo que apoya el programa',
@@ -994,11 +1022,37 @@ Object.assign(es.sections, {
       },
     ],
   },
+  socialEnrichment: {
+    eyebrow: 'Enriquecimiento Social',
+    title: 'Practique habilidades con compañeros de 8 a 12 años',
+    intro:
+      'El Enriquecimiento Social, liderado por Brieanna Rollocks, BCaBA, ayuda a niños de 8 a 12 años a unirse a actividades grupales, construir amistades y practicar habilidades sociales cotidianas con compañeros.',
+    columns: [
+      {
+        title: 'Lo que pueden practicar los niños',
+        items: [
+          'Unirse a juegos grupales y actividades compartidas',
+          'Turnos, espera y juego flexible',
+          'Conversación y habilidades de amistad con compañeros',
+          'Mantenerse involucrado durante rutinas y transiciones del grupo',
+        ],
+      },
+      {
+        title: 'Un entorno grupal con apoyo',
+        items: [
+          'Práctica en grupos pequeños con niños de la misma edad',
+          'Orientación durante juegos, conversación y juego compartido',
+          'Metas individualizadas según las habilidades sociales actuales',
+          'Guía familiar para continuar la práctica en casa y en la escuela',
+        ],
+      },
+    ],
+  },
   socialSkillsGroup: {
     eyebrow: 'Grupo de Habilidades Sociales',
     title: 'Practique habilidades sociales avanzadas con compañeros',
     intro:
-      'El Grupo de Habilidades Sociales es para clientes que están listos para trabajar en habilidades sociales más avanzadas, incluyendo la comprensión del sarcasmo, la conversación y el juego apropiado para su edad con compañeros.',
+      'El Grupo de Habilidades Sociales, liderado por Laurel Kokilananda, BCBA, es para clientes que están listos para trabajar en habilidades sociales más avanzadas, incluyendo la comprensión del sarcasmo, la conversación y el juego apropiado para su edad con compañeros.',
     columns: [
       {
         title: 'Habilidades que puede abordar el grupo',
@@ -1091,6 +1145,7 @@ Object.assign(es.sections.whoWeServe, {
     'Estrés familiar relacionado con las necesidades de cuidado del niño',
     'Niños pequeños que se preparan para la escuela y los entornos sociales',
     'Metas de alimentación relacionadas con el repertorio y las preferencias alimentarias',
+    'Enriquecimiento social para niños de 8 a 12 años',
     'Habilidades sociales avanzadas y juego apropiado para la edad con compañeros',
     'Capacitación grupal para padres que quieren estrategias prácticas para usar en casa',
     'Referencias conectadas con Medicaid, atención administrada, seguro comercial o financiamiento del condado/FAPT',
@@ -1209,7 +1264,7 @@ es.form.fields = [
     name: 'service',
     label: 'Interés en servicios',
     type: 'select',
-    options: ['ABA', 'Primeros Aprendices', 'Programa de Alimentación', 'Grupo de Habilidades Sociales', 'Capacitación Grupal para Padres', 'No estoy seguro', 'Pregunta de referencia'],
+    options: ['ABA', 'Primeros Aprendices', 'Programa de Alimentación', 'Enriquecimiento Social', 'Grupo de Habilidades Sociales', 'Capacitación Grupal para Padres', 'No estoy seguro', 'Pregunta de referencia'],
   },
   {
     name: 'funding',
@@ -1363,11 +1418,39 @@ es.pages = {
       button: 'Preguntar sobre el Programa de Alimentación',
     },
   },
+  socialEnrichment: {
+    title: 'Página de Enriquecimiento Social',
+    hero: {
+      headline: 'Habilidades con compañeros para niños de 8 a 12 años',
+      body: 'El Enriquecimiento Social, liderado por Brieanna Rollocks, BCaBA, ayuda a niños de 8 a 12 años a unirse a actividades grupales, construir amistades y practicar habilidades sociales cotidianas con compañeros.',
+      buttons: ['Solicitar servicios de Enriquecimiento Social', 'Preguntar sobre elegibilidad'],
+    },
+    sections: [
+      {
+        title: 'Lo que pueden practicar los niños',
+        intro: 'El grupo se centra en habilidades cotidianas con compañeros que ayudan a los niños a participar en juegos, conversación y actividades compartidas.',
+        items: [
+          'Unirse a juegos grupales y actividades compartidas',
+          'Turnos, espera y juego flexible',
+          'Conversación y habilidades de amistad con compañeros',
+          'Mantenerse involucrado durante rutinas y transiciones del grupo',
+        ],
+      },
+      {
+        title: 'Aprender con compañeros',
+        body: 'Los niños practican en un grupo pequeño con orientación de Brieanna Rollocks, BCaBA, y personal capacitado. Las metas son individualizadas para que cada niño gane confianza con sus compañeros a un ritmo manejable.',
+      },
+    ],
+    cta: {
+      body: 'Contacte a VTCC para preguntar si el Enriquecimiento Social puede ser adecuado para su hijo y conocer la disponibilidad actual.',
+      button: 'Preguntar sobre Enriquecimiento Social',
+    },
+  },
   socialSkillsGroup: {
     title: 'Página del Grupo de Habilidades Sociales',
     hero: {
       headline: 'Desarrolle habilidades sociales avanzadas con compañeros',
-      body: 'El Grupo de Habilidades Sociales es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
+      body: 'El Grupo de Habilidades Sociales, liderado por Laurel Kokilananda, BCBA, es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
       buttons: ['Solicitar servicios del grupo social', 'Preguntar sobre elegibilidad'],
     },
     sections: [
@@ -1480,13 +1563,13 @@ es.pages = {
     title: 'Página de Recursos / Preguntas Frecuentes',
     hero: {
       headline: 'Recursos para familias y socios de referencia',
-      body: 'VTCC ofrece recursos educativos para ayudar a las familias a entender la terapia ABA, el programa de Primeros Aprendices, el Programa de Alimentación, el Grupo de Habilidades Sociales, la Capacitación Grupal para Padres, la participación de los padres, los pasos de admisión y las preguntas sobre financiamiento.',
+      body: 'VTCC ofrece recursos educativos para ayudar a las familias a entender la terapia ABA, el programa de Primeros Aprendices, el Programa de Alimentación, el Enriquecimiento Social, el Grupo de Habilidades Sociales, la Capacitación Grupal para Padres, la participación de los padres, los pasos de admisión y las preguntas sobre financiamiento.',
     },
     faqs: [
       {
         question: '¿Qué servicios brinda VTCC?',
         answer:
-          'VTCC brinda terapia ABA, un programa de Primeros Aprendices, un Programa de Alimentación, un Grupo de Habilidades Sociales y Capacitación Grupal para Padres para niños y familias. Los servicios dependen de la elegibilidad, el financiamiento, la necesidad clínica y la disponibilidad.',
+          'VTCC brinda terapia ABA, un programa de Primeros Aprendices, un Programa de Alimentación, Enriquecimiento Social para edades de 8 a 12 años, un Grupo de Habilidades Sociales y Capacitación Grupal para Padres para niños y familias. Los servicios dependen de la elegibilidad, el financiamiento, la necesidad clínica y la disponibilidad.',
       },
       {
         question: '¿Qué es el programa de Primeros Aprendices?',
@@ -1499,9 +1582,14 @@ es.pages = {
           'El Programa de Alimentación utiliza prácticas ABA para ayudar a los niños a ampliar gradualmente su repertorio y sus preferencias alimentarias mediante metas individualizadas, apoyo positivo y colaboración con los cuidadores.',
       },
       {
+        question: '¿Qué es el Enriquecimiento Social?',
+        answer:
+          'El Enriquecimiento Social es un programa grupal para niños de 8 a 12 años, liderado por Brieanna Rollocks, BCaBA. Ayuda a los niños a unirse a actividades, turnarse y construir habilidades de amistad con compañeros.',
+      },
+      {
         question: '¿Quién puede beneficiarse del Grupo de Habilidades Sociales?',
         answer:
-          'El Grupo de Habilidades Sociales es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
+          'El Grupo de Habilidades Sociales, liderado por Laurel Kokilananda, BCBA, es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
       },
       {
         question: '¿Qué es la Capacitación Grupal para Padres?',
@@ -1606,6 +1694,7 @@ for (const form of [es.formFamily, es.formReferral]) {
       'ABA',
       'Primeros Aprendices',
       'Programa de Alimentación',
+      'Enriquecimiento Social',
       'Grupo de Habilidades Sociales',
       'Capacitación Grupal para Padres',
       'Aún no estoy seguro',
@@ -1717,6 +1806,7 @@ es.contactQuiz.serviceValues = {
   aba: 'ABA',
   'early-learners': 'Primeros Aprendices',
   feeding: 'Programa de Alimentación',
+  'social-enrichment': 'Enriquecimiento Social',
   'social-skills': 'Grupo de Habilidades Sociales',
   'not-sure': 'Aún no estoy seguro',
 }
@@ -1724,6 +1814,7 @@ es.contactQuiz.programLabels = {
   aba: 'Terapia ABA',
   'early-learners': 'Primeros Aprendices',
   feeding: 'Programa de Alimentación',
+  'social-enrichment': 'Enriquecimiento Social',
   'social-skills': 'Grupo de Habilidades Sociales',
 }
 es.contactQuiz.roleReasons = {

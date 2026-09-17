@@ -30,6 +30,7 @@ const pages = [
   { file: 'aba.html', page: 'aba', base: '' },
   { file: 'early-learners.html', page: 'early-learners', base: '' },
   { file: 'feeding-program.html', page: 'feeding-program', base: '' },
+  { file: 'social-enrichment.html', page: 'social-enrichment', base: '' },
   { file: 'social-skills-group.html', page: 'social-skills-group', base: '' },
   { file: 'group-parent-training.html', page: 'group-parent-training', base: '' },
   { file: 'get-started.html', page: 'get-started', base: '' },
@@ -51,6 +52,7 @@ const pages = [
     'parent-training-faqs',
     'early-learners',
     'feeding-program',
+    'social-enrichment',
     'social-skills-group',
     'referrals-and-eligibility',
   ].map((slug) => ({

@@ -82,6 +82,16 @@ const manualPages = {
       '<link rel="canonical" href="https://vtcc.health/feeding-program/">',
     ],
   },
+  'https://vtcc.health/social-enrichment/': {
+    title: 'Victoria Transcultural Clinical Center | Social Enrichment',
+    description:
+      'VTCC’s Social Enrichment program, led by Brieanna Rollocks, BCaBA, helps children ages 8-12 practice peer skills in a supported group.',
+    headLines: [
+      '<title>Victoria Transcultural Clinical Center | Social Enrichment</title>',
+      '<meta name="description" content="VTCC’s Social Enrichment program, led by Brieanna Rollocks, BCaBA, helps children ages 8-12 practice peer skills in a supported group.">',
+      '<link rel="canonical" href="https://vtcc.health/social-enrichment/">',
+    ],
+  },
   'https://vtcc.health/social-skills-group/': {
     title: 'Victoria Transcultural Clinical Center | Social Skills Group',
     description:
@@ -122,6 +132,16 @@ const manualPages = {
       '<link rel="canonical" href="https://vtcc.health/programa-alimentacion/">',
     ],
   },
+  'https://vtcc.health/enriquecimiento-social/': {
+    title: 'Victoria Transcultural Clinical Center | Enriquecimiento Social',
+    description:
+      'El programa de Enriquecimiento Social de VTCC, liderado por Brieanna Rollocks, BCaBA, ayuda a niños de 8 a 12 años a practicar habilidades con compañeros en un grupo con apoyo.',
+    headLines: [
+      '<title>Victoria Transcultural Clinical Center | Enriquecimiento Social</title>',
+      '<meta name="description" content="El programa de Enriquecimiento Social de VTCC, liderado por Brieanna Rollocks, BCaBA, ayuda a niños de 8 a 12 años a practicar habilidades con compañeros en un grupo con apoyo.">',
+      '<link rel="canonical" href="https://vtcc.health/enriquecimiento-social/">',
+    ],
+  },
   'https://vtcc.health/grupo-habilidades-sociales/': {
     title: 'Victoria Transcultural Clinical Center | Grupo de Habilidades Sociales',
     description:
@@ -154,6 +174,7 @@ const output = {
       aba: 'https://vtcc.health/aba/',
       'early-learners': 'https://vtcc.health/early-learners/',
       'feeding-program': 'https://vtcc.health/feeding-program/',
+      'social-enrichment': 'https://vtcc.health/social-enrichment/',
       'social-skills-group': 'https://vtcc.health/social-skills-group/',
       'group-parent-training': 'https://vtcc.health/group-parent-training/',
       'get-started': 'https://vtcc.health/our-services/',
@@ -174,6 +195,7 @@ const output = {
       aba: 'https://vtcc.health/acerca-del-aba/',
       'early-learners': 'https://vtcc.health/programa-primeros-aprendices/',
       'feeding-program': 'https://vtcc.health/programa-alimentacion/',
+      'social-enrichment': 'https://vtcc.health/enriquecimiento-social/',
       'social-skills-group': 'https://vtcc.health/grupo-habilidades-sociales/',
       'group-parent-training': 'https://vtcc.health/capacitacion-grupal-para-padres/',
       'get-started': 'https://vtcc.health/our-services/',

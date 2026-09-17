@@ -1064,6 +1064,11 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   line-height: 1.25;
 }
 
+.program-lead-name {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .program-age-badge {
   width: fit-content;
   border-radius: 999px;

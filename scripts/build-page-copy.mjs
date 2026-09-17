@@ -269,6 +269,8 @@ ${renderProgramPage(content.pages.earlyLearners)}
 
 ${renderProgramPage(content.pages.feedingProgram)}
 
+${renderProgramPage(content.pages.socialEnrichment)}
+
 ${renderProgramPage(content.pages.socialSkillsGroup)}
 
 ${renderProgramPage(content.pages.groupParentTraining)}

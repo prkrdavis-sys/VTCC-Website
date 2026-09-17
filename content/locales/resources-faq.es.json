@@ -47,6 +47,11 @@
       "summary": "Cómo las prácticas ABA pueden apoyar un repertorio y preferencias alimentarias más amplios."
     },
     {
+      "title": "Enriquecimiento Social",
+      "slug": "social-enrichment",
+      "summary": "Práctica en grupo para niños de 8 a 12 años, liderada por Brieanna Rollocks, BCaBA."
+    },
+    {
       "title": "Grupo de Habilidades Sociales",
       "slug": "social-skills-group",
       "summary": "Práctica social avanzada para conversación, sarcasmo y juego apropiado para la edad con compañeros."
@@ -111,7 +116,7 @@
         },
         {
           "question": "¿Qué pasa si no estoy seguro de qué servicio necesito?",
-          "answer": "Es muy común. Contacte a VTCC y describa sus inquietudes. El equipo puede ayudar a determinar si deben explorarse la ABA, Primeros Aprendices, el Programa de Alimentación, el Grupo de Habilidades Sociales, la Capacitación Grupal para Padres u otra vía."
+          "answer": "Es muy común. Contacte a VTCC y describa sus inquietudes. El equipo puede ayudar a determinar si deben explorarse la ABA, Primeros Aprendices, el Programa de Alimentación, el Enriquecimiento Social, el Grupo de Habilidades Sociales, la Capacitación Grupal para Padres u otra vía."
         }
       ]
     },
@@ -215,11 +220,11 @@
     {
       "slug": "early-learners",
       "title": "Programa de Primeros Aprendices",
-      "intro": "El programa de Primeros Aprendices ayuda a niños en edad preescolar a practicar habilidades para la escuela y los entornos sociales.",
+      "intro": "El programa de Primeros Aprendices ayuda a niños en edad preescolar a practicar habilidades para la escuela y los entornos sociales. Lo lidera Brieanna Rollocks, BCaBA.",
       "faqs": [
         {
           "question": "¿Qué es el programa de Primeros Aprendices?",
-          "answer": "Es un programa para niños en edad preescolar que se enfoca en comunicación, juego, rutinas, aprendizaje temprano y participación en la escuela y en entornos sociales."
+          "answer": "Es un programa para niños en edad preescolar que se enfoca en comunicación, juego, rutinas, aprendizaje temprano y participación en la escuela y en entornos sociales. Brieanna Rollocks, BCaBA, lidera el programa."
         },
         {
           "question": "¿Qué habilidades pueden practicar los niños?",
@@ -251,13 +256,36 @@
       ]
     },
     {
+      "slug": "social-enrichment",
+      "title": "Enriquecimiento Social",
+      "intro": "El Enriquecimiento Social es un programa grupal para niños de 8 a 12 años, liderado por Brieanna Rollocks, BCaBA.",
+      "faqs": [
+        {
+          "question": "¿Qué es el programa de Enriquecimiento Social?",
+          "answer": "El Enriquecimiento Social ayuda a niños de 8 a 12 años a practicar habilidades sociales cotidianas con compañeros. El grupo se centra en unirse a actividades, turnarse, conversar y mantenerse involucrado durante el juego compartido."
+        },
+        {
+          "question": "¿Quién lidera el Enriquecimiento Social?",
+          "answer": "Brieanna Rollocks, BCaBA, lidera el Enriquecimiento Social. También lidera el programa de Primeros Aprendices, para que las familias vean un enfoque consistente a medida que los niños crecen."
+        },
+        {
+          "question": "¿En qué se diferencia del Grupo de Habilidades Sociales?",
+          "answer": "El Enriquecimiento Social es para edades de 8 a 12 años y se centra en el juego cotidiano, las habilidades de amistad y la participación en grupo. El Grupo de Habilidades Sociales, liderado por Laurel Kokilananda, BCBA, es para clientes listos para una práctica más avanzada, como el sarcasmo, la conversación y el pensamiento flexible."
+        },
+        {
+          "question": "¿Cómo participan los cuidadores?",
+          "answer": "Las familias reciben guía para practicar las mismas habilidades con compañeros en casa, en la escuela y en la comunidad."
+        }
+      ]
+    },
+    {
       "slug": "social-skills-group",
       "title": "Grupo de Habilidades Sociales",
-      "intro": "El Grupo de Habilidades Sociales brinda a clientes que están listos para practicar habilidades avanzadas un entorno con apoyo para aprender con compañeros.",
+      "intro": "El Grupo de Habilidades Sociales, liderado por Laurel Kokilananda, BCBA, brinda a clientes que están listos para practicar habilidades avanzadas un entorno con apoyo para aprender con compañeros.",
       "faqs": [
         {
           "question": "¿Quién puede beneficiarse del grupo?",
-          "answer": "El grupo es para clientes que están listos para trabajar en habilidades sociales más avanzadas y que pueden beneficiarse de la práctica con apoyo junto a compañeros."
+          "answer": "El grupo es para clientes que están listos para trabajar en habilidades sociales más avanzadas y que pueden beneficiarse de la práctica con apoyo junto a compañeros. Laurel Kokilananda, BCBA, lidera el grupo."
         },
         {
           "question": "¿Qué habilidades puede abordar el grupo?",

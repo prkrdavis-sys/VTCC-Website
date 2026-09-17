@@ -47,6 +47,11 @@
       "summary": "How ABA practices can support a broader food repertoire and preferences."
     },
     {
+      "title": "Social Enrichment",
+      "slug": "social-enrichment",
+      "summary": "Peer-group practice for children ages 8-12, led by Brieanna Rollocks, BCaBA."
+    },
+    {
       "title": "Social Skills Group",
       "slug": "social-skills-group",
       "summary": "Advanced social practice for conversation, sarcasm, and age-appropriate peer play."
@@ -111,7 +116,7 @@
         },
         {
           "question": "What if I am not sure which service I need?",
-          "answer": "That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, the Social Skills Group, Group Parent Training, or another pathway should be explored."
+          "answer": "That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, Social Enrichment, the Social Skills Group, Group Parent Training, or another pathway should be explored."
         }
       ]
     },
@@ -215,11 +220,11 @@
     {
       "slug": "early-learners",
       "title": "Early Learners Program",
-      "intro": "The Early Learners program helps preschool-aged children practice skills for school and social settings.",
+      "intro": "The Early Learners program helps preschool-aged children practice skills for school and social settings. It is led by Brieanna Rollocks, BCaBA.",
       "faqs": [
         {
           "question": "What is the Early Learners program?",
-          "answer": "It is a program for preschool-aged children focused on communication, play, routines, early learning, and participation in school and social settings."
+          "answer": "It is a program for preschool-aged children focused on communication, play, routines, early learning, and participation in school and social settings. Brieanna Rollocks, BCaBA, leads the program."
         },
         {
           "question": "What skills may children practice?",
@@ -251,13 +256,36 @@
       ]
     },
     {
+      "slug": "social-enrichment",
+      "title": "Social Enrichment",
+      "intro": "Social Enrichment is a peer-group program for children ages 8-12, led by Brieanna Rollocks, BCaBA.",
+      "faqs": [
+        {
+          "question": "What is the Social Enrichment program?",
+          "answer": "Social Enrichment helps children ages 8-12 practice everyday social skills with peers. The group focuses on joining activities, taking turns, conversation, and staying engaged during shared play."
+        },
+        {
+          "question": "Who leads Social Enrichment?",
+          "answer": "Brieanna Rollocks, BCaBA, leads Social Enrichment. She also leads the Early Learners program, so families can see a consistent approach as children grow."
+        },
+        {
+          "question": "How is this different from the Social Skills Group?",
+          "answer": "Social Enrichment is for ages 8-12 and focuses on everyday peer play, friendship skills, and group participation. The Social Skills Group, led by Laurel Kokilananda, BCBA, is for clients who are ready for more advanced practice such as sarcasm, conversation, and flexible thinking."
+        },
+        {
+          "question": "How are caregivers involved?",
+          "answer": "Families receive guidance so the same peer skills can be practiced at home, at school, and in the community."
+        }
+      ]
+    },
+    {
       "slug": "social-skills-group",
       "title": "Social Skills Group",
-      "intro": "The Social Skills Group gives clients who are ready for advanced practice a supported setting to learn with peers.",
+      "intro": "The Social Skills Group, led by Laurel Kokilananda, BCBA, gives clients who are ready for advanced practice a supported setting to learn with peers.",
       "faqs": [
         {
           "question": "Who may be a fit for the group?",
-          "answer": "The group is for clients who are ready to work on more advanced social skills and who may benefit from supported practice with peers."
+          "answer": "The group is for clients who are ready to work on more advanced social skills and who may benefit from supported practice with peers. Laurel Kokilananda, BCBA, leads the group."
         },
         {
           "question": "What skills may the group address?",

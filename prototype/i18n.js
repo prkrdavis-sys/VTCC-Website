@@ -36,6 +36,7 @@ function toStaticHref(path) {
     '/aba': `${BASE}aba.html`,
     '/early-learners': `${BASE}early-learners.html`,
     '/feeding-program': `${BASE}feeding-program.html`,
+    '/social-enrichment': `${BASE}social-enrichment.html`,
     '/social-skills-group': `${BASE}social-skills-group.html`,
     '/group-parent-training': `${BASE}group-parent-training.html`,
     '/get-started': `${BASE}get-started.html`,
@@ -89,6 +90,10 @@ function pageHasProgramPanel(programId) {
 
   if (PAGE === 'feeding-program') {
     return programId === 'feeding'
+  }
+
+  if (PAGE === 'social-enrichment') {
+    return programId === 'social-enrichment'
   }
 
   if (PAGE === 'social-skills-group') {
@@ -189,6 +194,7 @@ const PAGE_SECTION_PATHS = {
   aba: '/aba',
   'early-learners': '/early-learners',
   'feeding-program': '/feeding-program',
+  'social-enrichment': '/social-enrichment',
   'social-skills-group': '/social-skills-group',
   'group-parent-training': '/group-parent-training',
   'get-started': '/get-started',
@@ -863,6 +869,8 @@ function renderProgramTeam(program, content) {
     return ''
   }
 
+  const showPlaceholderNote = !leader.published
+
   return `<div class="program-team">
             <h4>${escapeHtml(content.ui.meetTheTeamLabel)}</h4>
             <figure class="program-leader">
@@ -888,7 +896,11 @@ function renderProgramTeam(program, content) {
                     .join('')}</ul>`
                 : ''
             }
-            <p class="program-placeholder-note">${escapeHtml(content.ui.placeholderStaffNote)}</p>
+            ${
+              showPlaceholderNote
+                ? `<p class="program-placeholder-note">${escapeHtml(content.ui.placeholderStaffNote)}</p>`
+                : ''
+            }
           </div>`
 }
 
@@ -921,12 +933,18 @@ function renderRelatedPrograms(program, content) {
 function renderProgramPanel(program, content, { open = false } = {}) {
   const ageLabel = content.ui.ageRangeLabel
   const ageRange = program.ageRange ?? ''
+  const publishedLead = program.leader?.published ? program.leader : null
 
   return `<details class="program-panel" id="program-${escapeHtml(program.id)}"${open ? ' open' : ''}>
             <summary>
               <span class="program-panel-summary">
                 <span class="card-label">${escapeHtml(program.label)}</span>
                 <span class="program-panel-title">${escapeHtml(program.title)}</span>
+                ${
+                  publishedLead
+                    ? `<span class="program-lead-name">${escapeHtml(content.ui.programLeadLabel)} ${escapeHtml(publishedLead.name)}</span>`
+                    : ''
+                }
                 ${
                   ageRange
                     ? `<span class="program-age-badge">${escapeHtml(ageLabel)}: ${escapeHtml(ageRange)}</span>`
@@ -1817,6 +1835,9 @@ function parentSpecializedMatches(state) {
   if (state.childAge >= 2 && state.childAge <= 12 && state.feeding === 'yes') {
     matches.push('feeding')
   }
+  if (state.childAge >= 8 && state.childAge <= 12 && state.social === 'yes') {
+    matches.push('social-enrichment')
+  }
   if (state.childAge >= 5 && state.childAge <= 17 && state.social === 'yes') {
     matches.push('social-skills')
   }
@@ -2561,6 +2582,7 @@ function renderResourceTopic(content) {
 
   const programBySlug = {
     'parent-training-faqs': 'group-parent-training',
+    'social-enrichment': 'social-enrichment',
   }
   const program = getProgramById(content, programBySlug[RESOURCE_SLUG])
 
@@ -2585,6 +2607,9 @@ function renderMain(content) {
       break
     case 'feeding-program':
       mainHtml = renderProgramDetailPage(content, 'feeding', content.sections.feedingProgram)
+      break
+    case 'social-enrichment':
+      mainHtml = renderProgramDetailPage(content, 'social-enrichment', content.sections.socialEnrichment)
       break
     case 'social-skills-group':
       mainHtml = renderProgramDetailPage(content, 'social-skills', content.sections.socialSkillsGroup)
