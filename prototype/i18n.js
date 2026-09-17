@@ -1254,12 +1254,19 @@ function renderReferrersPage(content) {
 
 function renderAboutPage(content) {
   const about = content.sections.about
+  const aboutImage = getSharedAssetPath('aboutTeamImage')
   const careersLink = about.careersLink
     ? `<a class="button page-link-cta" href="${escapeHtml(toStaticHref(about.careersLink.href))}">${escapeHtml(about.careersLink.label)}</a>`
     : ''
+  const photo = aboutImage
+    ? `<figure class="about-media">
+        <img src="${escapeHtml(aboutImage)}" alt="${escapeHtml(about.photoAlt ?? '')}" width="1000" height="562" loading="eager" />
+      </figure>`
+    : ''
 
-  return `<section class="section split-section page-section">
+  return `<section class="section about-page page-section">
         ${renderSectionHeading(about.eyebrow, about.title, about.intro)}
+        ${photo}
         <ul class="check-list">${about.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
         ${careersLink}
       </section>

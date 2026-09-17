@@ -1163,6 +1163,7 @@ Object.assign(es.sections.about, {
   title: 'Nuestro equipo y nuestra misión',
   intro:
     'VTCC brinda servicios de salud mental y conductual culturalmente responsivos para niños, adolescentes y familias en el norte de Virginia.',
+  photoAlt: 'Clínicos de VTCC trabajando uno a uno con niños en la clínica',
   items: [
     'Misión y atención multicultural/transcultural',
     'Biografía del director y liderazgo clínico',

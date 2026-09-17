@@ -11,6 +11,7 @@
       "heroImage": "/assets/hero-banner.png",
       "whoWeServeImage": "/assets/who-we-serve.png",
       "employeeAppreciationImage": "/assets/employee-appreciation.jpg",
+      "aboutTeamImage": "/assets/about-team.png",
       "insuranceProviders": [
         {
           "name": "Aetna Better Health",
