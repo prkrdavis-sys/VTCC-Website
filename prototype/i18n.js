@@ -1817,6 +1817,7 @@ function buildParentPrefill(state, quiz) {
     return {
       form: 'family',
       fields: {
+        serviceId: 'not-sure',
         message: quiz.parentMessages.noDiagnosis,
       },
     }
