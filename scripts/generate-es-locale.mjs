@@ -17,6 +17,7 @@ Object.assign(es.ui, {
   expandAll: 'Expandir todo',
   collapseAll: 'Contraer todo',
   guidesNavLabel: 'Preguntas y guías',
+  servicesNavLabel: 'Servicios',
   ageRangeLabel: 'Edades que atiende',
   meetTheTeamLabel: 'Conozca al equipo',
   relatedProgramsLabel: 'Programas relacionados',
@@ -58,18 +59,25 @@ es.navigation.utility = [
 es.navigation.headerGroups = [
   {
     label: 'Servicios',
-    href: '/#services',
+    links: [
+      { label: 'Terapia ABA', href: '/aba' },
+      { label: 'Primeros Aprendices', href: '/early-learners' },
+      { label: 'Programa de Alimentación', href: '/feeding-program' },
+      { label: 'Grupo de Habilidades Sociales', href: '/social-skills-group' },
+      { label: 'Capacitación Grupal para Padres', href: '/group-parent-training' },
+    ],
   },
   {
     label: 'Preguntas y Guías',
     links: [
       { label: 'Comenzar', href: '/get-started' },
       { label: 'Seguro', href: '/insurance' },
-      { label: 'Terapia ABA', href: '/aba' },
-      { label: 'Programa de Primeros Aprendices', href: '/early-learners' },
-      { label: 'Programa de Alimentación', href: '/feeding-program' },
-      { label: 'Grupo de Habilidades Sociales', href: '/social-skills-group' },
-      { label: 'Preguntas y Guías', href: '/resources' },
+      { label: '¿Qué es la Terapia ABA?', href: '/resources/what-is-aba-therapy' },
+      { label: 'Programa de Primeros Aprendices', href: '/resources/early-learners' },
+      { label: 'Programa de Alimentación', href: '/resources/feeding-program' },
+      { label: 'Grupo de Habilidades Sociales', href: '/resources/social-skills-group' },
+      { label: 'Preguntas Frecuentes sobre Capacitación para Padres', href: '/resources/parent-training-faqs' },
+      { label: 'Todas las preguntas y guías', href: '/resources' },
     ],
   },
   {
@@ -122,6 +130,7 @@ es.hero.serviceTags = [
   { label: 'Primeros Aprendices', href: '/early-learners' },
   { label: 'Programa de Alimentación', href: '/feeding-program' },
   { label: 'Grupo de Habilidades Sociales', href: '/social-skills-group' },
+  { label: 'Capacitación Grupal para Padres', href: '/group-parent-training' },
 ]
 
 es.hero.actions = [
@@ -138,6 +147,10 @@ es.sections.careers = {
   applyLabel: 'Solicitar empleo',
   applyHref: '/career/apply',
   overviewLabel: 'Explore oportunidades',
+  indeed: {
+    href: 'https://www.indeed.com/cmp/Victoria-Transcultural-Clinical-Center/',
+    label: 'Ver empleos de VTCC en Indeed',
+  },
   pillars: [
     {
       title: 'Las personas primero',
@@ -227,7 +240,7 @@ es.sections.careers = {
     },
     {
       value: 'Programas de ABA',
-      label: 'Terapia, primeros aprendices, alimentación y habilidades sociales',
+      label: 'Terapia, primeros aprendices, alimentación, habilidades sociales y capacitación grupal para padres',
     },
   ],
   factsNote:
@@ -260,8 +273,8 @@ es.sections.careers = {
       },
       {
         title: 'Clínicos de programas especializados',
-        level: 'Primeros aprendices, alimentación y habilidades sociales',
-        body: 'Los clínicos de los programas especializados de VTCC apoyan el aprendizaje temprano, la alimentación y las habilidades sociales con el mismo enfoque familiar y culturalmente responsivo.',
+        level: 'Primeros aprendices, alimentación, habilidades sociales y capacitación grupal para padres',
+        body: 'Los clínicos de los programas especializados de VTCC apoyan el aprendizaje temprano, la alimentación, las habilidades sociales y la capacitación grupal para padres con el mismo enfoque familiar y culturalmente responsivo.',
       },
       {
         title: 'Apoyo de oficina y operaciones',
@@ -572,9 +585,9 @@ es.trustStrip = [
 
 Object.assign(es.sections.services, {
   eyebrow: 'Servicios',
-  title: 'Cómo VTCC apoya a familias y referentes',
+  title: 'Cómo VTCC apoya a las familias',
   intro:
-    'Elija la opción que mejor le sirva: somos familia o referente. VTCC apoya a ambos con pasos claros.',
+    'Elija el programa que mejor se adapte a su familia. VTCC acompaña cada vía con pasos claros.',
 })
 
 es.sections.services.cards = [
@@ -621,7 +634,7 @@ es.sections.services.cards = [
       "early-learners",
       "feeding",
       "social-skills",
-      "referral"
+      "group-parent-training"
     ],
     "linkLabel": "Conozca la ABA",
     "href": "/aba"
@@ -668,7 +681,8 @@ es.sections.services.cards = [
     "related": [
       "aba",
       "social-skills",
-      "feeding"
+      "feeding",
+      "group-parent-training"
     ],
     "linkLabel": "Conozca Primeros Aprendices",
     "href": "/early-learners"
@@ -714,7 +728,8 @@ es.sections.services.cards = [
     ],
     "related": [
       "aba",
-      "early-learners"
+      "early-learners",
+      "group-parent-training"
     ],
     "linkLabel": "Conozca el programa de alimentación",
     "href": "/feeding-program"
@@ -760,58 +775,47 @@ es.sections.services.cards = [
     ],
     "related": [
       "aba",
-      "early-learners"
+      "early-learners",
+      "group-parent-training"
     ],
     "linkLabel": "Conozca el grupo social",
     "href": "/social-skills-group"
   },
   {
-    "id": "referral",
-    "label": "Apoyo de Referencias",
-    "title": "Ayude a familias y profesionales a dar el siguiente paso",
-    "body": "Familias, escuelas, médicos, administradores de casos y socios del condado pueden contactar a VTCC para preguntar sobre servicios, elegibilidad, formularios requeridos y pasos de financiamiento.",
-    "ageRange": "Niños, adolescentes y familias que VTCC puede atender",
-    "ageNote": "El apoyo de referencias está disponible para familias y profesionales que quieren entender si se debe explorar ABA, Primeros Aprendices, Alimentación, Habilidades Sociales u otra vía. No es un programa clínico por sí mismo.",
-    "description": "Esta vía ayuda a quienes llaman a compartir información básica, identificar posibles rutas de financiamiento y reunir la documentación correcta antes de la admisión. VTCC puede hablar sobre la compatibilidad general, pero la elegibilidad final depende de la autorización y la evaluación.",
+    "id": "group-parent-training",
+    "label": "Capacitación Grupal para Padres",
+    "title": "Aprenda estrategias prácticas con otros cuidadores",
+    "body": "La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia. Las familias aprenden juntas en un entorno grupal con apoyo.",
+    "ageRange": "Padres y cuidadores",
+    "ageNote": "El grupo está diseñado para cuidadores de niños que pueden recibir servicios de VTCC. La compatibilidad depende de las metas actuales, el financiamiento y la autorización.",
+    "description": "Los cuidadores se reúnen en un grupo pequeño para aprender herramientas prácticas para la comunicación, las rutinas y los momentos difíciles. El programa lo lidera Olivia Roth y está diseñado para que las familias usen las mismas estrategias cuando los terapeutas no están presentes.",
     "goals": [
-      "Facilitar el inicio del programa que pueda ser adecuado",
-      "Ayudar a familias y referentes a entender formularios y preguntas de financiamiento",
-      "Reunir los detalles no sensibles que VTCC necesita para responder",
-      "Dirigir a las personas a la oficina, el formulario o la conversación correcta"
+      "Aprender estrategias prácticas para las rutinas diarias",
+      "Practicar habilidades que apoyan la comunicación y la conducta en casa",
+      "Recibir orientación y comentarios en un grupo pequeño",
+      "Llevar las estrategias a otros cuidadores y entornos diarios"
     ],
     "structure": [
-      "Una familia o un profesional contacta a VTCC por teléfono o formulario.",
-      "El equipo pregunta qué servicio se necesita y cómo podría financiarse.",
-      "Quienes llaman reciben orientación sobre la documentación de admisión o referencia.",
-      "VTCC revisa la información disponible y describe los siguientes pasos.",
-      "Si es apropiado, siguen la programación de la evaluación y la planificación del tratamiento."
+      "Un clínico confirma la compatibilidad con el grupo y las prioridades familiares.",
+      "Los cuidadores se unen a un grupo pequeño con metas de aprendizaje compartidas.",
+      "Las sesiones practican estrategias para rutinas, comunicación y momentos difíciles.",
+      "Las familias reciben guía para usar las mismas herramientas en casa.",
+      "Las metas se actualizan a medida que los cuidadores ganan confianza."
     ],
     "leader": {
-      "name": "Cameron Ortiz",
-      "role": "Coordinador de referencias y admisión (marcador de posición)",
-      "bio": "Coordinador provisional para referencias y primeras preguntas. Ayuda a familias y profesionales a saber qué enviar y a quién llamar.",
-      "photo": "/assets/team/cameron-ortiz.svg"
+      "name": "Olivia Roth",
+      "role": "Líder del programa de Capacitación Grupal para Padres",
+      "bio": "Lidera el programa de Capacitación Grupal para Padres de VTCC. Ayuda a los cuidadores a aprender estrategias prácticas que pueden usar juntos en un entorno grupal con apoyo.",
+      "photo": "/assets/team/olivia-roth.svg"
     },
-    "team": [
-      {
-        "name": "Quinn Alvarez",
-        "role": "Especialista en financiamiento (marcador de posición)",
-        "photo": "/assets/team/quinn-alvarez.svg"
-      },
-      {
-        "name": "Dana Kim",
-        "role": "Navegador familiar (marcador de posición)",
-        "photo": "/assets/team/dana-kim.svg"
-      }
-    ],
+    "team": [],
     "related": [
       "aba",
       "early-learners",
-      "feeding",
       "social-skills"
     ],
-    "linkLabel": "Referir un cliente",
-    "href": "/referrers"
+    "linkLabel": "Conozca la capacitación grupal para padres",
+    "href": "/group-parent-training"
   }
 ]
 
@@ -1015,6 +1019,32 @@ Object.assign(es.sections, {
       },
     ],
   },
+  groupParentTraining: {
+    eyebrow: 'Capacitación Grupal para Padres',
+    title: 'Aprenda estrategias prácticas con otros cuidadores',
+    intro:
+      'La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia. Las familias aprenden juntas en un entorno grupal con apoyo, liderado por Olivia Roth.',
+    columns: [
+      {
+        title: 'Lo que pueden practicar los cuidadores',
+        items: [
+          'Estrategias prácticas para las rutinas diarias',
+          'Habilidades que apoyan la comunicación y la conducta en casa',
+          'Orientación y comentarios en un grupo pequeño',
+          'Formas de mantener las estrategias consistentes entre cuidadores',
+        ],
+      },
+      {
+        title: 'Cómo está estructurado el grupo',
+        items: [
+          'Confirmación de la compatibilidad con el grupo y las prioridades familiares',
+          'Aprendizaje en grupo pequeño con metas compartidas',
+          'Práctica para rutinas, comunicación y momentos difíciles',
+          'Guía para usar las mismas herramientas en casa',
+        ],
+      },
+    ],
+  },
 })
 
 Object.assign(es.sections.funding, {
@@ -1061,6 +1091,7 @@ Object.assign(es.sections.whoWeServe, {
     'Niños pequeños que se preparan para la escuela y los entornos sociales',
     'Metas de alimentación relacionadas con el repertorio y las preferencias alimentarias',
     'Habilidades sociales avanzadas y juego apropiado para la edad con compañeros',
+    'Capacitación grupal para padres que quieren estrategias prácticas para usar en casa',
     'Referencias conectadas con Medicaid, atención administrada, seguro comercial o financiamiento del condado/FAPT',
   ],
 })
@@ -1177,7 +1208,7 @@ es.form.fields = [
     name: 'service',
     label: 'Interés en servicios',
     type: 'select',
-    options: ['ABA', 'Primeros Aprendices', 'Programa de Alimentación', 'Grupo de Habilidades Sociales', 'No estoy seguro', 'Pregunta de referencia'],
+    options: ['ABA', 'Primeros Aprendices', 'Programa de Alimentación', 'Grupo de Habilidades Sociales', 'Capacitación Grupal para Padres', 'No estoy seguro', 'Pregunta de referencia'],
   },
   {
     name: 'funding',
@@ -1359,6 +1390,34 @@ es.pages = {
       button: 'Preguntar sobre el Grupo de Habilidades Sociales',
     },
   },
+  groupParentTraining: {
+    title: 'Página de Capacitación Grupal para Padres',
+    hero: {
+      headline: 'Aprenda estrategias prácticas con otros cuidadores',
+      body: 'La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia. Las familias aprenden juntas en un entorno grupal con apoyo, liderado por Olivia Roth.',
+      buttons: ['Solicitar capacitación grupal para padres', 'Preguntar sobre elegibilidad'],
+    },
+    sections: [
+      {
+        title: 'Lo que pueden practicar los cuidadores',
+        intro: 'La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia.',
+        items: [
+          'Estrategias prácticas para las rutinas diarias',
+          'Habilidades que apoyan la comunicación y la conducta en casa',
+          'Orientación y comentarios en un grupo pequeño',
+          'Formas de mantener las estrategias consistentes entre cuidadores',
+        ],
+      },
+      {
+        title: 'Aprendizaje con otras familias',
+        body: 'Los cuidadores se reúnen en un grupo pequeño con orientación de Olivia Roth. El grupo está diseñado para que las familias usen las mismas estrategias cuando los terapeutas no están presentes.',
+      },
+    ],
+    cta: {
+      body: 'Contacte a VTCC para preguntar si la Capacitación Grupal para Padres puede ser adecuada para su familia y conocer la disponibilidad actual.',
+      button: 'Preguntar sobre la Capacitación Grupal para Padres',
+    },
+  },
   insuranceFunding: {
     title: 'Página de Seguro y Financiamiento',
     hero: {
@@ -1420,13 +1479,13 @@ es.pages = {
     title: 'Página de Recursos / Preguntas Frecuentes',
     hero: {
       headline: 'Recursos para familias y socios de referencia',
-      body: 'VTCC ofrece recursos educativos para ayudar a las familias a entender la terapia ABA, el programa de Primeros Aprendices, el Programa de Alimentación, el Grupo de Habilidades Sociales, la participación de los padres, los pasos de admisión y las preguntas sobre financiamiento.',
+      body: 'VTCC ofrece recursos educativos para ayudar a las familias a entender la terapia ABA, el programa de Primeros Aprendices, el Programa de Alimentación, el Grupo de Habilidades Sociales, la Capacitación Grupal para Padres, la participación de los padres, los pasos de admisión y las preguntas sobre financiamiento.',
     },
     faqs: [
       {
         question: '¿Qué servicios brinda VTCC?',
         answer:
-          'VTCC brinda terapia ABA, un programa de Primeros Aprendices, un Programa de Alimentación y un Grupo de Habilidades Sociales para niños y familias. Los servicios dependen de la elegibilidad, el financiamiento, la necesidad clínica y la disponibilidad.',
+          'VTCC brinda terapia ABA, un programa de Primeros Aprendices, un Programa de Alimentación, un Grupo de Habilidades Sociales y Capacitación Grupal para Padres para niños y familias. Los servicios dependen de la elegibilidad, el financiamiento, la necesidad clínica y la disponibilidad.',
       },
       {
         question: '¿Qué es el programa de Primeros Aprendices?',
@@ -1442,6 +1501,11 @@ es.pages = {
         question: '¿Quién puede beneficiarse del Grupo de Habilidades Sociales?',
         answer:
           'El Grupo de Habilidades Sociales es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
+      },
+      {
+        question: '¿Qué es la Capacitación Grupal para Padres?',
+        answer:
+          'La Capacitación Grupal para Padres es un programa centrado en los cuidadores y liderado por Olivia Roth. Los padres y cuidadores aprenden estrategias prácticas juntos en un entorno grupal con apoyo y las practican en las rutinas diarias.',
       },
       {
         question: '¿Dónde brinda servicios VTCC?',
@@ -1542,6 +1606,7 @@ for (const form of [es.formFamily, es.formReferral]) {
       'Primeros Aprendices',
       'Programa de Alimentación',
       'Grupo de Habilidades Sociales',
+      'Capacitación Grupal para Padres',
       'Aún no estoy seguro',
     ]
   }

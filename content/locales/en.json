@@ -18,6 +18,7 @@
     "closeMenu": "Close menu",
     "callLabel": "Call",
     "guidesNavLabel": "FAQs and guides",
+    "servicesNavLabel": "Services",
     "contactSwitchFamilyPrompt": "Looking for services for your family?",
     "contactSwitchFamilyLink": "Use the family request form",
     "contactSwitchReferralPrompt": "Submitting a professional referral?",
@@ -108,19 +109,7 @@
     "headerGroups": [
       {
         "label": "Services",
-        "href": "/#services"
-      },
-      {
-        "label": "FAQs & Guides",
         "links": [
-          {
-            "label": "Get Started",
-            "href": "/get-started"
-          },
-          {
-            "label": "Insurance",
-            "href": "/insurance"
-          },
           {
             "label": "ABA Therapy",
             "href": "/aba"
@@ -138,7 +127,44 @@
             "href": "/social-skills-group"
           },
           {
-            "label": "FAQs & Guides",
+            "label": "Group Parent Training",
+            "href": "/group-parent-training"
+          }
+        ]
+      },
+      {
+        "label": "FAQs & Guides",
+        "links": [
+          {
+            "label": "Get Started",
+            "href": "/get-started"
+          },
+          {
+            "label": "Insurance",
+            "href": "/insurance"
+          },
+          {
+            "label": "What Is ABA Therapy?",
+            "href": "/resources/what-is-aba-therapy"
+          },
+          {
+            "label": "Early Learners Program",
+            "href": "/resources/early-learners"
+          },
+          {
+            "label": "Feeding Program",
+            "href": "/resources/feeding-program"
+          },
+          {
+            "label": "Social Skills Group",
+            "href": "/resources/social-skills-group"
+          },
+          {
+            "label": "Parent Training FAQs",
+            "href": "/resources/parent-training-faqs"
+          },
+          {
+            "label": "All FAQs & Guides",
             "href": "/resources"
           }
         ]
@@ -201,10 +227,14 @@
       {
         "label": "Social Skills Group",
         "href": "/social-skills-group"
+      },
+      {
+        "label": "Group Parent Training",
+        "href": "/group-parent-training"
       }
     ],
     "subheadlineLead": "Culturally responsive behavioral and mental health services.",
-    "subheadline": "VTCC supports families through individualized ABA therapy, early learning, feeding, and advanced social skills programs.",
+    "subheadline": "VTCC supports families through individualized ABA therapy, early learning, feeding, social skills, and group parent training programs.",
     "supportingLine": "Serving families through Medicaid, managed care, commercial insurance, and county/FAPT funding pathways, pending eligibility and plan verification.",
     "actions": [
       {
@@ -230,7 +260,8 @@
       "ABA therapy with individualized goals",
       "Early Learners support for preschool-aged children",
       "Feeding support to expand food repertoire and preferences",
-      "Social Skills Group practice for advanced peer interaction"
+      "Social Skills Group practice for advanced peer interaction",
+      "Group Parent Training for caregivers"
     ]
   },
   "trustStrip": [
@@ -250,8 +281,8 @@
   "sections": {
     "services": {
       "eyebrow": "Services",
-      "title": "How VTCC helps families and referrers",
-      "intro": "Choose the path that fits your family or your referral. VTCC supports both with clear next steps.",
+      "title": "How VTCC helps families",
+      "intro": "Choose the program that fits your family. VTCC supports each path with clear next steps.",
       "cards": [
         {
           "id": "aba",
@@ -296,7 +327,7 @@
             "early-learners",
             "feeding",
             "social-skills",
-            "referral"
+            "group-parent-training"
           ],
           "linkLabel": "Learn about ABA",
           "href": "/aba"
@@ -343,7 +374,8 @@
           "related": [
             "aba",
             "social-skills",
-            "feeding"
+            "feeding",
+            "group-parent-training"
           ],
           "linkLabel": "Learn about Early Learners",
           "href": "/early-learners"
@@ -389,7 +421,8 @@
           ],
           "related": [
             "aba",
-            "early-learners"
+            "early-learners",
+            "group-parent-training"
           ],
           "linkLabel": "Learn about Feeding",
           "href": "/feeding-program"
@@ -435,58 +468,47 @@
           ],
           "related": [
             "aba",
-            "early-learners"
+            "early-learners",
+            "group-parent-training"
           ],
           "linkLabel": "Learn about Social Skills",
           "href": "/social-skills-group"
         },
         {
-          "id": "referral",
-          "label": "Referral Support",
-          "title": "Help families and professionals take the next step",
-          "body": "Families, schools, doctors, case managers, and county partners can contact VTCC to ask about services, eligibility, required forms, and funding next steps.",
-          "ageRange": "Children, adolescents, and families VTCC may serve",
-          "ageNote": "Referral support is available to families and professionals who want to understand whether ABA, Early Learners, Feeding, Social Skills, or another pathway should be explored. It is not a clinical program by itself.",
-          "description": "This pathway helps callers share basic information, identify likely funding routes, and gather the right paperwork before intake. VTCC can discuss general fit, but final eligibility depends on authorization and assessment.",
+          "id": "group-parent-training",
+          "label": "Group Parent Training",
+          "title": "Learn practical strategies with other caregivers",
+          "body": "Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions. Families learn together in a supported group setting.",
+          "ageRange": "Parents and caregivers",
+          "ageNote": "The group is designed for caregivers of children who may receive VTCC services. Fit depends on current goals, funding, and authorization.",
+          "description": "Caregivers meet in a small group to learn practical tools for communication, routines, and challenging moments. The program is led by Olivia Roth and is designed so families can use the same strategies when therapists are not present.",
           "goals": [
-            "Make it easier to start the program that may fit",
-            "Help families and referrers understand forms and funding questions",
-            "Collect the non-sensitive details VTCC needs to respond",
-            "Point callers to the right office, form, or next conversation"
+            "Learn practical strategies for everyday routines",
+            "Practice skills that support communication and behavior at home",
+            "Receive coaching and feedback in a small-group setting",
+            "Carry strategies across caregivers and daily settings"
           ],
           "structure": [
-            "A family or professional contacts VTCC by phone or form.",
-            "The team asks which service is needed and how it may be funded.",
-            "Callers receive guidance on intake or referral paperwork.",
-            "VTCC reviews available information and outlines next steps.",
-            "If appropriate, assessment scheduling and treatment planning follow."
+            "A clinician confirms group fit and family priorities.",
+            "Caregivers join a small group with shared learning goals.",
+            "Sessions practice strategies for routines, communication, and challenging moments.",
+            "Families receive guidance for using the same tools at home.",
+            "Goals are updated as caregivers become more confident."
           ],
           "leader": {
-            "name": "Cameron Ortiz",
-            "role": "Referral and intake coordinator (placeholder)",
-            "bio": "Placeholder coordinator for referrals and first-contact questions. Helps families and professionals know what to send and whom to call.",
-            "photo": "/assets/team/cameron-ortiz.svg"
+            "name": "Olivia Roth",
+            "role": "Group Parent Training Program Lead",
+            "bio": "Leads VTCC's Group Parent Training program. Helps caregivers learn practical strategies they can use together in a supported group setting.",
+            "photo": "/assets/team/olivia-roth.svg"
           },
-          "team": [
-            {
-              "name": "Quinn Alvarez",
-              "role": "Funding specialist (placeholder)",
-              "photo": "/assets/team/quinn-alvarez.svg"
-            },
-            {
-              "name": "Dana Kim",
-              "role": "Family navigator (placeholder)",
-              "photo": "/assets/team/dana-kim.svg"
-            }
-          ],
+          "team": [],
           "related": [
             "aba",
             "early-learners",
-            "feeding",
             "social-skills"
           ],
-          "linkLabel": "Refer a client",
-          "href": "/referrers"
+          "linkLabel": "Learn about Group Parent Training",
+          "href": "/group-parent-training"
         }
       ]
     },
@@ -666,6 +688,7 @@
         "Early learners preparing for school and social settings",
         "Feeding goals related to food repertoire and preferences",
         "Advanced social skills and age-appropriate peer play",
+        "Group parent training for caregivers who want practical strategies they can use at home",
         "Referrals connected to Medicaid, managed care, commercial insurance, or county/FAPT funding"
       ]
     },
@@ -705,7 +728,7 @@
         {
           "title": "Parent Training FAQs",
           "slug": "parent-training-faqs",
-          "summary": "How caregivers participate in therapy and practice skills at home."
+          "summary": "How caregivers participate in therapy, including Group Parent Training led by Olivia Roth."
         },
         {
           "title": "Referrals and Eligibility",
@@ -787,7 +810,7 @@
             },
             {
               "question": "What if I am not sure which service I need?",
-              "answer": "That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, the Social Skills Group, or another pathway should be explored."
+              "answer": "That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, the Social Skills Group, Group Parent Training, or another pathway should be explored."
             }
           ]
         },
@@ -827,6 +850,10 @@
           "title": "Parent Training FAQs",
           "intro": "Parents and caregivers are essential partners in both ABA and family-centered services.",
           "faqs": [
+            {
+              "question": "What is Group Parent Training?",
+              "answer": "Group Parent Training is a caregiver-focused program led by Olivia Roth. Parents and caregivers learn practical strategies together in a supported group setting and practice using them in everyday routines."
+            },
             {
               "question": "Why is parent training part of ABA?",
               "answer": "Children practice skills across daily routines at home, school, and in the community. Parent training helps caregivers use strategies consistently when therapists are not present."
@@ -1059,6 +1086,10 @@
       "applyLabel": "Apply Now",
       "applyHref": "/career/apply",
       "overviewLabel": "Explore opportunities",
+      "indeed": {
+        "href": "https://www.indeed.com/cmp/Victoria-Transcultural-Clinical-Center/",
+        "label": "View VTCC jobs on Indeed"
+      },
       "pillars": [
         {
           "title": "People first",
@@ -1144,7 +1175,7 @@
         },
         {
           "value": "ABA programs",
-          "label": "Therapy, Early Learners, Feeding, and Social Skills"
+          "label": "Therapy, Early Learners, Feeding, Social Skills, and Group Parent Training"
         }
       ],
       "factsNote": "Fairfax is the only office listed on the current site. This page does not list staff headcount because VTCC has not published an employee total.",
@@ -1175,8 +1206,8 @@
           },
           {
             "title": "Specialized program clinicians",
-            "level": "Early Learners, Feeding, and Social Skills",
-            "body": "Clinicians in VTCC’s specialized programs support early learning, feeding, and social-skills work under the same culturally responsive, family-centered approach."
+            "level": "Early Learners, Feeding, Social Skills, and Group Parent Training",
+            "body": "Clinicians in VTCC’s specialized programs support early learning, feeding, social-skills, and group parent-training work under the same culturally responsive, family-centered approach."
           },
           {
             "title": "Office and operations support",
@@ -1454,6 +1485,31 @@
           ]
         }
       ]
+    },
+    "groupParentTraining": {
+      "eyebrow": "Group Parent Training",
+      "title": "Learn practical strategies with other caregivers",
+      "intro": "Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions. Families learn together in a supported group setting led by Olivia Roth.",
+      "columns": [
+        {
+          "title": "What caregivers may practice",
+          "items": [
+            "Practical strategies for everyday routines",
+            "Skills that support communication and behavior at home",
+            "Coaching and feedback in a small-group setting",
+            "Ways to keep strategies consistent across caregivers"
+          ]
+        },
+        {
+          "title": "How the group is structured",
+          "items": [
+            "Confirmation of group fit and family priorities",
+            "Small-group learning with shared goals",
+            "Practice for routines, communication, and challenging moments",
+            "Guidance for using the same tools at home"
+          ]
+        }
+      ]
     }
   },
   "careerApplication": {
@@ -1591,6 +1647,7 @@
           "Early Learners",
           "Feeding Program",
           "Social Skills Group",
+          "Group Parent Training",
           "Not sure"
         ]
       },
@@ -1675,6 +1732,7 @@
           "Early Learners",
           "Feeding Program",
           "Social Skills Group",
+          "Group Parent Training",
           "Not sure"
         ]
       },
@@ -1789,6 +1847,7 @@
           "Early Learners",
           "Feeding Program",
           "Social Skills Group",
+          "Group Parent Training",
           "Not sure"
         ]
       },
@@ -2269,12 +2328,12 @@
       "title": "Resources / FAQ Page",
       "hero": {
         "headline": "Resources For Families And Referral Partners",
-        "body": "VTCC offers educational resources to help families understand ABA therapy, the Early Learners program, the Feeding Program, the Social Skills Group, parent involvement, intake steps, and funding questions."
+        "body": "VTCC offers educational resources to help families understand ABA therapy, the Early Learners program, the Feeding Program, the Social Skills Group, Group Parent Training, parent involvement, intake steps, and funding questions."
       },
       "faqs": [
         {
           "question": "What services does VTCC provide?",
-          "answer": "VTCC provides ABA therapy, an Early Learners program, a Feeding Program, and a Social Skills Group for children and families. Services depend on eligibility, funding, clinical need, and availability."
+          "answer": "VTCC provides ABA therapy, an Early Learners program, a Feeding Program, a Social Skills Group, and Group Parent Training for children and families. Services depend on eligibility, funding, clinical need, and availability."
         },
         {
           "question": "What is the Early Learners program?",
@@ -2287,6 +2346,10 @@
         {
           "question": "Who may be a fit for the Social Skills Group?",
           "answer": "The Social Skills Group is for clients who are ready to practice more advanced social skills, such as understanding sarcasm, navigating conversation, and participating in age-appropriate peer play."
+        },
+        {
+          "question": "What is Group Parent Training?",
+          "answer": "Group Parent Training is a caregiver-focused program led by Olivia Roth. Parents and caregivers learn practical strategies together in a supported group setting and practice using them in everyday routines."
         },
         {
           "question": "Where does VTCC provide services?",
@@ -2405,6 +2468,37 @@
       "cta": {
         "body": "Contact VTCC to ask whether the Social Skills Group may be a fit for your child and to learn about current group availability.",
         "button": "Ask About Social Skills Group"
+      }
+    },
+    "groupParentTraining": {
+      "title": "Group Parent Training Page",
+      "hero": {
+        "headline": "Learn Practical Strategies With Other Caregivers",
+        "body": "Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions. Families learn together in a supported group setting led by Olivia Roth.",
+        "buttons": [
+          "Request Group Parent Training",
+          "Ask About Eligibility"
+        ]
+      },
+      "sections": [
+        {
+          "title": "What Caregivers May Practice",
+          "intro": "Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions.",
+          "items": [
+            "Practical strategies for everyday routines",
+            "Skills that support communication and behavior at home",
+            "Coaching and feedback in a small-group setting",
+            "Ways to keep strategies consistent across caregivers"
+          ]
+        },
+        {
+          "title": "Learning With Other Families",
+          "body": "Caregivers meet in a small group with coaching from Olivia Roth. The group is designed so families can use the same strategies when therapists are not present."
+        }
+      ],
+      "cta": {
+        "body": "Contact VTCC to ask whether Group Parent Training may be a fit for your family and to learn about current group availability.",
+        "button": "Ask About Group Parent Training"
       }
     }
   },

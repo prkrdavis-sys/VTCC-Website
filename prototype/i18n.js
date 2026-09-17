@@ -37,6 +37,7 @@ function toStaticHref(path) {
     '/early-learners': `${BASE}early-learners.html`,
     '/feeding-program': `${BASE}feeding-program.html`,
     '/social-skills-group': `${BASE}social-skills-group.html`,
+    '/group-parent-training': `${BASE}group-parent-training.html`,
     '/get-started': `${BASE}get-started.html`,
     '/insurance': `${BASE}insurance.html`,
     '/referrers': `${BASE}referrers.html`,
@@ -94,6 +95,10 @@ function pageHasProgramPanel(programId) {
     return programId === 'social-skills'
   }
 
+  if (PAGE === 'group-parent-training') {
+    return programId === 'group-parent-training'
+  }
+
   if (PAGE === 'referrers') {
     return programId === 'referral'
   }
@@ -115,7 +120,8 @@ function renderButton(action) {
 }
 
 function renderNavLink(item) {
-  return `<a href="${escapeHtml(toStaticHref(item.href))}">${escapeHtml(item.label)}</a>`
+  const isActive = linkMatchesCurrentPage(item.href)
+  return `<a href="${escapeHtml(toStaticHref(item.href))}"${isActive ? ' class="is-active" aria-current="page"' : ''}>${escapeHtml(item.label)}</a>`
 }
 
 function renderNavMenu(group, className = 'nav-menu') {
@@ -124,8 +130,9 @@ function renderNavMenu(group, className = 'nav-menu') {
     return `<a class="nav-menu-link${isActive ? ' is-active' : ''}" href="${escapeHtml(toStaticHref(group.href))}"${isActive ? ' aria-current="page"' : ''}>${escapeHtml(group.label)}</a>`
   }
 
+  const isActive = (group.links ?? []).some((link) => linkBelongsToCurrentSection(link.href))
   const links = group.links.map(renderNavLink).join('\n            ')
-  return `<details class="${className}">
+  return `<details class="${className}${isActive ? ' is-active' : ''}">
           <summary><span class="nav-menu-label">${escapeHtml(group.label)}</span></summary>
           <div class="${className}-panel">
             ${links}
@@ -142,13 +149,39 @@ function renderHeaderAction(item) {
   return `<a class="header-action${style}" href="${escapeHtml(toStaticHref(item.href))}">${escapeHtml(item.label)}</a>`
 }
 
+function expandServicesNavGroup(group, content) {
+  if (group.href !== '/#services') {
+    return group
+  }
+
+  return {
+    label: group.label,
+    links: getServicePrograms(content).map((program) => ({
+      label: program.label,
+      href: program.href,
+    })),
+  }
+}
+
 function getHeaderGroups(content) {
-  return content.navigation.headerGroups ?? [
+  const groups = content.navigation.headerGroups ?? [
     {
       label: content.navigation.main[0].label,
       links: content.navigation.main,
     },
   ]
+
+  return groups.map((group) => expandServicesNavGroup(group, content))
+}
+
+function getServiceHrefs(content) {
+  return new Set(getServicePrograms(content).map((program) => program.href))
+}
+
+function isServicesHeaderGroup(group, content) {
+  const serviceHrefs = getServiceHrefs(content)
+  const links = group.links ?? []
+  return links.length > 0 && links.every((link) => serviceHrefs.has(link.href))
 }
 
 const PAGE_SECTION_PATHS = {
@@ -157,6 +190,7 @@ const PAGE_SECTION_PATHS = {
   'early-learners': '/early-learners',
   'feeding-program': '/feeding-program',
   'social-skills-group': '/social-skills-group',
+  'group-parent-training': '/group-parent-training',
   'get-started': '/get-started',
   insurance: '/insurance',
   resources: '/resources',
@@ -176,13 +210,17 @@ function getCurrentSectionPath() {
   return PAGE_SECTION_PATHS[PAGE] ?? null
 }
 
-function linkMatchesCurrentPage(linkHref) {
-  const currentPath = getCurrentSectionPath()
-  if (!currentPath) {
-    return false
+function getCurrentPagePath() {
+  if (PAGE === 'resource' && RESOURCE_SLUG) {
+    return `/resources/${RESOURCE_SLUG}`
   }
 
-  if (linkHref === currentPath) {
+  return getCurrentSectionPath()
+}
+
+function linkMatchesCurrentPage(linkHref) {
+  const currentPath = getCurrentPagePath()
+  if (currentPath && linkHref === currentPath) {
     return true
   }
 
@@ -198,18 +236,26 @@ function linkMatchesCurrentPage(linkHref) {
     return true
   }
 
-  if (linkHref === '/resources' && (PAGE === 'resources' || PAGE === 'resource')) {
+  if (linkHref === '/resources' && PAGE === 'resources') {
     return true
   }
 
   return false
 }
 
+function linkBelongsToCurrentSection(linkHref) {
+  if (linkMatchesCurrentPage(linkHref)) {
+    return true
+  }
+
+  return linkHref === '/resources' && PAGE === 'resource'
+}
+
 function getActiveHeaderGroup(content) {
   return getHeaderGroups(content).find(
     (group) =>
       group.links?.length > 1 &&
-      group.links.some((link) => linkMatchesCurrentPage(link.href)),
+      group.links.some((link) => linkBelongsToCurrentSection(link.href)),
   )
 }
 
@@ -219,16 +265,22 @@ function renderSectionSubnav(content) {
     return ''
   }
 
+  const isServices = isServicesHeaderGroup(group, content)
+  const navClass = isServices ? 'service-subnav' : 'guides-subnav'
+  const ariaLabel = isServices
+    ? (content.ui.servicesNavLabel ?? group.label)
+    : (content.ui.guidesNavLabel ?? group.label)
+
   const links = group.links
     .map((link) => {
       const isActive = linkMatchesCurrentPage(link.href)
-      return `<a class="guides-subnav-link${isActive ? ' is-active' : ''}" href="${escapeHtml(toStaticHref(link.href))}"${isActive ? ' aria-current="page"' : ''}>${escapeHtml(link.label)}</a>`
+      return `<a class="${navClass}-link${isActive ? ' is-active' : ''}" href="${escapeHtml(toStaticHref(link.href))}"${isActive ? ' aria-current="page"' : ''}>${escapeHtml(link.label)}</a>`
     })
     .join('\n          ')
 
-  return `<div class="guides-subnav-band">
-      <nav class="guides-subnav" aria-label="${escapeHtml(content.ui.guidesNavLabel ?? group.label)}">
-        <div class="guides-subnav-bar">${links}</div>
+  return `<div class="${navClass}-band">
+      <nav class="${navClass}" aria-label="${escapeHtml(ariaLabel)}">
+        <div class="${navClass}-bar">${links}</div>
       </nav>
     </div>`
 }
@@ -269,7 +321,7 @@ function renderFormField(field) {
           </label>`
 }
 
-function renderLanguageSelect(content, { hiddenLabel = false } = {}) {
+function renderLanguageSelect(content, { hiddenLabel = false, compact = false } = {}) {
   const locale = getLocale()
   const options = Object.entries(window.VTCC_SITE.localeLabels)
     .map(
@@ -278,13 +330,18 @@ function renderLanguageSelect(content, { hiddenLabel = false } = {}) {
     )
     .join('\n            ')
 
-  const label = hiddenLabel
-    ? `<span class="visually-hidden">${escapeHtml(content.ui.languageLabel)}</span>`
-    : escapeHtml(content.ui.languageLabel)
+  const labelText = escapeHtml(content.ui.languageLabel)
+  const label =
+    hiddenLabel || compact
+      ? `<span class="visually-hidden">${labelText}</span>`
+      : `<span class="language-select-label">${labelText}</span>`
+  const icon = `<svg class="language-select-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.4 2.7 3.7 5.8 3.7 9s-1.3 6.3-3.7 9"/><path d="M12 3C9.6 5.7 8.3 8.8 8.3 12s1.3 6.3 3.7 9"/></svg>`
+  const className = compact ? 'language-select language-select--compact' : 'language-select'
 
-  return `<label class="language-select">
+  return `<label class="${className}">
           ${label}
-          <select data-language-select aria-label="${escapeHtml(content.ui.languageLabel)}">
+          ${icon}
+          <select data-language-select aria-label="${labelText}">
             ${options}
           </select>
         </label>`
@@ -337,7 +394,7 @@ function renderMobileMenu(content) {
         </button>
       </div>
       <div class="site-menu-drawer-body">
-        ${renderLanguageSelect(content, { hiddenLabel: true })}
+        ${renderLanguageSelect(content)}
         <nav class="site-menu-nav" aria-label="${escapeHtml(content.ui.menuLabel)}">
           ${navLinks}
         </nav>
@@ -480,7 +537,7 @@ function renderShell(content, mainHtml) {
         <span class="visually-hidden">${escapeHtml(content.ui.openMenu)}</span>
       </button>
       <div class="header-controls">
-        ${renderLanguageSelect(content)}
+        ${renderLanguageSelect(content, { compact: true })}
         <nav class="utility-nav" aria-label="Utility actions">
           ${getHeaderActions(content).map(renderHeaderAction).join('\n          ')}
         </nav>
@@ -1204,6 +1261,20 @@ function renderCareersList(items) {
   return `<ul class="check-list">${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
 }
 
+function renderIndeedLink(indeed, extraClass = '') {
+  if (!indeed?.href) {
+    return ''
+  }
+
+  const className = extraClass ? `career-indeed ${extraClass}` : 'career-indeed'
+  return `<a class="${className}" href="${escapeHtml(indeed.href)}" target="_blank" rel="noopener noreferrer">
+            <svg class="career-indeed-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M11.566 21.5633v-8.762c.2553.0231.5009.0346.758.0346 1.2225 0 2.3739-.3206 3.3506-.8928v9.6182c0 .8219-.1957 1.4287-.5757 1.8338-.378.4033-.8808.6049-1.491.6049-.6007 0-1.0766-.2016-1.468-.6183-.3781-.4032-.5739-1.01-.5739-1.8184zM11.589.5659c2.5447-.8929 5.4424-.8449 7.6186.987.405.3687.8673.8334 1.0515 1.3806.2207.6913-.7695-.073-.9057-.167-.71-.4532-1.4182-.8334-2.2127-1.0946C12.8614.3873 8.8122 2.709 6.2945 6.315c-1.0516 1.5939-1.7367 3.2721-2.299 5.1174-.0614.2017-.1094.4647-.2207.6413-.1113.2036-.048-.5453-.048-.5702.0845-.7623.2438-1.4997.4414-2.237C5.3292 5.3375 7.897 2.0655 11.5891.5658zm4.9281 7.0587c0 1.6686-1.353 3.0224-3.0205 3.0224-1.6677 0-3.0186-1.3538-3.0186-3.0224 0-1.6687 1.351-3.0224 3.0186-3.0224 1.6676 0 3.0205 1.3518 3.0205 3.0224Z"/>
+            </svg>
+            <span class="visually-hidden">${escapeHtml(indeed.label)}</span>
+          </a>`
+}
+
 function renderCareersPosting(posting) {
   const blocks = []
 
@@ -1449,6 +1520,7 @@ function renderCareerPage(content) {
           <div class="button-row">
             <a class="button" href="${escapeHtml(toStaticHref(careers.applyHref))}">${escapeHtml(careers.applyLabel)}</a>
             <a class="button secondary" href="#career-opportunity">${escapeHtml(careers.overviewLabel)}</a>
+            ${renderIndeedLink(careers.indeed)}
           </div>
         </div>
         <div class="career-hero-media">
@@ -1479,7 +1551,10 @@ function renderCareerPage(content) {
           <h2>${escapeHtml(careers.closing.title)}</h2>
           <p>${escapeHtml(careers.closing.body)}</p>
         </div>
-        <a class="button" href="${escapeHtml(toStaticHref(careers.applyHref))}">${escapeHtml(careers.closing.buttonLabel)}</a>
+        <div class="career-closing-actions">
+          <a class="button" href="${escapeHtml(toStaticHref(careers.applyHref))}">${escapeHtml(careers.closing.buttonLabel)}</a>
+          ${renderIndeedLink(careers.indeed)}
+        </div>
       </section>`
 }
 
@@ -2485,7 +2560,7 @@ function renderResourceTopic(content) {
   }
 
   const programBySlug = {
-    'parent-training-faqs': 'parent-training',
+    'parent-training-faqs': 'group-parent-training',
   }
   const program = getProgramById(content, programBySlug[RESOURCE_SLUG])
 
@@ -2513,6 +2588,13 @@ function renderMain(content) {
       break
     case 'social-skills-group':
       mainHtml = renderProgramDetailPage(content, 'social-skills', content.sections.socialSkillsGroup)
+      break
+    case 'group-parent-training':
+      mainHtml = renderProgramDetailPage(
+        content,
+        'group-parent-training',
+        content.sections.groupParentTraining,
+      )
       break
     case 'get-started':
       mainHtml = renderProcessPage(content)

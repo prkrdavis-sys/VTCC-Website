@@ -31,6 +31,7 @@ const pages = [
   { file: 'early-learners.html', page: 'early-learners', base: '' },
   { file: 'feeding-program.html', page: 'feeding-program', base: '' },
   { file: 'social-skills-group.html', page: 'social-skills-group', base: '' },
+  { file: 'group-parent-training.html', page: 'group-parent-training', base: '' },
   { file: 'get-started.html', page: 'get-started', base: '' },
   { file: 'insurance.html', page: 'insurance', base: '' },
   { file: 'referrers.html', page: 'referrers', base: '' },

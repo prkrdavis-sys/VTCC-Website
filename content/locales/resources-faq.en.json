@@ -29,7 +29,7 @@
     {
       "title": "Parent Training FAQs",
       "slug": "parent-training-faqs",
-      "summary": "How caregivers participate in therapy and practice skills at home."
+      "summary": "How caregivers participate in therapy, including Group Parent Training led by Olivia Roth."
     },
     {
       "title": "Referrals and Eligibility",
@@ -111,7 +111,7 @@
         },
         {
           "question": "What if I am not sure which service I need?",
-          "answer": "That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, the Social Skills Group, or another pathway should be explored."
+          "answer": "That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, the Social Skills Group, Group Parent Training, or another pathway should be explored."
         }
       ]
     },
@@ -150,9 +150,13 @@
       "slug": "parent-training-faqs",
       "title": "Parent Training FAQs",
       "intro": "Parents and caregivers are essential partners in both ABA and family-centered services.",
-      "faqs": [
-        {
-          "question": "Why is parent training part of ABA?",
+          "faqs": [
+            {
+              "question": "What is Group Parent Training?",
+              "answer": "Group Parent Training is a caregiver-focused program led by Olivia Roth. Parents and caregivers learn practical strategies together in a supported group setting and practice using them in everyday routines."
+            },
+            {
+              "question": "Why is parent training part of ABA?",
           "answer": "Children practice skills across daily routines at home, school, and in the community. Parent training helps caregivers use strategies consistently when therapists are not present."
         },
         {

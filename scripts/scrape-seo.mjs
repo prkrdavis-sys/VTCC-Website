@@ -92,6 +92,16 @@ const manualPages = {
       '<link rel="canonical" href="https://vtcc.health/social-skills-group/">',
     ],
   },
+  'https://vtcc.health/group-parent-training/': {
+    title: 'Victoria Transcultural Clinical Center | Group Parent Training',
+    description:
+      'VTCC’s Group Parent Training, led by Olivia Roth, helps caregivers learn practical strategies together in a supported group setting.',
+    headLines: [
+      '<title>Victoria Transcultural Clinical Center | Group Parent Training</title>',
+      '<meta name="description" content="VTCC’s Group Parent Training, led by Olivia Roth, helps caregivers learn practical strategies together in a supported group setting.">',
+      '<link rel="canonical" href="https://vtcc.health/group-parent-training/">',
+    ],
+  },
   'https://vtcc.health/programa-primeros-aprendices/': {
     title: 'Victoria Transcultural Clinical Center | Programa de Primeros Aprendices',
     description:
@@ -122,6 +132,16 @@ const manualPages = {
       '<link rel="canonical" href="https://vtcc.health/grupo-habilidades-sociales/">',
     ],
   },
+  'https://vtcc.health/capacitacion-grupal-para-padres/': {
+    title: 'Victoria Transcultural Clinical Center | Capacitación Grupal para Padres',
+    description:
+      'La Capacitación Grupal para Padres de VTCC, liderada por Olivia Roth, ayuda a los cuidadores a aprender estrategias prácticas en un entorno grupal con apoyo.',
+    headLines: [
+      '<title>Victoria Transcultural Clinical Center | Capacitación Grupal para Padres</title>',
+      '<meta name="description" content="La Capacitación Grupal para Padres de VTCC, liderada por Olivia Roth, ayuda a los cuidadores a aprender estrategias prácticas en un entorno grupal con apoyo.">',
+      '<link rel="canonical" href="https://vtcc.health/capacitacion-grupal-para-padres/">',
+    ],
+  },
 }
 
 const output = {
@@ -135,6 +155,7 @@ const output = {
       'early-learners': 'https://vtcc.health/early-learners/',
       'feeding-program': 'https://vtcc.health/feeding-program/',
       'social-skills-group': 'https://vtcc.health/social-skills-group/',
+      'group-parent-training': 'https://vtcc.health/group-parent-training/',
       'get-started': 'https://vtcc.health/our-services/',
       insurance: 'https://vtcc.health/our-services/accepted-insurance-providers/',
       referrers: 'https://vtcc.health/resources/',
@@ -154,6 +175,7 @@ const output = {
       'early-learners': 'https://vtcc.health/programa-primeros-aprendices/',
       'feeding-program': 'https://vtcc.health/programa-alimentacion/',
       'social-skills-group': 'https://vtcc.health/grupo-habilidades-sociales/',
+      'group-parent-training': 'https://vtcc.health/capacitacion-grupal-para-padres/',
       'get-started': 'https://vtcc.health/our-services/',
       insurance: 'https://vtcc.health/our-services/accepted-insurance-providers/',
       referrers: 'https://vtcc.health/recursos-para-familias-y-referentes/',

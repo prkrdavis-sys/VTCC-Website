@@ -29,7 +29,7 @@
     {
       "title": "Preguntas Frecuentes sobre Capacitación para Padres",
       "slug": "parent-training-faqs",
-      "summary": "Cómo participan los cuidadores en la terapia y practican habilidades en casa."
+      "summary": "Cómo participan los cuidadores en la terapia, incluida la Capacitación Grupal para Padres liderada por Olivia Roth."
     },
     {
       "title": "Referencias y Elegibilidad",
@@ -111,7 +111,7 @@
         },
         {
           "question": "¿Qué pasa si no estoy seguro de qué servicio necesito?",
-          "answer": "Es muy común. Contacte a VTCC y describa sus inquietudes. El equipo puede ayudar a determinar si deben explorarse la ABA, Primeros Aprendices, el Programa de Alimentación, el Grupo de Habilidades Sociales u otra vía."
+          "answer": "Es muy común. Contacte a VTCC y describa sus inquietudes. El equipo puede ayudar a determinar si deben explorarse la ABA, Primeros Aprendices, el Programa de Alimentación, el Grupo de Habilidades Sociales, la Capacitación Grupal para Padres u otra vía."
         }
       ]
     },
@@ -150,9 +150,13 @@
       "slug": "parent-training-faqs",
       "title": "Preguntas Frecuentes sobre Capacitación para Padres",
       "intro": "Los padres y cuidadores son socios esenciales tanto en la ABA como en los servicios centrados en la familia.",
-      "faqs": [
-        {
-          "question": "¿Por qué la capacitación para padres forma parte de la ABA?",
+          "faqs": [
+            {
+              "question": "¿Qué es la Capacitación Grupal para Padres?",
+              "answer": "La Capacitación Grupal para Padres es un programa centrado en los cuidadores y liderado por Olivia Roth. Los padres y cuidadores aprenden estrategias prácticas juntos en un entorno grupal con apoyo y las practican en las rutinas diarias."
+            },
+            {
+              "question": "¿Por qué la capacitación para padres forma parte de la ABA?",
           "answer": "Los niños practican habilidades en rutinas diarias en casa, la escuela y la comunidad. La capacitación para padres ayuda a los cuidadores a usar estrategias de forma consistente cuando los terapeutas no están presentes."
         },
         {

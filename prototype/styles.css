@@ -179,60 +179,6 @@ textarea {
 
 @media (min-width: 981px) {
   :root {
-    --header-offset: clamp(5rem, 8vh, 6.25rem);
-  }
-
-  .site-header-inner {
-    grid-template-columns: auto minmax(0, 1fr) minmax(min-content, auto);
-    grid-template-areas: 'brand nav controls';
-    gap: 0.65rem 0.85rem;
-  }
-
-  .site-nav {
-    justify-content: center;
-    padding-top: 0;
-  }
-}
-
-@container site-header (max-width: 79rem) {
-  .site-header-inner {
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-      'brand controls'
-      'nav nav';
-    gap: 0.55rem 1rem;
-  }
-
-  .site-nav {
-    justify-content: center;
-    width: 100%;
-    padding-top: 0.1rem;
-  }
-
-  .site-nav-bar {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: fit-content;
-    max-width: 100%;
-    border-radius: 999px;
-  }
-}
-
-@media (min-width: 981px) and (max-width: 1320px) {
-  .brand small {
-    display: none;
-  }
-
-  .site-nav-bar .nav-menu summary,
-  .site-nav-bar .nav-menu-link {
-    min-height: 1.9rem;
-    padding: 0.3rem 0.52rem;
-    font-size: 0.78rem;
-  }
-}
-
-@media (min-width: 981px) and (max-width: 1264px) {
-  :root {
     --header-offset: clamp(6.5rem, 10vh, 8rem);
   }
 
@@ -241,12 +187,19 @@ textarea {
     grid-template-areas:
       'brand controls'
       'nav nav';
-    gap: 0.55rem 1rem;
+    gap: 0.5rem 1rem;
   }
 
   .site-nav {
     justify-content: center;
     width: 100%;
+    padding-top: 0;
+  }
+}
+
+@media (min-width: 981px) and (max-width: 1320px) {
+  .brand small {
+    display: none;
   }
 }
 
@@ -264,11 +217,27 @@ textarea {
 .language-select {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   flex-shrink: 0;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: var(--weight-semibold);
+}
+
+.language-select-icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
   color: var(--brand-dark);
-  font-size: 0.82rem;
-  font-weight: 800;
+}
+
+.language-select-label {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .language-select select {
@@ -278,6 +247,45 @@ textarea {
   padding: 0.35rem 0.75rem;
   color: var(--ink);
   background: var(--white);
+}
+
+.language-select--compact {
+  min-height: 2.25rem;
+  padding: 0 0.15rem 0 0.7rem;
+  border: 1px solid rgba(31, 111, 91, 0.22);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--brand-dark);
+}
+
+.language-select--compact:hover {
+  background: rgba(236, 246, 239, 0.95);
+}
+
+.language-select--compact:focus-within {
+  outline: 3px solid rgba(72, 157, 126, 0.45);
+  outline-offset: 2px;
+}
+
+.language-select--compact select {
+  appearance: none;
+  -webkit-appearance: none;
+  min-height: 2.15rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.3rem 1.45rem 0.3rem 0.15rem;
+  color: var(--ink);
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%232f7a5e' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' d='M1.5 1.5 6 6 10.5 1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.45rem center;
+  background-size: 0.65rem;
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+}
+
+.language-select--compact select:focus {
+  outline: none;
 }
 
 .utility-nav {
@@ -340,17 +348,20 @@ textarea {
   min-width: 0;
   padding-top: 0.1rem;
   overflow: visible;
+  container-type: inline-size;
+  container-name: site-nav;
 }
 
 .site-nav-bar {
-  display: inline-flex;
-  flex-wrap: nowrap;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.12rem;
+  gap: 0.1rem;
   width: fit-content;
   max-width: 100%;
-  padding: 0.18rem;
+  min-width: 0;
+  padding: 0.2rem 0.28rem;
   border: 1px solid rgba(31, 111, 91, 0.22);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.72);
@@ -367,9 +378,13 @@ textarea {
 
 .site-nav-bar .nav-menu summary,
 .site-nav-bar .nav-menu-link {
+  width: auto;
+  max-width: 100%;
   min-height: 2rem;
-  padding: 0.34rem 0.62rem;
-  font-size: 0.82rem;
+  justify-content: center;
+  padding: 0.32rem clamp(0.46rem, 0.55cqi + 0.28rem, 0.72rem);
+  font-size: clamp(0.74rem, 0.22cqi + 0.7rem, 0.82rem);
+  white-space: nowrap;
 }
 
 .site-nav-bar .nav-menu:hover summary,
@@ -381,6 +396,22 @@ textarea {
 .site-nav-bar .nav-menu[open] summary {
   border-radius: 999px;
   background: rgba(236, 246, 239, 0.95);
+}
+
+.site-nav-bar .nav-menu.is-active summary,
+.site-nav-bar .nav-menu.is-active:hover summary,
+.site-nav-bar .nav-menu.is-active[open] summary {
+  color: var(--white);
+  background: var(--brand-dark);
+}
+
+@container site-nav (max-width: 46rem) {
+  .site-nav-bar .nav-menu summary,
+  .site-nav-bar .nav-menu-link {
+    min-height: 1.85rem;
+    padding: 0.28rem 0.46rem;
+    font-size: 0.74rem;
+  }
 }
 
 .service-subnav-band,
@@ -632,6 +663,12 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   padding: 0.65rem 0.75rem;
   color: var(--muted);
   font-weight: 700;
+}
+
+.nav-menu-panel a.is-active,
+.utility-menu-panel a.is-active {
+  color: var(--brand-deep);
+  background: rgba(236, 246, 239, 0.95);
 }
 
 .header-action.primary {
@@ -1293,7 +1330,6 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   gap: 0.95rem;
   padding: 1.05rem 1.1rem 1rem;
   border: 1px solid rgba(31, 111, 91, 0.18);
-  border-left-width: 4px;
   border-radius: 1.15rem;
   background: var(--white);
   box-shadow:
@@ -1313,14 +1349,6 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-}
-
-.home-path-link--primary {
-  border-left-color: var(--brand);
-}
-
-.home-path-link--secondary {
-  border-left-color: var(--accent);
 }
 
 .home-path-link strong {
@@ -1638,7 +1666,6 @@ h3 {
 .site-menu-link,
 .site-footer nav a,
 .top-bar,
-.language-select,
 .nav-menu-panel a,
 .utility-menu-panel a {
   font-family: var(--font-body);
@@ -3393,10 +3420,56 @@ address strong {
   color: rgba(255, 255, 255, 0.78);
 }
 
+.career-closing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 0 0 auto;
+}
+
 .career-closing .button {
   flex: 0 0 auto;
   color: var(--brand-deep);
   background: var(--brand-bar);
+}
+
+.career-indeed {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.85rem;
+  height: 2.85rem;
+  flex: 0 0 2.85rem;
+  border-radius: 999px;
+  color: var(--white);
+  background: #003a9b;
+  text-decoration: none;
+}
+
+.career-indeed-icon {
+  display: block;
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .career-indeed {
+    transition:
+      transform 150ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 150ms ease;
+  }
+
+  .career-indeed:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(0, 58, 155, 0.28);
+  }
+
+  .career-indeed:active {
+    transform: translateY(0) scale(0.985);
+    box-shadow: 0 4px 12px rgba(0, 58, 155, 0.2);
+    transition-duration: 80ms;
+  }
 }
 
 .quote-board {
@@ -4425,11 +4498,17 @@ address strong {
 
   .site-menu-drawer .language-select {
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.55rem 0.65rem;
     padding: 0.75rem 0.85rem;
     border: 1px solid rgba(31, 111, 91, 0.14);
     border-radius: 1rem;
     background: rgba(255, 255, 255, 0.92);
+  }
+
+  .site-menu-drawer .language-select select {
+    flex: 1 1 8rem;
   }
 
   .site-menu-nav,
@@ -4554,8 +4633,19 @@ address strong {
     flex-direction: column;
   }
 
-  .career-closing .button {
+  .career-closing-actions {
     width: 100%;
+  }
+
+  .career-closing .button {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: min(100%, 12rem);
+  }
+
+  .button-row .career-indeed,
+  .career-closing .career-indeed {
+    width: 2.85rem;
   }
 
   .career-pillars-grid,

@@ -14,7 +14,7 @@ ABA and Specialized Programs for Children and Families
 
 Subheadline:
 
-VTCC supports families through individualized ABA therapy, early learning, feeding, and advanced social skills programs.
+VTCC supports families through individualized ABA therapy, early learning, feeding, social skills, and group parent training programs.
 
 Primary buttons:
 
@@ -28,7 +28,7 @@ Serving families through Medicaid, managed care, commercial insurance, and count
 
 ### Services Overview
 
-Choose the path that fits your family or your referral. VTCC supports both with clear next steps.
+Choose the program that fits your family. VTCC supports each path with clear next steps.
 
 ABA Therapy:
 
@@ -55,7 +55,7 @@ Structure:
 4. Caregivers receive coaching so skills can be practiced between sessions.
 5. Progress is monitored regularly and goals are updated over time.
 
-Related programs: early-learners, feeding, social-skills, referral
+Related programs: early-learners, feeding, social-skills, group-parent-training
 
 Early Learners:
 
@@ -82,7 +82,7 @@ Structure:
 4. Caregivers receive coaching so practice can continue at home.
 5. Progress is monitored and the plan is updated as skills grow.
 
-Related programs: aba, social-skills, feeding
+Related programs: aba, social-skills, feeding, group-parent-training
 
 Feeding Program:
 
@@ -109,7 +109,7 @@ Structure:
 4. Caregivers learn how to support new foods without extra pressure.
 5. Progress is reviewed and the plan is adjusted based on the child's response.
 
-Related programs: aba, early-learners
+Related programs: aba, early-learners, group-parent-training
 
 Social Skills Group:
 
@@ -136,34 +136,34 @@ Structure:
 4. Families receive guidance so skills can be practiced outside the group.
 5. Goals are updated as the child or adolescent becomes more independent.
 
-Related programs: aba, early-learners
+Related programs: aba, early-learners, group-parent-training
 
-Referral Support:
+Group Parent Training:
 
-Families, schools, doctors, case managers, and county partners can contact VTCC to ask about services, eligibility, required forms, and funding next steps.
+Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions. Families learn together in a supported group setting.
 
-Ages served: Children, adolescents, and families VTCC may serve
+Ages served: Parents and caregivers
 
-Referral support is available to families and professionals who want to understand whether ABA, Early Learners, Feeding, Social Skills, or another pathway should be explored. It is not a clinical program by itself.
+The group is designed for caregivers of children who may receive VTCC services. Fit depends on current goals, funding, and authorization.
 
-This pathway helps callers share basic information, identify likely funding routes, and gather the right paperwork before intake. VTCC can discuss general fit, but final eligibility depends on authorization and assessment.
+Caregivers meet in a small group to learn practical tools for communication, routines, and challenging moments. The program is led by Olivia Roth and is designed so families can use the same strategies when therapists are not present.
 
 Goals:
 
-- Make it easier to start the program that may fit
-- Help families and referrers understand forms and funding questions
-- Collect the non-sensitive details VTCC needs to respond
-- Point callers to the right office, form, or next conversation
+- Learn practical strategies for everyday routines
+- Practice skills that support communication and behavior at home
+- Receive coaching and feedback in a small-group setting
+- Carry strategies across caregivers and daily settings
 
 Structure:
 
-1. A family or professional contacts VTCC by phone or form.
-2. The team asks which service is needed and how it may be funded.
-3. Callers receive guidance on intake or referral paperwork.
-4. VTCC reviews available information and outlines next steps.
-5. If appropriate, assessment scheduling and treatment planning follow.
+1. A clinician confirms group fit and family priorities.
+2. Caregivers join a small group with shared learning goals.
+3. Sessions practice strategies for routines, communication, and challenging moments.
+4. Families receive guidance for using the same tools at home.
+5. Goals are updated as caregivers become more confident.
 
-Related programs: aba, early-learners, feeding, social-skills
+Related programs: aba, early-learners, social-skills
 
 ### How To Get Started
 
@@ -187,6 +187,7 @@ Families may contact VTCC for support with:
 - Early learners preparing for school and social settings
 - Feeding goals related to food repertoire and preferences
 - Advanced social skills and age-appropriate peer play
+- Group parent training for caregivers who want practical strategies they can use at home
 - Referrals connected to Medicaid, managed care, commercial insurance, or county/FAPT funding
 
 ### Multicultural Care
@@ -384,6 +385,41 @@ Button:
 
 - Ask About Social Skills Group
 
+## Group Parent Training Page
+
+### Page Hero
+
+Headline:
+
+Learn Practical Strategies With Other Caregivers
+
+Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions. Families learn together in a supported group setting led by Olivia Roth.
+
+Buttons:
+
+- Request Group Parent Training
+- Ask About Eligibility
+
+### What Caregivers May Practice
+
+Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions.
+
+- Practical strategies for everyday routines
+- Skills that support communication and behavior at home
+- Coaching and feedback in a small-group setting
+- Ways to keep strategies consistent across caregivers
+### Learning With Other Families
+
+Caregivers meet in a small group with coaching from Olivia Roth. The group is designed so families can use the same strategies when therapists are not present.
+
+### Program CTA
+
+Contact VTCC to ask whether Group Parent Training may be a fit for your family and to learn about current group availability.
+
+Button:
+
+- Ask About Group Parent Training
+
 ## Insurance & Funding Page
 
 ### Page Hero
@@ -505,7 +541,7 @@ VTCC reviews your request, confirms service and funding fit when possible, and g
 
 What if I am not sure which service I need?
 
-That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, the Social Skills Group, or another pathway should be explored.
+That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, the Social Skills Group, Group Parent Training, or another pathway should be explored.
 
 ### Medicaid and FAPT Funding Basics
 
@@ -538,6 +574,10 @@ Commercial coverage depends on the plan, service type, and authorization require
 ### Parent Training FAQs
 
 Parents and caregivers are essential partners in both ABA and family-centered services.
+
+What is Group Parent Training?
+
+Group Parent Training is a caregiver-focused program led by Olivia Roth. Parents and caregivers learn practical strategies together in a supported group setting and practice using them in everyday routines.
 
 Why is parent training part of ABA?
 
@@ -657,7 +697,7 @@ A common hiring path in ABA is to send new technicians to a third-party 40-hour 
 - Senior Lead Behavior Technician (SLBT): SLBTs are experienced technicians who take on higher-level clinical help: assessment support, new-hire training, side-by-side coaching, Safety-Care instruction, and Initial Home checklist interviews.
 - Student Analyst: RBTs enrolled in a qualifying master's program who accrue BACB restricted and unrestricted fieldwork hours on the job, under a qualified supervisor and a signed fieldwork contract.
 - Board Certified Behavior Analyst (BCBA): BCBAs assess needs, write treatment and behavior-support plans, supervise technicians, train caregivers, and monitor progress. Independent practice in Virginia also requires state licensure.
-- Specialized program clinicians: Clinicians in VTCC’s specialized programs support early learning, feeding, and social-skills work under the same culturally responsive, family-centered approach.
+- Specialized program clinicians: Clinicians in VTCC’s specialized programs support early learning, feeding, social-skills, and group parent-training work under the same culturally responsive, family-centered approach.
 - Office and operations support: VTCC's public career form also accepts interest in office administrative roles and internships that keep scheduling, intake, and clinic operations running.
 
 ### Behavior Technician

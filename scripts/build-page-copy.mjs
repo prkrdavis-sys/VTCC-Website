@@ -271,6 +271,8 @@ ${renderProgramPage(content.pages.feedingProgram)}
 
 ${renderProgramPage(content.pages.socialSkillsGroup)}
 
+${renderProgramPage(content.pages.groupParentTraining)}
+
 ${renderInsurancePage(content.pages.insuranceFunding)}
 
 ${renderReferrersPage(content.pages.forReferrers)}
