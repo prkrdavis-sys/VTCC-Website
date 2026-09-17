@@ -119,6 +119,7 @@ Object.assign(es.ui, {
 Object.assign(es.hero, {
   headline:
     'ABA y programas especializados para niños y familias',
+  headlineLead: 'Para niños, adolescentes y familias en el norte de Virginia',
   subheadline:
     'Victoria Transcultural Clinical Center ofrece servicios conductuales y de salud mental culturalmente responsivos para niños, adolescentes y familias. Nuestro equipo apoya a las familias mediante terapia ABA individualizada, programas especializados, colaboración con padres y orientación sobre financiamiento.',
   supportingLine:
