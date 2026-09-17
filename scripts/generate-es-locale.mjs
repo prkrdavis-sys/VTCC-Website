@@ -24,6 +24,12 @@ Object.assign(es.ui, {
   programStructureLabel: 'Cómo está estructurado el programa',
   placeholderStaffNote:
     'Los nombres, fotos y cargos del personal son marcadores de posición hasta que VTCC apruebe las biografías publicadas.',
+  contactSwitchFamilyPrompt: '¿Busca servicios para su familia?',
+  contactSwitchFamilyLink: 'Use el formulario de solicitud familiar',
+  contactSwitchReferralPrompt: '¿Va a enviar una referencia profesional?',
+  contactSwitchReferralLink: 'Use el formulario de referencia',
+  contactSwitchQuizPrompt: '¿Quiere ayuda para elegir un camino?',
+  contactSwitchQuizLink: 'Comience con el cuestionario de contacto',
 })
 
 Object.assign(es.company, {
@@ -1124,11 +1130,23 @@ Object.assign(es.sections.contact, {
 })
 
 Object.assign(es.sections.contactFamily, {
+  eyebrow: 'Para familias',
+  title: 'Solicite servicios para su hijo',
+  intro:
+    'Díganos cómo contactarlo y un poco sobre su hijo. Un miembro del equipo de VTCC puede explicar los pasos de admisión, los formularios y la revisión de financiamiento.',
+  callEyebrow: 'Llame a VTCC',
+  callTitle: '¿Prefiere hablar con alguien?',
   callIntro:
     'Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con servicios, trámites y próximos pasos.',
 })
 
 Object.assign(es.sections.contactReferral, {
+  eyebrow: 'Para referentes',
+  title: 'Inicie una referencia o pregunte por la elegibilidad',
+  intro:
+    'Escuelas, médicos, administradores de casos, socios del condado y profesionales comunitarios pueden usar este formulario para preguntar por los requisitos de referencia. No envíe información de salud protegida aquí.',
+  callEyebrow: 'Llame a VTCC',
+  callTitle: '¿Necesita hablar de una referencia por teléfono?',
   callIntro:
     'Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con elegibilidad, documentación requerida y próximos pasos.',
 })
@@ -1529,6 +1547,205 @@ for (const form of [es.formFamily, es.formReferral]) {
     ]
   }
 }
+
+es.contactQuiz = JSON.parse(JSON.stringify(en.contactQuiz))
+Object.assign(es.contactQuiz, {
+  eyebrow: 'Contacto',
+  title: 'Encuentre el siguiente paso correcto',
+  intro:
+    'Responda unas preguntas. Le sugeriremos un camino y abriremos el formulario correspondiente con lo que ya compartió. Las sugerencias son un punto de partida, no una decisión clínica.',
+  callEyebrow: 'Llame a VTCC',
+  callTitle: '¿Prefiere hablar con alguien?',
+  callIntro:
+    'Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con servicios, referencias, empleo y próximos pasos.',
+  selectPlaceholder: 'Seleccione una opción',
+  multiSelectPlaceholder: 'Seleccione todas las que correspondan',
+  multiSelectSelected: '{count} seleccionadas',
+  yesLabel: 'Sí',
+  noLabel: 'No',
+  closeLabel: 'Cerrar',
+  ageSuffix: 'años',
+  ageHelp: 'Ingrese la edad de su hijo en años enteros.',
+  skipLinkPrompt: '¿Escuela, administrador de casos u otro profesional?',
+  skipLinkLabel: 'Iniciar una referencia',
+  disclaimer:
+    'Este cuestionario no determina la elegibilidad. La adecuación final depende de la evaluación, el financiamiento y la autorización. No ingrese informes de diagnóstico ni otra información de salud protegida aquí.',
+  doctorMessage: 'Cuestionario de contacto: consulta de referencia de un médico.',
+})
+es.contactQuiz.roleQuestion.label = 'Soy…'
+es.contactQuiz.roleQuestion.options = [
+  { id: 'parent', label: 'Padre, madre o tutor' },
+  { id: 'doctor', label: 'Médico' },
+  { id: 'applicant', label: 'Solicitante de empleo' },
+]
+es.contactQuiz.parentDiagnosisQuestion.label = '¿Tiene un diagnóstico del médico de su hijo?'
+es.contactQuiz.parentAgeQuestion.label = '¿Qué edad tiene su hijo?'
+es.contactQuiz.parent18MonthsQuestion.label = '¿Su hijo tiene al menos 18 meses?'
+es.contactQuiz.parentFeedingQuestion.label =
+  '¿Su hijo tiene rigidez con la comida o dificultad para comer suficiente nutrición?'
+es.contactQuiz.parentSocialQuestion.label =
+  '¿Su hijo necesita apoyo con habilidades sociales en grupo?'
+es.contactQuiz.parentClassroomQuestion.label =
+  '¿Su hijo está listo para el aula del programa de Primeros Aprendices?'
+es.contactQuiz.doctorDiagnosisQuestion.label = '¿Tiene la referencia y el diagnóstico?'
+es.contactQuiz.applicantCredentialsQuestion.label = '¿Qué titulaciones tiene?'
+es.contactQuiz.applicantCredentialsQuestion.groups = [
+  {
+    label: 'Títulos',
+    options: [
+      { id: 'hs', label: 'Diploma de escuela secundaria o GED' },
+      { id: 'associate', label: 'Título de asociado' },
+      { id: 'bachelors', label: 'Licenciatura' },
+      { id: 'masters', label: 'Maestría (ABA, psicología, educación o afín)' },
+      { id: 'doctorate', label: 'Doctorado' },
+    ],
+  },
+  {
+    label: 'Certificaciones',
+    options: [
+      { id: 'rbt', label: 'Técnico de Conducta Registrado (RBT)' },
+      { id: 'qbt', label: 'Técnico de Conducta Calificado (QBT)' },
+      { id: 'bcaba', label: 'Analista de Conducta Asistente Certificado (BCaBA)' },
+      { id: 'bcba', label: 'Analista de Conducta Certificado por la Junta (BCBA)' },
+      { id: 'bcba-d', label: 'Analista de Conducta Certificado-Doctorado (BCBA-D)' },
+    ],
+  },
+  {
+    label: 'Licencias',
+    options: [
+      { id: 'lba', label: 'Analista de Conducta con licencia de Virginia (LBA)' },
+      { id: 'teaching', label: 'Licencia de enseñanza' },
+      { id: 'other-license', label: 'Otra licencia profesional' },
+    ],
+  },
+  {
+    label: 'Otro',
+    options: [{ id: 'none-yet', label: 'Todavía ninguna de estas' }],
+  },
+]
+es.contactQuiz.applicantExperienceSettingsQuestion.label =
+  '¿Qué tipo de experiencia ha tenido en entornos infantiles?'
+es.contactQuiz.applicantExperienceSettingsQuestion.options = [
+  { id: 'aba', label: 'Entorno de ABA o terapia conductual' },
+  { id: 'school', label: 'Aula o escuela' },
+  { id: 'daycare', label: 'Guardería o preescolar' },
+  { id: 'clinic', label: 'Hospital o clínica ambulatoria' },
+  { id: 'in-home', label: 'Cuidado en el hogar' },
+  { id: 'community', label: 'Programa comunitario o recreativo' },
+  { id: 'other', label: 'Otro entorno infantil' },
+]
+es.contactQuiz.applicantExperienceLengthQuestion.label =
+  '¿Cuánta experiencia tiene en esos entornos?'
+es.contactQuiz.applicantExperienceLengthQuestion.options = [
+  { id: 'none', label: 'Sin experiencia' },
+  { id: 'under-year', label: 'Menos de un año en total' },
+  { id: 'over-year', label: 'Más de un año en total' },
+]
+es.contactQuiz.applicantExperienceAgesQuestion.label = '¿Con qué rango de edad trabajó?'
+es.contactQuiz.applicantExperienceAgesQuestion.options = [
+  { id: 'early-childhood', label: 'Primera infancia (0–5)' },
+  { id: 'school-age', label: 'Edad escolar (6–12)' },
+  { id: 'adolescents', label: 'Adolescentes (13–17)' },
+  { id: 'mixed', label: 'Edades mixtas' },
+]
+es.contactQuiz.serviceValues = {
+  aba: 'ABA',
+  'early-learners': 'Primeros Aprendices',
+  feeding: 'Programa de Alimentación',
+  'social-skills': 'Grupo de Habilidades Sociales',
+  'not-sure': 'Aún no estoy seguro',
+}
+es.contactQuiz.programLabels = {
+  aba: 'Terapia ABA',
+  'early-learners': 'Primeros Aprendices',
+  feeding: 'Programa de Alimentación',
+  'social-skills': 'Grupo de Habilidades Sociales',
+}
+es.contactQuiz.roleReasons = {
+  bcba: 'Su credencial de BCBA es la mejor coincidencia para la solicitud de Board Certified Behavior Analyst.',
+  bcaba:
+    'VTCC no tiene una publicación separada para BCaBA. Solicite en Other y mencione su credencial BCaBA.',
+  masters: 'Una maestría afín encaja bien con el Student Analyst Program.',
+  rbt: 'Su credencial de RBT o QBT coincide con el puesto de Registered Behavior Technician.',
+  bt: 'El puesto de Behavior Technician suele ser el punto de partida con esta formación.',
+}
+Object.assign(es.contactQuiz.parentNoDiagnosis, {
+  title: 'Un diagnóstico ayuda, y aún puede contactar a VTCC',
+  intro:
+    'Un diagnóstico del médico de su hijo suele ser necesario para el financiamiento y la elegibilidad. No tiene que esperar para preguntar por los próximos pasos.',
+  steps: [
+    'Hable con el pediatra de su hijo sobre una evaluación del desarrollo.',
+    'Pregunte si corresponde una referencia a un especialista.',
+    'Llame a VTCC o continúe al formulario de solicitud. No incluya informes de diagnóstico en el formulario.',
+  ],
+  resultTitle: 'Pida ayuda con los próximos pasos',
+  resultBody:
+    'Envíe una solicitud no sensible para que un miembro del equipo explique la evaluación, la admisión y la revisión de financiamiento.',
+  ctaLabel: 'Continuar al formulario de solicitud de servicios',
+  modalCtaLabel: 'Ver el formulario de solicitud',
+})
+Object.assign(es.contactQuiz.parentResult, {
+  title: 'Programas que pueden ser una buena opción',
+  body: 'Según la edad de su hijo y lo que compartió, estos programas pueden valer la pena comentarlos con VTCC.',
+  abaNote:
+    'La terapia ABA suele ser la base. Los programas especializados se pueden agregar cuando correspondan.',
+  outsideAgeTitle: 'Aún podemos ayudarle a encontrar un camino',
+  outsideAgeBody:
+    'La edad de su hijo está fuera del rango típico publicado para los programas de VTCC. Aún puede enviar una solicitud para que el equipo le oriente.',
+  onlyAbaTitle: 'ABA puede ser el mejor punto de partida',
+  onlyAbaBody:
+    'Sus respuestas no señalaron un programa especializado. ABA suele estar disponible de los 18 meses a los 21 años cuando es clínicamente apropiado.',
+  ctaLabel: 'Continuar al formulario de solicitud de servicios',
+})
+es.contactQuiz.parentMessages = {
+  noDiagnosis: 'Cuestionario de contacto: padre, madre o tutor pregunta por los próximos pasos.',
+  programs: 'Cuestionario de contacto: interés en {programs}.',
+  outsideAge: 'Cuestionario de contacto: la edad del niño está fuera del rango típico publicado.',
+}
+Object.assign(es.contactQuiz.doctorYes, {
+  title: 'Cómo enviar una referencia',
+  intro:
+    'Use primero esta consulta. No adjunte informes de diagnóstico, IEP ni otra información de salud protegida en el formulario web.',
+  steps: [
+    {
+      title: 'Envíe esta consulta',
+      body: 'Envíe una pregunta breve y no sensible a través del formulario de referencia.',
+    },
+    {
+      title: 'VTCC da seguimiento',
+      body: 'Un miembro del equipo confirma contactos, el servicio de interés y la forma segura de enviar documentos.',
+    },
+    {
+      title: 'Envíe documentos de forma segura',
+      body: 'Comparta la referencia y el diagnóstico a través del proceso seguro aprobado por VTCC, no en este formulario.',
+    },
+    {
+      title: 'Evaluación y autorización',
+      body: 'VTCC revisa el financiamiento y describe los próximos pasos para la evaluación cuando corresponda.',
+    },
+  ],
+  notice:
+    'Este formulario es solo para preguntas de referencia. Use el proceso seguro aprobado por VTCC para documentos protegidos.',
+  ctaLabel: 'Continuar al formulario de referencia',
+})
+Object.assign(es.contactQuiz.doctorNo, {
+  title: 'Lo que suele incluir una referencia completa',
+  intro: 'Aún puede enviar una consulta. Estos datos ayudan a VTCC a dar seguimiento más rápido.',
+  items: [
+    'Edad del niño',
+    'Información de contacto del padre, madre o tutor',
+    'Servicio solicitado',
+    'Fuente de financiamiento, si se conoce',
+    'Documentos de referencia y diagnóstico a través del proceso seguro aprobado por VTCC, no en este formulario',
+  ],
+  ctaLabel: 'Continuar al formulario de referencia',
+})
+Object.assign(es.contactQuiz.applicantResult, {
+  title: 'Un puesto que coincide con sus titulaciones',
+  body: 'Esta es una sugerencia inicial. Puede cambiar el puesto en el formulario de solicitud.',
+  ctaLabel: 'Continuar a la solicitud',
+  experienceLabel: 'Experiencia del cuestionario de contacto',
+})
 
 const intakeCategory = es.sections.resources.categories.find(
   (category) => category.slug === 'what-to-expect-during-intake',

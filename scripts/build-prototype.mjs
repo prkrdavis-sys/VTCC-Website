@@ -39,6 +39,7 @@ const pages = [
   { file: 'careers.html', page: 'career', base: '', seoPage: 'career' },
   { file: join('career', 'apply.html'), page: 'career-apply', base: '../', seoPage: 'career' },
   { file: 'contact.html', page: 'contact', base: '' },
+  { file: join('contact', 'request.html'), page: 'contact-request', base: '../', seoPage: 'contact' },
   { file: join('contact', 'referral.html'), page: 'contact-referral', base: '../' },
   { file: join('resources', 'index.html'), page: 'resources', base: '../' },
   { file: join('resources', 'forms.html'), page: 'forms', base: '../' },
