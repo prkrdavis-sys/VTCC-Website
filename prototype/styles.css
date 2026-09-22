@@ -1007,11 +1007,75 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   line-height: 1.45;
 }
 
-.home-services {
-  padding-top: clamp(2.5rem, 5vw, 4rem);
+.section.home-services {
+  padding-top: 0;
+  padding-inline: 0;
 }
 
-.home-services .section-heading h2,
+.services-banner {
+  color: var(--white);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 2.75rem),
+    var(--brand-deep);
+  border-top: 0.55rem solid var(--brand-bar);
+  box-shadow: 0 18px 36px rgba(23, 33, 29, 0.08);
+}
+
+.services-banner-name {
+  padding:
+    clamp(1.35rem, 3vw, 2.1rem)
+    max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-right))
+    clamp(0.85rem, 2vw, 1.2rem)
+    max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-left));
+  background: linear-gradient(90deg, rgba(205, 237, 130, 0.18), transparent 34rem);
+}
+
+.services-banner-mark {
+  margin: 0;
+  color: var(--brand-bar);
+  font-family: var(--font-body);
+  font-size: clamp(2.85rem, 7vw, 5.25rem);
+  font-weight: var(--weight-display);
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+.services-banner-copy {
+  padding:
+    clamp(1.15rem, 2.4vw, 1.6rem)
+    max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-right))
+    clamp(1.6rem, 3.2vw, 2.35rem)
+    max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-left));
+  border-top: 1px solid rgba(205, 237, 130, 0.38);
+}
+
+.services-banner h2 {
+  max-width: 40rem;
+  margin-bottom: 0.55rem;
+  color: var(--white);
+  font-size: clamp(1.55rem, 2.6vw, 2.15rem);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.services-banner-copy p {
+  max-width: 56rem;
+  margin: 0;
+  color: #e8f4ee;
+  font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+  line-height: 1.5;
+}
+
+.home-services .home-service-grid {
+  padding:
+    clamp(1.75rem, 4vw, 2.75rem)
+    max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-right))
+    0
+    max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-left));
+}
+
 .home-start .section-heading h2,
 .home-who .section-heading h2,
 .home-resources .section-heading h2 {
@@ -1021,7 +1085,6 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   letter-spacing: var(--tracking-heading);
 }
 
-.home-services .section-heading,
 .home-start .section-heading,
 .home-who .section-heading,
 .home-resources .section-heading {
@@ -2246,6 +2309,22 @@ h3 {
     var(--brand-deep);
 }
 
+/* Short FAQ topics leave empty viewport under the list. Paint that column
+   with the section's green so the page is one field down to the footer. */
+body:has(.page-faq-category) {
+  background: var(--brand-deep);
+}
+
+body:has(.page-faq-category) main {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(205, 237, 130, 0.14), transparent 28rem),
+    var(--brand-deep);
+}
+
+body:has(.page-faq-category) main > .resources-section {
+  background: transparent;
+}
+
 .resources-section h2,
 .resources-section .eyebrow {
   color: var(--white);
@@ -2879,7 +2958,7 @@ h3 {
 }
 
 .faq-program-link {
-  margin: 0 0 1.25rem;
+  margin: 1.5rem 0 0;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 1.1rem;
   padding: 1rem 1.15rem 1.15rem;
@@ -2892,8 +2971,21 @@ h3 {
   color: rgba(255, 255, 255, 0.86);
 }
 
+.faq-program-link .button {
+  color: var(--brand-deep);
+  background: var(--white);
+  box-shadow: none;
+}
+
 .faq-program-link .page-link-cta {
   margin-top: 0.85rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .faq-program-link .button:hover,
+  .faq-program-link .button:active {
+    box-shadow: 0 8px 18px rgba(23, 33, 29, 0.12);
+  }
 }
 
 .faq-list {
@@ -3557,42 +3649,117 @@ address strong {
 }
 
 .career-steps {
-  background: var(--white);
+  background: var(--soft);
+}
+
+.career-path {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.9fr) minmax(22rem, 1.1fr);
+  gap: clamp(1.75rem, 4vw, 4rem);
+  align-items: start;
+  max-width: 86rem;
+  margin: 0 auto;
+}
+
+.career-path-intro .section-heading {
+  max-width: 28rem;
+  margin-bottom: 0;
+}
+
+.career-path-intro .section-heading h2 {
+  text-wrap: balance;
+}
+
+.career-path-intro .section-heading p:not(.eyebrow) {
+  max-width: 32ch;
 }
 
 .career-step-list {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
-  max-width: 86rem;
+  gap: 0.7rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+.career-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: calc(0.95rem + 1.7rem);
+  bottom: calc(-0.7rem - 0.95rem - 1.7rem);
+  left: calc(1.7rem - 1px);
+  width: 2px;
+  background: rgba(47, 122, 94, 0.35);
+}
+
 .career-step {
+  position: relative;
   display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr);
   gap: 1rem;
-  align-content: start;
-  min-height: 12rem;
-  padding: 1.25rem 0;
-  border-top: 3px solid var(--brand-light);
+  align-items: start;
+  min-height: 0;
+  padding: 0;
+  border: 0;
 }
 
 .career-step-number {
-  display: inline-grid;
-  width: 2.25rem;
-  height: 2.25rem;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-top: 0.95rem;
   place-items: center;
+  border: 2px solid var(--brand-dark);
   border-radius: 50%;
-  color: var(--white);
-  background: var(--brand-dark);
+  color: var(--brand-deep);
+  background: var(--white);
+  box-shadow: 0 0 0 0.45rem var(--soft);
+  font-size: 1.15rem;
   font-weight: 800;
 }
 
+.career-step:nth-child(2) .career-step-number {
+  border-color: var(--brand);
+  background: var(--brand-light);
+}
+
+.career-step:nth-child(3) .career-step-number {
+  border-color: var(--brand-dark);
+  color: var(--white);
+  background: var(--brand-dark);
+}
+
+.career-step-copy {
+  padding: 1.15rem 1.3rem 1.2rem 1.35rem;
+  border-left: 3px solid var(--brand-light);
+  border-radius: 1.15rem;
+  background: var(--white);
+  box-shadow: 0 10px 28px rgba(23, 33, 29, 0.06);
+}
+
+.career-step:nth-child(2) .career-step-copy {
+  border-left-color: var(--brand);
+}
+
+.career-step:nth-child(3) .career-step-copy {
+  border-left-color: var(--brand-dark);
+}
+
 .career-step h3 {
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.3rem;
   color: var(--brand-deep);
+  font-size: clamp(1.28rem, 1.6vw, 1.5rem);
+  text-wrap: balance;
+}
+
+.career-step p {
+  max-width: 48ch;
+  font-size: 1.02rem;
+  line-height: 1.5;
 }
 
 .career-closing {
@@ -3750,11 +3917,15 @@ address strong {
 }
 
 .quote-shape-cap {
-  margin-bottom: -0.7rem;
+  position: relative;
+  z-index: 1;
+  margin-bottom: -0.85rem;
 }
 
 .quote-shape-foot {
-  margin-top: -0.7rem;
+  position: relative;
+  z-index: 1;
+  margin-top: -0.85rem;
 }
 
 .quote-bubble--end .quote-shape-foot {
@@ -3762,11 +3933,10 @@ address strong {
 }
 
 .quote-shape-body {
-  flex: 1 1 auto;
-  min-height: 0.4rem;
-  margin-inline: calc(5.5% - 1.25px);
-  border-inline: 2.5px solid var(--brand-deep);
-  background: var(--white);
+  flex: 1 1 0;
+  width: 100%;
+  min-height: 0.85rem;
+  object-fit: fill;
 }
 
 .quote-bubble-copy {
@@ -4079,6 +4249,24 @@ address strong {
   background: var(--soft);
 }
 
+.careers-differentiator .section-heading h2,
+.careers-structure .section-heading h2 {
+  max-width: 16em;
+  margin-bottom: 0.7rem;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.careers-differentiator .section-heading h3,
+.careers-structure .section-heading h3 {
+  max-width: 22em;
+  margin-bottom: 0.9rem;
+  color: var(--brand-deep);
+  font-size: clamp(1.2rem, 2.1vw, 1.5rem);
+  font-weight: var(--weight-semibold);
+  text-wrap: balance;
+}
+
 .careers-steps {
   max-width: 52rem;
 }
@@ -4374,8 +4562,16 @@ address strong {
     order: -1;
   }
 
-  .career-pillars-grid,
-  .career-step-list {
+  .career-path {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .career-path-intro .section-heading {
+    max-width: 36rem;
+  }
+
+  .career-pillars-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -4796,7 +4992,6 @@ address strong {
   }
 
   .career-pillars-grid,
-  .career-step-list,
   .quote-board-grid {
     grid-template-columns: 1fr;
   }

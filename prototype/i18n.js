@@ -152,7 +152,7 @@ function renderFaqServiceLink(content) {
 
   return `<div class="faq-program-link">
             <p>${escapeHtml(content.ui.faqProgramLinkNote)}</p>
-            <a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(program.href))}">${escapeHtml(program.linkLabel)}</a>
+            <a class="button page-link-cta" href="${escapeHtml(toStaticHref(program.href))}">${escapeHtml(program.linkLabel)}</a>
           </div>`
 }
 
@@ -479,6 +479,18 @@ function renderSectionHeading(eyebrow, title, intro = '') {
         </div>`
 }
 
+function renderServicesBanner(eyebrow, title, intro = '') {
+  return `<header class="services-banner">
+          <div class="services-banner-name">
+            <p class="services-banner-mark">${escapeHtml(eyebrow)}</p>
+          </div>
+          <div class="services-banner-copy">
+            <h2>${escapeHtml(title)}</h2>
+            ${intro ? `<p>${escapeHtml(intro)}</p>` : ''}
+          </div>
+        </header>`
+}
+
 function renderQuoteBoard(quotes, extraClass = '') {
   const items = quotes?.items ?? []
   if (!items.length) {
@@ -494,7 +506,7 @@ function renderQuoteBoard(quotes, extraClass = '') {
           <div class="quote-bubble-shell">
             <div class="quote-bubble-art" aria-hidden="true">
               <img class="quote-shape-cap" src="${escapeHtml(`${BASE}assets/quotes/${style}-cap.svg`)}" alt="" />
-              <div class="quote-shape-body"></div>
+              <img class="quote-shape-body" src="${escapeHtml(`${BASE}assets/quotes/bubble-side.svg`)}" alt="" />
               <img class="quote-shape-foot" src="${escapeHtml(`${BASE}assets/quotes/${style}-foot.svg`)}" alt="" />
             </div>
             <blockquote class="quote-bubble-copy">
@@ -689,7 +701,7 @@ function renderFormsPage(content) {
 
   return `<section class="section forms-section page-section">
         <div class="forms-shell">
-          ${renderSectionHeading(forms.eyebrow, forms.title, forms.intro)}
+          ${renderSectionHeading('', forms.title, forms.intro)}
           ${
             steps
               ? `<ol class="forms-steps" aria-label="${escapeHtml(forms.title)}">${steps}</ol>`
@@ -887,7 +899,6 @@ function renderFaqCategory(category, content) {
   return `<article class="faq-category page-faq-category">
           <h1>${escapeHtml(category.title)}</h1>
           <p class="faq-category-intro">${escapeHtml(category.intro)}</p>
-          ${renderFaqServiceLink(content)}
           <div class="faq-toolbar">
             ${renderFaqSearch(content, { compact: true })}
             <button type="button" class="faq-toggle-all" data-faq-toggle-all aria-pressed="false">
@@ -907,6 +918,7 @@ function renderFaqCategory(category, content) {
               )
               .join('\n            ')}
           </div>
+          ${renderFaqServiceLink(content)}
         </article>`
 }
 
@@ -1114,14 +1126,14 @@ function renderHome(content) {
         }
       </section>
       <section id="services" class="section home-services">
-        ${renderSectionHeading(sections.services.eyebrow, sections.services.title, sections.services.intro)}
+        ${renderServicesBanner(sections.services.eyebrow, sections.services.title, sections.services.intro)}
         <div class="program-panel-list home-service-grid">${serviceCards}</div>
       </section>
       <section class="section home-start">
         <div class="home-start-panel">
           <div class="home-start-grid">
             <div class="home-start-steps">
-              ${renderSectionHeading(sections.process.eyebrow, sections.process.title, sections.process.intro)}
+              ${renderSectionHeading('', sections.process.title, sections.process.intro)}
               <ol class="home-steps">${processSteps}</ol>
               <a class="text-link page-link-cta" href="${escapeHtml(toStaticHref(home.processTeaser.linkHref))}">${escapeHtml(home.processTeaser.linkLabel)}</a>
             </div>
@@ -1155,7 +1167,7 @@ function renderHome(content) {
         </div>
       </section>
       <section class="section home-resources">
-        ${renderSectionHeading(sections.resources.eyebrow, home.resourcesTeaser.title, home.resourcesTeaser.intro)}
+        ${renderSectionHeading('', home.resourcesTeaser.title, home.resourcesTeaser.intro)}
         <div class="home-resource-list">${resourceCards}</div>
         <a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(home.resourcesTeaser.linkHref))}">${escapeHtml(home.resourcesTeaser.linkLabel)}</a>
       </section>`
@@ -1235,7 +1247,7 @@ function renderAbaPage(content) {
 function renderProcessPage(content) {
   const process = content.sections.process
   return `<section class="section split-section page-section">
-        ${renderSectionHeading(process.eyebrow, process.title, process.intro)}
+        ${renderSectionHeading('', process.title, process.intro)}
         <ol class="steps">${process.steps
           .map(
             (step) =>
@@ -1270,7 +1282,7 @@ function renderInsurancePage(content) {
   return `<section class="section payer-band">
         <div class="payer-band-inner">
           <div class="payer-lead">
-            ${renderSectionHeading(funding.eyebrow, funding.title, funding.intro)}
+            ${renderSectionHeading('', funding.title, funding.intro)}
           </div>
           <h2 class="payer-band-title">${escapeHtml(content.ui.payerListTitle)}</h2>
           <div class="provider-grid">
@@ -1321,7 +1333,7 @@ function renderAboutPage(content) {
     : ''
 
   return `<section class="section about-page page-section">
-        ${renderSectionHeading(about.eyebrow, about.title, about.intro)}
+        ${renderSectionHeading('', about.title, about.intro)}
         ${photo}
         <ul class="check-list">${about.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
         ${careersLink}
@@ -1510,11 +1522,19 @@ function renderHiringDetails(content) {
     .join('')
 
   return `<section class="section careers-differentiator">
-        ${renderSectionHeading(careers.differentiator.eyebrow, careers.differentiator.title, careers.differentiator.body)}
+        <div class="section-heading">
+          <h2>${escapeHtml(careers.differentiator.eyebrow)}</h2>
+          <h3>${escapeHtml(careers.differentiator.title)}</h3>
+          <p>${escapeHtml(careers.differentiator.body)}</p>
+        </div>
         <ol class="home-steps careers-steps">${differentiatorSteps}</ol>
       </section>
       <section class="section careers-structure page-section">
-        ${renderSectionHeading(careers.structure.eyebrow, careers.structure.title, careers.structure.intro)}
+        <div class="section-heading">
+          <h2>${escapeHtml(careers.structure.eyebrow)}</h2>
+          <h3>${escapeHtml(careers.structure.title)}</h3>
+          <p>${escapeHtml(careers.structure.intro)}</p>
+        </div>
         <div class="careers-role-grid">${structureCards}</div>
       </section>
       <section class="section careers-board page-section" data-careers-board>
@@ -1581,7 +1601,7 @@ function renderCareerPage(content) {
     .map(
       (step, index) => `<li class="career-step">
           <span class="career-step-number" aria-hidden="true">${index + 1}</span>
-          <div>
+          <div class="career-step-copy">
             <h3>${escapeHtml(step.title)}</h3>
             <p>${escapeHtml(step.body)}</p>
           </div>
@@ -1591,7 +1611,6 @@ function renderCareerPage(content) {
 
   return `<section class="career-hero page-section">
         <div class="career-hero-copy">
-          <p class="eyebrow">${escapeHtml(careers.eyebrow)}</p>
           <h1>${escapeHtml(careers.title)}</h1>
           <p class="career-hero-intro">${escapeHtml(careers.intro)}</p>
           <div class="button-row">
@@ -1631,8 +1650,12 @@ function renderCareerPage(content) {
       </section>
       ${renderHiringDetails(content)}
       <section class="section career-steps">
-        ${renderSectionHeading(careers.steps.eyebrow, careers.steps.title, careers.steps.intro)}
-        <ol class="career-step-list">${steps}</ol>
+        <div class="career-path">
+          <div class="career-path-intro">
+            ${renderSectionHeading(careers.steps.eyebrow, careers.steps.title, careers.steps.intro)}
+          </div>
+          <ol class="career-step-list">${steps}</ol>
+        </div>
       </section>
       <section class="section career-closing">
         <div>
@@ -2440,7 +2463,7 @@ function renderContactQuizPage(content) {
   const quiz = getQuiz(content)
   return `<section class="section contact-section page-section">
         <div>
-          ${renderContactSidebar(content, quiz)}
+          ${renderContactSidebar(content, { ...quiz, eyebrow: '' })}
         </div>
         <div class="contact-form-panel quiz-panel">
           <div class="contact-quiz" data-contact-quiz>
@@ -2634,7 +2657,7 @@ function bindContactQuiz(content) {
 function renderResourcesIndex(content) {
   const resources = content.sections.resources
   return `<section class="section resources-section page-section">
-        ${renderSectionHeading(resources.eyebrow, resources.title, resources.intro)}
+        ${renderSectionHeading('', resources.title, resources.intro)}
         <div class="faq-search-panel">
           ${renderFaqSearch(content)}
           <div class="faq-search-results" data-faq-search-results hidden></div>

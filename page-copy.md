@@ -770,11 +770,17 @@ Bring your strengths to work that matters
 
 Join a team that helps children, adolescents, and families move forward with care that is practical, respectful, and culturally responsive.
 
-### We run the RBT training program in-house
+### How VTCC differs from many ABA clinics
+
+We run the RBT training program in-house
 
 A common hiring path in ABA is to send new technicians to a third-party 40-hour course and an outside assessor. VTCC conducts the RBT training program itself. New Behavior Technicians complete the 40-hour RBT credentialing coursework here, VTCC conducts the competency assessment in-house, and the RBT exam is taken at a Pearson VUE / Pearson Professional Center.
 
-### Role structure
+### How the team is organized
+
+Clear clinical roles, from technician to analyst
+
+ABA cases are designed by a Board Certified Behavior Analyst and carried out by trained technicians under that supervision. Specialized programs sit alongside that clinical structure. Titles below describe how care is organized—not a published org chart or headcount.
 
 - Behavior Technician (BT): BTs provide most day-to-day ABA sessions. They implement the treatment plan, collect data, and practice skills with the child under a BCBA's direction. Many BTs complete VTCC's RBT training pathway while they work.
 - Senior Lead Behavior Technician (SLBT): SLBTs are experienced technicians who take on higher-level clinical help: assessment support, new-hire training, side-by-side coaching, Safety-Care instruction, and Initial Home checklist interviews.

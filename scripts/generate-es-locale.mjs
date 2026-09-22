@@ -1648,7 +1648,6 @@ Object.assign(es.sections.resources, {
 })
 
 Object.assign(es.sections.forms, {
-  eyebrow: 'Formularios',
   title: 'Descargue formularios de admisión y referencia',
   intro:
     'Elija el formulario que corresponda a su servicio, descárguelo, imprímalo y complételo antes de su cita de admisión.',
