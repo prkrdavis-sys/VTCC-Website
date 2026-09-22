@@ -180,25 +180,25 @@
         "href": "/contact/referral"
       },
       {
-        "label": "About VTCC",
-        "links": [
-          {
-            "label": "About",
-            "href": "/about"
-          },
-          {
-            "label": "Contact",
-            "href": "/contact"
-          }
-        ]
+        "label": "About",
+        "href": "/about"
       },
       {
         "label": "Careers",
         "href": "/career"
       },
       {
-        "label": "Forms",
-        "href": "/resources/forms"
+        "label": "Contact forms",
+        "links": [
+          {
+            "label": "Forms",
+            "href": "/resources/forms"
+          },
+          {
+            "label": "Contact",
+            "href": "/contact"
+          }
+        ]
       }
     ],
     "headerActions": [

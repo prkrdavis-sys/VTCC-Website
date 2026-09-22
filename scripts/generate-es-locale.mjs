@@ -88,19 +88,19 @@ es.navigation.headerGroups = [
     href: '/contact/referral',
   },
   {
-    label: 'Acerca de VTCC',
-    links: [
-      { label: 'Acerca de', href: '/about' },
-      { label: 'Contacto', href: '/contact' },
-    ],
+    label: 'Acerca de',
+    href: '/about',
   },
   {
     label: 'Carreras',
     href: '/career',
   },
   {
-    label: 'Formularios',
-    href: '/resources/forms',
+    label: 'Formularios de contacto',
+    links: [
+      { label: 'Formularios', href: '/resources/forms' },
+      { label: 'Contacto', href: '/contact' },
+    ],
   },
 ]
 

@@ -279,10 +279,13 @@ function renderSectionSubnav(content) {
   }
 
   const isServices = isServicesHeaderGroup(group, content)
+  const isGuides = group.href === '/resources'
   const navClass = isServices ? 'service-subnav' : 'guides-subnav'
   const ariaLabel = isServices
     ? (content.ui.servicesNavLabel ?? group.label)
-    : (content.ui.guidesNavLabel ?? group.label)
+    : isGuides
+      ? (content.ui.guidesNavLabel ?? group.label)
+      : group.label
 
   const links = group.links
     .filter((link) => link.href !== group.href)
