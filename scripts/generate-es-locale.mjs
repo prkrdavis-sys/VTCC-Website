@@ -71,6 +71,7 @@ es.navigation.headerGroups = [
   },
   {
     label: 'Preguntas y Guías',
+    href: '/resources',
     links: [
       { label: 'Comenzar', href: '/get-started' },
       { label: 'Seguro', href: '/insurance' },
@@ -80,12 +81,11 @@ es.navigation.headerGroups = [
       { label: 'Enriquecimiento Social', href: '/resources/social-enrichment' },
       { label: 'Grupo de Habilidades Sociales', href: '/resources/social-skills-group' },
       { label: 'Preguntas Frecuentes sobre Capacitación para Padres', href: '/resources/parent-training-faqs' },
-      { label: 'Todas las preguntas y guías', href: '/resources' },
     ],
   },
   {
     label: 'Para proveedores',
-    links: [{ label: 'Referir un cliente', href: '/referrers' }],
+    href: '/contact/referral',
   },
   {
     label: 'Acerca de VTCC',

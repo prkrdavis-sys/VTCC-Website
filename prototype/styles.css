@@ -400,7 +400,9 @@ textarea {
 
 .site-nav-bar .nav-menu.is-active summary,
 .site-nav-bar .nav-menu.is-active:hover summary,
-.site-nav-bar .nav-menu.is-active[open] summary {
+.site-nav-bar .nav-menu.is-active[open] summary,
+.site-nav-bar .nav-menu-link.is-active,
+.site-nav-bar .nav-menu-link.is-active:hover {
   color: var(--white);
   background: var(--brand-dark);
 }
@@ -1579,7 +1581,6 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
 .home-culture-note {
   margin: 0;
   padding: 1rem 1.1rem;
-  border-left: 4px solid var(--brand);
   color: var(--muted);
   background: var(--soft);
   font-size: 0.94rem;
@@ -2298,7 +2299,6 @@ h3 {
   margin: 0 0 1.5rem;
   padding: 1.15rem 1.2rem;
   border: 1px solid rgba(255, 255, 255, 0.22);
-  border-left: 4px solid var(--brand-light);
   border-radius: 1.25rem;
   color: var(--white);
   background: rgba(255, 255, 255, 0.1);
@@ -2311,7 +2311,6 @@ h3 {
   max-width: 42rem;
   margin: clamp(1.75rem, 4vw, 2.5rem) 0 0;
   padding: 0.9rem 1rem;
-  border-left-width: 2px;
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -3372,7 +3371,6 @@ address strong {
   max-width: 30rem;
   margin-left: auto;
   padding: 1.15rem 1.25rem;
-  border-left: 4px solid var(--accent);
   color: var(--muted);
   background: var(--white);
   box-shadow: 0 12px 28px rgba(23, 33, 29, 0.07);
@@ -3461,8 +3459,7 @@ address strong {
   display: grid;
   gap: 0.8rem;
   margin: 1.6rem 0 0;
-  padding: 0.15rem 0 0.15rem 1.1rem;
-  border-left: 3px solid var(--brand);
+  padding: 0;
   list-style: none;
 }
 
@@ -3797,7 +3794,6 @@ address strong {
   gap: 0.4rem;
   margin-top: 2rem;
   padding: 1rem 1.1rem;
-  border-left: 4px solid var(--accent);
   color: var(--muted);
   background: var(--soft);
 }

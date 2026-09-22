@@ -139,6 +139,7 @@
       },
       {
         "label": "FAQs & Guides",
+        "href": "/resources",
         "links": [
           {
             "label": "Get Started",
@@ -171,21 +172,12 @@
           {
             "label": "Parent Training FAQs",
             "href": "/resources/parent-training-faqs"
-          },
-          {
-            "label": "All FAQs & Guides",
-            "href": "/resources"
           }
         ]
       },
       {
         "label": "For Providers",
-        "links": [
-          {
-            "label": "Refer a Client",
-            "href": "/referrers"
-          }
-        ]
+        "href": "/contact/referral"
       },
       {
         "label": "About VTCC",

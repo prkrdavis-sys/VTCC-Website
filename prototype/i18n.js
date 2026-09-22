@@ -129,13 +129,22 @@ function renderNavLink(item) {
   return `<a href="${escapeHtml(toStaticHref(item.href))}"${isActive ? ' class="is-active" aria-current="page"' : ''}>${escapeHtml(item.label)}</a>`
 }
 
-function renderNavMenu(group, className = 'nav-menu') {
-  if (group.href) {
-    const isActive = linkMatchesCurrentPage(group.href)
-    return `<a class="nav-menu-link${isActive ? ' is-active' : ''}" href="${escapeHtml(toStaticHref(group.href))}"${isActive ? ' aria-current="page"' : ''}>${escapeHtml(group.label)}</a>`
+function headerGroupIsCurrent(group) {
+  if (group.href && linkBelongsToCurrentSection(group.href)) {
+    return true
   }
 
-  const isActive = (group.links ?? []).some((link) => linkBelongsToCurrentSection(link.href))
+  return (group.links ?? []).some((link) => linkBelongsToCurrentSection(link.href))
+}
+
+function renderNavMenu(group, className = 'nav-menu') {
+  if (group.href) {
+    const onThisPage = linkMatchesCurrentPage(group.href)
+    const isActive = headerGroupIsCurrent(group)
+    return `<a class="nav-menu-link${isActive ? ' is-active' : ''}" href="${escapeHtml(toStaticHref(group.href))}"${onThisPage ? ' aria-current="page"' : ''}>${escapeHtml(group.label)}</a>`
+  }
+
+  const isActive = headerGroupIsCurrent(group)
   const links = group.links.map(renderNavLink).join('\n            ')
   return `<details class="${className}${isActive ? ' is-active' : ''}">
           <summary><span class="nav-menu-label">${escapeHtml(group.label)}</span></summary>
@@ -234,7 +243,7 @@ function linkMatchesCurrentPage(linkHref) {
     return true
   }
 
-  if (linkHref === '/contact' && (PAGE === 'contact' || PAGE === 'contact-request' || PAGE === 'contact-referral')) {
+  if (linkHref === '/contact' && (PAGE === 'contact' || PAGE === 'contact-request')) {
     return true
   }
 
@@ -259,9 +268,7 @@ function linkBelongsToCurrentSection(linkHref) {
 
 function getActiveHeaderGroup(content) {
   return getHeaderGroups(content).find(
-    (group) =>
-      group.links?.length > 1 &&
-      group.links.some((link) => linkBelongsToCurrentSection(link.href)),
+    (group) => (group.links?.length ?? 0) > 1 && headerGroupIsCurrent(group),
   )
 }
 
@@ -278,6 +285,7 @@ function renderSectionSubnav(content) {
     : (content.ui.guidesNavLabel ?? group.label)
 
   const links = group.links
+    .filter((link) => link.href !== group.href)
     .map((link) => {
       const isActive = linkMatchesCurrentPage(link.href)
       return `<a class="${navClass}-link${isActive ? ' is-active' : ''}" href="${escapeHtml(toStaticHref(link.href))}"${isActive ? ' aria-current="page"' : ''}>${escapeHtml(link.label)}</a>`
@@ -357,19 +365,23 @@ function renderMobileMenu(content) {
   const groups = getHeaderGroups(content)
   const navLinks = groups
     .map((group) => {
-      if (group.href) {
+      const childLinks = (group.links ?? []).filter((item) => item.href !== group.href)
+      if (group.href && childLinks.length === 0) {
         return `<a class="site-menu-link" href="${escapeHtml(toStaticHref(group.href))}">${escapeHtml(group.label)}</a>`
       }
 
-      const links = (group.links ?? [])
+      const links = childLinks
         .map(
           (item) =>
             `<a class="site-menu-link" href="${escapeHtml(toStaticHref(item.href))}">${escapeHtml(item.label)}</a>`,
         )
         .join('\n            ')
+      const parentLink = group.href
+        ? `<a class="site-menu-link" href="${escapeHtml(toStaticHref(group.href))}">${escapeHtml(group.label)}</a>`
+        : `<p class="site-menu-group-label">${escapeHtml(group.label)}</p>`
 
       return `<div class="site-menu-group">
-            <p class="site-menu-group-label">${escapeHtml(group.label)}</p>
+            ${parentLink}
             ${links}
           </div>`
     })
