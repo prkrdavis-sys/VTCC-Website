@@ -429,22 +429,17 @@ function renderQuoteBoard(quotes, extraClass = '') {
     .map((item, index) => {
       const style = item.style === 'speech' ? 'speech' : 'thought'
       const align = index === items.length - 1 ? 'quote-bubble--end' : 'quote-bubble--start'
-      const puffs =
-        style === 'thought'
-          ? `<span class="quote-cloud-puff quote-cloud-puff--a" aria-hidden="true"></span>
-            <span class="quote-cloud-puff quote-cloud-puff--b" aria-hidden="true"></span>
-            <span class="quote-cloud-puff quote-cloud-puff--c" aria-hidden="true"></span>
-            <span class="quote-cloud-puff quote-cloud-puff--d" aria-hidden="true"></span>
-            <span class="quote-cloud-puff quote-cloud-puff--e" aria-hidden="true"></span>`
-          : ''
 
       return `<figure class="quote-bubble quote-bubble--${style} ${align}">
-          <div class="quote-bubble-panel">
-            ${puffs}
-            <blockquote>
+          <div class="quote-bubble-shell">
+            <div class="quote-bubble-art" aria-hidden="true">
+              <img class="quote-shape-cap" src="${escapeHtml(`${BASE}assets/quotes/${style}-cap.svg`)}" alt="" />
+              <div class="quote-shape-body"></div>
+              <img class="quote-shape-foot" src="${escapeHtml(`${BASE}assets/quotes/${style}-foot.svg`)}" alt="" />
+            </div>
+            <blockquote class="quote-bubble-copy">
               <p>${escapeHtml(item.quote)}</p>
             </blockquote>
-            <span class="quote-bubble-tail" aria-hidden="true"></span>
           </div>
           <figcaption>
             <strong>${escapeHtml(item.name)}</strong>
@@ -1395,15 +1390,6 @@ function renderHiringDetails(content) {
     return ''
   }
 
-  const facts = (careers.facts ?? [])
-    .map(
-      (fact) => `<div class="careers-fact">
-            <dt>${escapeHtml(fact.value)}</dt>
-            <dd>${escapeHtml(fact.label)}</dd>
-          </div>`,
-    )
-    .join('')
-
   const structureCards = (careers.structure.roles ?? [])
     .map(
       (role) => `<article class="careers-role-card">
@@ -1462,11 +1448,7 @@ function renderHiringDetails(content) {
     )
     .join('')
 
-  return `<section class="section careers-facts-band">
-        <dl class="careers-facts">${facts}</dl>
-        <p class="careers-note">${escapeHtml(careers.factsNote)}</p>
-      </section>
-      <section class="section careers-differentiator">
+  return `<section class="section careers-differentiator">
         ${renderSectionHeading(careers.differentiator.eyebrow, careers.differentiator.title, careers.differentiator.body)}
         <ol class="home-steps careers-steps">${differentiatorSteps}</ol>
       </section>
@@ -1525,6 +1507,15 @@ function renderCareerPage(content) {
   const opportunityItems = careers.opportunity.items
     .map((item) => `<li>${escapeHtml(item)}</li>`)
     .join('')
+  const workplaceFacts = (careers.facts ?? [])
+    .map(
+      (fact) => `<div class="careers-fact">
+            <dt>${escapeHtml(fact.value)}</dt>
+            <dd>${escapeHtml(fact.label)}</dd>
+          </div>`,
+    )
+    .join('')
+  const workplacePhoto = `${BASE}assets/employee-appreciation.jpg`
   const steps = careers.steps.items
     .map(
       (step, index) => `<li class="career-step">
@@ -1561,9 +1552,20 @@ function renderCareerPage(content) {
       </section>
       ${renderQuoteBoard(careers.quotes, 'career-quotes')}
       <section id="career-opportunity" class="section career-opportunity">
-        <div class="career-opportunity-copy">
-          ${renderSectionHeading(careers.opportunity.eyebrow, careers.opportunity.title, careers.opportunity.body)}
-          <ul class="check-list">${opportunityItems}</ul>
+        <div class="career-workplace">
+          <figure class="career-workplace-photo">
+            <img src="${escapeHtml(workplacePhoto)}" alt="${escapeHtml(careers.opportunity.photoAlt)}" />
+          </figure>
+          <div class="career-workplace-copy">
+            ${renderSectionHeading(careers.opportunity.eyebrow, careers.opportunity.title, careers.opportunity.body)}
+            <ul class="career-workplace-list">${opportunityItems}</ul>
+          </div>
+        </div>
+        <div class="career-workplace-foot">
+          <dl class="career-workplace-facts">
+            ${workplaceFacts}
+          </dl>
+          <p class="careers-note">${escapeHtml(careers.factsNote)}</p>
         </div>
       </section>
       ${renderHiringDetails(content)}

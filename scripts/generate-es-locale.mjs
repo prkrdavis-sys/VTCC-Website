@@ -203,6 +203,8 @@ es.sections.careers = {
     eyebrow: 'Por qué trabajar con VTCC',
     title: 'Un lugar de trabajo enfocado en el progreso significativo',
     body: 'Nuestro trabajo se basa en las relaciones. Buscamos personas que aporten cuidado profesional, curiosidad y respeto a cada interacción.',
+    photoAlt:
+      'El personal de VTCC reunido al aire libre alrededor de una mesa en un evento del equipo, con el banner de la clínica detrás.',
     items: [
       'Colabore con un equipo multidisciplinario',
       'Apoye a niños, adolescentes y familias en el norte de Virginia',
