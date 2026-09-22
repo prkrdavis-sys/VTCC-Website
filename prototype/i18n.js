@@ -111,6 +111,51 @@ function pageHasProgramPanel(programId) {
   return false
 }
 
+const PROGRAM_RESOURCE_SLUGS = {
+  aba: 'what-is-aba-therapy',
+  'early-learners': 'early-learners',
+  feeding: 'feeding-program',
+  'social-enrichment': 'social-enrichment',
+  'social-skills': 'social-skills-group',
+  'group-parent-training': 'parent-training-faqs',
+}
+
+function programFaqHref(programId) {
+  const slug = PROGRAM_RESOURCE_SLUGS[programId]
+  return slug ? `/resources/${slug}` : ''
+}
+
+function programIdForResource(slug) {
+  const match = Object.entries(PROGRAM_RESOURCE_SLUGS).find(([, resourceSlug]) => resourceSlug === slug)
+  return match?.[0] ?? ''
+}
+
+function renderProgramFaqCta(program, content) {
+  const href = programFaqHref(program.id)
+  if (!href) {
+    return `<a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(program.href))}">${escapeHtml(program.linkLabel)}</a>`
+  }
+
+  const label = (content.ui.programFaqLinkLabel ?? 'View {program} FAQs').replaceAll(
+    '{program}',
+    program.label,
+  )
+
+  return `<a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(href))}">${escapeHtml(label)}</a>`
+}
+
+function renderFaqServiceLink(content) {
+  const program = getProgramById(content, programIdForResource(RESOURCE_SLUG))
+  if (!program?.href) {
+    return ''
+  }
+
+  return `<div class="faq-program-link">
+            <p>${escapeHtml(content.ui.faqProgramLinkNote)}</p>
+            <a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(program.href))}">${escapeHtml(program.linkLabel)}</a>
+          </div>`
+}
+
 function relatedProgramHref(program) {
   if (pageHasProgramPanel(program.id)) {
     return `#program-${program.id}`
@@ -842,6 +887,7 @@ function renderFaqCategory(category, content) {
   return `<article class="faq-category page-faq-category">
           <h1>${escapeHtml(category.title)}</h1>
           <p class="faq-category-intro">${escapeHtml(category.intro)}</p>
+          ${renderFaqServiceLink(content)}
           <div class="faq-toolbar">
             ${renderFaqSearch(content, { compact: true })}
             <button type="button" class="faq-toggle-all" data-faq-toggle-all aria-pressed="false">
@@ -981,7 +1027,7 @@ function renderProgramPanel(program, content, { open = false } = {}) {
                     <h4>${escapeHtml(content.ui.programStructureLabel)}</h4>
                     ${renderListItems(program.structure, true)}
                   </section>
-                  <a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(program.href))}">${escapeHtml(program.linkLabel)}</a>
+                  ${renderProgramFaqCta(program, content)}
                 </div>
                 ${renderProgramTeam(program, content)}
               </div>
@@ -2604,17 +2650,10 @@ function renderResourceTopic(content) {
     return `<section class="section page-section"><p>Resource not found.</p></section>`
   }
 
-  const programBySlug = {
-    'parent-training-faqs': 'group-parent-training',
-    'social-enrichment': 'social-enrichment',
-  }
-  const program = getProgramById(content, programBySlug[RESOURCE_SLUG])
-
   return `<section class="section resources-section page-section">
         <a class="back-button" href="${escapeHtml(toStaticHref('/resources'))}">
           <span aria-hidden="true">←</span> ${escapeHtml(content.ui.backToResources)}
         </a>
-        ${program ? `<div class="program-panel-list">${renderProgramPanel(program, content, { open: true })}</div>` : ''}
         ${renderFaqCategory(category, content)}
       </section>`
 }

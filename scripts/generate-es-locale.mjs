@@ -26,6 +26,9 @@ Object.assign(es.ui, {
   programLeadLabel: 'Liderado por',
   placeholderStaffNote:
     'Los nombres, fotos y cargos del personal son marcadores de posición hasta que VTCC apruebe las biografías publicadas.',
+  programFaqLinkLabel: 'Ver preguntas de {program}',
+  faqProgramLinkNote:
+    'Para ver las metas, cómo funciona el programa y quién lo dirige, visite la página de servicios.',
   contactSwitchFamilyPrompt: '¿Busca servicios para su familia?',
   contactSwitchFamilyLink: 'Use el formulario de solicitud familiar',
   contactSwitchReferralPrompt: '¿Va a enviar una referencia profesional?',

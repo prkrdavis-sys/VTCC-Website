@@ -42,7 +42,9 @@
     "programGoalsLabel": "Metas",
     "programStructureLabel": "Cómo está estructurado el programa",
     "programLeadLabel": "Liderado por",
-    "placeholderStaffNote": "Los nombres, fotos y cargos del personal son marcadores de posición hasta que VTCC apruebe las biografías publicadas."
+    "placeholderStaffNote": "Los nombres, fotos y cargos del personal son marcadores de posición hasta que VTCC apruebe las biografías publicadas.",
+    "programFaqLinkLabel": "Ver preguntas de {program}",
+    "faqProgramLinkNote": "Para ver las metas, cómo funciona el programa y quién lo dirige, visite la página de servicios."
   },
   "company": {
     "name": "Victoria Transcultural Clinical Center",
