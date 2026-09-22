@@ -70,6 +70,10 @@ es.navigation.headerGroups = [
     ],
   },
   {
+    label: 'Acerca de',
+    href: '/about',
+  },
+  {
     label: 'Preguntas y Guías',
     href: '/resources',
     links: [
@@ -88,15 +92,11 @@ es.navigation.headerGroups = [
     href: '/contact/referral',
   },
   {
-    label: 'Acerca de',
-    href: '/about',
-  },
-  {
     label: 'Carreras',
     href: '/career',
   },
   {
-    label: 'Formularios de contacto',
+    label: 'Formularios de Contacto',
     links: [
       { label: 'Formularios', href: '/resources/forms' },
       { label: 'Contacto', href: '/contact' },

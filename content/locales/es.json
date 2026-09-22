@@ -138,6 +138,10 @@
         ]
       },
       {
+        "label": "Acerca de",
+        "href": "/about"
+      },
+      {
         "label": "Preguntas y Guías",
         "href": "/resources",
         "links": [
@@ -180,15 +184,11 @@
         "href": "/contact/referral"
       },
       {
-        "label": "Acerca de",
-        "href": "/about"
-      },
-      {
         "label": "Carreras",
         "href": "/career"
       },
       {
-        "label": "Formularios de contacto",
+        "label": "Formularios de Contacto",
         "links": [
           {
             "label": "Formularios",
