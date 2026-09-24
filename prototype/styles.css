@@ -12,14 +12,6 @@
   --brand-bar-ink: #2c3a23;
   --accent: #de6958;
   --accent-blue: #389bb2;
-  /* Logo circles: orange #ff8d08, lime #b2d441, magenta #df1f86.
-     Orange needs dark type; magenta carries white type. */
-  --btn-primary: #ff8d08;
-  --btn-primary-hover: #e67c00;
-  --btn-primary-ink: var(--ink);
-  --btn-secondary: #df1f86;
-  --btn-secondary-hover: #c41774;
-  --btn-secondary-ink: var(--white);
   --white: #ffffff;
   --shadow: 0 22px 60px rgba(23, 33, 29, 0.12);
   --header-offset: clamp(6.5rem, 10vh, 7.75rem);
@@ -699,13 +691,13 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
 
 .header-action.primary {
   border-color: transparent;
-  color: var(--btn-primary-ink);
-  background: var(--btn-primary);
+  color: var(--white);
+  background: var(--brand);
 }
 
 .header-action.primary:hover {
-  color: var(--btn-primary-ink);
-  background: var(--btn-primary-hover);
+  color: var(--white);
+  background: var(--brand-dark);
 }
 
 .site-nav a,
@@ -727,8 +719,8 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   border: 0;
   border-radius: 999px;
   padding: 0.75rem 1.1rem;
-  color: var(--btn-primary-ink);
-  background: var(--btn-primary);
+  color: var(--white);
+  background: var(--brand);
   font-weight: 800;
   text-decoration: none;
   cursor: pointer;
@@ -748,35 +740,34 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   .button:hover,
   .request-form button:hover {
     transform: translateY(-1px);
-    box-shadow: 0 10px 22px rgba(230, 124, 0, 0.28);
+    box-shadow: 0 10px 22px rgba(31, 111, 91, 0.2);
   }
 
   .button:active,
   .request-form button:active {
     transform: translateY(0) scale(0.985);
-    box-shadow: 0 4px 12px rgba(230, 124, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(31, 111, 91, 0.16);
     transition-duration: 80ms;
   }
 }
 
 .button.secondary {
-  color: var(--btn-secondary-ink);
-  background: var(--btn-secondary);
+  background: var(--accent);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .button.secondary:hover,
   .button.secondary:active {
-    box-shadow: 0 10px 22px rgba(223, 31, 134, 0.28);
+    box-shadow: 0 10px 22px rgba(201, 124, 67, 0.22);
   }
 
   .button.secondary:active {
-    box-shadow: 0 4px 12px rgba(223, 31, 134, 0.2);
+    box-shadow: 0 4px 12px rgba(201, 124, 67, 0.16);
   }
 }
 
 .button.ghost {
-  color: var(--btn-secondary);
+  color: var(--brand-dark);
   background: var(--white);
   box-shadow: inset 0 0 0 1px var(--line);
 }
@@ -784,12 +775,12 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
 @media (prefers-reduced-motion: no-preference) {
   .button.ghost:hover {
     box-shadow:
-      inset 0 0 0 1px rgba(223, 31, 134, 0.45),
+      inset 0 0 0 1px rgba(15, 74, 59, 0.35),
       0 8px 18px rgba(23, 33, 29, 0.08);
   }
 
   .button.ghost:active {
-    box-shadow: inset 0 0 0 1px rgba(196, 23, 116, 0.6);
+    box-shadow: inset 0 0 0 1px rgba(15, 74, 59, 0.45);
   }
 }
 
@@ -2981,7 +2972,7 @@ body:has(.page-faq-category) main > .resources-section {
 }
 
 .faq-program-link .button {
-  color: var(--btn-secondary);
+  color: var(--brand-deep);
   background: var(--white);
   box-shadow: none;
 }
@@ -3799,8 +3790,8 @@ address strong {
 
 .career-closing .button {
   flex: 0 0 auto;
-  color: var(--btn-primary-ink);
-  background: var(--btn-primary);
+  color: var(--brand-deep);
+  background: var(--brand-bar);
 }
 
 .career-indeed {
@@ -4193,8 +4184,8 @@ address strong {
   border: 0;
   border-radius: 999px;
   padding: 0.8rem 1.1rem;
-  color: var(--btn-primary-ink);
-  background: var(--btn-primary);
+  color: var(--white);
+  background: var(--brand-dark);
   font-weight: 800;
   cursor: pointer;
 }
@@ -4348,7 +4339,7 @@ address strong {
   border: 1px solid rgba(31, 111, 91, 0.16);
   border-radius: 999px;
   padding: 0.45rem 1rem;
-  color: var(--ink);
+  color: var(--brand-deep);
   background: var(--white);
   font-weight: 800;
   cursor: pointer;
@@ -4356,18 +4347,18 @@ address strong {
 
 .careers-tab:hover,
 .careers-tab:focus-visible {
-  border-color: var(--btn-primary);
+  border-color: var(--brand);
   background: var(--soft);
 }
 
 .careers-tab.is-active {
-  color: var(--btn-primary-ink);
-  background: var(--btn-primary);
-  border-color: var(--btn-primary);
+  color: var(--white);
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
 }
 
 .careers-tab:focus-visible {
-  outline: 3px solid rgba(223, 31, 134, 0.45);
+  outline: 3px solid rgba(56, 155, 178, 0.45);
   outline-offset: 2px;
 }
 
@@ -4902,14 +4893,8 @@ address strong {
 
   .site-menu-link--primary {
     border-color: transparent;
-    background: var(--btn-primary);
-    color: var(--btn-primary-ink);
-  }
-
-  .site-menu-link--primary:hover,
-  .site-menu-link--primary:focus-visible {
-    background: var(--btn-primary-hover);
-    color: var(--btn-primary-ink);
+    background: var(--brand-dark);
+    color: var(--white);
   }
 
   .nav-menu-panel,
