@@ -198,7 +198,7 @@ textarea {
   }
 }
 
-@container site-header (max-width: 79rem) {
+@container site-header (max-width: 92rem) {
   .site-header-inner {
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
@@ -222,7 +222,7 @@ textarea {
   }
 }
 
-@media (min-width: 981px) and (max-width: 1320px) {
+@media (min-width: 981px) and (max-width: 1540px) {
   .brand small {
     display: none;
   }
@@ -235,7 +235,7 @@ textarea {
   }
 }
 
-@media (min-width: 981px) and (max-width: 1264px) {
+@media (min-width: 981px) and (max-width: 1472px) {
   :root {
     --header-offset: clamp(6.5rem, 10vh, 8rem);
   }
@@ -332,7 +332,8 @@ textarea {
 .brand-mark {
   flex: 0 0 auto;
   width: auto;
-  height: 2.85rem;
+  height: 2.6rem;
+  max-width: 9rem;
   object-fit: contain;
 }
 
@@ -3286,7 +3287,8 @@ address strong {
   }
 
   .brand-mark {
-    height: 2.35rem;
+    height: 2.2rem;
+    max-width: 7.5rem;
   }
 
   .brand strong {
