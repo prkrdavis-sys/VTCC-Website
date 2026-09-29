@@ -1604,5 +1604,228 @@
       "linkLabel": "Ver preguntas y guías",
       "linkHref": "/resources"
     }
+  },
+  "brochure": {
+    "cover": {
+      "title": [
+        "Victoria",
+        "Transcultural",
+        "Clinical Center"
+      ],
+      "tagline": "Ayudamos a los niños a aprender, conectar y prosperar",
+      "subline": "Apoyo individualizado para niños y familias",
+      "serviceLineLabel": "Nuestros servicios",
+      "serviceLine": [
+        {
+          "label": "Servicios de ABA",
+          "href": "/aba"
+        },
+        {
+          "label": "Habilidades sociales",
+          "href": "/social-skills-group"
+        },
+        {
+          "label": "Apoyo alimentario",
+          "href": "/feeding-program"
+        },
+        {
+          "label": "Capacitación para padres",
+          "href": "/resources/parent-training-faqs"
+        }
+      ]
+    },
+    "grow": {
+      "title": "Crezcamos juntos"
+    },
+    "programs": {
+      "title": "Programas diseñados para su familia",
+      "intro": "Ya sea que su hijo esté desarrollando habilidades básicas, haciendo amistades, enfrentando retos a la hora de comer, o que su familia necesite apoyo conductual adicional, VTCC está aquí para ayudar."
+    },
+    "cardHighlights": {
+      "/aba": {
+        "label": "ABA puede apoyar:",
+        "items": [
+          "Comunicación",
+          "Habilidades sociales",
+          "Independencia"
+        ]
+      },
+      "/early-learners": {
+        "label": "Los niños desarrollan:",
+        "items": [
+          "Comunicación",
+          "Preparación escolar",
+          "Habilidades sociales"
+        ]
+      },
+      "/feeding-program": {
+        "label": "Los niños pueden trabajar en:",
+        "items": [
+          "Variedad de alimentos",
+          "Nuevas texturas y sabores",
+          "Rutinas a la hora de comer"
+        ]
+      },
+      "/social-skills-group": {
+        "label": "Los niños practican:",
+        "items": [
+          "Hacer amigos",
+          "Conversación",
+          "Trabajo en equipo"
+        ]
+      },
+      "/referrers": {
+        "label": "Ayudamos con:",
+        "items": [
+          "Elegibilidad",
+          "Formularios requeridos",
+          "Próximos pasos de financiamiento"
+        ]
+      }
+    },
+    "whoWeAre": {
+      "title": "Quiénes somos",
+      "paragraphs": [
+        "En Victoria Transcultural Clinical Center (VTCC), nos dedicamos a ayudar a niños y familias a alcanzar su máximo potencial mediante servicios compasivos, individualizados y basados en evidencia.",
+        "Trabajamos junto a familias, cuidadores y miembros de la comunidad para desarrollar la comunicación, la independencia, las conexiones sociales y las habilidades para la vida que generan un progreso significativo más allá de las sesiones de terapia."
+      ],
+      "cultureTitle": "Atención culturalmente receptiva",
+      "cultureBody": "Reconocemos que cada familia aporta valores culturales, experiencias, idiomas y tradiciones únicos. Nuestro equipo colabora con las familias para ofrecer servicios que respeten y reflejen lo que más les importa."
+    },
+    "whatIsAba": {
+      "title": "¿Qué es ABA?",
+      "body": "El Análisis Aplicado de la Conducta (ABA) es un enfoque basado en evidencia que se centra en comprender cómo ocurren el aprendizaje y la conducta, y en usar estrategias individualizadas para enseñar habilidades significativas.",
+      "listTitle": "ABA puede apoyar:",
+      "items": [
+        "Comunicación",
+        "Habilidades sociales",
+        "Regulación emocional",
+        "Independencia",
+        "Preparación escolar",
+        "Habilidades de la vida diaria",
+        "Seguridad y apoyo conductual"
+      ],
+      "closing": "Nuestro enfoque es individualizado, colaborativo y centrado en resultados significativos para cada niño y su familia.",
+      "linkLabel": "Más información sobre ABA",
+      "linkHref": "/aba"
+    },
+    "whoWeServe": {
+      "title": "A quién servimos",
+      "intro": "Niños y familias que se benefician de apoyo adicional en:",
+      "items": [
+        "Comunicación",
+        "Desarrollo social",
+        "Conducta",
+        "Independencia",
+        "Preparación escolar",
+        "Alimentación"
+      ]
+    },
+    "payment": {
+      "title": "Opciones de pago",
+      "lead": "Aceptamos:",
+      "items": [
+        "Seguro médico privado",
+        "Medicaid",
+        "Pago privado"
+      ],
+      "linkLabel": "Ver detalles de seguros y financiamiento",
+      "linkHref": "/insurance"
+    },
+    "contact": {
+      "title": "¿Listo para saber más?",
+      "subtitle": "Contáctenos",
+      "spanish": "Se habla español",
+      "phoneLabel": "Teléfono",
+      "emailLabel": "Correo electrónico"
+    },
+    "feeding": {
+      "title": "Programa de Alimentación",
+      "body": "Nuestro Programa de Alimentación apoya a niños que tienen dificultades para comer, incluidas la selectividad alimentaria, la poca variedad de alimentos, la dificultad para tolerar alimentos nuevos y las conductas relacionadas con la hora de comer.",
+      "listTitle": "Los niños pueden trabajar en:",
+      "items": [
+        "Ampliar la variedad de alimentos",
+        "Probar alimentos nuevos",
+        "Tolerar diferentes texturas y sabores",
+        "Comunicación funcional durante las comidas",
+        "Independencia a la hora de comer",
+        "Rutinas positivas a la hora de comer"
+      ]
+    },
+    "safetyCare": {
+      "title": "Safety-Care para familias",
+      "body": "Safety-Care enseña a los cuidadores estrategias prácticas para prevenir y responder de forma segura a las conductas desafiantes.",
+      "listTitle": "Las familias aprenden a:",
+      "items": [
+        "Entender por qué ocurren las conductas",
+        "Prevenir la escalada",
+        "Apoyar la regulación emocional",
+        "Usar el refuerzo positivo",
+        "Responder de forma segura en momentos difíciles"
+      ]
+    },
+    "socialSkills": {
+      "title": "Grupos de Habilidades Sociales",
+      "body": "Nuestros grupos sociales ayudan a los niños a desarrollar amistades, confianza y habilidades de comunicación mediante el juego estructurado y la interacción significativa con sus compañeros.",
+      "listTitle": "Los niños practican:",
+      "items": [
+        "Hacer amigos",
+        "Habilidades de conversación",
+        "Trabajo en equipo",
+        "Resolución de problemas",
+        "Flexibilidad",
+        "Confianza con sus compañeros"
+      ],
+      "groupsTitle": "Grupos disponibles",
+      "groups": [
+        {
+          "name": "Level Up Crew",
+          "ages": "Edades 2–6",
+          "body": "Construye bases sociales tempranas mediante el juego, los turnos, actividades de movimiento e interacciones guiadas."
+        },
+        {
+          "name": "Quest Masters",
+          "ages": "Edades 6–8",
+          "body": "Fortalece el trabajo en equipo, la conversación, el juego de roles y la resolución de problemas."
+        },
+        {
+          "name": "Legend League",
+          "ages": "Edades 8+",
+          "body": "Desarrolla liderazgo, colaboración y habilidades sociales para el mundo real."
+        }
+      ]
+    },
+    "ages": {
+      "title": "Programas para edades de 3 a 6",
+      "earlyLearners": {
+        "title": "Programa de Primeros Aprendices",
+        "body": "Nuestro Programa de Primeros Aprendices prepara a los niños para una transición exitosa a la escuela mediante una rutina estructurada que refleja un ambiente típico de salón de clases. Los niños desarrollan habilidades de comunicación, independencia, sociales y de preparación escolar mediante instrucción individualizada y oportunidades de aprendizaje estructurado.",
+        "listTitle": "Los niños desarrollan:",
+        "items": [
+          "Comunicación",
+          "Preparación escolar",
+          "Habilidades sociales",
+          "Independencia en la vida diaria"
+        ]
+      },
+      "socialEnrichment": {
+        "title": "Programa de Enriquecimiento Social",
+        "tagline": "Amistad, confianza y conexión",
+        "body": "Un programa acogedor donde los niños practican habilidades sociales mediante actividades divertidas, estructuradas y con sus compañeros.",
+        "listTitle": "Los niños trabajan en:",
+        "items": [
+          "Conversación",
+          "Compartir y tomar turnos",
+          "Juego cooperativo",
+          "Resolución de problemas",
+          "Regulación emocional",
+          "Flexibilidad",
+          "Habilidades de amistad"
+        ],
+        "badge": "Abierto a todos los niños",
+        "note": "No se requiere seguro"
+      }
+    },
+    "programDetailsLabel": "Detalles del programa"
   }
 }
