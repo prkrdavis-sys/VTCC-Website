@@ -5410,3 +5410,48 @@ h3 {
   width: 1.05rem;
   height: 1.05rem;
 }
+
+@media (max-width: 680px) {
+  .ages-panel,
+  .guides-subnav-band + .section.ages-panel {
+    padding-top: 4.25rem;
+  }
+
+  .motifs--ages .motif-dotgrid,
+  .motifs--ages .motif-ticks {
+    height: 2.4rem;
+  }
+}
+
+.program-intro .motifs--about .motif-squiggle,
+.about-intro .motifs--about .motif-squiggle {
+  display: none;
+}
+
+.guides-subnav-band + .section .motifs--about .motif-rsquare.motif-tl {
+  top: 0;
+}
+
+@media (max-width: 1399px) {
+  .motifs--about .motif-rsquare,
+  .motifs--about .motif-squiggle {
+    display: none;
+  }
+}
+
+.motifs--hero .motif-circle.motif-xl {
+  width: clamp(5rem, 9vw, 9rem);
+  height: clamp(5rem, 9vw, 9rem);
+}
+
+@media (max-width: 680px) {
+  .motifs--grow .motif-dotgrid,
+  .motifs--about .motif-dotgrid,
+  .payer-band .motif-cluster--tr {
+    display: none;
+  }
+
+  .detail-section {
+    padding-bottom: 5.75rem;
+  }
+}
