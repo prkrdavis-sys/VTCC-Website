@@ -65,7 +65,10 @@ mkdirSync(join(prototypeDir, 'career'), { recursive: true })
 for (const entry of pages) {
   const slugScript = entry.slug ? `\n    <script>window.VTCC_RESOURCE_SLUG = ${JSON.stringify(entry.slug)};</script>` : ''
   const pageKey = entry.page === 'resource' ? 'resource' : entry.page
-  const seoHead = renderSeoHeadHtml(entry.seoPage ?? pageKey, 'en')
+  const scrapedSeoHead = renderSeoHeadHtml(entry.seoPage ?? pageKey, 'en')
+  const seoHead = /name="viewport"/.test(scrapedSeoHead)
+    ? scrapedSeoHead
+    : `    <meta name="viewport" content="width=device-width, initial-scale=1" />\n${scrapedSeoHead}`
 
   writeFileSync(
     join(prototypeDir, entry.file),
