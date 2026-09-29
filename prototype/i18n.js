@@ -297,24 +297,40 @@ function motif(kind, color, extras = '') {
 function renderMotifs(preset) {
   const sets = {
     hero: [
-      motif('blob', 'magenta', 'motif-xl motif-tl'),
-      motif('blob', 'orange', 'motif-xl motif-tr'),
+      motif('circle', 'orange', 'motif-xl motif-tl'),
       motif('squiggle', 'magenta', 'motif-tr-in'),
-      motif('dashes', 'lime', 'motif-tr-cluster'),
-      motif('circle', 'cyan', 'motif-md motif-br'),
-      motif('circle', 'heading', 'motif-sm motif-br-shift'),
-      motif('dots', 'orange', 'motif-br-in'),
+      motif('dotgrid', 'dot', 'motif-bl-in'),
+      motif('ticks', 'coral', 'motif-hero-ticks'),
+      motif('circle', 'magenta', 'motif-md motif-br'),
     ],
     grow: [
-      motif('blob', 'orange', 'motif-lg motif-tl'),
-      motif('circle', 'gold', 'motif-md motif-br'),
-      motif('squiggle', 'magenta', 'motif-tr-in'),
-      motif('circle', 'cyan', 'motif-sm motif-ml'),
+      motif('circle', 'orange', 'motif-xl motif-grow-a'),
+      motif('circle', 'orange', 'motif-lg motif-grow-b'),
+      motif('dotgrid', 'white', 'motif-br-in'),
     ],
     services: [
-      motif('circle', 'heading', 'motif-md motif-tr'),
-      motif('squiggle', 'gold', 'motif-br-in'),
-      motif('blob', 'orange', 'motif-sm motif-bl'),
+      motif('dotgrid', 'dot', 'motif-tr-in'),
+      motif('ticks', 'coral', 'motif-tl-in'),
+      motif('circle', 'magenta', 'motif-md motif-bl'),
+    ],
+    about: [
+      motif('rsquare', 'magenta', 'motif-lg motif-tl'),
+      motif('squiggle', 'heading', 'motif-tl-shift'),
+      motif('dotgrid', 'dot', 'motif-br-in'),
+      motif('circle', 'orange', 'motif-md motif-br'),
+    ],
+    ages: [
+      motif('dotgrid', 'white', 'motif-tl-in'),
+      motif('dotgrid', 'white', 'motif-br-in'),
+      motif('ticks', 'coral', 'motif-tr-in'),
+      motif('circle', 'magenta', 'motif-lg motif-br'),
+      motif('circle', 'orange', 'motif-md motif-tl'),
+    ],
+    reach: [
+      motif('circle', 'orange', 'motif-lg motif-bl'),
+      motif('circle', 'magenta', 'motif-md motif-bl-shift'),
+      motif('dotgrid', 'dot', 'motif-tr-in'),
+      motif('squiggle', 'lime', 'motif-tl-in'),
     ],
     start: [
       motif('circle', 'lime', 'motif-lg motif-tl'),
@@ -335,7 +351,7 @@ function renderMotifs(preset) {
       motif('scatter', 'cyan', 'motif-ml'),
     ],
     page: [
-      motif('blob', 'magenta', 'motif-lg motif-tl'),
+      motif('blob', 'heading', 'motif-lg motif-tl'),
       motif('dots', 'heading', 'motif-tr'),
       motif('circle', 'orange', 'motif-md motif-br'),
       motif('circle', 'lime', 'motif-sm motif-br-shift'),
@@ -384,57 +400,183 @@ function renderCircleCluster(placement = 'br') {
         </div>`
 }
 
-function renderSectionHeading(eyebrow, title, intro = '') {
-  return `<div class="section-heading">
+function renderSectionHeading(eyebrow, title, intro = '', { center = false, level = 2 } = {}) {
+  return `<div class="section-heading${center ? ' section-heading--center' : ''}">
           <span class="heading-squiggle" aria-hidden="true"></span>
-          <p class="eyebrow">${escapeHtml(eyebrow)}</p>
-          <h2>${escapeHtml(title)}</h2>
+          ${eyebrow ? `<p class="eyebrow">${escapeHtml(eyebrow)}</p>` : ''}
+          <h${level}>${escapeHtml(title)}</h${level}>
           ${intro ? `<p>${escapeHtml(intro)}</p>` : ''}
         </div>`
 }
 
-function renderHeroHeading(hero) {
-  if (!hero.headlineLead) {
-    return `<h1>${escapeHtml(hero.headline)}</h1>`
-  }
+const PHONE_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>`
+const EMAIL_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`
 
-  return `<h1 class="hero-heading">
-          <span class="hero-headline-main">${escapeHtml(hero.headline)}</span>
-          <span class="hero-headline-lead">${escapeHtml(hero.headlineLead)}</span>
-        </h1>`
+function renderTickList(items, className = '') {
+  return `<ul class="tick-list${className ? ` ${className}` : ''}">${items
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .join('')}</ul>`
 }
 
-function renderHeroServiceTags(tags) {
-  if (!tags?.length) {
-    return ''
-  }
+function renderDotLine(items, className = '') {
+  return `<ul class="dot-line${className ? ` ${className}` : ''}">${items
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .join('')}</ul>`
+}
 
-  return `<ul class="hero-service-tags" aria-label="Services">
-          ${tags.map((tag) => `<li>${escapeHtml(tag)}</li>`).join('\n          ')}
+function renderListTitle(text) {
+  return `<p class="list-title">${escapeHtml(text)}</p>`
+}
+
+function renderWhoWeAre(brochure, { level = 2 } = {}) {
+  const { whoWeAre } = brochure
+  return `<article class="brochure-block who-we-are">
+            <h${level}>${escapeHtml(whoWeAre.title)}</h${level}>
+            ${whoWeAre.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}
+            <div class="culture-note">
+              <h3>${escapeHtml(whoWeAre.cultureTitle)}</h3>
+              <p>${escapeHtml(whoWeAre.cultureBody)}</p>
+            </div>
+          </article>`
+}
+
+function renderWhatIsAba(brochure, { withLink = true, level = 2 } = {}) {
+  const aba = brochure.whatIsAba
+  return `<article class="brochure-card aba-card">
+            <h${level}>${escapeHtml(aba.title)}</h${level}>
+            <p>${escapeHtml(aba.body)}</p>
+            ${renderListTitle(aba.listTitle)}
+            ${renderTickList(aba.items, 'tick-list--columns')}
+            <p class="aba-card-closing">${escapeHtml(aba.closing)}</p>
+            ${
+              withLink
+                ? `<a class="card-pill" href="${escapeHtml(toStaticHref(aba.linkHref))}">${escapeHtml(aba.linkLabel)} <span aria-hidden="true">→</span></a>`
+                : ''
+            }
+          </article>`
+}
+
+function renderWhoWeServe(brochure) {
+  const serve = brochure.whoWeServe
+  return `<div class="who-serve-band">
+          <h2>${escapeHtml(serve.title)}</h2>
+          <p>${escapeHtml(serve.intro)}</p>
+          ${renderDotLine(serve.items, 'dot-line--colored')}
+        </div>`
+}
+
+function renderPaymentOptions(brochure) {
+  const payment = brochure.payment
+  return `<article class="payment-card">
+            <h2>${escapeHtml(payment.title)}</h2>
+            ${renderListTitle(payment.lead)}
+            <ul class="payment-list">${payment.items
+              .map((item) => `<li>${escapeHtml(item)}</li>`)
+              .join('')}</ul>
+            ${
+              PAGE === 'insurance'
+                ? ''
+                : `<a class="text-link" href="${escapeHtml(toStaticHref(payment.linkHref))}">${escapeHtml(payment.linkLabel)}</a>`
+            }
+          </article>`
+}
+
+function renderReachOut(content) {
+  const { brochure, topBar } = content
+  const primaryAction = content.hero.actions[0]
+  return `<article class="reach-card">
+            <h2>${escapeHtml(brochure.contact.title)} <span>${escapeHtml(brochure.contact.subtitle)}</span></h2>
+            <ul class="reach-list">
+              <li><a href="${escapeHtml(topBar.phoneHref)}"><span class="icon-circle">${PHONE_ICON}</span><span class="visually-hidden">${escapeHtml(brochure.contact.phoneLabel)}: </span>${escapeHtml(topBar.phone)}</a></li>
+              <li><a href="${escapeHtml(topBar.emailHref)}"><span class="icon-circle">${EMAIL_ICON}</span><span class="visually-hidden">${escapeHtml(brochure.contact.emailLabel)}: </span>${escapeHtml(topBar.email)}</a></li>
+            </ul>
+            <p class="reach-spanish" lang="es">${escapeHtml(brochure.contact.spanish)}</p>
+            <a class="button" href="${escapeHtml(toStaticHref(primaryAction.href))}">${escapeHtml(primaryAction.label)}</a>
+          </article>`
+}
+
+function renderAgesPanel(content) {
+  const { ages } = content.brochure
+  const early = ages.earlyLearners
+  const enrichment = ages.socialEnrichment
+  return `<section class="section ages-panel page-section">
+        ${renderMotifs('ages')}
+        <h1 class="ages-title">${escapeHtml(ages.title)}</h1>
+        <div class="ages-grid">
+          <article class="ages-card ages-card--magenta">
+            <h2>${escapeHtml(early.title)}</h2>
+            <p>${escapeHtml(early.body)}</p>
+            ${renderListTitle(early.listTitle)}
+            ${renderDotLine(early.items)}
+          </article>
+          <article class="ages-card ages-card--orange">
+            <h2>${escapeHtml(enrichment.title)}</h2>
+            <p class="card-tagline">${escapeHtml(enrichment.tagline)}</p>
+            <p>${escapeHtml(enrichment.body)}</p>
+            ${renderListTitle(enrichment.listTitle)}
+            <ul class="centered-list">${enrichment.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+            <p class="ages-card-badge">${escapeHtml(enrichment.badge)}</p>
+            <p class="ages-card-note">${escapeHtml(enrichment.note)}</p>
+          </article>
+        </div>
+      </section>`
+}
+
+function renderProgramIntro(program, { theme = 'lime', eyebrow = '', aside = '', listClass = '' } = {}) {
+  const list = `${renderListTitle(program.listTitle)}
+            ${renderTickList(program.items, listClass)}`
+  return `<section class="section program-intro program-intro--${theme} page-section">
+        ${renderMotifs('about')}
+        <div class="program-intro-grid">
+          <div class="program-intro-copy">
+            <span class="heading-squiggle" aria-hidden="true"></span>
+            ${eyebrow ? `<p class="eyebrow">${escapeHtml(eyebrow)}</p>` : ''}
+            <h1>${escapeHtml(program.title)}</h1>
+            <p class="program-intro-lead">${escapeHtml(program.body)}</p>
+            ${program.closing ? `<p>${escapeHtml(program.closing)}</p>` : ''}
+            ${aside ? list : ''}
+          </div>
+          ${aside || `<div class="program-intro-card">${list}</div>`}
+        </div>
+      </section>`
+}
+
+function renderSocialGroups(socialSkills) {
+  const themes = ['magenta', 'lime', 'orange']
+  return `<aside class="group-stack" aria-label="${escapeHtml(socialSkills.groupsTitle)}">
+            <h2>${escapeHtml(socialSkills.groupsTitle)}</h2>
+            ${socialSkills.groups
+              .map(
+                (group, index) => `<article class="group-card group-card--${themes[index % themes.length]}">
+              <p class="group-card-ages">${escapeHtml(group.ages)}</p>
+              <h3>${escapeHtml(group.name)}</h3>
+              <p>${escapeHtml(group.body)}</p>
+            </article>`,
+              )
+              .join('')}
+          </aside>`
+}
+
+function renderSafetyCare(brochure) {
+  const safety = brochure.safetyCare
+  return `<section class="section safety-care page-section">
+        ${renderMotifs('reach')}
+        <div class="safety-care-card">
+          <span class="squiggle-divider" aria-hidden="true"></span>
+          <h2>${escapeHtml(safety.title)}</h2>
+          <p>${escapeHtml(safety.body)}</p>
+          ${renderListTitle(safety.listTitle)}
+          ${renderTickList(safety.items)}
+        </div>
+      </section>`
+}
+
+function renderCoverServiceLine(cover) {
+  return `<ul class="cover-service-line" aria-label="${escapeHtml(cover.serviceLineLabel)}">
+          ${cover.serviceLine
+            .map((item) => `<li><a href="${escapeHtml(toStaticHref(item.href))}">${escapeHtml(item.label)}</a></li>`)
+            .join('\n          ')}
         </ul>`
-}
-
-function renderHeroIconRow() {
-  const house = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z"/></svg>`
-  const people = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.4"/><circle cx="16" cy="8.5" r="2.1"/><path d="M3.8 19c.4-3 2.3-4.6 4.2-4.6s3.8 1.6 4.2 4.6"/><path d="M12.6 19c.3-2.4 1.7-3.7 3.4-3.7 1.8 0 3.2 1.4 3.6 3.7"/></svg>`
-  const spark = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 13.6 9H19l-4.3 3.3L16.4 18 12 14.8 7.6 18l1.7-5.7L5 9h5.4z"/></svg>`
-
-  return `<div class="hero-icon-row" aria-hidden="true">
-          <span class="hero-icon-badge hero-icon-badge--orange">${house}</span>
-          <span class="hero-icon-badge hero-icon-badge--lime">${people}</span>
-          <span class="hero-icon-badge hero-icon-badge--magenta">${spark}</span>
-        </div>`
-}
-
-function renderHeroText(hero) {
-  if (hero.subheadlineLead) {
-    return `<div class="hero-text-block">
-          <p class="hero-text-lead">${escapeHtml(hero.subheadlineLead)}</p>
-          <p class="hero-text">${escapeHtml(hero.subheadline)}</p>
-        </div>`
-  }
-
-  return `<p class="hero-text">${escapeHtml(hero.subheadline)}</p>`
 }
 
 function renderTopBar(content) {
@@ -443,16 +585,21 @@ function renderTopBar(content) {
     return ''
   }
 
-  const phoneIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>`
-  const emailIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`
-
   return `<div class="top-bar">
       <a class="top-bar-address" href="${escapeHtml(bar.addressHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(bar.address)}</a>
       <span class="top-bar-contacts">
-        <a href="${escapeHtml(bar.phoneHref)}">${phoneIcon}${escapeHtml(bar.phone)}</a>
-        <a href="${escapeHtml(bar.emailHref)}">${emailIcon}${escapeHtml(bar.email)}</a>
+        <a href="${escapeHtml(bar.phoneHref)}">${PHONE_ICON}${escapeHtml(bar.phone)}</a>
+        <a href="${escapeHtml(bar.emailHref)}">${EMAIL_ICON}${escapeHtml(bar.email)}</a>
       </span>
     </div>`
+}
+
+function renderFooterAddress(address) {
+  const [street, ...cityParts] = String(address).split(', ')
+  if (!cityParts.length) {
+    return escapeHtml(street)
+  }
+  return `${escapeHtml(street)}<br />${escapeHtml(cityParts.join(', '))}`
 }
 
 function renderShell(content, mainHtml) {
@@ -506,7 +653,7 @@ function renderShell(content, mainHtml) {
             ${content.footer.links.map(renderNavLink).join('\n            ')}
           </nav>
         </div>
-        <p class="site-footer-address">${escapeHtml(content.topBar?.address ?? '')}</p>
+        <p class="site-footer-address">${renderFooterAddress(content.topBar?.address ?? '')}</p>
       </div>
     </footer>
   `
@@ -801,32 +948,32 @@ function renderFaqCategory(category, content) {
 }
 
 function renderHome(content) {
-  const { sections, home } = content
+  const { sections, home, brochure } = content
   const assets = window.VTCC_SITE?.shared?.assets ?? {}
   const heroImage = assets.heroImage ? `${BASE}${assets.heroImage.replace(/^\//, '')}` : ''
   const whoImage = assets.whoWeServeImage ? `${BASE}${assets.whoWeServeImage.replace(/^\//, '')}` : ''
+  const logoImage = assets.logo ? `${BASE}${assets.logo.replace(/^\//, '')}` : ''
   const featuredResources = sections.resources.items.slice(0, 3)
   const heroActions = content.hero.actions.filter((action) => action.style !== 'ghost')
+  const { cover } = brochure
 
-  const trustItems = content.trustStrip
-    .map(
-      (item) => `<div class="home-trust-item">
-          <strong>${escapeHtml(item.title)}</strong>
-          <span>${escapeHtml(item.body)}</span>
-        </div>`,
-    )
-    .join('')
-
-  const serviceThemes = ['periwinkle', 'magenta', 'lime', 'orange', 'cream']
+  const serviceThemes = ['indigo', 'magenta', 'lime', 'orange', 'cream']
   const serviceCards = sections.services.cards
-    .map(
-      (card, index) => `<article class="service-card home-service-card home-service-card--${serviceThemes[index] ?? 'cream'}">
-            <span class="card-label">${escapeHtml(card.label)}</span>
-            <h3>${escapeHtml(card.title)}</h3>
+    .map((card, index) => {
+      const highlight = brochure.cardHighlights[card.href]
+      return `<article class="service-card home-service-card home-service-card--${serviceThemes[index] ?? 'cream'}">
+            <h3>${escapeHtml(card.label)}</h3>
+            <p class="card-tagline">${escapeHtml(card.title)}</p>
             <p>${escapeHtml(card.body)}</p>
-            <a href="${escapeHtml(toStaticHref(card.href))}">${escapeHtml(card.linkLabel)}</a>
-          </article>`,
-    )
+            ${
+              highlight
+                ? `${renderListTitle(highlight.label)}
+            ${renderDotLine(highlight.items)}`
+                : ''
+            }
+            <a class="card-pill" href="${escapeHtml(toStaticHref(card.href))}">${escapeHtml(card.linkLabel)} <span aria-hidden="true">→</span></a>
+          </article>`
+    })
     .join('')
 
   const processSteps = sections.process.steps
@@ -852,13 +999,6 @@ function renderHome(content) {
     )
     .join('')
 
-  const whoItems = sections.whoWeServe.items
-    .slice(0, 4)
-    .map((item) => `<li>${escapeHtml(item)}</li>`)
-    .join('')
-
-  const cultureNote = sections.multiculturalCare.body.split('.')[0] + '.'
-
   const resourceCards = featuredResources
     .map(
       (item) => `<a href="${escapeHtml(toStaticHref(`/resources/${item.slug}`))}" class="home-resource-card">
@@ -871,40 +1011,56 @@ function renderHome(content) {
   const missionLine = sections.whoWeServe.missionStatement || content.hero.supportingLine
 
   return `
-      <section class="home-hero">
+      <section class="home-hero cover-hero">
         ${renderMotifs('hero')}
-        <div class="home-hero-copy">
+        <div class="home-hero-copy cover-copy">
           <p class="eyebrow">${escapeHtml(content.hero.eyebrow)}</p>
-          ${renderHeroHeading(content.hero)}
-          ${renderHeroServiceTags(content.hero.serviceTags)}
-          ${renderHeroText(content.hero)}
+          <h1 class="cover-title">${cover.title.map((line) => `<span>${escapeHtml(line)}</span>`).join(' ')}</h1>
+          <p class="cover-tagline">
+            <strong>${escapeHtml(cover.tagline)}</strong>
+            <span>${escapeHtml(cover.subline)}</span>
+          </p>
+          ${renderCoverServiceLine(cover)}
+          <p class="hero-text">${escapeHtml(content.hero.subheadline)}</p>
           <div class="button-row">${heroActions.map(renderButton).join('\n            ')}</div>
-          <div class="home-trust" aria-label="Trust highlights">${trustItems}</div>
         </div>
         ${
           heroImage
-            ? `<div class="home-hero-media-stack">
-          <div class="home-hero-media">
-          <img src="${escapeHtml(heroImage)}" alt="" loading="eager" />
-          <span class="motif motif-circle motif--lime motif-md motif-photo-tr" aria-hidden="true"></span>
+            ? `<div class="home-hero-media-stack cover-media">
+          <div class="cover-photo">
+            <img src="${escapeHtml(heroImage)}" alt="" loading="eager" />
           </div>
-          ${renderHeroIconRow()}
+          ${logoImage ? `<img class="cover-icons" src="${escapeHtml(logoImage)}" alt="" />` : ''}
         </div>`
             : ''
         }
       </section>
-      ${
-        missionLine
-          ? `<section class="grow-band">
+      <section class="grow-band">
         ${renderMotifs('grow')}
-        <p>${escapeHtml(missionLine)}</p>
-      </section>`
-          : ''
-      }
+        <div class="grow-band-inner">
+          ${
+            whoImage
+              ? `<figure class="grow-photo"><img src="${escapeHtml(whoImage)}" alt="" loading="lazy" /></figure>`
+              : ''
+          }
+          <div class="grow-copy">
+            <h2 class="grow-title">${escapeHtml(brochure.grow.title)}</h2>
+            ${missionLine ? `<p>${escapeHtml(missionLine)}</p>` : ''}
+          </div>
+        </div>
+      </section>
       <section id="services" class="section home-services">
         ${renderMotifs('services')}
-        ${renderSectionHeading(sections.services.eyebrow, sections.services.title, sections.services.intro)}
+        ${renderSectionHeading(sections.services.eyebrow, brochure.programs.title, brochure.programs.intro, { center: true })}
         <div class="card-grid home-service-grid">${serviceCards}</div>
+      </section>
+      <section class="section brochure-about">
+        ${renderMotifs('about')}
+        <div class="brochure-about-grid">
+          ${renderWhoWeAre(brochure)}
+          ${renderWhatIsAba(brochure)}
+        </div>
+        ${renderWhoWeServe(brochure)}
       </section>
       <section class="section home-start">
         ${renderMotifs('start')}
@@ -923,36 +1079,18 @@ function renderHome(content) {
           </div>
         </div>
       </section>
-      <section class="section home-who">
-        ${renderMotifs('who')}
-        ${renderCircleCluster('br')}
-        <div class="home-who-grid">
-          ${
-            whoImage
-              ? `<figure class="home-who-media">
-            <img src="${escapeHtml(whoImage)}" alt="" loading="lazy" />
-            <span class="motif motif-circle motif--orange motif-md motif-photo-br" aria-hidden="true"></span>
-            <span class="motif motif-dashes motif--magenta motif-photo-dashes" aria-hidden="true"></span>
-          </figure>`
-              : ''
-          }
-          <div class="home-who-copy">
-            ${renderSectionHeading(sections.whoWeServe.eyebrow, sections.whoWeServe.title, sections.whoWeServe.intro)}
-            ${
-              sections.whoWeServe.missionStatement
-                ? `<blockquote class="home-mission-statement">${escapeHtml(sections.whoWeServe.missionStatement)}</blockquote>`
-                : ''
-            }
-            <ul class="check-list home-check-list">${whoItems}</ul>
-            <p class="home-culture-note">${escapeHtml(cultureNote)}</p>
-          </div>
-        </div>
-      </section>
       <section class="section home-resources">
         ${renderMotifs('resources')}
-        ${renderSectionHeading(sections.resources.eyebrow, home.resourcesTeaser.title, home.resourcesTeaser.intro)}
+        ${renderSectionHeading(sections.resources.eyebrow, home.resourcesTeaser.title, home.resourcesTeaser.intro, { center: true })}
         <div class="home-resource-list">${resourceCards}</div>
         <a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(home.resourcesTeaser.linkHref))}">${escapeHtml(home.resourcesTeaser.linkLabel)}</a>
+      </section>
+      <section class="section reach-section">
+        ${renderMotifs('reach')}
+        <div class="reach-grid">
+          ${renderPaymentOptions(brochure)}
+          ${renderReachOut(content)}
+        </div>
       </section>`
 }
 
@@ -999,9 +1137,14 @@ function renderAbaTopicBody(topic) {
 function renderAbaPage(content) {
   const aba = content.sections.aba
 
-  return `<section class="section aba-page page-section">
+  return `${renderProgramIntro(content.brochure.whatIsAba, {
+    theme: 'lime',
+    eyebrow: aba.eyebrow,
+    listClass: 'tick-list--columns',
+  })}
+      <section class="section aba-page page-section">
         ${renderMotifs('page')}
-        ${renderSectionHeading(aba.eyebrow, aba.title, aba.intro)}
+        ${renderSectionHeading(content.brochure.programDetailsLabel, aba.title, aba.intro)}
         <div class="aba-topic-list">
           ${aba.topics
             .map(
@@ -1018,6 +1161,7 @@ function renderAbaPage(content) {
             .join('\n          ')}
         </div>
       </section>
+      ${renderSafetyCare(content.brochure)}
       <section class="section detail-section page-section soft aba-summary">
         ${renderMotifs('services')}
         ${renderCircleCluster('br')}
@@ -1062,7 +1206,14 @@ function renderInsurancePage(content) {
     .map((payer) => `<li>${escapeHtml(payer)}</li>`)
     .join('')
 
-  return `<section class="section payer-band">
+  return `<section class="section reach-section insurance-payment page-section">
+        ${renderMotifs('reach')}
+        <div class="reach-grid">
+          ${renderPaymentOptions(content.brochure)}
+          ${renderReachOut(content)}
+        </div>
+      </section>
+      <section class="section payer-band">
         ${renderMotifs('start')}
         ${renderCircleCluster('tr')}
         <div class="payer-band-inner">
@@ -1107,7 +1258,19 @@ function renderReferrersPage(content) {
 
 function renderAboutPage(content) {
   const about = content.sections.about
-  return `<section class="section split-section page-section">
+  return `<section class="section brochure-about about-intro page-section">
+        ${renderMotifs('about')}
+        <div class="about-intro-grid">
+          <div>
+            <span class="heading-squiggle" aria-hidden="true"></span>
+            <p class="eyebrow">${escapeHtml(about.eyebrow)}</p>
+            ${renderWhoWeAre(content.brochure, { level: 1 })}
+          </div>
+          ${renderWhatIsAba(content.brochure)}
+        </div>
+        ${renderWhoWeServe(content.brochure)}
+      </section>
+      <section class="section split-section page-section">
         ${renderMotifs('page')}
         ${renderCircleCluster('br')}
         ${renderSectionHeading(about.eyebrow, about.title, about.intro)}
@@ -1315,12 +1478,19 @@ function renderContactPage(content) {
               ${content.offices
                 .map(
                   (office) => `<a class="call-button" href="${escapeHtml(office.phoneHref)}">
-                <span>${escapeHtml(office.name)}</span>
-                <strong>${escapeHtml(office.phone)}</strong>
+                <span class="icon-circle">${PHONE_ICON}</span>
+                <span class="call-button-copy">
+                  <span>${escapeHtml(office.name)}</span>
+                  <strong>${escapeHtml(office.phone)}</strong>
+                </span>
               </a>`,
                 )
                 .join('\n              ')}
             </div>
+            <p class="contact-extras">
+              <a href="${escapeHtml(content.topBar.emailHref)}"><span class="icon-circle">${EMAIL_ICON}</span>${escapeHtml(content.topBar.email)}</a>
+              <strong lang="es">${escapeHtml(content.brochure.contact.spanish)}</strong>
+            </p>
           </div>
           <div class="office-list">${content.offices
             .map(
@@ -1385,13 +1555,21 @@ function renderMain(content) {
       mainHtml = renderAbaPage(content)
       break
     case 'early-learners':
-      mainHtml = renderDetailSection(content.sections.earlyLearners, { soft: true, theme: 'magenta' })
+      mainHtml =
+        renderAgesPanel(content) +
+        renderDetailSection(content.sections.earlyLearners, { soft: true, theme: 'magenta' })
       break
     case 'feeding-program':
-      mainHtml = renderDetailSection(content.sections.feedingProgram, { soft: true, theme: 'lime' })
+      mainHtml =
+        renderProgramIntro(content.brochure.feeding, { theme: 'lime' }) +
+        renderDetailSection(content.sections.feedingProgram, { soft: true, theme: 'lime' })
       break
     case 'social-skills-group':
-      mainHtml = renderDetailSection(content.sections.socialSkillsGroup, { soft: true, theme: 'orange' })
+      mainHtml =
+        renderProgramIntro(content.brochure.socialSkills, {
+          theme: 'orange',
+          aside: renderSocialGroups(content.brochure.socialSkills),
+        }) + renderDetailSection(content.sections.socialSkillsGroup, { soft: true, theme: 'orange' })
       break
     case 'get-started':
       mainHtml = renderProcessPage(content)
