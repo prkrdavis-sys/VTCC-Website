@@ -5455,3 +5455,15 @@ h3 {
     padding-bottom: 5.75rem;
   }
 }
+
+@media (max-width: 980px) {
+  .motif-ml {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .career-opportunity .motif-cluster {
+    display: none;
+  }
+}
