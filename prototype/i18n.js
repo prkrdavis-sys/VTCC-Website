@@ -6,7 +6,6 @@ const BASE = window.VTCC_BASE ?? ''
 const RESOURCE_SLUG = window.VTCC_RESOURCE_SLUG
 const CAREERS_TAB_IDS = ['behavior-technician', 'bcba', 'other']
 const CAREER_DISCLOSURE_IDS = ['rbt-pathway', 'team-structure', 'programs', 'clinic', 'hiring-process']
-const CAREER_DISCLOSURE_IDS = ['rbt-pathway', 'team-structure', 'programs', 'clinic', 'hiring-process']
 
 function escapeHtml(value) {
   return String(value)
@@ -3065,13 +3064,116 @@ function setCareersTab(tabId) {
   })
 }
 
-function bindCareersPage() {
-  const board = document.querySelector('[data-careers-board]')
-  if (!board) {
-    return
+function bindCareersPage(content) {
+  const expandLabel = content?.ui?.careerExpandLabel ?? 'Show this section'
+  const collapseLabel = content?.ui?.careerCollapseLabel ?? 'Hide this section'
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+  const setDisclosureLabel = (trigger, open) => {
+    const state = trigger.querySelector('[data-disclosure-state]')
+    if (state) {
+      state.textContent = open ? collapseLabel : expandLabel
+    }
   }
 
-  const tabButtons = Array.from(board.querySelectorAll('[data-careers-tab]'))
+  const openDisclosure = (section, { scroll = false } = {}) => {
+    const panel = section.querySelector('[data-disclosure-panel]')
+    const trigger = section.querySelector('[data-disclosure-trigger]')
+    if (!panel || !trigger) {
+      return
+    }
+
+    window.clearTimeout(section.disclosureTimer)
+    panel.removeAttribute('hidden')
+
+    const reveal = () => {
+      section.classList.add('is-open')
+      trigger.setAttribute('aria-expanded', 'true')
+      setDisclosureLabel(trigger, true)
+      if (scroll) {
+        section.scrollIntoView({ behavior: motionQuery.matches ? 'auto' : 'smooth', block: 'start' })
+      }
+    }
+
+    if (section.classList.contains('is-open')) {
+      if (scroll) {
+        section.scrollIntoView({ behavior: motionQuery.matches ? 'auto' : 'smooth', block: 'start' })
+      }
+      return
+    }
+
+    if (motionQuery.matches) {
+      reveal()
+      return
+    }
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(reveal)
+    })
+  }
+
+  const closeDisclosure = (section) => {
+    const panel = section.querySelector('[data-disclosure-panel]')
+    const trigger = section.querySelector('[data-disclosure-trigger]')
+    if (!panel || !trigger || !section.classList.contains('is-open')) {
+      return
+    }
+
+    section.classList.remove('is-open')
+    trigger.setAttribute('aria-expanded', 'false')
+    setDisclosureLabel(trigger, false)
+
+    const finish = () => {
+      if (!section.classList.contains('is-open')) {
+        panel.setAttribute('hidden', 'until-found')
+      }
+    }
+
+    if (motionQuery.matches) {
+      finish()
+      return
+    }
+
+    const onEnd = (event) => {
+      if (event.target !== panel || event.propertyName !== 'grid-template-rows') {
+        return
+      }
+      panel.removeEventListener('transitionend', onEnd)
+      window.clearTimeout(section.disclosureTimer)
+      finish()
+    }
+
+    panel.addEventListener('transitionend', onEnd)
+    section.disclosureTimer = window.setTimeout(() => {
+      panel.removeEventListener('transitionend', onEnd)
+      finish()
+    }, 450)
+  }
+
+  document.querySelectorAll('[data-disclosure]').forEach((section) => {
+    const trigger = section.querySelector('[data-disclosure-trigger]')
+    const panel = section.querySelector('[data-disclosure-panel]')
+    if (!trigger || !panel) {
+      return
+    }
+
+    trigger.addEventListener('click', () => {
+      if (section.classList.contains('is-open')) {
+        closeDisclosure(section)
+        return
+      }
+      openDisclosure(section)
+    })
+
+    panel.addEventListener('beforematch', () => {
+      section.classList.add('is-open')
+      trigger.setAttribute('aria-expanded', 'true')
+      setDisclosureLabel(trigger, true)
+    })
+  })
+
+  const board = document.querySelector('[data-careers-board]')
+  const tabButtons = board ? Array.from(board.querySelectorAll('[data-careers-tab]')) : []
 
   const activate = (tabId, { updateHash = true } = {}) => {
     setCareersTab(tabId)
@@ -3110,22 +3212,28 @@ function bindCareersPage() {
     })
   })
 
-  const initialHash = window.location.hash.replace('#', '')
-  if (CAREERS_TAB_IDS.includes(initialHash)) {
-    activate(initialHash, { updateHash: false })
+  const applyHash = () => {
+    const hash = window.location.hash.replace('#', '')
+    if (CAREERS_TAB_IDS.includes(hash)) {
+      activate(hash, { updateHash: false })
+      return
+    }
+    if (!CAREER_DISCLOSURE_IDS.includes(hash)) {
+      return
+    }
+    const section = document.getElementById(hash)
+    if (section) {
+      openDisclosure(section, { scroll: true })
+    }
   }
+
+  applyHash()
 
   if (bindCareersPage.hashHandler) {
     window.removeEventListener('hashchange', bindCareersPage.hashHandler)
   }
 
-  bindCareersPage.hashHandler = () => {
-    const hash = window.location.hash.replace('#', '')
-    if (CAREERS_TAB_IDS.includes(hash)) {
-      activate(hash, { updateHash: false })
-    }
-  }
-
+  bindCareersPage.hashHandler = applyHash
   window.addEventListener('hashchange', bindCareersPage.hashHandler)
 }
 
