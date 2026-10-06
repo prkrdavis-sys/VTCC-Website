@@ -5,7 +5,7 @@ import { renderSeoHeadHtml } from './seo-head.mjs'
 
 const fontLinks = `<link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;800&family=Outfit:wght@500;600;700;800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />`
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet" />`
 
 const site = loadSiteContent()
 const prototypeDir = join(rootDir, 'prototype')
@@ -65,10 +65,7 @@ mkdirSync(join(prototypeDir, 'career'), { recursive: true })
 for (const entry of pages) {
   const slugScript = entry.slug ? `\n    <script>window.VTCC_RESOURCE_SLUG = ${JSON.stringify(entry.slug)};</script>` : ''
   const pageKey = entry.page === 'resource' ? 'resource' : entry.page
-  const scrapedSeoHead = renderSeoHeadHtml(entry.seoPage ?? pageKey, 'en')
-  const seoHead = /name="viewport"/.test(scrapedSeoHead)
-    ? scrapedSeoHead
-    : `    <meta name="viewport" content="width=device-width, initial-scale=1" />\n${scrapedSeoHead}`
+  const seoHead = renderSeoHeadHtml(entry.seoPage ?? pageKey, 'en')
 
   writeFileSync(
     join(prototypeDir, entry.file),
