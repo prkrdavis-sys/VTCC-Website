@@ -623,23 +623,13 @@ es.sections.services.cards = [
       "El progreso se monitorea con regularidad y las metas se actualizan con el tiempo."
     ],
     "leader": {
-      "name": "Jordan Hale, BCBA",
-      "role": "Líder del programa ABA (marcador de posición)",
-      "bio": "Líder provisional de ABA. Coordina la evaluación, la supervisión y la orientación familiar hasta que VTCC publique biografías aprobadas.",
-      "photo": "/assets/team/jordan-hale.svg"
+      "name": "Holly Nasello, BCBA",
+      "role": "Directora Clínica",
+      "bio": "Directora Clínica del programa de terapia ABA de VTCC. Supervisa la evaluación, la planificación del tratamiento y la supervisión clínica de los servicios ABA individualizados.",
+      "photo": "/assets/team/holly-nasello.svg",
+      "published": true
     },
-    "team": [
-      {
-        "name": "Sam Rivera, RBT",
-        "role": "Técnico de conducta principal (marcador de posición)",
-        "photo": "/assets/team/sam-rivera.svg"
-      },
-      {
-        "name": "Priya Shah, BCBA",
-        "role": "Analista supervisora (marcador de posición)",
-        "photo": "/assets/team/priya-shah.svg"
-      }
-    ],
+    "team": [],
     "related": [
       "early-learners",
       "feeding",

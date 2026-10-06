@@ -33,6 +33,8 @@
     "careerFileHint": "PDF, DOC, DOCX, or TXT. Maximum file size: 5 MB.",
     "careerFileError": "Please choose a PDF, DOC, DOCX, or TXT file up to 5 MB.",
     "careerFileRemove": "Remove file",
+    "careerExpandLabel": "Show this section",
+    "careerCollapseLabel": "Hide this section",
     "careerFormSubmitting": "Preparing application...",
     "careerFormSuccess": "Your sample application is ready. In a production version, VTCC would receive it through an approved secure process.",
     "careerFormError": "We could not prepare the application. Please review the highlighted fields and try again.",
@@ -314,23 +316,13 @@
             "Progress is monitored regularly and goals are updated over time."
           ],
           "leader": {
-            "name": "Jordan Hale, BCBA",
-            "role": "ABA Program Lead (placeholder)",
-            "bio": "Placeholder lead for ABA. Coordinates assessment, supervision, and family coaching once VTCC publishes approved staff bios.",
-            "photo": "/assets/team/jordan-hale.svg"
+            "name": "Holly Nasello, BCBA",
+            "role": "Clinical Director",
+            "bio": "Clinical Director for VTCC's ABA therapy program. Oversees assessment, treatment planning, and clinical supervision for individualized ABA services.",
+            "photo": "/assets/team/holly-nasello.svg",
+            "published": true
           },
-          "team": [
-            {
-              "name": "Sam Rivera, RBT",
-              "role": "Lead behavior technician (placeholder)",
-              "photo": "/assets/team/sam-rivera.svg"
-            },
-            {
-              "name": "Priya Shah, BCBA",
-              "role": "Supervising analyst (placeholder)",
-              "photo": "/assets/team/priya-shah.svg"
-            }
-          ],
+          "team": [],
           "related": [
             "early-learners",
             "feeding",
@@ -1151,6 +1143,25 @@
         "href": "https://www.indeed.com/cmp/Victoria-Transcultural-Clinical-Center/",
         "label": "View VTCC jobs on Indeed"
       },
+      "openRolesEyebrow": "Open roles",
+      "benefits": [
+        {
+          "title": "RBT training, in-house",
+          "body": "New Behavior Technicians complete the 40-hour coursework and competency assessment here."
+        },
+        {
+          "title": "Fieldwork while you work",
+          "body": "RBTs in a qualifying master's program can accrue supervised fieldwork hours on the job."
+        },
+        {
+          "title": "Monthly professional development",
+          "body": "Monthly RBT learning hours cover skills, ethics, documentation, and clinical quality."
+        },
+        {
+          "title": "Safety-Care on the team",
+          "body": "Senior technicians teach Safety-Care so colleagues can prevent and respond to unsafe behavior."
+        }
+      ],
       "pillars": [
         {
           "title": "People first",
@@ -1205,7 +1216,9 @@
       "steps": {
         "eyebrow": "What to expect",
         "title": "A clear path from application to conversation",
+        "id": "hiring-process",
         "intro": "We want the process to feel straightforward, respectful, and worth your time.",
+        "summary": "Three steps from your application to a conversation with the team.",
         "items": [
           {
             "title": "Share your background",
@@ -1244,6 +1257,7 @@
       "structure": {
         "eyebrow": "How the team is organized",
         "title": "Clear clinical roles, from technician to analyst",
+        "summary": "From behavior technician to BCBA, with specialized programs alongside.",
         "intro": "ABA cases are designed by a Board Certified Behavior Analyst and carried out by trained technicians under that supervision. Specialized programs sit alongside that clinical structure. Titles below describe how care is organized—not a published org chart or headcount.",
         "roles": [
           {
@@ -1281,6 +1295,7 @@
       "differentiator": {
         "eyebrow": "How VTCC differs from many ABA clinics",
         "title": "We run the RBT training program in-house",
+        "summary": "40 hours of coursework and your competency assessment, done here.",
         "body": "A common hiring path in ABA is to send new technicians to a third-party 40-hour course and an outside assessor. VTCC conducts the RBT training program itself. New Behavior Technicians complete the 40-hour RBT credentialing coursework here, VTCC conducts the competency assessment in-house, and the RBT exam is taken at a Pearson VUE / Pearson Professional Center.",
         "steps": [
           {
@@ -1308,12 +1323,8 @@
           "label": "BCBA"
         },
         {
-          "id": "programs",
-          "label": "Employee programs"
-        },
-        {
-          "id": "clinic",
-          "label": "Clinic & recognition"
+          "id": "other",
+          "label": "Other ways to apply"
         }
       ],
       "postings": {
@@ -1392,6 +1403,7 @@
       "programs": {
         "eyebrow": "Employee programs",
         "title": "Support after you are hired",
+        "summary": "Fieldwork hours, monthly learning, and a senior technician track after you are hired.",
         "intro": "These programs sit alongside day-to-day case work. They are written to match how the terms are used in ABA practice. Details of schedules, pay, and enrollment are confirmed with the clinical team after hire.",
         "items": [
           {
@@ -1431,6 +1443,7 @@
       "recognition": {
         "eyebrow": "Employee recognition",
         "title": "Employee of the Month and Grounds for Greatness",
+        "summary": "Employee of the Month and everyday shoutouts for work that stands out.",
         "intro": "VTCC recognizes people who show up for families and for each other. Names and photos of current honorees are published only when leadership approves them. The programs themselves are described here so applicants know recognition is part of clinic life.",
         "items": [
           {
@@ -1448,6 +1461,7 @@
       "clinic": {
         "eyebrow": "Clinic life",
         "title": "Where the team is based",
+        "summary": "Fairfax is home base, with much of the work happening in family homes.",
         "intro": "VTCC’s published clinic is the Fairfax office. Much ABA work also happens in family homes; the office is the base for meetings, training, and cases scheduled on site.",
         "galleryTitle": "Inside the clinic",
         "galleryIntro": "This gallery is reserved for photographs of VTCC's own clinic. Kitchen and other interior feature photos are not in the current website library, so those frames stay empty rather than filling with stock.",

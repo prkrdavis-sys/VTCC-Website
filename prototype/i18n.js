@@ -4,7 +4,9 @@ const QUIZ_PREFILL_STORAGE_KEY = 'vtcc-quiz-prefill'
 const PAGE = window.VTCC_PAGE ?? 'home'
 const BASE = window.VTCC_BASE ?? ''
 const RESOURCE_SLUG = window.VTCC_RESOURCE_SLUG
-const CAREERS_TAB_IDS = ['behavior-technician', 'bcba', 'programs', 'clinic']
+const CAREERS_TAB_IDS = ['behavior-technician', 'bcba', 'other']
+const CAREER_DISCLOSURE_IDS = ['rbt-pathway', 'team-structure', 'programs', 'clinic', 'hiring-process']
+const CAREER_DISCLOSURE_IDS = ['rbt-pathway', 'team-structure', 'programs', 'clinic', 'hiring-process']
 
 function escapeHtml(value) {
   return String(value)
@@ -1360,8 +1362,10 @@ function renderIndeedLink(indeed, extraClass = '') {
   }
 
   const className = extraClass ? `career-indeed ${extraClass}` : 'career-indeed'
+  // The mark's ink sits right of the 24px viewBox center, so the window is
+  // shifted until the glyph sits in the middle of the round button.
   return `<a class="${className}" href="${escapeHtml(indeed.href)}" target="_blank" rel="noopener noreferrer">
-            <svg class="career-indeed-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <svg class="career-indeed-icon" viewBox="1.2 0 24 24" aria-hidden="true" focusable="false">
               <path fill="currentColor" d="M11.566 21.5633v-8.762c.2553.0231.5009.0346.758.0346 1.2225 0 2.3739-.3206 3.3506-.8928v9.6182c0 .8219-.1957 1.4287-.5757 1.8338-.378.4033-.8808.6049-1.491.6049-.6007 0-1.0766-.2016-1.468-.6183-.3781-.4032-.5739-1.01-.5739-1.8184zM11.589.5659c2.5447-.8929 5.4424-.8449 7.6186.987.405.3687.8673.8334 1.0515 1.3806.2207.6913-.7695-.073-.9057-.167-.71-.4532-1.4182-.8334-2.2127-1.0946C12.8614.3873 8.8122 2.709 6.2945 6.315c-1.0516 1.5939-1.7367 3.2721-2.299 5.1174-.0614.2017-.1094.4647-.2207.6413-.1113.2036-.048-.5453-.048-.5702.0845-.7623.2438-1.4997.4414-2.237C5.3292 5.3375 7.897 2.0655 11.5891.5658zm4.9281 7.0587c0 1.6686-1.353 3.0224-3.0205 3.0224-1.6677 0-3.0186-1.3538-3.0186-3.0224 0-1.6687 1.351-3.0224 3.0186-3.0224 1.6676 0 3.0205 1.3518 3.0205 3.0224Z"/>
             </svg>
             <span class="visually-hidden">${escapeHtml(indeed.label)}</span>
@@ -1457,87 +1461,73 @@ function renderCareersGallery(clinic, recognition) {
   return `<div class="careers-gallery">${figures}</div>`
 }
 
+function renderCareerDisclosure({ id, eyebrow, title, summary, body, expandLabel }) {
+  return `<section class="section career-disclosure" id="${escapeHtml(id)}" data-disclosure>
+        <h2 class="career-disclosure-head">
+          <button type="button" class="career-disclosure-trigger" aria-expanded="false" aria-controls="disclosure-${escapeHtml(id)}" data-disclosure-trigger>
+            <span class="career-disclosure-copy">
+              <span class="eyebrow">${escapeHtml(eyebrow)}</span>
+              <span class="career-disclosure-title">${escapeHtml(title)}</span>
+              <span class="career-disclosure-summary">${escapeHtml(summary)}</span>
+            </span>
+            <span class="career-disclosure-indicator" aria-hidden="true"></span>
+            <span class="visually-hidden" data-disclosure-state>${escapeHtml(expandLabel)}</span>
+          </button>
+        </h2>
+        <div class="career-disclosure-panel" id="disclosure-${escapeHtml(id)}" data-disclosure-panel hidden="until-found">
+          <div class="career-disclosure-inner">${body}</div>
+        </div>
+      </section>`
+}
+
+function renderCareerBenefits(content) {
+  const careers = content.sections.careers
+  const cards = (careers.benefits ?? [])
+    .map(
+      (benefit) => `<article class="career-benefit">
+            <h3>${escapeHtml(benefit.title)}</h3>
+            <p>${escapeHtml(benefit.body)}</p>
+          </article>`,
+    )
+    .join('')
+  const facts = (careers.facts ?? [])
+    .map(
+      (fact) => `<div class="careers-fact">
+            <dt>${escapeHtml(fact.value)}</dt>
+            <dd>${escapeHtml(fact.label)}</dd>
+          </div>`,
+    )
+    .join('')
+  const photo = `${BASE}assets/employee-appreciation.jpg`
+
+  return `<section class="section career-benefits" id="why-vtcc">
+        <figure class="career-benefits-photo">
+          <img src="${escapeHtml(photo)}" alt="${escapeHtml(careers.opportunity.photoAlt ?? '')}" />
+        </figure>
+        ${renderSectionHeading(careers.opportunity.eyebrow, careers.opportunity.title, careers.opportunity.body)}
+        <div class="career-benefit-grid">${cards}</div>
+        <div class="career-benefit-foot">
+          <dl class="career-benefit-facts">${facts}</dl>
+          ${careers.factsNote ? `<p class="careers-note">${escapeHtml(careers.factsNote)}</p>` : ''}
+        </div>
+      </section>`
+}
+
 function renderHiringDetails(content) {
   const careers = content.sections.careers
   if (!careers.tabs || !careers.postings) {
     return ''
   }
 
-  const structureCards = (careers.structure.roles ?? [])
-    .map(
-      (role) => `<article class="careers-role-card">
-            <p class="card-label">${escapeHtml(role.level)}</p>
-            <h3>${escapeHtml(role.title)}</h3>
-            <p>${escapeHtml(role.body)}</p>
-          </article>`,
-    )
-    .join('')
-
-  const differentiatorSteps = (careers.differentiator.steps ?? [])
-    .map(
-      (step) => `<li>
-            <strong>${escapeHtml(step.title)}</strong>
-            <span>${escapeHtml(step.body)}</span>
-          </li>`,
-    )
-    .join('')
-
-  const tabs = (careers.tabs ?? [])
+  const tabs = (careers.tabs ?? []).filter((tab) => CAREERS_TAB_IDS.includes(tab.id))
     .map((tab, index) => {
       const selected = index === 0
       return `<button type="button" class="careers-tab${selected ? ' is-active' : ''}" role="tab" id="careers-tab-${escapeHtml(tab.id)}" aria-controls="careers-panel-${escapeHtml(tab.id)}" aria-selected="${selected ? 'true' : 'false'}" tabindex="${selected ? '0' : '-1'}" data-careers-tab="${escapeHtml(tab.id)}">${escapeHtml(tab.label)}</button>`
     })
     .join('\n          ')
 
-  const programCards = (careers.programs.items ?? [])
-    .map(
-      (program) => `<article class="careers-program-card">
-            <p class="card-label">${escapeHtml(program.summary)}</p>
-            <h3>${escapeHtml(program.title)}</h3>
-            <p>${escapeHtml(program.body)}</p>
-            ${renderCareersList(program.details)}
-          </article>`,
-    )
-    .join('')
-
-  const recognitionItems = (careers.recognition.items ?? [])
-    .map(
-      (item) => `<article>
-            <h3>${escapeHtml(item.title)}</h3>
-            <p>${escapeHtml(item.body)}</p>
-          </article>`,
-    )
-    .join('')
-
-  const officeCards = content.offices
-    .map(
-      (office) => `<address class="careers-office">
-            <strong>${escapeHtml(office.name)}</strong>
-            ${escapeHtml(office.street)}<br />
-            ${escapeHtml(office.city)}<br />
-            <a href="${escapeHtml(office.phoneHref)}">${escapeHtml(office.phone)}</a><br />
-            ${escapeHtml(content.ui.faxLabel)}: ${escapeHtml(office.fax)}
-          </address>`,
-    )
-    .join('')
-
-  return `<section class="section careers-differentiator">
-        <div class="section-heading">
-          <h2>${escapeHtml(careers.differentiator.eyebrow)}</h2>
-          <h3>${escapeHtml(careers.differentiator.title)}</h3>
-          <p>${escapeHtml(careers.differentiator.body)}</p>
-        </div>
-        <ol class="home-steps careers-steps">${differentiatorSteps}</ol>
-      </section>
-      <section class="section careers-structure page-section">
-        <div class="section-heading">
-          <h2>${escapeHtml(careers.structure.eyebrow)}</h2>
-          <h3>${escapeHtml(careers.structure.title)}</h3>
-          <p>${escapeHtml(careers.structure.intro)}</p>
-        </div>
-        <div class="careers-role-grid">${structureCards}</div>
-      </section>
-      <section class="section careers-board page-section" data-careers-board>
+  return `<section id="open-roles" class="section careers-board page-section" data-careers-board>
+        ${renderSectionHeading('', careers.openRolesEyebrow)}
         <div class="careers-tabs-wrap">
           <div class="careers-tabs" role="tablist" aria-label="${escapeHtml(careers.tabsLabel)}">
           ${tabs}
@@ -1546,30 +1536,16 @@ function renderHiringDetails(content) {
         <div class="careers-panels">
           <div class="careers-panel" role="tabpanel" id="careers-panel-behavior-technician" aria-labelledby="careers-tab-behavior-technician" data-careers-panel="behavior-technician">
             ${renderCareersPosting(careers.postings.bt)}
-            <aside class="careers-other-openings">
-              <h3>${escapeHtml(careers.otherOpenings.title)}</h3>
-              <p>${escapeHtml(careers.otherOpenings.body)}</p>
-            </aside>
           </div>
           <div class="careers-panel" role="tabpanel" id="careers-panel-bcba" aria-labelledby="careers-tab-bcba" data-careers-panel="bcba" hidden>
             ${renderCareersPosting(careers.postings.bcba)}
           </div>
-          <div class="careers-panel" role="tabpanel" id="careers-panel-programs" aria-labelledby="careers-tab-programs" data-careers-panel="programs" hidden>
-            ${renderSectionHeading(careers.programs.eyebrow, careers.programs.title, careers.programs.intro)}
-            <div class="careers-program-grid">${programCards}</div>
-          </div>
-          <div class="careers-panel" role="tabpanel" id="careers-panel-clinic" aria-labelledby="careers-tab-clinic" data-careers-panel="clinic" hidden>
-            ${renderSectionHeading(careers.clinic.eyebrow, careers.clinic.title, careers.clinic.intro)}
-            <div class="careers-office-grid">${officeCards}</div>
-            <div class="careers-gallery-block">
-              <h3>${escapeHtml(careers.clinic.galleryTitle)}</h3>
-              <p>${escapeHtml(careers.clinic.galleryIntro)}</p>
-              ${renderCareersGallery(careers.clinic, careers.recognition)}
-            </div>
-            <div class="careers-recognition">
-              ${renderSectionHeading(careers.recognition.eyebrow, careers.recognition.title, careers.recognition.intro)}
-              <div class="careers-recognition-grid">${recognitionItems}</div>
-            </div>
+          <div class="careers-panel" role="tabpanel" id="careers-panel-other" aria-labelledby="careers-tab-other" data-careers-panel="other" hidden>
+            <aside class="careers-other-openings">
+              <h3>${escapeHtml(careers.otherOpenings.title)}</h3>
+              <p>${escapeHtml(careers.otherOpenings.body)}</p>
+              <a class="button" href="${escapeHtml(toStaticHref(careers.applyHref))}">${escapeHtml(careers.applyLabel)}</a>
+            </aside>
           </div>
         </div>
       </section>`
@@ -1577,26 +1553,18 @@ function renderHiringDetails(content) {
 
 function renderCareerPage(content) {
   const careers = content.sections.careers
-  const pillars = careers.pillars
+  const expandLabel = content.ui.careerExpandLabel ?? 'Show this section'
+  const chips = (careers.pillars ?? [])
     .map(
-      (pillar) => `<article class="career-pillar">
-          <h3>${escapeHtml(pillar.title)}</h3>
-          <p>${escapeHtml(pillar.body)}</p>
-        </article>`,
-    )
-    .join('\n          ')
-  const opportunityItems = careers.opportunity.items
-    .map((item) => `<li>${escapeHtml(item)}</li>`)
-    .join('')
-  const workplaceFacts = (careers.facts ?? [])
-    .map(
-      (fact) => `<div class="careers-fact">
-            <dt>${escapeHtml(fact.value)}</dt>
-            <dd>${escapeHtml(fact.label)}</dd>
-          </div>`,
+      (pillar) => `<li class="career-pillar-chip">
+          <strong>${escapeHtml(pillar.title)}</strong>
+          <span>${escapeHtml(pillar.body)}</span>
+        </li>`,
     )
     .join('')
-  const workplacePhoto = `${BASE}assets/employee-appreciation.jpg`
+  const leadQuotes = careers.quotes
+    ? { ...careers.quotes, items: (careers.quotes.items ?? []).slice(0, 1) }
+    : null
   const steps = careers.steps.items
     .map(
       (step, index) => `<li class="career-step">
@@ -1609,13 +1577,122 @@ function renderCareerPage(content) {
     )
     .join('\n          ')
 
+  const structureCards = (careers.structure?.roles ?? [])
+    .map(
+      (role) => `<article class="careers-role-card">
+            <p class="card-label">${escapeHtml(role.level)}</p>
+            <h3>${escapeHtml(role.title)}</h3>
+            <p>${escapeHtml(role.body)}</p>
+          </article>`,
+    )
+    .join('')
+  const differentiatorSteps = (careers.differentiator?.steps ?? [])
+    .map(
+      (step) => `<li>
+            <strong>${escapeHtml(step.title)}</strong>
+            <span>${escapeHtml(step.body)}</span>
+          </li>`,
+    )
+    .join('')
+  const programCards = (careers.programs?.items ?? [])
+    .map(
+      (program) => `<article class="careers-program-card">
+            <p class="card-label">${escapeHtml(program.summary)}</p>
+            <h3>${escapeHtml(program.title)}</h3>
+            <p>${escapeHtml(program.body)}</p>
+            ${renderCareersList(program.details)}
+          </article>`,
+    )
+    .join('')
+  const recognitionItems = (careers.recognition?.items ?? [])
+    .map(
+      (item) => `<article>
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.body)}</p>
+          </article>`,
+    )
+    .join('')
+  const officeCards = (content.offices ?? [])
+    .map(
+      (office) => `<address class="careers-office">
+            <strong>${escapeHtml(office.name)}</strong>
+            ${escapeHtml(office.street)}<br />
+            ${escapeHtml(office.city)}<br />
+            <a href="${escapeHtml(office.phoneHref)}">${escapeHtml(office.phone)}</a><br />
+            ${escapeHtml(content.ui.faxLabel)}: ${escapeHtml(office.fax)}
+          </address>`,
+    )
+    .join('')
+
+  const disclosures = [
+    careers.differentiator
+      ? renderCareerDisclosure({
+          id: 'rbt-pathway',
+          eyebrow: careers.differentiator.eyebrow,
+          title: careers.differentiator.title,
+          summary: careers.differentiator.summary,
+          expandLabel,
+          body: `<p>${escapeHtml(careers.differentiator.body)}</p><ol class="home-steps careers-steps">${differentiatorSteps}</ol>`,
+        })
+      : '',
+    careers.structure
+      ? renderCareerDisclosure({
+          id: 'team-structure',
+          eyebrow: careers.structure.eyebrow,
+          title: careers.structure.title,
+          summary: careers.structure.summary,
+          expandLabel,
+          body: `<p>${escapeHtml(careers.structure.intro)}</p><div class="careers-role-grid">${structureCards}</div>`,
+        })
+      : '',
+    careers.programs
+      ? renderCareerDisclosure({
+          id: 'programs',
+          eyebrow: careers.programs.eyebrow,
+          title: careers.programs.title,
+          summary: careers.programs.summary,
+          expandLabel,
+          body: `<p>${escapeHtml(careers.programs.intro)}</p><div class="careers-program-grid">${programCards}</div>`,
+        })
+      : '',
+    careers.clinic
+      ? renderCareerDisclosure({
+          id: 'clinic',
+          eyebrow: careers.clinic.eyebrow,
+          title: careers.clinic.title,
+          summary: careers.clinic.summary,
+          expandLabel,
+          body: `<p>${escapeHtml(careers.clinic.intro)}</p>
+            <div class="careers-office-grid">${officeCards}</div>
+            <div class="careers-gallery-block">
+              <h3>${escapeHtml(careers.clinic.galleryTitle)}</h3>
+              <p>${escapeHtml(careers.clinic.galleryIntro)}</p>
+              ${renderCareersGallery(careers.clinic, careers.recognition)}
+            </div>
+            <div class="careers-recognition">
+              ${renderSectionHeading(careers.recognition.eyebrow, careers.recognition.title, careers.recognition.intro)}
+              <div class="careers-recognition-grid">${recognitionItems}</div>
+            </div>`,
+        })
+      : '',
+    renderCareerDisclosure({
+      id: careers.steps.id ?? 'hiring-process',
+      eyebrow: careers.steps.eyebrow,
+      title: careers.steps.title,
+      summary: careers.steps.summary,
+      expandLabel,
+      body: `<p>${escapeHtml(careers.steps.intro)}</p><ol class="career-step-list">${steps}</ol>`,
+    }),
+  ].join('\n      ')
+
   return `<section class="career-hero page-section">
         <div class="career-hero-copy">
           <h1>${escapeHtml(careers.title)}</h1>
           <p class="career-hero-intro">${escapeHtml(careers.intro)}</p>
+          <ul class="career-pillar-chips">${chips}</ul>
           <div class="button-row">
             <a class="button" href="${escapeHtml(toStaticHref(careers.applyHref))}">${escapeHtml(careers.applyLabel)}</a>
-            <a class="button secondary" href="#career-opportunity">${escapeHtml(careers.overviewLabel)}</a>
+            <a class="button secondary" href="#open-roles">${escapeHtml(careers.overviewLabel)}</a>
             ${renderIndeedLink(careers.indeed)}
           </div>
         </div>
@@ -1627,36 +1704,12 @@ function renderCareerPage(content) {
           </div>
         </div>
       </section>
-      <section class="section career-pillars">
-        <div class="career-pillars-grid">${pillars}</div>
-      </section>
-      ${renderQuoteBoard(careers.quotes, 'career-quotes')}
-      <section id="career-opportunity" class="section career-opportunity">
-        <div class="career-workplace">
-          <figure class="career-workplace-photo">
-            <img src="${escapeHtml(workplacePhoto)}" alt="${escapeHtml(careers.opportunity.photoAlt)}" />
-          </figure>
-          <div class="career-workplace-copy">
-            ${renderSectionHeading(careers.opportunity.eyebrow, careers.opportunity.title, careers.opportunity.body)}
-            <ul class="career-workplace-list">${opportunityItems}</ul>
-          </div>
-        </div>
-        <div class="career-workplace-foot">
-          <dl class="career-workplace-facts">
-            ${workplaceFacts}
-          </dl>
-          <p class="careers-note">${escapeHtml(careers.factsNote)}</p>
-        </div>
-      </section>
+      ${renderCareerBenefits(content)}
+      ${leadQuotes ? renderQuoteBoard(leadQuotes, 'career-quotes') : ''}
       ${renderHiringDetails(content)}
-      <section class="section career-steps">
-        <div class="career-path">
-          <div class="career-path-intro">
-            ${renderSectionHeading(careers.steps.eyebrow, careers.steps.title, careers.steps.intro)}
-          </div>
-          <ol class="career-step-list">${steps}</ol>
-        </div>
-      </section>
+      <div class="career-disclosure-stack">
+        ${disclosures}
+      </div>
       <section class="section career-closing">
         <div>
           <h2>${escapeHtml(careers.closing.title)}</h2>
@@ -3365,7 +3418,7 @@ function render() {
   bindMobileMenu()
   bindFaqSearch(content)
   bindRequestForms(content)
-  bindCareersPage()
+  bindCareersPage(content)
   bindCareerApplication(content)
   bindContactQuiz(content)
   bindProgramPanels()

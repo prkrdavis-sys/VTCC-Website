@@ -33,6 +33,8 @@
     "careerFileHint": "PDF, DOC, DOCX o TXT. Tamaño máximo: 5 MB.",
     "careerFileError": "Elija un archivo PDF, DOC, DOCX o TXT de hasta 5 MB.",
     "careerFileRemove": "Eliminar archivo",
+    "careerExpandLabel": "Mostrar esta sección",
+    "careerCollapseLabel": "Ocultar esta sección",
     "careerFormSubmitting": "Preparando la solicitud...",
     "careerFormSuccess": "Su solicitud de muestra está lista. En una versión de producción, VTCC la recibiría mediante un proceso seguro aprobado.",
     "careerFormError": "No pudimos preparar la solicitud. Revise los campos marcados e inténtelo de nuevo.",
@@ -312,23 +314,13 @@
             "El progreso se monitorea con regularidad y las metas se actualizan con el tiempo."
           ],
           "leader": {
-            "name": "Jordan Hale, BCBA",
-            "role": "Líder del programa ABA (marcador de posición)",
-            "bio": "Líder provisional de ABA. Coordina la evaluación, la supervisión y la orientación familiar hasta que VTCC publique biografías aprobadas.",
-            "photo": "/assets/team/jordan-hale.svg"
+            "name": "Holly Nasello, BCBA",
+            "role": "Directora Clínica",
+            "bio": "Directora Clínica del programa de terapia ABA de VTCC. Supervisa la evaluación, la planificación del tratamiento y la supervisión clínica de los servicios ABA individualizados.",
+            "photo": "/assets/team/holly-nasello.svg",
+            "published": true
           },
-          "team": [
-            {
-              "name": "Sam Rivera, RBT",
-              "role": "Técnico de conducta principal (marcador de posición)",
-              "photo": "/assets/team/sam-rivera.svg"
-            },
-            {
-              "name": "Priya Shah, BCBA",
-              "role": "Analista supervisora (marcador de posición)",
-              "photo": "/assets/team/priya-shah.svg"
-            }
-          ],
+          "team": [],
           "related": [
             "early-learners",
             "feeding",
@@ -1151,6 +1143,25 @@
         "href": "https://www.indeed.com/cmp/Victoria-Transcultural-Clinical-Center/",
         "label": "Ver empleos de VTCC en Indeed"
       },
+      "openRolesEyebrow": "Puestos abiertos",
+      "benefits": [
+        {
+          "title": "Capacitación RBT en la clínica",
+          "body": "Los nuevos técnicos de conducta completan aquí las 40 horas de curso y la evaluación de competencia."
+        },
+        {
+          "title": "Fieldwork mientras trabaja",
+          "body": "Los RBT en un programa de maestría que califica pueden acumular horas de fieldwork supervisado en el trabajo."
+        },
+        {
+          "title": "Desarrollo profesional mensual",
+          "body": "Las horas mensuales de aprendizaje RBT cubren habilidades, ética, documentación y calidad clínica."
+        },
+        {
+          "title": "Safety-Care en el equipo",
+          "body": "Los técnicos senior enseñan Safety-Care para prevenir y responder a conductas inseguras."
+        }
+      ],
       "pillars": [
         {
           "title": "Las personas primero",
@@ -1205,7 +1216,9 @@
       "steps": {
         "eyebrow": "Qué puede esperar",
         "title": "Un camino claro desde la solicitud hasta la conversación",
+        "id": "hiring-process",
         "intro": "Queremos que el proceso sea claro, respetuoso y valioso para su tiempo.",
+        "summary": "Tres pasos desde su solicitud hasta una conversación con el equipo.",
         "items": [
           {
             "title": "Comparta su experiencia",
@@ -1244,6 +1257,7 @@
       "structure": {
         "eyebrow": "Cómo se organiza el equipo",
         "title": "Roles clínicos claros, del técnico al analista",
+        "summary": "Del técnico de conducta al BCBA, con programas especializados al lado.",
         "intro": "Los casos de ABA los diseña un analista de conducta certificado por la junta y los llevan a cabo técnicos capacitados bajo esa supervisión. Los programas especializados acompañan esa estructura clínica. Los títulos siguientes describen cómo se organiza la atención, no un organigrama ni una plantilla publicados.",
         "roles": [
           {
@@ -1281,6 +1295,7 @@
       "differentiator": {
         "eyebrow": "En qué se diferencia VTCC de muchas clínicas ABA",
         "title": "Nosotros impartimos el programa de capacitación RBT",
+        "summary": "40 horas de curso y la evaluación de competencia, aquí mismo.",
         "body": "Una ruta común en ABA es enviar a los técnicos nuevos a un curso de 40 horas de un tercero y a un evaluador externo. VTCC imparte el programa de capacitación RBT. Los técnicos de conducta nuevos completan aquí el curso de credencialización RBT de 40 horas, VTCC realiza la evaluación de competencia internamente y el examen RBT se presenta en un centro Pearson VUE / Pearson.",
         "steps": [
           {
@@ -1308,12 +1323,8 @@
           "label": "BCBA"
         },
         {
-          "id": "programs",
-          "label": "Programas para empleados"
-        },
-        {
-          "id": "clinic",
-          "label": "Clínica y reconocimiento"
+          "id": "other",
+          "label": "Otras formas de postular"
         }
       ],
       "postings": {
@@ -1392,6 +1403,7 @@
       "programs": {
         "eyebrow": "Programas para empleados",
         "title": "Apoyo después de la contratación",
+        "summary": "Horas de fieldwork, aprendizaje mensual y una vía de técnico senior después de la contratación.",
         "intro": "Estos programas acompañan el trabajo diario de los casos. Están escritos para coincidir con el uso de estos términos en la práctica ABA. Los detalles de horarios, pago e inscripción se confirman con el equipo clínico después de la contratación.",
         "items": [
           {
@@ -1431,6 +1443,7 @@
       "recognition": {
         "eyebrow": "Reconocimiento a empleados",
         "title": "Empleado del mes y Grounds for Greatness",
+        "summary": "Empleado del mes y reconocimientos del día a día por el trabajo que destaca.",
         "intro": "VTCC reconoce a las personas que están presentes para las familias y para sus compañeros. Los nombres y fotos de los homenajeados actuales se publican solo cuando el liderazgo lo aprueba. Los programas se describen aquí para que los solicitantes sepan que el reconocimiento forma parte de la vida de la clínica.",
         "items": [
           {
@@ -1448,6 +1461,7 @@
       "clinic": {
         "eyebrow": "Vida en la clínica",
         "title": "Dónde está el equipo",
+        "summary": "Fairfax es la base, y gran parte del trabajo ocurre en los hogares de las familias.",
         "intro": "La clínica publicada de VTCC es la oficina de Fairfax. Gran parte del trabajo de ABA también ocurre en los hogares; la oficina es la base para reuniones, capacitación y casos programados en el sitio.",
         "galleryTitle": "Dentro de la clínica",
         "galleryIntro": "Esta galería está reservada para fotografías de la propia clínica de VTCC. Las fotos de la cocina y de otros espacios interiores no están en la biblioteca actual del sitio, así que esos marcos permanecen vacíos en lugar de llenarse con imágenes de archivo.",
