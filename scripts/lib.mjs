@@ -46,6 +46,31 @@ export function renderSelectField(field) {
           </label>`
 }
 
+function renderInputExtras(field) {
+  const extras = []
+
+  if (field.autocomplete) {
+    extras.push(` autocomplete="${escapeHtml(field.autocomplete)}"`)
+  }
+  if (field.min != null) {
+    extras.push(` min="${escapeHtml(field.min)}"`)
+  }
+  if (field.max != null) {
+    extras.push(` max="${escapeHtml(field.max)}"`)
+  }
+  if (field.step != null) {
+    extras.push(` step="${escapeHtml(field.step)}"`)
+  }
+  if (field.inputmode) {
+    extras.push(` inputmode="${escapeHtml(field.inputmode)}"`)
+  }
+  if (field.placeholder) {
+    extras.push(` placeholder="${escapeHtml(field.placeholder)}"`)
+  }
+
+  return extras.join('')
+}
+
 export function renderFormField(field) {
   if (field.type === 'select') {
     return renderSelectField(field)
@@ -58,12 +83,8 @@ export function renderFormField(field) {
           </label>`
   }
 
-  const autocomplete = field.autocomplete
-    ? ` autocomplete="${escapeHtml(field.autocomplete)}"`
-    : ''
-
   return `<label>
             ${escapeHtml(field.label)}
-            <input type="${escapeHtml(field.type)}" name="${escapeHtml(field.name)}"${autocomplete} />
+            <input type="${escapeHtml(field.type)}" name="${escapeHtml(field.name)}"${renderInputExtras(field)} />
           </label>`
 }

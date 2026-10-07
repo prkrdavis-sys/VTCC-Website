@@ -19,16 +19,12 @@ Object.assign(es.ui, {
   guidesNavLabel: 'Preguntas y guías',
   servicesNavLabel: 'Servicios',
   ageRangeLabel: 'Edades que atiende',
-  meetTheTeamLabel: 'Conozca al equipo',
   relatedProgramsLabel: 'Programas relacionados',
   programGoalsLabel: 'Metas',
   programStructureLabel: 'Cómo está estructurado el programa',
-  programLeadLabel: 'Liderado por',
-  placeholderStaffNote:
-    'Los nombres, fotos y cargos del personal son marcadores de posición hasta que VTCC apruebe las biografías publicadas.',
   programFaqLinkLabel: 'Ver preguntas de {program}',
   faqProgramLinkNote:
-    'Para ver las metas, cómo funciona el programa y quién lo dirige, visite la página de servicios.',
+    'Para ver las metas y cómo funciona el programa, visite la página de servicios.',
   contactSwitchFamilyPrompt: '¿Busca servicios para su familia?',
   contactSwitchFamilyLink: 'Use el formulario de solicitud familiar',
   contactSwitchReferralPrompt: '¿Va a enviar una referencia profesional?',
@@ -149,7 +145,7 @@ es.hero.actions = [
 
 es.sections.careers = {
   eyebrow: 'Carreras en VTCC',
-  title: 'Aporte sus fortalezas a un trabajo que importa',
+  title: 'Practique ABA con niños y familias',
   intro:
     'Únase a un equipo que ayuda a niños, adolescentes y familias a avanzar con atención práctica, respetuosa y culturalmente responsiva.',
   applyLabel: 'Solicitar empleo',
@@ -622,14 +618,6 @@ es.sections.services.cards = [
       "Los cuidadores reciben orientación para practicar habilidades entre sesiones.",
       "El progreso se monitorea con regularidad y las metas se actualizan con el tiempo."
     ],
-    "leader": {
-      "name": "Holly Nasello, BCBA",
-      "role": "Directora Clínica",
-      "bio": "Directora Clínica del programa de terapia ABA de VTCC. Supervisa la evaluación, la planificación del tratamiento y la supervisión clínica de los servicios ABA individualizados.",
-      "photo": "/assets/team/holly-nasello.svg",
-      "published": true
-    },
-    "team": [],
     "related": [
       "early-learners",
       "feeding",
@@ -661,14 +649,6 @@ es.sections.services.cards = [
       "Los cuidadores reciben orientación para continuar la práctica en casa.",
       "El progreso se monitorea y el plan se actualiza a medida que crecen las habilidades."
     ],
-    "leader": {
-      "name": "Brieanna Rollocks, BCaBA",
-      "role": "Líder de Primeros Aprendices y Enriquecimiento Social",
-      "bio": "Lidera el programa de Primeros Aprendices para niños en edad preescolar y el programa de Enriquecimiento Social para edades de 8 a 12 años. Ayuda a los niños a desarrollar comunicación, juego, rutinas y habilidades con compañeros en entornos con apoyo.",
-      "photo": "/assets/team/brieanna-rollocks.svg",
-      "published": true
-    },
-    "team": [],
     "related": [
       "aba",
       "social-enrichment",
@@ -700,24 +680,6 @@ es.sections.services.cards = [
       "Los cuidadores aprenden a apoyar alimentos nuevos sin añadir presión.",
       "El progreso se revisa y el plan se ajusta según la respuesta del niño."
     ],
-    "leader": {
-      "name": "Leo Garcia, BCBA",
-      "role": "Líder del Programa de Alimentación (marcador de posición)",
-      "bio": "Líder provisional del Programa de Alimentación. Representa al clínico que guiaría las metas de comida una vez que VTCC apruebe las biografías publicadas.",
-      "photo": "/assets/team/leo-garcia.svg"
-    },
-    "team": [
-      {
-        "name": "Priya Shah, BCBA",
-        "role": "Analista supervisora (marcador de posición)",
-        "photo": "/assets/team/priya-shah.svg"
-      },
-      {
-        "name": "Sam Rivera, RBT",
-        "role": "Técnico de conducta principal (marcador de posición)",
-        "photo": "/assets/team/sam-rivera.svg"
-      }
-    ],
     "related": [
       "aba",
       "early-learners",
@@ -734,7 +696,7 @@ es.sections.services.cards = [
     "body": "El programa de Enriquecimiento Social ayuda a niños de 8 a 12 años a unirse a actividades grupales, construir amistades y practicar habilidades sociales cotidianas con compañeros.",
     "ageRange": "Por lo general, de 8 a 12 años",
     "ageNote": "Este grupo está diseñado para niños en edad escolar. La compatibilidad depende de la evaluación, las metas actuales, el financiamiento y la autorización.",
-    "description": "Los niños practican unirse a juegos, turnarse, compartir atención y mantenerse involucrados con compañeros en un grupo pequeño. Brieanna Rollocks, BCaBA, lidera el programa para que la práctica sea estructurada, positiva y ajustada a las metas de cada niño.",
+    "description": "Los niños practican unirse a juegos, turnarse, compartir atención y mantenerse involucrados con compañeros en un grupo pequeño. La práctica se mantiene estructurada, positiva y ajustada a las metas de cada niño.",
     "goals": [
       "Unirse a juegos grupales y actividades compartidas",
       "Practicar turnos, espera y juego flexible",
@@ -748,14 +710,6 @@ es.sections.services.cards = [
       "Las familias reciben guía para practicar las habilidades en casa y en la escuela.",
       "Las metas se actualizan a medida que el niño gana confianza con sus compañeros."
     ],
-    "leader": {
-      "name": "Brieanna Rollocks, BCaBA",
-      "role": "Líder de Primeros Aprendices y Enriquecimiento Social",
-      "bio": "Lidera el programa de Primeros Aprendices para niños en edad preescolar y el programa de Enriquecimiento Social para edades de 8 a 12 años. Ayuda a los niños a desarrollar comunicación, juego, rutinas y habilidades con compañeros en entornos con apoyo.",
-      "photo": "/assets/team/brieanna-rollocks.svg",
-      "published": true
-    },
-    "team": [],
     "related": [
       "aba",
       "early-learners",
@@ -786,14 +740,6 @@ es.sections.services.cards = [
       "Las familias reciben guía para practicar las habilidades fuera del grupo.",
       "Las metas se actualizan a medida que el niño o adolescente gana independencia."
     ],
-    "leader": {
-      "name": "Laurel Kokilananda, BCBA",
-      "role": "Líder del Grupo de Habilidades Sociales",
-      "bio": "Lidera el Grupo de Habilidades Sociales de VTCC. Ayuda a niños en edad escolar y adolescentes a practicar habilidades avanzadas con compañeros, como conversación, pensamiento flexible y juego apropiado para su edad.",
-      "photo": "/assets/team/laurel-kokilananda.svg",
-      "published": true
-    },
-    "team": [],
     "related": [
       "aba",
       "early-learners",
@@ -810,7 +756,7 @@ es.sections.services.cards = [
     "body": "La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia. Las familias aprenden juntas en un entorno grupal con apoyo.",
     "ageRange": "Padres y cuidadores",
     "ageNote": "El grupo está diseñado para cuidadores de niños que pueden recibir servicios de VTCC. La compatibilidad depende de las metas actuales, el financiamiento y la autorización.",
-    "description": "Los cuidadores se reúnen en un grupo pequeño para aprender herramientas prácticas para la comunicación, las rutinas y los momentos difíciles. El programa lo lidera Olivia Roth y está diseñado para que las familias usen las mismas estrategias cuando los terapeutas no están presentes.",
+    "description": "Los cuidadores se reúnen en un grupo pequeño para aprender herramientas prácticas para la comunicación, las rutinas y los momentos difíciles. El programa está diseñado para que las familias usen las mismas estrategias cuando los terapeutas no están presentes.",
     "goals": [
       "Aprender estrategias prácticas para las rutinas diarias",
       "Practicar habilidades que apoyan la comunicación y la conducta en casa",
@@ -824,14 +770,6 @@ es.sections.services.cards = [
       "Las familias reciben guía para usar las mismas herramientas en casa.",
       "Las metas se actualizan a medida que los cuidadores ganan confianza."
     ],
-    "leader": {
-      "name": "Olivia Roth",
-      "role": "Líder del programa de Capacitación Grupal para Padres",
-      "bio": "Lidera el programa de Capacitación Grupal para Padres de VTCC. Ayuda a los cuidadores a aprender estrategias prácticas que pueden usar juntos en un entorno grupal con apoyo.",
-      "photo": "/assets/team/olivia-roth.svg",
-      "published": true
-    },
-    "team": [],
     "related": [
       "aba",
       "early-learners",
@@ -1252,9 +1190,12 @@ es.form.fields = [
   },
   {
     name: 'ageRange',
-    label: 'Rango de edad del niño',
-    type: 'select',
-    options: ['0-2', '3-5', '6-8', '9-11', '12-14', '15-17', '18+', 'No aplica'],
+    label: 'Edad del niño',
+    type: 'number',
+    min: 0,
+    max: 30,
+    step: 1,
+    inputmode: 'numeric',
   },
   {
     name: 'service',

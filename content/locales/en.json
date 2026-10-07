@@ -39,14 +39,11 @@
     "careerFormSuccess": "Your sample application is ready. In a production version, VTCC would receive it through an approved secure process.",
     "careerFormError": "We could not prepare the application. Please review the highlighted fields and try again.",
     "ageRangeLabel": "Ages served",
-    "meetTheTeamLabel": "Meet the team",
     "relatedProgramsLabel": "Related programs",
     "programGoalsLabel": "Goals",
     "programStructureLabel": "How the program is structured",
-    "programLeadLabel": "Led by",
-    "placeholderStaffNote": "Staff names, photos, and titles are placeholders until VTCC approves published bios.",
     "programFaqLinkLabel": "View {program} FAQs",
-    "faqProgramLinkNote": "For goals, how the program works, and who leads it, visit the services page."
+    "faqProgramLinkNote": "For goals and how the program works, visit the services page."
   },
   "company": {
     "name": "Victoria Transcultural Clinical Center",
@@ -315,14 +312,6 @@
             "Caregivers receive coaching so skills can be practiced between sessions.",
             "Progress is monitored regularly and goals are updated over time."
           ],
-          "leader": {
-            "name": "Holly Nasello, BCBA",
-            "role": "Clinical Director",
-            "bio": "Clinical Director for VTCC's ABA therapy program. Oversees assessment, treatment planning, and clinical supervision for individualized ABA services.",
-            "photo": "/assets/team/holly-nasello.svg",
-            "published": true
-          },
-          "team": [],
           "related": [
             "early-learners",
             "feeding",
@@ -354,14 +343,6 @@
             "Caregivers receive coaching so practice can continue at home.",
             "Progress is monitored and the plan is updated as skills grow."
           ],
-          "leader": {
-            "name": "Brieanna Rollocks, BCaBA",
-            "role": "Early Learners and Social Enrichment Program Lead",
-            "bio": "Leads VTCC's Early Learners program for preschool-aged children and the Social Enrichment program for ages 8-12. Helps children build communication, play, routines, and peer skills in supported settings.",
-            "photo": "/assets/team/brieanna-rollocks.svg",
-            "published": true
-          },
-          "team": [],
           "related": [
             "aba",
             "social-enrichment",
@@ -393,24 +374,6 @@
             "Caregivers learn how to support new foods without extra pressure.",
             "Progress is reviewed and the plan is adjusted based on the child's response."
           ],
-          "leader": {
-            "name": "Leo Garcia, BCBA",
-            "role": "Feeding Program Lead (placeholder)",
-            "bio": "Placeholder lead for the Feeding Program. Represents the clinician who would guide mealtime goals once VTCC approves published bios.",
-            "photo": "/assets/team/leo-garcia.svg"
-          },
-          "team": [
-            {
-              "name": "Priya Shah, BCBA",
-              "role": "Supervising analyst (placeholder)",
-              "photo": "/assets/team/priya-shah.svg"
-            },
-            {
-              "name": "Sam Rivera, RBT",
-              "role": "Lead behavior technician (placeholder)",
-              "photo": "/assets/team/sam-rivera.svg"
-            }
-          ],
           "related": [
             "aba",
             "early-learners",
@@ -427,7 +390,7 @@
           "body": "The Social Enrichment program helps children ages 8-12 join group activities, build friendships, and practice everyday social skills with peers.",
           "ageRange": "Typically ages 8-12",
           "ageNote": "This group is designed for school-age children. Fit depends on assessment, current goals, funding, and authorization.",
-          "description": "Children practice joining games, taking turns, sharing attention, and staying engaged with peers in a small group. Brieanna Rollocks, BCaBA, leads the program so practice stays structured, positive, and matched to each child's goals.",
+          "description": "Children practice joining games, taking turns, sharing attention, and staying engaged with peers in a small group. Practice stays structured, positive, and matched to each child's goals.",
           "goals": [
             "Join group games and shared activities",
             "Practice turn-taking, waiting, and flexible play",
@@ -441,14 +404,6 @@
             "Families receive guidance so skills can be practiced at home and school.",
             "Goals are updated as the child becomes more confident with peers."
           ],
-          "leader": {
-            "name": "Brieanna Rollocks, BCaBA",
-            "role": "Early Learners and Social Enrichment Program Lead",
-            "bio": "Leads VTCC's Early Learners program for preschool-aged children and the Social Enrichment program for ages 8-12. Helps children build communication, play, routines, and peer skills in supported settings.",
-            "photo": "/assets/team/brieanna-rollocks.svg",
-            "published": true
-          },
-          "team": [],
           "related": [
             "aba",
             "early-learners",
@@ -479,14 +434,6 @@
             "Families receive guidance so skills can be practiced outside the group.",
             "Goals are updated as the child or adolescent becomes more independent."
           ],
-          "leader": {
-            "name": "Laurel Kokilananda, BCBA",
-            "role": "Social Skills Group Program Lead",
-            "bio": "Leads VTCC's Social Skills Group. Helps school-age children and adolescents practice advanced peer skills such as conversation, flexible thinking, and age-appropriate play.",
-            "photo": "/assets/team/laurel-kokilananda.svg",
-            "published": true
-          },
-          "team": [],
           "related": [
             "aba",
             "early-learners",
@@ -503,7 +450,7 @@
           "body": "Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions. Families learn together in a supported group setting.",
           "ageRange": "Parents and caregivers",
           "ageNote": "The group is designed for caregivers of children who may receive VTCC services. Fit depends on current goals, funding, and authorization.",
-          "description": "Caregivers meet in a small group to learn practical tools for communication, routines, and challenging moments. The program is led by Olivia Roth and is designed so families can use the same strategies when therapists are not present.",
+          "description": "Caregivers meet in a small group to learn practical tools for communication, routines, and challenging moments. The program is designed so families can use the same strategies when therapists are not present.",
           "goals": [
             "Learn practical strategies for everyday routines",
             "Practice skills that support communication and behavior at home",
@@ -517,14 +464,6 @@
             "Families receive guidance for using the same tools at home.",
             "Goals are updated as caregivers become more confident."
           ],
-          "leader": {
-            "name": "Olivia Roth",
-            "role": "Group Parent Training Program Lead",
-            "bio": "Leads VTCC's Group Parent Training program. Helps caregivers learn practical strategies they can use together in a supported group setting.",
-            "photo": "/assets/team/olivia-roth.svg",
-            "published": true
-          },
-          "team": [],
           "related": [
             "aba",
             "early-learners",
@@ -1134,7 +1073,7 @@
     },
     "careers": {
       "eyebrow": "Careers at VTCC",
-      "title": "Bring your strengths to work that matters",
+      "title": "Practice ABA with children and families",
       "intro": "Join a team that helps children, adolescents, and families move forward with care that is practical, respectful, and culturally responsive.",
       "applyLabel": "Apply Now",
       "applyHref": "/career/apply",
@@ -1726,18 +1665,12 @@
       },
       {
         "name": "ageRange",
-        "label": "Child's age range",
-        "type": "select",
-        "options": [
-          "0-2",
-          "3-5",
-          "6-8",
-          "9-11",
-          "12-14",
-          "15-17",
-          "18+",
-          "Not applicable"
-        ]
+        "label": "Child's age",
+        "type": "number",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "inputmode": "numeric"
       },
       {
         "name": "service",
@@ -1813,17 +1746,12 @@
       },
       {
         "name": "ageRange",
-        "label": "Child's age range",
-        "type": "select",
-        "options": [
-          "0-2",
-          "3-5",
-          "6-8",
-          "9-11",
-          "12-14",
-          "15-17",
-          "18+"
-        ]
+        "label": "Child's age",
+        "type": "number",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "inputmode": "numeric"
       },
       {
         "name": "service",
@@ -1928,18 +1856,12 @@
       },
       {
         "name": "ageRange",
-        "label": "Child's age range",
-        "type": "select",
-        "options": [
-          "0-2",
-          "3-5",
-          "6-8",
-          "9-11",
-          "12-14",
-          "15-17",
-          "18+",
-          "Not sure"
-        ]
+        "label": "Child's age",
+        "type": "number",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "inputmode": "numeric"
       },
       {
         "name": "service",

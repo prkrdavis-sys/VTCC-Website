@@ -134,7 +134,7 @@ function programIdForResource(slug) {
 function renderProgramFaqCta(program, content) {
   const href = programFaqHref(program.id)
   if (!href) {
-    return `<a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(program.href))}">${escapeHtml(program.linkLabel)}</a>`
+    return `<a class="button page-link-cta" href="${escapeHtml(toStaticHref(program.href))}">${escapeHtml(program.linkLabel)}</a>`
   }
 
   const label = (content.ui.programFaqLinkLabel ?? 'View {program} FAQs').replaceAll(
@@ -142,7 +142,7 @@ function renderProgramFaqCta(program, content) {
     program.label,
   )
 
-  return `<a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(href))}">${escapeHtml(label)}</a>`
+  return `<a class="button page-link-cta" href="${escapeHtml(toStaticHref(href))}">${escapeHtml(label)}</a>`
 }
 
 function renderFaqServiceLink(content) {
@@ -352,6 +352,31 @@ function getHeaderActions(content) {
   return content.navigation.headerActions ?? content.navigation.utility
 }
 
+function renderInputExtras(field) {
+  const extras = []
+
+  if (field.autocomplete) {
+    extras.push(` autocomplete="${escapeHtml(field.autocomplete)}"`)
+  }
+  if (field.min != null) {
+    extras.push(` min="${escapeHtml(field.min)}"`)
+  }
+  if (field.max != null) {
+    extras.push(` max="${escapeHtml(field.max)}"`)
+  }
+  if (field.step != null) {
+    extras.push(` step="${escapeHtml(field.step)}"`)
+  }
+  if (field.inputmode) {
+    extras.push(` inputmode="${escapeHtml(field.inputmode)}"`)
+  }
+  if (field.placeholder) {
+    extras.push(` placeholder="${escapeHtml(field.placeholder)}"`)
+  }
+
+  return extras.join('')
+}
+
 function renderFormField(field) {
   const required = field.name === 'name' ? ' required' : ''
 
@@ -374,13 +399,9 @@ function renderFormField(field) {
           </label>`
   }
 
-  const autocomplete = field.autocomplete
-    ? ` autocomplete="${escapeHtml(field.autocomplete)}"`
-    : ''
-
   return `<label>
             ${escapeHtml(field.label)}
-            <input type="${escapeHtml(field.type)}" name="${escapeHtml(field.name)}"${autocomplete}${required} />
+            <input type="${escapeHtml(field.type)}" name="${escapeHtml(field.name)}"${renderInputExtras(field)}${required} />
           </label>`
 }
 
@@ -934,49 +955,6 @@ function renderListItems(items, ordered = false) {
     .join('')}</${tag}>`
 }
 
-function renderProgramTeam(program, content) {
-  const leader = program.leader
-  const team = program.team ?? []
-
-  if (!leader) {
-    return ''
-  }
-
-  const showPlaceholderNote = !leader.published
-
-  return `<div class="program-team">
-            <h4>${escapeHtml(content.ui.meetTheTeamLabel)}</h4>
-            <figure class="program-leader">
-              <img src="${escapeHtml(assetSrc(leader.photo))}" alt="${escapeHtml(leader.name)}" width="200" height="250" />
-              <figcaption>
-                <strong>${escapeHtml(leader.name)}</strong>
-                <span>${escapeHtml(leader.role)}</span>
-                <p>${escapeHtml(leader.bio)}</p>
-              </figcaption>
-            </figure>
-            ${
-              team.length
-                ? `<ul class="program-team-list">${team
-                    .map(
-                      (member) => `<li>
-                <img src="${escapeHtml(assetSrc(member.photo))}" alt="${escapeHtml(member.name)}" width="72" height="90" />
-                <div>
-                  <strong>${escapeHtml(member.name)}</strong>
-                  <span>${escapeHtml(member.role)}</span>
-                </div>
-              </li>`,
-                    )
-                    .join('')}</ul>`
-                : ''
-            }
-            ${
-              showPlaceholderNote
-                ? `<p class="program-placeholder-note">${escapeHtml(content.ui.placeholderStaffNote)}</p>`
-                : ''
-            }
-          </div>`
-}
-
 function renderRelatedPrograms(program, content) {
   const related = (program.related ?? [])
     .map((id) => getProgramById(content, id))
@@ -1006,18 +984,12 @@ function renderRelatedPrograms(program, content) {
 function renderProgramPanel(program, content, { open = false } = {}) {
   const ageLabel = content.ui.ageRangeLabel
   const ageRange = program.ageRange ?? ''
-  const publishedLead = program.leader?.published ? program.leader : null
 
   return `<details class="program-panel" id="program-${escapeHtml(program.id)}"${open ? ' open' : ''}>
             <summary>
               <span class="program-panel-summary">
                 <span class="card-label">${escapeHtml(program.label)}</span>
                 <span class="program-panel-title">${escapeHtml(program.title)}</span>
-                ${
-                  publishedLead
-                    ? `<span class="program-lead-name">${escapeHtml(content.ui.programLeadLabel)} ${escapeHtml(publishedLead.name)}</span>`
-                    : ''
-                }
                 ${
                   ageRange
                     ? `<span class="program-age-badge">${escapeHtml(ageLabel)}: ${escapeHtml(ageRange)}</span>`
@@ -1028,25 +1000,22 @@ function renderProgramPanel(program, content, { open = false } = {}) {
             </summary>
             <div class="program-panel-body">
               <p class="program-summary">${escapeHtml(program.body)}</p>
-              <div class="program-panel-grid">
-                <div class="program-copy">
-                  <section>
-                    <h4>${escapeHtml(ageLabel)}</h4>
-                    <p class="program-age-range"><strong>${escapeHtml(ageRange)}</strong></p>
-                    ${program.ageNote ? `<p>${escapeHtml(program.ageNote)}</p>` : ''}
-                  </section>
-                  <section>
-                    <h4>${escapeHtml(content.ui.programGoalsLabel)}</h4>
-                    ${program.description ? `<p>${escapeHtml(program.description)}</p>` : ''}
-                    ${renderListItems(program.goals)}
-                  </section>
-                  <section>
-                    <h4>${escapeHtml(content.ui.programStructureLabel)}</h4>
-                    ${renderListItems(program.structure, true)}
-                  </section>
-                  ${renderProgramFaqCta(program, content)}
-                </div>
-                ${renderProgramTeam(program, content)}
+              <div class="program-copy">
+                <section>
+                  <h4>${escapeHtml(ageLabel)}</h4>
+                  <p class="program-age-range"><strong>${escapeHtml(ageRange)}</strong></p>
+                  ${program.ageNote ? `<p>${escapeHtml(program.ageNote)}</p>` : ''}
+                </section>
+                <section>
+                  <h4>${escapeHtml(content.ui.programGoalsLabel)}</h4>
+                  ${program.description ? `<p>${escapeHtml(program.description)}</p>` : ''}
+                  ${renderListItems(program.goals)}
+                </section>
+                <section>
+                  <h4>${escapeHtml(content.ui.programStructureLabel)}</h4>
+                  ${renderListItems(program.structure, true)}
+                </section>
+                ${renderProgramFaqCta(program, content)}
               </div>
               ${renderRelatedPrograms(program, content)}
             </div>
@@ -1929,29 +1898,6 @@ function parseChildAge(value) {
   return age
 }
 
-function ageToBand(age) {
-  if (age <= 2) {
-    return '0-2'
-  }
-  if (age <= 5) {
-    return '3-5'
-  }
-  if (age <= 8) {
-    return '6-8'
-  }
-  if (age <= 11) {
-    return '9-11'
-  }
-  if (age <= 14) {
-    return '12-14'
-  }
-  if (age <= 17) {
-    return '15-17'
-  }
-
-  return '18+'
-}
-
 function isAbaEligible(state) {
   if (state.childAge == null) {
     return false
@@ -2088,7 +2034,7 @@ function buildParentPrefill(state, quiz) {
     message,
   }
   if (state.childAge != null) {
-    fields.ageRange = ageToBand(state.childAge)
+    fields.ageRange = String(state.childAge)
   }
 
   return { form: 'family', fields }
@@ -2606,7 +2552,6 @@ function renderContactQuizInner(content, direction = 'none') {
   const stage = showingResult || !step ? renderQuizResult(quizState, quiz) : renderQuizStep(step, quiz)
 
   return `<header class="quiz-intro">
-            <p class="eyebrow">${escapeHtml(quiz.eyebrow)}</p>
             <h2>${escapeHtml(quiz.title)}</h2>
             <p>${escapeHtml(quiz.intro)}</p>
           </header>

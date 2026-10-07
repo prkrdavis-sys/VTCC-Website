@@ -119,7 +119,7 @@ Ages served: Typically ages 8-12
 
 This group is designed for school-age children. Fit depends on assessment, current goals, funding, and authorization.
 
-Children practice joining games, taking turns, sharing attention, and staying engaged with peers in a small group. Brieanna Rollocks, BCaBA, leads the program so practice stays structured, positive, and matched to each child's goals.
+Children practice joining games, taking turns, sharing attention, and staying engaged with peers in a small group. Practice stays structured, positive, and matched to each child's goals.
 
 Goals:
 
@@ -173,7 +173,7 @@ Ages served: Parents and caregivers
 
 The group is designed for caregivers of children who may receive VTCC services. Fit depends on current goals, funding, and authorization.
 
-Caregivers meet in a small group to learn practical tools for communication, routines, and challenging moments. The program is led by Olivia Roth and is designed so families can use the same strategies when therapists are not present.
+Caregivers meet in a small group to learn practical tools for communication, routines, and challenging moments. The program is designed so families can use the same strategies when therapists are not present.
 
 Goals:
 
@@ -766,7 +766,7 @@ Staff provide coaching and feedback while each client works toward goals that ma
 
 ### Page Hero
 
-Bring your strengths to work that matters
+Practice ABA with children and families
 
 Join a team that helps children, adolescents, and families move forward with care that is practical, respectful, and culturally responsive.
 
@@ -869,7 +869,7 @@ Recommended fields for a simple non-clinical inquiry form:
 - Email
 - Phone
 - Preferred contact method
-- Child's age range
+- Child's age
 - Service interest
 - Funding source
 - City or county
