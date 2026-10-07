@@ -63,7 +63,35 @@ npm run dev
 
 The React demo imports locale files from this project but still uses an older flat navigation layout and does not yet include the forms page UI.
 
+## Cloudflare Workers (Wrangler)
+
+Production hosting is moving from Vercel to **Cloudflare Workers**. The static site is served from the built `prototype/` directory via Wrangler’s assets configuration.
+
+**Live preview (Workers):** [https://vtcc-website.cool-queen-3cc7.workers.dev/](https://vtcc-website.cool-queen-3cc7.workers.dev/)
+
+**Requirements:** Node.js **22+** (see `engines` in `package.json`).
+
+**Authenticate** (one-time per machine or CI):
+
+```sh
+npx wrangler login
+```
+
+Or set a `CLOUDFLARE_API_TOKEN` with permission to deploy Workers for the VTCC Cloudflare account.
+
+**Deploy and preview:**
+
+```sh
+npm run deploy        # build + deploy to Cloudflare
+npm run deploy:dry    # build + validate deploy without uploading
+npm run preview:cf    # build + local Wrangler dev server
+```
+
+**Config:** `wrangler.jsonc` sets the Worker name to `vtcc-website` and serves static assets from `./prototype` after `npm run build`.
+
 ## Vercel Web Analytics
+
+Site hosting is moving to Cloudflare Workers; this section remains for analytics setup on existing Vercel deployments until cutover.
 
 This project uses [`@vercel/analytics`](https://www.npmjs.com/package/@vercel/analytics). The prototype build bundles it into `prototype/analytics.js` and loads it on every page.
 
