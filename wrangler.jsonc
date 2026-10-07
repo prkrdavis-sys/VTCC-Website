@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "vtcc-website",
+  // Match the live Worker on the company Cloudflare account
+  "compatibility_date": "2026-10-06",
+  "assets": {
+    "directory": "./prototype"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
