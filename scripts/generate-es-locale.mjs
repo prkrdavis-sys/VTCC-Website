@@ -1658,6 +1658,7 @@ Object.assign(es.contactQuiz, {
   backLabel: 'Atrás',
   continueLabel: 'Continuar',
   progressLabel: 'Pregunta {n} de {total}',
+  progressAriaLabel: 'Progreso del cuestionario',
   callPrompt: '¿Prefiere hablar?',
   ageSuffix: 'años',
   ageHelp: 'Ingrese la edad de su hijo en años enteros.',
@@ -1721,6 +1722,7 @@ es.contactQuiz.applicantCredentialsQuestion.groups = [
 es.contactQuiz.applicantExperienceSettingsQuestion.label =
   '¿Qué tipo de experiencia ha tenido en entornos infantiles?'
 es.contactQuiz.applicantExperienceSettingsQuestion.options = [
+  { id: 'none-children', label: 'Sin experiencia con niños' },
   { id: 'aba', label: 'Entorno de ABA o terapia conductual' },
   { id: 'school', label: 'Aula o escuela' },
   { id: 'daycare', label: 'Guardería o preescolar' },
@@ -1855,6 +1857,65 @@ if (intakeCategory) {
     formsFaq.answer =
       'Los formularios requeridos dependen del servicio y de la fuente de financiamiento. Descargue los formularios de admisión y referencia en la página de Formularios, o contacte a VTCC si no está seguro de qué documentos aplican.'
   }
+}
+
+Object.assign(es.ui, {
+  formSubmittingAnnouncement: 'Enviando su solicitud.',
+})
+
+es.thankYou = {
+  nextLabel: 'Qué sigue',
+  notice:
+    'No envíe informes de diagnóstico ni otros datos médicos privados por correo electrónico. Si se trata de una emergencia, llame al 911 o vaya a la sala de emergencias más cercana.',
+  homeLabel: 'Volver al inicio',
+  homeHref: '/',
+  family: {
+    eyebrow: 'Solicitud recibida',
+    title: 'Recibimos su solicitud de servicios',
+    lead: 'Un miembro del equipo de VTCC dará seguimiento usando el método de contacto que eligió.',
+    steps: [
+      'Espere un seguimiento de VTCC por teléfono o correo electrónico.',
+      'Tenga a mano su horario preferido y su fuente de financiamiento para esa conversación.',
+      'Llame a la oficina de Fairfax si necesita comunicarse antes.',
+    ],
+    secondaryLabel: 'Ver la ruta de admisión',
+    secondaryHref: '/get-started',
+  },
+  referral: {
+    eyebrow: 'Referencia recibida',
+    title: 'Recibimos su consulta de referencia',
+    lead: 'Un miembro del equipo de VTCC dará seguimiento sobre los próximos pasos para la familia.',
+    steps: [
+      'VTCC se comunicará con usted al teléfono o correo de trabajo que indicó.',
+      'Comparta los documentos de referencia solo por el proceso seguro aprobado por VTCC, no por este formulario.',
+      'La familia también puede llamar a VTCC directamente si desea iniciar la conversación.',
+    ],
+    secondaryLabel: 'Guía para referentes',
+    secondaryHref: '/referrers',
+  },
+  career: {
+    eyebrow: 'Solicitud recibida',
+    title: 'Recibimos su solicitud de empleo',
+    lead: 'Un miembro del equipo de VTCC revisará lo que envió y dará seguimiento sobre el puesto.',
+    steps: [
+      'Revise el correo que usó en la solicitud para ver el seguimiento.',
+      'El proceso continúa con una conversación sobre el puesto, el horario y la ubicación.',
+      'Llame a la oficina de Fairfax si necesita actualizar su solicitud.',
+    ],
+    secondaryLabel: 'Volver a empleos',
+    secondaryHref: '/career',
+  },
+  default: {
+    eyebrow: 'Mensaje recibido',
+    title: 'Gracias por comunicarse con VTCC',
+    lead: 'Un miembro del equipo de VTCC dará seguimiento.',
+    steps: [
+      'Esté atento al teléfono o al correo que usa con VTCC.',
+      'Llame a la oficina de Fairfax si necesita comunicarse antes.',
+    ],
+    secondaryLabel: 'Contactar a VTCC',
+    secondaryHref: '/contact',
+  },
 }
 
 writeFileSync(join(rootDir, 'content/locales/es.json'), JSON.stringify(es, null, 2))

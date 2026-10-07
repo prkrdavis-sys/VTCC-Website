@@ -1,6 +1,8 @@
 const STORAGE_KEY = window.VTCC_SITE?.localeStorageKey ?? 'vtcc-locale'
 const CAREER_ROLE_STORAGE_KEY = 'vtcc-career-role'
 const QUIZ_PREFILL_STORAGE_KEY = 'vtcc-quiz-prefill'
+const INK_HANDOFF_KEY = 'vtcc-form-ink'
+const INK_MAX_AGE_MS = 10000
 const PAGE = window.VTCC_PAGE ?? 'home'
 const BASE = window.VTCC_BASE ?? ''
 const RESOURCE_SLUG = window.VTCC_RESOURCE_SLUG
@@ -51,6 +53,7 @@ function toStaticHref(path) {
     '/contact': `${BASE}contact.html`,
     '/contact/request': `${BASE}contact/request.html`,
     '/contact/referral': `${BASE}contact/referral.html`,
+    '/thank-you': `${BASE}thank-you.html`,
   }
 
   if (path.startsWith('/#')) {
@@ -265,6 +268,7 @@ const PAGE_SECTION_PATHS = {
   contact: '/contact',
   'contact-request': '/contact/request',
   'contact-referral': '/contact/referral',
+  'thank-you': '/thank-you',
 }
 
 function getCurrentSectionPath() {
@@ -1894,6 +1898,41 @@ function renderContactFormSwitch(content, variant) {
           ${otherSwitch}`
 }
 
+function renderThankYouPage(content) {
+  const copy = content.thankYou
+  const variant = copy?.[readThankYouVariant()] ?? copy?.default
+  if (!variant) {
+    return ''
+  }
+
+  const steps = (variant.steps ?? [])
+    .map(
+      (step, index) => `<li class="thank-you-step">
+              <span>${index + 1}</span>
+              <p>${escapeHtml(step)}</p>
+            </li>`,
+    )
+    .join('')
+
+  return `<section class="section thank-you-page page-section">
+        <div class="thank-you-card">
+          <svg class="thank-you-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" />
+            <path d="M18 33.5 27.5 43 46 22" />
+          </svg>
+          ${renderSectionHeading(variant.eyebrow, variant.title, '')}
+          <p class="thank-you-lead">${escapeHtml(variant.lead)}</p>
+          <h3>${escapeHtml(copy.nextLabel)}</h3>
+          <ol class="thank-you-steps">${steps}</ol>
+          <div class="thank-you-actions">
+            <a class="button" href="${escapeHtml(toStaticHref(copy.homeHref))}">${escapeHtml(copy.homeLabel)}</a>
+            <a class="button secondary" href="${escapeHtml(toStaticHref(variant.secondaryHref))}">${escapeHtml(variant.secondaryLabel)}</a>
+          </div>
+          <p class="thank-you-note">${escapeHtml(copy.notice)}</p>
+        </div>
+      </section>`
+}
+
 function renderContactPage(content) {
   const { contact, form, variant } = getContactPageConfig(content)
   const formType = variant === 'referral' ? 'referral' : 'service_request'
@@ -2025,6 +2064,9 @@ function applicantReadyForResult(state) {
     return false
   }
   if (state.experienceLength === 'none') {
+    return true
+  }
+  if (state.experienceSettings.includes('none-children')) {
     return true
   }
   return state.experienceSettings.length > 0 && state.experienceAges.length > 0
@@ -2282,6 +2324,10 @@ function appendApplicantQuizSteps(steps, state, quiz) {
     return
   }
 
+  if (state.experienceSettings.includes('none-children')) {
+    return
+  }
+
   steps.push({
     id: 'experienceAges',
     kind: 'multi',
@@ -2293,6 +2339,67 @@ function appendApplicantQuizSteps(steps, state, quiz) {
       },
     ],
   })
+}
+
+function maxParentFollowUpCount() {
+  let max = 0
+  for (let age = 0; age <= 30; age += 1) {
+    const followUps = (age === 1 ? 1 : 0) + parentProgramIds(age).length
+    if (followUps > max) {
+      max = followUps
+    }
+  }
+  return max
+}
+
+function longestQuizCeiling() {
+  const parent = 3 + maxParentFollowUpCount()
+  const doctor = 2
+  const applicant = 5
+  return Math.max(parent, doctor, applicant)
+}
+
+function parentQuizProgressBounds(state) {
+  if (state.parentDiagnosis === 'no') {
+    return { total: 2, exact: true }
+  }
+
+  const ceiling = 3 + maxParentFollowUpCount()
+  if (state.parentDiagnosis !== 'yes' || state.childAge == null) {
+    return { total: ceiling, exact: false }
+  }
+
+  const followUps = (state.childAge === 1 ? 1 : 0) + parentProgramIds(state.childAge).length
+  return { total: 3 + followUps, exact: true }
+}
+
+function applicantQuizProgressBounds(state) {
+  if (!state.experienceLength) {
+    return { total: 5, exact: false }
+  }
+  if (state.experienceLength === 'none') {
+    return { total: 3, exact: true }
+  }
+  return { total: 5, exact: true }
+}
+
+function quizProgressBounds(state) {
+  switch (state.role) {
+    case '':
+      return { total: longestQuizCeiling(), exact: false }
+    case 'parent':
+      return parentQuizProgressBounds(state)
+    case 'doctor':
+      return { total: 2, exact: true }
+    case 'applicant':
+      return applicantQuizProgressBounds(state)
+    default: {
+      const _exhaustiveCheck = state.role
+      return _exhaustiveCheck
+        ? { total: longestQuizCeiling(), exact: false }
+        : { total: longestQuizCeiling(), exact: false }
+    }
+  }
 }
 
 function getQuizSteps(state, quiz) {
@@ -2595,13 +2702,18 @@ function renderQuizResult(state, quiz) {
 function renderContactQuizInner(content, direction = 'none') {
   const quiz = getQuiz(content)
   const { steps, step, showingResult } = getCurrentQuizStep(quizState, quiz)
-  const index = step ? steps.findIndex((item) => item.id === step.id) : Math.max(steps.length - 1, 0)
-  const total = Math.max(steps.length, 1)
-  const position = showingResult ? total : index + 1
-  const fraction = showingResult ? 1 : Math.max(0, position - 1) / total
-  const progressLabel = (quiz.progressLabel ?? 'Question {n} of {total}')
-    .replace('{n}', String(position))
-    .replace('{total}', String(total))
+  const bounds = quizProgressBounds(quizState)
+  const index = step ? Math.max(steps.findIndex((item) => item.id === step.id), 0) : bounds.total
+  const fraction = showingResult ? 1 : Math.min(index, bounds.total) / bounds.total
+  const showCount = bounds.exact && !showingResult
+  const progressLabel = showCount
+    ? (quiz.progressLabel ?? 'Question {n} of {total}')
+        .replace('{n}', String(index + 1))
+        .replace('{total}', String(bounds.total))
+    : ''
+  const progressName = showCount
+    ? 'aria-labelledby="quiz-progress-label"'
+    : `aria-label="${escapeHtml(quiz.progressAriaLabel ?? 'Questionnaire progress')}"`
   const phone = content.topBar?.phone ?? ''
   const phoneHref = content.topBar?.phoneHref ?? '#'
   const canGoBack = showingResult || index > 0
@@ -2613,10 +2725,10 @@ function renderContactQuizInner(content, direction = 'none') {
             <p>${escapeHtml(quiz.intro)}</p>
           </header>
           <div class="quiz-progress">
-            <div class="quiz-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${showingResult ? total : position - 1}" aria-labelledby="quiz-progress-label">
+            <div class="quiz-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(fraction * 100)}" ${progressName}>
               <span class="quiz-progress-fill" style="transform: scaleX(${fraction})"></span>
             </div>
-            <p id="quiz-progress-label" class="quiz-progress-label">${escapeHtml(progressLabel)}</p>
+            <p id="quiz-progress-label" class="quiz-progress-label"${showCount ? '' : ' hidden'}>${escapeHtml(progressLabel)}</p>
           </div>
           <div class="quiz-stage" data-quiz-stage data-motion="${motion}">
             ${stage}
@@ -2681,6 +2793,12 @@ function syncQuizMultiValue(fieldName, values) {
     return
   }
 
+  if (fieldName === 'experienceSettings' && unique.includes('none-children') && unique.length > 1) {
+    const last = unique[unique.length - 1]
+    quizState.experienceSettings = last === 'none-children' ? ['none-children'] : unique.filter((id) => id !== 'none-children')
+    return
+  }
+
   quizState[fieldName] = unique
 }
 
@@ -2732,11 +2850,18 @@ function refreshContactQuiz(content, { direction = 'none' } = {}) {
       const currentFooter = current.querySelector('.quiz-footer-links')
       const nextFooter = next.querySelector('.quiz-footer-links')
       if (currentTrack && nextTrack) {
-        currentTrack.setAttribute('aria-valuemax', nextTrack.getAttribute('aria-valuemax') ?? '')
-        currentTrack.setAttribute('aria-valuenow', nextTrack.getAttribute('aria-valuenow') ?? '')
+        for (const name of ['aria-valuemin', 'aria-valuemax', 'aria-valuenow', 'aria-label', 'aria-labelledby']) {
+          const value = nextTrack.getAttribute(name)
+          if (value == null) {
+            currentTrack.removeAttribute(name)
+          } else {
+            currentTrack.setAttribute(name, value)
+          }
+        }
       }
       if (currentLabel && nextLabel) {
         currentLabel.textContent = nextLabel.textContent
+        currentLabel.hidden = nextLabel.hidden
       }
       currentFill.style.transform = nextFill.style.transform
       currentStage.innerHTML = nextStage.innerHTML
@@ -2879,7 +3004,7 @@ function bindContactQuizControls(content) {
       if ((quizState[fieldName] ?? []).length === 0) {
         dropConfirmedQuizSteps([fieldName])
       }
-      if (fieldName === 'experienceSettings' && quizState.experienceSettings.length === 0) {
+      if (fieldName === 'experienceSettings' && (quizState.experienceSettings.length === 0 || quizState.experienceSettings.includes('none-children'))) {
         quizState.experienceAges = []
         dropConfirmedQuizSteps(['experienceAges'])
       }
@@ -3046,6 +3171,9 @@ function renderMain(content) {
     case 'contact-referral':
       mainHtml = renderContactPage(content)
       break
+    case 'thank-you':
+      mainHtml = renderThankYouPage(content)
+      break
     default:
       mainHtml = renderHome(content)
   }
@@ -3201,6 +3329,155 @@ function bindMobileMenu() {
 
   document.addEventListener('keydown', bindMobileMenu.escapeHandler)
 }
+
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
+function inkRadius(x, y) {
+  const width = window.innerWidth
+  const height = window.innerHeight
+  return Math.hypot(Math.max(x, width - x), Math.max(y, height - y)) + 12
+}
+
+function playSubmitInk(button, message) {
+  if (prefersReducedMotion() || !(button instanceof HTMLElement)) {
+    return { reduced: true, startedAt: performance.now(), x: 0, y: 0, dur: 0, ink: null }
+  }
+
+  const rect = button.getBoundingClientRect()
+  const x = rect.left + rect.width / 2
+  const y = rect.top + rect.height / 2
+  const radius = inkRadius(x, y)
+  const dur = Math.min(720, Math.max(480, radius * 0.45))
+  const ink = document.createElement('div')
+  ink.className = 'submit-ink'
+  ink.style.setProperty('--ink-x', `${x}px`)
+  ink.style.setProperty('--ink-y', `${y}px`)
+  ink.style.setProperty('--ink-r', `${radius}px`)
+  ink.style.setProperty('--ink-dur', `${dur}ms`)
+  ink.innerHTML = `<p class="submit-ink-status" aria-live="polite">${escapeHtml(message)}</p>`
+  document.body.appendChild(ink)
+  document.body.classList.add('is-ink-submitting')
+  button.classList.add('is-ink-origin')
+
+  return { reduced: false, startedAt: performance.now(), x, y, dur, ink, button }
+}
+
+async function holdSubmitInk(session) {
+  if (session.reduced || !session.ink) {
+    return
+  }
+
+  const elapsed = performance.now() - session.startedAt
+  const wait = Math.max(0, session.dur + 400 - elapsed)
+  if (wait) {
+    await new Promise((resolve) => {
+      window.setTimeout(resolve, wait)
+    })
+  }
+
+  if (session.cancelled) {
+    return
+  }
+
+  session.ink.classList.add('is-holding')
+}
+
+function navigateWithInk(session, formVariant) {
+  if (!session.reduced) {
+    sessionStorage.setItem(
+      INK_HANDOFF_KEY,
+      JSON.stringify({
+        x: session.x,
+        y: session.y,
+        form: formVariant,
+        t: Date.now(),
+      }),
+    )
+  }
+
+  window.location.assign(`${toStaticHref('/thank-you')}?form=${encodeURIComponent(formVariant)}`)
+}
+
+function reverseSubmitInk(session) {
+  session.cancelled = true
+  document.body.classList.remove('is-ink-submitting')
+  session.button?.classList.remove('is-ink-origin')
+
+  if (!session.ink) {
+    return Promise.resolve()
+  }
+
+  session.ink.classList.remove('is-holding')
+  session.ink.classList.add('is-contracting')
+
+  return new Promise((resolve) => {
+    let settled = false
+    const finish = () => {
+      if (settled) {
+        return
+      }
+      settled = true
+      session.ink.remove()
+      resolve()
+    }
+
+    session.ink.addEventListener('animationend', finish, { once: true })
+    window.setTimeout(finish, 280)
+  })
+}
+
+function readThankYouVariant() {
+  const params = new URLSearchParams(window.location.search)
+  const form = params.get('form')
+  if (form === 'family' || form === 'referral' || form === 'career') {
+    return form
+  }
+  return 'default'
+}
+
+function bindInkArrival() {
+  const root = document.documentElement
+  if (!root.classList.contains('is-ink-arrival')) {
+    return
+  }
+
+  const ink = document.createElement('div')
+  ink.className = 'submit-ink is-holding'
+  ink.style.setProperty('--ink-x', root.style.getPropertyValue('--ink-x') || '50%')
+  ink.style.setProperty('--ink-y', root.style.getPropertyValue('--ink-y') || '50%')
+  document.body.appendChild(ink)
+
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      root.classList.remove('is-ink-arrival')
+      ink.classList.add('is-dismissing')
+      document.dispatchEvent(new CustomEvent('vtcc-ink-reveal'))
+    })
+  })
+
+  ink.addEventListener(
+    'animationend',
+    () => {
+      ink.remove()
+    },
+    { once: true },
+  )
+}
+
+window.addEventListener('pageswap', (event) => {
+  let handoff = null
+  try {
+    handoff = JSON.parse(sessionStorage.getItem(INK_HANDOFF_KEY) ?? 'null')
+  } catch {
+    handoff = null
+  }
+
+  if (handoff && Date.now() - handoff.t < INK_MAX_AGE_MS && event.viewTransition?.skipTransition) {
+    event.viewTransition.skipTransition()
+  }
+})
 
 function setFormStatus(form, message, status = 'idle') {
   const statusNode = form.querySelector('[data-form-status]')
@@ -3401,27 +3678,31 @@ function bindRequestForms(content) {
 
       const submitButton = form.querySelector('button[type="submit"]')
       const defaultLabel = submitButton?.dataset.defaultLabel ?? submitButton?.textContent ?? ''
+      const submittingLabel = content.ui.formSubmitting ?? 'Sending...'
+      const ink = playSubmitInk(
+        submitButton,
+        content.ui.formSubmittingAnnouncement ?? submittingLabel,
+      )
 
       submitButton.disabled = true
-      submitButton.textContent = content.ui.formSubmitting ?? 'Sending...'
+      submitButton.textContent = submittingLabel
       setFormStatus(form, '', 'idle')
 
       try {
-        await submitFormspree(form.dataset.formType, readFormFields(form))
-        form.reset()
-        setFormStatus(
-          form,
-          content.ui.formSuccess ?? 'Thank you. Your request was received.',
-          'success',
-        )
+        const posted = submitFormspree(form.dataset.formType, readFormFields(form))
+        const held = holdSubmitInk(ink)
+        await posted
+        await held
+        const variant = form.dataset.formType === 'referral' ? 'referral' : 'family'
+        navigateWithInk(ink, variant)
       } catch {
+        await reverseSubmitInk(ink)
         setFormStatus(
           form,
           content.ui.formError ??
             'We could not send this form. Please call VTCC or try again later.',
           'error',
         )
-      } finally {
         submitButton.disabled = false
         submitButton.textContent = defaultLabel
       }
@@ -3782,20 +4063,24 @@ function bindCareerApplication(content) {
     }
 
     const defaultLabel = submitButton.dataset.defaultLabel ?? submitButton.textContent ?? ''
+    const submittingLabel = content.ui.careerFormSubmitting
+    const ink = playSubmitInk(
+      submitButton,
+      content.ui.formSubmittingAnnouncement ?? submittingLabel,
+    )
     submitButton.disabled = true
-    submitButton.textContent = content.ui.careerFormSubmitting
+    submitButton.textContent = submittingLabel
     setStatus('', 'idle')
 
     try {
-      await submitFormspree('career', readFormFields(form), uploadsEnabled ? selectedFile : null)
-      form.reset()
-      if (uploadsEnabled) {
-        resetFile()
-      }
-      setStatus(content.ui.careerFormSuccess, 'success')
+      const posted = submitFormspree('career', readFormFields(form), uploadsEnabled ? selectedFile : null)
+      const held = holdSubmitInk(ink)
+      await posted
+      await held
+      navigateWithInk(ink, 'career')
     } catch {
+      await reverseSubmitInk(ink)
       setStatus(content.ui.careerFormError, 'error')
-    } finally {
       submitButton.disabled = false
       submitButton.textContent = defaultLabel
     }
@@ -3908,6 +4193,11 @@ const REVEAL_SELECTORS = [
   '.provider-card',
   '.careers-panel',
   '.faq-category',
+  '.thank-you-mark',
+  '.thank-you-lead',
+  '.thank-you-steps',
+  '.thank-you-actions',
+  '.thank-you-note',
 ].join(',')
 
 function bindScrollReveal() {
@@ -3934,6 +4224,7 @@ function bindScrollReveal() {
     })
   })
 
+  const startReveal = () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   if (reduceMotion || typeof IntersectionObserver !== 'function') {
     nodes.forEach((node) => node.classList.add('is-revealed'))
@@ -3973,6 +4264,14 @@ function bindScrollReveal() {
     { rootMargin: '0px 0px -8% 0px', threshold: 0.12 },
   )
   pending.forEach((node) => bindScrollReveal.observer.observe(node))
+  }
+
+  if (document.documentElement.classList.contains('is-ink-arrival')) {
+    document.addEventListener('vtcc-ink-reveal', startReveal, { once: true })
+    return
+  }
+
+  startReveal()
 }
 
 function bindPageEnter() {
@@ -4009,6 +4308,19 @@ function render() {
   bindCareerApplication(content)
   bindContactQuiz(content)
   bindProgramPanels()
+  if (PAGE === 'thank-you') {
+    try {
+      sessionStorage.removeItem(INK_HANDOFF_KEY)
+    } catch {
+      /* sessionStorage can be unavailable */
+    }
+    const variant = content.thankYou?.[readThankYouVariant()] ?? content.thankYou?.default
+    if (variant?.title) {
+      document.title = `${variant.title} | ${content.company.shortName}`
+    }
+  }
+
+  bindInkArrival()
   bindScrollReveal()
   bindPageEnter()
 

@@ -25,6 +25,17 @@ writeFileSync(
   `window.VTCC_SEO = ${readFileSync(seoPath, 'utf8').trim()};\n`,
 )
 
+const cursorByPage = {
+  home: 'bubble',
+  aba: 'sparkle',
+  'early-learners': 'crayon',
+  'feeding-program': 'spoon',
+  'social-enrichment': 'balloon',
+  'social-skills-group': 'speech',
+  'group-parent-training': 'plane',
+  'get-started': 'rocket',
+}
+
 const pages = [
   { file: 'index.html', page: 'home', base: '' },
   { file: 'aba.html', page: 'aba', base: '' },
@@ -43,6 +54,7 @@ const pages = [
   { file: 'contact.html', page: 'contact', base: '' },
   { file: join('contact', 'request.html'), page: 'contact-request', base: '../', seoPage: 'contact' },
   { file: join('contact', 'referral.html'), page: 'contact-referral', base: '../' },
+  { file: 'thank-you.html', page: 'thank-you', base: '', noindex: true },
   { file: join('resources', 'index.html'), page: 'resources', base: '../' },
   { file: join('resources', 'forms.html'), page: 'forms', base: '../' },
   ...[
@@ -70,7 +82,30 @@ mkdirSync(join(prototypeDir, 'career'), { recursive: true })
 for (const entry of pages) {
   const slugScript = entry.slug ? `\n    <script>window.VTCC_RESOURCE_SLUG = ${JSON.stringify(entry.slug)};</script>` : ''
   const pageKey = entry.page === 'resource' ? 'resource' : entry.page
-  const seoHead = renderSeoHeadHtml(entry.seoPage ?? pageKey, 'en')
+  const inkHandoffScript = entry.noindex
+    ? `    <title>Request received | Victoria Transcultural Clinical Center</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      (function () {
+        try {
+          var raw = sessionStorage.getItem('vtcc-form-ink')
+          if (!raw) return
+          var data = JSON.parse(raw)
+          if (!data || Date.now() - data.t > 10000) {
+            sessionStorage.removeItem('vtcc-form-ink')
+            return
+          }
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+          var root = document.documentElement
+          root.classList.add('is-ink-arrival')
+          root.style.setProperty('--ink-x', data.x + 'px')
+          root.style.setProperty('--ink-y', data.y + 'px')
+        } catch (error) {}
+      })()
+    </script>
+`
+    : ''
+  const seoHead = inkHandoffScript || renderSeoHeadHtml(entry.seoPage ?? pageKey, 'en')
 
   writeFileSync(
     join(prototypeDir, entry.file),
@@ -91,7 +126,13 @@ ${seoHead}    ${fontLinks}
     <script src="${entry.base}seo-content.js"></script>
     <script src="${entry.base}site-content.js"></script>
     <script src="${entry.base}i18n.js"></script>
-    <script defer src="${entry.base}analytics.js"></script>
+    <script defer src="${entry.base}analytics.js"></script>${
+      cursorByPage[entry.page]
+        ? `
+    <script>window.VTCC_CURSOR = ${JSON.stringify(cursorByPage[entry.page])};</script>
+    <script defer src="${entry.base}cursor.js"></script>`
+        : ''
+    }
   </body>
 </html>
 `,

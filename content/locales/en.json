@@ -27,6 +27,7 @@
     "contactSwitchQuizPrompt": "Want help choosing a path?",
     "contactSwitchQuizLink": "Start with the contact quiz",
     "formSubmitting": "Sending...",
+    "formSubmittingAnnouncement": "Sending your request.",
     "formSuccess": "Thank you. Your request was received. A VTCC team member will follow up.",
     "formError": "We could not send this form. Please call VTCC or try again later.",
     "careerFileChoose": "Choose a file",
@@ -1916,6 +1917,7 @@
     "backLabel": "Back",
     "continueLabel": "Continue",
     "progressLabel": "Question {n} of {total}",
+    "progressAriaLabel": "Questionnaire progress",
     "callPrompt": "Prefer to talk?",
     "ageSuffix": "years old",
     "ageHelp": "Enter your child's age in whole years.",
@@ -2045,6 +2047,10 @@
     "applicantExperienceSettingsQuestion": {
       "label": "What type of experience have you had in children's environments?",
       "options": [
+        {
+          "id": "none-children",
+          "label": "No experience with children"
+        },
         {
           "id": "aba",
           "label": "ABA or behavior therapy setting"
@@ -2565,6 +2571,59 @@
         "body": "Contact VTCC to ask whether Group Parent Training may be a fit for your family and to learn about current group availability.",
         "button": "Ask About Group Parent Training"
       }
+    }
+  },
+  "thankYou": {
+    "nextLabel": "What to expect next",
+    "notice": "Please do not send diagnosis reports or other private medical details by email. If this is an emergency, call 911 or go to the nearest emergency room.",
+    "homeLabel": "Back to home",
+    "homeHref": "/",
+    "family": {
+      "eyebrow": "Request received",
+      "title": "We have your service request",
+      "lead": "A VTCC team member will follow up using the contact method you chose.",
+      "steps": [
+        "Look for a follow-up from VTCC by phone or email.",
+        "Have your preferred schedule and funding source ready for that conversation.",
+        "Call the Fairfax office if you need to reach someone sooner."
+      ],
+      "secondaryLabel": "Review the intake path",
+      "secondaryHref": "/get-started"
+    },
+    "referral": {
+      "eyebrow": "Referral received",
+      "title": "We have your referral inquiry",
+      "lead": "A VTCC team member will follow up with you about next steps for the family.",
+      "steps": [
+        "VTCC will contact you at the work phone or email you provided.",
+        "Share referral documents only through VTCC's approved secure process, not this form.",
+        "The family can also call VTCC directly if they want to start the conversation themselves."
+      ],
+      "secondaryLabel": "Referral guidance",
+      "secondaryHref": "/referrers"
+    },
+    "career": {
+      "eyebrow": "Application received",
+      "title": "We have your application",
+      "lead": "A VTCC team member will review what you sent and follow up about the role.",
+      "steps": [
+        "Watch the email you used on the application for a follow-up.",
+        "Hiring continues with a conversation about the role, schedule, and location.",
+        "Call the Fairfax office if you need to update your application."
+      ],
+      "secondaryLabel": "Back to careers",
+      "secondaryHref": "/career"
+    },
+    "default": {
+      "eyebrow": "Message received",
+      "title": "Thank you for contacting VTCC",
+      "lead": "A VTCC team member will follow up.",
+      "steps": [
+        "Keep an eye on the phone or email you use with VTCC.",
+        "Call the Fairfax office if you need to reach someone sooner."
+      ],
+      "secondaryLabel": "Contact VTCC",
+      "secondaryHref": "/contact"
     }
   },
   "compliance": {
