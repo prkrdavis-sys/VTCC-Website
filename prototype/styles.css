@@ -13,6 +13,14 @@
   --accent: #de6958;
   --accent-blue: #389bb2;
   --white: #ffffff;
+  --canvas-base: var(--paper);
+  --canvas-glow-lime: rgba(205, 237, 130, 0.22);
+  --canvas-glow-teal: rgba(56, 155, 178, 0.12);
+  --band-tint: #e4f3e9;
+  --band-deep: var(--brand-deep);
+  --band-rule: var(--brand-bar);
+  --band-fade: clamp(2.75rem, 6vw, 5rem);
+  --section-pad-block: clamp(3.75rem, 8vw, 7rem);
   --shadow: 0 22px 60px rgba(23, 33, 29, 0.12);
   --header-offset: clamp(6.5rem, 10vh, 7.75rem);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -55,7 +63,7 @@
   --tracking-label: 0.1em;
 
   color: var(--ink);
-  background: var(--paper);
+  background: var(--canvas-base);
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: var(--leading-body);
@@ -88,6 +96,17 @@ body {
   flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
+}
+
+#app::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(72rem 42rem at -8% -10%, var(--canvas-glow-lime), transparent 70%),
+    radial-gradient(56rem 40rem at 108% 110%, var(--canvas-glow-teal), transparent 72%),
+    var(--canvas-base);
 }
 
 main {
@@ -914,9 +933,7 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   align-items: center;
   min-height: 74svh;
   padding: clamp(3rem, 8vw, 7rem) clamp(1rem, 4vw, 4rem);
-  background:
-    radial-gradient(circle at 20% 20%, rgba(201, 124, 67, 0.18), transparent 28rem),
-    linear-gradient(135deg, #f8f4ea 0%, #ecf7f1 100%);
+  background: transparent;
 }
 
 .home-hero {
@@ -924,12 +941,13 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   grid-template-columns: minmax(0, 1.45fr) minmax(14rem, 0.78fr);
   gap: clamp(1.75rem, 5vw, 4.5rem);
   align-items: center;
-  padding: clamp(2.25rem, 5vw, 4.25rem) clamp(1.15rem, 5vw, 4.5rem);
+  padding:
+    clamp(2.25rem, 5vw, 4.25rem)
+    clamp(1.15rem, 5vw, 4.5rem)
+    calc(var(--band-fade) + clamp(1.25rem, 3vw, 2.25rem));
   container-type: inline-size;
   container-name: home-hero;
-  background:
-    radial-gradient(circle at 85% 15%, rgba(56, 155, 178, 0.12), transparent 22rem),
-    linear-gradient(180deg, var(--paper) 0%, var(--soft) 100%);
+  background: transparent;
 }
 
 .home-hero-copy {
@@ -1137,11 +1155,6 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
 
 .services-banner {
   color: var(--white);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 2.75rem),
-    var(--brand-deep);
-  border-top: 0.55rem solid var(--brand-bar);
-  box-shadow: 0 18px 36px rgba(23, 33, 29, 0.08);
 }
 
 .services-banner-name {
@@ -1193,7 +1206,7 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
 
 .home-services .home-service-grid {
   padding:
-    clamp(1.75rem, 4vw, 2.75rem)
+    calc(var(--band-fade) + clamp(0.75rem, 2vw, 1.25rem))
     max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-right))
     0
     max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-left));
@@ -1283,6 +1296,8 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   flex: 0 0 auto;
   width: 1.35rem;
   height: 1.35rem;
+  border-radius: 999px;
+  background: transparent;
 }
 
 .program-panel-indicator::before,
@@ -1296,6 +1311,7 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   border-radius: 999px;
   background: var(--brand-dark);
   transform: translate(-50%, -50%);
+  transition: transform 180ms ease;
 }
 
 .program-panel-indicator::after {
@@ -1406,6 +1422,64 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   outline-offset: 3px;
 }
 
+.program-panel:has(summary:hover) {
+  border-color: rgba(31, 111, 91, 0.3);
+  background: var(--white);
+  box-shadow:
+    0 18px 36px rgba(23, 33, 29, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.program-panel:has(summary:hover) .program-panel-title {
+  color: var(--brand-deep);
+}
+
+.program-panel:has(summary:hover) .program-age-badge {
+  background: rgba(205, 237, 130, 0.62);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .program-panel {
+    transition:
+      transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease;
+  }
+
+  .program-panel-title {
+    transition: color 220ms ease;
+  }
+
+  .program-age-badge {
+    transition: background-color 220ms ease;
+  }
+
+  .program-panel-indicator {
+    transition:
+      transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 220ms ease,
+      box-shadow 220ms ease;
+  }
+
+  .program-panel:has(summary:hover) {
+    animation: none;
+    transform: translateY(-3px);
+  }
+
+  .program-panel:has(summary:hover) .program-panel-indicator {
+    background: rgba(31, 111, 91, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(31, 111, 91, 0.18);
+    transform: scale(1.08);
+  }
+
+  .program-panel:has(summary:active) {
+    animation: none;
+    transform: translateY(-1px) scale(0.996);
+    box-shadow: 0 12px 28px rgba(23, 33, 29, 0.1);
+  }
+}
+
 .program-page-intro {
   padding-bottom: 0;
 }
@@ -1417,9 +1491,7 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
 }
 
 .home-start {
-  background:
-    radial-gradient(circle at 0% 0%, rgba(205, 237, 130, 0.16), transparent 28rem),
-    var(--paper);
+  background: transparent;
 }
 
 .home-start-panel {
@@ -1671,7 +1743,7 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
 }
 
 .home-who {
-  background: var(--paper);
+  background: transparent;
 }
 
 .home-who-grid {
@@ -1725,9 +1797,7 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
 }
 
 .home-resources {
-  background:
-    radial-gradient(circle at 100% 0%, rgba(205, 237, 130, 0.22), transparent 24rem),
-    var(--soft);
+  background: var(--band-tint);
 }
 
 .home-resource-list {
@@ -1936,7 +2006,79 @@ h3 {
 }
 
 .section {
-  padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 4vw, 4rem);
+  padding: var(--section-pad-block) clamp(1rem, 4vw, 4rem);
+  background: transparent;
+}
+
+.band {
+  --band-surface: transparent;
+  position: relative;
+  isolation: isolate;
+}
+
+.band--tint {
+  --band-surface: var(--band-tint);
+  background: var(--band-surface);
+}
+
+.band--deep {
+  --band-surface: var(--band-deep);
+  background: var(--band-surface);
+}
+
+.services-banner.band--deep {
+  background:
+    linear-gradient(var(--band-rule), var(--band-rule)) 0 0 / 100% 0.45rem no-repeat,
+    var(--band-deep);
+}
+
+.band::before,
+.band::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  height: var(--band-fade);
+  pointer-events: none;
+}
+
+.band::before {
+  top: calc(var(--band-fade) * -1);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--band-surface) 10%, transparent) 24%,
+    color-mix(in srgb, var(--band-surface) 34%, transparent) 52%,
+    color-mix(in srgb, var(--band-surface) 68%, transparent) 76%,
+    var(--band-surface) 100%
+  );
+}
+
+.band::after {
+  bottom: calc(var(--band-fade) * -1);
+  background: linear-gradient(
+    to top,
+    transparent 0%,
+    color-mix(in srgb, var(--band-surface) 10%, transparent) 24%,
+    color-mix(in srgb, var(--band-surface) 34%, transparent) 52%,
+    color-mix(in srgb, var(--band-surface) 68%, transparent) 76%,
+    var(--band-surface) 100%
+  );
+}
+
+.section--ruled {
+  position: relative;
+}
+
+.section--ruled::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-right));
+  left: max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-left));
+  height: 1px;
+  background: rgba(31, 111, 91, 0.1);
 }
 
 .section-heading {
@@ -2023,11 +2165,11 @@ h3 {
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: clamp(1.5rem, 5vw, 4rem);
   align-items: start;
-  background: var(--white);
+  background: transparent;
 }
 
 .about-page {
-  background: var(--white);
+  background: transparent;
 }
 
 .about-page .section-heading {
@@ -2201,16 +2343,10 @@ h3 {
   text-decoration: underline;
 }
 
-.detail-section {
-  background: var(--paper);
-}
-
-.detail-section.soft {
-  background: var(--soft);
-}
-
+.detail-section,
+.detail-section.soft,
 .aba-page {
-  background: var(--paper);
+  background: transparent;
 }
 
 .aba-summary .feature-list {
@@ -2356,12 +2492,6 @@ h3 {
 
 .payer-band {
   padding: clamp(1.75rem, 4vw, 3rem) clamp(1rem, 4vw, 4rem);
-  background:
-    radial-gradient(circle at 92% 0%, rgba(205, 237, 130, 0.35), transparent 26rem),
-    radial-gradient(circle at 8% 100%, rgba(56, 155, 178, 0.18), transparent 24rem),
-    var(--brand-light);
-  border-top: 1px solid rgba(31, 111, 91, 0.18);
-  border-bottom: 1px solid rgba(31, 111, 91, 0.18);
 }
 
 .payer-band-inner {
@@ -2482,9 +2612,7 @@ h3 {
 }
 
 .resources-section {
-  background:
-    radial-gradient(circle at 12% 8%, rgba(205, 237, 130, 0.14), transparent 28rem),
-    var(--brand-deep);
+  background: var(--band-deep);
 }
 
 /* Short FAQ topics leave empty viewport under the list. Paint that column
@@ -2493,10 +2621,12 @@ body:has(.page-faq-category) {
   background: var(--brand-deep);
 }
 
+body:has(.page-faq-category) #app::before {
+  content: none;
+}
+
 body:has(.page-faq-category) main {
-  background:
-    radial-gradient(circle at 12% 8%, rgba(205, 237, 130, 0.14), transparent 28rem),
-    var(--brand-deep);
+  background: var(--brand-deep);
 }
 
 body:has(.page-faq-category) main > .resources-section {
@@ -2632,7 +2762,7 @@ body:has(.page-faq-category) main > .resources-section {
 .forms-section {
   padding-top: clamp(1.25rem, 2.5vw, 1.75rem);
   padding-bottom: clamp(1.5rem, 3vw, 2rem);
-  background: var(--paper);
+  background: transparent;
 }
 
 .forms-section.page-section {
@@ -3249,7 +3379,7 @@ body:has(.page-faq-category) main > .resources-section {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(20rem, 1fr);
   gap: clamp(1.5rem, 5vw, 4rem);
-  background: var(--white);
+  background: transparent;
 }
 
 .office-list {
@@ -3846,9 +3976,7 @@ address strong {
   align-items: center;
   min-height: 0;
   padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 4vw, 4rem);
-  background:
-    radial-gradient(circle at 0% 0%, rgba(205, 237, 130, 0.32), transparent 28rem),
-    var(--soft);
+  background: transparent;
 }
 
 .career-hero-copy {
@@ -3922,7 +4050,7 @@ address strong {
 }
 
 .career-benefits {
-  background: var(--paper);
+  background: transparent;
 }
 
 .career-benefits-photo {
@@ -4315,10 +4443,7 @@ address strong {
 }
 
 .quote-board {
-  background:
-    radial-gradient(circle at 10% 0%, rgba(205, 237, 130, 0.28), transparent 22rem),
-    radial-gradient(circle at 92% 100%, rgba(56, 155, 178, 0.12), transparent 20rem),
-    var(--soft);
+  background: transparent;
 }
 
 .quote-board .section-heading {

@@ -541,7 +541,7 @@ function renderSectionHeading(eyebrow, title, intro = '') {
 }
 
 function renderServicesBanner(eyebrow, title, intro = '') {
-  return `<header class="services-banner">
+  return `<header class="services-banner band band--deep">
           <div class="services-banner-name">
             <p class="services-banner-mark">${escapeHtml(eyebrow)}</p>
           </div>
@@ -586,7 +586,7 @@ function renderQuoteBoard(quotes, extraClass = '') {
     })
     .join('\n          ')
 
-  return `<section class="section quote-board ${extraClass}">
+  return `<section class="section quote-board band band--tint ${extraClass}">
         ${renderSectionHeading(quotes.eyebrow, quotes.title, quotes.intro)}
         <div class="quote-board-frame">
           <div class="quote-board-grid">${bubbles}</div>
@@ -1149,7 +1149,7 @@ function renderHome(content) {
         ${renderServicesBanner(sections.services.eyebrow, sections.services.title, sections.services.intro)}
         <div class="program-panel-list home-service-grid">${serviceCards}</div>
       </section>
-      <section class="section home-start">
+      <section class="section home-start section--ruled">
         <div class="home-start-panel">
           <div class="home-start-grid">
             <div class="home-start-steps">
@@ -1165,7 +1165,7 @@ function renderHome(content) {
           </div>
         </div>
       </section>
-      <section class="section home-who">
+      <section class="section home-who section--ruled">
         <div class="home-who-grid">
           ${
             whoImage
@@ -1186,7 +1186,7 @@ function renderHome(content) {
           </div>
         </div>
       </section>
-      <section class="section home-resources">
+      <section class="section home-resources band band--tint">
         ${renderSectionHeading('', home.resourcesTeaser.title, home.resourcesTeaser.intro)}
         <div class="home-resource-list">${resourceCards}</div>
         <a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(home.resourcesTeaser.linkHref))}">${escapeHtml(home.resourcesTeaser.linkLabel)}</a>
@@ -1403,7 +1403,7 @@ function renderInsurancePage(content) {
     .map((payer) => `<li>${escapeHtml(payer)}</li>`)
     .join('')
 
-  return `<section class="section payer-band">
+  return `<section class="section payer-band band band--tint">
         <div class="payer-band-inner">
           <div class="payer-lead">
             ${renderSectionHeading('', funding.title, funding.intro)}
