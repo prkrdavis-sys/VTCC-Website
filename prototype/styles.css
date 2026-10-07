@@ -4014,6 +4014,10 @@ address strong {
   outline-offset: 3px;
 }
 
+.multi-select-panel[hidden] {
+  display: none;
+}
+
 .multi-select-panel {
   position: absolute;
   z-index: 30;
