@@ -80,6 +80,9 @@ for (const entry of pages) {
     <meta charset="utf-8" />
 ${seoHead}    ${fontLinks}
     <link rel="stylesheet" href="${entry.base}styles.css" />
+    <script type="speculationrules">
+      {"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}
+    </script>
   </head>
   <body>
     <div id="app"></div>

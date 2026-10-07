@@ -167,7 +167,7 @@ function relatedProgramHref(program) {
 
 function renderButton(action) {
   const style = action.style ? ` ${action.style}` : ''
-  return `<a class="button${style}" href="${escapeHtml(toStaticHref(action.href))}">${escapeHtml(action.label)}</a>`
+  return `<a class="button button--arrow${style}" href="${escapeHtml(toStaticHref(action.href))}">${escapeHtml(action.label)}</a>`
 }
 
 function renderNavLink(item) {
@@ -502,13 +502,17 @@ function renderQuoteBoard(quotes, extraClass = '') {
     .map((item, index) => {
       const style = item.style === 'speech' ? 'speech' : 'thought'
       const align = index === items.length - 1 ? 'quote-bubble--end' : 'quote-bubble--start'
+      const decor =
+        style === 'thought'
+          ? `<img class="quote-shape-cap" src="${escapeHtml(`${BASE}assets/quotes/thought-cap.svg`)}" alt="" />
+              <img class="quote-shape-dots" src="${escapeHtml(`${BASE}assets/quotes/thought-dots.svg`)}" alt="" />`
+          : `<img class="quote-shape-tail" src="${escapeHtml(`${BASE}assets/quotes/speech-tail.svg`)}" alt="" />`
 
       return `<figure class="quote-bubble quote-bubble--${style} ${align}">
           <div class="quote-bubble-shell">
             <div class="quote-bubble-art" aria-hidden="true">
-              <img class="quote-shape-cap" src="${escapeHtml(`${BASE}assets/quotes/${style}-cap.svg`)}" alt="" />
-              <img class="quote-shape-body" src="${escapeHtml(`${BASE}assets/quotes/bubble-side.svg`)}" alt="" />
-              <img class="quote-shape-foot" src="${escapeHtml(`${BASE}assets/quotes/${style}-foot.svg`)}" alt="" />
+              <div class="quote-shape-box"></div>
+              ${decor}
             </div>
             <blockquote class="quote-bubble-copy">
               <p>${escapeHtml(item.quote)}</p>
@@ -1561,9 +1565,7 @@ function renderCareerPage(content) {
         </li>`,
     )
     .join('')
-  const leadQuotes = careers.quotes
-    ? { ...careers.quotes, items: (careers.quotes.items ?? []).slice(0, 1) }
-    : null
+  const leadQuotes = careers.quotes ?? null
   const steps = careers.steps.items
     .map(
       (step, index) => `<li class="career-step">
@@ -1902,11 +1904,13 @@ function createEmptyQuizState() {
     experienceLength: '',
     experienceAges: [],
     doctorDiagnosis: '',
-    diagnosisModalDismissed: false,
+    editing: '',
+    confirmed: [],
   }
 }
 
 let quizState = createEmptyQuizState()
+let quizRefreshToken = 0
 
 function getQuiz(content) {
   return content.contactQuiz
@@ -2029,10 +2033,6 @@ function collectCredentialOptions(quiz) {
 
 function labelForOption(options, id) {
   return options.find((option) => option.id === id)?.label ?? id
-}
-
-function formatSelectedCount(quiz, count) {
-  return (quiz.multiSelectSelected ?? '{count} selected').replace('{count}', String(count))
 }
 
 function suggestApplicantRole(state, quiz) {
@@ -2174,81 +2174,314 @@ function clearQuizPrefill() {
   sessionStorage.removeItem(QUIZ_PREFILL_STORAGE_KEY)
 }
 
-function renderQuizSelect(quiz, fieldName, label, options, selectedValue) {
-  const optionMarkup = [
-    `<option value="">${escapeHtml(quiz.selectPlaceholder)}</option>`,
-    ...options.map(
-      (option) =>
-        `<option value="${escapeHtml(option.id)}"${option.id === selectedValue ? ' selected' : ''}>${escapeHtml(option.label)}</option>`,
-    ),
-  ].join('\n              ')
-
-  return `<label class="quiz-field">
-            <span>${escapeHtml(label)}</span>
-            <select data-quiz-field="${escapeHtml(fieldName)}">
-              ${optionMarkup}
-            </select>
-          </label>`
+function quizYesNoOptions(quiz) {
+  return [
+    { id: 'yes', label: quiz.yesLabel },
+    { id: 'no', label: quiz.noLabel },
+  ]
 }
 
-function renderQuizYesNo(quiz, fieldName, label, selectedValue) {
-  return renderQuizSelect(
-    quiz,
-    fieldName,
-    label,
-    [
-      { id: 'yes', label: quiz.yesLabel },
-      { id: 'no', label: quiz.noLabel },
-    ],
-    selectedValue,
-  )
-}
+function appendParentQuizSteps(steps, state, quiz) {
+  steps.push({
+    id: 'parentDiagnosis',
+    kind: 'choice',
+    label: quiz.parentDiagnosisQuestion.label,
+    options: quizYesNoOptions(quiz),
+  })
 
-function renderQuizMultiSelect(quiz, fieldName, label, groups, selectedIds) {
-  const selected = new Set(selectedIds)
-  const selectedCount = selectedIds.length
-  const summary =
-    selectedCount > 0 ? formatSelectedCount(quiz, selectedCount) : quiz.multiSelectPlaceholder
-  const groupMarkup = groups
-    .map((group) => {
-      const hideLegend = groups.length === 1 && group.label === label
-      const options = group.options
-        .map((option) => {
-          const inputId = `quiz-${fieldName}-${option.id}`
-          return `<label class="quiz-check" for="${escapeHtml(inputId)}">
-                    <input id="${escapeHtml(inputId)}" type="checkbox" data-quiz-multi="${escapeHtml(fieldName)}" value="${escapeHtml(option.id)}"${selected.has(option.id) ? ' checked' : ''} />
-                    <span>${escapeHtml(option.label)}</span>
-                  </label>`
-        })
-        .join('\n                ')
-      return `<fieldset class="quiz-multiselect-group">
-                <legend class="${hideLegend ? 'visually-hidden' : ''}">${escapeHtml(group.label)}</legend>
-                ${options}
-              </fieldset>`
+  if (state.parentDiagnosis !== 'yes') {
+    return
+  }
+
+  steps.push({
+    id: 'childAge',
+    kind: 'number',
+    label: quiz.parentAgeQuestion.label,
+    help: quiz.ageHelp,
+    suffix: quiz.ageSuffix,
+  })
+
+  if (state.childAge == null) {
+    return
+  }
+
+  if (state.childAge === 1) {
+    steps.push({
+      id: 'child18Months',
+      kind: 'choice',
+      label: quiz.parent18MonthsQuestion.label,
+      options: quizYesNoOptions(quiz),
     })
-    .join('\n              ')
+    if (!state.child18Months) {
+      return
+    }
+  }
 
-  return `<div class="quiz-field quiz-multiselect" data-quiz-multiselect>
-            <span class="quiz-field-label">${escapeHtml(label)}</span>
-            <button type="button" class="quiz-multiselect-toggle" aria-expanded="false" aria-haspopup="listbox">
-              ${escapeHtml(summary)}
-            </button>
-            <div class="quiz-multiselect-panel" hidden>
-              ${groupMarkup}
-            </div>
+  const questionCopy = {
+    feeding: quiz.parentFeedingQuestion.label,
+    social: quiz.parentSocialQuestion.label,
+    classroom: quiz.parentClassroomQuestion.label,
+  }
+
+  for (const questionId of parentProgramIds(state.childAge)) {
+    steps.push({
+      id: questionId,
+      kind: 'choice',
+      label: questionCopy[questionId],
+      options: quizYesNoOptions(quiz),
+    })
+    if (!state[questionId]) {
+      break
+    }
+  }
+}
+
+function appendApplicantQuizSteps(steps, state, quiz) {
+  steps.push({
+    id: 'credentials',
+    kind: 'multi',
+    label: quiz.applicantCredentialsQuestion.label,
+    groups: quiz.applicantCredentialsQuestion.groups,
+  })
+
+  if (!state.confirmed.includes('credentials') || !applicantHasCredentials(state)) {
+    return
+  }
+
+  steps.push({
+    id: 'experienceLength',
+    kind: 'choice',
+    label: quiz.applicantExperienceLengthQuestion.label,
+    options: quiz.applicantExperienceLengthQuestion.options,
+  })
+
+  if (!state.experienceLength) {
+    return
+  }
+
+  if (state.experienceLength === 'none') {
+    return
+  }
+
+  steps.push({
+    id: 'experienceSettings',
+    kind: 'multi',
+    label: quiz.applicantExperienceSettingsQuestion.label,
+    groups: [
+      {
+        label: quiz.applicantExperienceSettingsQuestion.label,
+        options: quiz.applicantExperienceSettingsQuestion.options,
+      },
+    ],
+  })
+
+  if (!state.confirmed.includes('experienceSettings') || state.experienceSettings.length === 0) {
+    return
+  }
+
+  steps.push({
+    id: 'experienceAges',
+    kind: 'multi',
+    label: quiz.applicantExperienceAgesQuestion.label,
+    groups: [
+      {
+        label: quiz.applicantExperienceAgesQuestion.label,
+        options: quiz.applicantExperienceAgesQuestion.options,
+      },
+    ],
+  })
+}
+
+function getQuizSteps(state, quiz) {
+  const steps = [
+    {
+      id: 'role',
+      kind: 'choice',
+      label: quiz.roleQuestion.label,
+      options: quiz.roleQuestion.options,
+    },
+  ]
+
+  switch (state.role) {
+    case 'parent':
+      appendParentQuizSteps(steps, state, quiz)
+      break
+    case 'doctor':
+      steps.push({
+        id: 'doctorDiagnosis',
+        kind: 'choice',
+        label: quiz.doctorDiagnosisQuestion.label,
+        options: quizYesNoOptions(quiz),
+      })
+      break
+    case 'applicant':
+      appendApplicantQuizSteps(steps, state, quiz)
+      break
+    case '':
+      break
+    default: {
+      const _exhaustiveCheck = state.role
+      return _exhaustiveCheck ? steps : steps
+    }
+  }
+
+  return steps
+}
+
+function quizStepIsComplete(state, step) {
+  switch (step.kind) {
+    case 'number':
+      return state.childAge != null
+    case 'multi':
+      return state.confirmed.includes(step.id) && (state[step.id]?.length ?? 0) > 0
+    case 'choice':
+      return Boolean(state[step.id])
+    default: {
+      const _exhaustiveCheck = step.kind
+      return _exhaustiveCheck ? false : false
+    }
+  }
+}
+
+function quizResultReady(state) {
+  switch (state.role) {
+    case 'parent':
+      return parentReadyForResult(state)
+    case 'doctor':
+      return Boolean(state.doctorDiagnosis)
+    case 'applicant':
+      return applicantReadyForResult(state)
+    case '':
+      return false
+    default: {
+      const _exhaustiveCheck = state.role
+      return _exhaustiveCheck ? false : false
+    }
+  }
+}
+
+function getCurrentQuizStep(state, quiz) {
+  const steps = getQuizSteps(state, quiz)
+  if (state.editing) {
+    const editing = steps.find((step) => step.id === state.editing)
+    if (editing) {
+      return { steps, step: editing, showingResult: false }
+    }
+  }
+
+  const incomplete = steps.find((step) => !quizStepIsComplete(state, step))
+  if (incomplete) {
+    return { steps, step: incomplete, showingResult: false }
+  }
+
+  if (quizResultReady(state)) {
+    return { steps, step: null, showingResult: true }
+  }
+
+  return { steps, step: steps[steps.length - 1] ?? null, showingResult: false }
+}
+
+function quizOptionTabIndex(isSelected, index, anySelected) {
+  if (anySelected) {
+    return isSelected ? 0 : -1
+  }
+  return index === 0 ? 0 : -1
+}
+
+function renderQuizChoiceStep(step) {
+  const selected = step.options.some((option) => option.id === quizState[step.id])
+  const options = step.options
+    .map((option, index) => {
+      const isSelected = option.id === quizState[step.id]
+      return `<button type="button" class="quiz-option${isSelected ? ' is-selected' : ''}" role="radio" aria-checked="${isSelected ? 'true' : 'false'}" tabindex="${quizOptionTabIndex(isSelected, index, selected)}" data-quiz-choice="${escapeHtml(step.id)}" data-quiz-value="${escapeHtml(option.id)}">
+                <span class="quiz-option-label">${escapeHtml(option.label)}</span>
+                <span class="quiz-option-mark" aria-hidden="true"></span>
+              </button>`
+    })
+    .join('')
+
+  return `<div class="quiz-step-card">
+            <h3 id="quiz-question" tabindex="-1" data-quiz-question>${escapeHtml(step.label)}</h3>
+            <div class="quiz-options" role="radiogroup" aria-labelledby="quiz-question">${options}</div>
           </div>`
 }
 
+function renderQuizNumberStep(step, quiz) {
+  const value = quizState.childAge == null ? '' : String(quizState.childAge)
+  return `<div class="quiz-step-card">
+            <h3 id="quiz-question" tabindex="-1" data-quiz-question>${escapeHtml(step.label)}</h3>
+            <div class="quiz-age">
+              <input type="number" inputmode="numeric" min="0" max="30" autocomplete="off" data-quiz-age aria-labelledby="quiz-question" aria-describedby="quiz-age-help" value="${escapeHtml(value)}" />
+              <span class="quiz-age-suffix">${escapeHtml(step.suffix ?? quiz.ageSuffix)}</span>
+            </div>
+            <p id="quiz-age-help" class="quiz-help">${escapeHtml(step.help ?? quiz.ageHelp)}</p>
+            <button type="button" class="button button--arrow" data-quiz-continue="childAge"${value === '' ? ' disabled' : ''}>${escapeHtml(quiz.continueLabel ?? 'Continue')}</button>
+          </div>`
+}
+
+function renderQuizMultiStep(step, quiz) {
+  const selectedIds = new Set(quizState[step.id] ?? [])
+  const groups = step.groups
+    .map((group) => {
+      const hideLegend = step.groups.length === 1
+      const options = group.options
+        .map((option, index) => {
+          const isSelected = selectedIds.has(option.id)
+          return `<button type="button" class="quiz-option quiz-option--check${isSelected ? ' is-selected' : ''}" role="checkbox" aria-checked="${isSelected ? 'true' : 'false'}" tabindex="${quizOptionTabIndex(isSelected, index, selectedIds.size > 0)}" data-quiz-multi="${escapeHtml(step.id)}" data-quiz-value="${escapeHtml(option.id)}">
+                    <span class="quiz-option-mark" aria-hidden="true"></span>
+                    <span class="quiz-option-label">${escapeHtml(option.label)}</span>
+                  </button>`
+        })
+        .join('')
+      return `<fieldset class="quiz-option-group">
+                <legend class="${hideLegend ? 'visually-hidden' : ''}">${escapeHtml(group.label)}</legend>
+                <div class="quiz-options">${options}</div>
+              </fieldset>`
+    })
+    .join('')
+
+  return `<div class="quiz-step-card">
+            <h3 id="quiz-question" tabindex="-1" data-quiz-question>${escapeHtml(step.label)}</h3>
+            ${groups}
+            <button type="button" class="button button--arrow" data-quiz-continue="${escapeHtml(step.id)}"${selectedIds.size > 0 ? '' : ' disabled'}>${escapeHtml(quiz.continueLabel ?? 'Continue')}</button>
+          </div>`
+}
+
+function renderQuizStep(step, quiz) {
+  switch (step.kind) {
+    case 'choice':
+      return renderQuizChoiceStep(step)
+    case 'number':
+      return renderQuizNumberStep(step, quiz)
+    case 'multi':
+      return renderQuizMultiStep(step, quiz)
+    default: {
+      const _exhaustiveCheck = step.kind
+      return _exhaustiveCheck ? '' : ''
+    }
+  }
+}
+
 function renderQuizCta(href, label) {
-  return `<a class="button" href="${escapeHtml(toStaticHref(href))}" data-quiz-prefill>${escapeHtml(label)}</a>`
+  return `<a class="button button--arrow button--sheen-once" href="${escapeHtml(toStaticHref(href))}" data-quiz-prefill>${escapeHtml(label)}</a>`
 }
 
 function renderParentResultCard(state, quiz) {
   if (state.parentDiagnosis === 'no') {
     const copy = quiz.parentNoDiagnosis
+    const steps = copy.steps
+      .map(
+        (step, index) => `<li class="quiz-step" style="--reveal-i:${index}">
+              <span class="quiz-step-index">${index + 1}</span>
+              <p>${escapeHtml(step)}</p>
+            </li>`,
+      )
+      .join('')
     return `<article class="quiz-result" data-quiz-result>
-            <h3>${escapeHtml(copy.resultTitle)}</h3>
+            <h3 id="quiz-question" tabindex="-1" data-quiz-question>${escapeHtml(copy.resultTitle)}</h3>
             <p>${escapeHtml(copy.resultBody)}</p>
+            <p>${escapeHtml(copy.intro)}</p>
+            <ol class="quiz-stepper">${steps}</ol>
             ${renderQuizCta('/contact/request', copy.ctaLabel)}
           </article>`
   }
@@ -2259,7 +2492,7 @@ function renderParentResultCard(state, quiz) {
 
   if (!abaEligible && specialized.length === 0) {
     return `<article class="quiz-result" data-quiz-result>
-            <h3>${escapeHtml(copy.outsideAgeTitle)}</h3>
+            <h3 id="quiz-question" tabindex="-1" data-quiz-question>${escapeHtml(copy.outsideAgeTitle)}</h3>
             <p>${escapeHtml(copy.outsideAgeBody)}</p>
             ${renderQuizCta('/contact/request', copy.ctaLabel)}
           </article>`
@@ -2267,19 +2500,19 @@ function renderParentResultCard(state, quiz) {
 
   if (specialized.length === 0) {
     return `<article class="quiz-result" data-quiz-result>
-            <h3>${escapeHtml(copy.onlyAbaTitle)}</h3>
+            <h3 id="quiz-question" tabindex="-1" data-quiz-question>${escapeHtml(copy.onlyAbaTitle)}</h3>
             <p>${escapeHtml(copy.onlyAbaBody)}</p>
             ${renderQuizCta('/contact/request', copy.ctaLabel)}
           </article>`
   }
 
   const items = specialized
-    .map((id) => `<li>${escapeHtml(quiz.programLabels[id] ?? id)}</li>`)
+    .map((id, index) => `<li style="--reveal-i:${index}">${escapeHtml(quiz.programLabels[id] ?? id)}</li>`)
     .join('')
   const abaNote = abaEligible ? `<p>${escapeHtml(copy.abaNote)}</p>` : ''
 
   return `<article class="quiz-result" data-quiz-result>
-            <h3>${escapeHtml(copy.title)}</h3>
+            <h3 id="quiz-question" tabindex="-1" data-quiz-question>${escapeHtml(copy.title)}</h3>
             <p>${escapeHtml(copy.body)}</p>
             <ul class="quiz-result-list">${items}</ul>
             ${abaNote}
@@ -2297,7 +2530,7 @@ function renderDoctorResultCard(state, quiz) {
     const copy = quiz.doctorYes
     const steps = copy.steps
       .map(
-        (step, index) => `<li class="quiz-step">
+        (step, index) => `<li class="quiz-step" style="--reveal-i:${index}">
               <span class="quiz-step-index">${index + 1}</span>
               <div>
                 <strong>${escapeHtml(step.title)}</strong>
@@ -2307,7 +2540,7 @@ function renderDoctorResultCard(state, quiz) {
       )
       .join('')
     return `<article class="quiz-result" data-quiz-result>
-            <h3>${escapeHtml(copy.title)}</h3>
+            <h3 id="quiz-question" tabindex="-1" data-quiz-question>${escapeHtml(copy.title)}</h3>
             <p>${escapeHtml(copy.intro)}</p>
             <ol class="quiz-stepper">${steps}</ol>
             <p class="quiz-result-note">${escapeHtml(copy.notice)}</p>
@@ -2316,9 +2549,11 @@ function renderDoctorResultCard(state, quiz) {
   }
 
   const copy = quiz.doctorNo
-  const items = copy.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')
+  const items = copy.items
+    .map((item, index) => `<li style="--reveal-i:${index}">${escapeHtml(item)}</li>`)
+    .join('')
   return `<article class="quiz-result" data-quiz-result>
-            <h3>${escapeHtml(copy.title)}</h3>
+            <h3 id="quiz-question" tabindex="-1" data-quiz-question>${escapeHtml(copy.title)}</h3>
             <p>${escapeHtml(copy.intro)}</p>
             <ul class="quiz-result-list">${items}</ul>
             ${renderQuizCta('/contact/referral', copy.ctaLabel)}
@@ -2329,7 +2564,7 @@ function renderApplicantResultCard(state, quiz) {
   const roleKey = suggestApplicantRole(state, quiz)
   const copy = quiz.applicantResult
   return `<article class="quiz-result" data-quiz-result>
-            <h3>${escapeHtml(copy.title)}</h3>
+            <h3 id="quiz-question" tabindex="-1" data-quiz-question>${escapeHtml(copy.title)}</h3>
             <p class="quiz-result-role">${escapeHtml(quiz.careerRoles[roleKey])}</p>
             <p>${escapeHtml(quiz.roleReasons[roleKey])}</p>
             <p>${escapeHtml(copy.body)}</p>
@@ -2354,175 +2589,54 @@ function renderQuizResult(state, quiz) {
   }
 }
 
-function renderParentQuestions(state, quiz) {
-  const fields = [
-    renderQuizYesNo(quiz, 'parentDiagnosis', quiz.parentDiagnosisQuestion.label, state.parentDiagnosis),
-  ]
-
-  if (state.parentDiagnosis !== 'yes') {
-    return fields.join('\n          ')
-  }
-
-  fields.push(`<label class="quiz-field">
-            <span>${escapeHtml(quiz.parentAgeQuestion.label)}</span>
-            <span class="quiz-age-row">
-              <input type="number" inputmode="numeric" min="0" max="30" data-quiz-field="childAge" value="${state.childAge == null ? '' : escapeHtml(String(state.childAge))}" />
-              <span class="quiz-age-suffix">${escapeHtml(quiz.ageSuffix)}</span>
-            </span>
-            <small>${escapeHtml(quiz.ageHelp)}</small>
-          </label>`)
-
-  if (state.childAge == null) {
-    return fields.join('\n          ')
-  }
-
-  if (state.childAge === 1) {
-    fields.push(
-      renderQuizYesNo(quiz, 'child18Months', quiz.parent18MonthsQuestion.label, state.child18Months),
-    )
-    if (!state.child18Months) {
-      return fields.join('\n          ')
-    }
-  }
-
-  const questionCopy = {
-    feeding: quiz.parentFeedingQuestion.label,
-    social: quiz.parentSocialQuestion.label,
-    classroom: quiz.parentClassroomQuestion.label,
-  }
-
-  for (const questionId of parentProgramIds(state.childAge)) {
-    fields.push(renderQuizYesNo(quiz, questionId, questionCopy[questionId], state[questionId]))
-    if (!state[questionId]) {
-      break
-    }
-  }
-
-  return fields.join('\n          ')
-}
-
-function renderDoctorQuestions(state, quiz) {
-  return renderQuizYesNo(
-    quiz,
-    'doctorDiagnosis',
-    quiz.doctorDiagnosisQuestion.label,
-    state.doctorDiagnosis,
-  )
-}
-
-function renderApplicantQuestions(state, quiz) {
-  const fields = [
-    renderQuizMultiSelect(
-      quiz,
-      'credentials',
-      quiz.applicantCredentialsQuestion.label,
-      quiz.applicantCredentialsQuestion.groups,
-      state.credentials,
-    ),
-  ]
-
-  if (!applicantHasCredentials(state)) {
-    return fields.join('\n          ')
-  }
-
-  fields.push(
-    renderQuizSelect(
-      quiz,
-      'experienceLength',
-      quiz.applicantExperienceLengthQuestion.label,
-      quiz.applicantExperienceLengthQuestion.options,
-      state.experienceLength,
-    ),
-  )
-
-  if (!state.experienceLength) {
-    return fields.join('\n          ')
-  }
-
-  if (state.experienceLength !== 'none') {
-    fields.push(
-      renderQuizMultiSelect(
-        quiz,
-        'experienceSettings',
-        quiz.applicantExperienceSettingsQuestion.label,
-        [{ label: quiz.applicantExperienceSettingsQuestion.label, options: quiz.applicantExperienceSettingsQuestion.options }],
-        state.experienceSettings,
-      ),
-    )
-
-    if (state.experienceSettings.length > 0) {
-      fields.push(
-        renderQuizMultiSelect(
-          quiz,
-          'experienceAges',
-          quiz.applicantExperienceAgesQuestion.label,
-          [{ label: quiz.applicantExperienceAgesQuestion.label, options: quiz.applicantExperienceAgesQuestion.options }],
-          state.experienceAges,
-        ),
-      )
-    }
-  }
-
-  return fields.join('\n          ')
-}
-
-function renderQuizBranch(state, quiz) {
-  switch (state.role) {
-    case 'parent':
-      return renderParentQuestions(state, quiz)
-    case 'doctor':
-      return renderDoctorQuestions(state, quiz)
-    case 'applicant':
-      return renderApplicantQuestions(state, quiz)
-    case '':
-      return ''
-    default: {
-      const _exhaustiveCheck = state.role
-      return _exhaustiveCheck ? '' : ''
-    }
-  }
-}
-
-function renderDiagnosisDialog(quiz) {
-  const copy = quiz.parentNoDiagnosis
-  const steps = copy.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join('')
-  return `<dialog class="quiz-dialog" data-quiz-diagnosis-dialog>
-            <h3>${escapeHtml(copy.title)}</h3>
-            <p>${escapeHtml(copy.intro)}</p>
-            <ol class="quiz-dialog-steps">${steps}</ol>
-            <div class="quiz-dialog-actions">
-              <button type="button" class="button ghost" data-quiz-dialog-close>${escapeHtml(quiz.closeLabel)}</button>
-              ${renderQuizCta('/contact/request', copy.modalCtaLabel)}
-            </div>
-          </dialog>`
-}
-
-function renderContactQuizInner(content) {
+function renderContactQuizInner(content, direction = 'none') {
   const quiz = getQuiz(content)
-  const roleOptions = quiz.roleQuestion.options
-  const branch = renderQuizBranch(quizState, quiz)
-  const result = renderQuizResult(quizState, quiz)
+  const { steps, step, showingResult } = getCurrentQuizStep(quizState, quiz)
+  const index = step ? steps.findIndex((item) => item.id === step.id) : Math.max(steps.length - 1, 0)
+  const total = Math.max(steps.length, 1)
+  const position = showingResult ? total : index + 1
+  const fraction = showingResult ? 1 : Math.max(0, position - 1) / total
+  const progressLabel = (quiz.progressLabel ?? 'Question {n} of {total}')
+    .replace('{n}', String(position))
+    .replace('{total}', String(total))
+  const phone = content.topBar?.phone ?? ''
+  const phoneHref = content.topBar?.phoneHref ?? '#'
+  const canGoBack = showingResult || index > 0
+  const motion = direction === 'back' ? 'enter-back' : direction === 'forward' ? 'enter-forward' : 'none'
+  const stage = showingResult || !step ? renderQuizResult(quizState, quiz) : renderQuizStep(step, quiz)
 
-  return `${renderQuizSelect(quiz, 'role', quiz.roleQuestion.label, roleOptions, quizState.role)}
-          <p class="quiz-skip">${escapeHtml(quiz.skipLinkPrompt)} <a href="${escapeHtml(toStaticHref(quiz.skipLinkHref))}">${escapeHtml(quiz.skipLinkLabel)}</a></p>
-          ${branch}
-          ${result}
-          <p class="quiz-disclaimer">${escapeHtml(quiz.disclaimer)}</p>
-          ${renderDiagnosisDialog(quiz)}`
+  return `<header class="quiz-intro">
+            <p class="eyebrow">${escapeHtml(quiz.eyebrow)}</p>
+            <h2>${escapeHtml(quiz.title)}</h2>
+            <p>${escapeHtml(quiz.intro)}</p>
+          </header>
+          <div class="quiz-progress">
+            <div class="quiz-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${showingResult ? total : position - 1}" aria-labelledby="quiz-progress-label">
+              <span class="quiz-progress-fill" style="transform: scaleX(${fraction})"></span>
+            </div>
+            <p id="quiz-progress-label" class="quiz-progress-label">${escapeHtml(progressLabel)}</p>
+          </div>
+          <div class="quiz-stage" data-quiz-stage data-motion="${motion}">
+            ${stage}
+          </div>
+          <div class="quiz-footer-links">
+            ${canGoBack ? `<button type="button" class="quiz-back" data-quiz-back>${escapeHtml(quiz.backLabel ?? 'Back')}</button>` : ''}
+            <a class="quiz-footer-call" href="${escapeHtml(phoneHref)}">${escapeHtml(quiz.callPrompt ?? 'Prefer to talk?')} ${escapeHtml(phone)}</a>
+            <span class="quiz-footer-skip">${escapeHtml(quiz.skipLinkPrompt)} <a href="${escapeHtml(toStaticHref(quiz.skipLinkHref))}">${escapeHtml(quiz.skipLinkLabel)}</a></span>
+          </div>
+          <p class="quiz-disclaimer">${escapeHtml(quiz.disclaimer)}</p>`
 }
 
 function renderContactQuizPage(content) {
-  const quiz = getQuiz(content)
-  return `<section class="section contact-section page-section">
-        <div>
-          ${renderContactSidebar(content, { ...quiz, eyebrow: '' })}
-        </div>
-        <div class="contact-form-panel quiz-panel">
-          <div class="contact-quiz" data-contact-quiz>
-            ${renderContactQuizInner(content)}
-          </div>
+  return `<section class="section quiz-section page-section">
+        <div class="contact-quiz" data-contact-quiz>
+          ${renderContactQuizInner(content)}
         </div>
       </section>`
+}
+
+function dropConfirmedQuizSteps(ids) {
+  quizState.confirmed = quizState.confirmed.filter((id) => !ids.includes(id))
 }
 
 function resetDependentQuizFields(fieldName) {
@@ -2539,7 +2653,6 @@ function resetDependentQuizFields(fieldName) {
     quizState.feeding = ''
     quizState.social = ''
     quizState.classroom = ''
-    quizState.diagnosisModalDismissed = quizState.parentDiagnosis === 'no' ? false : true
     return
   }
 
@@ -2554,6 +2667,7 @@ function resetDependentQuizFields(fieldName) {
   if (fieldName === 'experienceLength' && quizState.experienceLength === 'none') {
     quizState.experienceSettings = []
     quizState.experienceAges = []
+    dropConfirmedQuizSteps(['experienceSettings', 'experienceAges'])
   }
 }
 
@@ -2568,14 +2682,146 @@ function syncQuizMultiValue(fieldName, values) {
   quizState[fieldName] = unique
 }
 
-function refreshContactQuiz(content) {
+function focusQuizQuestion() {
+  const age = document.querySelector('[data-quiz-age]')
+  if (age instanceof HTMLElement) {
+    age.focus({ preventScroll: true })
+    return
+  }
+
+  const heading = document.querySelector('[data-quiz-question]')
+  if (heading instanceof HTMLElement) {
+    heading.focus({ preventScroll: true })
+  }
+}
+
+function refreshContactQuiz(content, { direction = 'none' } = {}) {
+  window.clearTimeout(bindContactQuizControls.advanceTimer)
   const root = document.querySelector('[data-contact-quiz]')
   if (!root) {
     return
   }
 
-  root.innerHTML = renderContactQuizInner(content)
-  bindContactQuizControls(content)
+  const token = ++quizRefreshToken
+  const stage = root.querySelector('[data-quiz-stage]')
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const enterDirection = direction === 'back' ? 'back' : direction === 'forward' ? 'forward' : 'none'
+
+  const paint = () => {
+    if (token !== quizRefreshToken) {
+      return
+    }
+    const current = document.querySelector('[data-contact-quiz]')
+    if (!current) {
+      return
+    }
+    const markup = renderContactQuizInner(content, enterDirection)
+    const next = document.createElement('div')
+    next.innerHTML = markup
+    const currentStage = current.querySelector('[data-quiz-stage]')
+    const nextStage = next.querySelector('[data-quiz-stage]')
+    const currentFill = current.querySelector('.quiz-progress-fill')
+    const nextFill = next.querySelector('.quiz-progress-fill')
+    if (currentStage && nextStage && currentFill && nextFill) {
+      const currentTrack = current.querySelector('.quiz-progress-track')
+      const nextTrack = next.querySelector('.quiz-progress-track')
+      const currentLabel = current.querySelector('.quiz-progress-label')
+      const nextLabel = next.querySelector('.quiz-progress-label')
+      const currentFooter = current.querySelector('.quiz-footer-links')
+      const nextFooter = next.querySelector('.quiz-footer-links')
+      if (currentTrack && nextTrack) {
+        currentTrack.setAttribute('aria-valuemax', nextTrack.getAttribute('aria-valuemax') ?? '')
+        currentTrack.setAttribute('aria-valuenow', nextTrack.getAttribute('aria-valuenow') ?? '')
+      }
+      if (currentLabel && nextLabel) {
+        currentLabel.textContent = nextLabel.textContent
+      }
+      currentFill.style.transform = nextFill.style.transform
+      currentStage.innerHTML = nextStage.innerHTML
+      const nextMotion = nextStage.dataset.motion ?? 'none'
+      if (currentStage.dataset.motion === nextMotion) {
+        currentStage.dataset.motion = 'none'
+        void currentStage.offsetWidth
+      }
+      currentStage.dataset.motion = nextMotion
+      if (currentFooter && nextFooter) {
+        currentFooter.innerHTML = nextFooter.innerHTML
+      }
+    } else {
+      current.innerHTML = markup
+    }
+    bindContactQuizControls(content)
+    if (direction !== 'none') {
+      focusQuizQuestion()
+    }
+  }
+
+  if (!stage || reduceMotion || direction === 'none') {
+    paint()
+    return
+  }
+
+  let settled = false
+  const finish = (event) => {
+    if (event && event.target !== stage) {
+      return
+    }
+    if (settled) {
+      return
+    }
+    settled = true
+    stage.removeEventListener('animationend', finish)
+    window.clearTimeout(stage.leaveTimer)
+    try {
+      paint()
+    } catch (error) {
+      console.error(error)
+      const current = document.querySelector('[data-contact-quiz]')
+      if (current) {
+        current.innerHTML = renderContactQuizInner(content, 'none')
+        bindContactQuizControls(content)
+      }
+    }
+  }
+
+  stage.dataset.motion = direction === 'back' ? 'leave-back' : 'leave-forward'
+  stage.addEventListener('animationend', finish)
+  stage.leaveTimer = window.setTimeout(finish, 320)
+}
+
+function bindQuizOptionKeys(group) {
+  group.addEventListener('keydown', (event) => {
+    if (!['ArrowDown', 'ArrowUp', 'ArrowRight', 'ArrowLeft'].includes(event.key)) {
+      return
+    }
+
+    const options = [...group.querySelectorAll('.quiz-option')]
+    const index = options.indexOf(document.activeElement)
+    if (index === -1) {
+      return
+    }
+
+    event.preventDefault()
+    const offset = event.key === 'ArrowDown' || event.key === 'ArrowRight' ? 1 : -1
+    const next = options[(index + offset + options.length) % options.length]
+    options.forEach((option) => {
+      option.tabIndex = option === next ? 0 : -1
+    })
+    next.focus()
+  })
+}
+
+function paintQuizMulti(root, fieldName) {
+  const selected = new Set(quizState[fieldName] ?? [])
+  root.querySelectorAll(`[data-quiz-multi="${fieldName}"]`).forEach((button) => {
+    const on = selected.has(button.dataset.quizValue)
+    button.classList.toggle('is-selected', on)
+    button.setAttribute('aria-checked', on ? 'true' : 'false')
+  })
+  const continueButton = root.querySelector('[data-quiz-continue]')
+  if (continueButton) {
+    continueButton.disabled = selected.size === 0
+  }
 }
 
 function bindContactQuizControls(content) {
@@ -2587,55 +2833,109 @@ function bindContactQuizControls(content) {
   const quiz = getQuiz(content)
   clearQuizPrefill()
 
-  root.querySelectorAll('[data-quiz-field]').forEach((field) => {
-    const eventName = field.type === 'number' ? 'input' : 'change'
-    field.addEventListener(eventName, () => {
-      const name = field.dataset.quizField
-      if (name === 'childAge') {
-        quizState.childAge = parseChildAge(field.value)
-        resetDependentQuizFields(name)
-        window.clearTimeout(bindContactQuizControls.ageTimer)
-        bindContactQuizControls.ageTimer = window.setTimeout(() => {
-          refreshContactQuiz(content)
-          document.querySelector('[data-quiz-field="childAge"]')?.focus()
-        }, 350)
-        return
-      }
+  root.querySelectorAll('.quiz-options').forEach((group) => {
+    bindQuizOptionKeys(group)
+  })
 
-      quizState[name] = field.value
-      resetDependentQuizFields(name)
-      refreshContactQuiz(content)
+  root.querySelectorAll('[data-quiz-choice]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const name = button.dataset.quizChoice
+      const value = button.dataset.quizValue
+      root.querySelectorAll(`[data-quiz-choice="${name}"]`).forEach((option) => {
+        const on = option === button
+        option.classList.toggle('is-selected', on)
+        option.setAttribute('aria-checked', on ? 'true' : 'false')
+      })
+      const changed = quizState[name] !== value
+      quizState[name] = value
+      if (changed) {
+        resetDependentQuizFields(name)
+      }
+      quizState.editing = ''
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      window.clearTimeout(bindContactQuizControls.advanceTimer)
+      bindContactQuizControls.advanceTimer = window.setTimeout(
+        () => {
+          refreshContactQuiz(content, { direction: 'forward' })
+        },
+        reduceMotion ? 0 : 160,
+      )
     })
   })
 
-  root.querySelectorAll('[data-quiz-multiselect]').forEach((wrapper) => {
-    const toggle = wrapper.querySelector('.quiz-multiselect-toggle')
-    const panel = wrapper.querySelector('.quiz-multiselect-panel')
-    if (!toggle || !panel) {
+  root.querySelectorAll('[data-quiz-multi]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const fieldName = button.dataset.quizMulti
+      const value = button.dataset.quizValue
+      const current = new Set(quizState[fieldName] ?? [])
+      if (current.has(value)) {
+        current.delete(value)
+      } else {
+        current.add(value)
+      }
+      syncQuizMultiValue(fieldName, [...current])
+      if ((quizState[fieldName] ?? []).length === 0) {
+        dropConfirmedQuizSteps([fieldName])
+      }
+      if (fieldName === 'experienceSettings' && quizState.experienceSettings.length === 0) {
+        quizState.experienceAges = []
+        dropConfirmedQuizSteps(['experienceAges'])
+      }
+      paintQuizMulti(root, fieldName)
+    })
+  })
+
+  const ageInput = root.querySelector('[data-quiz-age]')
+  const continueButton = root.querySelector('[data-quiz-continue]')
+  if (ageInput && continueButton) {
+    ageInput.addEventListener('input', () => {
+      continueButton.disabled = parseChildAge(ageInput.value) == null
+    })
+    ageInput.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter') {
+        return
+      }
+      event.preventDefault()
+      continueButton.click()
+    })
+  }
+
+  continueButton?.addEventListener('click', () => {
+    const fieldName = continueButton.dataset.quizContinue
+    if (fieldName === 'childAge') {
+      const age = parseChildAge(ageInput?.value)
+      if (age == null) {
+        return
+      }
+      const changed = quizState.childAge !== age
+      quizState.childAge = age
+      if (changed) {
+        resetDependentQuizFields('childAge')
+      }
+      quizState.editing = ''
+      refreshContactQuiz(content, { direction: 'forward' })
       return
     }
 
-    toggle.addEventListener('click', () => {
-      const open = panel.hidden
-      panel.hidden = !open
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false')
-    })
+    if (!fieldName || !(quizState[fieldName]?.length ?? 0)) {
+      return
+    }
+    if (!quizState.confirmed.includes(fieldName)) {
+      quizState.confirmed = [...quizState.confirmed, fieldName]
+    }
+    quizState.editing = ''
+    refreshContactQuiz(content, { direction: 'forward' })
+  })
 
-    wrapper.querySelectorAll('[data-quiz-multi]').forEach((input) => {
-      input.addEventListener('change', () => {
-        const fieldName = input.dataset.quizMulti
-        const values = Array.from(wrapper.querySelectorAll('[data-quiz-multi]:checked')).map(
-          (node) => node.value,
-        )
-        syncQuizMultiValue(fieldName, values)
-        if (fieldName === 'experienceSettings') {
-          if (quizState.experienceSettings.length === 0) {
-            quizState.experienceAges = []
-          }
-        }
-        refreshContactQuiz(content)
-      })
-    })
+  root.querySelector('[data-quiz-back]')?.addEventListener('click', () => {
+    const { steps, step, showingResult } = getCurrentQuizStep(quizState, quiz)
+    const index = showingResult ? steps.length : steps.findIndex((item) => item.id === step?.id)
+    const previous = steps[index - 1]
+    if (!previous) {
+      return
+    }
+    quizState.editing = previous.id
+    refreshContactQuiz(content, { direction: 'back' })
   })
 
   root.querySelectorAll('[data-quiz-prefill]').forEach((link) => {
@@ -2646,55 +2946,6 @@ function bindContactQuizControls(content) {
       }
     })
   })
-
-  const dialog = root.querySelector('[data-quiz-diagnosis-dialog]')
-  const closeButton = root.querySelector('[data-quiz-dialog-close]')
-  if (dialog) {
-    closeButton?.addEventListener('click', () => {
-      quizState.diagnosisModalDismissed = true
-      dialog.close()
-    })
-
-    dialog.addEventListener('close', () => {
-      quizState.diagnosisModalDismissed = true
-    })
-
-    if (
-      quizState.role === 'parent' &&
-      quizState.parentDiagnosis === 'no' &&
-      !quizState.diagnosisModalDismissed &&
-      typeof dialog.showModal === 'function'
-    ) {
-      dialog.showModal()
-    }
-  }
-}
-
-function bindQuizMultiSelectOutside() {
-  if (bindQuizMultiSelectOutside.handler) {
-    document.removeEventListener('click', bindQuizMultiSelectOutside.handler)
-  }
-
-  bindQuizMultiSelectOutside.handler = (event) => {
-    if (!(event.target instanceof Element)) {
-      return
-    }
-
-    document.querySelectorAll('[data-quiz-multiselect]').forEach((wrapper) => {
-      if (wrapper.contains(event.target)) {
-        return
-      }
-
-      const panel = wrapper.querySelector('.quiz-multiselect-panel')
-      const toggle = wrapper.querySelector('.quiz-multiselect-toggle')
-      if (panel) {
-        panel.hidden = true
-      }
-      toggle?.setAttribute('aria-expanded', 'false')
-    })
-  }
-
-  document.addEventListener('click', bindQuizMultiSelectOutside.handler)
 }
 
 function bindContactQuiz(content) {
@@ -2703,7 +2954,6 @@ function bindContactQuiz(content) {
   }
 
   bindContactQuizControls(content)
-  bindQuizMultiSelectOutside()
 }
 
 function renderResourcesIndex(content) {
@@ -3507,7 +3757,95 @@ function bindProgramPanels() {
   openFromHash()
 }
 
+const REVEAL_SELECTORS = [
+  '.section-heading',
+  '.home-resource-card',
+  '.program-panel',
+  '.home-trust-item',
+  '.home-start-steps > *',
+  '.quote-bubble',
+  '.provider-card',
+  '.careers-panel',
+  '.faq-category',
+].join(',')
+
+function bindScrollReveal() {
+  if (bindScrollReveal.observer) {
+    bindScrollReveal.observer.disconnect()
+    bindScrollReveal.observer = null
+  }
+
+  const nodes = [...document.querySelectorAll(REVEAL_SELECTORS)]
+  if (!nodes.length) {
+    return
+  }
+
+  const groups = new Map()
+  nodes.forEach((node) => {
+    const list = groups.get(node.parentElement) ?? []
+    list.push(node)
+    groups.set(node.parentElement, list)
+  })
+  groups.forEach((list) => {
+    list.forEach((node, index) => {
+      node.classList.add('reveal')
+      node.style.setProperty('--reveal-i', String(index))
+    })
+  })
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (reduceMotion || typeof IntersectionObserver !== 'function') {
+    nodes.forEach((node) => node.classList.add('is-revealed'))
+    return
+  }
+
+  const viewportHeight = window.innerHeight || 0
+  const pending = []
+  nodes.forEach((node) => {
+    if (node.closest('[hidden]')) {
+      node.classList.add('is-revealed')
+      return
+    }
+    const rect = node.getBoundingClientRect()
+    const inView = rect.top < viewportHeight * 0.92 && rect.bottom > 0
+    if (inView) {
+      node.classList.add('is-revealed')
+      return
+    }
+    pending.push(node)
+  })
+
+  if (!pending.length) {
+    return
+  }
+
+  bindScrollReveal.observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return
+        }
+        entry.target.classList.add('is-revealed')
+        bindScrollReveal.observer?.unobserve(entry.target)
+      })
+    },
+    { rootMargin: '0px 0px -8% 0px', threshold: 0.12 },
+  )
+  pending.forEach((node) => bindScrollReveal.observer.observe(node))
+}
+
+function bindPageEnter() {
+  if ('onpagereveal' in window) {
+    return
+  }
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return
+  }
+  document.querySelector('main')?.classList.add('page-enter')
+}
+
 function render() {
+  quizRefreshToken += 1
   const locale = getLocale()
   const content = getContent()
   document.documentElement.lang = locale
@@ -3530,6 +3868,8 @@ function render() {
   bindCareerApplication(content)
   bindContactQuiz(content)
   bindProgramPanels()
+  bindScrollReveal()
+  bindPageEnter()
 
   const toggleAll = document.querySelector('[data-faq-toggle-all]')
   const faqList = document.querySelector('[data-faq-list]')
