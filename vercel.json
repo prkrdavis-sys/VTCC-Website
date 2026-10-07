@@ -48,6 +48,21 @@
       "source": "/resources/intensive-in-home-basics.html",
       "destination": "/get-started",
       "permanent": true
+    },
+    {
+      "source": "/referrers",
+      "destination": "/contact/referral",
+      "permanent": true
+    },
+    {
+      "source": "/referrers/",
+      "destination": "/contact/referral",
+      "permanent": true
+    },
+    {
+      "source": "/referrers.html",
+      "destination": "/contact/referral",
+      "permanent": true
     }
   ]
 }

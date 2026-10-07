@@ -44,7 +44,7 @@ es.navigation.main = [
   { label: 'Servicios', href: '/#services' },
   { label: 'Comenzar', href: '/get-started' },
   { label: 'Seguro', href: '/insurance' },
-  { label: 'Referentes', href: '/referrers' },
+  { label: 'Referentes', href: '/contact/referral' },
   { label: 'Preguntas y Guías', href: '/resources' },
   { label: 'Acerca de', href: '/about' },
   { label: 'Contacto', href: '/contact' },
@@ -53,7 +53,7 @@ es.navigation.main = [
 
 es.navigation.utility = [
   { label: 'Solicitar Servicios', href: '/contact', style: 'cta' },
-  { label: 'Referir un Cliente', href: '/referrers' },
+  { label: 'Referir un Cliente', href: '/contact/referral' },
   { label: 'Llamar a Fairfax', href: 'tel:17032186599' },
 ]
 
@@ -140,7 +140,7 @@ es.hero.serviceTags = [
 
 es.hero.actions = [
   { label: 'Solicitar Servicios', href: '#contact', style: 'primary' },
-  { label: 'Referir un Cliente', href: '#referrers', style: 'secondary' },
+  { label: 'Referir un Cliente', href: '/contact/referral', style: 'secondary' },
   { label: 'Llamar a VTCC', href: 'tel:17032186599', style: 'ghost' },
 ]
 
@@ -1058,12 +1058,14 @@ es.sections.referrers.paths = [
     body: 'Conozca qué servicios pueden ser adecuados para su hijo, qué documentación puede necesitarse y qué esperar durante la admisión.',
     buttonLabel: 'Comenzar como familia',
     buttonStyle: 'primary',
+    buttonHref: '/contact',
   },
   {
     title: 'Para Referentes',
     body: 'Escuelas, médicos, administradores de casos, socios del condado y profesionales comunitarios pueden contactar a VTCC para preguntar sobre elegibilidad y requisitos de referencia.',
     buttonLabel: 'Iniciar una referencia',
     buttonStyle: 'secondary',
+    buttonHref: '/contact/referral',
   },
 ]
 
@@ -1899,7 +1901,7 @@ es.thankYou = {
       'La familia también puede llamar a VTCC directamente si desea iniciar la conversación.',
     ],
     secondaryLabel: 'Guía para referentes',
-    secondaryHref: '/referrers',
+    secondaryHref: '/resources/referrals-and-eligibility',
   },
   career: {
     eyebrow: 'Solicitud recibida',

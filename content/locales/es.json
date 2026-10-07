@@ -85,7 +85,7 @@
       },
       {
         "label": "Referentes",
-        "href": "/referrers"
+        "href": "/contact/referral"
       },
       {
         "label": "Preguntas y Guías",
@@ -112,7 +112,7 @@
       },
       {
         "label": "Referir un Cliente",
-        "href": "/referrers"
+        "href": "/contact/referral"
       },
       {
         "label": "Llamar a Fairfax",
@@ -261,7 +261,7 @@
       },
       {
         "label": "Referir un Cliente",
-        "href": "/referrers",
+        "href": "/contact/referral",
         "style": "secondary"
       },
       {
@@ -645,7 +645,7 @@
           "body": "Escuelas, médicos, administradores de casos, socios del condado y profesionales comunitarios pueden contactar a VTCC para preguntar sobre elegibilidad y requisitos de referencia.",
           "buttonLabel": "Iniciar una referencia",
           "buttonStyle": "secondary",
-          "buttonHref": "/contact"
+          "buttonHref": "/contact/referral"
         }
       ]
     },
@@ -1660,7 +1660,8 @@
       {
         "name": "service",
         "label": "Interés en servicios",
-        "type": "select",
+        "type": "multiselect",
+        "solo": ["No estoy seguro"],
         "options": [
           "ABA",
           "Primeros Aprendices",
@@ -1675,13 +1676,34 @@
       {
         "name": "funding",
         "label": "Fuente de financiamiento",
-        "type": "select",
-        "options": [
-          "Medicaid",
-          "MCO",
-          "Seguro comercial",
-          "Condado/FAPT",
-          "No estoy seguro"
+        "type": "multiselect",
+        "groups": [
+          {
+            "label": "Pagador",
+            "solo": ["No estoy seguro"],
+            "options": [
+              "Anthem HealthKeepers Plus Medicaid of Virginia",
+              "Anthem Commercial of Virginia",
+              "Cigna",
+              "UnitedHealthcare",
+              "BlueCross BlueShield",
+              "Aetna Better Health",
+              "Molina Healthcare",
+              "Optima Health",
+              "Kaiser Permanente Behavioral Health",
+              "Financiamiento del condado/FAPT",
+              "No estoy seguro"
+            ]
+          },
+          {
+            "label": "¿Es con Medicaid?",
+            "solo": ["Con Medicaid: Sí", "Con Medicaid: No", "Con Medicaid: No estoy seguro"],
+            "options": [
+              "Con Medicaid: Sí",
+              "Con Medicaid: No",
+              "Con Medicaid: No estoy seguro"
+            ]
+          }
         ]
       },
       {
@@ -1742,7 +1764,8 @@
       {
         "name": "service",
         "label": "Service you are interested in",
-        "type": "select",
+        "type": "multiselect",
+        "solo": ["Aún no estoy seguro"],
         "options": [
           "ABA",
           "Primeros Aprendices",
@@ -1756,13 +1779,34 @@
       {
         "name": "funding",
         "label": "Funding source (if known)",
-        "type": "select",
-        "options": [
-          "Medicaid",
-          "MCO",
-          "Commercial insurance",
-          "County/FAPT",
-          "Not sure"
+        "type": "multiselect",
+        "groups": [
+          {
+            "label": "Funder",
+            "solo": ["Not sure"],
+            "options": [
+              "Anthem HealthKeepers Plus Medicaid of Virginia",
+              "Anthem Commercial of Virginia",
+              "Cigna",
+              "UnitedHealthcare",
+              "BlueCross BlueShield",
+              "Aetna Better Health",
+              "Molina Healthcare",
+              "Optima Health",
+              "Kaiser Permanente Behavioral Health",
+              "County/FAPT",
+              "Not sure"
+            ]
+          },
+          {
+            "label": "Is this with Medicaid?",
+            "solo": ["With Medicaid: Yes", "With Medicaid: No", "With Medicaid: Not sure"],
+            "options": [
+              "With Medicaid: Yes",
+              "With Medicaid: No",
+              "With Medicaid: Not sure"
+            ]
+          }
         ]
       },
       {
@@ -1852,7 +1896,8 @@
       {
         "name": "service",
         "label": "Service requested",
-        "type": "select",
+        "type": "multiselect",
+        "solo": ["Aún no estoy seguro"],
         "options": [
           "ABA",
           "Primeros Aprendices",
@@ -1866,13 +1911,34 @@
       {
         "name": "funding",
         "label": "Funding source (if known)",
-        "type": "select",
-        "options": [
-          "Medicaid",
-          "MCO",
-          "Commercial insurance",
-          "County/FAPT",
-          "Not sure"
+        "type": "multiselect",
+        "groups": [
+          {
+            "label": "Funder",
+            "solo": ["Not sure"],
+            "options": [
+              "Anthem HealthKeepers Plus Medicaid of Virginia",
+              "Anthem Commercial of Virginia",
+              "Cigna",
+              "UnitedHealthcare",
+              "BlueCross BlueShield",
+              "Aetna Better Health",
+              "Molina Healthcare",
+              "Optima Health",
+              "Kaiser Permanente Behavioral Health",
+              "County/FAPT",
+              "Not sure"
+            ]
+          },
+          {
+            "label": "Is this with Medicaid?",
+            "solo": ["With Medicaid: Yes", "With Medicaid: No", "With Medicaid: Not sure"],
+            "options": [
+              "With Medicaid: Yes",
+              "With Medicaid: No",
+              "With Medicaid: Not sure"
+            ]
+          }
         ]
       },
       {
@@ -2583,7 +2649,7 @@
         "La familia también puede llamar a VTCC directamente si desea iniciar la conversación."
       ],
       "secondaryLabel": "Guía para referentes",
-      "secondaryHref": "/referrers"
+      "secondaryHref": "/resources/referrals-and-eligibility"
     },
     "career": {
       "eyebrow": "Solicitud recibida",

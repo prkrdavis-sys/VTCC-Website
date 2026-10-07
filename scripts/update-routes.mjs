@@ -9,7 +9,7 @@ const routeMap = {
   '#aba': '/aba',
   '#process': '/get-started',
   '#funding': '/insurance',
-  '#referrers': '/referrers',
+  '#referrers': '/contact/referral',
   '#resources': '/resources',
   '#about': '/about',
   '#contact': '/contact',
@@ -49,7 +49,7 @@ function updateLocale(localePath, locale) {
   data.sections.funding.ctaHref = '/contact'
   data.sections.referrers.paths = data.sections.referrers.paths.map((path) => ({
     ...path,
-    buttonHref: '/contact',
+    buttonHref: path.buttonStyle === 'secondary' ? '/contact/referral' : '/contact',
   }))
 
   data.footer.links = data.footer.links.map((item) => ({

@@ -45,7 +45,6 @@ function toStaticHref(path) {
     '/group-parent-training': `${BASE}group-parent-training.html`,
     '/get-started': `${BASE}get-started.html`,
     '/insurance': `${BASE}insurance.html`,
-    '/referrers': `${BASE}referrers.html`,
     '/resources': `${BASE}resources/index.html`,
     '/about': `${BASE}about.html`,
     '/career': `${BASE}career.html`,
@@ -107,10 +106,6 @@ function pageHasProgramPanel(programId) {
 
   if (PAGE === 'group-parent-training') {
     return programId === 'group-parent-training'
-  }
-
-  if (PAGE === 'referrers') {
-    return programId === 'referral'
   }
 
   return false
@@ -261,7 +256,6 @@ const PAGE_SECTION_PATHS = {
   resources: '/resources',
   resource: '/resources',
   forms: '/resources/forms',
-  referrers: '/referrers',
   about: '/about',
   career: '/career',
   careers: '/career',
@@ -382,8 +376,12 @@ function renderInputExtras(field) {
   return extras.join('')
 }
 
-function renderFormField(field) {
+function renderFormField(field, content) {
   const required = field.name === 'name' ? ' required' : ''
+
+  if (field.type === 'multiselect') {
+    return renderMultiSelectField(field, content)
+  }
 
   if (field.type === 'select') {
     const options = field.options
@@ -408,6 +406,54 @@ function renderFormField(field) {
             ${escapeHtml(field.label)}
             <input type="${escapeHtml(field.type)}" name="${escapeHtml(field.name)}"${renderInputExtras(field)}${required} />
           </label>`
+}
+
+function renderMultiSelectOption(fieldName, option, solo) {
+  const soloAttr = solo ? ' data-solo="true"' : ''
+  return `<button type="button" class="multi-select-option" role="option" aria-selected="false" data-value="${escapeHtml(option)}"${soloAttr}>
+              <span class="multi-select-mark" aria-hidden="true"></span>
+              <span>${escapeHtml(option)}</span>
+            </button>
+            <input class="multi-select-input" type="checkbox" name="${escapeHtml(fieldName)}" value="${escapeHtml(option)}" tabindex="-1" />`
+}
+
+function renderMultiSelectOptions(field) {
+  if (Array.isArray(field.groups) && field.groups.length > 0) {
+    return field.groups
+      .map((group, index) => {
+        const solo = new Set(group.solo ?? [])
+        const options = (group.options ?? [])
+          .map((option) => renderMultiSelectOption(field.name, option, solo.has(option)))
+          .join('\n              ')
+        return `<div class="multi-select-group" data-multi-group role="group" aria-label="${escapeHtml(group.label)}">
+              <p class="multi-select-group-label" id="multi-${escapeHtml(field.name)}-group-${index}">${escapeHtml(group.label)}</p>
+              ${options}
+            </div>`
+      })
+      .join('\n            ')
+  }
+
+  const solo = new Set(field.solo ?? [])
+  return (field.options ?? [])
+    .map((option) => renderMultiSelectOption(field.name, option, solo.has(option)))
+    .join('\n            ')
+}
+
+function renderMultiSelectField(field, content) {
+  const quiz = content.contactQuiz ?? {}
+  const placeholder = quiz.multiSelectPlaceholder ?? 'Select all that apply'
+  const selectedTemplate = quiz.multiSelectSelected ?? '{count} selected'
+  const labelId = `multi-${field.name}-label`
+
+  return `<div class="multi-select" data-multi-select data-name="${escapeHtml(field.name)}" data-placeholder="${escapeHtml(placeholder)}" data-selected-template="${escapeHtml(selectedTemplate)}">
+          <span class="multi-select-heading" id="${escapeHtml(labelId)}">${escapeHtml(field.label)}</span>
+          <button type="button" class="multi-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="${escapeHtml(labelId)}">
+            <span data-multi-summary>${escapeHtml(placeholder)}</span>
+          </button>
+          <div class="multi-select-panel" role="listbox" aria-multiselectable="true" aria-labelledby="${escapeHtml(labelId)}" hidden>
+            ${renderMultiSelectOptions(field)}
+          </div>
+        </div>`
 }
 
 function renderLanguageSelect(content, { hiddenLabel = false, compact = false } = {}) {
@@ -1426,24 +1472,6 @@ function renderInsurancePage(content) {
       </section>`
 }
 
-function renderReferrersPage(content) {
-  const referrers = content.sections.referrers
-  const program = getProgramById(content, 'referral')
-  return `<section class="section page-section">
-        ${renderSectionHeading(referrers.eyebrow, referrers.title)}
-        ${program ? `<div class="program-panel-list">${renderProgramPanel(program, content, { open: true })}</div>` : ''}
-        <div class="path-grid">${referrers.paths
-          .map(
-            (path) => `<article>
-            <h3>${escapeHtml(path.title)}</h3>
-            <p>${escapeHtml(path.body)}</p>
-            <a class="button ${escapeHtml(path.buttonStyle)}" href="${escapeHtml(toStaticHref(path.buttonHref))}">${escapeHtml(path.buttonLabel)}</a>
-          </article>`,
-          )
-          .join('')}</div>
-      </section>`
-}
-
 function renderAboutPage(content) {
   const about = content.sections.about
   const aboutImage = getSharedAssetPath('aboutTeamImage')
@@ -2051,7 +2079,7 @@ function renderContactPage(content) {
           ${renderContactFormSwitch(content, variant)}
           <form class="request-form request-form--${escapeHtml(variant)}" data-form-type="${escapeHtml(formType)}">
           <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          ${form.fields.map(renderFormField).join('')}
+          ${form.fields.map((field) => renderFormField(field, content)).join('')}
           <label class="consent-field"><input type="checkbox" name="consent" required /> ${escapeHtml(form.consentLabel)}</label>
           <p class="form-note">${escapeHtml(form.notice)}</p>
           <button type="submit" data-default-label="${escapeHtml(form.submitLabel)}">${escapeHtml(form.submitLabel)}</button>
@@ -2208,7 +2236,7 @@ function buildParentPrefill(state, quiz) {
     return {
       form: 'family',
       fields: {
-        serviceId: 'not-sure',
+        serviceIds: ['not-sure'],
         message: quiz.parentMessages.noDiagnosis,
       },
     }
@@ -2221,13 +2249,6 @@ function buildParentPrefill(state, quiz) {
     programs.unshift('aba')
   }
 
-  let serviceId = 'not-sure'
-  if (specialized.length === 1) {
-    serviceId = specialized[0]
-  } else if (specialized.length === 0 && abaEligible) {
-    serviceId = 'aba'
-  }
-
   const programLabels = programs.map((id) => quiz.programLabels[id] ?? id)
   const message =
     programs.length > 0
@@ -2235,7 +2256,7 @@ function buildParentPrefill(state, quiz) {
       : quiz.parentMessages.outsideAge
 
   const fields = {
-    serviceId,
+    serviceIds: programs.length > 0 ? programs : ['not-sure'],
     message,
   }
   if (state.childAge != null) {
@@ -3248,9 +3269,6 @@ function renderMain(content) {
     case 'insurance':
       mainHtml = renderInsurancePage(content)
       break
-    case 'referrers':
-      mainHtml = renderReferrersPage(content)
-      break
     case 'resources':
       mainHtml = renderResourcesIndex(content)
       break
@@ -3687,7 +3705,12 @@ function readFormFields(form) {
       continue
     }
 
-    fields[name] = value.trim()
+    const trimmed = value.trim()
+    if (!trimmed) {
+      continue
+    }
+
+    fields[name] = fields[name] ? `${fields[name]}, ${trimmed}` : trimmed
   }
 
   return fields
@@ -3811,14 +3834,24 @@ function applyQuizPrefillToForm(form, content, expectedForm) {
   }
 
   const fields = { ...prefill.fields }
+  const quiz = getQuiz(content)
   if (fields.serviceId) {
-    const quiz = getQuiz(content)
-    fields.service = quiz?.serviceValues?.[fields.serviceId] ?? fields.serviceId
+    fields.serviceIds = [fields.serviceId]
     delete fields.serviceId
+  }
+  if (Array.isArray(fields.serviceIds)) {
+    fields.service = fields.serviceIds.map((id) => quiz?.serviceValues?.[id] ?? id)
+    delete fields.serviceIds
   }
 
   Object.entries(fields).forEach(([name, value]) => {
-    if (value == null || value === '') {
+    if (value == null || value === '' || (Array.isArray(value) && value.length === 0)) {
+      return
+    }
+
+    const multi = form.querySelector(`[data-multi-select][data-name="${CSS.escape(name)}"]`)
+    if (multi) {
+      setMultiSelectValues(multi, value)
       return
     }
 
@@ -3841,8 +3874,132 @@ function applyQuizPrefillToForm(form, content, expectedForm) {
   clearQuizPrefill()
 }
 
+function selectedMultiValues(root) {
+  return [...root.querySelectorAll('.multi-select-input:checked')].map((input) => input.value)
+}
+
+function refreshMultiSelect(root) {
+  const values = selectedMultiValues(root)
+  const summary = root.querySelector('[data-multi-summary]')
+  if (values.length === 0) {
+    summary.textContent = root.dataset.placeholder ?? ''
+    root.classList.remove('has-value')
+  } else if (values.length === 1) {
+    summary.textContent = values[0]
+    root.classList.add('has-value')
+  } else {
+    summary.textContent = (root.dataset.selectedTemplate ?? '{count} selected').replace(
+      '{count}',
+      String(values.length),
+    )
+    root.classList.add('has-value')
+  }
+
+  root.querySelectorAll('.multi-select-option').forEach((option) => {
+    const input = option.nextElementSibling
+    const selected = Boolean(input?.checked)
+    option.classList.toggle('is-selected', selected)
+    option.setAttribute('aria-selected', selected ? 'true' : 'false')
+  })
+}
+
+function setMultiSelectValues(root, values) {
+  const wanted = new Set(Array.isArray(values) ? values : [values])
+  root.querySelectorAll('.multi-select-input').forEach((input) => {
+    input.checked = wanted.has(input.value)
+  })
+  refreshMultiSelect(root)
+}
+
+function closeMultiSelect(root) {
+  const trigger = root.querySelector('.multi-select-trigger')
+  const panel = root.querySelector('.multi-select-panel')
+  root.classList.remove('is-open')
+  trigger?.setAttribute('aria-expanded', 'false')
+  if (panel) {
+    panel.hidden = true
+  }
+}
+
+function toggleMultiOption(option) {
+  const input = option.nextElementSibling
+  if (!(input instanceof HTMLInputElement)) {
+    return
+  }
+
+  const root = option.closest('[data-multi-select]')
+  const scope = option.closest('[data-multi-group]') ?? root
+  const willSelect = !input.checked
+  if (willSelect && option.dataset.solo === 'true') {
+    scope.querySelectorAll('.multi-select-input').forEach((other) => {
+      other.checked = false
+    })
+  }
+  if (willSelect && option.dataset.solo !== 'true') {
+    scope.querySelectorAll('.multi-select-option[data-solo="true"]').forEach((soloOption) => {
+      const soloInput = soloOption.nextElementSibling
+      if (soloInput instanceof HTMLInputElement) {
+        soloInput.checked = false
+      }
+    })
+  }
+  input.checked = willSelect
+  refreshMultiSelect(root)
+}
+
+function bindMultiSelects(scope) {
+  if (!document.documentElement.dataset.multiSelectDismiss) {
+    document.documentElement.dataset.multiSelectDismiss = 'true'
+    document.addEventListener('pointerdown', (event) => {
+      document.querySelectorAll('[data-multi-select].is-open').forEach((root) => {
+        if (!root.contains(event.target)) {
+          closeMultiSelect(root)
+        }
+      })
+    })
+  }
+
+  scope.querySelectorAll('[data-multi-select]').forEach((root) => {
+    if (root.dataset.bound === 'true') {
+      return
+    }
+    root.dataset.bound = 'true'
+    const trigger = root.querySelector('.multi-select-trigger')
+    const panel = root.querySelector('.multi-select-panel')
+    refreshMultiSelect(root)
+
+    trigger.addEventListener('click', () => {
+      const willOpen = panel.hidden
+      document.querySelectorAll('[data-multi-select].is-open').forEach((open) => {
+        if (open !== root) {
+          closeMultiSelect(open)
+        }
+      })
+      root.classList.toggle('is-open', willOpen)
+      trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false')
+      panel.hidden = !willOpen
+    })
+
+    panel.addEventListener('click', (event) => {
+      const option = event.target.closest('.multi-select-option')
+      if (!option || !panel.contains(option)) {
+        return
+      }
+      toggleMultiOption(option)
+    })
+
+    root.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeMultiSelect(root)
+        trigger.focus()
+      }
+    })
+  })
+}
+
 function bindRequestForms(content) {
   document.querySelectorAll('.request-form[data-form-type]').forEach((form) => {
+    bindMultiSelects(form)
     const expectedForm = form.dataset.formType === 'referral' ? 'referral' : 'family'
     applyQuizPrefillToForm(form, content, expectedForm)
 

@@ -21,7 +21,8 @@
     "preview:cf": "npm run build && wrangler dev"
   },
   "dependencies": {
-    "@vercel/analytics": "^2.0.1"
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/blob": "^2.8.1"
   },
   "devDependencies": {
     "esbuild": "^0.28.0",

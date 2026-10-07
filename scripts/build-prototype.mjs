@@ -12,6 +12,7 @@ const prototypeDir = join(rootDir, 'prototype')
 
 for (const obsoleteFile of [
   'intensive-in-home.html',
+  'referrers.html',
   join('resources', 'intensive-in-home-basics.html'),
 ]) {
   rmSync(join(prototypeDir, obsoleteFile), { force: true })
@@ -49,7 +50,6 @@ const pages = [
   { file: 'group-parent-training.html', page: 'group-parent-training', base: '' },
   { file: 'get-started.html', page: 'get-started', base: '' },
   { file: 'insurance.html', page: 'insurance', base: '' },
-  { file: 'referrers.html', page: 'referrers', base: '' },
   { file: 'about.html', page: 'about', base: '' },
   { file: 'career.html', page: 'career', base: '' },
   { file: 'careers.html', page: 'career', base: '', seoPage: 'career' },
