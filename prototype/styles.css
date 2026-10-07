@@ -148,6 +148,12 @@ textarea {
   letter-spacing: 0.01em;
 }
 
+.top-bar-pin,
+.top-bar-address-short,
+.top-bar-email-short {
+  display: none;
+}
+
 .top-bar-address {
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -5016,23 +5022,59 @@ address strong {
   }
 
   .top-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.55rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 0.75rem;
     padding:
-      0.55rem max(1rem, env(safe-area-inset-left))
-      0.55rem max(1rem, env(safe-area-inset-right));
+      0.45rem max(0.85rem, env(safe-area-inset-right))
+      0.45rem max(0.85rem, env(safe-area-inset-left));
+    font-size: 0.78rem;
+    font-weight: var(--weight-semibold);
+    letter-spacing: 0;
+  }
+
+  .top-bar-pin {
+    display: block;
+    width: 0.9rem;
+    height: 0.9rem;
+    flex: 0 0 auto;
   }
 
   .top-bar-address {
-    font-size: 0.72rem;
-    line-height: 1.35;
-    white-space: normal;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    min-width: 0;
+    font-size: 0.78rem;
+    letter-spacing: 0;
+    line-height: 1.2;
+    text-transform: none;
+    white-space: nowrap;
+  }
+
+  .top-bar-address-full,
+  .top-bar-email-full {
+    display: none;
+  }
+
+  .top-bar-address-short,
+  .top-bar-email-short {
+    display: inline;
   }
 
   .top-bar-contacts {
-    width: 100%;
-    gap: 0.55rem 1rem;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: auto;
+    gap: 0.75rem;
+  }
+
+  .top-bar-contacts a {
+    white-space: nowrap;
   }
 
   .site-header {
@@ -5619,6 +5661,33 @@ address strong {
   .careers-role-card > p:not(.card-label),
   .careers-program-card > p:not(.card-label) {
     -webkit-line-clamp: 2;
+  }
+
+  .service-subnav-band,
+  .guides-subnav-band {
+    overflow: hidden;
+  }
+
+  .service-subnav,
+  .guides-subnav {
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .service-subnav-bar,
+  .guides-subnav-bar {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: max-content;
+    min-width: 100%;
+  }
+
+  body:has(.service-subnav-band) .program-summary,
+  body:has(.service-subnav-band) .program-copy section:first-child,
+  body:has(.service-subnav-band) .program-copy section:nth-child(2) > p {
+    display: none;
   }
 }
 

@@ -18,6 +18,7 @@ Object.assign(es.ui, {
   collapseAll: 'Contraer todo',
   guidesNavLabel: 'Preguntas y guías',
   servicesNavLabel: 'Servicios',
+  emailLabel: 'Correo',
   ageRangeLabel: 'Edades que atiende',
   relatedProgramsLabel: 'Programas relacionados',
   programGoalsLabel: 'Metas',
@@ -816,7 +817,7 @@ Object.assign(es.sections.aba, {
     {
       title: '¿Qué es el Análisis de Conducta Aplicado (ABA)?',
       paragraphs: [
-        'Considerado por muchos expertos como la terapia estándar de referencia para el trastorno del espectro autista (TEA) y otras afecciones del desarrollo en niños, la ABA se centra en mejorar gradualmente las habilidades sociales, de comunicación y de la vida diaria mediante refuerzo positivo.',
+        'La ABA es una terapia conductual que se utiliza para apoyar a niños con trastorno del espectro autista (TEA) y otras afecciones del desarrollo. Se centra en desarrollar gradualmente las habilidades sociales, de comunicación y de la vida diaria mediante refuerzo positivo.',
         'VTCC cuenta con especialistas en autismo en Virginia que utilizan un enfoque basado en evidencia para mejorar la capacidad funcional y social y la calidad de vida de los niños y las familias.',
       ],
     },
@@ -907,7 +908,7 @@ Object.assign(es.sections, {
     eyebrow: 'Programa de Primeros Aprendices',
     title: 'Desarrolle confianza para la escuela y los entornos sociales',
     intro:
-      'El programa de Primeros Aprendices, liderado por Brieanna Rollocks, BCaBA, apoya a niños en edad preescolar mientras practican rutinas, comunicación, juego y habilidades de aprendizaje temprano que les ayudan a participar en la escuela y en entornos sociales.',
+      'El programa de Primeros Aprendices apoya a niños en edad preescolar mientras practican rutinas, comunicación, juego y habilidades de aprendizaje temprano que les ayudan a participar en la escuela y en entornos sociales.',
     columns: [
       {
         title: 'Lo que apoya el programa',
@@ -959,7 +960,7 @@ Object.assign(es.sections, {
     eyebrow: 'Enriquecimiento Social',
     title: 'Practique habilidades con compañeros de 8 a 12 años',
     intro:
-      'El Enriquecimiento Social, liderado por Brieanna Rollocks, BCaBA, ayuda a niños de 8 a 12 años a unirse a actividades grupales, construir amistades y practicar habilidades sociales cotidianas con compañeros.',
+      'El Enriquecimiento Social ayuda a niños de 8 a 12 años a unirse a actividades grupales, construir amistades y practicar habilidades sociales cotidianas con compañeros.',
     columns: [
       {
         title: 'Lo que pueden practicar los niños',
@@ -985,7 +986,7 @@ Object.assign(es.sections, {
     eyebrow: 'Grupo de Habilidades Sociales',
     title: 'Practique habilidades sociales avanzadas con compañeros',
     intro:
-      'El Grupo de Habilidades Sociales, liderado por Laurel Kokilananda, BCBA, es para clientes que están listos para trabajar en habilidades sociales más avanzadas, incluyendo la comprensión del sarcasmo, la conversación y el juego apropiado para su edad con compañeros.',
+      'El Grupo de Habilidades Sociales es para clientes que están listos para trabajar en habilidades sociales más avanzadas, incluyendo la comprensión del sarcasmo, la conversación y el juego apropiado para su edad con compañeros.',
     columns: [
       {
         title: 'Habilidades que puede abordar el grupo',
@@ -1011,7 +1012,7 @@ Object.assign(es.sections, {
     eyebrow: 'Capacitación Grupal para Padres',
     title: 'Aprenda estrategias prácticas con otros cuidadores',
     intro:
-      'La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia. Las familias aprenden juntas en un entorno grupal con apoyo, liderado por Olivia Roth.',
+      'La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia. Las familias aprenden juntas en un entorno grupal con apoyo.',
     columns: [
       {
         title: 'Lo que pueden practicar los cuidadores',
@@ -1359,7 +1360,7 @@ es.pages = {
     title: 'Página de Enriquecimiento Social',
     hero: {
       headline: 'Habilidades con compañeros para niños de 8 a 12 años',
-      body: 'El Enriquecimiento Social, liderado por Brieanna Rollocks, BCaBA, ayuda a niños de 8 a 12 años a unirse a actividades grupales, construir amistades y practicar habilidades sociales cotidianas con compañeros.',
+      body: 'El Enriquecimiento Social ayuda a niños de 8 a 12 años a unirse a actividades grupales, construir amistades y practicar habilidades sociales cotidianas con compañeros.',
       buttons: ['Solicitar servicios de Enriquecimiento Social', 'Preguntar sobre elegibilidad'],
     },
     sections: [
@@ -1375,7 +1376,7 @@ es.pages = {
       },
       {
         title: 'Aprender con compañeros',
-        body: 'Los niños practican en un grupo pequeño con orientación de Brieanna Rollocks, BCaBA, y personal capacitado. Las metas son individualizadas para que cada niño gane confianza con sus compañeros a un ritmo manejable.',
+        body: 'Los niños practican en un grupo pequeño con orientación del personal capacitado. Las metas son individualizadas para que cada niño gane confianza con sus compañeros a un ritmo manejable.',
       },
     ],
     cta: {
@@ -1387,7 +1388,7 @@ es.pages = {
     title: 'Página del Grupo de Habilidades Sociales',
     hero: {
       headline: 'Desarrolle habilidades sociales avanzadas con compañeros',
-      body: 'El Grupo de Habilidades Sociales, liderado por Laurel Kokilananda, BCBA, es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
+      body: 'El Grupo de Habilidades Sociales es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
       buttons: ['Solicitar servicios del grupo social', 'Preguntar sobre elegibilidad'],
     },
     sections: [
@@ -1415,7 +1416,7 @@ es.pages = {
     title: 'Página de Capacitación Grupal para Padres',
     hero: {
       headline: 'Aprenda estrategias prácticas con otros cuidadores',
-      body: 'La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia. Las familias aprenden juntas en un entorno grupal con apoyo, liderado por Olivia Roth.',
+      body: 'La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia. Las familias aprenden juntas en un entorno grupal con apoyo.',
       buttons: ['Solicitar capacitación grupal para padres', 'Preguntar sobre elegibilidad'],
     },
     sections: [
@@ -1431,7 +1432,7 @@ es.pages = {
       },
       {
         title: 'Aprendizaje con otras familias',
-        body: 'Los cuidadores se reúnen en un grupo pequeño con orientación de Olivia Roth. El grupo está diseñado para que las familias usen las mismas estrategias cuando los terapeutas no están presentes.',
+        body: 'Los cuidadores se reúnen en un grupo pequeño con orientación del personal capacitado. El grupo está diseñado para que las familias usen las mismas estrategias cuando los terapeutas no están presentes.',
       },
     ],
     cta: {
@@ -1521,17 +1522,17 @@ es.pages = {
       {
         question: '¿Qué es el Enriquecimiento Social?',
         answer:
-          'El Enriquecimiento Social es un programa grupal para niños de 8 a 12 años, liderado por Brieanna Rollocks, BCaBA. Ayuda a los niños a unirse a actividades, turnarse y construir habilidades de amistad con compañeros.',
+          'El Enriquecimiento Social es un programa grupal para niños de 8 a 12 años. Ayuda a los niños a unirse a actividades, turnarse y construir habilidades de amistad con compañeros.',
       },
       {
         question: '¿Quién puede beneficiarse del Grupo de Habilidades Sociales?',
         answer:
-          'El Grupo de Habilidades Sociales, liderado por Laurel Kokilananda, BCBA, es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
+          'El Grupo de Habilidades Sociales es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
       },
       {
         question: '¿Qué es la Capacitación Grupal para Padres?',
         answer:
-          'La Capacitación Grupal para Padres es un programa centrado en los cuidadores y liderado por Olivia Roth. Los padres y cuidadores aprenden estrategias prácticas juntos en un entorno grupal con apoyo y las practican en las rutinas diarias.',
+          'La Capacitación Grupal para Padres es un programa centrado en los cuidadores. Los padres y cuidadores aprenden estrategias prácticas juntos en un entorno grupal con apoyo y las practican en las rutinas diarias.',
       },
       {
         question: '¿Dónde brinda servicios VTCC?',

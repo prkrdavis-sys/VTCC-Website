@@ -17,6 +17,7 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "callLabel": "Call",
+    "emailLabel": "Email",
     "guidesNavLabel": "FAQs and guides",
     "servicesNavLabel": "Services",
     "contactSwitchFamilyPrompt": "Looking for services for your family?",
@@ -52,6 +53,7 @@
   },
   "topBar": {
     "address": "10565 Fairfax Blvd Ste 300, Fairfax, VA 22030",
+    "addressShort": "Fairfax, VA",
     "addressHref": "https://www.google.com/maps/search/?api=1&query=10565+Fairfax+Blvd+Ste+300,+Fairfax,+VA+22030",
     "phone": "703.218.6599",
     "phoneHref": "tel:17032186599",
@@ -516,7 +518,7 @@
         {
           "title": "What is Applied Behavior Analysis (ABA)?",
           "paragraphs": [
-            "Considered by many experts the gold standard therapy for autism spectrum disorder (ASD) and other developmental conditions among children, ABA focuses on gradually improving social, communication, and daily living skills using positive reinforcement.",
+            "ABA is a behavioral therapy used to support children with autism spectrum disorder (ASD) and other developmental conditions. It focuses on gradually building social, communication, and daily living skills through positive reinforcement.",
             "VTCC has experienced autism specialists in Virginia who use an evidence-based approach to improve functional, social capacity, and quality of life for children and families."
           ]
         },
@@ -692,7 +694,7 @@
         {
           "title": "Parent Training FAQs",
           "slug": "parent-training-faqs",
-          "summary": "How caregivers participate in therapy, including Group Parent Training led by Olivia Roth."
+          "summary": "How caregivers participate in therapy, including Group Parent Training."
         },
         {
           "title": "Referrals and Eligibility",
@@ -712,7 +714,7 @@
         {
           "title": "Social Enrichment",
           "slug": "social-enrichment",
-          "summary": "Peer-group practice for children ages 8-12, led by Brieanna Rollocks, BCaBA."
+          "summary": "Peer-group practice for children ages 8-12."
         },
         {
           "title": "Social Skills Group",
@@ -821,7 +823,7 @@
           "faqs": [
             {
               "question": "What is Group Parent Training?",
-              "answer": "Group Parent Training is a caregiver-focused program led by Olivia Roth. Parents and caregivers learn practical strategies together in a supported group setting and practice using them in everyday routines."
+              "answer": "Group Parent Training is a caregiver-focused program. Parents and caregivers learn practical strategies together in a supported group setting and practice using them in everyday routines."
             },
             {
               "question": "Why is parent training part of ABA?",
@@ -883,11 +885,11 @@
         {
           "slug": "early-learners",
           "title": "Early Learners Program",
-          "intro": "The Early Learners program helps preschool-aged children practice skills for school and social settings. It is led by Brieanna Rollocks, BCaBA.",
+          "intro": "The Early Learners program helps preschool-aged children practice skills for school and social settings.",
           "faqs": [
             {
               "question": "What is the Early Learners program?",
-              "answer": "It is a program for preschool-aged children focused on communication, play, routines, early learning, and participation in school and social settings. Brieanna Rollocks, BCaBA, leads the program."
+              "answer": "It is a program for preschool-aged children focused on communication, play, routines, early learning, and participation in school and social settings."
             },
             {
               "question": "What skills may children practice?",
@@ -921,19 +923,15 @@
         {
           "slug": "social-enrichment",
           "title": "Social Enrichment",
-          "intro": "Social Enrichment is a peer-group program for children ages 8-12, led by Brieanna Rollocks, BCaBA.",
+          "intro": "Social Enrichment is a peer-group program for children ages 8-12.",
           "faqs": [
             {
               "question": "What is the Social Enrichment program?",
               "answer": "Social Enrichment helps children ages 8-12 practice everyday social skills with peers. The group focuses on joining activities, taking turns, conversation, and staying engaged during shared play."
             },
             {
-              "question": "Who leads Social Enrichment?",
-              "answer": "Brieanna Rollocks, BCaBA, leads Social Enrichment. She also leads the Early Learners program, so families can see a consistent approach as children grow."
-            },
-            {
               "question": "How is this different from the Social Skills Group?",
-              "answer": "Social Enrichment is for ages 8-12 and focuses on everyday peer play, friendship skills, and group participation. The Social Skills Group, led by Laurel Kokilananda, BCBA, is for clients who are ready for more advanced practice such as sarcasm, conversation, and flexible thinking."
+              "answer": "Social Enrichment is for ages 8-12 and focuses on everyday peer play, friendship skills, and group participation. The Social Skills Group is for clients who are ready for more advanced practice such as sarcasm, conversation, and flexible thinking."
             },
             {
               "question": "How are caregivers involved?",
@@ -944,11 +942,11 @@
         {
           "slug": "social-skills-group",
           "title": "Social Skills Group",
-          "intro": "The Social Skills Group, led by Laurel Kokilananda, BCBA, gives clients who are ready for advanced practice a supported setting to learn with peers.",
+          "intro": "The Social Skills Group gives clients who are ready for advanced practice a supported setting to learn with peers.",
           "faqs": [
             {
               "question": "Who may be a fit for the group?",
-              "answer": "The group is for clients who are ready to work on more advanced social skills and who may benefit from supported practice with peers. Laurel Kokilananda, BCBA, leads the group."
+              "answer": "The group is for clients who are ready to work on more advanced social skills and who may benefit from supported practice with peers."
             },
             {
               "question": "What skills may the group address?",
@@ -1429,7 +1427,7 @@
     "earlyLearners": {
       "eyebrow": "Early Learners Program",
       "title": "Build confidence for school and social settings",
-      "intro": "The Early Learners program, led by Brieanna Rollocks, BCaBA, supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.",
+      "intro": "The Early Learners program supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.",
       "columns": [
         {
           "title": "What the program supports",
@@ -1479,7 +1477,7 @@
     "socialEnrichment": {
       "eyebrow": "Social Enrichment",
       "title": "Practice peer skills with children ages 8-12",
-      "intro": "Social Enrichment, led by Brieanna Rollocks, BCaBA, helps children ages 8-12 join group activities, build friendships, and practice everyday social skills with peers.",
+      "intro": "Social Enrichment helps children ages 8-12 join group activities, build friendships, and practice everyday social skills with peers.",
       "columns": [
         {
           "title": "What children may practice",
@@ -1504,7 +1502,7 @@
     "socialSkillsGroup": {
       "eyebrow": "Social Skills Group",
       "title": "Practice advanced social skills with peers",
-      "intro": "The Social Skills Group, led by Laurel Kokilananda, BCBA, is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.",
+      "intro": "The Social Skills Group is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.",
       "columns": [
         {
           "title": "Skills the group may address",
@@ -1529,7 +1527,7 @@
     "groupParentTraining": {
       "eyebrow": "Group Parent Training",
       "title": "Learn practical strategies with other caregivers",
-      "intro": "Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions. Families learn together in a supported group setting led by Olivia Roth.",
+      "intro": "Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions. Families learn together in a supported group setting.",
       "columns": [
         {
           "title": "What caregivers may practice",
@@ -2369,7 +2367,7 @@
         },
         {
           "question": "What is the Early Learners program?",
-          "answer": "The Early Learners program, led by Brieanna Rollocks, BCaBA, is for preschool-aged children and focuses on building communication, play, routines, and early learning skills that help children participate in school and social settings."
+          "answer": "The Early Learners program is for preschool-aged children and focuses on building communication, play, routines, and early learning skills that help children participate in school and social settings."
         },
         {
           "question": "What does the Feeding Program support?",
@@ -2377,15 +2375,15 @@
         },
         {
           "question": "What is Social Enrichment?",
-          "answer": "Social Enrichment is a peer-group program for children ages 8-12, led by Brieanna Rollocks, BCaBA. It helps children practice joining activities, taking turns, and building friendship skills with peers."
+          "answer": "Social Enrichment is a peer-group program for children ages 8-12. It helps children practice joining activities, taking turns, and building friendship skills with peers."
         },
         {
           "question": "Who may be a fit for the Social Skills Group?",
-          "answer": "The Social Skills Group, led by Laurel Kokilananda, BCBA, is for clients who are ready to practice more advanced social skills, such as understanding sarcasm, navigating conversation, and participating in age-appropriate peer play."
+          "answer": "The Social Skills Group is for clients who are ready to practice more advanced social skills, such as understanding sarcasm, navigating conversation, and participating in age-appropriate peer play."
         },
         {
           "question": "What is Group Parent Training?",
-          "answer": "Group Parent Training is a caregiver-focused program led by Olivia Roth. Parents and caregivers learn practical strategies together in a supported group setting and practice using them in everyday routines."
+          "answer": "Group Parent Training is a caregiver-focused program. Parents and caregivers learn practical strategies together in a supported group setting and practice using them in everyday routines."
         },
         {
           "question": "Where does VTCC provide services?",
@@ -2417,7 +2415,7 @@
       "title": "Early Learners Program Page",
       "hero": {
         "headline": "Early Learning Support For School And Social Readiness",
-        "body": "The Early Learners program, led by Brieanna Rollocks, BCaBA, supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.",
+        "body": "The Early Learners program supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.",
         "buttons": [
           "Request Early Learners Services",
           "Ask About Eligibility"
@@ -2479,7 +2477,7 @@
       "title": "Social Enrichment Page",
       "hero": {
         "headline": "Peer Skills For Children Ages 8-12",
-        "body": "Social Enrichment, led by Brieanna Rollocks, BCaBA, helps children ages 8-12 join group activities, build friendships, and practice everyday social skills with peers.",
+        "body": "Social Enrichment helps children ages 8-12 join group activities, build friendships, and practice everyday social skills with peers.",
         "buttons": [
           "Request Social Enrichment Services",
           "Ask About Eligibility"
@@ -2498,7 +2496,7 @@
         },
         {
           "title": "Learning With Peers",
-          "body": "Children practice in a small group with coaching from Brieanna Rollocks, BCaBA, and trained staff. Goals are individualized so each child can build confidence with peers at a manageable pace."
+          "body": "Children practice in a small group with coaching from trained staff. Goals are individualized so each child can build confidence with peers at a manageable pace."
         }
       ],
       "cta": {
@@ -2510,7 +2508,7 @@
       "title": "Social Skills Group Page",
       "hero": {
         "headline": "Build More Advanced Social Skills With Peers",
-        "body": "The Social Skills Group, led by Laurel Kokilananda, BCBA, is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.",
+        "body": "The Social Skills Group is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.",
         "buttons": [
           "Request Social Skills Group Services",
           "Ask About Eligibility"
@@ -2519,7 +2517,7 @@
       "sections": [
         {
           "title": "What the Group May Practice",
-          "intro": "The Social Skills Group, led by Laurel Kokilananda, BCBA, is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.",
+          "intro": "The Social Skills Group is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.",
           "items": [
             "Understanding sarcasm, humor, and implied meaning",
             "Back-and-forth conversation and flexible thinking",
@@ -2541,7 +2539,7 @@
       "title": "Group Parent Training Page",
       "hero": {
         "headline": "Learn Practical Strategies With Other Caregivers",
-        "body": "Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions. Families learn together in a supported group setting led by Olivia Roth.",
+        "body": "Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions. Families learn together in a supported group setting.",
         "buttons": [
           "Request Group Parent Training",
           "Ask About Eligibility"
@@ -2560,7 +2558,7 @@
         },
         {
           "title": "Learning With Other Families",
-          "body": "Caregivers meet in a small group with coaching from Olivia Roth. The group is designed so families can use the same strategies when therapists are not present."
+          "body": "Caregivers meet in a small group with coaching from trained staff. The group is designed so families can use the same strategies when therapists are not present."
         }
       ],
       "cta": {

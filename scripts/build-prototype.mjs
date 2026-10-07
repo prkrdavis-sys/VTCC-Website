@@ -78,6 +78,7 @@ for (const entry of pages) {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 ${seoHead}    ${fontLinks}
     <link rel="stylesheet" href="${entry.base}styles.css" />
     <script type="speculationrules">

@@ -28,5 +28,6 @@ function withSeoMarker(line) {
 export function renderSeoHeadHtml(pageKey, locale = 'en') {
   const entry = getSeoForPage(pageKey, locale)
   if (!entry?.headLines?.length) return ''
-  return `${entry.headLines.map((line) => `    ${withSeoMarker(line)}`).join('\n')}\n`
+  const lines = entry.headLines.filter((line) => !/name=["']viewport["']/i.test(line))
+  return `${lines.map((line) => `    ${withSeoMarker(line)}`).join('\n')}\n`
 }

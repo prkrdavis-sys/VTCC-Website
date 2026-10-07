@@ -639,12 +639,19 @@ function renderTopBar(content) {
 
   const phoneIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>`
   const emailIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`
+  const pinIcon = `<svg class="top-bar-pin" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.2"/></svg>`
+  const addressShort = bar.addressShort || bar.address
+  const emailLabel = content.ui.emailLabel || bar.email
 
   return `<div class="top-bar">
-      <a class="top-bar-address" href="${escapeHtml(bar.addressHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(bar.address)}</a>
+      <a class="top-bar-address" href="${escapeHtml(bar.addressHref)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(bar.address)}">
+        ${pinIcon}
+        <span class="top-bar-address-full">${escapeHtml(bar.address)}</span>
+        <span class="top-bar-address-short">${escapeHtml(addressShort)}</span>
+      </a>
       <span class="top-bar-contacts">
-        <a href="${escapeHtml(bar.phoneHref)}">${phoneIcon}${escapeHtml(bar.phone)}</a>
-        <a href="${escapeHtml(bar.emailHref)}">${emailIcon}${escapeHtml(bar.email)}</a>
+        <a href="${escapeHtml(bar.phoneHref)}">${phoneIcon}<span>${escapeHtml(bar.phone)}</span></a>
+        <a class="top-bar-email" href="${escapeHtml(bar.emailHref)}" aria-label="${escapeHtml(bar.email)}">${emailIcon}<span class="top-bar-email-full">${escapeHtml(bar.email)}</span><span class="top-bar-email-short">${escapeHtml(emailLabel)}</span></a>
       </span>
     </div>`
 }

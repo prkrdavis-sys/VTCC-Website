@@ -85,10 +85,10 @@ const manualPages = {
   'https://vtcc.health/social-enrichment/': {
     title: 'Victoria Transcultural Clinical Center | Social Enrichment',
     description:
-      'VTCC’s Social Enrichment program, led by Brieanna Rollocks, BCaBA, helps children ages 8-12 practice peer skills in a supported group.',
+      'VTCC’s Social Enrichment program helps children ages 8-12 practice peer skills in a supported group.',
     headLines: [
       '<title>Victoria Transcultural Clinical Center | Social Enrichment</title>',
-      '<meta name="description" content="VTCC’s Social Enrichment program, led by Brieanna Rollocks, BCaBA, helps children ages 8-12 practice peer skills in a supported group.">',
+      '<meta name="description" content="VTCC’s Social Enrichment program helps children ages 8-12 practice peer skills in a supported group.">',
       '<link rel="canonical" href="https://vtcc.health/social-enrichment/">',
     ],
   },
@@ -105,10 +105,10 @@ const manualPages = {
   'https://vtcc.health/group-parent-training/': {
     title: 'Victoria Transcultural Clinical Center | Group Parent Training',
     description:
-      'VTCC’s Group Parent Training, led by Olivia Roth, helps caregivers learn practical strategies together in a supported group setting.',
+      'VTCC’s Group Parent Training helps caregivers learn practical strategies together in a supported group setting.',
     headLines: [
       '<title>Victoria Transcultural Clinical Center | Group Parent Training</title>',
-      '<meta name="description" content="VTCC’s Group Parent Training, led by Olivia Roth, helps caregivers learn practical strategies together in a supported group setting.">',
+      '<meta name="description" content="VTCC’s Group Parent Training helps caregivers learn practical strategies together in a supported group setting.">',
       '<link rel="canonical" href="https://vtcc.health/group-parent-training/">',
     ],
   },
@@ -135,10 +135,10 @@ const manualPages = {
   'https://vtcc.health/enriquecimiento-social/': {
     title: 'Victoria Transcultural Clinical Center | Enriquecimiento Social',
     description:
-      'El programa de Enriquecimiento Social de VTCC, liderado por Brieanna Rollocks, BCaBA, ayuda a niños de 8 a 12 años a practicar habilidades con compañeros en un grupo con apoyo.',
+      'El programa de Enriquecimiento Social de VTCC ayuda a niños de 8 a 12 años a practicar habilidades con compañeros en un grupo con apoyo.',
     headLines: [
       '<title>Victoria Transcultural Clinical Center | Enriquecimiento Social</title>',
-      '<meta name="description" content="El programa de Enriquecimiento Social de VTCC, liderado por Brieanna Rollocks, BCaBA, ayuda a niños de 8 a 12 años a practicar habilidades con compañeros en un grupo con apoyo.">',
+      '<meta name="description" content="El programa de Enriquecimiento Social de VTCC ayuda a niños de 8 a 12 años a practicar habilidades con compañeros en un grupo con apoyo.">',
       '<link rel="canonical" href="https://vtcc.health/enriquecimiento-social/">',
     ],
   },
@@ -155,10 +155,10 @@ const manualPages = {
   'https://vtcc.health/capacitacion-grupal-para-padres/': {
     title: 'Victoria Transcultural Clinical Center | Capacitación Grupal para Padres',
     description:
-      'La Capacitación Grupal para Padres de VTCC, liderada por Olivia Roth, ayuda a los cuidadores a aprender estrategias prácticas en un entorno grupal con apoyo.',
+      'La Capacitación Grupal para Padres de VTCC ayuda a los cuidadores a aprender estrategias prácticas en un entorno grupal con apoyo.',
     headLines: [
       '<title>Victoria Transcultural Clinical Center | Capacitación Grupal para Padres</title>',
-      '<meta name="description" content="La Capacitación Grupal para Padres de VTCC, liderada por Olivia Roth, ayuda a los cuidadores a aprender estrategias prácticas en un entorno grupal con apoyo.">',
+      '<meta name="description" content="La Capacitación Grupal para Padres de VTCC ayuda a los cuidadores a aprender estrategias prácticas en un entorno grupal con apoyo.">',
       '<link rel="canonical" href="https://vtcc.health/capacitacion-grupal-para-padres/">',
     ],
   },
