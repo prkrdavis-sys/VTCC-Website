@@ -27,8 +27,17 @@
     "contactSwitchQuizPrompt": "¿Quiere ayuda para elegir un camino?",
     "contactSwitchQuizLink": "Comience con el cuestionario de contacto",
     "formSubmitting": "Sending...",
+    "formSubmittingAnnouncement": "Enviando su solicitud.",
     "formSuccess": "Thank you. Your request was received. A VTCC team member will follow up.",
     "formError": "We could not send this form. Please call VTCC or try again later.",
+    "referenceLabel": "Número de referencia",
+    "submittedLabel": "Enviado",
+    "copyReferenceLabel": "Copiar",
+    "copiedReferenceLabel": "Copiado",
+    "keepReferenceNote": "Guarde este número. Compártalo cuando llame a VTCC sobre esta solicitud.",
+    "stepCompleteLabel": "Paso 1 completado",
+    "clearReceiptLabel": "¿No es usted? Borrar esto",
+    "viewConfirmationLabel": "Ver confirmación",
     "careerFileChoose": "Elegir un archivo",
     "careerFileDrop": "Suelte aquí su currículum o documento de apoyo",
     "careerFileHint": "PDF, DOC, DOCX o TXT. Tamaño máximo: 5 MB.",
@@ -44,8 +53,7 @@
     "programGoalsLabel": "Metas",
     "programStructureLabel": "Cómo está estructurado el programa",
     "programFaqLinkLabel": "Ver preguntas de {program}",
-    "faqProgramLinkNote": "Para ver las metas y cómo funciona el programa, visite la página de servicios.",
-    "formSubmittingAnnouncement": "Enviando su solicitud."
+    "faqProgramLinkNote": "Para ver las metas y cómo funciona el programa, visite la página de servicios."
   },
   "company": {
     "name": "Victoria Transcultural Clinical Center",
@@ -248,12 +256,12 @@
     "actions": [
       {
         "label": "Solicitar Servicios",
-        "href": "#contact",
+        "href": "/contact",
         "style": "primary"
       },
       {
         "label": "Referir un Cliente",
-        "href": "#referrers",
+        "href": "/referrers",
         "style": "secondary"
       },
       {
@@ -629,13 +637,15 @@
           "title": "Para Familias",
           "body": "Conozca qué servicios pueden ser adecuados para su hijo, qué documentación puede necesitarse y qué esperar durante la admisión.",
           "buttonLabel": "Comenzar como familia",
-          "buttonStyle": "primary"
+          "buttonStyle": "primary",
+          "buttonHref": "/contact"
         },
         {
           "title": "Para Referentes",
           "body": "Escuelas, médicos, administradores de casos, socios del condado y profesionales comunitarios pueden contactar a VTCC para preguntar sobre elegibilidad y requisitos de referencia.",
           "buttonLabel": "Iniciar una referencia",
-          "buttonStyle": "secondary"
+          "buttonStyle": "secondary",
+          "buttonHref": "/contact"
         }
       ]
     },
@@ -2546,22 +2556,6 @@
       ]
     }
   },
-  "compliance": {
-    "contentApproval": "El liderazgo debe revisar y aprobar todo el lenguaje final de servicios, elegibilidad, seguro y cumplimiento.",
-    "formSecurity": "No recopile informes de diagnóstico, detalles clínicos ni información de salud protegida a través de un formulario de contacto normal a menos que VTCC confirme que el formulario es seguro, aprobado y conforme."
-  },
-  "home": {
-    "processTeaser": {
-      "linkLabel": "Ver la ruta completa de admisión",
-      "linkHref": "/get-started"
-    },
-    "resourcesTeaser": {
-      "title": "Guías y preguntas frecuentes útiles",
-      "intro": "Explore temas comunes sobre admisión, financiamiento, terapia ABA, servicios en el hogar y referencias.",
-      "linkLabel": "Ver preguntas y guías",
-      "linkHref": "/resources"
-    }
-  },
   "thankYou": {
     "nextLabel": "Qué sigue",
     "notice": "No envíe informes de diagnóstico ni otros datos médicos privados por correo electrónico. Si se trata de una emergencia, llame al 911 o vaya a la sala de emergencias más cercana.",
@@ -2613,6 +2607,22 @@
       ],
       "secondaryLabel": "Contactar a VTCC",
       "secondaryHref": "/contact"
+    }
+  },
+  "compliance": {
+    "contentApproval": "El liderazgo debe revisar y aprobar todo el lenguaje final de servicios, elegibilidad, seguro y cumplimiento.",
+    "formSecurity": "No recopile informes de diagnóstico, detalles clínicos ni información de salud protegida a través de un formulario de contacto normal a menos que VTCC confirme que el formulario es seguro, aprobado y conforme."
+  },
+  "home": {
+    "processTeaser": {
+      "linkLabel": "Ver la ruta completa de admisión",
+      "linkHref": "/get-started"
+    },
+    "resourcesTeaser": {
+      "title": "Guías y preguntas frecuentes",
+      "intro": "Explore temas comunes sobre admisión, financiamiento, terapia ABA, programas especializados y referencias.",
+      "linkLabel": "Ver preguntas y guías",
+      "linkHref": "/resources"
     }
   }
 }

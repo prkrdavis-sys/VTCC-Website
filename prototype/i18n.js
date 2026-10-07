@@ -2,6 +2,7 @@ const STORAGE_KEY = window.VTCC_SITE?.localeStorageKey ?? 'vtcc-locale'
 const CAREER_ROLE_STORAGE_KEY = 'vtcc-career-role'
 const QUIZ_PREFILL_STORAGE_KEY = 'vtcc-quiz-prefill'
 const INK_HANDOFF_KEY = 'vtcc-form-ink'
+const INTAKE_RECEIPT_KEY = 'vtcc-intake-receipt'
 const INK_MAX_AGE_MS = 10000
 const PAGE = window.VTCC_PAGE ?? 'home'
 const BASE = window.VTCC_BASE ?? ''
@@ -1263,18 +1264,122 @@ function renderAbaPage(content) {
       </section>`
 }
 
+function isIntakeReceipt(value) {
+  return (
+    value &&
+    /^\d{8}$/.test(value.reference) &&
+    (value.form === 'family' || value.form === 'referral') &&
+    typeof value.submittedAt === 'string' &&
+    !Number.isNaN(Date.parse(value.submittedAt))
+  )
+}
+
+function readIntakeReceipt() {
+  try {
+    const receipt = JSON.parse(localStorage.getItem(INTAKE_RECEIPT_KEY) ?? 'null')
+    return isIntakeReceipt(receipt) ? receipt : null
+  } catch {
+    return null
+  }
+}
+
+function writeIntakeReceipt(receipt) {
+  localStorage.setItem(INTAKE_RECEIPT_KEY, JSON.stringify(receipt))
+}
+
+function clearIntakeReceipt() {
+  localStorage.removeItem(INTAKE_RECEIPT_KEY)
+}
+
+function readThankYouReceipt() {
+  const variant = readThankYouVariant()
+  let receipt = null
+
+  try {
+    const handoff = JSON.parse(sessionStorage.getItem(INK_HANDOFF_KEY) ?? 'null')
+    if (handoff?.receipt) {
+      receipt = handoff.receipt
+    }
+  } catch {
+    receipt = null
+  }
+
+  if (!isIntakeReceipt(receipt)) {
+    receipt = readIntakeReceipt()
+  }
+
+  if (!isIntakeReceipt(receipt) || receipt.form !== variant) {
+    return null
+  }
+
+  return receipt
+}
+
+function thankYouHref(form) {
+  return `${toStaticHref('/thank-you')}?form=${encodeURIComponent(form)}`
+}
+
+function formatSubmittedStamp(iso) {
+  return new Intl.DateTimeFormat(getLocale() === 'es' ? 'es' : 'en', {
+    dateStyle: 'long',
+    timeStyle: 'short',
+  }).format(new Date(iso))
+}
+
+function renderIntakeReceipt(content, receipt, { placement }) {
+  if (!receipt) {
+    return ''
+  }
+
+  const ui = content.ui
+  const clear =
+    placement === 'checklist'
+      ? `<button type="button" class="intake-receipt-clear" data-clear-receipt>${escapeHtml(ui.clearReceiptLabel)}</button>`
+      : ''
+  const confirmation =
+    placement === 'checklist'
+      ? `<a href="${escapeHtml(thankYouHref(receipt.form))}">${escapeHtml(ui.viewConfirmationLabel)}</a>`
+      : ''
+  const actions = confirmation || clear ? `<p class="intake-receipt-actions">${confirmation}${clear}</p>` : ''
+
+  return `<div class="intake-receipt intake-receipt--${escapeHtml(placement)}">
+            <p class="intake-receipt-status">${escapeHtml(ui.stepCompleteLabel)}</p>
+            <p class="intake-receipt-ref">
+              <span>${escapeHtml(ui.referenceLabel)}</span>
+              <strong>${escapeHtml(receipt.reference)}</strong>
+              <button type="button" class="intake-receipt-copy" data-copy-reference="${escapeHtml(receipt.reference)}" data-copy-label="${escapeHtml(ui.copyReferenceLabel)}" data-copied-label="${escapeHtml(ui.copiedReferenceLabel)}">${escapeHtml(ui.copyReferenceLabel)}</button>
+            </p>
+            <p class="intake-receipt-time">
+              <span>${escapeHtml(ui.submittedLabel)}</span>
+              <time datetime="${escapeHtml(receipt.submittedAt)}">${escapeHtml(formatSubmittedStamp(receipt.submittedAt))}</time>
+            </p>
+            <p class="intake-receipt-note">${escapeHtml(ui.keepReferenceNote)}</p>
+            ${actions}
+          </div>`
+}
+
 function renderProcessPage(content) {
   const process = content.sections.process
+  const receipt = readIntakeReceipt()
+  const steps = process.steps
+    .map((step, index) => {
+      const complete = index === 0 && receipt
+      const badge = complete
+        ? `<span class="step-check" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M18 33.5 27.5 43 46 22" /></svg></span>`
+        : ''
+      const panel = complete ? renderIntakeReceipt(content, receipt, { placement: 'checklist' }) : ''
+      return `<li${complete ? ' class="is-complete"' : ''}>${badge}<strong>${escapeHtml(step.title)}.</strong> ${escapeHtml(step.body)}${panel}</li>`
+    })
+    .join('')
+  const primary = receipt
+    ? `<a class="button secondary page-link-cta" href="${escapeHtml(thankYouHref(receipt.form))}">${escapeHtml(content.ui.viewConfirmationLabel)}</a>`
+    : `<a class="button page-link-cta" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.hero.actions[0].label)}</a>`
+
   return `<section class="section split-section page-section">
         ${renderSectionHeading('', process.title, process.intro)}
-        <ol class="steps">${process.steps
-          .map(
-            (step) =>
-              `<li><strong>${escapeHtml(step.title)}.</strong> ${escapeHtml(step.body)}</li>`,
-          )
-          .join('')}</ol>
+        <ol class="steps">${steps}</ol>
         <div class="button-row">
-          <a class="button page-link-cta" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.hero.actions[0].label)}</a>
+          ${primary}
           <a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(process.formsLinkHref))}">${escapeHtml(process.formsLinkLabel)}</a>
         </div>
       </section>`
@@ -1922,6 +2027,7 @@ function renderThankYouPage(content) {
           </svg>
           ${renderSectionHeading(variant.eyebrow, variant.title, '')}
           <p class="thank-you-lead">${escapeHtml(variant.lead)}</p>
+          ${renderIntakeReceipt(content, readThankYouReceipt(), { placement: 'confirm' })}
           <h3>${escapeHtml(copy.nextLabel)}</h3>
           <ol class="thank-you-steps">${steps}</ol>
           <div class="thank-you-actions">
@@ -3384,7 +3490,7 @@ async function holdSubmitInk(session) {
   session.ink.classList.add('is-holding')
 }
 
-function navigateWithInk(session, formVariant) {
+function navigateWithInk(session, formVariant, receipt = null) {
   if (!session.reduced) {
     sessionStorage.setItem(
       INK_HANDOFF_KEY,
@@ -3393,6 +3499,7 @@ function navigateWithInk(session, formVariant) {
         y: session.y,
         form: formVariant,
         t: Date.now(),
+        receipt,
       }),
     )
   }
@@ -3435,6 +3542,37 @@ function readThankYouVariant() {
     return form
   }
   return 'default'
+}
+
+function bindIntakeReceipt() {
+  document.querySelectorAll('[data-copy-reference]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const value = button.dataset.copyReference
+      try {
+        await navigator.clipboard.writeText(value)
+      } catch {
+        const field = document.createElement('textarea')
+        field.value = value
+        field.setAttribute('readonly', '')
+        field.style.position = 'fixed'
+        field.style.left = '-9999px'
+        document.body.appendChild(field)
+        field.select()
+        document.execCommand('copy')
+        field.remove()
+      }
+      const copied = button.dataset.copiedLabel
+      button.textContent = copied
+      window.setTimeout(() => {
+        button.textContent = button.dataset.copyLabel
+      }, 1600)
+    })
+  })
+
+  document.querySelector('[data-clear-receipt]')?.addEventListener('click', () => {
+    clearIntakeReceipt()
+    render()
+  })
 }
 
 function bindInkArrival() {
@@ -3555,14 +3693,14 @@ function readFormFields(form) {
   return fields
 }
 
-function buildFormspreePayload(formType, fields) {
+function buildFormspreePayload(formType, fields, receipt = null) {
   const config = FORMSPREE_FORMS[formType]
   if (!config) {
     throw new Error('Unknown form type')
   }
 
   const payload = {
-    _subject: config.subject,
+    _subject: receipt?.reference ? `${config.subject} (${receipt.reference})` : config.subject,
     _gotcha: fields._gotcha ?? '',
   }
 
@@ -3584,11 +3722,51 @@ function buildFormspreePayload(formType, fields) {
   payload.Language = getLocale() === 'es' ? 'Spanish' : 'English'
   payload.Page = PAGE_SECTION_PATHS[PAGE] ?? window.location.pathname
 
+  if (formType === 'service_request' || formType === 'referral') {
+    payload['Reference number'] = receipt?.reference ?? 'pending'
+    if (receipt?.submittedAt) {
+      payload.Submitted = formatSubmittedStamp(receipt.submittedAt)
+    }
+  }
+
   return { config, payload }
 }
 
-async function submitFormspree(formType, fields, file = null) {
-  const { config, payload } = buildFormspreePayload(formType, fields)
+async function requestReferenceNumber() {
+  const attempt = async () => {
+    const controller = new AbortController()
+    const timer = window.setTimeout(() => controller.abort(), 4000)
+    try {
+      const response = await fetch('/api/reference', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        signal: controller.signal,
+      })
+      if (!response.ok) {
+        throw new Error('Reference request failed')
+      }
+      const data = await response.json()
+      if (!/^\d{8}$/.test(data?.reference)) {
+        throw new Error('Invalid reference number')
+      }
+      const submittedAt = data.issuedAt && !Number.isNaN(Date.parse(data.issuedAt))
+        ? data.issuedAt
+        : new Date().toISOString()
+      return { reference: data.reference, submittedAt }
+    } finally {
+      window.clearTimeout(timer)
+    }
+  }
+
+  try {
+    return await attempt()
+  } catch {
+    return attempt()
+  }
+}
+
+async function submitFormspree(formType, fields, file = null, receipt = null) {
+  const { config, payload } = buildFormspreePayload(formType, fields, receipt)
   const formId = String(window.VTCC_SITE?.formspree?.[config.configKey] ?? '').trim()
   if (!formId) {
     throw new Error('Formspree form is not configured')
@@ -3689,12 +3867,28 @@ function bindRequestForms(content) {
       setFormStatus(form, '', 'idle')
 
       try {
-        const posted = submitFormspree(form.dataset.formType, readFormFields(form))
+        const formType = form.dataset.formType
+        const tracksReceipt = formType === 'service_request' || formType === 'referral'
+        let receipt = null
+        if (tracksReceipt) {
+          try {
+            receipt = await requestReferenceNumber()
+          } catch {
+            receipt = null
+          }
+        }
+        const posted = submitFormspree(formType, readFormFields(form), null, receipt)
         const held = holdSubmitInk(ink)
         await posted
         await held
-        const variant = form.dataset.formType === 'referral' ? 'referral' : 'family'
-        navigateWithInk(ink, variant)
+        const variant = formType === 'referral' ? 'referral' : 'family'
+        if (receipt) {
+          const stored = { reference: receipt.reference, submittedAt: receipt.submittedAt, form: variant }
+          writeIntakeReceipt(stored)
+          navigateWithInk(ink, variant, stored)
+        } else {
+          navigateWithInk(ink, variant)
+        }
       } catch {
         await reverseSubmitInk(ink)
         setFormStatus(
@@ -4320,6 +4514,7 @@ function render() {
     }
   }
 
+  bindIntakeReceipt()
   bindInkArrival()
   bindScrollReveal()
   bindPageEnter()

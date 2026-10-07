@@ -1861,6 +1861,14 @@ if (intakeCategory) {
 
 Object.assign(es.ui, {
   formSubmittingAnnouncement: 'Enviando su solicitud.',
+  referenceLabel: 'Número de referencia',
+  submittedLabel: 'Enviado',
+  copyReferenceLabel: 'Copiar',
+  copiedReferenceLabel: 'Copiado',
+  keepReferenceNote: 'Guarde este número. Compártalo cuando llame a VTCC sobre esta solicitud.',
+  stepCompleteLabel: 'Paso 1 completado',
+  clearReceiptLabel: '¿No es usted? Borrar esto',
+  viewConfirmationLabel: 'Ver confirmación',
 })
 
 es.thankYou = {

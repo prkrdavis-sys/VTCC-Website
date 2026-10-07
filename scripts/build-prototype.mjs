@@ -26,14 +26,17 @@ writeFileSync(
 )
 
 const cursorByPage = {
-  home: 'bubble',
+  home: 'sparkle',
   aba: 'sparkle',
-  'early-learners': 'crayon',
-  'feeding-program': 'spoon',
-  'social-enrichment': 'balloon',
-  'social-skills-group': 'speech',
-  'group-parent-training': 'plane',
-  'get-started': 'rocket',
+  'early-learners': 'sparkle',
+  'feeding-program': 'sparkle',
+  'social-enrichment': 'sparkle',
+  'social-skills-group': 'sparkle',
+  'group-parent-training': 'sparkle',
+  'get-started': 'sparkle',
+  about: 'sparkle',
+  resources: 'rocket',
+  resource: 'rocket',
 }
 
 const pages = [

@@ -2082,6 +2082,125 @@ h3 {
   transform: translateY(-50%);
 }
 
+.steps li.is-complete {
+  border-color: var(--brand);
+  background: var(--soft);
+}
+
+.steps li.is-complete::before {
+  content: none;
+}
+
+.step-check {
+  position: absolute;
+  top: 1.15rem;
+  left: 1rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: var(--brand-deep);
+  color: var(--white);
+}
+
+.step-check svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.step-check path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: check-draw 420ms cubic-bezier(0.05, 0.7, 0.1, 1) forwards;
+}
+
+.intake-receipt {
+  margin-top: 0.9rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.85rem;
+  background: var(--white);
+  border: 1px solid var(--brand-light);
+}
+
+.intake-receipt--confirm {
+  margin: 0 auto 1.75rem;
+  max-width: 28rem;
+  text-align: left;
+}
+
+.intake-receipt-status {
+  margin: 0 0 0.35rem;
+  color: var(--brand-deep);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.intake-receipt-ref,
+.intake-receipt-time {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.7rem;
+  margin: 0.2rem 0;
+}
+
+.intake-receipt-ref span,
+.intake-receipt-time span {
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.intake-receipt-ref strong {
+  font-variant-numeric: tabular-nums;
+  font-size: var(--text-xl);
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.intake-receipt-copy {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--brand-deep);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+}
+
+.intake-receipt-note {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.intake-receipt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin: 0.7rem 0 0;
+  font-size: var(--text-sm);
+}
+
+.intake-receipt-clear {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: inherit;
+  text-decoration: underline;
+}
+
 .detail-section {
   background: var(--paper);
 }
@@ -5945,8 +6064,10 @@ button.is-ink-origin {
 
   .page-enter,
   .submit-ink,
-  .thank-you-mark path {
+  .thank-you-mark path,
+  .step-check path {
     animation: none;
+    stroke-dashoffset: 0;
   }
 
   body.is-ink-submitting main,

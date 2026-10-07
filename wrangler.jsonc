@@ -2,10 +2,20 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "vtcc-website",
   // Match the live Worker on the company Cloudflare account
+  "main": "worker/index.js",
   "compatibility_date": "2026-10-06",
   "assets": {
-    "directory": "./prototype"
+    "directory": "./prototype",
+    "binding": "ASSETS"
   },
+  "durable_objects": {
+    "bindings": [
+      { "name": "REFERENCE_COUNTER", "class_name": "ReferenceCounter" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1-reference-counter", "new_sqlite_classes": ["ReferenceCounter"] }
+  ],
   "observability": {
     "enabled": true
   }
