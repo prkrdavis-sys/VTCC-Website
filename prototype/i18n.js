@@ -431,30 +431,64 @@ function renderLanguageSelect(content, { hiddenLabel = false, compact = false } 
         </label>`
 }
 
-function renderMobileMenu(content) {
-  const groups = getHeaderGroups(content)
-  const navLinks = groups
-    .map((group) => {
-      const childLinks = (group.links ?? []).filter((item) => item.href !== group.href)
-      if (group.href && childLinks.length === 0) {
-        return `<a class="site-menu-link" href="${escapeHtml(toStaticHref(group.href))}">${escapeHtml(group.label)}</a>`
-      }
+function renderMobileMenuChevron() {
+  return `<svg class="site-menu-chevron" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7.5 10 12.5 15 7.5"/></svg>`
+}
 
-      const links = childLinks
-        .map(
-          (item) =>
-            `<a class="site-menu-link" href="${escapeHtml(toStaticHref(item.href))}">${escapeHtml(item.label)}</a>`,
-        )
-        .join('\n            ')
-      const parentLink = group.href
-        ? `<a class="site-menu-link" href="${escapeHtml(toStaticHref(group.href))}">${escapeHtml(group.label)}</a>`
-        : `<p class="site-menu-group-label">${escapeHtml(group.label)}</p>`
+function renderMobileMenuLink(item, { nested = false } = {}) {
+  const isActive = linkMatchesCurrentPage(item.href)
+  const nestedClass = nested ? ' site-menu-link--nested' : ''
+  const activeClass = isActive ? ' is-active' : ''
+  return `<a class="site-menu-link${nestedClass}${activeClass}" href="${escapeHtml(toStaticHref(item.href))}"${isActive ? ' aria-current="page"' : ''}>${escapeHtml(item.label)}</a>`
+}
 
-      return `<div class="site-menu-group">
-            ${parentLink}
-            ${links}
+function renderMobileMenuGroup(group, index) {
+  const childLinks = (group.links ?? []).filter((item) => item.href !== group.href)
+  if (group.href && childLinks.length === 0) {
+    return renderMobileMenuLink(group)
+  }
+
+  if (!group.href && childLinks.length <= 2) {
+    return childLinks.map((item) => renderMobileMenuLink(item)).join('\n          ')
+  }
+
+  const isOpen = headerGroupIsCurrent(group)
+  const panelId = `site-menu-panel-${index}`
+  const links = childLinks.map((item) => renderMobileMenuLink(item, { nested: true })).join('\n              ')
+  const expanded = isOpen ? 'true' : 'false'
+  const hidden = isOpen ? '' : ' hidden'
+  const openClass = isOpen ? ' is-open' : ''
+
+  if (group.href) {
+    const parentActive = linkMatchesCurrentPage(group.href)
+    const parentActiveClass = parentActive ? ' is-active' : ''
+    return `<div class="site-menu-group${openClass}">
+            <div class="site-menu-row">
+              <a class="site-menu-link${parentActiveClass}" href="${escapeHtml(toStaticHref(group.href))}"${parentActive ? ' aria-current="page"' : ''}>${escapeHtml(group.label)}</a>
+              <button type="button" class="site-menu-expand" aria-expanded="${expanded}" aria-controls="${panelId}" aria-label="${escapeHtml(group.label)}">
+                ${renderMobileMenuChevron()}
+              </button>
+            </div>
+            <div class="site-menu-panel" id="${panelId}"${hidden}>
+              ${links}
+            </div>
           </div>`
-    })
+  }
+
+  return `<div class="site-menu-group${openClass}">
+            <button type="button" class="site-menu-link site-menu-expand-row" aria-expanded="${expanded}" aria-controls="${panelId}">
+              <span>${escapeHtml(group.label)}</span>
+              ${renderMobileMenuChevron()}
+            </button>
+            <div class="site-menu-panel" id="${panelId}"${hidden}>
+              ${links}
+            </div>
+          </div>`
+}
+
+function renderMobileMenu(content) {
+  const navLinks = getHeaderGroups(content)
+    .map((group, index) => renderMobileMenuGroup(group, index))
     .join('\n          ')
 
   const utilityLinks = getHeaderActions(content)
@@ -486,9 +520,9 @@ function renderMobileMenu(content) {
         <nav class="site-menu-nav" aria-label="${escapeHtml(content.ui.menuLabel)}">
           ${navLinks}
         </nav>
-        <div class="site-menu-actions">
-          ${utilityLinks}
-        </div>
+      </div>
+      <div class="site-menu-actions">
+        ${utilityLinks}
       </div>
     </aside>`
 }
@@ -1726,27 +1760,18 @@ function renderCareerApplicationField(field, content) {
           </label>`
 }
 
-function renderCareerApplicationPage(content) {
-  const application = content.careerApplication
-  const fields = application.fields
-    .map((field) => renderCareerApplicationField(field, content))
-    .join('\n          ')
+function resumeUploadsEnabled() {
+  return window.VTCC_SITE?.formspree?.resumeUploads === true
+}
 
-  return `<section class="section career-application page-section">
-        <div class="career-application-intro">
-          <a class="back-button" href="${escapeHtml(toStaticHref(application.backHref))}">
-            <span aria-hidden="true">←</span> ${escapeHtml(application.backLabel)}
-          </a>
-          ${renderSectionHeading(application.eyebrow, application.title, application.intro)}
-          <aside class="career-privacy-note">
-            <strong>${escapeHtml(application.privacyTitle)}</strong>
-            <p>${escapeHtml(application.privacyNote)}</p>
-          </aside>
-        </div>
-        <div class="career-form-panel">
-          <form class="career-application-form" data-career-form>
-            ${fields}
-            <div class="career-file-field">
+function renderCareerFileField(content) {
+  if (!resumeUploadsEnabled()) {
+    return ''
+  }
+
+  const application = content.careerApplication
+
+  return `<div class="career-file-field">
               <span class="career-field-label">${escapeHtml(application.fileLabel)}</span>
               <div
                 class="career-upload"
@@ -1773,7 +1798,31 @@ function renderCareerApplicationPage(content) {
                 <button type="button" class="career-file-remove" data-career-file-remove hidden>${escapeHtml(content.ui.careerFileRemove)}</button>
               </div>
               <p class="career-file-error" data-career-file-error role="alert" hidden></p>
-            </div>
+            </div>`
+}
+
+function renderCareerApplicationPage(content) {
+  const application = content.careerApplication
+  const fields = application.fields
+    .map((field) => renderCareerApplicationField(field, content))
+    .join('\n          ')
+
+  return `<section class="section career-application page-section">
+        <div class="career-application-intro">
+          <a class="back-button" href="${escapeHtml(toStaticHref(application.backHref))}">
+            <span aria-hidden="true">←</span> ${escapeHtml(application.backLabel)}
+          </a>
+          ${renderSectionHeading(application.eyebrow, application.title, application.intro)}
+          <aside class="career-privacy-note">
+            <strong>${escapeHtml(application.privacyTitle)}</strong>
+            <p>${escapeHtml(application.privacyNote)}</p>
+          </aside>
+        </div>
+        <div class="career-form-panel">
+          <form class="career-application-form" data-career-form data-form-type="career">
+            <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            ${fields}
+            ${renderCareerFileField(content)}
             <label class="consent-field">
               <input type="checkbox" name="consent" required />
               ${escapeHtml(application.consentLabel)}
@@ -1849,6 +1898,7 @@ function renderContactPage(content) {
         <div class="contact-form-panel">
           ${renderContactFormSwitch(content, variant)}
           <form class="request-form request-form--${escapeHtml(variant)}" data-form-type="${escapeHtml(formType)}">
+          <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
           ${form.fields.map(renderFormField).join('')}
           <label class="consent-field"><input type="checkbox" name="consent" required /> ${escapeHtml(form.consentLabel)}</label>
           <p class="form-note">${escapeHtml(form.notice)}</p>
@@ -3103,6 +3153,29 @@ function bindMobileMenu() {
     setOpen(false)
   })
 
+  const setGroupOpen = (group, open) => {
+    const button = group.querySelector('.site-menu-expand, .site-menu-expand-row')
+    const panel = group.querySelector('.site-menu-panel')
+    if (!button || !panel) {
+      return
+    }
+
+    group.classList.toggle('is-open', open)
+    button.setAttribute('aria-expanded', open ? 'true' : 'false')
+    panel.hidden = !open
+  }
+
+  drawer.querySelectorAll('.site-menu-expand, .site-menu-expand-row').forEach((button) => {
+    button.addEventListener('click', () => {
+      const group = button.closest('.site-menu-group')
+      if (!group) {
+        return
+      }
+
+      setGroupOpen(group, button.getAttribute('aria-expanded') !== 'true')
+    })
+  })
+
   drawer.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       setOpen(false)
@@ -3132,21 +3205,140 @@ function setFormStatus(form, message, status = 'idle') {
   statusNode.dataset.status = status
 }
 
-function getFormSubmissionPayload(form) {
+const FORMSPREE_FORMS = {
+  service_request: {
+    configKey: 'serviceRequest',
+    subject: 'New VTCC service request',
+    labels: {
+      name: 'Parent or guardian name',
+      email: 'Email',
+      phone: 'Phone',
+      preferredContact: 'Preferred contact method',
+      ageRange: "Child's age range",
+      service: 'Service interest',
+      funding: 'Funding source',
+      location: 'City or county',
+      message: 'Message',
+    },
+  },
+  referral: {
+    configKey: 'referral',
+    subject: 'New VTCC referral inquiry',
+    labels: {
+      name: 'Referrer name',
+      organization: 'Organization or agency',
+      role: 'Role',
+      email: 'Work email',
+      phone: 'Work phone',
+      preferredContact: 'Preferred contact method',
+      parentName: 'Parent or guardian name',
+      parentPhone: 'Parent or guardian phone',
+      ageRange: "Child's age range",
+      service: 'Service requested',
+      funding: 'Funding source',
+      location: "Child's city or county",
+      message: 'Reason for referral',
+    },
+  },
+  career: {
+    configKey: 'career',
+    subject: 'New VTCC career application',
+    labels: {
+      fullName: 'Full name',
+      email: 'Email',
+      phone: 'Phone',
+      role: 'Role of interest',
+      location: 'City and state',
+      workAuthorization: 'Work authorization',
+      experience: 'Relevant experience',
+      coverLetter: 'Interest in VTCC',
+    },
+  },
+}
+
+function readFormFields(form) {
   const formData = new FormData(form)
   const fields = {}
 
   for (const [name, value] of formData.entries()) {
-    fields[name] = typeof value === 'string' ? value.trim() : value
+    if (typeof value !== 'string') {
+      continue
+    }
+
+    fields[name] = value.trim()
   }
 
-  fields.consent = formData.get('consent') === 'on'
+  return fields
+}
 
-  return {
-    formType: form.dataset.formType,
-    locale: getLocale(),
-    sourcePage: PAGE_SECTION_PATHS[PAGE] ?? window.location.pathname,
-    fields,
+function buildFormspreePayload(formType, fields) {
+  const config = FORMSPREE_FORMS[formType]
+  if (!config) {
+    throw new Error('Unknown form type')
+  }
+
+  const payload = {
+    _subject: config.subject,
+    _gotcha: fields._gotcha ?? '',
+  }
+
+  const replyTo = fields.email
+  if (replyTo) {
+    payload._replyto = replyTo
+  }
+
+  for (const [name, label] of Object.entries(config.labels)) {
+    const value = fields[name]
+    if (value == null || value === '') {
+      continue
+    }
+
+    payload[label] = value
+  }
+
+  payload.Consent = 'Yes'
+  payload.Language = getLocale() === 'es' ? 'Spanish' : 'English'
+  payload.Page = PAGE_SECTION_PATHS[PAGE] ?? window.location.pathname
+
+  return { config, payload }
+}
+
+async function submitFormspree(formType, fields, file = null) {
+  const { config, payload } = buildFormspreePayload(formType, fields)
+  const formId = String(window.VTCC_SITE?.formspree?.[config.configKey] ?? '').trim()
+  if (!formId) {
+    throw new Error('Formspree form is not configured')
+  }
+
+  const endpoint = `https://formspree.io/f/${formId}`
+  let response
+
+  if (file) {
+    const body = new FormData()
+    for (const [key, value] of Object.entries(payload)) {
+      body.append(key, value)
+    }
+    body.append('Resume', file, file.name)
+    response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+      body,
+    })
+  } else {
+    response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+  }
+
+  if (!response.ok) {
+    throw new Error('Form submission failed')
   }
 }
 
@@ -3208,18 +3400,7 @@ function bindRequestForms(content) {
       setFormStatus(form, '', 'idle')
 
       try {
-        const response = await fetch('/api/submit-form', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(getFormSubmissionPayload(form)),
-        })
-
-        if (!response.ok) {
-          throw new Error('Form submission failed')
-        }
-
+        await submitFormspree(form.dataset.formType, readFormFields(form))
         form.reset()
         setFormStatus(
           form,
@@ -3443,9 +3624,13 @@ function bindCareerApplication(content) {
   const status = form?.querySelector('[data-career-form-status]')
   const submitButton = form?.querySelector('button[type="submit"]')
 
-  if (!form || !fileInput || !dropzone || !fileName || !filePrompt || !removeButton || !fileError || !status || !submitButton) {
+  if (!form || !status || !submitButton) {
     return
   }
+
+  const uploadsEnabled = Boolean(
+    resumeUploadsEnabled() && fileInput && dropzone && fileName && filePrompt && removeButton && fileError,
+  )
 
   const roleSelect = form.querySelector('select[name="role"]')
   const storedRole = sessionStorage.getItem(CAREER_ROLE_STORAGE_KEY)
@@ -3519,61 +3704,63 @@ function bindCareerApplication(content) {
     setFileError('')
   }
 
-  fileInput.addEventListener('change', () => {
-    selectFile(fileInput.files?.[0] ?? null)
-  })
+  if (uploadsEnabled) {
+    fileInput.addEventListener('change', () => {
+      selectFile(fileInput.files?.[0] ?? null)
+    })
 
-  removeButton.addEventListener('click', (event) => {
-    event.stopPropagation()
-    resetFile()
-    fileInput.focus()
-  })
+    removeButton.addEventListener('click', (event) => {
+      event.stopPropagation()
+      resetFile()
+      fileInput.focus()
+    })
 
-  dropzone.addEventListener('click', (event) => {
-    if (event.target instanceof Element && event.target.closest('button')) {
-      return
-    }
+    dropzone.addEventListener('click', (event) => {
+      if (event.target instanceof Element && event.target.closest('button')) {
+        return
+      }
 
-    fileInput.click()
-  })
+      fileInput.click()
+    })
 
-  dropzone.addEventListener('keydown', (event) => {
-    if (event.key !== 'Enter' && event.key !== ' ') {
-      return
-    }
+    dropzone.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') {
+        return
+      }
 
-    event.preventDefault()
-    fileInput.click()
-  })
+      event.preventDefault()
+      fileInput.click()
+    })
 
-  dropzone.addEventListener('dragenter', (event) => {
-    event.preventDefault()
-    dropzone.classList.add('is-dragging')
-  })
+    dropzone.addEventListener('dragenter', (event) => {
+      event.preventDefault()
+      dropzone.classList.add('is-dragging')
+    })
 
-  dropzone.addEventListener('dragover', (event) => {
-    event.preventDefault()
-    dropzone.classList.add('is-dragging')
-  })
+    dropzone.addEventListener('dragover', (event) => {
+      event.preventDefault()
+      dropzone.classList.add('is-dragging')
+    })
 
-  dropzone.addEventListener('dragleave', (event) => {
-    if (event.relatedTarget && dropzone.contains(event.relatedTarget)) {
-      return
-    }
+    dropzone.addEventListener('dragleave', (event) => {
+      if (event.relatedTarget && dropzone.contains(event.relatedTarget)) {
+        return
+      }
 
-    dropzone.classList.remove('is-dragging')
-  })
+      dropzone.classList.remove('is-dragging')
+    })
 
-  dropzone.addEventListener('drop', (event) => {
-    event.preventDefault()
-    dropzone.classList.remove('is-dragging')
-    selectFile(event.dataTransfer?.files?.[0] ?? null)
-  })
+    dropzone.addEventListener('drop', (event) => {
+      event.preventDefault()
+      dropzone.classList.remove('is-dragging')
+      selectFile(event.dataTransfer?.files?.[0] ?? null)
+    })
+  }
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault()
 
-    if (!selectedFile) {
+    if (uploadsEnabled && !selectedFile) {
       const message = content.careerApplication.fileRequiredMessage
       fileInput.setCustomValidity(message)
       setFileError(message)
@@ -3581,7 +3768,7 @@ function bindCareerApplication(content) {
 
     if (!form.checkValidity()) {
       form.reportValidity()
-      if (!selectedFile) {
+      if (uploadsEnabled && !selectedFile) {
         dropzone.focus()
       }
       return
@@ -3593,9 +3780,11 @@ function bindCareerApplication(content) {
     setStatus('', 'idle')
 
     try {
-      await new Promise((resolve) => window.setTimeout(resolve, 350))
+      await submitFormspree('career', readFormFields(form), uploadsEnabled ? selectedFile : null)
       form.reset()
-      resetFile()
+      if (uploadsEnabled) {
+        resetFile()
+      }
       setStatus(content.ui.careerFormSuccess, 'success')
     } catch {
       setStatus(content.ui.careerFormError, 'error')

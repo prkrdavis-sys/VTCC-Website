@@ -113,9 +113,9 @@ Object.assign(es.ui, {
   careerFileHint: 'PDF, DOC, DOCX o TXT. Tamaño máximo: 5 MB.',
   careerFileError: 'Elija un archivo PDF, DOC, DOCX o TXT de hasta 5 MB.',
   careerFileRemove: 'Eliminar archivo',
-  careerFormSubmitting: 'Preparando la solicitud...',
-  careerFormSuccess: 'Su solicitud de muestra está lista. En una versión de producción, VTCC la recibiría mediante un proceso seguro aprobado.',
-  careerFormError: 'No pudimos preparar la solicitud. Revise los campos marcados e inténtelo de nuevo.',
+  careerFormSubmitting: 'Enviando...',
+  careerFormSuccess: 'Gracias. Recibimos su solicitud. Un miembro del equipo de VTCC dará seguimiento.',
+  careerFormError: 'No pudimos enviar esta solicitud. Llame a VTCC o inténtelo de nuevo más tarde.',
 })
 
 Object.assign(es.hero, {
@@ -482,15 +482,15 @@ es.sections.careers = {
 es.careerApplication = {
   title: 'Solicite unirse a nuestro equipo',
   intro:
-    'Esta es una vista previa del futuro proceso de solicitud. Su información permanece en este navegador y no se envía a VTCC.',
+    'Cuéntenos cómo contactarlo y qué puesto le interesa. VTCC recibirá su solicitud y dará seguimiento.',
   privacyTitle: 'La privacidad importa',
   privacyNote:
-    'No cargue expedientes clínicos, información de clientes, números de Seguro Social ni otros documentos confidenciales. Una plataforma de producción usaría un proceso seguro aprobado.',
+    'No cargue expedientes clínicos, información de clientes, números de Seguro Social ni otros documentos confidenciales.',
   selectPlaceholder: 'Seleccione una opción',
-  submitLabel: 'Revisar solicitud',
+  submitLabel: 'Enviar solicitud',
   backLabel: 'Volver a Carreras',
   backHref: '/career',
-  consentLabel: 'Entiendo que esta es una vista previa y que mi información no se enviará.',
+  consentLabel: 'Entiendo que este formulario no es para expedientes clínicos ni otros documentos confidenciales.',
   fileLabel: 'Currículum o documento de apoyo',
   fileRequiredMessage: 'Adjunte un currículum o documento de apoyo.',
   fileTypes: '.pdf,.doc,.docx,.txt',
@@ -520,7 +520,7 @@ es.careerApplication = {
       type: 'select',
       options: [
         'Behavior Technician (BT)',
-        'Registered Behavior Technician',
+        'Registered Behavior Technician (RBT)',
         'Senior Lead Behavior Technician (SLBT)',
         'Student Analyst Program',
         'Board Certified Behavior Analyst',

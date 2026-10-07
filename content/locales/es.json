@@ -33,11 +33,11 @@
     "careerFileHint": "PDF, DOC, DOCX o TXT. Tamaño máximo: 5 MB.",
     "careerFileError": "Elija un archivo PDF, DOC, DOCX o TXT de hasta 5 MB.",
     "careerFileRemove": "Eliminar archivo",
-    "careerExpandLabel": "Mostrar esta sección",
-    "careerCollapseLabel": "Ocultar esta sección",
-    "careerFormSubmitting": "Preparando la solicitud...",
-    "careerFormSuccess": "Su solicitud de muestra está lista. En una versión de producción, VTCC la recibiría mediante un proceso seguro aprobado.",
-    "careerFormError": "No pudimos preparar la solicitud. Revise los campos marcados e inténtelo de nuevo.",
+    "careerExpandLabel": "Show this section",
+    "careerCollapseLabel": "Hide this section",
+    "careerFormSubmitting": "Enviando...",
+    "careerFormSuccess": "Gracias. Recibimos su solicitud. Un miembro del equipo de VTCC dará seguimiento.",
+    "careerFormError": "No pudimos enviar esta solicitud. Llame a VTCC o inténtelo de nuevo más tarde.",
     "ageRangeLabel": "Edades que atiende",
     "relatedProgramsLabel": "Programas relacionados",
     "programGoalsLabel": "Metas",
@@ -245,12 +245,12 @@
     "actions": [
       {
         "label": "Solicitar Servicios",
-        "href": "/contact",
+        "href": "#contact",
         "style": "primary"
       },
       {
         "label": "Referir un Cliente",
-        "href": "/referrers",
+        "href": "#referrers",
         "style": "secondary"
       },
       {
@@ -308,9 +308,9 @@
             "Se crea un plan de tratamiento individualizado y un plan de apoyo conductual.",
             "Los técnicos de conducta brindan terapia directa bajo supervisión del BCBA.",
             "Los cuidadores reciben orientación para practicar habilidades entre sesiones.",
-      "El progreso se monitorea con regularidad y las metas se actualizan con el tiempo."
-    ],
-    "related": [
+            "El progreso se monitorea con regularidad y las metas se actualizan con el tiempo."
+          ],
+          "related": [
             "early-learners",
             "feeding",
             "social-enrichment",
@@ -339,9 +339,9 @@
             "Se escriben metas individualizadas para rutinas, comunicación y juego.",
             "Las sesiones practican esas habilidades en entornos familiares.",
             "Los cuidadores reciben orientación para continuar la práctica en casa.",
-      "El progreso se monitorea y el plan se actualiza a medida que crecen las habilidades."
-    ],
-    "related": [
+            "El progreso se monitorea y el plan se actualiza a medida que crecen las habilidades."
+          ],
+          "related": [
             "aba",
             "social-enrichment",
             "social-skills",
@@ -370,9 +370,9 @@
             "Se escriben metas individualizadas y estrategias de refuerzo positivo.",
             "La práctica ocurre en sesiones y, cuando es apropiado, durante las comidas diarias.",
             "Los cuidadores aprenden a apoyar alimentos nuevos sin añadir presión.",
-      "El progreso se revisa y el plan se ajusta según la respuesta del niño."
-    ],
-    "related": [
+            "El progreso se revisa y el plan se ajusta según la respuesta del niño."
+          ],
+          "related": [
             "aba",
             "early-learners",
             "social-enrichment",
@@ -400,9 +400,9 @@
             "Los niños se unen a un grupo pequeño con compañeros de la misma edad.",
             "El personal orienta durante juegos, conversación y actividades compartidas.",
             "Las familias reciben guía para practicar las habilidades en casa y en la escuela.",
-      "Las metas se actualizan a medida que el niño gana confianza con sus compañeros."
-    ],
-    "related": [
+            "Las metas se actualizan a medida que el niño gana confianza con sus compañeros."
+          ],
+          "related": [
             "aba",
             "early-learners",
             "social-skills",
@@ -430,9 +430,9 @@
             "Las sesiones usan práctica en grupo pequeño con objetivos individualizados.",
             "El personal orienta y da retroalimentación positiva durante interacciones reales.",
             "Las familias reciben guía para practicar las habilidades fuera del grupo.",
-      "Las metas se actualizan a medida que el niño o adolescente gana independencia."
-    ],
-    "related": [
+            "Las metas se actualizan a medida que el niño o adolescente gana independencia."
+          ],
+          "related": [
             "aba",
             "early-learners",
             "social-enrichment",
@@ -460,9 +460,9 @@
             "Los cuidadores se unen a un grupo pequeño con metas de aprendizaje compartidas.",
             "Las sesiones practican estrategias para rutinas, comunicación y momentos difíciles.",
             "Las familias reciben guía para usar las mismas herramientas en casa.",
-      "Las metas se actualizan a medida que los cuidadores ganan confianza."
-    ],
-    "related": [
+            "Las metas se actualizan a medida que los cuidadores ganan confianza."
+          ],
+          "related": [
             "aba",
             "early-learners",
             "social-enrichment",
@@ -626,15 +626,13 @@
           "title": "Para Familias",
           "body": "Conozca qué servicios pueden ser adecuados para su hijo, qué documentación puede necesitarse y qué esperar durante la admisión.",
           "buttonLabel": "Comenzar como familia",
-          "buttonStyle": "primary",
-          "buttonHref": "/contact"
+          "buttonStyle": "primary"
         },
         {
           "title": "Para Referentes",
           "body": "Escuelas, médicos, administradores de casos, socios del condado y profesionales comunitarios pueden contactar a VTCC para preguntar sobre elegibilidad y requisitos de referencia.",
           "buttonLabel": "Iniciar una referencia",
-          "buttonStyle": "secondary",
-          "buttonHref": "/contact"
+          "buttonStyle": "secondary"
         }
       ]
     },
@@ -1082,25 +1080,6 @@
         "href": "https://www.indeed.com/cmp/Victoria-Transcultural-Clinical-Center/",
         "label": "Ver empleos de VTCC en Indeed"
       },
-      "openRolesEyebrow": "Puestos abiertos",
-      "benefits": [
-        {
-          "title": "Capacitación RBT en la clínica",
-          "body": "Los nuevos técnicos de conducta completan aquí las 40 horas de curso y la evaluación de competencia."
-        },
-        {
-          "title": "Fieldwork mientras trabaja",
-          "body": "Los RBT en un programa de maestría que califica pueden acumular horas de fieldwork supervisado en el trabajo."
-        },
-        {
-          "title": "Desarrollo profesional mensual",
-          "body": "Las horas mensuales de aprendizaje RBT cubren habilidades, ética, documentación y calidad clínica."
-        },
-        {
-          "title": "Safety-Care en el equipo",
-          "body": "Los técnicos senior enseñan Safety-Care para prevenir y responder a conductas inseguras."
-        }
-      ],
       "pillars": [
         {
           "title": "Las personas primero",
@@ -1155,9 +1134,7 @@
       "steps": {
         "eyebrow": "Qué puede esperar",
         "title": "Un camino claro desde la solicitud hasta la conversación",
-        "id": "hiring-process",
         "intro": "Queremos que el proceso sea claro, respetuoso y valioso para su tiempo.",
-        "summary": "Tres pasos desde su solicitud hasta una conversación con el equipo.",
         "items": [
           {
             "title": "Comparta su experiencia",
@@ -1196,7 +1173,6 @@
       "structure": {
         "eyebrow": "Cómo se organiza el equipo",
         "title": "Roles clínicos claros, del técnico al analista",
-        "summary": "Del técnico de conducta al BCBA, con programas especializados al lado.",
         "intro": "Los casos de ABA los diseña un analista de conducta certificado por la junta y los llevan a cabo técnicos capacitados bajo esa supervisión. Los programas especializados acompañan esa estructura clínica. Los títulos siguientes describen cómo se organiza la atención, no un organigrama ni una plantilla publicados.",
         "roles": [
           {
@@ -1234,7 +1210,6 @@
       "differentiator": {
         "eyebrow": "En qué se diferencia VTCC de muchas clínicas ABA",
         "title": "Nosotros impartimos el programa de capacitación RBT",
-        "summary": "40 horas de curso y la evaluación de competencia, aquí mismo.",
         "body": "Una ruta común en ABA es enviar a los técnicos nuevos a un curso de 40 horas de un tercero y a un evaluador externo. VTCC imparte el programa de capacitación RBT. Los técnicos de conducta nuevos completan aquí el curso de credencialización RBT de 40 horas, VTCC realiza la evaluación de competencia internamente y el examen RBT se presenta en un centro Pearson VUE / Pearson.",
         "steps": [
           {
@@ -1262,8 +1237,12 @@
           "label": "BCBA"
         },
         {
-          "id": "other",
-          "label": "Otras formas de postular"
+          "id": "programs",
+          "label": "Programas para empleados"
+        },
+        {
+          "id": "clinic",
+          "label": "Clínica y reconocimiento"
         }
       ],
       "postings": {
@@ -1342,7 +1321,6 @@
       "programs": {
         "eyebrow": "Programas para empleados",
         "title": "Apoyo después de la contratación",
-        "summary": "Horas de fieldwork, aprendizaje mensual y una vía de técnico senior después de la contratación.",
         "intro": "Estos programas acompañan el trabajo diario de los casos. Están escritos para coincidir con el uso de estos términos en la práctica ABA. Los detalles de horarios, pago e inscripción se confirman con el equipo clínico después de la contratación.",
         "items": [
           {
@@ -1382,7 +1360,6 @@
       "recognition": {
         "eyebrow": "Reconocimiento a empleados",
         "title": "Empleado del mes y Grounds for Greatness",
-        "summary": "Empleado del mes y reconocimientos del día a día por el trabajo que destaca.",
         "intro": "VTCC reconoce a las personas que están presentes para las familias y para sus compañeros. Los nombres y fotos de los homenajeados actuales se publican solo cuando el liderazgo lo aprueba. Los programas se describen aquí para que los solicitantes sepan que el reconocimiento forma parte de la vida de la clínica.",
         "items": [
           {
@@ -1400,7 +1377,6 @@
       "clinic": {
         "eyebrow": "Vida en la clínica",
         "title": "Dónde está el equipo",
-        "summary": "Fairfax es la base, y gran parte del trabajo ocurre en los hogares de las familias.",
         "intro": "La clínica publicada de VTCC es la oficina de Fairfax. Gran parte del trabajo de ABA también ocurre en los hogares; la oficina es la base para reuniones, capacitación y casos programados en el sitio.",
         "galleryTitle": "Dentro de la clínica",
         "galleryIntro": "Esta galería está reservada para fotografías de la propia clínica de VTCC. Las fotos de la cocina y de otros espacios interiores no están en la biblioteca actual del sitio, así que esos marcos permanecen vacíos en lugar de llenarse con imágenes de archivo.",
@@ -1554,14 +1530,14 @@
   },
   "careerApplication": {
     "title": "Solicite unirse a nuestro equipo",
-    "intro": "Esta es una vista previa del futuro proceso de solicitud. Su información permanece en este navegador y no se envía a VTCC.",
+    "intro": "Cuéntenos cómo contactarlo y qué puesto le interesa. VTCC recibirá su solicitud y dará seguimiento.",
     "privacyTitle": "La privacidad importa",
-    "privacyNote": "No cargue expedientes clínicos, información de clientes, números de Seguro Social ni otros documentos confidenciales. Una plataforma de producción usaría un proceso seguro aprobado.",
+    "privacyNote": "No cargue expedientes clínicos, información de clientes, números de Seguro Social ni otros documentos confidenciales.",
     "selectPlaceholder": "Seleccione una opción",
-    "submitLabel": "Revisar solicitud",
+    "submitLabel": "Enviar solicitud",
     "backLabel": "Volver a Carreras",
     "backHref": "/career",
-    "consentLabel": "Entiendo que esta es una vista previa y que mi información no se enviará.",
+    "consentLabel": "Entiendo que este formulario no es para expedientes clínicos ni otros documentos confidenciales.",
     "fileLabel": "Currículum o documento de apoyo",
     "fileRequiredMessage": "Adjunte un currículum o documento de apoyo.",
     "fileTypes": ".pdf,.doc,.docx,.txt",
@@ -1591,7 +1567,7 @@
         "type": "select",
         "options": [
           "Behavior Technician (BT)",
-          "Registered Behavior Technician",
+          "Registered Behavior Technician (RBT)",
           "Senior Lead Behavior Technician (SLBT)",
           "Student Analyst Program",
           "Board Certified Behavior Analyst",
@@ -2136,7 +2112,7 @@
       "bcba": "Board Certified Behavior Analyst",
       "bcaba": "Other",
       "masters": "Student Analyst Program",
-      "rbt": "Registered Behavior Technician",
+      "rbt": "Registered Behavior Technician (RBT)",
       "bt": "Behavior Technician (BT)"
     },
     "roleReasons": {
@@ -2576,8 +2552,8 @@
       "linkHref": "/get-started"
     },
     "resourcesTeaser": {
-      "title": "Guías y preguntas frecuentes",
-      "intro": "Explore temas comunes sobre admisión, financiamiento, terapia ABA, programas especializados y referencias.",
+      "title": "Guías y preguntas frecuentes útiles",
+      "intro": "Explore temas comunes sobre admisión, financiamiento, terapia ABA, servicios en el hogar y referencias.",
       "linkLabel": "Ver preguntas y guías",
       "linkHref": "/resources"
     }
