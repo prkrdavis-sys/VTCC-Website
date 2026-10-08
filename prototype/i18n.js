@@ -1023,7 +1023,7 @@ function bindFaqSearch(content) {
 
       resourceCards.forEach((card) => {
         const title = card.querySelector('strong')?.textContent ?? ''
-        const summary = card.querySelector('span:not(.resource-card-kicker)')?.textContent ?? ''
+        const summary = card.dataset.summary ?? ''
         const matches = faqSearchMatches(query, title, summary)
         card.hidden = Boolean(query) && !matches
 
@@ -1079,10 +1079,9 @@ function renderResourceCards(items, cardLabel = '') {
   return `<div class="resource-list">
           ${items
             .map(
-              (item) => `<a href="${escapeHtml(toStaticHref(`/resources/${item.slug}`))}" class="resource-card">
+              (item) => `<a href="${escapeHtml(toStaticHref(`/resources/${item.slug}`))}" class="resource-card" data-summary="${escapeHtml(item.summary ?? '')}">
             ${cardLabel ? `<span class="resource-card-kicker">${escapeHtml(cardLabel)}</span>` : ''}
             <strong>${escapeHtml(item.title)}</strong>
-            <span>${escapeHtml(item.summary ?? '')}</span>
           </a>`,
             )
             .join('\n          ')}
