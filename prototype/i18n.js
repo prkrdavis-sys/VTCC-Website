@@ -84,38 +84,6 @@ function getProgramById(content, id) {
   return getServicePrograms(content).find((program) => program.id === id)
 }
 
-function pageHasProgramPanel(programId) {
-  if (PAGE === 'home') {
-    return true
-  }
-
-  if (PAGE === 'aba') {
-    return programId === 'aba'
-  }
-
-  if (PAGE === 'early-learners') {
-    return programId === 'early-learners'
-  }
-
-  if (PAGE === 'feeding-program') {
-    return programId === 'feeding'
-  }
-
-  if (PAGE === 'social-enrichment') {
-    return programId === 'social-enrichment'
-  }
-
-  if (PAGE === 'social-skills-group') {
-    return programId === 'social-skills'
-  }
-
-  if (PAGE === 'group-parent-training') {
-    return programId === 'group-parent-training'
-  }
-
-  return false
-}
-
 const PROGRAM_RESOURCE_SLUGS = {
   aba: 'what-is-aba-therapy',
   'early-learners': 'early-learners',
@@ -159,14 +127,6 @@ function renderFaqServiceLink(content) {
             <p>${escapeHtml(content.ui.faqProgramLinkNote)}</p>
             <a class="button page-link-cta" href="${escapeHtml(toStaticHref(program.href))}">${escapeHtml(program.linkLabel)}</a>
           </div>`
-}
-
-function relatedProgramHref(program) {
-  if (pageHasProgramPanel(program.id)) {
-    return `#program-${program.id}`
-  }
-
-  return toStaticHref(`/#program-${program.id}`)
 }
 
 function renderButton(action) {
@@ -394,21 +354,27 @@ function renderInputExtras(field) {
   return extras.join('')
 }
 
-function renderFormField(field, content) {
-  const required = field.name === 'name' ? ' required' : ''
+function renderFormField(field, content, variant) {
+  const required =
+    field.name === 'name' || (variant === 'family' && field.name === 'preferredContact')
+      ? ' required'
+      : ''
 
   if (field.type === 'multiselect') {
     return renderMultiSelectField(field, content)
   }
 
   if (field.type === 'select') {
+    const placeholder = field.placeholder
+      ? `<option value="">${escapeHtml(field.placeholder)}</option>\n              `
+      : ''
     const options = field.options
       .map((option) => `<option>${escapeHtml(option)}</option>`)
       .join('\n              ')
     return `<label>
             ${escapeHtml(field.label)}
             <select name="${escapeHtml(field.name)}"${required}>
-              ${options}
+              ${placeholder}${options}
             </select>
           </label>`
   }
@@ -711,6 +677,11 @@ function renderFooter(content) {
           <div class="site-footer-col">
             <p class="site-footer-label">${escapeHtml(footer.contactLabel)}</p>
             <a class="site-footer-contact" href="${escapeHtml(bar?.phoneHref ?? '#')}">${phoneIcon}<span>${escapeHtml(bar?.phone ?? '')}</span></a>
+            ${
+              content.offices?.[0]?.fax
+                ? `<p class="site-footer-contact site-footer-fax"><span>${escapeHtml(content.ui.faxLabel)}: ${escapeHtml(content.offices[0].fax)}</span></p>`
+                : ''
+            }
             <a class="site-footer-contact" href="${escapeHtml(bar?.emailHref ?? '#')}">${emailIcon}<span>${escapeHtml(bar?.email ?? '')}</span></a>
           </div>
         </div>
@@ -1122,32 +1093,6 @@ function renderListItems(items, ordered = false) {
     .join('')}</${tag}>`
 }
 
-function renderRelatedPrograms(program, content) {
-  const related = (program.related ?? [])
-    .map((id) => getProgramById(content, id))
-    .filter(Boolean)
-
-  if (!related.length) {
-    return ''
-  }
-
-  return `<div class="program-related">
-            <h4>${escapeHtml(content.ui.relatedProgramsLabel)}</h4>
-            <ul>
-              ${related
-                .map(
-                  (item) => `<li>
-                <a href="${escapeHtml(relatedProgramHref(item))}" data-open-program="${escapeHtml(item.id)}">
-                  <span class="program-related-label">${escapeHtml(item.label)}</span>
-                  <span class="program-related-age">${escapeHtml(item.ageRange ?? '')}</span>
-                </a>
-              </li>`,
-                )
-                .join('')}
-            </ul>
-          </div>`
-}
-
 function renderProgramPanel(program, content, { open = false, compact = false } = {}) {
   const ageLabel = content.ui.ageRangeLabel
   const ageRange = program.ageRange ?? ''
@@ -1175,7 +1120,6 @@ function renderProgramPanel(program, content, { open = false, compact = false } 
                 </section>
                 ${renderProgramFaqCta(program, content)}
               </div>
-              ${renderRelatedPrograms(program, content)}
             </div>`
 
   return `<details class="program-panel" id="program-${escapeHtml(program.id)}"${open ? ' open' : ''}>
@@ -1211,7 +1155,7 @@ function renderHome(content) {
     .join('')
 
   const serviceCards = getServicePrograms(content)
-    .map((program) => renderProgramPanel(program, content, { compact: true }))
+    .map((program) => renderProgramPanel(program, content))
     .join('')
 
   const missionStatement = sections.whoWeServe.missionStatement
@@ -1973,17 +1917,6 @@ function renderContactAside(content, contact) {
                     .join('\n                  ')}
                 </div>
               </div>
-              <div class="office-list">${content.offices
-                .map(
-                  (office) => `<address>
-                  <strong>${escapeHtml(office.name)}</strong>
-                  ${escapeHtml(office.street)}<br />
-                  ${escapeHtml(office.city)}<br />
-                  <a class="office-phone" href="${escapeHtml(office.phoneHref)}">${escapeHtml(office.phone)}</a><br />
-                  ${escapeHtml(content.ui.faxLabel)}: ${escapeHtml(office.fax)}
-                </address>`,
-                )
-                .join('')}</div>
             </div>
           </details>`
 }
@@ -2052,7 +1985,7 @@ function renderContactPage(content) {
           ${formSwitch.lead}
           <form class="request-form request-form--${escapeHtml(variant)}" data-form-type="${escapeHtml(formType)}">
           <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          ${form.fields.map((field) => renderFormField(field, content)).join('')}
+          ${form.fields.map((field) => renderFormField(field, content, variant)).join('')}
           <label class="consent-field"><input type="checkbox" name="consent" required /> <span>${escapeHtml(form.consentLabel)} ${renderPrivacyPolicyLink(content)}</span></label>
           <p class="form-note">${escapeHtml(form.notice)}</p>
           <button type="submit" data-default-label="${escapeHtml(form.submitLabel)}">${escapeHtml(form.submitLabel)}</button>
@@ -2760,21 +2693,24 @@ function renderDoctorResultCard(state, quiz) {
   if (answered === 'yes') {
     const copy = quiz.doctorYes
     const steps = copy.steps
-      .map(
-        (step, index) => `<li class="quiz-step" style="--reveal-i:${index}">
+      .map((step, index) => {
+        const body = step.body ? `<p>${escapeHtml(step.body)}</p>` : ''
+        return `<li class="quiz-step" style="--reveal-i:${index}">
               <span class="quiz-step-index">${index + 1}</span>
               <div>
                 <strong>${escapeHtml(step.title)}</strong>
-                <p>${escapeHtml(step.body)}</p>
+                ${body}
               </div>
-            </li>`,
-      )
+            </li>`
+      })
       .join('')
+    const intro = copy.intro ? `<p>${escapeHtml(copy.intro)}</p>` : ''
+    const notice = copy.notice ? `<p class="quiz-result-note">${escapeHtml(copy.notice)}</p>` : ''
     return `<article class="quiz-result" data-quiz-result>
             <h3 id="quiz-question" tabindex="-1" data-quiz-question>${escapeHtml(copy.title)}</h3>
-            <p>${escapeHtml(copy.intro)}</p>
+            ${intro}
             <ol class="quiz-stepper">${steps}</ol>
-            <p class="quiz-result-note">${escapeHtml(copy.notice)}</p>
+            ${notice}
             ${renderQuizCta('/contact/referral', copy.ctaLabel)}
           </article>`
   }
@@ -3684,6 +3620,7 @@ const FORMSPREE_FORMS = {
       ageRange: "Child's age range",
       service: 'Service interest',
       funding: 'Funding source',
+      medicaid: 'Is this with Medicaid?',
       location: 'City or county',
       message: 'Message',
     },
@@ -3703,6 +3640,7 @@ const FORMSPREE_FORMS = {
       ageRange: "Child's age range",
       service: 'Service requested',
       funding: 'Funding source',
+      medicaid: 'Is this with Medicaid?',
       location: "Child's city or county",
       message: 'Reason for referral',
     },
@@ -4032,11 +3970,67 @@ function bindMultiSelects(scope) {
   })
 }
 
+function contactMethodKind(value) {
+  const normalized = value.trim().toLowerCase()
+  if (normalized === 'phone' || normalized === 'teléfono' || normalized === 'telefono') {
+    return 'phone'
+  }
+  if (normalized === 'email' || normalized === 'correo' || normalized === 'correo electrónico') {
+    return 'email'
+  }
+  if (normalized === 'either' || normalized === 'cualquiera') {
+    return 'either'
+  }
+  return ''
+}
+
+function bindFamilyContactRequirements(form, content) {
+  const method = form.querySelector('[name="preferredContact"]')
+  const phone = form.querySelector('[name="phone"]')
+  const email = form.querySelector('[name="email"]')
+  if (!method || !phone || !email) {
+    return
+  }
+
+  const messages = {
+    phone: content.ui.formPhoneRequired ?? 'Enter a phone number so we can reach you.',
+    email: content.ui.formEmailRequired ?? 'Enter an email address so we can reach you.',
+    either: content.ui.formContactRequired ?? 'Enter a phone number or an email address so we can reach you.',
+  }
+
+  const sync = () => {
+    const kind = contactMethodKind(method.value)
+    const hasPhone = phone.value.trim() !== ''
+    const hasEmail = email.value.trim() !== ''
+
+    phone.required = kind === 'phone'
+    email.required = kind === 'email'
+    phone.setCustomValidity('')
+    email.setCustomValidity('')
+
+    if (kind === 'phone' && !hasPhone) {
+      phone.setCustomValidity(messages.phone)
+    } else if (kind === 'email' && !hasEmail) {
+      email.setCustomValidity(messages.email)
+    } else if (kind === 'either' && !hasPhone && !hasEmail) {
+      phone.setCustomValidity(messages.either)
+    }
+  }
+
+  method.addEventListener('change', sync)
+  phone.addEventListener('input', sync)
+  email.addEventListener('input', sync)
+  sync()
+}
+
 function bindRequestForms(content) {
   document.querySelectorAll('.request-form[data-form-type]').forEach((form) => {
     bindMultiSelects(form)
     const expectedForm = form.dataset.formType === 'referral' ? 'referral' : 'family'
     applyQuizPrefillToForm(form, content, expectedForm)
+    if (form.dataset.formType === 'service_request') {
+      bindFamilyContactRequirements(form, content)
+    }
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault()
@@ -4534,18 +4528,6 @@ function bindProgramPanels() {
 
     openProgram(hash.replace(/^program-/, ''), { updateHash: false })
   }
-
-  document.querySelectorAll('[data-open-program]').forEach((link) => {
-    link.addEventListener('click', (event) => {
-      const id = link.getAttribute('data-open-program')
-      if (!document.getElementById(`program-${id}`)) {
-        return
-      }
-
-      event.preventDefault()
-      openProgram(id)
-    })
-  })
 
   document.querySelectorAll('details.program-panel').forEach((panel) => {
     panel.addEventListener('toggle', () => {

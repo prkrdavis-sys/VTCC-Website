@@ -31,6 +31,9 @@
     "formSubmittingAnnouncement": "Enviando su solicitud.",
     "formSuccess": "Thank you. Your request was received. A VTCC team member will follow up.",
     "formError": "We could not send this form. Please call VTCC or try again later.",
+    "formPhoneRequired": "Ingrese un número de teléfono para que podamos comunicarnos con usted.",
+    "formEmailRequired": "Ingrese un correo electrónico para que podamos comunicarnos con usted.",
+    "formContactRequired": "Ingrese un número de teléfono o un correo electrónico para que podamos comunicarnos con usted.",
     "referenceLabel": "Número de referencia",
     "submittedLabel": "Enviado",
     "copyReferenceLabel": "Copiar",
@@ -259,11 +262,6 @@
         "label": "Solicitar Servicios",
         "href": "/contact",
         "style": "primary"
-      },
-      {
-        "label": "Referir un Cliente",
-        "href": "/contact/referral",
-        "style": "secondary"
       },
       {
         "label": "Llamar a VTCC",
@@ -1661,6 +1659,7 @@
         "name": "preferredContact",
         "label": "Preferred contact method",
         "type": "select",
+        "placeholder": "Select",
         "options": [
           "Phone",
           "Email",
@@ -1697,39 +1696,32 @@
         "name": "funding",
         "label": "Funding source (if known)",
         "type": "multiselect",
-        "groups": [
-          {
-            "label": "Funder",
-            "solo": [
-              "Not sure"
-            ],
-            "options": [
-              "Anthem HealthKeepers Plus Medicaid of Virginia",
-              "Anthem Commercial of Virginia",
-              "Cigna",
-              "UnitedHealthcare",
-              "BlueCross BlueShield",
-              "Aetna Better Health",
-              "Molina Healthcare",
-              "Optima Health",
-              "Kaiser Permanente Behavioral Health",
-              "County/FAPT",
-              "Not sure"
-            ]
-          },
-          {
-            "label": "Is this with Medicaid?",
-            "solo": [
-              "With Medicaid: Yes",
-              "With Medicaid: No",
-              "With Medicaid: Not sure"
-            ],
-            "options": [
-              "With Medicaid: Yes",
-              "With Medicaid: No",
-              "With Medicaid: Not sure"
-            ]
-          }
+        "solo": [
+          "Not sure"
+        ],
+        "options": [
+          "Anthem HealthKeepers Plus Medicaid of Virginia",
+          "Anthem Commercial of Virginia",
+          "Cigna",
+          "UnitedHealthcare",
+          "BlueCross BlueShield",
+          "Aetna Better Health",
+          "Molina Healthcare",
+          "Optima Health",
+          "Kaiser Permanente Behavioral Health",
+          "County/FAPT",
+          "Not sure"
+        ]
+      },
+      {
+        "name": "medicaid",
+        "label": "¿Es con Medicaid?",
+        "type": "select",
+        "placeholder": "Seleccionar",
+        "options": [
+          "Sí",
+          "No",
+          "No estoy seguro"
         ]
       },
       {
@@ -1837,39 +1829,32 @@
         "name": "funding",
         "label": "Funding source (if known)",
         "type": "multiselect",
-        "groups": [
-          {
-            "label": "Funder",
-            "solo": [
-              "Not sure"
-            ],
-            "options": [
-              "Anthem HealthKeepers Plus Medicaid of Virginia",
-              "Anthem Commercial of Virginia",
-              "Cigna",
-              "UnitedHealthcare",
-              "BlueCross BlueShield",
-              "Aetna Better Health",
-              "Molina Healthcare",
-              "Optima Health",
-              "Kaiser Permanente Behavioral Health",
-              "County/FAPT",
-              "Not sure"
-            ]
-          },
-          {
-            "label": "Is this with Medicaid?",
-            "solo": [
-              "With Medicaid: Yes",
-              "With Medicaid: No",
-              "With Medicaid: Not sure"
-            ],
-            "options": [
-              "With Medicaid: Yes",
-              "With Medicaid: No",
-              "With Medicaid: Not sure"
-            ]
-          }
+        "solo": [
+          "Not sure"
+        ],
+        "options": [
+          "Anthem HealthKeepers Plus Medicaid of Virginia",
+          "Anthem Commercial of Virginia",
+          "Cigna",
+          "UnitedHealthcare",
+          "BlueCross BlueShield",
+          "Aetna Better Health",
+          "Molina Healthcare",
+          "Optima Health",
+          "Kaiser Permanente Behavioral Health",
+          "County/FAPT",
+          "Not sure"
+        ]
+      },
+      {
+        "name": "medicaid",
+        "label": "¿Es con Medicaid?",
+        "type": "select",
+        "placeholder": "Seleccionar",
+        "options": [
+          "Sí",
+          "No",
+          "No estoy seguro"
         ]
       },
       {
@@ -1888,7 +1873,7 @@
   "contactQuiz": {
     "eyebrow": "Contacto",
     "title": "Encuentre el siguiente paso correcto",
-    "intro": "Responda unas preguntas. Le sugeriremos un camino y abriremos el formulario correspondiente con lo que ya compartió. Las sugerencias son un punto de partida, no una decisión clínica.",
+    "intro": "Unas preguntas. Abriremos el formulario correcto. No es una decisión clínica.",
     "callEyebrow": "Llame a VTCC",
     "callTitle": "¿Prefiere hablar con alguien?",
     "callIntro": "Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con servicios, referencias, empleo y próximos pasos.",
@@ -2163,26 +2148,26 @@
     },
     "doctorYes": {
       "title": "Cómo enviar una referencia",
-      "intro": "Use primero esta consulta. No adjunte informes de diagnóstico, IEP ni otra información de salud protegida en el formulario web.",
+      "intro": "No adjunte informes de diagnóstico, IEP ni expedientes de salud.",
       "steps": [
         {
-          "title": "Envíe esta consulta",
-          "body": "Envíe una pregunta breve y no sensible a través del formulario de referencia."
+          "title": "Envíe una pregunta breve",
+          "body": ""
         },
         {
-          "title": "VTCC da seguimiento",
-          "body": "Un miembro del equipo confirma contactos, el servicio de interés y la forma segura de enviar documentos."
+          "title": "Le explicamos cómo enviar documentos",
+          "body": ""
         },
         {
-          "title": "Envíe documentos de forma segura",
-          "body": "Comparta la referencia y el diagnóstico a través del proceso seguro aprobado por VTCC, no en este formulario."
+          "title": "Envíe expedientes por el proceso seguro de VTCC",
+          "body": ""
         },
         {
-          "title": "Evaluación y autorización",
-          "body": "VTCC revisa el financiamiento y describe los próximos pasos para la evaluación cuando corresponda."
+          "title": "Revisamos el financiamiento y los próximos pasos",
+          "body": ""
         }
       ],
-      "notice": "Este formulario es solo para preguntas de referencia. Use el proceso seguro aprobado por VTCC para documentos protegidos.",
+      "notice": "",
       "ctaLabel": "Continuar al formulario de referencia"
     },
     "doctorNo": {

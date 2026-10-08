@@ -118,6 +118,29 @@ function normalizeLocale(value) {
   return locale === 'es' ? 'es' : 'en'
 }
 
+function requireFamilyContact(fields) {
+  const method = normalizeString(fields.preferredContact, 80)
+  if (!method) {
+    throw new Error('Preferred contact method is required')
+  }
+
+  const phone = normalizeString(fields.phone, 40)
+  const email = normalizeString(fields.email, 200)
+  const kind = method.toLowerCase()
+
+  if ((kind === 'phone' || kind === 'teléfono' || kind === 'telefono') && !phone) {
+    throw new Error('Phone is required')
+  }
+
+  if ((kind === 'email' || kind === 'correo' || kind === 'correo electrónico') && !email) {
+    throw new Error('Email is required')
+  }
+
+  if (!phone && !email) {
+    throw new Error('A phone number or email is required')
+  }
+}
+
 function normalizeSubmission(payload) {
   const config = FORM_CONFIG[payload.formType]
   if (!config) {
@@ -132,6 +155,10 @@ function normalizeSubmission(payload) {
 
   if (fields.consent !== true) {
     throw new Error('Consent is required')
+  }
+
+  if (payload.formType === 'service_request') {
+    requireFamilyContact(fields)
   }
 
   const record = {

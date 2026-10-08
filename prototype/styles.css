@@ -5209,6 +5209,13 @@ address strong {
   flex: 0 0 auto;
 }
 
+.site-footer-fax {
+  min-height: 0;
+  margin: -0.15rem 0 0;
+  padding-left: 1.55rem;
+  font-weight: var(--weight-semibold);
+}
+
 .site-footer-bar {
   border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
