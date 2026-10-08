@@ -330,7 +330,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Conozca la ABA",
-          "href": "/aba"
+          "href": "/aba",
+          "teaser": "Terapia individualizada que desarrolla la comunicación, la vida diaria y las habilidades sociales."
         },
         {
           "id": "early-learners",
@@ -361,7 +362,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Conozca Primeros Aprendices",
-          "href": "/early-learners"
+          "href": "/early-learners",
+          "teaser": "Preparación escolar a través del juego, las rutinas y la comunicación."
         },
         {
           "id": "feeding",
@@ -391,7 +393,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Conozca el programa de alimentación",
-          "href": "/feeding-program"
+          "href": "/feeding-program",
+          "teaser": "Apoyo gradual y amable para probar alimentos y texturas nuevas."
         },
         {
           "id": "social-enrichment",
@@ -421,7 +424,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Conozca Enriquecimiento Social",
-          "href": "/social-enrichment"
+          "href": "/social-enrichment",
+          "teaser": "Juego en grupo pequeño y habilidades de amistad para edades de 8 a 12 años."
         },
         {
           "id": "social-skills",
@@ -451,7 +455,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Conozca el grupo social",
-          "href": "/social-skills-group"
+          "href": "/social-skills-group",
+          "teaser": "Práctica guiada con compañeros en conversación y pensamiento flexible."
         },
         {
           "id": "group-parent-training",
@@ -481,7 +486,8 @@
             "social-skills"
           ],
           "linkLabel": "Conozca la capacitación grupal para padres",
-          "href": "/group-parent-training"
+          "href": "/group-parent-training",
+          "teaser": "Los cuidadores aprenden estrategias prácticas juntos en un grupo pequeño."
         }
       ]
     },
@@ -2283,22 +2289,6 @@
   "footer": {
     "text": "© {year} Victoria Transcultural Clinical Center. Todos los derechos reservados.",
     "links": [
-      {
-        "label": "Servicios",
-        "href": "/#services"
-      },
-      {
-        "label": "Seguro",
-        "href": "/insurance"
-      },
-      {
-        "label": "Preguntas y Guías",
-        "href": "/resources"
-      },
-      {
-        "label": "Carreras",
-        "href": "/career"
-      },
       {
         "label": "Contacto",
         "href": "/contact"

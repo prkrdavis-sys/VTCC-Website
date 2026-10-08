@@ -559,13 +559,7 @@ es.careerApplication = {
   ],
 }
 
-es.footer.links = [
-  { label: 'Servicios', href: '/#services' },
-  { label: 'Seguro', href: '/insurance' },
-  { label: 'Preguntas y Guías', href: '/resources' },
-  { label: 'Carreras', href: '/career' },
-  { label: 'Contacto', href: '/contact' },
-]
+es.footer.links = [{ label: 'Contacto', href: '/contact' }]
 
 Object.assign(es.heroCard, {
   title: 'Cómo ayuda VTCC',
@@ -605,6 +599,7 @@ es.sections.services.cards = [
     "label": "Terapia ABA",
     "title": "Desarrolle habilidades significativas con un plan individualizado",
     "body": "El Análisis de Conducta Aplicado ayuda a los niños a desarrollar habilidades significativas mediante metas individualizadas, refuerzo positivo, capacitación para padres y monitoreo continuo del progreso.",
+    "teaser": "Terapia individualizada que desarrolla la comunicación, la vida diaria y las habilidades sociales.",
     "ageRange": "Por lo general, de 18 meses a 21 años",
     "ageNote": "La intervención temprana suele comenzar antes de los 4 años. ABA también puede apoyar a niños en edad escolar y adolescentes cuando es clínicamente apropiado. La elegibilidad final depende de la evaluación, el financiamiento y la autorización.",
     "description": "ABA se construye alrededor de las fortalezas, rutinas y prioridades de cada familia. Un BCBA evalúa las habilidades actuales, escribe metas medibles y actualiza el plan a medida que el niño crece.",
@@ -636,6 +631,7 @@ es.sections.services.cards = [
     "label": "Primeros Aprendices",
     "title": "Prepárese para la escuela y los entornos sociales",
     "body": "El programa de Primeros Aprendices ayuda a niños en edad preescolar a practicar comunicación, juego, rutinas y habilidades de aprendizaje temprano para la escuela y los entornos sociales.",
+    "teaser": "Preparación escolar a través del juego, las rutinas y la comunicación.",
     "ageRange": "Por lo general, de 2 a 5 años",
     "ageNote": "Este programa está diseñado para niños en edad preescolar. La elegibilidad depende de la evaluación, el financiamiento y la autorización.",
     "description": "Primeros Aprendices se centra en las rutinas y habilidades que ayudan a un niño a participar en la escuela y en entornos sociales: comunicación, juego, seguir instrucciones e independencia.",
@@ -667,6 +663,7 @@ es.sections.services.cards = [
     "label": "Programa de Alimentación",
     "title": "Amplíe el repertorio y las preferencias alimentarias",
     "body": "El Programa de Alimentación utiliza prácticas ABA para apoyar a los niños mientras desarrollan comodidad con una mayor variedad de alimentos, sabores, texturas y rutinas de comida.",
+    "teaser": "Apoyo gradual y amable para probar alimentos y texturas nuevas.",
     "ageRange": "Por lo general, de 2 a 12 años",
     "ageNote": "El apoyo de alimentación es individualizado. La edad, las metas y la duración dependen de la evaluación, las prioridades familiares, el financiamiento y la autorización.",
     "description": "El programa usa práctica positiva y gradual para que los niños se sientan más cómodos con alimentos nuevos y más flexibles en las comidas. Los cuidadores son socios en las rutinas diarias.",
@@ -697,6 +694,7 @@ es.sections.services.cards = [
     "label": "Enriquecimiento Social",
     "title": "Practique habilidades con compañeros en un grupo con apoyo",
     "body": "El programa de Enriquecimiento Social ayuda a niños de 8 a 12 años a unirse a actividades grupales, construir amistades y practicar habilidades sociales cotidianas con compañeros.",
+    "teaser": "Juego en grupo pequeño y habilidades de amistad para edades de 8 a 12 años.",
     "ageRange": "Por lo general, de 8 a 12 años",
     "ageNote": "Este grupo está diseñado para niños en edad escolar. La compatibilidad depende de la evaluación, las metas actuales, el financiamiento y la autorización.",
     "description": "Los niños practican unirse a juegos, turnarse, compartir atención y mantenerse involucrados con compañeros en un grupo pequeño. La práctica se mantiene estructurada, positiva y ajustada a las metas de cada niño.",
@@ -727,6 +725,7 @@ es.sections.services.cards = [
     "label": "Grupo de Habilidades Sociales",
     "title": "Practique habilidades sociales avanzadas con compañeros",
     "body": "El Grupo de Habilidades Sociales apoya a clientes que están listos para practicar sarcasmo, conversación, pensamiento flexible y juego apropiado para su edad con compañeros.",
+    "teaser": "Práctica guiada con compañeros en conversación y pensamiento flexible.",
     "ageRange": "Por lo general, niños en edad escolar y adolescentes",
     "ageNote": "El grupo es para clientes listos para una práctica más avanzada con compañeros. La compatibilidad depende de la evaluación, las metas actuales, el financiamiento y la autorización.",
     "description": "Los participantes practican interacciones sociales reales en un grupo pequeño con orientación del personal. Las familias ayudan a llevar las mismas habilidades a la escuela, el hogar y la comunidad.",
@@ -757,6 +756,7 @@ es.sections.services.cards = [
     "label": "Capacitación Grupal para Padres",
     "title": "Aprenda estrategias prácticas con otros cuidadores",
     "body": "La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia. Las familias aprenden juntas en un entorno grupal con apoyo.",
+    "teaser": "Los cuidadores aprenden estrategias prácticas juntos en un grupo pequeño.",
     "ageRange": "Padres y cuidadores",
     "ageNote": "El grupo está diseñado para cuidadores de niños que pueden recibir servicios de VTCC. La compatibilidad depende de las metas actuales, el financiamiento y la autorización.",
     "description": "Los cuidadores se reúnen en un grupo pequeño para aprender herramientas prácticas para la comunicación, las rutinas y los momentos difíciles. El programa está diseñado para que las familias usen las mismas estrategias cuando los terapeutas no están presentes.",

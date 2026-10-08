@@ -332,7 +332,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Learn about ABA",
-          "href": "/aba"
+          "href": "/aba",
+          "teaser": "Individualized therapy that builds communication, daily living, and social skills."
         },
         {
           "id": "early-learners",
@@ -363,7 +364,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Learn about Early Learners",
-          "href": "/early-learners"
+          "href": "/early-learners",
+          "teaser": "School readiness through play, routines, and communication."
         },
         {
           "id": "feeding",
@@ -393,7 +395,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Learn about Feeding",
-          "href": "/feeding-program"
+          "href": "/feeding-program",
+          "teaser": "Gentle, gradual support for trying new foods and textures."
         },
         {
           "id": "social-enrichment",
@@ -423,7 +426,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Learn about Social Enrichment",
-          "href": "/social-enrichment"
+          "href": "/social-enrichment",
+          "teaser": "Small-group play and friendship skills for ages 8-12."
         },
         {
           "id": "social-skills",
@@ -453,7 +457,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Learn about Social Skills",
-          "href": "/social-skills-group"
+          "href": "/social-skills-group",
+          "teaser": "Coached peer practice in conversation and flexible thinking."
         },
         {
           "id": "group-parent-training",
@@ -483,7 +488,8 @@
             "social-skills"
           ],
           "linkLabel": "Learn about Group Parent Training",
-          "href": "/group-parent-training"
+          "href": "/group-parent-training",
+          "teaser": "Caregivers learn practical strategies together in a small group."
         }
       ]
     },
@@ -2335,24 +2341,8 @@
     "text": "© {year} Victoria Transcultural Clinical Center. All rights reserved.",
     "links": [
       {
-        "label": "Services",
-        "href": "/#services"
-      },
-      {
-        "label": "Insurance",
-        "href": "/insurance"
-      },
-      {
-        "label": "FAQs & Guides",
-        "href": "/resources"
-      },
-      {
         "label": "Contact",
         "href": "/contact"
-      },
-      {
-        "label": "Careers",
-        "href": "/career"
       }
     ],
     "emergency": "In an emergency, call 911. For a mental health or suicide crisis, call or text 988. This website provides general information only and is not medical advice.",

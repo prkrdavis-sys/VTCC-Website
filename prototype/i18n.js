@@ -669,38 +669,7 @@ function renderHeroHeading(hero) {
         </h1>`
 }
 
-function renderHeroServiceTags(tags) {
-  if (!tags?.length) {
-    return ''
-  }
-
-  return `<ul class="hero-service-tags" aria-label="Services">
-          ${tags
-            .map((tag) => {
-              const label = typeof tag === 'string' ? tag : tag.label
-              const href = typeof tag === 'string' ? '' : tag.href
-              if (!href) {
-                return `<li>${escapeHtml(label)}</li>`
-              }
-
-              return `<li><a href="${escapeHtml(toStaticHref(href))}">${escapeHtml(label)}</a></li>`
-            })
-            .join('\n          ')}
-        </ul>`
-}
-
-function renderHeroText(hero) {
-  if (hero.subheadlineLead) {
-    return `<div class="hero-text-block">
-          <p class="hero-text-lead">${escapeHtml(hero.subheadlineLead)}</p>
-          <p class="hero-text">${escapeHtml(hero.subheadline)}</p>
-        </div>`
-  }
-
-  return `<p class="hero-text">${escapeHtml(hero.subheadline)}</p>`
-}
-
-function renderTopBar(content) {
+function renderFooterContact(content) {
   const bar = content.topBar
   if (!bar) {
     return ''
@@ -708,21 +677,13 @@ function renderTopBar(content) {
 
   const phoneIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>`
   const emailIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`
-  const pinIcon = `<svg class="top-bar-pin" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.2"/></svg>`
-  const addressShort = bar.addressShort || bar.address
-  const emailLabel = content.ui.emailLabel || bar.email
+  const pinIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.2"/></svg>`
 
-  return `<div class="top-bar">
-      <a class="top-bar-address" href="${escapeHtml(bar.addressHref)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(bar.address)}">
-        ${pinIcon}
-        <span class="top-bar-address-full">${escapeHtml(bar.address)}</span>
-        <span class="top-bar-address-short">${escapeHtml(addressShort)}</span>
-      </a>
-      <span class="top-bar-contacts">
+  return `<div class="site-footer-contact">
+        <a href="${escapeHtml(bar.addressHref)}" target="_blank" rel="noopener noreferrer">${pinIcon}<span>${escapeHtml(bar.address)}</span></a>
         <a href="${escapeHtml(bar.phoneHref)}">${phoneIcon}<span>${escapeHtml(bar.phone)}</span></a>
-        <a class="top-bar-email" href="${escapeHtml(bar.emailHref)}" aria-label="${escapeHtml(bar.email)}">${emailIcon}<span class="top-bar-email-full">${escapeHtml(bar.email)}</span><span class="top-bar-email-short">${escapeHtml(emailLabel)}</span></a>
-      </span>
-    </div>`
+        <a href="${escapeHtml(bar.emailHref)}">${emailIcon}<span>${escapeHtml(bar.email)}</span></a>
+      </div>`
 }
 
 function renderShell(content, mainHtml) {
@@ -730,7 +691,6 @@ function renderShell(content, mainHtml) {
   const phoneHref = content.topBar?.phoneHref ?? '#'
 
   return `
-    ${renderTopBar(content)}
     <header class="site-header">
       <div class="site-header-inner">
       <a class="brand" href="${escapeHtml(toStaticHref('/'))}" aria-label="${escapeHtml(content.company.shortName)} home">
@@ -766,6 +726,7 @@ function renderShell(content, mainHtml) {
         <p class="site-footer-emergency">${escapeHtml(content.footer.emergency)}</p>
         <p>${escapeHtml(content.footer.text.replace('{year}', String(new Date().getFullYear())))}</p>
       </div>
+      ${renderFooterContact(content)}
       <div class="site-footer-navs">
         <nav aria-label="Footer navigation">
           ${content.footer.links.map(renderNavLink).join('\n          ')}
@@ -1159,24 +1120,15 @@ function renderRelatedPrograms(program, content) {
           </div>`
 }
 
-function renderProgramPanel(program, content, { open = false } = {}) {
+function renderProgramPanel(program, content, { open = false, compact = false } = {}) {
   const ageLabel = content.ui.ageRangeLabel
   const ageRange = program.ageRange ?? ''
-
-  return `<details class="program-panel" id="program-${escapeHtml(program.id)}"${open ? ' open' : ''}>
-            <summary>
-              <span class="program-panel-summary">
-                <span class="card-label">${escapeHtml(program.label)}</span>
-                <span class="program-panel-title">${escapeHtml(program.title)}</span>
-                ${
-                  ageRange
-                    ? `<span class="program-age-badge">${escapeHtml(ageLabel)}: ${escapeHtml(ageRange)}</span>`
-                    : ''
-                }
-              </span>
-              <span class="program-panel-indicator" aria-hidden="true"></span>
-            </summary>
-            <div class="program-panel-body">
+  const body = compact
+    ? `<div class="program-panel-body">
+              <p class="program-summary">${escapeHtml(program.teaser || program.body)}</p>
+              ${renderProgramFaqCta(program, content)}
+            </div>`
+    : `<div class="program-panel-body">
               <p class="program-summary">${escapeHtml(program.body)}</p>
               <div class="program-copy">
                 <section>
@@ -1196,16 +1148,29 @@ function renderProgramPanel(program, content, { open = false } = {}) {
                 ${renderProgramFaqCta(program, content)}
               </div>
               ${renderRelatedPrograms(program, content)}
-            </div>
+            </div>`
+
+  return `<details class="program-panel" id="program-${escapeHtml(program.id)}"${open ? ' open' : ''}>
+            <summary>
+              <span class="program-panel-summary">
+                <span class="card-label">${escapeHtml(program.label)}</span>
+                <span class="program-panel-title">${escapeHtml(program.title)}</span>
+                ${
+                  compact || !ageRange
+                    ? ''
+                    : `<span class="program-age-badge">${escapeHtml(ageLabel)}: ${escapeHtml(ageRange)}</span>`
+                }
+              </span>
+              <span class="program-panel-indicator" aria-hidden="true"></span>
+            </summary>
+            ${body}
           </details>`
 }
 
 function renderHome(content) {
-  const { sections, home } = content
+  const { sections } = content
   const assets = window.VTCC_SITE?.shared?.assets ?? {}
   const heroImage = assets.heroImage ? `${BASE}${assets.heroImage.replace(/^\//, '')}` : ''
-  const whoImage = assets.whoWeServeImage ? `${BASE}${assets.whoWeServeImage.replace(/^\//, '')}` : ''
-  const featuredResources = sections.resources.items.slice(0, 3)
   const heroActions = content.hero.actions.filter((action) => action.style !== 'ghost')
 
   const trustItems = content.trustStrip
@@ -1218,54 +1183,15 @@ function renderHome(content) {
     .join('')
 
   const serviceCards = getServicePrograms(content)
-    .map((program) => renderProgramPanel(program, content))
+    .map((program) => renderProgramPanel(program, content, { compact: true }))
     .join('')
 
-  const processSteps = sections.process.steps
-    .slice(0, 3)
-    .map(
-      (step) =>
-        `<li><strong>${escapeHtml(step.title)}</strong><span>${escapeHtml(step.body)}</span></li>`,
-    )
-    .join('')
-
-  const pathLinks = sections.referrers.paths
-    .map(
-      (path) => `<a class="home-path-link home-path-link--${escapeHtml(path.buttonStyle)}" href="${escapeHtml(toStaticHref(path.buttonHref))}">
-            <span class="home-path-link-content">
-              <span class="home-path-link-heading">
-                <strong>${escapeHtml(path.title)}</strong>
-                <span class="home-path-link-arrow" aria-hidden="true">→</span>
-              </span>
-              <span>${escapeHtml(path.body)}</span>
-            </span>
-            <span class="home-path-link-action">${escapeHtml(path.buttonLabel)}</span>
-          </a>`,
-    )
-    .join('')
-
-  const whoItems = sections.whoWeServe.items
-    .slice(0, 4)
-    .map((item) => `<li>${escapeHtml(item)}</li>`)
-    .join('')
-
-  const cultureNote = sections.multiculturalCare.body.split('.')[0] + '.'
-
-  const resourceCards = featuredResources
-    .map(
-      (item) => `<a href="${escapeHtml(toStaticHref(`/resources/${item.slug}`))}" class="home-resource-card">
-            <strong>${escapeHtml(item.title)}</strong>
-            <span>${escapeHtml(item.summary ?? '')}</span>
-          </a>`,
-    )
-    .join('')
+  const missionStatement = sections.whoWeServe.missionStatement
 
   return `
       <section class="home-hero">
         <div class="home-hero-copy">
           ${renderHeroHeading(content.hero)}
-          ${renderHeroServiceTags(content.hero.serviceTags)}
-          ${renderHeroText(content.hero)}
           <div class="button-row">${heroActions.map(renderButton).join('\n            ')}</div>
           <div class="home-trust" aria-label="Trust highlights">${trustItems}</div>
         </div>
@@ -1281,48 +1207,13 @@ function renderHome(content) {
         ${renderServicesBanner(sections.services.eyebrow, sections.services.title, sections.services.intro)}
         <div class="program-panel-list home-service-grid">${serviceCards}</div>
       </section>
-      <section class="section home-start section--ruled">
-        <div class="home-start-panel">
-          <div class="home-start-grid">
-            <div class="home-start-steps">
-              ${renderSectionHeading('', sections.process.title, sections.process.intro)}
-              <ol class="home-steps">${processSteps}</ol>
-              <a class="text-link page-link-cta" href="${escapeHtml(toStaticHref(home.processTeaser.linkHref))}">${escapeHtml(home.processTeaser.linkLabel)}</a>
-            </div>
-            <aside class="home-start-paths">
-              <p class="eyebrow">${escapeHtml(sections.referrers.eyebrow)}</p>
-              <h3>${escapeHtml(sections.referrers.title)}</h3>
-              <div class="home-path-links">${pathLinks}</div>
-            </aside>
-          </div>
-        </div>
-      </section>
-      <section class="section home-who section--ruled">
-        <div class="home-who-grid">
-          ${
-            whoImage
-              ? `<figure class="home-who-media">
-            <img src="${escapeHtml(whoImage)}" alt="" loading="lazy" />
-          </figure>`
-              : ''
-          }
-          <div class="home-who-copy">
-            ${renderSectionHeading(sections.whoWeServe.eyebrow, sections.whoWeServe.title, sections.whoWeServe.intro)}
-            ${
-              sections.whoWeServe.missionStatement
-                ? `<blockquote class="home-mission-statement">${escapeHtml(sections.whoWeServe.missionStatement)}</blockquote>`
-                : ''
-            }
-            <ul class="check-list home-check-list">${whoItems}</ul>
-            <p class="home-culture-note">${escapeHtml(cultureNote)}</p>
-          </div>
-        </div>
-      </section>
-      <section class="section home-resources band band--tint">
-        ${renderSectionHeading('', home.resourcesTeaser.title, home.resourcesTeaser.intro)}
-        <div class="home-resource-list">${resourceCards}</div>
-        <a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(home.resourcesTeaser.linkHref))}">${escapeHtml(home.resourcesTeaser.linkLabel)}</a>
+      ${
+        missionStatement
+          ? `<section class="section home-who section--ruled">
+        <blockquote class="home-mission-statement">${escapeHtml(missionStatement)}</blockquote>
       </section>`
+          : ''
+      }`
 }
 
 function renderFeatureColumns(columns) {
