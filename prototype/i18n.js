@@ -8,7 +8,6 @@ const PAGE = window.VTCC_PAGE ?? 'home'
 const BASE = window.VTCC_BASE ?? ''
 const RESOURCE_SLUG = window.VTCC_RESOURCE_SLUG
 const CAREERS_TAB_IDS = ['behavior-technician', 'bcba', 'other']
-const CAREER_DISCLOSURE_IDS = ['rbt-pathway', 'programs', 'clinic', 'hiring-process']
 
 function escapeHtml(value) {
   return String(value)
@@ -644,11 +643,6 @@ function renderFooter(content) {
   const address = (footer.addressLines ?? []).map((line) => escapeHtml(line)).join('<br />')
 
   return `<footer class="site-footer">
-      <div class="site-footer-crisis">
-        <div class="site-footer-wrap">
-          <p>${renderInlineText(footer.crisis)}</p>
-        </div>
-      </div>
       <div class="site-footer-main">
         <div class="site-footer-wrap site-footer-grid">
           <div class="site-footer-brand">
@@ -1428,16 +1422,42 @@ function renderAboutPage(content) {
   const careersLink = about.careersLink
     ? `<a class="button page-link-cta" href="${escapeHtml(toStaticHref(about.careersLink.href))}">${escapeHtml(about.careersLink.label)}</a>`
     : ''
+  const storyParagraphs = (about.story?.paragraphs ?? [])
+    .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+    .join('')
+  const pillars = (about.pillars?.items ?? [])
+    .map(
+      (item) => `<article class="about-pillar">
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.body)}</p>
+          </article>`,
+    )
+    .join('')
   const photo = aboutImage
     ? `<figure class="about-media">
-        <img src="${escapeHtml(aboutImage)}" alt="${escapeHtml(about.photoAlt ?? '')}" width="1000" height="562" loading="eager" />
+        <img src="${escapeHtml(aboutImage)}" alt="${escapeHtml(about.photoAlt ?? '')}" width="1000" height="562" loading="lazy" />
+        ${about.photoCaption ? `<figcaption>${escapeHtml(about.photoCaption)}</figcaption>` : ''}
       </figure>`
     : ''
 
-  return `<section class="section about-page page-section">
-        ${renderSectionHeading('', about.title, about.intro)}
+  return `<section class="section about-hero page-section">
+        ${renderSectionHeading(about.eyebrow, about.title, about.lede)}
+      </section>
+      <section class="section about-mission band band--deep">
+        <div class="about-mission-inner">
+          <p class="eyebrow">${escapeHtml(about.mission.eyebrow)}</p>
+          <p class="about-mission-statement">${escapeHtml(about.mission.statement)}</p>
+          <p>${escapeHtml(about.mission.body)}</p>
+        </div>
+      </section>
+      <section class="section about-story page-section">
+        ${renderSectionHeading(about.story.eyebrow, about.story.title)}
+        <div class="about-story-copy">${storyParagraphs}</div>
+        <div class="about-pillars">
+          ${renderSectionHeading(about.pillars.eyebrow, about.pillars.title)}
+          <div class="about-pillar-grid">${pillars}</div>
+        </div>
         ${photo}
-        <ul class="check-list">${about.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
         ${careersLink}
       </section>
       ${renderQuoteBoard(about.quotes, 'about-quotes')}`
@@ -1482,34 +1502,6 @@ function renderCareersPosting(posting) {
           </div>`)
   }
 
-  if (posting.training) {
-    blocks.push(`<div class="careers-posting-block">
-            <h3>${escapeHtml(posting.training.title)}</h3>
-            <p>${escapeHtml(posting.training.body)}</p>
-          </div>`)
-  }
-
-  if (posting.education) {
-    blocks.push(`<div class="careers-posting-block">
-            <h3>${escapeHtml(posting.education.title)}</h3>
-            <p>${escapeHtml(posting.education.body)}</p>
-          </div>`)
-  }
-
-  if (posting.certification) {
-    blocks.push(`<div class="careers-posting-block">
-            <h3>${escapeHtml(posting.certification.title)}</h3>
-            <p>${escapeHtml(posting.certification.body)}</p>
-          </div>`)
-  }
-
-  if (posting.licensing) {
-    blocks.push(`<div class="careers-posting-block">
-            <h3>${escapeHtml(posting.licensing.title)}</h3>
-            <p>${escapeHtml(posting.licensing.body)}</p>
-          </div>`)
-  }
-
   if (posting.requirements) {
     blocks.push(`<div class="careers-posting-block">
             <h3>${escapeHtml(posting.requirements.title)}</h3>
@@ -1529,80 +1521,48 @@ function renderCareersPosting(posting) {
         </article>`
 }
 
-function renderCareersGallery(clinic, recognition) {
-  const figures = (clinic.gallery ?? [])
-    .map((item) => {
-      const imagePath = item.asset ? getSharedAssetPath(item.asset) : ''
+function renderCareerTraining(content) {
+  const training = content.sections.careers.training
+  if (!training?.items?.length) {
+    return ''
+  }
 
-      if (imagePath) {
-        return `<figure class="careers-photo">
-            <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(recognition.photoAlt ?? item.caption)}" loading="lazy" />
-            <figcaption>${escapeHtml(item.caption)}</figcaption>
-          </figure>`
-      }
-
-      return `<figure class="careers-photo careers-photo--pending">
-            <div class="careers-photo-frame" role="img" aria-label="${escapeHtml(clinic.photoPendingLabel)}">
-              <span>${escapeHtml(clinic.photoPendingLabel)}</span>
+  const items = training.items
+    .map(
+      (item, index) => `<li>
+            <span class="career-line-index" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
+            <div>
+              <strong>${escapeHtml(item.title)}</strong>
+              <span>${escapeHtml(item.body)}</span>
             </div>
-            <figcaption>
-              <strong>${escapeHtml(item.caption)}</strong>
-            </figcaption>
-          </figure>`
-    })
-    .join('\n          ')
+          </li>`,
+    )
+    .join('')
 
-  return `<div class="careers-gallery">${figures}</div>`
-}
-
-function renderCareerDisclosure({ id, eyebrow, title, summary, body, expandLabel }) {
-  return `<section class="section career-disclosure" id="${escapeHtml(id)}" data-disclosure>
-        <h2 class="career-disclosure-head">
-          <button type="button" class="career-disclosure-trigger" aria-expanded="false" aria-controls="disclosure-${escapeHtml(id)}" data-disclosure-trigger>
-            <span class="career-disclosure-copy">
-              <span class="eyebrow">${escapeHtml(eyebrow)}</span>
-              <span class="career-disclosure-title">${escapeHtml(title)}</span>
-              <span class="career-disclosure-summary">${escapeHtml(summary)}</span>
-            </span>
-            <span class="career-disclosure-indicator" aria-hidden="true"></span>
-            <span class="visually-hidden" data-disclosure-state>${escapeHtml(expandLabel)}</span>
-          </button>
-        </h2>
-        <div class="career-disclosure-panel" id="disclosure-${escapeHtml(id)}" data-disclosure-panel hidden="until-found">
-          <div class="career-disclosure-inner">${body}</div>
-        </div>
+  return `<section class="section career-training" id="training">
+        ${renderSectionHeading(training.eyebrow, training.title)}
+        <ol class="career-line-list">${items}</ol>
       </section>`
 }
 
-function renderCareerBenefits(content) {
-  const careers = content.sections.careers
-  const cards = (careers.benefits ?? [])
+function renderCareerPerks(content) {
+  const perks = content.sections.careers.perks
+  if (!perks?.items?.length) {
+    return ''
+  }
+
+  const items = perks.items
     .map(
-      (benefit) => `<article class="career-benefit">
-            <h3>${escapeHtml(benefit.title)}</h3>
-            <p>${escapeHtml(benefit.body)}</p>
-          </article>`,
-    )
-    .join('')
-  const facts = (careers.facts ?? [])
-    .map(
-      (fact) => `<div class="careers-fact">
-            <dt>${escapeHtml(fact.value)}</dt>
-            <dd>${escapeHtml(fact.label)}</dd>
+      (item) => `<div>
+            <dt>${escapeHtml(item.title)}</dt>
+            <dd>${escapeHtml(item.body)}</dd>
           </div>`,
     )
     .join('')
-  const photo = `${BASE}assets/employee-appreciation.jpg`
 
-  return `<section class="section career-benefits" id="why-vtcc">
-        <figure class="career-benefits-photo">
-          <img src="${escapeHtml(photo)}" alt="${escapeHtml(careers.opportunity.photoAlt ?? '')}" />
-        </figure>
-        ${renderSectionHeading(careers.opportunity.eyebrow, careers.opportunity.title, careers.opportunity.body)}
-        <div class="career-benefit-grid">${cards}</div>
-        <div class="career-benefit-foot">
-          <dl class="career-benefit-facts">${facts}</dl>
-        </div>
+  return `<section class="section career-perks" id="benefits">
+        ${renderSectionHeading(perks.eyebrow, perks.title)}
+        <dl class="career-perk-list">${items}</dl>
       </section>`
 }
 
@@ -1646,105 +1606,16 @@ function renderHiringDetails(content) {
 
 function renderCareerPage(content) {
   const careers = content.sections.careers
-  const expandLabel = content.ui.careerExpandLabel ?? 'Show this section'
-  const leadQuotes = careers.quotes ?? null
   const steps = careers.steps.items
     .map(
       (step, index) => `<li class="career-step">
           <span class="career-step-number" aria-hidden="true">${index + 1}</span>
           <div class="career-step-copy">
             <h3>${escapeHtml(step.title)}</h3>
-            <p>${escapeHtml(step.body)}</p>
           </div>
         </li>`,
     )
     .join('\n          ')
-
-  const differentiatorSteps = (careers.differentiator?.steps ?? [])
-    .map(
-      (step) => `<li>
-            <strong>${escapeHtml(step.title)}</strong>
-            <span>${escapeHtml(step.body)}</span>
-          </li>`,
-    )
-    .join('')
-  const programCards = (careers.programs?.items ?? [])
-    .map(
-      (program) => `<article class="careers-program-card">
-            <p class="card-label">${escapeHtml(program.summary)}</p>
-            <h3>${escapeHtml(program.title)}</h3>
-            <p>${escapeHtml(program.body)}</p>
-          </article>`,
-    )
-    .join('')
-  const recognitionItems = (careers.recognition?.items ?? [])
-    .map(
-      (item) => `<article>
-            <h3>${escapeHtml(item.title)}</h3>
-            <p>${escapeHtml(item.body)}</p>
-          </article>`,
-    )
-    .join('')
-  const officeCards = (content.offices ?? [])
-    .map(
-      (office) => `<address class="careers-office">
-            <strong>${escapeHtml(office.name)}</strong>
-            ${escapeHtml(office.street)}<br />
-            ${escapeHtml(office.city)}<br />
-            <a href="${escapeHtml(office.phoneHref)}">${escapeHtml(office.phone)}</a><br />
-            ${escapeHtml(content.ui.faxLabel)}: ${escapeHtml(office.fax)}
-          </address>`,
-    )
-    .join('')
-
-  const disclosures = [
-    careers.differentiator
-      ? renderCareerDisclosure({
-          id: 'rbt-pathway',
-          eyebrow: careers.differentiator.eyebrow,
-          title: careers.differentiator.title,
-          summary: careers.differentiator.summary,
-          expandLabel,
-          body: `<ol class="home-steps careers-steps">${differentiatorSteps}</ol>`,
-        })
-      : '',
-    careers.programs
-      ? renderCareerDisclosure({
-          id: 'programs',
-          eyebrow: careers.programs.eyebrow,
-          title: careers.programs.title,
-          summary: careers.programs.summary,
-          expandLabel,
-          body: `<div class="careers-program-grid">${programCards}</div>`,
-        })
-      : '',
-    careers.clinic
-      ? renderCareerDisclosure({
-          id: 'clinic',
-          eyebrow: careers.clinic.eyebrow,
-          title: careers.clinic.title,
-          summary: careers.clinic.summary,
-          expandLabel,
-          body: `<div class="careers-office-grid">${officeCards}</div>
-            <div class="careers-gallery-block">
-              <h3>${escapeHtml(careers.clinic.galleryTitle)}</h3>
-              ${renderCareersGallery(careers.clinic, careers.recognition)}
-            </div>
-            <div class="careers-recognition">
-              ${renderSectionHeading(careers.recognition.eyebrow, careers.recognition.title)}
-              <div class="careers-recognition-grid">${recognitionItems}</div>
-            </div>`,
-        })
-      : '',
-    renderCareerDisclosure({
-      id: careers.steps.id ?? 'hiring-process',
-      eyebrow: careers.steps.eyebrow,
-      title: careers.steps.title,
-      summary: careers.steps.summary,
-      expandLabel,
-      body: `<ol class="career-step-list">${steps}</ol>`,
-    }),
-  ].join('\n      ')
 
   return `<section class="career-hero page-section">
         <div class="career-hero-copy">
@@ -1757,15 +1628,16 @@ function renderCareerPage(content) {
           </div>
         </div>
         <div class="career-hero-media">
-          <img src="${escapeHtml(`${BASE}assets/who-we-serve.png`)}" alt="" loading="eager" />
+          <img src="${escapeHtml(`${BASE}assets/employee-appreciation.jpg`)}" alt="${escapeHtml(careers.photoAlt ?? '')}" width="700" height="525" loading="eager" />
         </div>
       </section>
-      ${renderCareerBenefits(content)}
-      ${leadQuotes ? renderQuoteBoard(leadQuotes, 'career-quotes') : ''}
+      ${renderCareerTraining(content)}
+      ${renderCareerPerks(content)}
       ${renderHiringDetails(content)}
-      <div class="career-disclosure-stack">
-        ${disclosures}
-      </div>
+      <section class="section career-hiring" id="${escapeHtml(careers.steps.id ?? 'hiring-process')}">
+        ${renderSectionHeading(careers.steps.eyebrow, careers.steps.title)}
+        <ol class="career-step-list">${steps}</ol>
+      </section>
       <section class="section career-closing">
         <div>
           <h2>${escapeHtml(careers.closing.title)}</h2>
@@ -3317,6 +3189,73 @@ function bindHeaderMenus() {
   document.addEventListener('click', bindHeaderMenus.outsideHandler)
 }
 
+const HEADER_ROW_LAYOUTS = ['row', 'row-compact', 'row-tight']
+
+function headerRowFits(inner) {
+  const navBar = inner.querySelector('.site-nav-bar')
+  const nav = inner.querySelector('.site-nav')
+  const brandName = inner.querySelector('.brand strong')
+  const brandTagline = inner.querySelector('.brand small')
+  const controls = inner.querySelector('.header-controls')
+  const fitsWithin = (element) => !element || element.scrollWidth <= element.clientWidth + 1
+
+  return (
+    navBar.scrollWidth <= nav.clientWidth + 1 &&
+    inner.scrollWidth <= inner.clientWidth + 1 &&
+    fitsWithin(brandName) &&
+    fitsWithin(brandTagline) &&
+    fitsWithin(controls)
+  )
+}
+
+function syncHeaderLayout() {
+  const inner = document.querySelector('.site-header-inner')
+  const nav = inner?.querySelector('.site-nav')
+  if (!inner || !nav?.querySelector('.site-nav-bar')) {
+    return
+  }
+
+  inner.removeAttribute('data-header-layout')
+  if (getComputedStyle(nav).display === 'none') {
+    return
+  }
+
+  for (const layout of HEADER_ROW_LAYOUTS) {
+    inner.setAttribute('data-header-layout', layout)
+    if (headerRowFits(inner)) {
+      return
+    }
+  }
+
+  inner.removeAttribute('data-header-layout')
+}
+
+function bindHeaderLayout() {
+  if (bindHeaderLayout.observer) {
+    bindHeaderLayout.observer.disconnect()
+    bindHeaderLayout.observer = null
+  }
+
+  syncHeaderLayout()
+  document.fonts?.ready.then(syncHeaderLayout)
+
+  const header = document.querySelector('.site-header')
+  if (!header || typeof ResizeObserver !== 'function') {
+    return
+  }
+
+  let lastWidth = 0
+  bindHeaderLayout.observer = new ResizeObserver(([entry]) => {
+    const width = Math.round(entry.contentRect.width)
+    if (width === lastWidth) {
+      return
+    }
+    lastWidth = width
+    syncHeaderLayout()
+  })
+  bindHeaderLayout.observer.observe(header)
+}
+
 function syncHeaderOffset() {
   const header = document.querySelector('.site-header')
   if (!header) {
@@ -4108,114 +4047,7 @@ function setCareersTab(tabId) {
   })
 }
 
-function bindCareersPage(content) {
-  const expandLabel = content?.ui?.careerExpandLabel ?? 'Show this section'
-  const collapseLabel = content?.ui?.careerCollapseLabel ?? 'Hide this section'
-  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-
-  const setDisclosureLabel = (trigger, open) => {
-    const state = trigger.querySelector('[data-disclosure-state]')
-    if (state) {
-      state.textContent = open ? collapseLabel : expandLabel
-    }
-  }
-
-  const openDisclosure = (section, { scroll = false } = {}) => {
-    const panel = section.querySelector('[data-disclosure-panel]')
-    const trigger = section.querySelector('[data-disclosure-trigger]')
-    if (!panel || !trigger) {
-      return
-    }
-
-    window.clearTimeout(section.disclosureTimer)
-    panel.removeAttribute('hidden')
-
-    const reveal = () => {
-      section.classList.add('is-open')
-      trigger.setAttribute('aria-expanded', 'true')
-      setDisclosureLabel(trigger, true)
-      if (scroll) {
-        section.scrollIntoView({ behavior: motionQuery.matches ? 'auto' : 'smooth', block: 'start' })
-      }
-    }
-
-    if (section.classList.contains('is-open')) {
-      if (scroll) {
-        section.scrollIntoView({ behavior: motionQuery.matches ? 'auto' : 'smooth', block: 'start' })
-      }
-      return
-    }
-
-    if (motionQuery.matches) {
-      reveal()
-      return
-    }
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(reveal)
-    })
-  }
-
-  const closeDisclosure = (section) => {
-    const panel = section.querySelector('[data-disclosure-panel]')
-    const trigger = section.querySelector('[data-disclosure-trigger]')
-    if (!panel || !trigger || !section.classList.contains('is-open')) {
-      return
-    }
-
-    section.classList.remove('is-open')
-    trigger.setAttribute('aria-expanded', 'false')
-    setDisclosureLabel(trigger, false)
-
-    const finish = () => {
-      if (!section.classList.contains('is-open')) {
-        panel.setAttribute('hidden', 'until-found')
-      }
-    }
-
-    if (motionQuery.matches) {
-      finish()
-      return
-    }
-
-    const onEnd = (event) => {
-      if (event.target !== panel || event.propertyName !== 'grid-template-rows') {
-        return
-      }
-      panel.removeEventListener('transitionend', onEnd)
-      window.clearTimeout(section.disclosureTimer)
-      finish()
-    }
-
-    panel.addEventListener('transitionend', onEnd)
-    section.disclosureTimer = window.setTimeout(() => {
-      panel.removeEventListener('transitionend', onEnd)
-      finish()
-    }, 450)
-  }
-
-  document.querySelectorAll('[data-disclosure]').forEach((section) => {
-    const trigger = section.querySelector('[data-disclosure-trigger]')
-    const panel = section.querySelector('[data-disclosure-panel]')
-    if (!trigger || !panel) {
-      return
-    }
-
-    trigger.addEventListener('click', () => {
-      if (section.classList.contains('is-open')) {
-        closeDisclosure(section)
-        return
-      }
-      openDisclosure(section)
-    })
-
-    panel.addEventListener('beforematch', () => {
-      section.classList.add('is-open')
-      trigger.setAttribute('aria-expanded', 'true')
-      setDisclosureLabel(trigger, true)
-    })
-  })
-
+function bindCareersPage() {
   const board = document.querySelector('[data-careers-board]')
   const tabButtons = board ? Array.from(board.querySelectorAll('[data-careers-tab]')) : []
 
@@ -4260,14 +4092,6 @@ function bindCareersPage(content) {
     const hash = window.location.hash.replace('#', '')
     if (CAREERS_TAB_IDS.includes(hash)) {
       activate(hash, { updateHash: false })
-      return
-    }
-    if (!CAREER_DISCLOSURE_IDS.includes(hash)) {
-      return
-    }
-    const section = document.getElementById(hash)
-    if (section) {
-      openDisclosure(section, { scroll: true })
     }
   }
 
@@ -4668,6 +4492,7 @@ function render() {
   })
 
   bindHeaderMenus()
+  bindHeaderLayout()
   bindHeaderOffset()
   bindMobileMenu()
   bindFaqSearch(content)

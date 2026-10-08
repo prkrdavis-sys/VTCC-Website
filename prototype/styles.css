@@ -198,9 +198,74 @@ textarea {
   }
 }
 
-@media (min-width: 981px) and (max-width: 1320px) {
-  .brand small {
+@media (min-width: 681px) {
+  .site-header-inner[data-header-layout] {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: 'brand nav controls';
+    column-gap: clamp(0.75rem, 1.6vw, 2rem);
+  }
+
+  .site-header-inner[data-header-layout] .site-nav {
+    justify-content: center;
+    padding-top: 0;
+  }
+
+  .site-header-inner[data-header-layout] .site-nav-bar {
+    flex-wrap: nowrap;
+  }
+
+  .site-header-inner[data-header-layout] .site-nav-bar .nav-menu summary,
+  .site-header-inner[data-header-layout] .site-nav-bar .nav-menu-link {
+    min-height: 2rem;
+    padding: 0.32rem clamp(0.5rem, 0.8vw, 0.72rem);
+    font-size: clamp(0.78rem, 0.6vw + 0.4rem, 0.84rem);
+  }
+
+  .site-header-inner[data-header-layout] .header-controls {
+    flex-wrap: nowrap;
+  }
+
+  .site-header-inner[data-header-layout] .brand strong,
+  .site-header-inner[data-header-layout] .brand small {
+    white-space: nowrap;
+  }
+
+  .site-header-inner[data-header-layout='row'] .brand small {
+    display: block;
+  }
+
+  .site-header-inner[data-header-layout='row-compact'] .brand small,
+  .site-header-inner[data-header-layout='row-tight'] .brand small {
     display: none;
+  }
+
+  .site-header-inner[data-header-layout='row-tight'] {
+    column-gap: 0.65rem;
+    padding-inline: clamp(0.85rem, 2vw, 1.5rem);
+  }
+
+  .site-header-inner[data-header-layout='row-tight'] .brand {
+    gap: 0.55rem;
+  }
+
+  .site-header-inner[data-header-layout='row-tight'] .brand-mark {
+    height: 2.35rem;
+  }
+
+  .site-header-inner[data-header-layout='row-tight'] .brand strong {
+    max-width: 11.5em;
+    font-size: 0.92rem;
+    line-height: 1.15;
+    white-space: normal;
+  }
+
+  .site-header-inner[data-header-layout='row-tight'] .site-nav-bar .nav-menu summary,
+  .site-header-inner[data-header-layout='row-tight'] .site-nav-bar .nav-menu-link {
+    padding-inline: 0.5rem;
+  }
+
+  .site-header-inner[data-header-layout='row-tight'] .header-controls {
+    gap: 0.5rem;
   }
 }
 
@@ -1985,16 +2050,106 @@ h3 {
   background: transparent;
 }
 
-.about-page {
+.about-hero {
   background: transparent;
+  padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
 }
 
-.about-page .section-heading {
-  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+.about-hero .section-heading {
+  max-width: 42rem;
+}
+
+.about-hero .section-heading h2 {
+  font-size: var(--text-hero);
+  line-height: var(--leading-tight);
+}
+
+.about-hero .section-heading p:last-child {
+  max-width: 38rem;
+  font-size: var(--text-lg);
+  color: var(--muted);
+}
+
+.about-mission {
+  color: var(--white);
+}
+
+.about-mission-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 46rem;
+}
+
+.about-mission .eyebrow {
+  color: var(--brand-bar);
+}
+
+.about-mission-statement {
+  margin: 0 0 1rem;
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-heading);
+}
+
+.about-mission-inner > p:last-child {
+  max-width: 40rem;
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+}
+
+.about-story .section-heading,
+.about-story-copy {
+  max-width: 40rem;
+}
+
+.about-story-copy p {
+  margin: 0 0 1rem;
+  font-size: var(--text-lg);
+}
+
+.about-story-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.about-pillars {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+.about-pillar-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 720px) {
+  .about-pillar-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.about-pillar {
+  margin: 0;
+  padding: 1.25rem 1.35rem 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.about-pillar h3 {
+  margin: 0 0 0.4rem;
+  font-size: var(--text-xl);
+}
+
+.about-pillar p {
+  margin: 0;
+  color: var(--muted);
 }
 
 .about-media {
-  margin: 0 0 clamp(1.5rem, 4vw, 2.5rem);
+  margin: clamp(2.5rem, 6vw, 4rem) 0 clamp(1.5rem, 4vw, 2.5rem);
   overflow: hidden;
   border-radius: 1.5rem;
   box-shadow: var(--shadow);
@@ -2004,6 +2159,14 @@ h3 {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.about-media figcaption {
+  margin: 0;
+  padding: 0.85rem 1.15rem 1rem;
+  background: var(--white);
+  color: var(--muted);
+  font-size: var(--text-sm);
 }
 
 .steps {
@@ -4043,15 +4206,71 @@ address strong {
   box-shadow: var(--shadow);
 }
 
-.career-step p,
-.career-closing p,
-.career-benefit p {
+.career-closing p {
   margin-bottom: 0;
   color: var(--muted);
 }
 
-.career-benefits {
+.career-training,
+.career-perks,
+.career-hiring {
   background: transparent;
+}
+
+.career-line-list {
+  display: grid;
+  max-width: 46rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.career-line-list li {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 0.75rem 1.25rem;
+  align-items: baseline;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.career-line-index {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.career-line-list strong {
+  display: block;
+  color: var(--brand-deep);
+}
+
+.career-line-list li > div > span {
+  color: var(--muted);
+}
+
+.career-perk-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 3rem;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.career-perk-list > div {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.career-perk-list dt {
+  color: var(--brand-deep);
+  font-weight: 800;
+}
+
+.career-perk-list dd {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
 }
 
 .career-benefits-photo {
@@ -5087,23 +5306,6 @@ address strong {
   width: min(72rem, 100%);
   margin-inline: auto;
   padding-inline: clamp(1rem, 4vw, 4rem);
-}
-
-.site-footer-crisis {
-  background: var(--brand-bar);
-  color: var(--brand-bar-ink);
-}
-
-.site-footer-crisis p {
-  padding-block: 0.7rem;
-  font-size: var(--text-sm);
-  font-weight: var(--weight-bold);
-  line-height: 1.45;
-}
-
-.site-footer-crisis a {
-  color: inherit;
-  text-underline-offset: 0.15em;
 }
 
 .site-footer-main {

@@ -1021,15 +1021,42 @@
     },
     "about": {
       "eyebrow": "Acerca de VTCC",
-      "title": "Nuestro equipo y nuestra misión",
-      "intro": "VTCC brinda servicios de salud mental y conductual culturalmente responsivos para niños, adolescentes y familias en el norte de Virginia.",
+      "title": "Habilidades pequeñas. Grandes cambios en casa.",
+      "lede": "VTCC ayuda a niños y familias a desarrollar habilidades fundamentales de comunicación, independencia y conexión social que se trasladan a las rutinas de cada día.",
+      "mission": {
+        "eyebrow": "Nuestra misión",
+        "statement": "Servir a comunidades diversas es el centro de nuestro trabajo.",
+        "body": "Cada familia aporta su propia cultura, idioma, historia y fortalezas. Encontramos a las familias en su idioma y su cultura, respetamos los valores de cada familia y hacemos que la atención sea comprensible y acogedora."
+      },
+      "story": {
+        "eyebrow": "Nuestra historia",
+        "title": "Habilidades fundamentales que aparecen en la vida diaria",
+        "paragraphs": [
+          "Las familias llegan a VTCC porque quieren que la vida diaria se sienta más fácil: las comidas, vestirse, el juego y los momentos entre medio.",
+          "Enseñamos habilidades fundamentales que los niños pueden usar una y otra vez. Esas habilidades se generalizan de la clínica al hogar, la escuela y la comunidad.",
+          "Las familias son socias en todo el proceso. Juntos elegimos metas que importan en la vida real y practicamos hasta que el cambio se queda."
+        ]
+      },
+      "pillars": {
+        "eyebrow": "Lo que cambia",
+        "title": "Habilidades que se llevan a la vida diaria",
+        "items": [
+          {
+            "title": "Comunicación",
+            "body": "Pedir lo que necesitan en la mesa, y ser comprendidos."
+          },
+          {
+            "title": "Independencia",
+            "body": "Vestirse, las comidas y las rutinas que las familias pueden compartir."
+          },
+          {
+            "title": "Conexión",
+            "body": "Juego con hermanos y compañeros que se siente natural y bienvenido."
+          }
+        ]
+      },
       "photoAlt": "Clínicos de VTCC trabajando uno a uno con niños en la clínica",
-      "items": [
-        "Misión y atención multicultural/transcultural",
-        "Biografía del director y liderazgo clínico",
-        "Biografías de BCBA/RBT o terapeutas cuando estén aprobadas",
-        "Ubicación de la oficina en Fairfax"
-      ],
+      "photoCaption": "Clínicos y familias practicando habilidades que viajan a casa.",
       "quotes": {
         "eyebrow": "De las familias",
         "title": "Lo que dicen los padres sobre la atención en VTCC",
@@ -1078,8 +1105,8 @@
     },
     "contactReferral": {
       "eyebrow": "Para referentes",
-      "title": "Inicie una referencia o pregunte por la elegibilidad",
-      "intro": "Escuelas, médicos, administradores de casos, socios del condado y profesionales comunitarios pueden usar este formulario para preguntar por los requisitos de referencia. No envíe información de salud protegida aquí.",
+      "title": "Quién está completando el formulario",
+      "intro": "",
       "callEyebrow": "Llame a VTCC",
       "callTitle": "¿Necesita hablar de una referencia por teléfono?",
       "callIntro": "Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con elegibilidad, documentación requerida y próximos pasos."
@@ -2202,7 +2229,6 @@
   ],
   "footer": {
     "text": "© {year} Victoria Transcultural Clinical Center. Todos los derechos reservados.",
-    "crisis": "En caso de emergencia, llame al [911](tel:911). Si tiene una crisis de salud mental o suicida, llame o envíe un mensaje de texto al [988](tel:988).",
     "disclaimer": "Este sitio web ofrece solo información general y no es consejo médico.",
     "visitLabel": "Visítenos",
     "contactLabel": "Contacto",

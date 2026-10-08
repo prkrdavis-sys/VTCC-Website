@@ -1021,15 +1021,42 @@
     },
     "about": {
       "eyebrow": "About VTCC",
-      "title": "Our team and our mission",
-      "intro": "VTCC provides culturally responsive behavioral and mental health services for children, adolescents, and families across Northern Virginia.",
+      "title": "Small skills. Big changes at home.",
+      "lede": "VTCC helps children and families build foundational skills in communication, independence, and social connection that carry into everyday routines.",
+      "mission": {
+        "eyebrow": "Our mission",
+        "statement": "Serving diverse communities is the heart of our work.",
+        "body": "Every family brings its own culture, language, history, and strengths. We meet families in their language and culture, respect each family's values, and make care understandable and welcoming."
+      },
+      "story": {
+        "eyebrow": "Our story",
+        "title": "Foundational skills that show up in daily life",
+        "paragraphs": [
+          "Families come to VTCC because they want daily life to feel easier: mealtimes, getting ready, play, and the moments in between.",
+          "We teach foundational skills that children can use again and again. Those skills generalize from the clinic to home, school, and the community.",
+          "Families are partners throughout. Together we choose goals that matter in real life, then practice until the change sticks."
+        ]
+      },
+      "pillars": {
+        "eyebrow": "What changes",
+        "title": "Skills that carry into daily life",
+        "items": [
+          {
+            "title": "Communication",
+            "body": "Asking for what they need at the dinner table, and being understood."
+          },
+          {
+            "title": "Independence",
+            "body": "Dressing, mealtimes, and routines that families can share."
+          },
+          {
+            "title": "Connection",
+            "body": "Play with siblings and peers that feels natural and welcome."
+          }
+        ]
+      },
       "photoAlt": "VTCC clinicians working one-on-one with children in the clinic",
-      "items": [
-        "Mission and multicultural/transcultural care",
-        "Director bio and clinical leadership",
-        "BCBA/RBT or therapist bios where approved",
-        "Fairfax office location"
-      ],
+      "photoCaption": "Clinicians and families practicing skills that travel home.",
       "quotes": {
         "eyebrow": "From families",
         "title": "What parents say about care at VTCC",
@@ -1078,16 +1105,16 @@
     },
     "contactReferral": {
       "eyebrow": "For referrers",
-      "title": "Start a referral or ask about eligibility",
-      "intro": "Schools, doctors, case managers, county partners, and community professionals can use this form to ask about referral requirements. Do not send protected health information here.",
+      "title": "Who is filling out the form",
+      "intro": "",
       "callEyebrow": "Call VTCC",
       "callTitle": "Need to discuss a referral by phone?",
       "callIntro": "Call our Fairfax office. A team member can help with eligibility, required paperwork, and next steps."
     },
     "careers": {
-      "eyebrow": "Careers at VTCC",
-      "title": "Practice ABA with children and families",
-      "intro": "Culturally responsive ABA care for families across Northern Virginia.",
+      "title": "Grow your career in ABA",
+      "intro": "Training included, real mentorship, and work that matters to Northern Virginia families.",
+      "photoAlt": "VTCC staff gathered outdoors around a table at a team event, with the clinic banner behind them.",
       "applyLabel": "Apply Now",
       "applyHref": "/career/apply",
       "overviewLabel": "See open roles",
@@ -1096,111 +1123,70 @@
         "label": "View VTCC jobs on Indeed"
       },
       "openRolesEyebrow": "Open roles",
-      "benefits": [
-        {
-          "title": "RBT training, in-house",
-          "body": "40-hour coursework and competency assessment, done here."
-        },
-        {
-          "title": "Fieldwork while you work",
-          "body": "Earn supervised hours toward your BCBA on the job."
-        },
-        {
-          "title": "Monthly learning",
-          "body": "Regular sessions on skills, ethics, and clinical quality."
-        },
-        {
-          "title": "Safety-Care training",
-          "body": "Taught in-house by senior technicians."
-        }
-      ],
-      "quotes": {
-        "eyebrow": "From the team",
-        "title": "What it is like to work at VTCC",
+      "training": {
+        "eyebrow": "Training included",
+        "title": "From coursework to the RBT exam",
         "items": [
           {
-            "quote": "Teammate quote about collaboration and support.",
-            "name": "Employee name",
-            "role": "Placeholder · Role, credentials",
-            "style": "thought"
+            "title": "40-hour RBT coursework",
+            "body": "Taught in-house and meets BACB requirements."
           },
           {
-            "quote": "Colleague quote about working with families.",
-            "name": "Employee name",
-            "role": "Placeholder · Role, credentials",
-            "style": "speech"
+            "title": "Competency assessment",
+            "body": "Completed with a VTCC assessor."
           },
           {
-            "quote": "Staff quote about growth and meaningful work.",
-            "name": "Employee name",
-            "role": "Placeholder · Role, credentials",
-            "style": "thought"
+            "title": "Exam readiness",
+            "body": "Prep and practice before your Pearson VUE exam."
           }
         ]
       },
-      "opportunity": {
-        "eyebrow": "Why work with VTCC",
-        "title": "Meaningful work, real support",
-        "body": "We look for people who bring care, curiosity, and respect.",
-        "photoAlt": "VTCC staff gathered outdoors around a table at a team event, with the clinic banner behind them."
-      },
-      "steps": {
-        "eyebrow": "What to expect",
-        "title": "From application to conversation",
-        "id": "hiring-process",
-        "summary": "Three simple steps.",
+      "perks": {
+        "eyebrow": "Benefits",
+        "title": "Support after you start",
         "items": [
           {
-            "title": "Apply",
-            "body": "Share your background and interests."
+            "title": "Fieldwork while you work",
+            "body": "Supervised BCBA hours through the Student Analyst Program."
           },
           {
-            "title": "Meet the team",
-            "body": "We'll invite you to talk if it's a fit."
+            "title": "Monthly PDUs",
+            "body": "Ongoing learning on skills and ethics."
           },
           {
-            "title": "Discuss the role",
-            "body": "Responsibilities, schedule, and next steps."
+            "title": "Safety-Care certification",
+            "body": "Taught in-house."
+          },
+          {
+            "title": "Room to grow",
+            "body": "Senior Lead Behavior Technician track."
+          },
+          {
+            "title": "Recognition",
+            "body": "Employee of the Month and Grounds for Greatness."
+          }
+        ]
+      },
+      "steps": {
+        "eyebrow": "How hiring works",
+        "title": "Three steps",
+        "id": "hiring-process",
+        "items": [
+          {
+            "title": "Apply"
+          },
+          {
+            "title": "Meet the team"
+          },
+          {
+            "title": "Discuss the role"
           }
         ]
       },
       "closing": {
-        "title": "Ready to take the next step?",
-        "body": "Applying takes just a few minutes.",
+        "title": "Ready to apply?",
+        "body": "It takes a few minutes.",
         "buttonLabel": "Apply Now"
-      },
-      "facts": [
-        {
-          "value": "Fairfax clinic",
-          "label": "10565 Fairfax Blvd, Suite 300"
-        },
-        {
-          "value": "Founded 2001",
-          "label": "Serving children and families"
-        },
-        {
-          "value": "Six ABA programs",
-          "label": "From early learning to parent training"
-        }
-      ],
-      "differentiator": {
-        "eyebrow": "What sets us apart",
-        "title": "We run RBT training in-house",
-        "summary": "40 hours of coursework and your competency assessment, done here.",
-        "steps": [
-          {
-            "title": "40-hour RBT coursework",
-            "body": "Meets BACB requirements, taught at VTCC."
-          },
-          {
-            "title": "In-house competency assessment",
-            "body": "Completed with a VTCC assessor."
-          },
-          {
-            "title": "Exam at Pearson VUE",
-            "body": "Scheduled after BACB approval."
-          }
-        ]
       },
       "tabsLabel": "Careers sections",
       "tabs": [
@@ -1222,24 +1208,18 @@
           "kicker": "Primary opening",
           "title": "Behavior Technician (BT)",
           "meta": "Full-time, part-time, or internship · Fairfax, VA",
-          "summary": "Deliver ABA therapy under BCBA supervision. Our main entry-level clinical role.",
+          "summary": "Deliver ABA therapy under BCBA supervision.",
           "youWill": {
-            "title": "What you will do",
+            "title": "You'll",
             "items": [
-              "Carry out BCBA-written treatment plans",
+              "Carry out treatment plans",
               "Collect session data",
-              "Practice everyday skills with children",
-              "Coach caregivers during sessions"
+              "Coach caregivers"
             ]
           },
-          "training": {
-            "title": "Training and RBT credentialing",
-            "body": "We provide the 40-hour coursework and competency assessment; the exam is at Pearson VUE."
-          },
           "requirements": {
-            "title": "What this role asks of you",
+            "title": "You bring",
             "items": [
-              "Interest in working with children and families",
               "Reliability and clear communication",
               "Willingness to complete RBT training"
             ]
@@ -1252,26 +1232,21 @@
           "kicker": "Clinical leadership",
           "title": "Board Certified Behavior Analyst (BCBA)",
           "meta": "Supervisory clinical role · Virginia license required",
-          "summary": "Lead assessment, treatment planning, supervision, and caregiver training.",
-          "education": {
-            "title": "Education",
-            "body": "Graduate degree meeting BACB requirements."
-          },
-          "certification": {
-            "title": "Certification",
-            "body": "Current BCBA certification."
-          },
-          "licensing": {
-            "title": "Virginia license",
-            "body": "Licensed Behavior Analyst (LBA), or eligible to obtain it."
-          },
+          "summary": "Lead assessment, treatment, and caregiver training.",
           "youWill": {
-            "title": "What you will do",
+            "title": "You'll",
             "items": [
               "Assess children and write treatment plans",
               "Supervise technicians and review data",
-              "Train parents and caregivers",
-              "Mentor Student Analysts"
+              "Train parents and caregivers"
+            ]
+          },
+          "requirements": {
+            "title": "Requirements",
+            "items": [
+              "Graduate degree meeting BACB requirements",
+              "Current BCBA certification",
+              "Virginia LBA, or eligible to obtain it"
             ]
           },
           "applyLabel": "Apply as a BCBA",
@@ -1280,70 +1255,8 @@
         }
       },
       "otherOpenings": {
-        "title": "Other ways people apply",
+        "title": "Other ways to apply",
         "body": "We also welcome interest in office and internship roles."
-      },
-      "programs": {
-        "eyebrow": "Employee programs",
-        "title": "Support after you are hired",
-        "summary": "Fieldwork hours, monthly learning, and a senior technician track.",
-        "items": [
-          {
-            "title": "Student Analyst Program",
-            "summary": "Fieldwork while you work",
-            "body": "RBTs in a qualifying master’s program earn supervised BACB fieldwork hours on the job."
-          },
-          {
-            "title": "Monthly RBT PDUs",
-            "summary": "Ongoing learning",
-            "body": "Monthly sessions on skills, ethics, documentation, and clinical quality."
-          },
-          {
-            "title": "Senior Lead Behavior Technician (SLBT)",
-            "summary": "A senior technician track",
-            "body": "Experienced technicians train new hires, coach in sessions, and teach Safety-Care."
-          }
-        ]
-      },
-      "recognition": {
-        "eyebrow": "Employee recognition",
-        "title": "Celebrating great work",
-        "items": [
-          {
-            "title": "Employee of the Month",
-            "body": "A monthly honor for standout work."
-          },
-          {
-            "title": "Grounds for Greatness",
-            "body": "Shoutouts for everyday moments of excellence."
-          }
-        ],
-        "photoCaption": "A VTCC employee appreciation gathering",
-        "photoAlt": "VTCC staff gathered outdoors at an employee appreciation event"
-      },
-      "clinic": {
-        "eyebrow": "Clinic life",
-        "title": "Where the team is based",
-        "summary": "Based in Fairfax, with much of the work in family homes.",
-        "galleryTitle": "Inside the clinic",
-        "photoPendingLabel": "Photo coming",
-        "gallery": [
-          {
-            "id": "kitchen",
-            "caption": "Clinic kitchen",
-            "pending": true
-          },
-          {
-            "id": "interior",
-            "caption": "Clinic interior",
-            "pending": true
-          },
-          {
-            "id": "employeeAppreciation",
-            "caption": "Team gathering",
-            "asset": "employeeAppreciationImage"
-          }
-        ]
       }
     },
     "earlyLearners": {
@@ -2224,7 +2137,6 @@
   ],
   "footer": {
     "text": "© {year} Victoria Transcultural Clinical Center. All rights reserved.",
-    "crisis": "In an emergency, call [911](tel:911). For a mental health or suicide crisis, call or text [988](tel:988).",
     "disclaimer": "This website provides general information only and is not medical advice.",
     "visitLabel": "Visit",
     "contactLabel": "Contact",
