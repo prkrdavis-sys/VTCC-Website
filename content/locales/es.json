@@ -260,8 +260,13 @@
     "actions": [
       {
         "label": "Solicitar Servicios",
-        "href": "/contact",
+        "href": "#contact",
         "style": "primary"
+      },
+      {
+        "label": "Referir un Cliente",
+        "href": "/contact/referral",
+        "style": "secondary"
       },
       {
         "label": "Llamar a VTCC",
@@ -684,7 +689,7 @@
       "cardLabel": "Pregunta frecuente",
       "formsPromo": {
         "label": "Formularios",
-        "title": "Formularios de admisión y referencia",
+        "title": "Descargue formularios de admisión y referencia",
         "summary": "Imprima y complete el formulario de admisión para su servicio, cuestionarios de referencia y avisos de derechos del cliente.",
         "linkLabel": "Ver todos los formularios",
         "linkHref": "/resources/forms"
@@ -779,7 +784,7 @@
             },
             {
               "question": "¿Qué información debo tener lista?",
-              "answer": "Ayuda tener información de contacto del padre o tutor, la edad del niño, el servicio solicitado, su ciudad o condado y detalles básicos de financiamiento como Medicaid, MCO, seguro comercial o información del condado/FAPT si la conoce."
+              "answer": "Los formularios requeridos dependen del servicio y de la fuente de financiamiento. Descargue los formularios de admisión y referencia en la página de Formularios, o contacte a VTCC si no está seguro de qué documentos aplican."
             },
             {
               "question": "¿Qué formularios pueden ser necesarios?",
@@ -1105,16 +1110,16 @@
     },
     "contactReferral": {
       "eyebrow": "Para referentes",
-      "title": "Quién está completando el formulario",
-      "intro": "",
+      "title": "Inicie una referencia o pregunte por la elegibilidad",
+      "intro": "Escuelas, médicos, administradores de casos, socios del condado y profesionales comunitarios pueden usar este formulario para preguntar por los requisitos de referencia. No envíe información de salud protegida aquí.",
       "callEyebrow": "Llame a VTCC",
       "callTitle": "¿Necesita hablar de una referencia por teléfono?",
       "callIntro": "Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con elegibilidad, documentación requerida y próximos pasos."
     },
     "careers": {
-      "eyebrow": "Carreras en VTCC",
-      "title": "Practique ABA con niños y familias",
-      "intro": "Atención ABA culturalmente responsiva para familias del norte de Virginia.",
+      "title": "Haga crecer su carrera en ABA",
+      "intro": "Capacitación incluida, mentoría real y un trabajo que importa a las familias del norte de Virginia.",
+      "photoAlt": "El personal de VTCC reunido al aire libre alrededor de una mesa en un evento del equipo, con el banner de la clínica detrás.",
       "applyLabel": "Solicitar empleo",
       "applyHref": "/career/apply",
       "overviewLabel": "Ver puestos abiertos",
@@ -1123,111 +1128,70 @@
         "label": "Ver empleos de VTCC en Indeed"
       },
       "openRolesEyebrow": "Puestos abiertos",
-      "benefits": [
-        {
-          "title": "Capacitación RBT interna",
-          "body": "Curso de 40 horas y evaluación de competencia, aquí mismo."
-        },
-        {
-          "title": "Trabajo de campo mientras trabaja",
-          "body": "Acumule horas supervisadas hacia su BCBA en el empleo."
-        },
-        {
-          "title": "Aprendizaje mensual",
-          "body": "Sesiones sobre habilidades, ética y calidad clínica."
-        },
-        {
-          "title": "Capacitación en Safety-Care",
-          "body": "Impartida internamente por técnicos sénior."
-        }
-      ],
-      "quotes": {
-        "eyebrow": "Del equipo",
-        "title": "Cómo es trabajar en VTCC",
+      "training": {
+        "eyebrow": "Capacitación incluida",
+        "title": "Del curso al examen RBT",
         "items": [
           {
-            "quote": "Cita de un compañero sobre colaboración y apoyo.",
-            "name": "Nombre del empleado",
-            "role": "Marcador de posición · Puesto, credenciales",
-            "style": "thought"
+            "title": "Curso RBT de 40 horas",
+            "body": "Impartido internamente y cumple los requisitos de la BACB."
           },
           {
-            "quote": "Cita de un colega sobre el trabajo con familias.",
-            "name": "Nombre del empleado",
-            "role": "Marcador de posición · Puesto, credenciales",
-            "style": "speech"
+            "title": "Evaluación de competencia",
+            "body": "Con un evaluador de VTCC."
           },
           {
-            "quote": "Cita del personal sobre crecimiento y trabajo significativo.",
-            "name": "Nombre del empleado",
-            "role": "Marcador de posición · Puesto, credenciales",
-            "style": "thought"
+            "title": "Preparación para el examen",
+            "body": "Práctica antes de su examen en Pearson VUE."
           }
         ]
       },
-      "opportunity": {
-        "eyebrow": "Por qué trabajar con VTCC",
-        "title": "Trabajo significativo, apoyo real",
-        "body": "Buscamos personas que aporten cuidado, curiosidad y respeto.",
-        "photoAlt": "El personal de VTCC reunido al aire libre alrededor de una mesa en un evento del equipo, con el banner de la clínica detrás."
-      },
-      "steps": {
-        "eyebrow": "Qué puede esperar",
-        "title": "De la solicitud a la conversación",
-        "id": "hiring-process",
-        "summary": "Tres pasos sencillos.",
+      "perks": {
+        "eyebrow": "Beneficios",
+        "title": "Apoyo después de empezar",
         "items": [
           {
-            "title": "Postule",
-            "body": "Comparta su experiencia e intereses."
+            "title": "Trabajo de campo mientras trabaja",
+            "body": "Horas supervisadas hacia el BCBA en el Programa de analista estudiante."
           },
           {
-            "title": "Conozca al equipo",
-            "body": "Le invitaremos a conversar si hay coincidencia."
+            "title": "PDU mensuales",
+            "body": "Aprendizaje continuo sobre habilidades y ética."
           },
           {
-            "title": "Hablemos del puesto",
-            "body": "Responsabilidades, horario y próximos pasos."
+            "title": "Certificación Safety-Care",
+            "body": "Impartida internamente."
+          },
+          {
+            "title": "Espacio para crecer",
+            "body": "Vía de técnico de conducta líder sénior."
+          },
+          {
+            "title": "Reconocimiento",
+            "body": "Empleado del mes y Grounds for Greatness."
+          }
+        ]
+      },
+      "steps": {
+        "eyebrow": "Cómo funciona la contratación",
+        "title": "Tres pasos",
+        "id": "hiring-process",
+        "items": [
+          {
+            "title": "Postule"
+          },
+          {
+            "title": "Conozca al equipo"
+          },
+          {
+            "title": "Hablemos del puesto"
           }
         ]
       },
       "closing": {
-        "title": "¿Listo para dar el siguiente paso?",
-        "body": "Postular toma solo unos minutos.",
+        "title": "¿Listo para postular?",
+        "body": "Toma unos minutos.",
         "buttonLabel": "Solicitar empleo"
-      },
-      "facts": [
-        {
-          "value": "Clínica de Fairfax",
-          "label": "10565 Fairfax Blvd, Suite 300"
-        },
-        {
-          "value": "Fundado en 2001",
-          "label": "Al servicio de niños y familias"
-        },
-        {
-          "value": "Seis programas de ABA",
-          "label": "Del aprendizaje temprano a la capacitación de padres"
-        }
-      ],
-      "differentiator": {
-        "eyebrow": "Lo que nos distingue",
-        "title": "Impartimos la capacitación RBT internamente",
-        "summary": "Curso de 40 horas y evaluación de competencia, aquí mismo.",
-        "steps": [
-          {
-            "title": "Curso RBT de 40 horas",
-            "body": "Cumple los requisitos de la BACB, impartido en VTCC."
-          },
-          {
-            "title": "Evaluación de competencia interna",
-            "body": "Con un evaluador de VTCC."
-          },
-          {
-            "title": "Examen en Pearson VUE",
-            "body": "Se programa tras la aprobación de la BACB."
-          }
-        ]
       },
       "tabsLabel": "Secciones de empleo",
       "tabs": [
@@ -1249,24 +1213,18 @@
           "kicker": "Puesto principal",
           "title": "Técnico de conducta (BT)",
           "meta": "Tiempo completo, parcial o pasantía · Fairfax, VA",
-          "summary": "Brinde terapia ABA bajo supervisión de un BCBA. Nuestro principal puesto clínico de entrada.",
+          "summary": "Brinde terapia ABA bajo supervisión de un BCBA.",
           "youWill": {
             "title": "Qué hará",
             "items": [
-              "Aplicar planes de tratamiento escritos por el BCBA",
+              "Aplicar planes de tratamiento",
               "Recopilar datos de sesión",
-              "Practicar habilidades cotidianas con los niños",
-              "Orientar a los cuidadores durante las sesiones"
+              "Orientar a los cuidadores"
             ]
           },
-          "training": {
-            "title": "Capacitación y credencial RBT",
-            "body": "Ofrecemos el curso de 40 horas y la evaluación de competencia; el examen es en Pearson VUE."
-          },
           "requirements": {
-            "title": "Qué pide este puesto",
+            "title": "Usted aporta",
             "items": [
-              "Interés en trabajar con niños y familias",
               "Puntualidad y comunicación clara",
               "Disposición para completar la capacitación RBT"
             ]
@@ -1279,26 +1237,21 @@
           "kicker": "Liderazgo clínico",
           "title": "Analista de conducta certificado por la junta (BCBA)",
           "meta": "Puesto clínico de supervisión · Requiere licencia de Virginia",
-          "summary": "Dirija evaluaciones, planes de tratamiento, supervisión y capacitación de cuidadores.",
-          "education": {
-            "title": "Educación",
-            "body": "Título de posgrado que cumpla los requisitos de la BACB."
-          },
-          "certification": {
-            "title": "Certificación",
-            "body": "Certificación BCBA vigente."
-          },
-          "licensing": {
-            "title": "Licencia de Virginia",
-            "body": "Licensed Behavior Analyst (LBA), o elegible para obtenerla."
-          },
+          "summary": "Dirija evaluaciones, tratamiento y capacitación de cuidadores.",
           "youWill": {
             "title": "Qué hará",
             "items": [
               "Evaluar a los niños y redactar planes de tratamiento",
               "Supervisar a técnicos y revisar datos",
-              "Capacitar a padres y cuidadores",
-              "Guiar a los analistas estudiantes"
+              "Capacitar a padres y cuidadores"
+            ]
+          },
+          "requirements": {
+            "title": "Requisitos",
+            "items": [
+              "Título de posgrado que cumpla los requisitos de la BACB",
+              "Certificación BCBA vigente",
+              "LBA de Virginia, o elegible para obtenerla"
             ]
           },
           "applyLabel": "Solicitar como BCBA",
@@ -1309,68 +1262,6 @@
       "otherOpenings": {
         "title": "Otras formas de postular",
         "body": "También recibimos interés en puestos de oficina y pasantías."
-      },
-      "programs": {
-        "eyebrow": "Programas para empleados",
-        "title": "Apoyo después de la contratación",
-        "summary": "Horas de trabajo de campo, aprendizaje mensual y una vía de técnico sénior.",
-        "items": [
-          {
-            "title": "Programa de analista estudiante",
-            "summary": "Trabajo de campo mientras trabaja",
-            "body": "Los RBT en una maestría que califica acumulan horas supervisadas de la BACB en el empleo."
-          },
-          {
-            "title": "PDU mensuales para RBT",
-            "summary": "Aprendizaje continuo",
-            "body": "Sesiones mensuales sobre habilidades, ética, documentación y calidad clínica."
-          },
-          {
-            "title": "Técnico de conducta líder sénior (SLBT)",
-            "summary": "Una vía de técnico sénior",
-            "body": "Técnicos con experiencia capacitan a nuevos empleados, orientan en sesión y enseñan Safety-Care."
-          }
-        ]
-      },
-      "recognition": {
-        "eyebrow": "Reconocimiento a empleados",
-        "title": "Celebramos el gran trabajo",
-        "items": [
-          {
-            "title": "Empleado del mes",
-            "body": "Un honor mensual por un trabajo destacado."
-          },
-          {
-            "title": "Grounds for Greatness",
-            "body": "Menciones por momentos cotidianos de excelencia."
-          }
-        ],
-        "photoCaption": "Una reunión de reconocimiento a empleados de VTCC",
-        "photoAlt": "Personal de VTCC reunido al aire libre en un evento de reconocimiento a empleados"
-      },
-      "clinic": {
-        "eyebrow": "Vida en la clínica",
-        "title": "Dónde está el equipo",
-        "summary": "Con base en Fairfax; gran parte del trabajo ocurre en los hogares.",
-        "galleryTitle": "Dentro de la clínica",
-        "photoPendingLabel": "Foto pendiente",
-        "gallery": [
-          {
-            "id": "kitchen",
-            "caption": "Cocina de la clínica",
-            "pending": true
-          },
-          {
-            "id": "interior",
-            "caption": "Interior de la clínica",
-            "pending": true
-          },
-          {
-            "id": "employeeAppreciation",
-            "caption": "Reunión del equipo",
-            "asset": "employeeAppreciationImage"
-          }
-        ]
       }
     },
     "earlyLearners": {
@@ -1900,7 +1791,7 @@
   "contactQuiz": {
     "eyebrow": "Contacto",
     "title": "Encuentre el siguiente paso correcto",
-    "intro": "Unas preguntas. Abriremos el formulario correcto. No es una decisión clínica.",
+    "intro": "Responda unas preguntas. Le sugeriremos un camino y abriremos el formulario correspondiente con lo que ya compartió. Las sugerencias son un punto de partida, no una decisión clínica.",
     "callEyebrow": "Llame a VTCC",
     "callTitle": "¿Prefiere hablar con alguien?",
     "callIntro": "Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con servicios, referencias, empleo y próximos pasos.",
@@ -2164,8 +2055,8 @@
       "abaNote": "La terapia ABA suele ser la base. Los programas especializados se pueden agregar cuando correspondan.",
       "outsideAgeTitle": "Aún podemos ayudarle a encontrar un camino",
       "outsideAgeBody": "La edad de su hijo está fuera del rango típico publicado para los programas de VTCC. Aún puede enviar una solicitud para que el equipo le oriente.",
-      "onlyAbaTitle": "ABA puede ser el mejor punto de partida",
-      "onlyAbaBody": "Sus respuestas no señalaron un programa especializado. ABA suele estar disponible de los 18 meses a los 21 años cuando es clínicamente apropiado.",
+      "onlyAbaTitle": "Está listo para comenzar con ABA",
+      "onlyAbaBody": "La terapia ABA es un sólido próximo paso para su familia. Suele estar disponible de los 18 meses a los 21 años cuando es clínicamente apropiado.",
       "ctaLabel": "Continuar al formulario de solicitud de servicios"
     },
     "parentMessages": {
@@ -2175,26 +2066,26 @@
     },
     "doctorYes": {
       "title": "Cómo enviar una referencia",
-      "intro": "No adjunte informes de diagnóstico, IEP ni expedientes de salud.",
+      "intro": "Use primero esta consulta. No adjunte informes de diagnóstico, IEP ni otra información de salud protegida en el formulario web.",
       "steps": [
         {
-          "title": "Envíe una pregunta breve",
-          "body": ""
+          "title": "Envíe esta consulta",
+          "body": "Envíe una pregunta breve y no sensible a través del formulario de referencia."
         },
         {
-          "title": "Le explicamos cómo enviar documentos",
-          "body": ""
+          "title": "VTCC da seguimiento",
+          "body": "Un miembro del equipo confirma contactos, el servicio de interés y la forma segura de enviar documentos."
         },
         {
-          "title": "Envíe expedientes por el proceso seguro de VTCC",
-          "body": ""
+          "title": "Envíe documentos de forma segura",
+          "body": "Comparta la referencia y el diagnóstico a través del proceso seguro aprobado por VTCC, no en este formulario."
         },
         {
-          "title": "Revisamos el financiamiento y los próximos pasos",
-          "body": ""
+          "title": "Evaluación y autorización",
+          "body": "VTCC revisa el financiamiento y describe los próximos pasos para la evaluación cuando corresponda."
         }
       ],
-      "notice": "",
+      "notice": "Este formulario es solo para preguntas de referencia. Use el proceso seguro aprobado por VTCC para documentos protegidos.",
       "ctaLabel": "Continuar al formulario de referencia"
     },
     "doctorNo": {
@@ -2647,8 +2538,8 @@
       "linkHref": "/get-started"
     },
     "resourcesTeaser": {
-      "title": "Guías y preguntas frecuentes",
-      "intro": "Explore temas comunes sobre admisión, financiamiento, terapia ABA, programas especializados y referencias.",
+      "title": "Guías y preguntas frecuentes útiles",
+      "intro": "Explore temas comunes sobre admisión, financiamiento, terapia ABA, servicios en el hogar y referencias.",
       "linkLabel": "Ver preguntas y guías",
       "linkHref": "/resources"
     }

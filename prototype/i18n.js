@@ -1121,11 +1121,6 @@ function renderProgramPanel(program, content, { open = false, compact = false } 
               <span class="program-panel-summary">
                 <span class="card-label">${escapeHtml(program.label)}</span>
                 <span class="program-panel-title">${escapeHtml(program.title)}</span>
-                ${
-                  compact || !ageRange
-                    ? ''
-                    : `<span class="program-age-badge">${escapeHtml(ageLabel)}: ${escapeHtml(ageRange)}</span>`
-                }
               </span>
               <span class="program-panel-indicator" aria-hidden="true"></span>
             </summary>
@@ -4378,7 +4373,6 @@ function bindProgramPanels() {
 const REVEAL_SELECTORS = [
   '.section-heading',
   '.home-resource-card',
-  '.program-panel',
   '.home-trust-item',
   '.home-start-steps > *',
   '.quote-bubble',

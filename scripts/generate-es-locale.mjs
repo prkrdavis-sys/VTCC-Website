@@ -146,9 +146,10 @@ es.hero.actions = [
 ]
 
 es.sections.careers = {
-  eyebrow: 'Carreras en VTCC',
-  title: 'Practique ABA con niños y familias',
-  intro: 'Atención ABA culturalmente responsiva para familias del norte de Virginia.',
+  title: 'Haga crecer su carrera en ABA',
+  intro: 'Capacitación incluida, mentoría real y un trabajo que importa a las familias del norte de Virginia.',
+  photoAlt:
+    'El personal de VTCC reunido al aire libre alrededor de una mesa en un evento del equipo, con el banner de la clínica detrás.',
   applyLabel: 'Solicitar empleo',
   applyHref: '/career/apply',
   overviewLabel: 'Ver puestos abiertos',
@@ -157,73 +158,36 @@ es.sections.careers = {
     label: 'Ver empleos de VTCC en Indeed',
   },
   openRolesEyebrow: 'Puestos abiertos',
-  benefits: [
-    { title: 'Capacitación RBT interna', body: 'Curso de 40 horas y evaluación de competencia, aquí mismo.' },
-    { title: 'Trabajo de campo mientras trabaja', body: 'Acumule horas supervisadas hacia su BCBA en el empleo.' },
-    { title: 'Aprendizaje mensual', body: 'Sesiones sobre habilidades, ética y calidad clínica.' },
-    { title: 'Capacitación en Safety-Care', body: 'Impartida internamente por técnicos sénior.' },
-  ],
-  quotes: {
-    eyebrow: 'Del equipo',
-    title: 'Cómo es trabajar en VTCC',
+  training: {
+    eyebrow: 'Capacitación incluida',
+    title: 'Del curso al examen RBT',
     items: [
-      {
-        quote: 'Cita de un compañero sobre colaboración y apoyo.',
-        name: 'Nombre del empleado',
-        role: 'Marcador de posición · Puesto, credenciales',
-        style: 'thought',
-      },
-      {
-        quote: 'Cita de un colega sobre el trabajo con familias.',
-        name: 'Nombre del empleado',
-        role: 'Marcador de posición · Puesto, credenciales',
-        style: 'speech',
-      },
-      {
-        quote: 'Cita del personal sobre crecimiento y trabajo significativo.',
-        name: 'Nombre del empleado',
-        role: 'Marcador de posición · Puesto, credenciales',
-        style: 'thought',
-      },
+      { title: 'Curso RBT de 40 horas', body: 'Impartido internamente y cumple los requisitos de la BACB.' },
+      { title: 'Evaluación de competencia', body: 'Con un evaluador de VTCC.' },
+      { title: 'Preparación para el examen', body: 'Práctica antes de su examen en Pearson VUE.' },
     ],
   },
-  opportunity: {
-    eyebrow: 'Por qué trabajar con VTCC',
-    title: 'Trabajo significativo, apoyo real',
-    body: 'Buscamos personas que aporten cuidado, curiosidad y respeto.',
-    photoAlt:
-      'El personal de VTCC reunido al aire libre alrededor de una mesa en un evento del equipo, con el banner de la clínica detrás.',
+  perks: {
+    eyebrow: 'Beneficios',
+    title: 'Apoyo después de empezar',
+    items: [
+      { title: 'Trabajo de campo mientras trabaja', body: 'Horas supervisadas hacia el BCBA en el Programa de analista estudiante.' },
+      { title: 'PDU mensuales', body: 'Aprendizaje continuo sobre habilidades y ética.' },
+      { title: 'Certificación Safety-Care', body: 'Impartida internamente.' },
+      { title: 'Espacio para crecer', body: 'Vía de técnico de conducta líder sénior.' },
+      { title: 'Reconocimiento', body: 'Empleado del mes y Grounds for Greatness.' },
+    ],
   },
   steps: {
-    eyebrow: 'Qué puede esperar',
-    title: 'De la solicitud a la conversación',
+    eyebrow: 'Cómo funciona la contratación',
+    title: 'Tres pasos',
     id: 'hiring-process',
-    summary: 'Tres pasos sencillos.',
-    items: [
-      { title: 'Postule', body: 'Comparta su experiencia e intereses.' },
-      { title: 'Conozca al equipo', body: 'Le invitaremos a conversar si hay coincidencia.' },
-      { title: 'Hablemos del puesto', body: 'Responsabilidades, horario y próximos pasos.' },
-    ],
+    items: [{ title: 'Postule' }, { title: 'Conozca al equipo' }, { title: 'Hablemos del puesto' }],
   },
   closing: {
-    title: '¿Listo para dar el siguiente paso?',
-    body: 'Postular toma solo unos minutos.',
+    title: '¿Listo para postular?',
+    body: 'Toma unos minutos.',
     buttonLabel: 'Solicitar empleo',
-  },
-  facts: [
-    { value: 'Clínica de Fairfax', label: '10565 Fairfax Blvd, Suite 300' },
-    { value: 'Fundado en 2001', label: 'Al servicio de niños y familias' },
-    { value: 'Seis programas de ABA', label: 'Del aprendizaje temprano a la capacitación de padres' },
-  ],
-  differentiator: {
-    eyebrow: 'Lo que nos distingue',
-    title: 'Impartimos la capacitación RBT internamente',
-    summary: 'Curso de 40 horas y evaluación de competencia, aquí mismo.',
-    steps: [
-      { title: 'Curso RBT de 40 horas', body: 'Cumple los requisitos de la BACB, impartido en VTCC.' },
-      { title: 'Evaluación de competencia interna', body: 'Con un evaluador de VTCC.' },
-      { title: 'Examen en Pearson VUE', body: 'Se programa tras la aprobación de la BACB.' },
-    ],
   },
   tabsLabel: 'Secciones de empleo',
   tabs: [
@@ -236,27 +200,18 @@ es.sections.careers = {
       kicker: 'Puesto principal',
       title: 'Técnico de conducta (BT)',
       meta: 'Tiempo completo, parcial o pasantía · Fairfax, VA',
-      summary: 'Brinde terapia ABA bajo supervisión de un BCBA. Nuestro principal puesto clínico de entrada.',
+      summary: 'Brinde terapia ABA bajo supervisión de un BCBA.',
       youWill: {
         title: 'Qué hará',
         items: [
-          'Aplicar planes de tratamiento escritos por el BCBA',
+          'Aplicar planes de tratamiento',
           'Recopilar datos de sesión',
-          'Practicar habilidades cotidianas con los niños',
-          'Orientar a los cuidadores durante las sesiones',
+          'Orientar a los cuidadores',
         ],
-      },
-      training: {
-        title: 'Capacitación y credencial RBT',
-        body: 'Ofrecemos el curso de 40 horas y la evaluación de competencia; el examen es en Pearson VUE.',
       },
       requirements: {
-        title: 'Qué pide este puesto',
-        items: [
-          'Interés en trabajar con niños y familias',
-          'Puntualidad y comunicación clara',
-          'Disposición para completar la capacitación RBT',
-        ],
+        title: 'Usted aporta',
+        items: ['Puntualidad y comunicación clara', 'Disposición para completar la capacitación RBT'],
       },
       applyLabel: 'Solicitar como técnico de conducta',
       applyRole: 'Behavior Technician (BT)',
@@ -266,26 +221,21 @@ es.sections.careers = {
       kicker: 'Liderazgo clínico',
       title: 'Analista de conducta certificado por la junta (BCBA)',
       meta: 'Puesto clínico de supervisión · Requiere licencia de Virginia',
-      summary: 'Dirija evaluaciones, planes de tratamiento, supervisión y capacitación de cuidadores.',
-      education: {
-        title: 'Educación',
-        body: 'Título de posgrado que cumpla los requisitos de la BACB.',
-      },
-      certification: {
-        title: 'Certificación',
-        body: 'Certificación BCBA vigente.',
-      },
-      licensing: {
-        title: 'Licencia de Virginia',
-        body: 'Licensed Behavior Analyst (LBA), o elegible para obtenerla.',
-      },
+      summary: 'Dirija evaluaciones, tratamiento y capacitación de cuidadores.',
       youWill: {
         title: 'Qué hará',
         items: [
           'Evaluar a los niños y redactar planes de tratamiento',
           'Supervisar a técnicos y revisar datos',
           'Capacitar a padres y cuidadores',
-          'Guiar a los analistas estudiantes',
+        ],
+      },
+      requirements: {
+        title: 'Requisitos',
+        items: [
+          'Título de posgrado que cumpla los requisitos de la BACB',
+          'Certificación BCBA vigente',
+          'LBA de Virginia, o elegible para obtenerla',
         ],
       },
       applyLabel: 'Solicitar como BCBA',
@@ -296,50 +246,6 @@ es.sections.careers = {
   otherOpenings: {
     title: 'Otras formas de postular',
     body: 'También recibimos interés en puestos de oficina y pasantías.',
-  },
-  programs: {
-    eyebrow: 'Programas para empleados',
-    title: 'Apoyo después de la contratación',
-    summary: 'Horas de trabajo de campo, aprendizaje mensual y una vía de técnico sénior.',
-    items: [
-      {
-        title: 'Programa de analista estudiante',
-        summary: 'Trabajo de campo mientras trabaja',
-        body: 'Los RBT en una maestría que califica acumulan horas supervisadas de la BACB en el empleo.',
-      },
-      {
-        title: 'PDU mensuales para RBT',
-        summary: 'Aprendizaje continuo',
-        body: 'Sesiones mensuales sobre habilidades, ética, documentación y calidad clínica.',
-      },
-      {
-        title: 'Técnico de conducta líder sénior (SLBT)',
-        summary: 'Una vía de técnico sénior',
-        body: 'Técnicos con experiencia capacitan a nuevos empleados, orientan en sesión y enseñan Safety-Care.',
-      },
-    ],
-  },
-  recognition: {
-    eyebrow: 'Reconocimiento a empleados',
-    title: 'Celebramos el gran trabajo',
-    items: [
-      { title: 'Empleado del mes', body: 'Un honor mensual por un trabajo destacado.' },
-      { title: 'Grounds for Greatness', body: 'Menciones por momentos cotidianos de excelencia.' },
-    ],
-    photoCaption: 'Una reunión de reconocimiento a empleados de VTCC',
-    photoAlt: 'Personal de VTCC reunido al aire libre en un evento de reconocimiento a empleados',
-  },
-  clinic: {
-    eyebrow: 'Vida en la clínica',
-    title: 'Dónde está el equipo',
-    summary: 'Con base en Fairfax; gran parte del trabajo ocurre en los hogares.',
-    galleryTitle: 'Dentro de la clínica',
-    photoPendingLabel: 'Foto pendiente',
-    gallery: [
-      { id: 'kitchen', caption: 'Cocina de la clínica', pending: true },
-      { id: 'interior', caption: 'Interior de la clínica', pending: true },
-      { id: 'employeeAppreciation', caption: 'Reunión del equipo', asset: 'employeeAppreciationImage' },
-    ],
   },
 }
 
@@ -1716,9 +1622,9 @@ Object.assign(es.contactQuiz.parentResult, {
   outsideAgeTitle: 'Aún podemos ayudarle a encontrar un camino',
   outsideAgeBody:
     'La edad de su hijo está fuera del rango típico publicado para los programas de VTCC. Aún puede enviar una solicitud para que el equipo le oriente.',
-  onlyAbaTitle: 'ABA puede ser el mejor punto de partida',
+  onlyAbaTitle: 'Está listo para comenzar con ABA',
   onlyAbaBody:
-    'Sus respuestas no señalaron un programa especializado. ABA suele estar disponible de los 18 meses a los 21 años cuando es clínicamente apropiado.',
+    'La terapia ABA es un sólido próximo paso para su familia. Suele estar disponible de los 18 meses a los 21 años cuando es clínicamente apropiado.',
   ctaLabel: 'Continuar al formulario de solicitud de servicios',
 })
 es.contactQuiz.parentMessages = {

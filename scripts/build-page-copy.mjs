@@ -296,9 +296,7 @@ ${(() => {
     return ''
   }
 
-  const programs = (careers.programs.items ?? [])
-    .map((program) => `### ${program.title}\n\n${program.body}`)
-    .join('\n\n')
+  const line = (item) => `${item.title}: ${item.body}`
 
   return [
     '## Careers Page',
@@ -309,35 +307,25 @@ ${(() => {
     '',
     careers.intro,
     '',
-    `### ${careers.differentiator.eyebrow}`,
+    `### ${careers.training.eyebrow}`,
     '',
-    careers.differentiator.title,
+    careers.training.title,
     '',
-    bulletList(careers.differentiator.steps.map((step) => `${step.title}: ${step.body}`)),
+    bulletList(careers.training.items.map(line)),
+    '',
+    `### ${careers.perks.eyebrow}`,
+    '',
+    bulletList(careers.perks.items.map(line)),
     '',
     '### Behavior Technician',
     '',
     careers.postings.bt.summary,
     '',
-    careers.postings.bt.training.body,
-    '',
     '### BCBA',
     '',
     careers.postings.bcba.summary,
     '',
-    careers.postings.bcba.education.body,
-    '',
-    careers.postings.bcba.certification.body,
-    '',
-    careers.postings.bcba.licensing.body,
-    '',
-    '### Employee programs',
-    '',
-    programs,
-    '',
-    '### Recognition',
-    '',
-    bulletList(careers.recognition.items.map((item) => `${item.title}: ${item.body}`)),
+    bulletList(careers.postings.bcba.requirements.items),
     '',
   ].join('\n')
 })()}
