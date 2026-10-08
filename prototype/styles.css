@@ -1117,29 +1117,7 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   outline-color: rgba(205, 237, 130, 0.6);
 }
 
-.home-services .program-panel:has(summary:hover) {
-  border-color: rgba(205, 237, 130, 0.5);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: none;
-}
-
-.home-services .program-panel:has(summary:hover) .program-panel-title {
-  color: var(--white);
-}
-
-.home-services .program-panel:has(summary:hover) .program-panel-indicator {
-  background: rgba(205, 237, 130, 0.18);
-  box-shadow: inset 0 0 0 1px rgba(205, 237, 130, 0.4);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .home-services .program-panel:has(summary:active) {
-    box-shadow: none;
-  }
-}
-
 .home-start .section-heading h2,
-.home-who .section-heading h2,
 .home-resources .section-heading h2 {
   max-width: none;
   font-size: var(--text-2xl);
@@ -1148,7 +1126,6 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
 }
 
 .home-start .section-heading,
-.home-who .section-heading,
 .home-resources .section-heading {
   margin-bottom: clamp(1.25rem, 3vw, 2rem);
 }
@@ -1346,64 +1323,6 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
 .program-panel summary:focus-visible {
   outline: 3px solid rgba(72, 157, 126, 0.35);
   outline-offset: 3px;
-}
-
-.program-panel:has(summary:hover) {
-  border-color: rgba(31, 111, 91, 0.3);
-  background: var(--white);
-  box-shadow:
-    0 18px 36px rgba(23, 33, 29, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95);
-}
-
-.program-panel:has(summary:hover) .program-panel-title {
-  color: var(--brand-deep);
-}
-
-.program-panel:has(summary:hover) .program-age-badge {
-  background: rgba(205, 237, 130, 0.62);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .program-panel {
-    transition:
-      transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 220ms ease,
-      border-color 220ms ease,
-      background-color 220ms ease;
-  }
-
-  .program-panel-title {
-    transition: color 220ms ease;
-  }
-
-  .program-age-badge {
-    transition: background-color 220ms ease;
-  }
-
-  .program-panel-indicator {
-    transition:
-      transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
-      background-color 220ms ease,
-      box-shadow 220ms ease;
-  }
-
-  .program-panel:has(summary:hover) {
-    animation: none;
-    transform: translateY(-3px);
-  }
-
-  .program-panel:has(summary:hover) .program-panel-indicator {
-    background: rgba(31, 111, 91, 0.1);
-    box-shadow: inset 0 0 0 1px rgba(31, 111, 91, 0.18);
-    transform: scale(1.08);
-  }
-
-  .program-panel:has(summary:active) {
-    animation: none;
-    transform: translateY(-1px) scale(0.996);
-    box-shadow: 0 12px 28px rgba(23, 33, 29, 0.1);
-  }
 }
 
 .program-page-intro {
@@ -1668,34 +1587,9 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   text-decoration: underline;
 }
 
-.home-who {
+.section.home-who {
+  padding-block: clamp(1rem, 2.5vw, 1.75rem) clamp(1.5rem, 3vw, 2.25rem);
   background: transparent;
-}
-
-.home-who-grid {
-  display: grid;
-  grid-template-columns: minmax(16rem, 0.85fr) minmax(0, 1.15fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: center;
-}
-
-.home-who-media {
-  margin: 0;
-  overflow: hidden;
-  border-radius: 1.75rem;
-  box-shadow: var(--shadow);
-}
-
-.home-who-media img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 18rem;
-  object-fit: cover;
-}
-
-.home-check-list {
-  margin-bottom: 1.25rem;
 }
 
 .home-mission-statement {
@@ -1713,14 +1607,6 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   font-weight: var(--weight-semibold);
   line-height: 1.45;
   letter-spacing: -0.005em;
-}
-
-.home-culture-note {
-  margin: 0;
-  padding: 1rem 1.1rem;
-  color: var(--muted);
-  background: var(--soft);
-  font-size: 0.94rem;
 }
 
 .home-resources {
@@ -5479,7 +5365,6 @@ address strong {
   .hero,
   .home-hero,
   .home-start-grid,
-  .home-who-grid,
   .forms-layout,
   .split-section,
   .contact-section,

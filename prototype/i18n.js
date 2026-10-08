@@ -1238,7 +1238,7 @@ function renderHome(content) {
       </section>
       ${
         missionStatement
-          ? `<section class="section home-who section--ruled">
+          ? `<section class="section home-who">
         <blockquote class="home-mission-statement">${escapeHtml(missionStatement)}</blockquote>
       </section>`
           : ''
