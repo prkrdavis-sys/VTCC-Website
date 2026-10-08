@@ -1990,45 +1990,48 @@ function getContactPageConfig(content) {
   }
 }
 
-function renderContactSidebar(content, contact) {
-  return `${renderSectionHeading(contact.eyebrow, contact.title, contact.intro)}
-          <div class="contact-call-card">
-            <p class="eyebrow">${escapeHtml(contact.callEyebrow)}</p>
-            <h3>${escapeHtml(contact.callTitle)}</h3>
-            <p>${escapeHtml(contact.callIntro)}</p>
-            <div class="call-button-list">
-              ${content.offices
+function renderContactAside(content, contact) {
+  return `<details class="contact-aside-panel" data-contact-aside open>
+            <summary>${escapeHtml(content.ui.contactAsideLabel)}</summary>
+            <div class="contact-aside-body">
+              <div class="contact-call-card">
+                <p class="eyebrow">${escapeHtml(contact.callEyebrow)}</p>
+                <h3>${escapeHtml(contact.callTitle)}</h3>
+                <p>${escapeHtml(contact.callIntro)}</p>
+                <div class="call-button-list">
+                  ${content.offices
+                    .map(
+                      (office) => `<a class="call-button" href="${escapeHtml(office.phoneHref)}">
+                    <span>${escapeHtml(office.name)}</span>
+                    <strong>${escapeHtml(office.phone)}</strong>
+                  </a>`,
+                    )
+                    .join('\n                  ')}
+                </div>
+              </div>
+              <div class="office-list">${content.offices
                 .map(
-                  (office) => `<a class="call-button" href="${escapeHtml(office.phoneHref)}">
-                <span>${escapeHtml(office.name)}</span>
-                <strong>${escapeHtml(office.phone)}</strong>
-              </a>`,
+                  (office) => `<address>
+                  <strong>${escapeHtml(office.name)}</strong>
+                  ${escapeHtml(office.street)}<br />
+                  ${escapeHtml(office.city)}<br />
+                  <a class="office-phone" href="${escapeHtml(office.phoneHref)}">${escapeHtml(office.phone)}</a><br />
+                  ${escapeHtml(content.ui.faxLabel)}: ${escapeHtml(office.fax)}
+                </address>`,
                 )
-                .join('\n              ')}
+                .join('')}</div>
             </div>
-          </div>
-          <div class="office-list">${content.offices
-            .map(
-              (office) => `<address>
-              <strong>${escapeHtml(office.name)}</strong>
-              ${escapeHtml(office.street)}<br />
-              ${escapeHtml(office.city)}<br />
-              <a href="${escapeHtml(office.phoneHref)}">${escapeHtml(office.phone)}</a><br />
-              ${escapeHtml(content.ui.faxLabel)}: ${escapeHtml(office.fax)}
-            </address>`,
-            )
-            .join('')}</div>`
+          </details>`
 }
 
 function renderContactFormSwitch(content, variant) {
-  const quizSwitch = `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchQuizPrompt)} <a href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.ui.contactSwitchQuizLink)}</a>.</p>`
-  const otherSwitch =
+  const trailing = `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchQuizPrompt)} <a href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.ui.contactSwitchQuizLink)}</a>.</p>`
+  const lead =
     variant === 'referral'
       ? `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchFamilyPrompt)} <a href="${escapeHtml(toStaticHref('/contact/request'))}">${escapeHtml(content.ui.contactSwitchFamilyLink)}</a>.</p>`
       : `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchReferralPrompt)} <a href="${escapeHtml(toStaticHref('/contact/referral'))}">${escapeHtml(content.ui.contactSwitchReferralLink)}</a>.</p>`
 
-  return `${quizSwitch}
-          ${otherSwitch}`
+  return { lead, trailing }
 }
 
 function renderThankYouPage(content) {
@@ -2070,13 +2073,19 @@ function renderThankYouPage(content) {
 function renderContactPage(content) {
   const { contact, form, variant } = getContactPageConfig(content)
   const formType = variant === 'referral' ? 'referral' : 'service_request'
+  const formSwitch = renderContactFormSwitch(content, variant)
 
   return `<section class="section contact-section page-section">
-        <div>
-          ${renderContactSidebar(content, contact)}
+        <div class="contact-main">
+          <header class="contact-intro">
+            ${renderSectionHeading(contact.eyebrow, contact.title, contact.intro)}
+          </header>
+          <aside class="contact-aside">
+            ${renderContactAside(content, contact)}
+          </aside>
         </div>
         <div class="contact-form-panel">
-          ${renderContactFormSwitch(content, variant)}
+          ${formSwitch.lead}
           <form class="request-form request-form--${escapeHtml(variant)}" data-form-type="${escapeHtml(formType)}">
           <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
           ${form.fields.map((field) => renderFormField(field, content)).join('')}
@@ -2085,6 +2094,7 @@ function renderContactPage(content) {
           <button type="submit" data-default-label="${escapeHtml(form.submitLabel)}">${escapeHtml(form.submitLabel)}</button>
           <p class="form-status" data-form-status aria-live="polite"></p>
         </form>
+          ${formSwitch.trailing}
         </div>
       </section>`
 }
@@ -2242,6 +2252,19 @@ function buildParentPrefill(state, quiz) {
     }
   }
 
+  if (state.parentDiagnosis !== 'yes') {
+    return null
+  }
+
+  const fields = {}
+  if (state.childAge != null) {
+    fields.ageRange = String(state.childAge)
+  }
+
+  if (!parentReadyForResult(state)) {
+    return Object.keys(fields).length > 0 ? { form: 'family', fields } : null
+  }
+
   const specialized = parentSpecializedMatches(state)
   const abaEligible = isAbaEligible(state)
   const programs = [...specialized]
@@ -2250,18 +2273,11 @@ function buildParentPrefill(state, quiz) {
   }
 
   const programLabels = programs.map((id) => quiz.programLabels[id] ?? id)
-  const message =
+  fields.serviceIds = programs.length > 0 ? programs : ['not-sure']
+  fields.message =
     programs.length > 0
       ? quiz.parentMessages.programs.replace('{programs}', programLabels.join(', '))
       : quiz.parentMessages.outsideAge
-
-  const fields = {
-    serviceIds: programs.length > 0 ? programs : ['not-sure'],
-    message,
-  }
-  if (state.childAge != null) {
-    fields.ageRange = String(state.childAge)
-  }
 
   return { form: 'family', fields }
 }
@@ -2314,9 +2330,9 @@ function buildQuizPrefill(state, quiz) {
     case 'parent':
       return buildParentPrefill(state, quiz)
     case 'doctor':
-      return buildDoctorPrefill(quiz)
+      return state.doctorDiagnosis ? buildDoctorPrefill(quiz) : null
     case 'applicant':
-      return buildApplicantPrefill(state, quiz)
+      return applicantReadyForResult(state) ? buildApplicantPrefill(state, quiz) : null
     case '':
       return null
     default: {
@@ -2324,6 +2340,20 @@ function buildQuizPrefill(state, quiz) {
       return _exhaustiveCheck ? null : null
     }
   }
+}
+
+function persistQuizPrefill(quiz) {
+  if (!quiz) {
+    return
+  }
+
+  const payload = buildQuizPrefill(quizState, quiz)
+  if (!payload) {
+    clearQuizPrefill()
+    return
+  }
+
+  writeQuizPrefill(payload)
 }
 
 function writeQuizPrefill(payload) {
@@ -2958,6 +2988,7 @@ function refreshContactQuiz(content, { direction = 'none' } = {}) {
     if (token !== quizRefreshToken) {
       return
     }
+    persistQuizPrefill(getQuiz(content))
     const current = document.querySelector('[data-contact-quiz]')
     if (!current) {
       return
@@ -3085,7 +3116,7 @@ function bindContactQuizControls(content) {
   }
 
   const quiz = getQuiz(content)
-  clearQuizPrefill()
+  persistQuizPrefill(quiz)
 
   root.querySelectorAll('.quiz-options').forEach((group) => {
     bindQuizOptionKeys(group)
@@ -3202,12 +3233,36 @@ function bindContactQuizControls(content) {
   })
 }
 
+function bindContactAside() {
+  const panel = document.querySelector('[data-contact-aside]')
+  if (!(panel instanceof HTMLDetailsElement)) {
+    return
+  }
+
+  const wide = window.matchMedia('(min-width: 981px)')
+  const sync = () => {
+    panel.open = wide.matches
+  }
+
+  sync()
+  wide.addEventListener('change', sync)
+}
+
 function bindContactQuiz(content) {
   if (PAGE !== 'contact' || !getQuiz(content)) {
     return
   }
 
   bindContactQuizControls(content)
+
+  if (!bindContactQuiz.persistsOnShow) {
+    bindContactQuiz.persistsOnShow = true
+    window.addEventListener('pageshow', () => {
+      if (PAGE === 'contact') {
+        persistQuizPrefill(getQuiz(getContent()))
+      }
+    })
+  }
 }
 
 function renderResourcesIndex(content) {
@@ -3827,7 +3882,21 @@ async function submitFormspree(formType, fields, file = null, receipt = null) {
   }
 }
 
+function whenDocumentActive(callback) {
+  if (document.prerendering) {
+    document.addEventListener('prerenderingchange', callback, { once: true })
+    return
+  }
+
+  callback()
+}
+
 function applyQuizPrefillToForm(form, content, expectedForm) {
+  if (document.prerendering) {
+    whenDocumentActive(() => applyQuizPrefillToForm(form, content, expectedForm))
+    return
+  }
+
   const prefill = readQuizPrefill()
   if (!prefill || prefill.form !== expectedForm) {
     return
@@ -3884,14 +3953,8 @@ function refreshMultiSelect(root) {
   if (values.length === 0) {
     summary.textContent = root.dataset.placeholder ?? ''
     root.classList.remove('has-value')
-  } else if (values.length === 1) {
-    summary.textContent = values[0]
-    root.classList.add('has-value')
   } else {
-    summary.textContent = (root.dataset.selectedTemplate ?? '{count} selected').replace(
-      '{count}',
-      String(values.length),
-    )
+    summary.textContent = values.join(', ')
     root.classList.add('has-value')
   }
 
@@ -4658,6 +4721,7 @@ function render() {
   bindCareersPage(content)
   bindCareerApplication(content)
   bindContactQuiz(content)
+  bindContactAside()
   bindProgramPanels()
   if (PAGE === 'thank-you') {
     try {

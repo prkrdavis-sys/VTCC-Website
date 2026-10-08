@@ -3380,8 +3380,23 @@ body:has(.page-faq-category) main > .resources-section {
 .contact-section {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(20rem, 1fr);
+  align-content: start;
   gap: clamp(1.5rem, 5vw, 4rem);
   background: transparent;
+}
+
+.contact-aside {
+  align-self: start;
+}
+
+.contact-aside-panel {
+  margin: 0;
+  border: 0;
+  background: transparent;
+}
+
+.contact-aside-panel > summary {
+  display: none;
 }
 
 .office-list {
@@ -3989,6 +4004,12 @@ address strong {
   font-weight: 600;
   text-align: left;
   cursor: pointer;
+}
+
+.multi-select-trigger [data-multi-summary] {
+  flex: 1 1 auto;
+  min-width: 0;
+  line-height: 1.35;
 }
 
 .multi-select-trigger::after {
@@ -5357,6 +5378,94 @@ address strong {
   .career-hero,
   .career-application {
     grid-template-columns: 1fr;
+  }
+
+  .contact-main {
+    display: contents;
+  }
+
+  .contact-section {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "form"
+      "aside";
+    row-gap: 1.25rem;
+  }
+
+  .contact-intro {
+    grid-area: intro;
+  }
+
+  .contact-intro .section-heading {
+    margin-bottom: 0;
+  }
+
+  .contact-form-panel {
+    grid-area: form;
+  }
+
+  .contact-aside {
+    grid-area: aside;
+  }
+
+  .contact-aside-panel {
+    overflow: hidden;
+    border: 1px solid rgba(31, 111, 91, 0.18);
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.65);
+  }
+
+  .contact-aside-panel > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    min-height: 2.75rem;
+    padding: 0.85rem 1.2rem;
+    color: var(--brand-deep);
+    font-weight: 800;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .contact-aside-panel > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .contact-aside-panel > summary::marker {
+    content: "";
+  }
+
+  .contact-aside-panel > summary:focus-visible {
+    outline: 3px solid rgba(72, 157, 126, 0.45);
+    outline-offset: -3px;
+  }
+
+  .contact-aside-panel > summary::after {
+    content: "+";
+    color: var(--brand-dark);
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .contact-aside-panel[open] > summary::after {
+    content: "\2013";
+  }
+
+  .contact-aside-body {
+    display: grid;
+    gap: 1rem;
+    padding: 0 1rem 1rem;
+  }
+
+  .contact-call-card,
+  .office-list {
+    margin-top: 0;
+  }
+
+  .office-phone {
+    display: none;
   }
 
   .career-benefit-grid,

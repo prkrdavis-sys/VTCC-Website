@@ -26,6 +26,7 @@
     "contactSwitchReferralLink": "Use the referral inquiry form",
     "contactSwitchQuizPrompt": "Want help choosing a path?",
     "contactSwitchQuizLink": "Start with the contact quiz",
+    "contactAsideLabel": "Call or visit our office",
     "formSubmitting": "Sending...",
     "formSubmittingAnnouncement": "Sending your request.",
     "formSuccess": "Thank you. Your request was received. A VTCC team member will follow up.",
@@ -1683,7 +1684,9 @@
         "name": "service",
         "label": "Service interest",
         "type": "multiselect",
-        "solo": ["Not sure"],
+        "solo": [
+          "Not sure"
+        ],
         "options": [
           "ABA",
           "Early Learners",
@@ -1701,7 +1704,9 @@
         "groups": [
           {
             "label": "Funder",
-            "solo": ["Not sure"],
+            "solo": [
+              "Not sure"
+            ],
             "options": [
               "Anthem HealthKeepers Plus Medicaid of Virginia",
               "Anthem Commercial of Virginia",
@@ -1718,7 +1723,11 @@
           },
           {
             "label": "Is this with Medicaid?",
-            "solo": ["With Medicaid: Yes", "With Medicaid: No", "With Medicaid: Not sure"],
+            "solo": [
+              "With Medicaid: Yes",
+              "With Medicaid: No",
+              "With Medicaid: Not sure"
+            ],
             "options": [
               "With Medicaid: Yes",
               "With Medicaid: No",
@@ -1786,7 +1795,9 @@
         "name": "service",
         "label": "Service you are interested in",
         "type": "multiselect",
-        "solo": ["Not sure"],
+        "solo": [
+          "Not sure"
+        ],
         "options": [
           "ABA",
           "Early Learners",
@@ -1804,7 +1815,9 @@
         "groups": [
           {
             "label": "Funder",
-            "solo": ["Not sure"],
+            "solo": [
+              "Not sure"
+            ],
             "options": [
               "Anthem HealthKeepers Plus Medicaid of Virginia",
               "Anthem Commercial of Virginia",
@@ -1821,7 +1834,11 @@
           },
           {
             "label": "Is this with Medicaid?",
-            "solo": ["With Medicaid: Yes", "With Medicaid: No", "With Medicaid: Not sure"],
+            "solo": [
+              "With Medicaid: Yes",
+              "With Medicaid: No",
+              "With Medicaid: Not sure"
+            ],
             "options": [
               "With Medicaid: Yes",
               "With Medicaid: No",
@@ -1918,7 +1935,9 @@
         "name": "service",
         "label": "Service requested",
         "type": "multiselect",
-        "solo": ["Not sure"],
+        "solo": [
+          "Not sure"
+        ],
         "options": [
           "ABA",
           "Early Learners",
@@ -1936,7 +1955,9 @@
         "groups": [
           {
             "label": "Funder",
-            "solo": ["Not sure"],
+            "solo": [
+              "Not sure"
+            ],
             "options": [
               "Anthem HealthKeepers Plus Medicaid of Virginia",
               "Anthem Commercial of Virginia",
@@ -1953,7 +1974,11 @@
           },
           {
             "label": "Is this with Medicaid?",
-            "solo": ["With Medicaid: Yes", "With Medicaid: No", "With Medicaid: Not sure"],
+            "solo": [
+              "With Medicaid: Yes",
+              "With Medicaid: No",
+              "With Medicaid: Not sure"
+            ],
             "options": [
               "With Medicaid: Yes",
               "With Medicaid: No",
@@ -2247,9 +2272,9 @@
       "ctaLabel": "Continue to the service request form"
     },
     "parentMessages": {
-      "noDiagnosis": "Contact quiz: parent or guardian asking about next steps.",
-      "programs": "Contact quiz: interested in {programs}.",
-      "outsideAge": "Contact quiz: child age is outside the typical published program range."
+      "noDiagnosis": "I would like help understanding the next steps for services.",
+      "programs": "I am interested in {programs}.",
+      "outsideAge": "My child's age is outside the typical published program range, and I would like advice on next steps."
     },
     "doctorYes": {
       "title": "How to submit a referral",
@@ -2287,7 +2312,7 @@
       ],
       "ctaLabel": "Continue to the referral form"
     },
-    "doctorMessage": "Contact quiz: physician referral inquiry.",
+    "doctorMessage": "I would like to start a referral.",
     "applicantResult": {
       "title": "A role that matches your qualifications",
       "body": "This is a suggested starting point. You can change the role on the application form.",

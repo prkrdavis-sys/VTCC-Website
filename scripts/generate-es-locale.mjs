@@ -32,6 +32,7 @@ Object.assign(es.ui, {
   contactSwitchReferralLink: 'Use el formulario de referencia',
   contactSwitchQuizPrompt: '¿Quiere ayuda para elegir un camino?',
   contactSwitchQuizLink: 'Comience con el cuestionario de contacto',
+  contactAsideLabel: 'Llame o visite nuestra oficina',
 })
 
 Object.assign(es.company, {

@@ -26,6 +26,7 @@
     "contactSwitchReferralLink": "Use el formulario de referencia",
     "contactSwitchQuizPrompt": "¿Quiere ayuda para elegir un camino?",
     "contactSwitchQuizLink": "Comience con el cuestionario de contacto",
+    "contactAsideLabel": "Llame o visite nuestra oficina",
     "formSubmitting": "Sending...",
     "formSubmittingAnnouncement": "Enviando su solicitud.",
     "formSuccess": "Thank you. Your request was received. A VTCC team member will follow up.",
@@ -1660,8 +1661,7 @@
       {
         "name": "service",
         "label": "Interés en servicios",
-        "type": "multiselect",
-        "solo": ["No estoy seguro"],
+        "type": "select",
         "options": [
           "ABA",
           "Primeros Aprendices",
@@ -1676,34 +1676,13 @@
       {
         "name": "funding",
         "label": "Fuente de financiamiento",
-        "type": "multiselect",
-        "groups": [
-          {
-            "label": "Pagador",
-            "solo": ["No estoy seguro"],
-            "options": [
-              "Anthem HealthKeepers Plus Medicaid of Virginia",
-              "Anthem Commercial of Virginia",
-              "Cigna",
-              "UnitedHealthcare",
-              "BlueCross BlueShield",
-              "Aetna Better Health",
-              "Molina Healthcare",
-              "Optima Health",
-              "Kaiser Permanente Behavioral Health",
-              "Financiamiento del condado/FAPT",
-              "No estoy seguro"
-            ]
-          },
-          {
-            "label": "¿Es con Medicaid?",
-            "solo": ["Con Medicaid: Sí", "Con Medicaid: No", "Con Medicaid: No estoy seguro"],
-            "options": [
-              "Con Medicaid: Sí",
-              "Con Medicaid: No",
-              "Con Medicaid: No estoy seguro"
-            ]
-          }
+        "type": "select",
+        "options": [
+          "Medicaid",
+          "MCO",
+          "Seguro comercial",
+          "Condado/FAPT",
+          "No estoy seguro"
         ]
       },
       {
@@ -1765,7 +1744,9 @@
         "name": "service",
         "label": "Service you are interested in",
         "type": "multiselect",
-        "solo": ["Aún no estoy seguro"],
+        "solo": [
+          "Not sure"
+        ],
         "options": [
           "ABA",
           "Primeros Aprendices",
@@ -1783,7 +1764,9 @@
         "groups": [
           {
             "label": "Funder",
-            "solo": ["Not sure"],
+            "solo": [
+              "Not sure"
+            ],
             "options": [
               "Anthem HealthKeepers Plus Medicaid of Virginia",
               "Anthem Commercial of Virginia",
@@ -1800,7 +1783,11 @@
           },
           {
             "label": "Is this with Medicaid?",
-            "solo": ["With Medicaid: Yes", "With Medicaid: No", "With Medicaid: Not sure"],
+            "solo": [
+              "With Medicaid: Yes",
+              "With Medicaid: No",
+              "With Medicaid: Not sure"
+            ],
             "options": [
               "With Medicaid: Yes",
               "With Medicaid: No",
@@ -1897,7 +1884,9 @@
         "name": "service",
         "label": "Service requested",
         "type": "multiselect",
-        "solo": ["Aún no estoy seguro"],
+        "solo": [
+          "Not sure"
+        ],
         "options": [
           "ABA",
           "Primeros Aprendices",
@@ -1915,7 +1904,9 @@
         "groups": [
           {
             "label": "Funder",
-            "solo": ["Not sure"],
+            "solo": [
+              "Not sure"
+            ],
             "options": [
               "Anthem HealthKeepers Plus Medicaid of Virginia",
               "Anthem Commercial of Virginia",
@@ -1932,7 +1923,11 @@
           },
           {
             "label": "Is this with Medicaid?",
-            "solo": ["With Medicaid: Yes", "With Medicaid: No", "With Medicaid: Not sure"],
+            "solo": [
+              "With Medicaid: Yes",
+              "With Medicaid: No",
+              "With Medicaid: Not sure"
+            ],
             "options": [
               "With Medicaid: Yes",
               "With Medicaid: No",
