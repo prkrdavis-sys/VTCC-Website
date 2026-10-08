@@ -260,7 +260,7 @@
     "actions": [
       {
         "label": "Solicitar Servicios",
-        "href": "#contact",
+        "href": "/contact",
         "style": "primary"
       },
       {
@@ -689,7 +689,7 @@
       "cardLabel": "Pregunta frecuente",
       "formsPromo": {
         "label": "Formularios",
-        "title": "Descargue formularios de admisión y referencia",
+        "title": "Formularios de admisión y referencia",
         "summary": "Imprima y complete el formulario de admisión para su servicio, cuestionarios de referencia y avisos de derechos del cliente.",
         "linkLabel": "Ver todos los formularios",
         "linkHref": "/resources/forms"
@@ -784,7 +784,7 @@
             },
             {
               "question": "¿Qué información debo tener lista?",
-              "answer": "Los formularios requeridos dependen del servicio y de la fuente de financiamiento. Descargue los formularios de admisión y referencia en la página de Formularios, o contacte a VTCC si no está seguro de qué documentos aplican."
+              "answer": "Ayuda tener información de contacto del padre o tutor, la edad del niño, el servicio solicitado, su ciudad o condado y detalles básicos de financiamiento como Medicaid, MCO, seguro comercial o información del condado/FAPT si la conoce."
             },
             {
               "question": "¿Qué formularios pueden ser necesarios?",
@@ -987,7 +987,8 @@
         "Descárguelo e imprímalo",
         "Complételo y devuélvalo a VTCC"
       ],
-      "assistanceText": "¿Necesita ayuda? Llame al {phone}.",
+      "assistanceEmail": "intake@vtccmail.com",
+      "assistanceText": "¿Necesita ayuda? Llame al {phone} o escriba a {email}.",
       "insuranceTitle": "Seguro y financiamiento",
       "insuranceBody": "VTCC acepta clientes con Medicaid o financiamiento del condado. Contacte su oficina local o estatal de Medicaid para verificar la cobertura de su hijo, o llame a VTCC para obtener ayuda con la verificación.",
       "insuranceLinkLabel": "Más información sobre seguro y financiamiento",
@@ -2537,8 +2538,8 @@
       "linkHref": "/get-started"
     },
     "resourcesTeaser": {
-      "title": "Guías y preguntas frecuentes útiles",
-      "intro": "Explore temas comunes sobre admisión, financiamiento, terapia ABA, servicios en el hogar y referencias.",
+      "title": "Guías y preguntas frecuentes",
+      "intro": "Explore temas comunes sobre admisión, financiamiento, terapia ABA, programas especializados y referencias.",
       "linkLabel": "Ver preguntas y guías",
       "linkHref": "/resources"
     }

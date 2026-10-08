@@ -19,7 +19,6 @@ VTCC supports families through individualized ABA therapy, early learning, feedi
 Primary buttons:
 
 - Request Services
-- Refer a Client
 - Call VTCC
 
 Supporting line:
@@ -762,52 +761,37 @@ Staff provide coaching and feedback while each client works toward goals that ma
 
 ### Page Hero
 
-Practice ABA with children and families
+Grow your career in ABA
 
-Culturally responsive ABA care for families across Northern Virginia.
+Training included, real mentorship, and work that matters to Northern Virginia families.
 
-### What sets us apart
+### Training included
 
-We run RBT training in-house
+From coursework to the RBT exam
 
-- 40-hour RBT coursework: Meets BACB requirements, taught at VTCC.
-- In-house competency assessment: Completed with a VTCC assessor.
-- Exam at Pearson VUE: Scheduled after BACB approval.
+- 40-hour RBT coursework: Taught in-house and meets BACB requirements.
+- Competency assessment: Completed with a VTCC assessor.
+- Exam readiness: Prep and practice before your Pearson VUE exam.
+
+### Benefits
+
+- Fieldwork while you work: Supervised BCBA hours through the Student Analyst Program.
+- Monthly PDUs: Ongoing learning on skills and ethics.
+- Safety-Care certification: Taught in-house.
+- Room to grow: Senior Lead Behavior Technician track.
+- Recognition: Employee of the Month and Grounds for Greatness.
 
 ### Behavior Technician
 
-Deliver ABA therapy under BCBA supervision. Our main entry-level clinical role.
-
-We provide the 40-hour coursework and competency assessment; the exam is at Pearson VUE.
+Deliver ABA therapy under BCBA supervision.
 
 ### BCBA
 
-Lead assessment, treatment planning, supervision, and caregiver training.
+Lead assessment, treatment, and caregiver training.
 
-Graduate degree meeting BACB requirements.
-
-Current BCBA certification.
-
-Licensed Behavior Analyst (LBA), or eligible to obtain it.
-
-### Employee programs
-
-### Student Analyst Program
-
-RBTs in a qualifying master’s program earn supervised BACB fieldwork hours on the job.
-
-### Monthly RBT PDUs
-
-Monthly sessions on skills, ethics, documentation, and clinical quality.
-
-### Senior Lead Behavior Technician (SLBT)
-
-Experienced technicians train new hires, coach in sessions, and teach Safety-Care.
-
-### Recognition
-
-- Employee of the Month: A monthly honor for standout work.
-- Grounds for Greatness: Shoutouts for everyday moments of excellence.
+- Graduate degree meeting BACB requirements
+- Current BCBA certification
+- Virginia LBA, or eligible to obtain it
 
 
 ## Contact Page
@@ -840,6 +824,7 @@ Recommended fields for a simple non-clinical inquiry form:
 - Child's age
 - Service interest
 - Funding source
+- Is this with Medicaid?
 - City or county
 - Short non-sensitive message
 - Consent checkbox acknowledging that the form should not be used for emergencies or sensitive medical details

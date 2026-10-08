@@ -1416,7 +1416,8 @@ Object.assign(es.sections.forms, {
     'Descárguelo e imprímalo',
     'Complételo y devuélvalo a VTCC',
   ],
-  assistanceText: '¿Necesita ayuda? Llame al {phone}.',
+  assistanceEmail: 'intake@vtccmail.com',
+  assistanceText: '¿Necesita ayuda? Llame al {phone} o escriba a {email}.',
   privacyNotice:
     'Algunos formularios piden información privada. No envíe formularios completados a un correo electrónico general. Llame al {phone} y le explicaremos cómo entregarlos.',
   insuranceTitle: 'Seguro y financiamiento',

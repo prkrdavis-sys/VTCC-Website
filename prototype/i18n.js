@@ -671,12 +671,12 @@ function renderFooter(content) {
           <div class="site-footer-col">
             <p class="site-footer-label">${escapeHtml(footer.contactLabel)}</p>
             <a class="site-footer-contact" href="${escapeHtml(bar?.phoneHref ?? '#')}">${phoneIcon}<span>${escapeHtml(bar?.phone ?? '')}</span></a>
+            <a class="site-footer-contact" href="${escapeHtml(bar?.emailHref ?? '#')}">${emailIcon}<span>${escapeHtml(bar?.email ?? '')}</span></a>
             ${
               content.offices?.[0]?.fax
                 ? `<p class="site-footer-contact site-footer-fax"><span>${escapeHtml(content.ui.faxLabel)}: ${escapeHtml(content.offices[0].fax)}</span></p>`
                 : ''
             }
-            <a class="site-footer-contact" href="${escapeHtml(bar?.emailHref ?? '#')}">${emailIcon}<span>${escapeHtml(bar?.email ?? '')}</span></a>
           </div>
         </div>
       </div>
@@ -701,10 +701,13 @@ function renderShell(content, mainHtml) {
   return `
     <header class="site-header">
       <div class="site-header-inner">
-      <a class="brand" href="${escapeHtml(toStaticHref('/'))}" aria-label="${escapeHtml(content.company.shortName)} home">
+      <a class="brand" href="${escapeHtml(toStaticHref('/'))}" aria-label="${escapeHtml(content.company.name)} home">
         <img class="brand-mark" src="${escapeHtml(BASE)}assets/vtcc-logo.png" alt="" />
         <span>
-          <strong>${escapeHtml(content.company.name)}</strong>
+          <strong>
+            <span class="brand-full">${escapeHtml(content.company.name)}</span>
+            <span class="brand-short">${escapeHtml(content.company.shortName)}</span>
+          </strong>
           <small>${escapeHtml(content.company.tagline)}</small>
         </span>
       </a>
@@ -792,13 +795,19 @@ function renderLegalPage(content, pageKey) {
       </section>`
 }
 
-function renderTextWithPhone(text, content) {
-  const parts = String(text).split('{phone}')
-  if (parts.length === 1) {
-    return escapeHtml(text)
+function renderTextWithPhone(text, content, links = {}) {
+  const tokens = {
+    '{phone}': `<a href="${escapeHtml(content.topBar.phoneHref)}">${escapeHtml(content.topBar.phone)}</a>`,
   }
 
-  return `${escapeHtml(parts[0])}<a href="${escapeHtml(content.topBar.phoneHref)}">${escapeHtml(content.topBar.phone)}</a>${escapeHtml(parts[1])}`
+  if (links.email) {
+    tokens['{email}'] = `<a href="${escapeHtml(`mailto:${links.email}`)}">${escapeHtml(links.email)}</a>`
+  }
+
+  return String(text)
+    .split(/(\{phone\}|\{email\})/)
+    .map((part) => tokens[part] ?? escapeHtml(part))
+    .join('')
 }
 
 function getDownloadMeta(id) {
@@ -865,7 +874,7 @@ function renderFormsPage(content) {
               ? `<ol class="forms-steps" aria-label="${escapeHtml(forms.title)}">${steps}</ol>`
               : ''
           }
-          <p class="forms-assistance">${renderTextWithPhone(forms.assistanceText, content)}</p>
+          <p class="forms-assistance">${renderTextWithPhone(forms.assistanceText, content, { email: forms.assistanceEmail })}</p>
           <p class="forms-privacy-notice">${renderTextWithPhone(forms.privacyNotice, content)}</p>
           <div class="forms-layout">${categories}</div>
           <aside class="forms-insurance-note">
@@ -3184,20 +3193,54 @@ function bindHeaderMenus() {
 
 const HEADER_ROW_LAYOUTS = ['row', 'row-compact', 'row-tight']
 
+function rectContained(innerRect, outerRect, slack = 1) {
+  return innerRect.left >= outerRect.left - slack && innerRect.right <= outerRect.right + slack
+}
+
+function rectsOverlap(a, b, slack = 1) {
+  return a.left < b.right - slack && a.right > b.left + slack && a.top < b.bottom - slack && a.bottom > b.top + slack
+}
+
 function headerRowFits(inner) {
   const navBar = inner.querySelector('.site-nav-bar')
   const nav = inner.querySelector('.site-nav')
+  const brand = inner.querySelector('.brand')
   const brandName = inner.querySelector('.brand strong')
   const brandTagline = inner.querySelector('.brand small')
   const controls = inner.querySelector('.header-controls')
-  const fitsWithin = (element) => !element || element.scrollWidth <= element.clientWidth + 1
+  if (!navBar || !nav || !brand || !controls) {
+    return false
+  }
+
+  const barRect = navBar.getBoundingClientRect()
+  const navRect = nav.getBoundingClientRect()
+  const textOverflows = (element) => element.scrollWidth > element.clientWidth + 1
+  const tabsInsideBar = [...navBar.children].every((tab) => {
+    const rect = tab.getBoundingClientRect()
+    if (rect.width === 0 && rect.height === 0) {
+      return true
+    }
+
+    const label = tab.querySelector('summary, .nav-menu-label') ?? tab
+    return rectContained(rect, barRect) && !textOverflows(tab) && !textOverflows(label)
+  })
+  const textFits = (element) => {
+    if (!element || getComputedStyle(element).display === 'none') {
+      return true
+    }
+
+    return element.scrollWidth <= element.clientWidth + 1
+  }
 
   return (
-    navBar.scrollWidth <= nav.clientWidth + 1 &&
+    tabsInsideBar &&
+    rectContained(barRect, navRect) &&
+    !rectsOverlap(brand.getBoundingClientRect(), barRect) &&
+    !rectsOverlap(controls.getBoundingClientRect(), barRect) &&
     inner.scrollWidth <= inner.clientWidth + 1 &&
-    fitsWithin(brandName) &&
-    fitsWithin(brandTagline) &&
-    fitsWithin(controls)
+    textFits(brandName) &&
+    textFits(brandTagline) &&
+    textFits(controls)
   )
 }
 

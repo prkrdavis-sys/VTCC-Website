@@ -982,7 +982,8 @@
         "Download and print the form",
         "Complete it and return it to VTCC"
       ],
-      "assistanceText": "Need help? Call {phone}.",
+      "assistanceEmail": "intake@vtccmail.com",
+      "assistanceText": "Need help? Call {phone} or email {email}.",
       "insuranceTitle": "Insurance and funding",
       "insuranceBody": "VTCC accepts clients with Medicaid or county funding. Contact your local or state Medicaid office to verify your child's coverage, or call VTCC for help with verification.",
       "insuranceLinkLabel": "Learn about insurance and funding",
