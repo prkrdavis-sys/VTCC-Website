@@ -30,8 +30,6 @@ Object.assign(es.ui, {
   contactSwitchFamilyLink: 'Use el formulario de solicitud familiar',
   contactSwitchReferralPrompt: '¿Va a enviar una referencia profesional?',
   contactSwitchReferralLink: 'Use el formulario de referencia',
-  contactSwitchQuizPrompt: '¿Quiere ayuda para elegir un camino?',
-  contactSwitchQuizLink: 'Comience con el cuestionario de contacto',
   contactAsideLabel: 'Llame o visite nuestra oficina',
 })
 
@@ -1485,9 +1483,13 @@ Object.assign(es.contactQuiz, {
   multiSelectSelected: '{count} seleccionadas',
   yesLabel: 'Sí',
   noLabel: 'No',
+  notSureLabel: 'No lo sé',
   closeLabel: 'Cerrar',
   backLabel: 'Atrás',
   continueLabel: 'Continuar',
+  skipToRequestLabel: 'Saltar al formulario de solicitud',
+  skipToReferralLabel: 'Saltar al formulario de referencia',
+  skipToApplicationLabel: 'Saltar a la solicitud',
   progressLabel: 'Pregunta {n} de {total}',
   progressAriaLabel: 'Progreso del cuestionario',
   callPrompt: '¿Prefiere hablar?',
@@ -1515,6 +1517,7 @@ es.contactQuiz.parentSocialQuestion.label =
 es.contactQuiz.parentClassroomQuestion.label =
   '¿Su hijo está listo para el aula del programa de Primeros Aprendices?'
 es.contactQuiz.doctorDiagnosisQuestion.label = '¿Tiene la referencia y el diagnóstico?'
+es.contactQuiz.cdeQuestion = { label: '¿Tiene la CDE?' }
 es.contactQuiz.applicantCredentialsQuestion.label = '¿Qué titulaciones tiene?'
 es.contactQuiz.applicantCredentialsQuestion.groups = [
   {

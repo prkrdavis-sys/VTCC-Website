@@ -3722,6 +3722,18 @@ body:has(.page-faq-category) main > .resources-section {
   margin-top: 0.25rem;
 }
 
+.quiz-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
+}
+
+.quiz-actions:empty {
+  display: none;
+}
+
 .quiz-footer-links {
   display: flex;
   flex-wrap: wrap;
@@ -3738,7 +3750,6 @@ body:has(.page-faq-category) main > .resources-section {
   margin: 0;
 }
 
-.quiz-back,
 .quiz-footer-call,
 .quiz-footer-skip a {
   border: 0;
@@ -3764,13 +3775,11 @@ body:has(.page-faq-category) main > .resources-section {
 }
 
 .quiz-footer-call:hover,
-.quiz-footer-skip a:hover,
-.quiz-back:hover {
+.quiz-footer-skip a:hover {
   color: var(--brand-deep);
   text-decoration: underline;
 }
 
-.quiz-back:focus-visible,
 .quiz-footer-call:focus-visible,
 .quiz-footer-skip a:focus-visible {
   outline: 2px solid var(--brand-dark);

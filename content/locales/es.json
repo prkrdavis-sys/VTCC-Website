@@ -24,8 +24,6 @@
     "contactSwitchFamilyLink": "Use el formulario de solicitud familiar",
     "contactSwitchReferralPrompt": "¿Va a enviar una referencia profesional?",
     "contactSwitchReferralLink": "Use el formulario de referencia",
-    "contactSwitchQuizPrompt": "¿Quiere ayuda para elegir un camino?",
-    "contactSwitchQuizLink": "Comience con el cuestionario de contacto",
     "contactAsideLabel": "Llame o visite nuestra oficina",
     "formSubmitting": "Sending...",
     "formSubmittingAnnouncement": "Enviando su solicitud.",
@@ -1800,9 +1798,13 @@
     "multiSelectSelected": "{count} seleccionadas",
     "yesLabel": "Sí",
     "noLabel": "No",
+    "notSureLabel": "No lo sé",
     "closeLabel": "Cerrar",
     "backLabel": "Atrás",
     "continueLabel": "Continuar",
+    "skipToRequestLabel": "Saltar al formulario de solicitud",
+    "skipToReferralLabel": "Saltar al formulario de referencia",
+    "skipToApplicationLabel": "Saltar a la solicitud",
     "progressLabel": "Pregunta {n} de {total}",
     "progressAriaLabel": "Progreso del cuestionario",
     "callPrompt": "¿Prefiere hablar?",
@@ -1849,6 +1851,9 @@
     },
     "doctorDiagnosisQuestion": {
       "label": "¿Tiene la referencia y el diagnóstico?"
+    },
+    "cdeQuestion": {
+      "label": "¿Tiene la CDE?"
     },
     "applicantCredentialsQuestion": {
       "label": "¿Qué titulaciones tiene?",

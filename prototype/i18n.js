@@ -1796,13 +1796,9 @@ function renderContactAside(content, contact) {
 }
 
 function renderContactFormSwitch(content, variant) {
-  const trailing = `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchQuizPrompt)} <a href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.ui.contactSwitchQuizLink)}</a>.</p>`
-  const lead =
-    variant === 'referral'
-      ? `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchFamilyPrompt)} <a href="${escapeHtml(toStaticHref('/contact/request'))}">${escapeHtml(content.ui.contactSwitchFamilyLink)}</a>.</p>`
-      : `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchReferralPrompt)} <a href="${escapeHtml(toStaticHref('/contact/referral'))}">${escapeHtml(content.ui.contactSwitchReferralLink)}</a>.</p>`
-
-  return { lead, trailing }
+  return variant === 'referral'
+    ? `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchFamilyPrompt)} <a href="${escapeHtml(toStaticHref('/contact/request'))}">${escapeHtml(content.ui.contactSwitchFamilyLink)}</a>.</p>`
+    : `<p class="contact-form-switch">${escapeHtml(content.ui.contactSwitchReferralPrompt)} <a href="${escapeHtml(toStaticHref('/contact/referral'))}">${escapeHtml(content.ui.contactSwitchReferralLink)}</a>.</p>`
 }
 
 function renderThankYouPage(content) {
@@ -1844,8 +1840,6 @@ function renderThankYouPage(content) {
 function renderContactPage(content) {
   const { contact, form, variant } = getContactPageConfig(content)
   const formType = variant === 'referral' ? 'referral' : 'service_request'
-  const formSwitch = renderContactFormSwitch(content, variant)
-
   return `<section class="section contact-section page-section">
         <div class="contact-main">
           <header class="contact-intro">
@@ -1856,16 +1850,17 @@ function renderContactPage(content) {
           </aside>
         </div>
         <div class="contact-form-panel">
-          ${formSwitch.lead}
+          ${renderContactFormSwitch(content, variant)}
           <form class="request-form request-form--${escapeHtml(variant)}" data-form-type="${escapeHtml(formType)}">
           <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="hidden" name="hasDiagnosis" value="" />
+          <input type="hidden" name="hasCde" value="" />
           ${form.fields.map((field) => renderFormField(field, content, variant)).join('')}
           <label class="consent-field"><input type="checkbox" name="consent" required /> <span>${escapeHtml(form.consentLabel)} ${renderPrivacyPolicyLink(content)}</span></label>
           <p class="form-note">${escapeHtml(form.notice)}</p>
           <button type="submit" data-default-label="${escapeHtml(form.submitLabel)}">${escapeHtml(form.submitLabel)}</button>
           <p class="form-status" data-form-status aria-live="polite"></p>
         </form>
-          ${formSwitch.trailing}
         </div>
       </section>`
 }
@@ -1874,6 +1869,7 @@ function createEmptyQuizState() {
   return {
     role: '',
     parentDiagnosis: '',
+    parentCde: '',
     childAge: null,
     child18Months: '',
     feeding: '',
@@ -1884,6 +1880,7 @@ function createEmptyQuizState() {
     experienceLength: '',
     experienceAges: [],
     doctorDiagnosis: '',
+    doctorCde: '',
     editing: '',
     confirmed: [],
   }
@@ -1960,7 +1957,7 @@ function parentReadyForResult(state) {
   if (state.parentDiagnosis === 'no') {
     return true
   }
-  if (state.parentDiagnosis !== 'yes' || state.childAge == null) {
+  if (state.parentDiagnosis !== 'yes' || !state.parentCde || state.childAge == null) {
     return false
   }
   if (state.childAge === 1 && !state.child18Months) {
@@ -2012,6 +2009,19 @@ function suggestApplicantRole(state, quiz) {
   return 'bt'
 }
 
+function screeningAnswerFields(quiz, diagnosis, cde) {
+  const fields = {}
+  const diagnosisLabel = cdeAnswerLabel(quiz, diagnosis)
+  if (diagnosisLabel) {
+    fields.hasDiagnosis = diagnosisLabel
+  }
+  const cdeLabel = cdeAnswerLabel(quiz, cde)
+  if (cdeLabel) {
+    fields.hasCde = cdeLabel
+  }
+  return fields
+}
+
 function buildParentPrefill(state, quiz) {
   if (state.parentDiagnosis === 'no') {
     return {
@@ -2019,6 +2029,7 @@ function buildParentPrefill(state, quiz) {
       fields: {
         serviceIds: ['not-sure'],
         message: quiz.parentMessages.noDiagnosis,
+        ...screeningAnswerFields(quiz, state.parentDiagnosis, ''),
       },
     }
   }
@@ -2027,7 +2038,7 @@ function buildParentPrefill(state, quiz) {
     return null
   }
 
-  const fields = {}
+  const fields = screeningAnswerFields(quiz, state.parentDiagnosis, state.parentCde)
   if (state.childAge != null) {
     fields.ageRange = String(state.childAge)
   }
@@ -2053,12 +2064,13 @@ function buildParentPrefill(state, quiz) {
   return { form: 'family', fields }
 }
 
-function buildDoctorPrefill(quiz) {
+function buildDoctorPrefill(state, quiz) {
   return {
     form: 'referral',
     fields: {
       role: quiz.referralRoleValue,
       message: quiz.doctorMessage,
+      ...screeningAnswerFields(quiz, state.doctorDiagnosis, state.doctorCde),
     },
   }
 }
@@ -2101,7 +2113,7 @@ function buildQuizPrefill(state, quiz) {
     case 'parent':
       return buildParentPrefill(state, quiz)
     case 'doctor':
-      return state.doctorDiagnosis ? buildDoctorPrefill(quiz) : null
+      return state.doctorDiagnosis ? buildDoctorPrefill(state, quiz) : null
     case 'applicant':
       return applicantReadyForResult(state) ? buildApplicantPrefill(state, quiz) : null
     case '':
@@ -2154,6 +2166,36 @@ function quizYesNoOptions(quiz) {
   ]
 }
 
+function quizYesNoUnsureOptions(quiz) {
+  return [...quizYesNoOptions(quiz), { id: 'not-sure', label: quiz.notSureLabel }]
+}
+
+function cdeAnswerLabel(quiz, value) {
+  switch (value) {
+    case 'yes':
+      return quiz.yesLabel
+    case 'no':
+      return quiz.noLabel
+    case 'not-sure':
+      return quiz.notSureLabel
+    case '':
+      return ''
+    default: {
+      const _exhaustiveCheck = value
+      return _exhaustiveCheck ? '' : ''
+    }
+  }
+}
+
+function cdeQuizStep(id, quiz) {
+  return {
+    id,
+    kind: 'choice',
+    label: quiz.cdeQuestion.label,
+    options: quizYesNoUnsureOptions(quiz),
+  }
+}
+
 function appendParentQuizSteps(steps, state, quiz) {
   steps.push({
     id: 'parentDiagnosis',
@@ -2163,6 +2205,11 @@ function appendParentQuizSteps(steps, state, quiz) {
   })
 
   if (state.parentDiagnosis !== 'yes') {
+    return
+  }
+
+  steps.push(cdeQuizStep('parentCde', quiz))
+  if (!state.parentCde) {
     return
   }
 
@@ -2281,8 +2328,8 @@ function maxParentFollowUpCount() {
 }
 
 function longestQuizCeiling() {
-  const parent = 3 + maxParentFollowUpCount()
-  const doctor = 2
+  const parent = 4 + maxParentFollowUpCount()
+  const doctor = 3
   const applicant = 5
   return Math.max(parent, doctor, applicant)
 }
@@ -2292,13 +2339,23 @@ function parentQuizProgressBounds(state) {
     return { total: 2, exact: true }
   }
 
-  const ceiling = 3 + maxParentFollowUpCount()
+  const ceiling = 4 + maxParentFollowUpCount()
   if (state.parentDiagnosis !== 'yes' || state.childAge == null) {
     return { total: ceiling, exact: false }
   }
 
   const followUps = (state.childAge === 1 ? 1 : 0) + parentProgramIds(state.childAge).length
-  return { total: 3 + followUps, exact: true }
+  return { total: 4 + followUps, exact: true }
+}
+
+function doctorQuizProgressBounds(state) {
+  if (state.doctorDiagnosis === 'yes') {
+    return { total: 3, exact: true }
+  }
+  if (state.doctorDiagnosis === 'no') {
+    return { total: 2, exact: true }
+  }
+  return { total: 3, exact: false }
 }
 
 function applicantQuizProgressBounds(state) {
@@ -2318,7 +2375,7 @@ function quizProgressBounds(state) {
     case 'parent':
       return parentQuizProgressBounds(state)
     case 'doctor':
-      return { total: 2, exact: true }
+      return doctorQuizProgressBounds(state)
     case 'applicant':
       return applicantQuizProgressBounds(state)
     default: {
@@ -2351,6 +2408,9 @@ function getQuizSteps(state, quiz) {
         label: quiz.doctorDiagnosisQuestion.label,
         options: quizYesNoOptions(quiz),
       })
+      if (state.doctorDiagnosis === 'yes') {
+        steps.push(cdeQuizStep('doctorCde', quiz))
+      }
       break
     case 'applicant':
       appendApplicantQuizSteps(steps, state, quiz)
@@ -2386,7 +2446,10 @@ function quizResultReady(state) {
     case 'parent':
       return parentReadyForResult(state)
     case 'doctor':
-      return Boolean(state.doctorDiagnosis)
+      if (state.doctorDiagnosis === 'no') {
+        return true
+      }
+      return state.doctorDiagnosis === 'yes' && Boolean(state.doctorCde)
     case 'applicant':
       return applicantReadyForResult(state)
     case '':
@@ -2496,6 +2559,32 @@ function renderQuizStep(step, quiz) {
     default: {
       const _exhaustiveCheck = step.kind
       return _exhaustiveCheck ? '' : ''
+    }
+  }
+}
+
+function quizFormShortcut(state, quiz) {
+  switch (state.role) {
+    case 'parent':
+      return {
+        href: '/contact/request',
+        label: quiz.skipToRequestLabel ?? 'Skip to the request form',
+      }
+    case 'doctor':
+      return {
+        href: '/contact/referral',
+        label: quiz.skipToReferralLabel ?? 'Skip to the referral form',
+      }
+    case 'applicant':
+      return {
+        href: '/career/apply',
+        label: quiz.skipToApplicationLabel ?? 'Skip to the application',
+      }
+    case '':
+      return null
+    default: {
+      const _exhaustiveCheck = state.role
+      return _exhaustiveCheck ? null : null
     }
   }
 }
@@ -2618,7 +2707,7 @@ function renderQuizResult(state, quiz) {
     case 'parent':
       return parentReadyForResult(state) ? renderParentResultCard(state, quiz) : ''
     case 'doctor':
-      return state.doctorDiagnosis ? renderDoctorResultCard(state, quiz) : ''
+      return quizResultReady(state) ? renderDoctorResultCard(state, quiz) : ''
     case 'applicant':
       return applicantReadyForResult(state) ? renderApplicantResultCard(state, quiz) : ''
     case '':
@@ -2648,6 +2737,7 @@ function renderContactQuizInner(content, direction = 'none') {
   const phone = content.topBar?.phone ?? ''
   const phoneHref = content.topBar?.phoneHref ?? '#'
   const canGoBack = showingResult || index > 0
+  const formShortcut = showingResult ? null : quizFormShortcut(quizState, quiz)
   const motion = direction === 'back' ? 'enter-back' : direction === 'forward' ? 'enter-forward' : 'none'
   const stage = showingResult || !step ? renderQuizResult(quizState, quiz) : renderQuizStep(step, quiz)
 
@@ -2664,8 +2754,11 @@ function renderContactQuizInner(content, direction = 'none') {
           <div class="quiz-stage" data-quiz-stage data-motion="${motion}">
             ${stage}
           </div>
+          <div class="quiz-actions">
+            ${canGoBack ? `<button type="button" class="button ghost quiz-back" data-quiz-back>${escapeHtml(quiz.backLabel ?? 'Back')}</button>` : ''}
+            ${formShortcut ? `<a class="button ghost quiz-skip" href="${escapeHtml(toStaticHref(formShortcut.href))}" data-quiz-prefill>${escapeHtml(formShortcut.label)}</a>` : ''}
+          </div>
           <div class="quiz-footer-links">
-            ${canGoBack ? `<button type="button" class="quiz-back" data-quiz-back>${escapeHtml(quiz.backLabel ?? 'Back')}</button>` : ''}
             <a class="quiz-footer-call" href="${escapeHtml(phoneHref)}">${escapeHtml(quiz.callPrompt ?? 'Prefer to talk?')} ${escapeHtml(phone)}</a>
             <span class="quiz-footer-skip">${escapeHtml(quiz.skipLinkPrompt)} <a href="${escapeHtml(toStaticHref(quiz.skipLinkHref))}">${escapeHtml(quiz.skipLinkLabel)}</a></span>
           </div>
@@ -2693,11 +2786,17 @@ function resetDependentQuizFields(fieldName) {
   }
 
   if (fieldName === 'parentDiagnosis') {
+    quizState.parentCde = ''
     quizState.childAge = null
     quizState.child18Months = ''
     quizState.feeding = ''
     quizState.social = ''
     quizState.classroom = ''
+    return
+  }
+
+  if (fieldName === 'doctorDiagnosis') {
+    quizState.doctorCde = ''
     return
   }
 
@@ -2779,6 +2878,8 @@ function refreshContactQuiz(content, { direction = 'none' } = {}) {
       const nextTrack = next.querySelector('.quiz-progress-track')
       const currentLabel = current.querySelector('.quiz-progress-label')
       const nextLabel = next.querySelector('.quiz-progress-label')
+      const currentActions = current.querySelector('.quiz-actions')
+      const nextActions = next.querySelector('.quiz-actions')
       const currentFooter = current.querySelector('.quiz-footer-links')
       const nextFooter = next.querySelector('.quiz-footer-links')
       if (currentTrack && nextTrack) {
@@ -2803,6 +2904,9 @@ function refreshContactQuiz(content, { direction = 'none' } = {}) {
         void currentStage.offsetWidth
       }
       currentStage.dataset.motion = nextMotion
+      if (currentActions && nextActions) {
+        currentActions.innerHTML = nextActions.innerHTML
+      }
       if (currentFooter && nextFooter) {
         currentFooter.innerHTML = nextFooter.innerHTML
       }
@@ -3598,6 +3702,8 @@ const FORMSPREE_FORMS = {
       medicaid: 'Is this with Medicaid?',
       location: 'City or county',
       message: 'Message',
+      hasDiagnosis: "Diagnosis from the child's doctor",
+      hasCde: 'Has the CDE',
     },
   },
   referral: {
@@ -3618,6 +3724,8 @@ const FORMSPREE_FORMS = {
       medicaid: 'Is this with Medicaid?',
       location: "Child's city or county",
       message: 'Reason for referral',
+      hasDiagnosis: 'Has the referral and diagnosis',
+      hasCde: 'Has the CDE',
     },
   },
   career: {
@@ -3687,12 +3795,18 @@ function buildFormspreePayload(formType, fields, receipt = null) {
 
   if (formType === 'service_request' || formType === 'referral') {
     payload['Reference number'] = receipt?.reference ?? 'pending'
-    if (receipt?.submittedAt) {
-      payload.Submitted = formatSubmittedStamp(receipt.submittedAt)
-    }
+    payload.Submitted = receipt?.submittedAt
+      ? formatSubmittedStamp(receipt.submittedAt)
+      : formatSubmittedStamp(new Date().toISOString())
   }
 
   return { config, payload }
+}
+
+function localReferenceNumber() {
+  const bytes = new Uint32Array(1)
+  crypto.getRandomValues(bytes)
+  return String(10_000_000 + (bytes[0] % 90_000_000))
 }
 
 async function requestReferenceNumber() {
@@ -3712,10 +3826,7 @@ async function requestReferenceNumber() {
       if (!/^\d{8}$/.test(data?.reference)) {
         throw new Error('Invalid reference number')
       }
-      const submittedAt = data.issuedAt && !Number.isNaN(Date.parse(data.issuedAt))
-        ? data.issuedAt
-        : new Date().toISOString()
-      return { reference: data.reference, submittedAt }
+      return data.reference
     } finally {
       window.clearTimeout(timer)
     }
@@ -3725,6 +3836,16 @@ async function requestReferenceNumber() {
     return await attempt()
   } catch {
     return attempt()
+  }
+}
+
+async function issueIntakeReceipt() {
+  const submittedAt = new Date().toISOString()
+  try {
+    const reference = await requestReferenceNumber()
+    return { reference, submittedAt }
+  } catch {
+    return { reference: localReferenceNumber(), submittedAt }
   }
 }
 
@@ -4030,14 +4151,7 @@ function bindRequestForms(content) {
       try {
         const formType = form.dataset.formType
         const tracksReceipt = formType === 'service_request' || formType === 'referral'
-        let receipt = null
-        if (tracksReceipt) {
-          try {
-            receipt = await requestReferenceNumber()
-          } catch {
-            receipt = null
-          }
-        }
+        const receipt = tracksReceipt ? await issueIntakeReceipt() : null
         const posted = submitFormspree(formType, readFormFields(form), null, receipt)
         const held = holdSubmitInk(ink)
         await posted
@@ -4213,6 +4327,12 @@ function bindCareerApplication(content) {
     return ''
   }
 
+  const assignFileToInput = (file) => {
+    const transfer = new DataTransfer()
+    transfer.items.add(file)
+    fileInput.files = transfer.files
+  }
+
   const selectFile = (file) => {
     const error = getFileError(file)
     if (error) {
@@ -4223,6 +4343,9 @@ function bindCareerApplication(content) {
     }
 
     selectedFile = file
+    if (fileInput.files?.[0] !== file) {
+      assignFileToInput(file)
+    }
     fileInput.setCustomValidity('')
     fileName.textContent = file.name
     fileName.hidden = false
@@ -4244,7 +4367,11 @@ function bindCareerApplication(content) {
     })
 
     dropzone.addEventListener('click', (event) => {
-      if (event.target instanceof Element && event.target.closest('button')) {
+      if (!(event.target instanceof Element)) {
+        return
+      }
+
+      if (event.target.closest('button') || event.target === fileInput) {
         return
       }
 

@@ -24,8 +24,6 @@
     "contactSwitchFamilyLink": "Use the family request form",
     "contactSwitchReferralPrompt": "Submitting a professional referral?",
     "contactSwitchReferralLink": "Use the referral inquiry form",
-    "contactSwitchQuizPrompt": "Want help choosing a path?",
-    "contactSwitchQuizLink": "Start with the contact quiz",
     "contactAsideLabel": "Call or visit our office",
     "formSubmitting": "Sending...",
     "formSubmittingAnnouncement": "Sending your request.",
@@ -1817,9 +1815,13 @@
     "multiSelectSelected": "{count} selected",
     "yesLabel": "Yes",
     "noLabel": "No",
+    "notSureLabel": "Not sure",
     "closeLabel": "Close",
     "backLabel": "Back",
     "continueLabel": "Continue",
+    "skipToRequestLabel": "Skip to the request form",
+    "skipToReferralLabel": "Skip to the referral form",
+    "skipToApplicationLabel": "Skip to the application",
     "progressLabel": "Question {n} of {total}",
     "progressAriaLabel": "Questionnaire progress",
     "callPrompt": "Prefer to talk?",
@@ -1866,6 +1868,9 @@
     },
     "doctorDiagnosisQuestion": {
       "label": "Do you have the referral and diagnosis?"
+    },
+    "cdeQuestion": {
+      "label": "Do you have the CDE?"
     },
     "applicantCredentialsQuestion": {
       "label": "What qualifications do you have?",
