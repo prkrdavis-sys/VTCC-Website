@@ -487,12 +487,13 @@ es.careerApplication = {
     'Cuéntenos cómo contactarlo y qué puesto le interesa. VTCC recibirá su solicitud y dará seguimiento.',
   privacyTitle: 'La privacidad importa',
   privacyNote:
-    'No cargue expedientes clínicos, información de clientes, números de Seguro Social ni otros documentos confidenciales.',
+    'No incluya información de clientes, expedientes clínicos, números de Seguro Social ni otros documentos confidenciales. Usamos lo que envía solo para evaluar su interés en trabajar en VTCC.',
   selectPlaceholder: 'Seleccione una opción',
   submitLabel: 'Enviar solicitud',
   backLabel: 'Volver a Carreras',
   backHref: '/career',
-  consentLabel: 'Entiendo que este formulario no es para expedientes clínicos ni otros documentos confidenciales.',
+  consentLabel:
+    'Acepto que VTCC use la información que envío para revisar mi solicitud y comunicarse conmigo.',
   fileLabel: 'Currículum o documento de apoyo',
   fileRequiredMessage: 'Adjunte un currículum o documento de apoyo.',
   fileTypes: '.pdf,.doc,.docx,.txt',
@@ -1175,11 +1176,20 @@ Object.assign(es.sections.contactReferral, {
     'Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con elegibilidad, documentación requerida y próximos pasos.',
 })
 
-Object.assign(es.form, {
+const familyFormNotices = {
   notice:
-    'No incluya detalles médicos privados, informes de diagnóstico, números de Seguro Social ni inquietudes urgentes de seguridad en este formulario. Si se trata de una emergencia, llame al 911 o vaya a la sala de emergencias más cercana.',
-  consentLabel: 'Entiendo que este formulario no es para emergencias ni detalles médicos sensibles.',
-  submitLabel: 'Enviar Solicitud',
+    'Este formulario es solo para comunicarse con nosotros sobre nuestros servicios. No incluya diagnósticos, informes de evaluación o escolares, números de Medicaid o de seguro médico, números de Seguro Social ni otros detalles médicos privados. Recopilaremos lo que necesitemos durante el proceso de admisión. Este formulario no se revisa las 24 horas. Si se trata de una emergencia, llame al 911. Si tiene una crisis de salud mental, llame o envíe un mensaje de texto al 988.',
+  consentLabel:
+    'Soy padre o madre, tutor legal o una persona adulta que se comunica con VTCC. Entiendo que este formulario no es para emergencias ni para información médica privada, y acepto que VTCC se comunique conmigo con la información que proporcioné.',
+}
+
+Object.assign(es.form, familyFormNotices, { submitLabel: 'Enviar Solicitud' })
+Object.assign(es.formFamily, familyFormNotices)
+Object.assign(es.formReferral, {
+  notice:
+    'Este formulario es solo para preguntas sobre referencias. No incluya informes de diagnóstico, IEP, evaluaciones, expedientes de tratamiento, números de Medicaid, números de Seguro Social ni inquietudes urgentes de seguridad. Después de recibir su mensaje, VTCC se comunicará con usted para indicarle cómo enviar los documentos de la referencia. Si se trata de una emergencia, llame al 911.',
+  consentLabel:
+    'Entiendo que este formulario es solo para preguntas sobre referencias y no es para emergencias ni para información de salud protegida. Tengo permiso para compartir con VTCC el nombre y la información de contacto del padre, la madre o el tutor.',
 })
 
 es.form.fields = [
@@ -1229,14 +1239,33 @@ es.offices = [
 ]
 
 Object.assign(es.footer, {
-  text: 'Prototipo de mejora del sitio web de Victoria Transcultural Clinical Center.',
-  links: [
-    { label: 'Servicios', href: '/#services' },
-    { label: 'Seguro', href: '/insurance' },
-    { label: 'Preguntas y Guías', href: '/resources' },
-    { label: 'Contacto', href: '/contact' },
+  text: '© {year} Victoria Transcultural Clinical Center. Todos los derechos reservados.',
+  emergency:
+    'En caso de emergencia, llame al 911. Si tiene una crisis de salud mental o suicida, llame o envíe un mensaje de texto al 988. Este sitio web ofrece solo información general y no es consejo médico.',
+  legalNavLabel: 'Avisos legales',
+  legalLinks: [
+    { label: 'Política de privacidad', href: '/privacy' },
+    { label: 'Aviso de prácticas de privacidad', href: '/notice-of-privacy-practices' },
+    { label: 'No discriminación y ayuda con idiomas', href: '/nondiscrimination' },
+    { label: 'Accesibilidad', href: '/accessibility' },
+    { label: 'Términos de uso', href: '/terms' },
   ],
 })
+
+Object.assign(es.legal, {
+  updatedLabel: 'Última actualización',
+  translationNotice:
+    'Por ahora, este documento está disponible solo en inglés. Si necesita ayuda en español, llame al 703-218-6599.',
+  privacyLinkLabel: 'Lea nuestra Política de privacidad del sitio web',
+  serviceDisclaimer:
+    'Esta página ofrece información general sobre nuestros servicios. No es un diagnóstico, un plan de tratamiento ni consejo médico, y no crea una relación entre proveedor y cliente. Cada niño es diferente y los resultados varían. La elegibilidad y la cobertura dependen de una evaluación, de las necesidades de su hijo y de la aprobación de Medicaid, su plan de salud o el equipo CSA/FAPT de su condado. Si usted o su hijo están en peligro, llame al 911. Si tiene una crisis de salud mental, llame o envíe un mensaje de texto al 988.',
+})
+es.legal.pages.privacy.title = 'Política de privacidad del sitio web'
+es.legal.pages.terms.title = 'Términos de uso del sitio web'
+es.legal.pages.accessibility.title = 'Declaración de accesibilidad'
+es.legal.pages.nondiscrimination.title = 'Aviso de no discriminación y asistencia con idiomas'
+es.legal.pages.npp.title = 'Aviso de prácticas de privacidad'
+es.legal.pages.npp.documentLinkLabel = 'Lea nuestro Aviso de prácticas de privacidad (PDF, en inglés)'
 
 Object.assign(es.compliance, {
   contentApproval:
@@ -1592,6 +1621,8 @@ Object.assign(es.sections.forms, {
     'Complételo y devuélvalo a VTCC',
   ],
   assistanceText: '¿Necesita ayuda? Llame al {phone}.',
+  privacyNotice:
+    'Algunos formularios piden información privada. No envíe formularios completados a un correo electrónico general. Llame al {phone} y le explicaremos cómo entregarlos.',
   insuranceTitle: 'Seguro y financiamiento',
   insuranceBody:
     'VTCC acepta clientes con Medicaid o financiamiento del condado. Contacte su oficina local o estatal de Medicaid para verificar la cobertura de su hijo, o llame a VTCC para obtener ayuda con la verificación.',

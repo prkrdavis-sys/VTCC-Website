@@ -66,6 +66,9 @@
       }
     }
   },
+  "legal": {
+    "noticeOfPrivacyPracticesPdf": ""
+  },
   "formspree": {
     "serviceRequest": "mrpeekbp",
     "referral": "xppqqlzn",

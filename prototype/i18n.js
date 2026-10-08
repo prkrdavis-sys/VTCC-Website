@@ -54,6 +54,11 @@ function toStaticHref(path) {
     '/contact/request': `${BASE}contact/request.html`,
     '/contact/referral': `${BASE}contact/referral.html`,
     '/thank-you': `${BASE}thank-you.html`,
+    '/privacy': `${BASE}privacy.html`,
+    '/terms': `${BASE}terms.html`,
+    '/accessibility': `${BASE}accessibility.html`,
+    '/nondiscrimination': `${BASE}nondiscrimination.html`,
+    '/notice-of-privacy-practices': `${BASE}notice-of-privacy-practices.html`,
   }
 
   if (path.startsWith('/#')) {
@@ -264,6 +269,19 @@ const PAGE_SECTION_PATHS = {
   'contact-request': '/contact/request',
   'contact-referral': '/contact/referral',
   'thank-you': '/thank-you',
+  privacy: '/privacy',
+  terms: '/terms',
+  accessibility: '/accessibility',
+  nondiscrimination: '/nondiscrimination',
+  'notice-of-privacy-practices': '/notice-of-privacy-practices',
+}
+
+const LEGAL_PAGE_KEYS = {
+  privacy: 'privacy',
+  terms: 'terms',
+  accessibility: 'accessibility',
+  nondiscrimination: 'nondiscrimination',
+  'notice-of-privacy-practices': 'npp',
 }
 
 function getCurrentSectionPath() {
@@ -744,12 +762,79 @@ function renderShell(content, mainHtml) {
     ${renderMobileMenu(content)}
     <main id="top">${mainHtml}</main>
     <footer class="site-footer">
-      <p>${escapeHtml(content.footer.text)}</p>
-      <nav aria-label="Footer navigation">
-        ${content.footer.links.map(renderNavLink).join('\n        ')}
-      </nav>
+      <div class="site-footer-copy">
+        <p class="site-footer-emergency">${escapeHtml(content.footer.emergency)}</p>
+        <p>${escapeHtml(content.footer.text.replace('{year}', String(new Date().getFullYear())))}</p>
+      </div>
+      <div class="site-footer-navs">
+        <nav aria-label="Footer navigation">
+          ${content.footer.links.map(renderNavLink).join('\n          ')}
+        </nav>
+        <nav class="site-footer-legal" aria-label="${escapeHtml(content.footer.legalNavLabel)}">
+          ${content.footer.legalLinks.map(renderNavLink).join('\n          ')}
+        </nav>
+      </div>
     </footer>
   `
+}
+
+const INLINE_LINK_PATTERN = /\[([^\]]+)\]\(((?:https:\/\/|mailto:|tel:|\/)[^)\s]*)\)/g
+
+function renderInlineText(text) {
+  return escapeHtml(text)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(INLINE_LINK_PATTERN, (_, label, href) => {
+      const target = href.startsWith('https://') ? ' target="_blank" rel="noopener"' : ''
+      return `<a href="${toStaticHref(href)}"${target}>${label}</a>`
+    })
+}
+
+function renderPrivacyPolicyLink(content) {
+  return `<a href="${escapeHtml(toStaticHref('/privacy'))}" target="_blank" rel="noopener">${escapeHtml(content.legal.privacyLinkLabel)}</a>`
+}
+
+function renderServiceDisclaimer(content) {
+  return `<p class="service-disclaimer">${escapeHtml(content.legal.serviceDisclaimer)}</p>`
+}
+
+function renderLegalParagraphs(paragraphs) {
+  return (paragraphs ?? []).map((paragraph) => `<p>${renderInlineText(paragraph)}</p>`).join('')
+}
+
+function renderLegalSection(section) {
+  const items = section.items?.length
+    ? `<ul>${section.items.map((item) => `<li>${renderInlineText(item)}</li>`).join('')}</ul>`
+    : ''
+
+  return `<section class="legal-section">
+            <h2>${escapeHtml(section.heading)}</h2>
+            ${renderLegalParagraphs(section.paragraphs)}${items}${renderLegalParagraphs(section.after)}
+          </section>`
+}
+
+function renderLegalPage(content, pageKey) {
+  const legal = content.legal
+  const page = legal.pages[pageKey]
+  const documentFile = pageKey === 'npp' ? window.VTCC_SITE?.legal?.noticeOfPrivacyPracticesPdf : ''
+  const documentLink = documentFile
+    ? `<p class="legal-document-link"><a class="button" href="${escapeHtml(assetSrc(documentFile))}" target="_blank" rel="noopener">${escapeHtml(page.documentLinkLabel)}</a></p>`
+    : ''
+  const bodyLang = getLocale() === 'en' ? '' : ' lang="en"'
+
+  return `<section class="section legal-page page-section">
+        <article class="legal-article">
+          <header class="legal-header">
+            <h1>${escapeHtml(page.title)}</h1>
+            ${page.updated ? `<p class="legal-updated">${escapeHtml(legal.updatedLabel)}: ${escapeHtml(page.updated)}</p>` : ''}
+          </header>
+          ${legal.translationNotice ? `<p class="legal-translation-notice">${escapeHtml(legal.translationNotice)}</p>` : ''}
+          <div class="legal-body"${bodyLang}>
+            ${renderLegalParagraphs(page.intro)}
+            ${documentLink}
+            ${page.sections.map(renderLegalSection).join('\n            ')}
+          </div>
+        </article>
+      </section>`
 }
 
 function renderTextWithPhone(text, content) {
@@ -826,6 +911,7 @@ function renderFormsPage(content) {
               : ''
           }
           <p class="forms-assistance">${renderTextWithPhone(forms.assistanceText, content)}</p>
+          <p class="forms-privacy-notice">${renderTextWithPhone(forms.privacyNotice, content)}</p>
           <div class="forms-layout">${categories}</div>
           <aside class="forms-insurance-note">
             <p><strong>${escapeHtml(forms.insuranceTitle)}.</strong> ${escapeHtml(forms.insuranceBody)} <a href="${escapeHtml(toStaticHref(forms.insuranceLinkHref))}">${escapeHtml(forms.insuranceLinkLabel)}</a></p>
@@ -1265,7 +1351,7 @@ function renderProgramDetailPage(content, programId, section) {
       </section>`
     : ''
 
-  return `${panel}${renderDetailSection(section, true)}`
+  return `${panel}${renderDetailSection(section, true)}${renderServiceDisclaimer(content)}`
 }
 
 function renderAbaTopicBody(topic) {
@@ -1307,7 +1393,8 @@ function renderAbaPage(content) {
       <section class="section detail-section page-section soft aba-summary">
         ${renderFeatureColumns(aba.columns)}
         <a class="button page-link-cta" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.hero.actions[0].label)}</a>
-      </section>`
+      </section>
+      ${renderServiceDisclaimer(content)}`
 }
 
 function isIntakeReceipt(value) {
@@ -1969,7 +2056,7 @@ function renderCareerApplicationPage(content) {
             ${renderCareerFileField(content)}
             <label class="consent-field">
               <input type="checkbox" name="consent" required />
-              ${escapeHtml(application.consentLabel)}
+              <span>${escapeHtml(application.consentLabel)} ${renderPrivacyPolicyLink(content)}</span>
             </label>
             <p class="form-note">${escapeHtml(application.privacyNote)}</p>
             <button type="submit" data-default-label="${escapeHtml(application.submitLabel)}">${escapeHtml(application.submitLabel)}</button>
@@ -2089,7 +2176,7 @@ function renderContactPage(content) {
           <form class="request-form request-form--${escapeHtml(variant)}" data-form-type="${escapeHtml(formType)}">
           <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
           ${form.fields.map((field) => renderFormField(field, content)).join('')}
-          <label class="consent-field"><input type="checkbox" name="consent" required /> ${escapeHtml(form.consentLabel)}</label>
+          <label class="consent-field"><input type="checkbox" name="consent" required /> <span>${escapeHtml(form.consentLabel)} ${renderPrivacyPolicyLink(content)}</span></label>
           <p class="form-note">${escapeHtml(form.notice)}</p>
           <button type="submit" data-default-label="${escapeHtml(form.submitLabel)}">${escapeHtml(form.submitLabel)}</button>
           <p class="form-status" data-form-status aria-live="polite"></p>
@@ -3289,7 +3376,8 @@ function renderResourceTopic(content) {
           <span aria-hidden="true">←</span> ${escapeHtml(content.ui.backToResources)}
         </a>
         ${renderFaqCategory(category, content)}
-      </section>`
+      </section>
+      ${renderServiceDisclaimer(content)}`
 }
 
 function renderMain(content) {
@@ -3352,6 +3440,13 @@ function renderMain(content) {
       break
     case 'thank-you':
       mainHtml = renderThankYouPage(content)
+      break
+    case 'privacy':
+    case 'terms':
+    case 'accessibility':
+    case 'nondiscrimination':
+    case 'notice-of-privacy-practices':
+      mainHtml = renderLegalPage(content, LEGAL_PAGE_KEYS[PAGE])
       break
     default:
       mainHtml = renderHome(content)
@@ -4733,6 +4828,9 @@ function render() {
     if (variant?.title) {
       document.title = `${variant.title} | ${content.company.shortName}`
     }
+  }
+  if (LEGAL_PAGE_KEYS[PAGE]) {
+    document.title = `${content.legal.pages[LEGAL_PAGE_KEYS[PAGE]].title} | ${content.company.name}`
   }
 
   bindIntakeReceipt()

@@ -874,4 +874,4 @@ Recommended fields for a simple non-clinical inquiry form:
 
 ### Form Notice
 
-Please do not include private medical details, diagnosis reports, Social Security numbers, or urgent safety concerns in this form. If this is an emergency, call 911 or go to the nearest emergency room.
+This form is only for contacting us about services. Please do not include diagnoses, evaluation or school reports, Medicaid or insurance ID numbers, Social Security numbers, or other private health details. We will collect what we need during intake. This form is not monitored 24/7. If this is an emergency, call 911. For a mental health crisis, call or text 988.

@@ -54,10 +54,31 @@ const pages = [
   { file: 'career.html', page: 'career', base: '' },
   { file: 'careers.html', page: 'career', base: '', seoPage: 'career' },
   { file: join('career', 'apply.html'), page: 'career-apply', base: '../', seoPage: 'career' },
-  { file: 'contact.html', page: 'contact', base: '' },
-  { file: join('contact', 'request.html'), page: 'contact-request', base: '../', seoPage: 'contact' },
-  { file: join('contact', 'referral.html'), page: 'contact-referral', base: '../' },
-  { file: 'thank-you.html', page: 'thank-you', base: '', noindex: true },
+  { file: 'contact.html', page: 'contact', base: '', noAnalytics: true },
+  {
+    file: join('contact', 'request.html'),
+    page: 'contact-request',
+    base: '../',
+    seoPage: 'contact',
+    noAnalytics: true,
+  },
+  { file: join('contact', 'referral.html'), page: 'contact-referral', base: '../', noAnalytics: true },
+  { file: 'thank-you.html', page: 'thank-you', base: '', noindex: true, noAnalytics: true },
+  { file: 'privacy.html', page: 'privacy', base: '', title: 'Website Privacy Policy' },
+  { file: 'terms.html', page: 'terms', base: '', title: 'Website Terms of Use' },
+  { file: 'accessibility.html', page: 'accessibility', base: '', title: 'Accessibility Statement' },
+  {
+    file: 'nondiscrimination.html',
+    page: 'nondiscrimination',
+    base: '',
+    title: 'Nondiscrimination Notice and Language Assistance',
+  },
+  {
+    file: 'notice-of-privacy-practices.html',
+    page: 'notice-of-privacy-practices',
+    base: '',
+    title: 'Notice of Privacy Practices',
+  },
   { file: join('resources', 'index.html'), page: 'resources', base: '../' },
   { file: join('resources', 'forms.html'), page: 'forms', base: '../' },
   ...[
@@ -108,7 +129,13 @@ for (const entry of pages) {
     </script>
 `
     : ''
-  const seoHead = inkHandoffScript || renderSeoHeadHtml(entry.seoPage ?? pageKey, 'en')
+  const titleHead = entry.title
+    ? `    <title>${entry.title} | Victoria Transcultural Clinical Center</title>\n`
+    : ''
+  const seoHead = inkHandoffScript || titleHead || renderSeoHeadHtml(entry.seoPage ?? pageKey, 'en')
+  const analyticsScript = entry.noAnalytics
+    ? ''
+    : `\n    <script defer src="${entry.base}analytics.js"></script>`
 
   writeFileSync(
     join(prototypeDir, entry.file),
@@ -128,8 +155,7 @@ ${seoHead}    ${fontLinks}
     <script>window.VTCC_PAGE = ${JSON.stringify(entry.page)}; window.VTCC_BASE = ${JSON.stringify(entry.base)};</script>${slugScript}
     <script src="${entry.base}seo-content.js"></script>
     <script src="${entry.base}site-content.js"></script>
-    <script src="${entry.base}i18n.js"></script>
-    <script defer src="${entry.base}analytics.js"></script>${
+    <script src="${entry.base}i18n.js"></script>${analyticsScript}${
       cursorByPage[entry.page]
         ? `
     <script>window.VTCC_CURSOR = ${JSON.stringify(cursorByPage[entry.page])};</script>

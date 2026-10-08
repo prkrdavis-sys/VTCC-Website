@@ -63,6 +63,26 @@
       "source": "/referrers.html",
       "destination": "/contact/referral",
       "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-use",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/npp",
+      "destination": "/notice-of-privacy-practices",
+      "permanent": true
+    },
+    {
+      "source": "/hipaa",
+      "destination": "/notice-of-privacy-practices",
+      "permanent": true
     }
   ]
 }
