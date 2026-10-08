@@ -8,7 +8,7 @@ const PAGE = window.VTCC_PAGE ?? 'home'
 const BASE = window.VTCC_BASE ?? ''
 const RESOURCE_SLUG = window.VTCC_RESOURCE_SLUG
 const CAREERS_TAB_IDS = ['behavior-technician', 'bcba', 'other']
-const CAREER_DISCLOSURE_IDS = ['rbt-pathway', 'team-structure', 'programs', 'clinic', 'hiring-process']
+const CAREER_DISCLOSURE_IDS = ['rbt-pathway', 'programs', 'clinic', 'hiring-process']
 
 function escapeHtml(value) {
   return String(value)
@@ -1571,11 +1571,6 @@ function renderCareersPosting(posting) {
     blocks.push(`<div class="careers-posting-block">
             <h3>${escapeHtml(posting.requirements.title)}</h3>
             ${renderCareersList(posting.requirements.items)}
-            ${
-              posting.requirements.note
-                ? `<p class="careers-note">${escapeHtml(posting.requirements.note)}</p>`
-                : ''
-            }
           </div>`)
   }
 
@@ -1604,12 +1599,11 @@ function renderCareersGallery(clinic, recognition) {
       }
 
       return `<figure class="careers-photo careers-photo--pending">
-            <div class="careers-photo-frame" role="img" aria-label="${escapeHtml(item.pendingDetail ?? clinic.photoPendingLabel)}">
+            <div class="careers-photo-frame" role="img" aria-label="${escapeHtml(clinic.photoPendingLabel)}">
               <span>${escapeHtml(clinic.photoPendingLabel)}</span>
             </div>
             <figcaption>
               <strong>${escapeHtml(item.caption)}</strong>
-              ${item.pendingDetail ? `<span>${escapeHtml(item.pendingDetail)}</span>` : ''}
             </figcaption>
           </figure>`
     })
@@ -1665,7 +1659,6 @@ function renderCareerBenefits(content) {
         <div class="career-benefit-grid">${cards}</div>
         <div class="career-benefit-foot">
           <dl class="career-benefit-facts">${facts}</dl>
-          ${careers.factsNote ? `<p class="careers-note">${escapeHtml(careers.factsNote)}</p>` : ''}
         </div>
       </section>`
 }
@@ -1711,14 +1704,6 @@ function renderHiringDetails(content) {
 function renderCareerPage(content) {
   const careers = content.sections.careers
   const expandLabel = content.ui.careerExpandLabel ?? 'Show this section'
-  const chips = (careers.pillars ?? [])
-    .map(
-      (pillar) => `<li class="career-pillar-chip">
-          <strong>${escapeHtml(pillar.title)}</strong>
-          <span>${escapeHtml(pillar.body)}</span>
-        </li>`,
-    )
-    .join('')
   const leadQuotes = careers.quotes ?? null
   const steps = careers.steps.items
     .map(
@@ -1732,15 +1717,6 @@ function renderCareerPage(content) {
     )
     .join('\n          ')
 
-  const structureCards = (careers.structure?.roles ?? [])
-    .map(
-      (role) => `<article class="careers-role-card">
-            <p class="card-label">${escapeHtml(role.level)}</p>
-            <h3>${escapeHtml(role.title)}</h3>
-            <p>${escapeHtml(role.body)}</p>
-          </article>`,
-    )
-    .join('')
   const differentiatorSteps = (careers.differentiator?.steps ?? [])
     .map(
       (step) => `<li>
@@ -1755,7 +1731,6 @@ function renderCareerPage(content) {
             <p class="card-label">${escapeHtml(program.summary)}</p>
             <h3>${escapeHtml(program.title)}</h3>
             <p>${escapeHtml(program.body)}</p>
-            ${renderCareersList(program.details)}
           </article>`,
     )
     .join('')
@@ -1787,17 +1762,7 @@ function renderCareerPage(content) {
           title: careers.differentiator.title,
           summary: careers.differentiator.summary,
           expandLabel,
-          body: `<p>${escapeHtml(careers.differentiator.body)}</p><ol class="home-steps careers-steps">${differentiatorSteps}</ol>`,
-        })
-      : '',
-    careers.structure
-      ? renderCareerDisclosure({
-          id: 'team-structure',
-          eyebrow: careers.structure.eyebrow,
-          title: careers.structure.title,
-          summary: careers.structure.summary,
-          expandLabel,
-          body: `<p>${escapeHtml(careers.structure.intro)}</p><div class="careers-role-grid">${structureCards}</div>`,
+          body: `<ol class="home-steps careers-steps">${differentiatorSteps}</ol>`,
         })
       : '',
     careers.programs
@@ -1807,7 +1772,7 @@ function renderCareerPage(content) {
           title: careers.programs.title,
           summary: careers.programs.summary,
           expandLabel,
-          body: `<p>${escapeHtml(careers.programs.intro)}</p><div class="careers-program-grid">${programCards}</div>`,
+          body: `<div class="careers-program-grid">${programCards}</div>`,
         })
       : '',
     careers.clinic
@@ -1817,15 +1782,13 @@ function renderCareerPage(content) {
           title: careers.clinic.title,
           summary: careers.clinic.summary,
           expandLabel,
-          body: `<p>${escapeHtml(careers.clinic.intro)}</p>
-            <div class="careers-office-grid">${officeCards}</div>
+          body: `<div class="careers-office-grid">${officeCards}</div>
             <div class="careers-gallery-block">
               <h3>${escapeHtml(careers.clinic.galleryTitle)}</h3>
-              <p>${escapeHtml(careers.clinic.galleryIntro)}</p>
               ${renderCareersGallery(careers.clinic, careers.recognition)}
             </div>
             <div class="careers-recognition">
-              ${renderSectionHeading(careers.recognition.eyebrow, careers.recognition.title, careers.recognition.intro)}
+              ${renderSectionHeading(careers.recognition.eyebrow, careers.recognition.title)}
               <div class="careers-recognition-grid">${recognitionItems}</div>
             </div>`,
         })
@@ -1836,7 +1799,7 @@ function renderCareerPage(content) {
       title: careers.steps.title,
       summary: careers.steps.summary,
       expandLabel,
-      body: `<p>${escapeHtml(careers.steps.intro)}</p><ol class="career-step-list">${steps}</ol>`,
+      body: `<ol class="career-step-list">${steps}</ol>`,
     }),
   ].join('\n      ')
 
@@ -1844,7 +1807,6 @@ function renderCareerPage(content) {
         <div class="career-hero-copy">
           <h1>${escapeHtml(careers.title)}</h1>
           <p class="career-hero-intro">${escapeHtml(careers.intro)}</p>
-          <ul class="career-pillar-chips">${chips}</ul>
           <div class="button-row">
             <a class="button" href="${escapeHtml(toStaticHref(careers.applyHref))}">${escapeHtml(careers.applyLabel)}</a>
             <a class="button secondary" href="#open-roles">${escapeHtml(careers.overviewLabel)}</a>
@@ -1853,10 +1815,6 @@ function renderCareerPage(content) {
         </div>
         <div class="career-hero-media">
           <img src="${escapeHtml(`${BASE}assets/who-we-serve.png`)}" alt="" loading="eager" />
-          <div class="career-hero-note">
-            <strong>${escapeHtml(careers.opportunity.title)}</strong>
-            <span>${escapeHtml(careers.opportunity.body)}</span>
-          </div>
         </div>
       </section>
       ${renderCareerBenefits(content)}

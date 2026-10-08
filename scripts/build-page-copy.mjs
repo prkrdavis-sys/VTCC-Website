@@ -297,7 +297,7 @@ ${(() => {
   }
 
   const programs = (careers.programs.items ?? [])
-    .map((program) => `### ${program.title}\n\n${program.body}\n\n${bulletList(program.details)}`)
+    .map((program) => `### ${program.title}\n\n${program.body}`)
     .join('\n\n')
 
   return [
@@ -313,15 +313,7 @@ ${(() => {
     '',
     careers.differentiator.title,
     '',
-    careers.differentiator.body,
-    '',
-    `### ${careers.structure.eyebrow}`,
-    '',
-    careers.structure.title,
-    '',
-    careers.structure.intro,
-    '',
-    bulletList(careers.structure.roles.map((role) => `${role.title}: ${role.body}`)),
+    bulletList(careers.differentiator.steps.map((step) => `${step.title}: ${step.body}`)),
     '',
     '### Behavior Technician',
     '',
@@ -345,11 +337,7 @@ ${(() => {
     '',
     '### Recognition',
     '',
-    careers.recognition.intro,
-    '',
-    '### Clinic photos',
-    '',
-    careers.clinic.galleryIntro,
+    bulletList(careers.recognition.items.map((item) => `${item.title}: ${item.body}`)),
     '',
   ].join('\n')
 })()}
