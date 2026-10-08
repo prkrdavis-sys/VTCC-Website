@@ -4032,40 +4032,6 @@ address strong {
   box-shadow: var(--shadow);
 }
 
-.career-hero-note {
-  display: grid;
-  gap: 0.35rem;
-  max-width: 30rem;
-  margin-left: auto;
-  padding: 1.15rem 1.25rem;
-  color: var(--muted);
-  background: var(--white);
-  box-shadow: 0 12px 28px rgba(23, 33, 29, 0.07);
-}
-
-.career-hero-note strong {
-  color: var(--brand-deep);
-  font-size: 1.05rem;
-}
-
-.career-pillar-chips {
-  display: grid;
-  gap: 0.65rem;
-  margin: 0 0 1.35rem;
-  padding: 0;
-  list-style: none;
-}
-
-.career-pillar-chip {
-  display: grid;
-  gap: 0.15rem;
-}
-
-.career-pillar-chip strong {
-  color: var(--brand-deep);
-}
-
-.career-pillar-chip span,
 .career-step p,
 .career-closing p,
 .career-benefit p {
@@ -4131,11 +4097,6 @@ address strong {
   padding: 0;
   border: 0;
   background: transparent;
-}
-
-.career-benefits .careers-note {
-  max-width: 62ch;
-  margin: 1rem 0 0;
 }
 
 .career-disclosure-stack {
@@ -4901,13 +4862,6 @@ address strong {
   color: var(--muted);
 }
 
-.careers-note {
-  max-width: 46rem;
-  margin: 1rem 0 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-}
-
 .careers-differentiator {
   background: var(--soft);
 }
@@ -4934,7 +4888,6 @@ address strong {
   max-width: 52rem;
 }
 
-.careers-role-grid,
 .careers-program-grid,
 .careers-recognition-grid,
 .careers-office-grid,
@@ -4943,12 +4896,10 @@ address strong {
   gap: 1rem;
 }
 
-.careers-role-grid,
 .careers-program-grid {
   grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
 }
 
-.careers-role-card,
 .careers-program-card,
 .careers-posting,
 .careers-other-openings,
@@ -4962,7 +4913,6 @@ address strong {
   box-shadow: 0 8px 24px rgba(23, 33, 29, 0.04);
 }
 
-.careers-role-card h3,
 .careers-program-card h3,
 .careers-posting h2,
 .careers-other-openings h3,
@@ -4973,12 +4923,10 @@ address strong {
   color: var(--brand-deep);
 }
 
-.careers-role-card p,
 .careers-program-card p,
 .careers-posting p,
 .careers-other-openings p,
-.careers-recognition-grid p,
-.careers-gallery-block > p {
+.careers-recognition-grid p {
   margin: 0 0 0.85rem;
   color: var(--muted);
 }
@@ -5541,7 +5489,6 @@ address strong {
 
   .resource-card > span:not(.resource-card-kicker),
   .home-resource-card > span,
-  .careers-role-card > p:not(.card-label),
   .careers-program-card > p:not(.card-label) {
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -6090,13 +6037,10 @@ address strong {
   .careers-posting-meta,
   .careers-photo figcaption,
   .quote-bubble figcaption > span,
-  .career-pillar-chip > span,
   .career-benefit > p,
   .career-step-copy > p,
   .careers-steps li > span,
-  .careers-recognition-grid article > p,
-  .careers-note,
-  .career-hero-note > span {
+  .careers-recognition-grid article > p {
     display: none;
   }
 
@@ -6116,7 +6060,6 @@ address strong {
 
   .resource-card > span:not(.resource-card-kicker),
   .home-resource-card > span,
-  .careers-role-card > p:not(.card-label),
   .careers-program-card > p:not(.card-label) {
     -webkit-line-clamp: 2;
   }
