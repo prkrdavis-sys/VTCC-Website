@@ -1012,6 +1012,10 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
 .section.home-services {
   padding-top: 0;
   padding-inline: 0;
+  padding-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  background:
+    linear-gradient(var(--band-rule), var(--band-rule)) 0 100% / 100% 0.45rem no-repeat,
+    var(--band-deep);
 }
 
 .services-banner {
@@ -1071,6 +1075,67 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
     max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-right))
     0
     max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-left));
+}
+
+.home-services .program-panel {
+  border-color: rgba(205, 237, 130, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: none;
+}
+
+.home-services .program-panel[open] {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.home-services .program-panel-title {
+  color: var(--white);
+}
+
+.home-services .program-panel .card-label {
+  color: var(--brand-bar);
+  background: rgba(205, 237, 130, 0.16);
+}
+
+.home-services .program-panel-indicator::before,
+.home-services .program-panel-indicator::after {
+  background: var(--brand-bar);
+}
+
+.home-services .program-summary {
+  color: #e8f4ee;
+}
+
+.home-services .program-panel .button {
+  color: var(--brand-bar-ink);
+  background: var(--brand-bar);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 8px 18px rgba(12, 36, 28, 0.22);
+}
+
+.home-services .program-panel summary:focus-visible {
+  outline-color: rgba(205, 237, 130, 0.6);
+}
+
+.home-services .program-panel:has(summary:hover) {
+  border-color: rgba(205, 237, 130, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+.home-services .program-panel:has(summary:hover) .program-panel-title {
+  color: var(--white);
+}
+
+.home-services .program-panel:has(summary:hover) .program-panel-indicator {
+  background: rgba(205, 237, 130, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(205, 237, 130, 0.4);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-services .program-panel:has(summary:active) {
+    box-shadow: none;
+  }
 }
 
 .home-start .section-heading h2,
