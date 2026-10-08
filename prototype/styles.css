@@ -4683,6 +4683,13 @@ address strong {
   grid-column: 1 / -1;
 }
 
+.career-application-form .consent-field {
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  justify-items: start;
+  gap: 0.65rem;
+}
+
 .career-application-form input:not([type='checkbox']):not(.form-honeypot),
 .career-application-form select,
 .career-application-form textarea {

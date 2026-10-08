@@ -1255,7 +1255,7 @@
             ]
           },
           "applyLabel": "Solicitar como BCBA",
-          "applyRole": "Board Certified Behavior Analyst",
+          "applyRole": "Board Certified Behavior Analyst (BCBA)",
           "applyHref": "/career/apply"
         }
       },
@@ -1432,8 +1432,7 @@
           "Registered Behavior Technician (RBT)",
           "Senior Lead Behavior Technician (SLBT)",
           "Student Analyst Program",
-          "Board Certified Behavior Analyst",
-          "Program Clinician",
+          "Board Certified Behavior Analyst (BCBA)",
           "Administrative or operations",
           "Other"
         ]
@@ -2023,7 +2022,7 @@
     },
     "referralRoleValue": "Physician or nurse",
     "careerRoles": {
-      "bcba": "Board Certified Behavior Analyst",
+      "bcba": "Board Certified Behavior Analyst (BCBA)",
       "bcaba": "Other",
       "masters": "Student Analyst Program",
       "rbt": "Registered Behavior Technician (RBT)",
