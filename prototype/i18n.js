@@ -1167,14 +1167,12 @@ function renderHome(content) {
       <section id="services" class="section home-services">
         ${renderServicesBanner(sections.services.eyebrow, sections.services.title, sections.services.intro)}
         <div class="program-panel-list home-service-grid">${serviceCards}</div>
-      </section>
-      ${
-        missionStatement
-          ? `<section class="section home-who">
-        <blockquote class="home-mission-statement">${escapeHtml(missionStatement)}</blockquote>
+        ${
+          missionStatement
+            ? `<blockquote class="home-mission-statement">${escapeHtml(missionStatement)}</blockquote>`
+            : ''
+        }
       </section>`
-          : ''
-      }`
 }
 
 function renderFeatureColumns(columns) {
