@@ -559,7 +559,7 @@ es.careerApplication = {
   ],
 }
 
-es.footer.links = [{ label: 'Contacto', href: '/contact' }]
+es.footer.links = [{ label: 'Contáctenos', href: '/contact' }]
 
 Object.assign(es.heroCard, {
   title: 'Cómo ayuda VTCC',
@@ -1240,8 +1240,13 @@ es.offices = [
 
 Object.assign(es.footer, {
   text: '© {year} Victoria Transcultural Clinical Center. Todos los derechos reservados.',
-  emergency:
-    'En caso de emergencia, llame al 911. Si tiene una crisis de salud mental o suicida, llame o envíe un mensaje de texto al 988. Este sitio web ofrece solo información general y no es consejo médico.',
+  crisis:
+    'En caso de emergencia, llame al [911](tel:911). Si tiene una crisis de salud mental o suicida, llame o envíe un mensaje de texto al [988](tel:988).',
+  disclaimer: 'Este sitio web ofrece solo información general y no es consejo médico.',
+  visitLabel: 'Visítenos',
+  contactLabel: 'Contacto',
+  directionsLabel: 'Cómo llegar',
+  links: [{ label: 'Contáctenos', href: '/contact' }],
   legalNavLabel: 'Avisos legales',
   legalLinks: [
     { label: 'Política de privacidad', href: '/privacy' },

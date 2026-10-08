@@ -31,7 +31,7 @@ function getContent() {
 }
 
 function toStaticHref(path) {
-  if (path.startsWith('tel:') || path.startsWith('http')) {
+  if (path.startsWith('tel:') || path.startsWith('mailto:') || path.startsWith('http')) {
     return path
   }
 
@@ -669,21 +669,64 @@ function renderHeroHeading(hero) {
         </h1>`
 }
 
-function renderFooterContact(content) {
+function renderFooter(content) {
   const bar = content.topBar
-  if (!bar) {
-    return ''
-  }
-
+  const footer = content.footer
   const phoneIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>`
   const emailIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`
-  const pinIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.2"/></svg>`
+  const contact = footer.links[0]
+  const address = (footer.addressLines ?? []).map((line) => escapeHtml(line)).join('<br />')
 
-  return `<div class="site-footer-contact">
-        <a href="${escapeHtml(bar.addressHref)}" target="_blank" rel="noopener noreferrer">${pinIcon}<span>${escapeHtml(bar.address)}</span></a>
-        <a href="${escapeHtml(bar.phoneHref)}">${phoneIcon}<span>${escapeHtml(bar.phone)}</span></a>
-        <a href="${escapeHtml(bar.emailHref)}">${emailIcon}<span>${escapeHtml(bar.email)}</span></a>
-      </div>`
+  return `<footer class="site-footer">
+      <div class="site-footer-crisis">
+        <div class="site-footer-wrap">
+          <p>${renderInlineText(footer.crisis)}</p>
+        </div>
+      </div>
+      <div class="site-footer-main">
+        <div class="site-footer-wrap site-footer-grid">
+          <div class="site-footer-brand">
+            <a class="site-footer-logo" href="${escapeHtml(toStaticHref('/'))}">
+              <img src="${escapeHtml(BASE)}assets/vtcc-logo.png" alt="" />
+              <span>
+                <strong>${escapeHtml(content.company.name)}</strong>
+                <small>${escapeHtml(content.company.tagline)}</small>
+              </span>
+            </a>
+            ${
+              contact
+                ? `<a class="button site-footer-cta" href="${escapeHtml(toStaticHref(contact.href))}">${escapeHtml(contact.label)}</a>`
+                : ''
+            }
+          </div>
+          <div class="site-footer-col">
+            <p class="site-footer-label">${escapeHtml(footer.visitLabel)}</p>
+            <address>${address}</address>
+            ${
+              bar?.addressHref
+                ? `<a class="site-footer-directions" href="${escapeHtml(bar.addressHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(footer.directionsLabel)}</a>`
+                : ''
+            }
+          </div>
+          <div class="site-footer-col">
+            <p class="site-footer-label">${escapeHtml(footer.contactLabel)}</p>
+            <a class="site-footer-contact" href="${escapeHtml(bar?.phoneHref ?? '#')}">${phoneIcon}<span>${escapeHtml(bar?.phone ?? '')}</span></a>
+            <a class="site-footer-contact" href="${escapeHtml(bar?.emailHref ?? '#')}">${emailIcon}<span>${escapeHtml(bar?.email ?? '')}</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer-bar">
+        <div class="site-footer-wrap site-footer-bar-inner">
+          <div class="site-footer-meta">
+            <p>${escapeHtml(footer.text.replace('{year}', String(new Date().getFullYear())))}</p>
+            <p class="site-footer-disclaimer">${escapeHtml(footer.disclaimer)}</p>
+          </div>
+          <nav class="site-footer-legal" aria-label="${escapeHtml(footer.legalNavLabel)}">
+            ${footer.legalLinks.map(renderNavLink).join('\n            ')}
+          </nav>
+        </div>
+      </div>
+    </footer>`
 }
 
 function renderShell(content, mainHtml) {
@@ -721,21 +764,7 @@ function renderShell(content, mainHtml) {
     </header>
     ${renderMobileMenu(content)}
     <main id="top">${mainHtml}</main>
-    <footer class="site-footer">
-      <div class="site-footer-copy">
-        <p class="site-footer-emergency">${escapeHtml(content.footer.emergency)}</p>
-        <p>${escapeHtml(content.footer.text.replace('{year}', String(new Date().getFullYear())))}</p>
-      </div>
-      ${renderFooterContact(content)}
-      <div class="site-footer-navs">
-        <nav aria-label="Footer navigation">
-          ${content.footer.links.map(renderNavLink).join('\n          ')}
-        </nav>
-        <nav class="site-footer-legal" aria-label="${escapeHtml(content.footer.legalNavLabel)}">
-          ${content.footer.legalLinks.map(renderNavLink).join('\n          ')}
-        </nav>
-      </div>
-    </footer>
+    ${renderFooter(content)}
   `
 }
 

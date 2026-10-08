@@ -2339,13 +2339,21 @@
   ],
   "footer": {
     "text": "© {year} Victoria Transcultural Clinical Center. All rights reserved.",
+    "crisis": "In an emergency, call [911](tel:911). For a mental health or suicide crisis, call or text [988](tel:988).",
+    "disclaimer": "This website provides general information only and is not medical advice.",
+    "visitLabel": "Visit",
+    "contactLabel": "Contact",
+    "directionsLabel": "Get directions",
+    "addressLines": [
+      "10565 Fairfax Blvd, Suite 300",
+      "Fairfax, VA 22030"
+    ],
     "links": [
       {
-        "label": "Contact",
+        "label": "Contact us",
         "href": "/contact"
       }
     ],
-    "emergency": "In an emergency, call 911. For a mental health or suicide crisis, call or text 988. This website provides general information only and is not medical advice.",
     "legalNavLabel": "Legal notices",
     "legalLinks": [
       {
