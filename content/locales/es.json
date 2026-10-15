@@ -8,15 +8,19 @@
     "downloadLabel": "Descargar",
     "expandAll": "Expandir todo",
     "collapseAll": "Contraer todo",
-    "faqSearchLabel": "Search FAQs",
-    "faqSearchPlaceholder": "Search questions and answers",
-    "faqSearchNoResults": "No FAQs match your search. Try different keywords or browse the topics below.",
-    "faqSearchResultsCount": "{count} matching questions",
-    "faqSearchInTopic": "In {topic}",
-    "menuLabel": "Menu",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu",
-    "callLabel": "Call",
+    "faqSearchLabel": "Buscar en las preguntas frecuentes",
+    "faqSearchPlaceholder": "Buscar preguntas y respuestas",
+    "faqSearchNoResults": "Ninguna pregunta coincide con su búsqueda. Pruebe otras palabras o revise los temas de abajo.",
+    "faqSearchResultsCount": "{count} preguntas coincidentes",
+    "faqSearchInTopic": "En {topic}",
+    "menuLabel": "Menú",
+    "homeLinkLabel": "inicio",
+    "utilityNavLabel": "Acciones del encabezado",
+    "mainNavLabel": "Navegación principal",
+    "trustHighlightsLabel": "Puntos de confianza",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "callLabel": "Llamar",
     "emailLabel": "Correo",
     "guidesNavLabel": "Preguntas y guías",
     "servicesNavLabel": "Servicios",
@@ -25,10 +29,10 @@
     "contactSwitchReferralPrompt": "¿Va a enviar una referencia profesional?",
     "contactSwitchReferralLink": "Use el formulario de referencia",
     "contactAsideLabel": "Llame o visite nuestra oficina",
-    "formSubmitting": "Sending...",
+    "formSubmitting": "Enviando...",
     "formSubmittingAnnouncement": "Enviando su solicitud.",
-    "formSuccess": "Thank you. Your request was received. A VTCC team member will follow up.",
-    "formError": "We could not send this form. Please call VTCC or try again later.",
+    "formSuccess": "Gracias. Recibimos su solicitud. Un miembro del equipo de VTCC dará seguimiento.",
+    "formError": "No pudimos enviar este formulario. Llame a VTCC o inténtelo de nuevo más tarde.",
     "formPhoneRequired": "Ingrese un número de teléfono para que podamos comunicarnos con usted.",
     "formEmailRequired": "Ingrese un correo electrónico para que podamos comunicarnos con usted.",
     "formContactRequired": "Ingrese un número de teléfono o un correo electrónico para que podamos comunicarnos con usted.",
@@ -45,8 +49,8 @@
     "careerFileHint": "PDF, DOC, DOCX o TXT. Tamaño máximo: 5 MB.",
     "careerFileError": "Elija un archivo PDF, DOC, DOCX o TXT de hasta 5 MB.",
     "careerFileRemove": "Eliminar archivo",
-    "careerExpandLabel": "Show this section",
-    "careerCollapseLabel": "Hide this section",
+    "careerExpandLabel": "Mostrar esta sección",
+    "careerCollapseLabel": "Ocultar esta sección",
     "careerFormSubmitting": "Enviando...",
     "careerFormSuccess": "Gracias. Recibimos su solicitud. Un miembro del equipo de VTCC dará seguimiento.",
     "careerFormError": "No pudimos enviar esta solicitud. Llame a VTCC o inténtelo de nuevo más tarde.",
@@ -252,8 +256,8 @@
         "href": "/group-parent-training"
       }
     ],
-    "subheadlineLead": "Culturally responsive behavioral and mental health services.",
-    "subheadline": "Victoria Transcultural Clinical Center ofrece servicios conductuales y de salud mental culturalmente responsivos para niños, adolescentes y familias. Nuestro equipo apoya a las familias mediante terapia ABA individualizada, programas especializados, colaboración con padres y orientación sobre financiamiento.",
+    "subheadlineLead": "Servicios conductuales y de salud mental culturalmente receptivos.",
+    "subheadline": "Victoria Transcultural Clinical Center ofrece servicios conductuales y de salud mental culturalmente receptivos para niños, adolescentes y familias. Nuestro equipo apoya a las familias mediante terapia ABA individualizada, programas especializados, colaboración con padres y orientación sobre financiamiento.",
     "supportingLine": "Atendemos a familias a través de Medicaid, organizaciones de atención administrada, seguros comerciales y vías de financiamiento del condado/FAPT, sujeto a elegibilidad y verificación del plan.",
     "actions": [
       {
@@ -288,7 +292,7 @@
       "body": "Planes de atención adaptados a las necesidades del niño y del cuidador"
     },
     {
-      "title": "Culturalmente responsivo",
+      "title": "Culturalmente receptivo",
       "body": "Apoyo para familias diversas del norte de Virginia"
     },
     {
@@ -667,10 +671,10 @@
       "eyebrow": "A quién servimos",
       "title": "Apoyo para niños, adolescentes y familias",
       "intro": "VTCC atiende a niños, adolescentes y familias en el norte de Virginia que pueden necesitar apoyo conductual, del desarrollo o de salud mental.",
-      "missionStatement": "At VTCC, we understand every child is unique",
+      "missionStatement": "En VTCC entendemos que cada niño es único",
       "items": [
         "Trastorno del espectro autista y necesidades del desarrollo",
-        "Habilidades de comunicación, sociales, vida diaria o preparación escolar",
+        "Habilidades de comunicación, sociales, de la vida diaria o de preparación escolar",
         "Dificultades conductuales o emocionales significativas",
         "Estrés familiar relacionado con las necesidades de cuidado del niño",
         "Niños pequeños que se preparan para la escuela y los entornos sociales",
@@ -1018,11 +1022,11 @@
           "items": [
             {
               "id": "clientRightsEnglish",
-              "title": "It is Your Right (English)"
+              "title": "Es su derecho (inglés)"
             },
             {
               "id": "clientRightsSpanish",
-              "title": "It is Your Right (Español)"
+              "title": "Es su derecho (español)"
             }
           ]
         }
@@ -1070,7 +1074,7 @@
       "quotes": {
         "eyebrow": "",
         "title": "Lo que dicen los padres sobre la atención en VTCC",
-        "intro": "Los padres y cuidadores comparten cómo ha sido trabajar con nuestro equipo. Estas citas son marcadores de posición hasta que las familias compartan comentarios aprobados.",
+        "intro": "Los padres y cuidadores comparten cómo ha sido trabajar con nuestro equipo. Estas citas son provisionales hasta que las familias compartan comentarios aprobados.",
         "items": [
           {
             "quote": "Aquí irá una cita de un padre o madre sobre sentirse escuchado, apoyado e incluido durante la admisión y los servicios.",
@@ -1234,7 +1238,7 @@
             ]
           },
           "applyLabel": "Solicitar como técnico de conducta",
-          "applyRole": "Behavior Technician (BT)",
+          "applyRole": "Técnico de conducta (BT)",
           "applyHref": "/career/apply"
         },
         "bcba": {
@@ -1259,7 +1263,7 @@
             ]
           },
           "applyLabel": "Solicitar como BCBA",
-          "applyRole": "Board Certified Behavior Analyst (BCBA)",
+          "applyRole": "Analista de conducta certificado por la junta (BCBA)",
           "applyHref": "/career/apply"
         }
       },
@@ -1432,13 +1436,13 @@
         "label": "Puesto de interés",
         "type": "select",
         "options": [
-          "Behavior Technician (BT)",
-          "Registered Behavior Technician (RBT)",
-          "Senior Lead Behavior Technician (SLBT)",
-          "Student Analyst Program",
-          "Board Certified Behavior Analyst (BCBA)",
-          "Administrative or operations",
-          "Other"
+          "Técnico de conducta (BT)",
+          "Técnico de conducta registrado (RBT)",
+          "Técnico de conducta líder sénior (SLBT)",
+          "Programa de analista estudiante",
+          "Analista de conducta certificado por la junta (BCBA)",
+          "Administración u operaciones",
+          "Otro"
         ]
       },
       {
@@ -1556,40 +1560,40 @@
   "formFamily": {
     "notice": "Este formulario es solo para comunicarse con nosotros sobre nuestros servicios. No incluya diagnósticos, informes de evaluación o escolares, números de Medicaid o de seguro médico, números de Seguro Social ni otros detalles médicos privados. Recopilaremos lo que necesitemos durante el proceso de admisión. Este formulario no se revisa las 24 horas. Si se trata de una emergencia, llame al 911. Si tiene una crisis de salud mental, llame o envíe un mensaje de texto al 988.",
     "consentLabel": "Soy padre o madre, tutor legal o una persona adulta que se comunica con VTCC. Entiendo que este formulario no es para emergencias ni para información médica privada, y acepto que VTCC se comunique conmigo con la información que proporcioné.",
-    "submitLabel": "Submit service request",
+    "submitLabel": "Enviar solicitud de servicios",
     "fields": [
       {
         "name": "name",
-        "label": "Parent or guardian name",
+        "label": "Nombre del padre, la madre o el tutor",
         "type": "text",
         "autocomplete": "name"
       },
       {
         "name": "email",
-        "label": "Email",
+        "label": "Correo electrónico",
         "type": "email",
         "autocomplete": "email"
       },
       {
         "name": "phone",
-        "label": "Phone",
+        "label": "Teléfono",
         "type": "tel",
         "autocomplete": "tel"
       },
       {
         "name": "preferredContact",
-        "label": "Preferred contact method",
+        "label": "Método de contacto preferido",
         "type": "select",
-        "placeholder": "Select",
+        "placeholder": "Seleccionar",
         "options": [
-          "Phone",
-          "Email",
-          "Either"
+          "Teléfono",
+          "Correo electrónico",
+          "Cualquiera"
         ]
       },
       {
         "name": "ageRange",
-        "label": "Child's age",
+        "label": "Edad del niño",
         "type": "number",
         "min": 0,
         "max": 30,
@@ -1598,10 +1602,10 @@
       },
       {
         "name": "service",
-        "label": "Service you are interested in",
+        "label": "Servicio que le interesa",
         "type": "multiselect",
         "solo": [
-          "Not sure"
+          "Aún no estoy seguro"
         ],
         "options": [
           "ABA",
@@ -1615,10 +1619,10 @@
       },
       {
         "name": "funding",
-        "label": "Funding source (if known)",
+        "label": "Fuente de financiamiento (si se conoce)",
         "type": "multiselect",
         "solo": [
-          "Not sure"
+          "No estoy seguro"
         ],
         "options": [
           "Anthem HealthKeepers Plus Medicaid of Virginia",
@@ -1630,8 +1634,8 @@
           "Molina Healthcare",
           "Optima Health",
           "Kaiser Permanente Behavioral Health",
-          "County/FAPT",
-          "Not sure"
+          "Condado/FAPT",
+          "No estoy seguro"
         ]
       },
       {
@@ -1647,12 +1651,12 @@
       },
       {
         "name": "location",
-        "label": "City or county",
+        "label": "Ciudad o condado",
         "type": "text"
       },
       {
         "name": "message",
-        "label": "What would you like help with?",
+        "label": "¿En qué le gustaría que le ayudemos?",
         "type": "textarea",
         "rows": 4
       }
@@ -1661,68 +1665,68 @@
   "formReferral": {
     "notice": "Este formulario es solo para preguntas sobre referencias. No incluya informes de diagnóstico, IEP, evaluaciones, expedientes de tratamiento, números de Medicaid, números de Seguro Social ni inquietudes urgentes de seguridad. Después de recibir su mensaje, VTCC se comunicará con usted para indicarle cómo enviar los documentos de la referencia. Si se trata de una emergencia, llame al 911.",
     "consentLabel": "Entiendo que este formulario es solo para preguntas sobre referencias y no es para emergencias ni para información de salud protegida. Tengo permiso para compartir con VTCC el nombre y la información de contacto del padre, la madre o el tutor.",
-    "submitLabel": "Submit referral inquiry",
+    "submitLabel": "Enviar consulta de referencia",
     "fields": [
       {
         "name": "name",
-        "label": "Referrer name",
+        "label": "Nombre de quien refiere",
         "type": "text",
         "autocomplete": "name"
       },
       {
         "name": "organization",
-        "label": "Organization or agency",
+        "label": "Organización o agencia",
         "type": "text"
       },
       {
         "name": "role",
-        "label": "Your role",
+        "label": "Su función",
         "type": "select",
         "options": [
-          "School staff",
-          "Physician or nurse",
-          "Therapist or counselor",
-          "Case manager",
-          "County or FAPT partner",
-          "Other community professional"
+          "Personal escolar",
+          "Médico o personal de enfermería",
+          "Terapeuta o consejero",
+          "Administrador de casos",
+          "Socio del condado o de FAPT",
+          "Otro profesional de la comunidad"
         ]
       },
       {
         "name": "email",
-        "label": "Work email",
+        "label": "Correo electrónico del trabajo",
         "type": "email",
         "autocomplete": "email"
       },
       {
         "name": "phone",
-        "label": "Work phone",
+        "label": "Teléfono del trabajo",
         "type": "tel",
         "autocomplete": "tel"
       },
       {
         "name": "preferredContact",
-        "label": "Preferred contact method",
+        "label": "Método de contacto preferido",
         "type": "select",
         "options": [
-          "Phone",
-          "Email",
-          "Either"
+          "Teléfono",
+          "Correo electrónico",
+          "Cualquiera"
         ]
       },
       {
         "name": "parentName",
-        "label": "Parent or guardian name (if known)",
+        "label": "Nombre del padre, la madre o el tutor (si se conoce)",
         "type": "text"
       },
       {
         "name": "parentPhone",
-        "label": "Parent or guardian phone (if known)",
+        "label": "Teléfono del padre, la madre o el tutor (si se conoce)",
         "type": "tel",
         "autocomplete": "tel"
       },
       {
         "name": "ageRange",
-        "label": "Child's age",
+        "label": "Edad del niño",
         "type": "number",
         "min": 0,
         "max": 30,
@@ -1731,10 +1735,10 @@
       },
       {
         "name": "service",
-        "label": "Service requested",
+        "label": "Servicio solicitado",
         "type": "multiselect",
         "solo": [
-          "Not sure"
+          "Aún no estoy seguro"
         ],
         "options": [
           "ABA",
@@ -1748,10 +1752,10 @@
       },
       {
         "name": "funding",
-        "label": "Funding source (if known)",
+        "label": "Fuente de financiamiento (si se conoce)",
         "type": "multiselect",
         "solo": [
-          "Not sure"
+          "No estoy seguro"
         ],
         "options": [
           "Anthem HealthKeepers Plus Medicaid of Virginia",
@@ -1763,8 +1767,8 @@
           "Molina Healthcare",
           "Optima Health",
           "Kaiser Permanente Behavioral Health",
-          "County/FAPT",
-          "Not sure"
+          "Condado/FAPT",
+          "No estoy seguro"
         ]
       },
       {
@@ -1780,12 +1784,12 @@
       },
       {
         "name": "location",
-        "label": "Child's city or county",
+        "label": "Ciudad o condado del niño",
         "type": "text"
       },
       {
         "name": "message",
-        "label": "Reason for referral (non-sensitive summary only)",
+        "label": "Motivo de la referencia (solo un resumen no confidencial)",
         "type": "textarea",
         "rows": 4
       }
@@ -2031,20 +2035,20 @@
       "social-enrichment": "Enriquecimiento Social",
       "social-skills": "Grupo de Habilidades Sociales"
     },
-    "referralRoleValue": "Physician or nurse",
+    "referralRoleValue": "Médico o personal de enfermería",
     "careerRoles": {
-      "bcba": "Board Certified Behavior Analyst (BCBA)",
-      "bcaba": "Other",
-      "masters": "Student Analyst Program",
-      "rbt": "Registered Behavior Technician (RBT)",
-      "bt": "Behavior Technician (BT)"
+      "bcba": "Analista de conducta certificado por la junta (BCBA)",
+      "bcaba": "Otro",
+      "masters": "Programa de analista estudiante",
+      "rbt": "Técnico de conducta registrado (RBT)",
+      "bt": "Técnico de conducta (BT)"
     },
     "roleReasons": {
-      "bcba": "Su credencial de BCBA es la mejor coincidencia para la solicitud de Board Certified Behavior Analyst.",
-      "bcaba": "VTCC no tiene una publicación separada para BCaBA. Solicite en Other y mencione su credencial BCaBA.",
-      "masters": "Una maestría afín encaja bien con el Student Analyst Program.",
-      "rbt": "Su credencial de RBT o QBT coincide con el puesto de Registered Behavior Technician.",
-      "bt": "El puesto de Behavior Technician suele ser el punto de partida con esta formación."
+      "bcba": "Su credencial de BCBA es la mejor coincidencia para la solicitud de analista de conducta certificado por la junta.",
+      "bcaba": "VTCC no tiene una publicación separada para BCaBA. Solicite en Otro y mencione su credencial BCaBA.",
+      "masters": "Una maestría afín encaja bien con el Programa de analista estudiante.",
+      "rbt": "Su credencial de RBT o QBT coincide con el puesto de técnico de conducta registrado.",
+      "bt": "El puesto de técnico de conducta suele ser el punto de partida con esta formación."
     },
     "parentNoDiagnosis": {
       "title": "Un diagnóstico ayuda, y aún puede contactar a VTCC",
@@ -2321,7 +2325,7 @@
       "sections": [
         {
           "title": "Lo que puede practicar el grupo",
-          "intro": "Los clientes reciben orientación y comentarios mientras practican interacciones realistas con compañeros.",
+          "intro": "El Grupo de Habilidades Sociales es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.",
           "items": [
             "Comprender el sarcasmo, el humor y los significados implícitos",
             "Conversación de ida y vuelta y pensamiento flexible",
@@ -2562,7 +2566,7 @@
     "pages": {
       "privacy": {
         "title": "Política de privacidad del sitio web",
-        "updated": "October 7, 2026",
+        "updated": "7 de octubre de 2026",
         "intro": [
           "This policy explains what information Victoria Transcultural Clinical Center (“VTCC,” “we,” or “us”) collects when you visit this website or use its forms, and how we use and share it.",
           "**This policy covers our website only.** If you or your child receive services from VTCC, our [Notice of Privacy Practices](/notice-of-privacy-practices) explains how we use and protect health information and your rights under HIPAA. If the two documents ever seem to conflict about your health information, the Notice of Privacy Practices controls."
@@ -2688,7 +2692,7 @@
       },
       "terms": {
         "title": "Términos de uso del sitio web",
-        "updated": "October 7, 2026",
+        "updated": "7 de octubre de 2026",
         "intro": [
           "These Terms of Use apply to your use of this website, operated by Victoria Transcultural Clinical Center (“VTCC,” “we,” or “us”). By using the site, you agree to these terms. If you do not agree, please do not use the site."
         ],
@@ -2786,7 +2790,7 @@
       },
       "accessibility": {
         "title": "Declaración de accesibilidad",
-        "updated": "October 7, 2026",
+        "updated": "7 de octubre de 2026",
         "intro": [
           "VTCC wants every family, caregiver, referring professional, and job seeker to be able to use our website, including people with disabilities and people who use assistive technology."
         ],
@@ -2825,7 +2829,7 @@
       },
       "nondiscrimination": {
         "title": "Aviso de no discriminación y asistencia con idiomas",
-        "updated": "October 7, 2026",
+        "updated": "7 de octubre de 2026",
         "intro": [],
         "sections": [
           {

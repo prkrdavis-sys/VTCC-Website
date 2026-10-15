@@ -131,9 +131,9 @@ window.VTCC_SEO = {
     },
     "https://vtcc.health/inicio/": {
       "headLines": [
-        "<title>Victoria Transcultural Clinical Center | Terapeuta de autismo Virginia | Psiquiatras autistas en Virginia | VTCC</title>",
+        "<title>Victoria Transcultural Clinical Center | Terapia para el autismo en Virginia | VTCC</title>",
         "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,user-scalable=no\">",
-        "<meta name=\"description\" content=\"VTCC prove servicios y tratamiento en el hogar a familias locales. VTCC sirve a niños y adolescentes que sufren dificultades emocionales o de conducta o que han sido objeto de abyso o abandono.\r\n\">",
+        "<meta name=\"description\" content=\"VTCC ofrece servicios y tratamiento en el hogar a familias locales. VTCC atiende a niños y adolescentes con dificultades emocionales o de conducta, o que han sufrido abuso o abandono.\r\n\">",
         "<meta name='robots' content='max-image-preview:large' />",
         "<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"https://vtcc.health/wp-content/uploads/2020/10/fav-2.png\">",
         "<link rel=\"apple-touch-icon\" href=\"https://vtcc.health/wp-content/uploads/2020/10/fav-2.png\"/>",
@@ -141,14 +141,14 @@ window.VTCC_SEO = {
         "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"Victoria Transcultural Clinical Center &raquo; Comments Feed\" href=\"https://vtcc.health/comments/feed/\" />",
         "<link rel=\"canonical\" href=\"https://vtcc.health/inicio/\" />"
       ],
-      "title": "Victoria Transcultural Clinical Center | Terapeuta de autismo Virginia | Psiquiatras autistas en Virginia | VTCC",
-      "description": "VTCC prove servicios y tratamiento en el hogar a familias locales. VTCC sirve a niños y adolescentes que sufren dificultades emocionales o de conducta o que han sido objeto de abyso o abandono.\r\n"
+      "title": "Victoria Transcultural Clinical Center | Terapia para el autismo en Virginia | VTCC",
+      "description": "VTCC ofrece servicios y tratamiento en el hogar a familias locales. VTCC atiende a niños y adolescentes con dificultades emocionales o de conducta, o que han sufrido abuso o abandono.\r\n"
     },
     "https://vtcc.health/acerca-del-aba/": {
       "headLines": [
         "<title>Victoria Transcultural Clinical Center | Terapia en el hogar ABA en Virginia | Servicios de ABA en el norte de Virginia</title>",
         "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,user-scalable=no\">",
-        "<meta name=\"description\" content=\"Las intervenciones ABA no son una solución “unitalla”. Los expertos de VTCC en terapia ABA diseñan plan es de tratamiento dirigidos que están basados en la evaluación de las habilidades, hábitios y preferencias de cada niño o niña. \r\n\">",
+        "<meta name=\"description\" content=\"Las intervenciones de ABA no son una solución de talla única. Los especialistas de VTCC en terapia ABA diseñan planes de tratamiento según la evaluación de las habilidades, los hábitos y las preferencias de cada niño o niña.\r\n\">",
         "<meta name='robots' content='max-image-preview:large' />",
         "<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"https://vtcc.health/wp-content/uploads/2020/10/fav-2.png\">",
         "<link rel=\"apple-touch-icon\" href=\"https://vtcc.health/wp-content/uploads/2020/10/fav-2.png\"/>",
@@ -157,13 +157,13 @@ window.VTCC_SEO = {
         "<link rel=\"canonical\" href=\"https://vtcc.health/acerca-del-aba/\" />"
       ],
       "title": "Victoria Transcultural Clinical Center | Terapia en el hogar ABA en Virginia | Servicios de ABA en el norte de Virginia",
-      "description": "Las intervenciones ABA no son una solución “unitalla”. Los expertos de VTCC en terapia ABA diseñan plan es de tratamiento dirigidos que están basados en la evaluación de las habilidades, hábitios y preferencias de cada niño o niña. \r\n"
+      "description": "Las intervenciones de ABA no son una solución de talla única. Los especialistas de VTCC en terapia ABA diseñan planes de tratamiento según la evaluación de las habilidades, los hábitos y las preferencias de cada niño o niña.\r\n"
     },
     "https://vtcc.health/recursos-para-familias-y-referentes/": {
       "headLines": [
         "<title>Victoria Transcultural Clinical Center | Recursos-VTCC</title>",
         "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,user-scalable=no\">",
-        "<meta name=\"description\" content=\"recursos at VTCC.\">",
+        "<meta name=\"description\" content=\"Recursos para familias y referentes en VTCC.\">",
         "<meta name='robots' content='max-image-preview:large' />",
         "<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"https://vtcc.health/wp-content/uploads/2020/10/fav-2.png\">",
         "<link rel=\"apple-touch-icon\" href=\"https://vtcc.health/wp-content/uploads/2020/10/fav-2.png\"/>",
@@ -172,13 +172,13 @@ window.VTCC_SEO = {
         "<link rel=\"canonical\" href=\"https://vtcc.health/recursos-para-familias-y-referentes/\" />"
       ],
       "title": "Victoria Transcultural Clinical Center | Recursos-VTCC",
-      "description": "recursos at VTCC."
+      "description": "Recursos para familias y referentes en VTCC."
     },
     "https://vtcc.health/contactenos/": {
       "headLines": [
-        "<title>Victoria Transcultural Clinical Center | Contáctese - VTCC</title>",
+        "<title>Victoria Transcultural Clinical Center | Contáctenos - VTCC</title>",
         "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,user-scalable=no\">",
-        "<meta name=\"description\" content=\"Contáctese con VTCC, call us at 703.218.6599 or email us at info@vtccmail.com\r\n\">",
+        "<meta name=\"description\" content=\"Comuníquese con VTCC. Llame al 703.218.6599 o escriba a info@vtccmail.com.\r\n\">",
         "<meta name='robots' content='max-image-preview:large' />",
         "<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"https://vtcc.health/wp-content/uploads/2020/10/fav-2.png\">",
         "<link rel=\"apple-touch-icon\" href=\"https://vtcc.health/wp-content/uploads/2020/10/fav-2.png\"/>",
@@ -186,8 +186,8 @@ window.VTCC_SEO = {
         "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"Victoria Transcultural Clinical Center &raquo; Comments Feed\" href=\"https://vtcc.health/comments/feed/\" />",
         "<link rel=\"canonical\" href=\"https://vtcc.health/contactenos/\" />"
       ],
-      "title": "Victoria Transcultural Clinical Center | Contáctese - VTCC",
-      "description": "Contáctese con VTCC, call us at 703.218.6599 or email us at info@vtccmail.com\r\n"
+      "title": "Victoria Transcultural Clinical Center | Contáctenos - VTCC",
+      "description": "Comuníquese con VTCC. Llame al 703.218.6599 o escriba a info@vtccmail.com.\r\n"
     },
     "https://vtcc.health/early-learners/": {
       "title": "Victoria Transcultural Clinical Center | Early Learners Program",
@@ -278,6 +278,42 @@ window.VTCC_SEO = {
         "<meta name=\"description\" content=\"La Capacitación Grupal para Padres de VTCC ayuda a los cuidadores a aprender estrategias prácticas en un entorno grupal con apoyo.\">",
         "<link rel=\"canonical\" href=\"https://vtcc.health/capacitacion-grupal-para-padres/\">"
       ]
+    },
+    "https://vtcc.health/es/comenzar/": {
+      "title": "Victoria Transcultural Clinical Center | Cómo comenzar",
+      "description": "Conozca los pasos de admisión, la documentación y qué esperar al solicitar servicios en VTCC.",
+      "headLines": [
+        "<title>Victoria Transcultural Clinical Center | Cómo comenzar</title>",
+        "<meta name=\"description\" content=\"Conozca los pasos de admisión, la documentación y qué esperar al solicitar servicios en VTCC.\">",
+        "<link rel=\"canonical\" href=\"https://vtcc.health/our-services/\">"
+      ]
+    },
+    "https://vtcc.health/es/seguro/": {
+      "title": "Victoria Transcultural Clinical Center | Seguro y financiamiento",
+      "description": "Vías de Medicaid, seguro comercial y financiamiento del condado o FAPT para los servicios de VTCC.",
+      "headLines": [
+        "<title>Victoria Transcultural Clinical Center | Seguro y financiamiento</title>",
+        "<meta name=\"description\" content=\"Vías de Medicaid, seguro comercial y financiamiento del condado o FAPT para los servicios de VTCC.\">",
+        "<link rel=\"canonical\" href=\"https://vtcc.health/our-services/accepted-insurance-providers/\">"
+      ]
+    },
+    "https://vtcc.health/es/acerca-de/": {
+      "title": "Victoria Transcultural Clinical Center | Acerca de VTCC",
+      "description": "Conozca a Victoria Transcultural Clinical Center y cómo el equipo apoya a niños, adolescentes y familias en el norte de Virginia.",
+      "headLines": [
+        "<title>Victoria Transcultural Clinical Center | Acerca de VTCC</title>",
+        "<meta name=\"description\" content=\"Conozca a Victoria Transcultural Clinical Center y cómo el equipo apoya a niños, adolescentes y familias en el norte de Virginia.\">",
+        "<link rel=\"canonical\" href=\"https://vtcc.health/about-our-director/\">"
+      ]
+    },
+    "https://vtcc.health/es/carreras/": {
+      "title": "Victoria Transcultural Clinical Center | Carreras en VTCC",
+      "description": "Cuéntenos qué puesto le interesa. El equipo de VTCC dará seguimiento sobre las vacantes.",
+      "headLines": [
+        "<title>Victoria Transcultural Clinical Center | Carreras en VTCC</title>",
+        "<meta name=\"description\" content=\"Cuéntenos qué puesto le interesa. El equipo de VTCC dará seguimiento sobre las vacantes.\">",
+        "<link rel=\"canonical\" href=\"https://vtcc.health/career/\">"
+      ]
     }
   },
   "routeMap": {
@@ -305,17 +341,17 @@ window.VTCC_SEO = {
     "es": {
       "home": "https://vtcc.health/inicio/",
       "aba": "https://vtcc.health/acerca-del-aba/",
-      "get-started": "https://vtcc.health/our-services/",
-      "insurance": "https://vtcc.health/our-services/accepted-insurance-providers/",
+      "get-started": "https://vtcc.health/es/comenzar/",
+      "insurance": "https://vtcc.health/es/seguro/",
       "referrers": "https://vtcc.health/recursos-para-familias-y-referentes/",
       "resources": "https://vtcc.health/recursos-para-familias-y-referentes/",
       "forms": "https://vtcc.health/recursos-para-familias-y-referentes/",
       "resource": "https://vtcc.health/recursos-para-familias-y-referentes/",
-      "about": "https://vtcc.health/about-our-director/",
+      "about": "https://vtcc.health/es/acerca-de/",
       "contact": "https://vtcc.health/contactenos/",
       "contact-referral": "https://vtcc.health/contactenos/",
-      "career": "https://vtcc.health/career/",
-      "careers": "https://vtcc.health/career/",
+      "career": "https://vtcc.health/es/carreras/",
+      "careers": "https://vtcc.health/es/carreras/",
       "blog": "https://vtcc.health/blog/",
       "early-learners": "https://vtcc.health/programa-primeros-aprendices/",
       "feeding-program": "https://vtcc.health/programa-alimentacion/",

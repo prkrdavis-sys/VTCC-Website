@@ -700,7 +700,7 @@ function renderShell(content, mainHtml) {
   return `
     <header class="site-header">
       <div class="site-header-inner">
-      <a class="brand" href="${escapeHtml(toStaticHref('/'))}" aria-label="${escapeHtml(content.company.name)} home">
+      <a class="brand" href="${escapeHtml(toStaticHref('/'))}" aria-label="${escapeHtml(content.company.name)} ${escapeHtml(content.ui.homeLinkLabel ?? 'home')}">
         <img class="brand-mark" src="${escapeHtml(BASE)}assets/vtcc-logo.png" alt="" />
         <span>
           <strong>
@@ -717,11 +717,11 @@ function renderShell(content, mainHtml) {
       </button>
       <div class="header-controls">
         ${renderLanguageSelect(content, { compact: true })}
-        <nav class="utility-nav" aria-label="Utility actions">
+        <nav class="utility-nav" aria-label="${escapeHtml(content.ui.utilityNavLabel ?? 'Utility actions')}">
           ${getHeaderActions(content).map(renderHeaderAction).join('\n          ')}
         </nav>
       </div>
-      <nav class="site-nav" aria-label="Main navigation">
+      <nav class="site-nav" aria-label="${escapeHtml(content.ui.mainNavLabel ?? 'Main navigation')}">
         <div class="site-nav-bar">
           ${getHeaderGroups(content).map((group) => renderNavMenu(group)).join('\n          ')}
         </div>
@@ -1179,7 +1179,7 @@ function renderHome(content) {
         </div>`
             : ''
         }
-        <div class="home-trust" aria-label="Trust highlights">${trustItems}</div>
+        <div class="home-trust" aria-label="${escapeHtml(content.ui.trustHighlightsLabel ?? 'Trust highlights')}">${trustItems}</div>
       </section>
       <section id="services" class="section home-services">
         ${renderServicesBanner(sections.services.eyebrow, sections.services.title, sections.services.intro)}
@@ -4393,7 +4393,7 @@ function applyDocumentSeo(locale) {
   const pageKey =
     PAGE === 'contact-request'
       ? 'contact'
-      : PAGE === 'resource' || PAGE === 'career-apply' || PAGE === 'careers'
+      : PAGE === 'career-apply' || PAGE === 'careers'
         ? 'career'
         : PAGE
   const url = seo.routeMap[locale]?.[pageKey] ?? seo.routeMap.en?.[pageKey]

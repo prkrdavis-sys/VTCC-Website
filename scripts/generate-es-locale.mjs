@@ -116,14 +116,39 @@ Object.assign(es.ui, {
   careerFormSubmitting: 'Enviando...',
   careerFormSuccess: 'Gracias. Recibimos su solicitud. Un miembro del equipo de VTCC dará seguimiento.',
   careerFormError: 'No pudimos enviar esta solicitud. Llame a VTCC o inténtelo de nuevo más tarde.',
+  faqSearchLabel: 'Buscar en las preguntas frecuentes',
+  faqSearchPlaceholder: 'Buscar preguntas y respuestas',
+  faqSearchNoResults:
+    'Ninguna pregunta coincide con su búsqueda. Pruebe otras palabras o revise los temas de abajo.',
+  faqSearchResultsCount: '{count} preguntas coincidentes',
+  faqSearchInTopic: 'En {topic}',
+  menuLabel: 'Menú',
+  homeLinkLabel: 'inicio',
+  utilityNavLabel: 'Acciones del encabezado',
+  mainNavLabel: 'Navegación principal',
+  trustHighlightsLabel: 'Puntos de confianza',
+  openMenu: 'Abrir menú',
+  closeMenu: 'Cerrar menú',
+  callLabel: 'Llamar',
+  formSubmitting: 'Enviando...',
+  formSuccess:
+    'Gracias. Recibimos su solicitud. Un miembro del equipo de VTCC dará seguimiento.',
+  formError: 'No pudimos enviar este formulario. Llame a VTCC o inténtelo de nuevo más tarde.',
+  formPhoneRequired: 'Ingrese un número de teléfono para que podamos comunicarnos con usted.',
+  formEmailRequired: 'Ingrese un correo electrónico para que podamos comunicarnos con usted.',
+  formContactRequired:
+    'Ingrese un número de teléfono o un correo electrónico para que podamos comunicarnos con usted.',
+  careerExpandLabel: 'Mostrar esta sección',
+  careerCollapseLabel: 'Ocultar esta sección',
 })
 
 Object.assign(es.hero, {
   headline:
     'ABA y programas especializados para niños y familias',
   headlineLead: 'Para niños, adolescentes y familias en el norte de Virginia',
+  subheadlineLead: 'Servicios conductuales y de salud mental culturalmente receptivos.',
   subheadline:
-    'Victoria Transcultural Clinical Center ofrece servicios conductuales y de salud mental culturalmente responsivos para niños, adolescentes y familias. Nuestro equipo apoya a las familias mediante terapia ABA individualizada, programas especializados, colaboración con padres y orientación sobre financiamiento.',
+    'Victoria Transcultural Clinical Center ofrece servicios conductuales y de salud mental culturalmente receptivos para niños, adolescentes y familias. Nuestro equipo apoya a las familias mediante terapia ABA individualizada, programas especializados, colaboración con padres y orientación sobre financiamiento.',
   supportingLine:
     'Atendemos a familias a través de Medicaid, organizaciones de atención administrada, seguros comerciales y vías de financiamiento del condado/FAPT, sujeto a elegibilidad y verificación del plan.',
 })
@@ -138,7 +163,7 @@ es.hero.serviceTags = [
 ]
 
 es.hero.actions = [
-  { label: 'Solicitar Servicios', href: '#contact', style: 'primary' },
+  { label: 'Solicitar Servicios', href: '/contact', style: 'primary' },
   { label: 'Referir un Cliente', href: '/contact/referral', style: 'secondary' },
   { label: 'Llamar a VTCC', href: 'tel:17032186599', style: 'ghost' },
 ]
@@ -179,7 +204,7 @@ es.sections.careers = {
   steps: {
     title: 'Tres pasos',
     id: 'hiring-process',
-    items: [{ title: 'Postule' }, { title: 'Conozca al equipo' }, { title: 'Hablemos del puesto' }],
+    items: [{ title: 'Postule' }, { title: 'Hablemos del puesto' }, { title: 'Capacitación clínica' }],
   },
   closing: {
     title: '¿Listo para postular?',
@@ -341,7 +366,7 @@ es.trustStrip = [
     body: 'Planes de atención adaptados a las necesidades del niño y del cuidador',
   },
   {
-    title: 'Culturalmente responsivo',
+    title: 'Culturalmente receptivo',
     body: 'Apoyo para familias diversas del norte de Virginia',
   },
   {
@@ -843,9 +868,10 @@ Object.assign(es.sections.whoWeServe, {
   title: 'Apoyo para niños, adolescentes y familias',
   intro:
     'VTCC atiende a niños, adolescentes y familias en el norte de Virginia que pueden necesitar apoyo conductual, del desarrollo o de salud mental.',
+  missionStatement: 'En VTCC entendemos que cada niño es único',
   items: [
     'Trastorno del espectro autista y necesidades del desarrollo',
-    'Habilidades de comunicación, sociales, vida diaria o preparación escolar',
+    'Habilidades de comunicación, sociales, de la vida diaria o de preparación escolar',
     'Dificultades conductuales o emocionales significativas',
     'Estrés familiar relacionado con las necesidades de cuidado del niño',
     'Niños pequeños que se preparan para la escuela y los entornos sociales',
@@ -1062,6 +1088,12 @@ es.legal.pages.nondiscrimination.title = 'Aviso de no discriminación y asistenc
 es.legal.pages.npp.title = 'Aviso de prácticas de privacidad'
 es.legal.pages.npp.documentLinkLabel = 'Lea nuestro Aviso de prácticas de privacidad (PDF, en inglés)'
 
+for (const page of Object.values(es.legal.pages)) {
+  if (page && page.updated === 'October 7, 2026') {
+    page.updated = '7 de octubre de 2026'
+  }
+}
+
 Object.assign(es.compliance, {
   contentApproval:
     'El liderazgo debe revisar y aprobar todo el lenguaje final de servicios, elegibilidad, seguro y cumplimiento.',
@@ -1075,9 +1107,9 @@ Object.assign(es.home, {
     linkHref: '/get-started',
   },
   resourcesTeaser: {
-    title: 'Guías y preguntas frecuentes útiles',
+    title: 'Guías y preguntas frecuentes',
     intro:
-      'Explore temas comunes sobre admisión, financiamiento, terapia ABA, servicios en el hogar y referencias.',
+      'Explore temas comunes sobre admisión, financiamiento, terapia ABA, programas especializados y referencias.',
     linkLabel: 'Ver preguntas y guías',
     linkHref: '/resources',
   },
@@ -1221,7 +1253,8 @@ es.pages = {
     sections: [
       {
         title: 'Lo que puede practicar el grupo',
-        intro: 'Los clientes reciben orientación y comentarios mientras practican interacciones realistas con compañeros.',
+        intro:
+          'El Grupo de Habilidades Sociales es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
         items: [
           'Comprender el sarcasmo, el humor y los significados implícitos',
           'Conversación de ida y vuelta y pensamiento flexible',
@@ -1447,8 +1480,8 @@ Object.assign(es.sections.forms, {
       intro:
         'La seguridad, los derechos y la privacidad de nuestros clientes y familias son nuestra prioridad. Este aviso se revisa con cada cliente en presencia de sus padres o tutores antes de iniciar cualquier servicio de VTCC.',
       items: [
-        { id: 'clientRightsEnglish', title: 'It is Your Right (English)' },
-        { id: 'clientRightsSpanish', title: 'It is Your Right (Español)' },
+        { id: 'clientRightsEnglish', title: 'Es su derecho (inglés)' },
+        { id: 'clientRightsSpanish', title: 'Es su derecho (español)' },
       ],
     },
   ],
@@ -1595,13 +1628,21 @@ es.contactQuiz.programLabels = {
   'social-enrichment': 'Enriquecimiento Social',
   'social-skills': 'Grupo de Habilidades Sociales',
 }
+es.contactQuiz.referralRoleValue = 'Médico o personal de enfermería'
+es.contactQuiz.careerRoles = {
+  bcba: 'Analista de conducta certificado por la junta (BCBA)',
+  bcaba: 'Otro',
+  masters: 'Programa de analista estudiante',
+  rbt: 'Técnico de conducta registrado (RBT)',
+  bt: 'Técnico de conducta (BT)',
+}
 es.contactQuiz.roleReasons = {
-  bcba: 'Su credencial de BCBA es la mejor coincidencia para la solicitud de Board Certified Behavior Analyst.',
+  bcba: 'Su credencial de BCBA es la mejor coincidencia para la solicitud de analista de conducta certificado por la junta.',
   bcaba:
-    'VTCC no tiene una publicación separada para BCaBA. Solicite en Other y mencione su credencial BCaBA.',
-  masters: 'Una maestría afín encaja bien con el Student Analyst Program.',
-  rbt: 'Su credencial de RBT o QBT coincide con el puesto de Registered Behavior Technician.',
-  bt: 'El puesto de Behavior Technician suele ser el punto de partida con esta formación.',
+    'VTCC no tiene una publicación separada para BCaBA. Solicite en Otro y mencione su credencial BCaBA.',
+  masters: 'Una maestría afín encaja bien con el Programa de analista estudiante.',
+  rbt: 'Su credencial de RBT o QBT coincide con el puesto de técnico de conducta registrado.',
+  bt: 'El puesto de técnico de conducta suele ser el punto de partida con esta formación.',
 }
 Object.assign(es.contactQuiz.parentNoDiagnosis, {
   title: 'Un diagnóstico ayuda, y aún puede contactar a VTCC',
@@ -1685,9 +1726,7 @@ const intakeCategory = es.sections.resources.categories.find(
   (category) => category.slug === 'what-to-expect-during-intake',
 )
 if (intakeCategory) {
-  const formsFaq = intakeCategory.faqs.find((faq) =>
-    faq.question.toLowerCase().includes('form'),
-  )
+  const formsFaq = intakeCategory.faqs.find((faq) => /\bforms?\b/i.test(faq.question))
   if (formsFaq) {
     formsFaq.answer =
       'Los formularios requeridos dependen del servicio y de la fuente de financiamiento. Descargue los formularios de admisión y referencia en la página de Formularios, o contacte a VTCC si no está seguro de qué documentos aplican.'
@@ -1761,5 +1800,118 @@ es.thankYou = {
   },
 }
 
-writeFileSync(join(rootDir, 'content/locales/es.json'), JSON.stringify(es, null, 2))
+const careerRoleLabels = [
+  'Técnico de conducta (BT)',
+  'Técnico de conducta registrado (RBT)',
+  'Técnico de conducta líder sénior (SLBT)',
+  'Programa de analista estudiante',
+  'Analista de conducta certificado por la junta (BCBA)',
+  'Administración u operaciones',
+  'Otro',
+]
+const roleField = es.careerApplication.fields.find((field) => field.name === 'role')
+if (roleField) {
+  roleField.options = careerRoleLabels
+}
+es.sections.careers.postings.bt.applyRole = careerRoleLabels[0]
+es.sections.careers.postings.bcba.applyRole = careerRoleLabels[4]
+
+const contactOptions = ['Teléfono', 'Correo electrónico', 'Cualquiera']
+const serviceSolo = ['Aún no estoy seguro']
+const fundingSolo = ['No estoy seguro']
+
+function setField(form, name, updates) {
+  const field = form.fields.find((item) => item.name === name)
+  if (field) {
+    Object.assign(field, updates)
+  }
+}
+
+setField(es.formFamily, 'name', { label: 'Nombre del padre, la madre o el tutor' })
+setField(es.formFamily, 'email', { label: 'Correo electrónico' })
+setField(es.formFamily, 'phone', { label: 'Teléfono' })
+setField(es.formFamily, 'preferredContact', {
+  label: 'Método de contacto preferido',
+  placeholder: 'Seleccionar',
+  options: contactOptions,
+})
+setField(es.formFamily, 'ageRange', { label: 'Edad del niño' })
+setField(es.formFamily, 'service', {
+  label: 'Servicio que le interesa',
+  solo: serviceSolo,
+})
+setField(es.formFamily, 'funding', {
+  label: 'Fuente de financiamiento (si se conoce)',
+  solo: fundingSolo,
+})
+setField(es.formFamily, 'medicaid', {
+  label: '¿Es con Medicaid?',
+  placeholder: 'Seleccionar',
+  options: ['Sí', 'No', 'No estoy seguro'],
+})
+setField(es.formFamily, 'location', { label: 'Ciudad o condado' })
+setField(es.formFamily, 'message', { label: '¿En qué le gustaría que le ayudemos?' })
+es.formFamily.submitLabel = 'Enviar solicitud de servicios'
+
+setField(es.formReferral, 'name', { label: 'Nombre de quien refiere' })
+setField(es.formReferral, 'organization', { label: 'Organización o agencia' })
+setField(es.formReferral, 'role', {
+  label: 'Su función',
+  options: [
+    'Personal escolar',
+    'Médico o personal de enfermería',
+    'Terapeuta o consejero',
+    'Administrador de casos',
+    'Socio del condado o de FAPT',
+    'Otro profesional de la comunidad',
+  ],
+})
+setField(es.formReferral, 'email', { label: 'Correo electrónico del trabajo' })
+setField(es.formReferral, 'phone', { label: 'Teléfono del trabajo' })
+setField(es.formReferral, 'preferredContact', {
+  label: 'Método de contacto preferido',
+  options: contactOptions,
+})
+setField(es.formReferral, 'parentName', {
+  label: 'Nombre del padre, la madre o el tutor (si se conoce)',
+})
+setField(es.formReferral, 'parentPhone', {
+  label: 'Teléfono del padre, la madre o el tutor (si se conoce)',
+})
+setField(es.formReferral, 'ageRange', { label: 'Edad del niño' })
+setField(es.formReferral, 'service', {
+  label: 'Servicio solicitado',
+  solo: serviceSolo,
+})
+setField(es.formReferral, 'funding', {
+  label: 'Fuente de financiamiento (si se conoce)',
+  solo: fundingSolo,
+})
+setField(es.formReferral, 'medicaid', {
+  label: '¿Es con Medicaid?',
+  placeholder: 'Seleccionar',
+  options: ['Sí', 'No', 'No estoy seguro'],
+})
+setField(es.formReferral, 'location', { label: 'Ciudad o condado del niño' })
+setField(es.formReferral, 'message', {
+  label: 'Motivo de la referencia (solo un resumen no confidencial)',
+})
+es.formReferral.submitLabel = 'Enviar consulta de referencia'
+
+for (const form of [es.formFamily, es.formReferral]) {
+  const funding = form.fields.find((field) => field.name === 'funding')
+  if (!funding) continue
+  funding.options = funding.options.map((option) => {
+    if (option === 'County/FAPT') return 'Condado/FAPT'
+    if (option === 'Not sure') return 'No estoy seguro'
+    return option
+  })
+}
+
+if (es.sections.about?.quotes?.intro) {
+  es.sections.about.quotes.intro =
+    'Los padres y cuidadores comparten cómo ha sido trabajar con nuestro equipo. Estas citas son provisionales hasta que las familias compartan comentarios aprobados.'
+}
+
+writeFileSync(join(rootDir, 'content/locales/es.json'), JSON.stringify(es, null, 2) + '\n')
 console.log('Wrote content/locales/es.json')
