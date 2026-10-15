@@ -1632,6 +1632,9 @@ function renderCareerPage(content) {
             ${renderIndeedLink(careers.indeed)}
           </div>
         </div>
+        <div class="career-hero-media">
+          <img src="${escapeHtml(`${BASE}assets/career-hero.png`)}" alt="${escapeHtml(careers.heroPhotoAlt ?? '')}" width="800" height="800" loading="eager" />
+        </div>
       </section>
       ${renderCareerStory(content)}
       ${renderHiringDetails(content)}

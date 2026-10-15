@@ -148,6 +148,7 @@ es.sections.careers = {
   intro: 'Capacitación incluida, mentoría real y un trabajo que importa a las familias del norte de Virginia.',
   photoAlt:
     'El personal de VTCC reunido al aire libre alrededor de una mesa en un evento del equipo, con el banner de la clínica detrás.',
+  heroPhotoAlt: 'Adultos sonriendo juntos alrededor de una mesa durante una reunión de capacitación.',
   applyLabel: 'Solicitar empleo',
   applyHref: '/career/apply',
   indeed: {

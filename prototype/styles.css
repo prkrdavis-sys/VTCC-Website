@@ -1011,7 +1011,8 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   text-wrap: pretty;
 }
 
-.home-hero-media {
+.home-hero-media,
+.career-hero-media {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -1019,7 +1020,8 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   pointer-events: none;
 }
 
-.home-hero-media::after {
+.home-hero-media::after,
+.career-hero-media::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -1033,7 +1035,8 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   );
 }
 
-.home-hero-media img {
+.home-hero-media img,
+.career-hero-media img {
   position: absolute;
   inset: 0;
   display: block;
@@ -4325,12 +4328,20 @@ address strong {
 }
 
 .career-hero {
-  min-height: 0;
-  padding: clamp(2.75rem, 6vw, 4.5rem) clamp(1rem, 4vw, 4rem) clamp(0.25rem, 1.5vw, 0.75rem);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(14rem, 0.78fr);
+  align-items: center;
+  min-height: clamp(22rem, 48svh, 30rem);
+  padding: clamp(2.25rem, 5vw, 4.25rem) clamp(1.15rem, 5vw, 4.5rem);
   background: transparent;
 }
 
 .career-hero-copy {
+  position: relative;
+  z-index: 1;
   max-width: 40rem;
 }
 
@@ -5527,6 +5538,7 @@ address strong {
   .forms-layout,
   .split-section,
   .contact-section,
+  .career-hero,
   .career-application {
     grid-template-columns: 1fr;
   }
@@ -5544,6 +5556,21 @@ address strong {
       color-mix(in srgb, var(--paper) 94%, transparent) 36%,
       color-mix(in srgb, var(--paper) 70%, transparent) 64%,
       color-mix(in srgb, var(--paper) 28%, transparent) 84%,
+      transparent 100%
+    );
+  }
+
+  .career-hero-copy {
+    max-width: min(34rem, 62%);
+  }
+
+  .career-hero-media::after {
+    background: linear-gradient(
+      90deg,
+      var(--paper) 0%,
+      color-mix(in srgb, var(--paper) 96%, transparent) 42%,
+      color-mix(in srgb, var(--paper) 84%, transparent) 62%,
+      color-mix(in srgb, var(--paper) 36%, transparent) 84%,
       transparent 100%
     );
   }
@@ -6113,6 +6140,27 @@ address strong {
     grid-template-columns: 1fr;
     gap: clamp(1.5rem, 5vw, 2.25rem);
     min-height: 32rem;
+  }
+
+  .career-hero {
+    grid-template-columns: 1fr;
+    min-height: 26rem;
+  }
+
+  .career-hero-copy,
+  .career-hero-intro {
+    max-width: min(22rem, 78%);
+  }
+
+  .career-hero-media::after {
+    background: linear-gradient(
+      90deg,
+      var(--paper) 0%,
+      color-mix(in srgb, var(--paper) 97%, transparent) 52%,
+      color-mix(in srgb, var(--paper) 88%, transparent) 70%,
+      color-mix(in srgb, var(--paper) 42%, transparent) 88%,
+      transparent 100%
+    );
   }
 
   .hero-headline-main,
