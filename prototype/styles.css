@@ -5139,10 +5139,28 @@ address strong {
 
 .site-footer-grid {
   display: grid;
-  grid-template-columns: max-content max-content max-content;
-  justify-content: space-between;
+  grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr);
+  grid-template-areas: "visit brand contact";
   gap: clamp(1.5rem, 4vw, 4rem);
   align-items: start;
+}
+
+.site-footer-visit {
+  grid-area: visit;
+  justify-self: start;
+}
+
+.site-footer-brand {
+  grid-area: brand;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-footer-contact-col {
+  grid-area: contact;
+  justify-self: end;
 }
 
 .site-footer-logo {
@@ -5294,10 +5312,18 @@ address strong {
 @media (max-width: 980px) {
   .site-footer-grid {
     grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand brand"
+      "visit contact";
   }
 
   .site-footer-brand {
-    grid-column: 1 / -1;
+    justify-self: start;
+    align-items: flex-start;
+  }
+
+  .site-footer-contact-col {
+    justify-self: start;
   }
 }
 
@@ -5319,6 +5345,10 @@ address strong {
 
   .site-footer-grid {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "visit"
+      "contact";
     gap: 0.75rem;
   }
 
@@ -5404,12 +5434,11 @@ address strong {
 @media (max-width: 720px) and (min-width: 521px) {
   .site-footer-grid {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    grid-template-areas:
+      "brand brand"
+      "visit contact";
     align-items: start;
     gap: 0.7rem 1.75rem;
-  }
-
-  .site-footer-brand {
-    grid-column: 1 / -1;
   }
 
   .site-footer-label {

@@ -644,6 +644,15 @@ function renderFooter(content) {
   return `<footer class="site-footer">
       <div class="site-footer-main">
         <div class="site-footer-wrap site-footer-grid">
+          <div class="site-footer-col site-footer-visit">
+            <p class="site-footer-label">${escapeHtml(footer.visitLabel)}</p>
+            <address>${address}</address>
+            ${
+              bar?.addressHref
+                ? `<a class="site-footer-directions" href="${escapeHtml(bar.addressHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(footer.directionsLabel)}</a>`
+                : ''
+            }
+          </div>
           <div class="site-footer-brand">
             <a class="site-footer-logo" href="${escapeHtml(toStaticHref('/'))}">
               <img src="${escapeHtml(BASE)}assets/vtcc-logo.png" alt="" />
@@ -658,16 +667,7 @@ function renderFooter(content) {
                 : ''
             }
           </div>
-          <div class="site-footer-col">
-            <p class="site-footer-label">${escapeHtml(footer.visitLabel)}</p>
-            <address>${address}</address>
-            ${
-              bar?.addressHref
-                ? `<a class="site-footer-directions" href="${escapeHtml(bar.addressHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(footer.directionsLabel)}</a>`
-                : ''
-            }
-          </div>
-          <div class="site-footer-col">
+          <div class="site-footer-col site-footer-contact-col">
             <p class="site-footer-label">${escapeHtml(footer.contactLabel)}</p>
             <a class="site-footer-contact" href="${escapeHtml(bar?.phoneHref ?? '#')}">${phoneIcon}<span>${escapeHtml(bar?.phone ?? '')}</span></a>
             <a class="site-footer-contact" href="${escapeHtml(bar?.emailHref ?? '#')}">${emailIcon}<span>${escapeHtml(bar?.email ?? '')}</span></a>
