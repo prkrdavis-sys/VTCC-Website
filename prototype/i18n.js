@@ -673,7 +673,7 @@ function renderFooter(content) {
             <a class="site-footer-contact" href="${escapeHtml(bar?.emailHref ?? '#')}">${emailIcon}<span>${escapeHtml(bar?.email ?? '')}</span></a>
             ${
               content.offices?.[0]?.fax
-                ? `<p class="site-footer-contact site-footer-fax"><span>${escapeHtml(content.ui.faxLabel)}: ${escapeHtml(content.offices[0].fax)}</span></p>`
+                ? `<p class="site-footer-contact site-footer-fax"><span class="site-footer-fax-label">${escapeHtml(content.ui.faxLabel)}:</span><span>${escapeHtml(content.offices[0].fax)}</span></p>`
                 : ''
             }
           </div>
@@ -1641,16 +1641,6 @@ function renderCareerPage(content) {
       <section class="section career-hiring" id="${escapeHtml(careers.steps.id ?? 'hiring-process')}">
         ${renderSectionHeading(careers.steps.eyebrow, careers.steps.title)}
         <ol class="career-step-list">${steps}</ol>
-      </section>
-      <section class="section career-closing">
-        <div>
-          <h2>${escapeHtml(careers.closing.title)}</h2>
-          <p>${escapeHtml(careers.closing.body)}</p>
-        </div>
-        <div class="career-closing-actions">
-          <a class="button" href="${escapeHtml(toStaticHref(careers.applyHref))}">${escapeHtml(careers.closing.buttonLabel)}</a>
-          ${renderIndeedLink(careers.indeed)}
-        </div>
       </section>`
 }
 
