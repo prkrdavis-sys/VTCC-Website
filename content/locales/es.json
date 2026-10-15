@@ -1115,8 +1115,8 @@
     },
     "contactReferral": {
       "eyebrow": "Para referentes",
-      "title": "Inicie una referencia o pregunte por la elegibilidad",
-      "intro": "Escuelas, médicos, administradores de casos, socios del condado y profesionales comunitarios pueden usar este formulario para preguntar por los requisitos de referencia. No envíe información de salud protegida aquí.",
+      "title": "Para médicos, personal escolar, trabajadores sociales y otros profesionales",
+      "intro": "",
       "callEyebrow": "Llame a VTCC",
       "callTitle": "¿Necesita hablar de una referencia por teléfono?",
       "callIntro": "Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con elegibilidad, documentación requerida y próximos pasos."

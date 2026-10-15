@@ -960,9 +960,8 @@ Object.assign(es.sections.contactFamily, {
 
 Object.assign(es.sections.contactReferral, {
   eyebrow: 'Para referentes',
-  title: 'Inicie una referencia o pregunte por la elegibilidad',
-  intro:
-    'Escuelas, médicos, administradores de casos, socios del condado y profesionales comunitarios pueden usar este formulario para preguntar por los requisitos de referencia. No envíe información de salud protegida aquí.',
+  title: 'Para médicos, personal escolar, trabajadores sociales y otros profesionales',
+  intro: '',
   callEyebrow: 'Llame a VTCC',
   callTitle: '¿Necesita hablar de una referencia por teléfono?',
   callIntro:
