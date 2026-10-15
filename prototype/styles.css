@@ -1111,9 +1111,7 @@ body:has(.service-subnav-band) main > .home-hero:first-child {
   padding-top: 0;
   padding-inline: 0;
   padding-bottom: clamp(1.85rem, 3.6vw, 2.6rem);
-  background:
-    linear-gradient(var(--band-rule), var(--band-rule)) 0 100% / 100% 0.45rem no-repeat,
-    var(--band-deep);
+  background: var(--band-deep);
 }
 
 .services-banner {
@@ -5084,6 +5082,13 @@ address strong {
   margin-top: auto;
   color: rgba(255, 255, 255, 0.82);
   background: var(--brand-deep);
+}
+
+.site-footer::before {
+  content: "";
+  display: block;
+  height: 0.45rem;
+  background: var(--brand-bar);
 }
 
 .site-footer p,
