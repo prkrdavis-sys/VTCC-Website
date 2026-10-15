@@ -1096,7 +1096,7 @@ function renderListItems(items, ordered = false) {
     .join('')}</${tag}>`
 }
 
-function renderProgramPanel(program, content, { open = false, compact = false } = {}) {
+function renderProgramPanel(program, content, { open = false, compact = false, media = false } = {}) {
   const ageLabel = content.ui.ageRangeLabel
   const ageRange = program.ageRange ?? ''
   const body = compact
@@ -1125,12 +1125,21 @@ function renderProgramPanel(program, content, { open = false, compact = false } 
               </div>
             </div>`
 
-  return `<details class="program-panel" id="program-${escapeHtml(program.id)}"${open ? ' open' : ''}>
-            <summary>
+  const imageSrc = media && program.image ? `${BASE}${program.image.replace(/^\//, '')}` : ''
+  const heading = imageSrc
+    ? `<span class="program-panel-media" aria-hidden="true"><img src="${escapeHtml(imageSrc)}" alt="" loading="lazy" decoding="async" /></span>
               <span class="program-panel-summary">
+                <h3 class="program-panel-name">${escapeHtml(program.label)}</h3>
+                <span class="program-panel-title">${escapeHtml(program.title)}</span>
+              </span>`
+    : `<span class="program-panel-summary">
                 <span class="card-label">${escapeHtml(program.label)}</span>
                 <span class="program-panel-title">${escapeHtml(program.title)}</span>
-              </span>
+              </span>`
+
+  return `<details class="program-panel${imageSrc ? ' program-panel--media' : ''}" id="program-${escapeHtml(program.id)}"${open ? ' open' : ''}>
+            <summary>
+              ${heading}
               <span class="program-panel-indicator" aria-hidden="true"></span>
             </summary>
             ${body}
@@ -1153,7 +1162,7 @@ function renderHome(content) {
     .join('')
 
   const serviceCards = getServicePrograms(content)
-    .map((program) => renderProgramPanel(program, content))
+    .map((program) => renderProgramPanel(program, content, { media: true }))
     .join('')
 
   const missionStatement = sections.whoWeServe.missionStatement

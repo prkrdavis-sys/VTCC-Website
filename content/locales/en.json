@@ -329,6 +329,7 @@
           ],
           "linkLabel": "Learn about ABA",
           "href": "/aba",
+          "image": "/assets/services/aba.jpg",
           "teaser": "Individualized therapy that builds communication, daily living, and social skills."
         },
         {
@@ -361,6 +362,7 @@
           ],
           "linkLabel": "Learn about Early Learners",
           "href": "/early-learners",
+          "image": "/assets/services/early-learners.jpg",
           "teaser": "School readiness through play, routines, and communication."
         },
         {
@@ -392,6 +394,7 @@
           ],
           "linkLabel": "Learn about Feeding",
           "href": "/feeding-program",
+          "image": "/assets/services/feeding.jpg",
           "teaser": "Gentle, gradual support for trying new foods and textures."
         },
         {
@@ -423,6 +426,7 @@
           ],
           "linkLabel": "Learn about Social Enrichment",
           "href": "/social-enrichment",
+          "image": "/assets/services/social-enrichment.jpg",
           "teaser": "Small-group play and friendship skills for ages 8-12."
         },
         {
@@ -454,6 +458,7 @@
           ],
           "linkLabel": "Learn about Social Skills",
           "href": "/social-skills-group",
+          "image": "/assets/services/social-skills.jpg",
           "teaser": "Coached peer practice in conversation and flexible thinking."
         },
         {
@@ -485,6 +490,7 @@
           ],
           "linkLabel": "Learn about Group Parent Training",
           "href": "/group-parent-training",
+          "image": "/assets/services/group-parent-training.jpg",
           "teaser": "Caregivers learn practical strategies together in a small group."
         }
       ]

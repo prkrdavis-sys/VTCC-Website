@@ -547,7 +547,10 @@ es.sections.services.cards = [
     "linkLabel": "Conozca la capacitación grupal para padres",
     "href": "/group-parent-training"
   }
-]
+].map((card) => ({
+  ...card,
+  image: en.sections.services.cards.find((enCard) => enCard.id === card.id)?.image,
+}))
 
 Object.assign(es.sections.process, {
   eyebrow: 'Cómo comenzar',

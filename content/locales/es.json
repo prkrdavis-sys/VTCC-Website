@@ -332,7 +332,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Conozca la ABA",
-          "href": "/aba"
+          "href": "/aba",
+          "image": "/assets/services/aba.jpg"
         },
         {
           "id": "early-learners",
@@ -364,7 +365,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Conozca Primeros Aprendices",
-          "href": "/early-learners"
+          "href": "/early-learners",
+          "image": "/assets/services/early-learners.jpg"
         },
         {
           "id": "feeding",
@@ -395,7 +397,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Conozca el programa de alimentación",
-          "href": "/feeding-program"
+          "href": "/feeding-program",
+          "image": "/assets/services/feeding.jpg"
         },
         {
           "id": "social-enrichment",
@@ -426,7 +429,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Conozca Enriquecimiento Social",
-          "href": "/social-enrichment"
+          "href": "/social-enrichment",
+          "image": "/assets/services/social-enrichment.jpg"
         },
         {
           "id": "social-skills",
@@ -457,7 +461,8 @@
             "group-parent-training"
           ],
           "linkLabel": "Conozca el grupo social",
-          "href": "/social-skills-group"
+          "href": "/social-skills-group",
+          "image": "/assets/services/social-skills.jpg"
         },
         {
           "id": "group-parent-training",
@@ -488,7 +493,8 @@
             "social-skills"
           ],
           "linkLabel": "Conozca la capacitación grupal para padres",
-          "href": "/group-parent-training"
+          "href": "/group-parent-training",
+          "image": "/assets/services/group-parent-training.jpg"
         }
       ]
     },
