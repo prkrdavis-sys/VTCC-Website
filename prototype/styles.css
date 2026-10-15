@@ -5376,8 +5376,10 @@ address strong {
   }
 
   .site-footer-brand {
-    justify-self: start;
-    align-items: flex-start;
+    justify-self: stretch;
+    align-items: center;
+    width: 100%;
+    text-align: center;
   }
 
   .site-footer-contact-col {
@@ -5424,7 +5426,9 @@ address strong {
   }
 
   .site-footer-brand {
+    justify-self: stretch;
     align-items: center;
+    width: 100%;
     text-align: center;
   }
 
