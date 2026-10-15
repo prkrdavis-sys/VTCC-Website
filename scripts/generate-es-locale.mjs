@@ -864,8 +864,8 @@ Object.assign(es.sections.multiculturalCare, {
 })
 
 Object.assign(es.sections.about, {
-  eyebrow: 'Acerca de VTCC',
-  title: 'Habilidades pequeñas. Grandes cambios en casa.',
+  eyebrow: '',
+  title: 'Habilidades esenciales. Grandes cambios en casa.',
   lede: 'VTCC ayuda a niños y familias a desarrollar habilidades fundamentales de comunicación, independencia y conexión social que se trasladan a las rutinas de cada día.',
   mission: {
     eyebrow: 'Nuestra misión',

@@ -1450,25 +1450,31 @@ function renderAboutPage(content) {
       </figure>`
     : ''
 
-  return `<section class="section about-hero page-section">
+  return `<section class="section about-hero">
         ${renderSectionHeading(about.eyebrow, about.title, about.lede)}
       </section>
-      <section class="section about-mission band band--deep">
-        <div class="about-mission-inner">
-          <p class="eyebrow">${escapeHtml(about.mission.eyebrow)}</p>
-          <p class="about-mission-statement">${escapeHtml(about.mission.statement)}</p>
-          <p>${escapeHtml(about.mission.body)}</p>
+      <section class="section about-mission">
+        <div class="about-mission-grid">
+          <div>
+            <p class="eyebrow">${escapeHtml(about.mission.eyebrow)}</p>
+            <p class="about-mission-statement">${escapeHtml(about.mission.statement)}</p>
+          </div>
+          <p class="about-mission-body">${escapeHtml(about.mission.body)}</p>
         </div>
       </section>
-      <section class="section about-story page-section">
-        ${renderSectionHeading(about.story.eyebrow, about.story.title)}
-        <div class="about-story-copy">${storyParagraphs}</div>
+      <section class="section about-story">
+        <div class="about-story-layout">
+          <div class="about-story-main">
+            ${renderSectionHeading(about.story.eyebrow, about.story.title)}
+            <div class="about-story-copy">${storyParagraphs}</div>
+            ${careersLink}
+          </div>
+          ${photo}
+        </div>
         <div class="about-pillars">
           ${renderSectionHeading(about.pillars.eyebrow, about.pillars.title)}
           <div class="about-pillar-grid">${pillars}</div>
         </div>
-        ${photo}
-        ${careersLink}
       </section>
       ${renderQuoteBoard(about.quotes, 'about-quotes')}`
 }
