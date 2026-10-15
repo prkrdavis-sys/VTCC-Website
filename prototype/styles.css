@@ -5365,8 +5365,15 @@ address strong {
     margin-bottom: 0.15rem;
   }
 
+  .site-footer-brand {
+    align-items: center;
+    text-align: center;
+  }
+
   .site-footer-logo {
-    gap: 0.65rem;
+    flex-direction: column;
+    gap: 0.45rem;
+    text-align: center;
   }
 
   .site-footer-logo img {
