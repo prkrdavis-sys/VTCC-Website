@@ -176,7 +176,6 @@ es.sections.careers = {
     ],
   },
   steps: {
-    eyebrow: 'Cómo funciona la contratación',
     title: 'Tres pasos',
     id: 'hiring-process',
     items: [{ title: 'Postule' }, { title: 'Conozca al equipo' }, { title: 'Hablemos del puesto' }],
