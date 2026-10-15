@@ -1171,15 +1171,15 @@ function renderHome(content) {
         <div class="home-hero-copy">
           ${renderHeroHeading(content.hero)}
           <div class="button-row">${heroActions.map(renderButton).join('\n            ')}</div>
-          <div class="home-trust" aria-label="Trust highlights">${trustItems}</div>
         </div>
         ${
           heroImage
             ? `<div class="home-hero-media">
-          <img src="${escapeHtml(heroImage)}" alt="" loading="eager" />
+          <img src="${escapeHtml(heroImage)}" alt="" width="800" height="800" loading="eager" />
         </div>`
             : ''
         }
+        <div class="home-trust" aria-label="Trust highlights">${trustItems}</div>
       </section>
       <section id="services" class="section home-services">
         ${renderServicesBanner(sections.services.eyebrow, sections.services.title, sections.services.intro)}
