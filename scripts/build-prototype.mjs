@@ -1,7 +1,6 @@
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { mkdirSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { loadSiteContent, rootDir } from './lib.mjs'
-import { renderSeoHeadHtml } from './seo-head.mjs'
 
 const fontLinks = `<link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -9,22 +8,95 @@ const fontLinks = `<link rel="preconnect" href="https://fonts.googleapis.com" />
 
 const site = loadSiteContent()
 const prototypeDir = join(rootDir, 'prototype')
+const english = site.locales.en
+
+function publicPath(file) {
+  const normalized = file.split('\\').join('/')
+  if (normalized === 'index.html') {
+    return '/'
+  }
+  return `/${normalized.replace(/\/index\.html$/, '').replace(/\.html$/, '')}`
+}
+
+function staticHead(entry) {
+  if (entry.noindex) {
+    return `    <title>Request received | Victoria Transcultural Clinical Center</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      (function () {
+        try {
+          var raw = sessionStorage.getItem('vtcc-form-ink')
+          if (!raw) return
+          var data = JSON.parse(raw)
+          if (!data || Date.now() - data.t > 10000) {
+            sessionStorage.removeItem('vtcc-form-ink')
+            return
+          }
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+          var root = document.documentElement
+          root.classList.add('is-ink-arrival')
+          root.style.setProperty('--ink-x', data.x + 'px')
+          root.style.setProperty('--ink-y', data.y + 'px')
+        } catch (error) {}
+      })()
+    </script>
+`
+  }
+
+  const seo = english.seo ?? {}
+  const pageKey = entry.seoPage ?? entry.page
+  let pageSeo = seo.pages?.[pageKey] ?? {}
+  if (entry.page === 'resource' && entry.slug) {
+    const category = english.sections?.resources?.categories?.find((item) => item.slug === entry.slug)
+    if (category) {
+      pageSeo = {
+        title: `${category.title} | ${english.company.name}`,
+        description: category.intro || seo.defaultDescription,
+      }
+    }
+  }
+  if (entry.title) {
+    pageSeo = {
+      ...pageSeo,
+      title: `${entry.title} | ${english.company.name}`,
+    }
+  }
+
+  const title = pageSeo.title ?? english.company.name
+  const description = pageSeo.description ?? seo.defaultDescription ?? ''
+  const origin = String(site.publicSiteUrl ?? '').replace(/\/$/, '')
+  const path = publicPath(entry.file)
+  const canonical = origin ? `${origin}${path}` : ''
+  const image = origin && seo.shareImage ? `${origin}${seo.shareImage}` : ''
+  const imageAlt = seo.shareImageAlt ?? english.company.name
+
+  return `    <title>${title}</title>
+    <meta name="description" content="${description.replaceAll('"', '&quot;')}" />
+    ${canonical ? `<link rel="canonical" href="${canonical}" />` : ''}
+    <meta property="og:title" content="${title.replaceAll('"', '&quot;')}" />
+    <meta property="og:description" content="${description.replaceAll('"', '&quot;')}" />
+    <meta property="og:type" content="website" />
+    ${canonical ? `<meta property="og:url" content="${canonical}" />` : ''}
+    ${image ? `<meta property="og:image" content="${image}" />` : ''}
+    <meta property="og:image:alt" content="${imageAlt.replaceAll('"', '&quot;')}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${title.replaceAll('"', '&quot;')}" />
+    <meta name="twitter:description" content="${description.replaceAll('"', '&quot;')}" />
+    ${image ? `<meta name="twitter:image" content="${image}" />` : ''}
+    <link rel="icon" href="${entry.base}assets/vtcc-logo.png" />
+`
+}
 
 for (const obsoleteFile of [
   'intensive-in-home.html',
   'referrers.html',
+  'seo-content.js',
   join('resources', 'intensive-in-home-basics.html'),
 ]) {
   rmSync(join(prototypeDir, obsoleteFile), { force: true })
 }
 
 writeFileSync(join(prototypeDir, 'site-content.js'), `window.VTCC_SITE = ${JSON.stringify(site)};\n`)
-
-const seoPath = join(rootDir, 'content', 'seo-from-vtcc-health.json')
-writeFileSync(
-  join(prototypeDir, 'seo-content.js'),
-  `window.VTCC_SEO = ${readFileSync(seoPath, 'utf8').trim()};\n`,
-)
 
 const cursorByPage = {
   home: 'sparkle',
@@ -105,34 +177,7 @@ mkdirSync(join(prototypeDir, 'career'), { recursive: true })
 
 for (const entry of pages) {
   const slugScript = entry.slug ? `\n    <script>window.VTCC_RESOURCE_SLUG = ${JSON.stringify(entry.slug)};</script>` : ''
-  const pageKey = entry.page === 'resource' ? 'resource' : entry.page
-  const inkHandoffScript = entry.noindex
-    ? `    <title>Request received | Victoria Transcultural Clinical Center</title>
-    <meta name="robots" content="noindex" />
-    <script>
-      (function () {
-        try {
-          var raw = sessionStorage.getItem('vtcc-form-ink')
-          if (!raw) return
-          var data = JSON.parse(raw)
-          if (!data || Date.now() - data.t > 10000) {
-            sessionStorage.removeItem('vtcc-form-ink')
-            return
-          }
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-          var root = document.documentElement
-          root.classList.add('is-ink-arrival')
-          root.style.setProperty('--ink-x', data.x + 'px')
-          root.style.setProperty('--ink-y', data.y + 'px')
-        } catch (error) {}
-      })()
-    </script>
-`
-    : ''
-  const titleHead = entry.title
-    ? `    <title>${entry.title} | Victoria Transcultural Clinical Center</title>\n`
-    : ''
-  const seoHead = inkHandoffScript || titleHead || renderSeoHeadHtml(entry.seoPage ?? pageKey, 'en')
+  const seoHead = staticHead(entry)
   const analyticsScript = entry.noAnalytics
     ? ''
     : `\n    <script defer src="${entry.base}analytics.js"></script>`
@@ -153,7 +198,6 @@ ${seoHead}    ${fontLinks}
   <body>
     <div id="app"></div>
     <script>window.VTCC_PAGE = ${JSON.stringify(entry.page)}; window.VTCC_BASE = ${JSON.stringify(entry.base)};</script>${slugScript}
-    <script src="${entry.base}seo-content.js"></script>
     <script src="${entry.base}site-content.js"></script>
     <script src="${entry.base}i18n.js"></script>${analyticsScript}${
       cursorByPage[entry.page]
@@ -165,6 +209,22 @@ ${seoHead}    ${fontLinks}
   </body>
 </html>
 `,
+  )
+}
+
+const origin = String(site.publicSiteUrl ?? '').replace(/\/$/, '')
+if (origin) {
+  const urls = pages
+    .filter((entry) => !entry.noindex && entry.file !== 'careers.html')
+    .map((entry) => `  <url><loc>${origin}${publicPath(entry.file)}</loc></url>`)
+    .join('\n')
+  writeFileSync(
+    join(prototypeDir, 'sitemap.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
+  )
+  writeFileSync(
+    join(prototypeDir, 'robots.txt'),
+    `User-agent: *\nAllow: /\nDisallow: /thank-you\n\nSitemap: ${origin}/sitemap.xml\n`,
   )
 }
 

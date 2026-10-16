@@ -160,7 +160,7 @@ Key sections:
 
 1. Short request form
 2. Fairfax office
-3. Fredericksburg office
+3. Fairfax office hours and service area
 4. Phone and fax
 5. Hours
 6. Service area
@@ -192,7 +192,7 @@ Utility actions:
 1. Request Services
 2. Refer a Client
 3. Call Fairfax
-4. Call Fredericksburg
+4. Call Fairfax
 
 Language selection:
 

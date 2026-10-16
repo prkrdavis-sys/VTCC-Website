@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you
+
+Sitemap: https://vtcc-website.cool-queen-3cc7.workers.dev/sitemap.xml

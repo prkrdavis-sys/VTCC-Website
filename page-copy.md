@@ -599,7 +599,11 @@ Timelines vary. Some steps move quickly after contact, while funding verificatio
 
 What happens after I reach out?
 
-VTCC reviews your request, confirms service and funding fit when possible, and guides you through paperwork, verification, assessment scheduling, and treatment planning.
+VTCC reviews your request, confirms service and funding fit when possible, and guides you through paperwork, verification, assessment scheduling, and treatment planning. A team member follows up by phone or email. How soon depends on the request and the office workload.
+
+Where does VTCC provide services?
+
+VTCC's office is in Fairfax and serves families in Northern Virginia. Group programs meet at the clinic. Individual ABA can include practice at home and in the community when the treatment plan calls for it. Call to confirm we can serve your city or county.
 
 What if I am not sure which service I need?
 
@@ -687,7 +691,11 @@ Use only the contact methods VTCC provides for referral and intake documents. Do
 
 How quickly will VTCC respond?
 
-Response times vary by urgency, completeness of information, and office workload. If there is an immediate safety emergency, call 911.
+A team member follows up by phone or email. How soon depends on the request and the office workload. This website is not monitored around the clock. If there is an immediate safety emergency, call 911. For a mental health crisis, call or text 988.
+
+Does VTCC coordinate with schools or IEPs?
+
+Families often want skills to carry into school. VTCC can talk with you about sharing progress and whether a report or a school meeting is part of the plan. What the team can share depends on your consent, the treatment plan, and the funding source. Ask during intake if school coordination is a goal.
 
 Can VTCC tell me if a child is eligible before I refer?
 

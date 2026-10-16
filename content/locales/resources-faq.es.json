@@ -112,7 +112,11 @@
         },
         {
           "question": "¿Qué ocurre después de que me comunico?",
-          "answer": "VTCC revisa su solicitud, confirma la compatibilidad del servicio y del financiamiento cuando es posible, y le guía a través de la documentación, la verificación, la programación de evaluaciones y la planificación del tratamiento."
+          "answer": "VTCC revisa su solicitud, confirma la compatibilidad del servicio y del financiamiento cuando es posible, y le guía a través de la documentación, la verificación, la programación de evaluaciones y la planificación del tratamiento. Un miembro del equipo da seguimiento por teléfono o correo electrónico. El tiempo depende de la solicitud y del trabajo de la oficina."
+        },
+        {
+          "question": "¿Dónde brinda servicios VTCC?",
+          "answer": "La oficina de VTCC está en Fairfax y atiende a familias en el norte de Virginia. Los programas grupales se reúnen en la clínica. La ABA individual puede incluir práctica en el hogar y en la comunidad cuando el plan de tratamiento lo indica. Llame para confirmar si podemos atender su ciudad o condado."
         },
         {
           "question": "¿Qué pasa si no estoy seguro de qué servicio necesito?",
@@ -209,7 +213,11 @@
         },
         {
           "question": "¿Qué tan rápido responderá VTCC?",
-          "answer": "Los tiempos de respuesta varían según la urgencia, la completitud de la información y la carga de trabajo de la oficina. Si hay una emergencia de seguridad inmediata, llame al 911."
+          "answer": "Un miembro del equipo da seguimiento por teléfono o correo electrónico. El tiempo depende de la solicitud y del trabajo de la oficina. Este sitio web no se supervisa las 24 horas. Si hay una emergencia de seguridad inmediata, llame al 911. Si tiene una crisis de salud mental, llame o envíe un mensaje de texto al 988."
+        },
+        {
+          "question": "¿VTCC coordina con las escuelas o los IEP?",
+          "answer": "Las familias a menudo quieren que las habilidades se trasladen a la escuela. VTCC puede hablar con usted sobre compartir el progreso y si un informe o una reunión escolar forma parte del plan. Lo que el equipo puede compartir depende de su consentimiento, el plan de tratamiento y la fuente de financiamiento. Pregunte durante la admisión si la coordinación con la escuela es una meta."
         },
         {
           "question": "¿Puede VTCC decirme si un niño es elegible antes de referir?",

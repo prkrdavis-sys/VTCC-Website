@@ -550,6 +550,7 @@ function renderMobileMenu(content) {
       </div>
       <div class="site-menu-drawer-body">
         ${renderLanguageSelect(content)}
+        ${renderMenuVisit(content)}
         <nav class="site-menu-nav" aria-label="${escapeHtml(content.ui.menuLabel)}">
           ${navLinks}
         </nav>
@@ -580,6 +581,154 @@ function renderServicesBanner(eyebrow, title, intro = '') {
         </header>`
 }
 
+const QUOTE_CLOUD = [
+  [22, 68.78, 27.53, 58.28, 36.79, 51.95],
+  [46.05, 45.61, 57.84, 44.24, 68.3, 48.3],
+  [72.29, 36.72, 81.15, 27.46, 92.54, 22.95],
+  [103.93, 18.44, 116.72, 19.13, 127.56, 24.83],
+  [138.4, 30.54, 146.21, 40.69, 148.94, 52.63],
+  [153.7, 47.94, 159.89, 44.98, 166.52, 44.2],
+  [173.16, 43.43, 179.86, 44.89, 185.57, 48.36],
+  [189.14, 35.34, 198.49, 24.68, 210.93, 19.45],
+  [223.37, 14.21, 237.53, 14.97, 249.34, 21.52],
+  [261.14, 28.07, 269.29, 39.67, 271.44, 52.99],
+  [277.51, 46.43, 286.34, 43.16, 295.22, 44.19],
+  [304.1, 45.21, 311.96, 50.42, 316.36, 58.2],
+  [321.99, 50.34, 330.69, 45.25, 340.3, 44.2],
+  [349.9, 43.15, 359.5, 46.23, 366.69, 52.68],
+  [373.89, 59.13, 378, 68.34, 378, 78],
+]
+
+function quotePx(value) {
+  return Math.round(value * 100) / 100
+}
+
+function quoteRootPx() {
+  return parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+}
+
+function quoteSvgEl(name, attrs) {
+  const node = document.createElementNS('http://www.w3.org/2000/svg', name)
+  Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, String(value)))
+  return node
+}
+
+function quoteBottomTail(tailL, tailR, y, drop, outwardRight) {
+  const span = tailR - tailL
+  const tipY = y + drop
+  const tipX = outwardRight ? tailR - span * 0.32 : tailL + span * 0.32
+  const arriveX = tipX + span * 0.2
+  const leaveX = tipX - span * 0.16
+  return `H ${quotePx(tailR)} C ${quotePx(tailR - span * 0.22)} ${quotePx(y)}, ${quotePx(arriveX)} ${quotePx(tipY)}, ${quotePx(tipX)} ${quotePx(tipY)} C ${quotePx(leaveX)} ${quotePx(tipY)}, ${quotePx(tailL + span * 0.42)} ${quotePx(y)}, ${quotePx(tailL)} ${quotePx(y)}`
+}
+
+function speechOutline(w, h, onRight) {
+  const half = 1.25
+  const root = quoteRootPx()
+  const x1 = w * (22 / 400)
+  const x2 = w * (378 / 400)
+  const y1 = half
+  const drop = 1.12 * root
+  const y2 = h - half - drop
+  const radius = Math.min(1.7 * root, (x2 - x1) / 2 - 6, Math.max(10, (y2 - y1) / 2 - 4))
+  const base = Math.min(2.2 * root, Math.max(28, (x2 - x1) - radius * 2 - 16))
+  const gap = Math.max(8, 0.4 * root)
+  const tailR = onRight ? x2 - radius - gap : x1 + radius + gap + base
+  const tailL = tailR - base
+  const tail = quoteBottomTail(tailL, tailR, y2, drop, onRight)
+  return `M ${quotePx(x1 + radius)} ${quotePx(y1)} H ${quotePx(x2 - radius)} A ${quotePx(radius)} ${quotePx(radius)} 0 0 1 ${quotePx(x2)} ${quotePx(y1 + radius)} V ${quotePx(y2 - radius)} A ${quotePx(radius)} ${quotePx(radius)} 0 0 1 ${quotePx(x2 - radius)} ${quotePx(y2)} ${tail} H ${quotePx(x1 + radius)} A ${quotePx(radius)} ${quotePx(radius)} 0 0 1 ${quotePx(x1)} ${quotePx(y2 - radius)} V ${quotePx(y1 + radius)} A ${quotePx(radius)} ${quotePx(radius)} 0 0 1 ${quotePx(x1 + radius)} ${quotePx(y1)} Z`
+}
+
+function thoughtOutline(w, h) {
+  const half = 1.25
+  const root = quoteRootPx()
+  const scale = w / 400
+  const x1 = 22 * scale
+  const x2 = 378 * scale
+  const yJoin = 80 * scale
+  const y2 = Math.max(h - 2.15 * root - half, yJoin + 1.7 * root + 16)
+  const radius = Math.min(1.7 * root, (x2 - x1) / 2 - 6, Math.max(10, (y2 - yJoin) / 2))
+  const cloud = QUOTE_CLOUD.map((curve) => `C ${curve.map((value) => quotePx(value * scale)).join(' ')}`).join(' ')
+  return {
+    d: `M ${quotePx(x1)} ${quotePx(yJoin)} ${cloud} V ${quotePx(y2 - radius)} A ${quotePx(radius)} ${quotePx(radius)} 0 0 1 ${quotePx(x2 - radius)} ${quotePx(y2)} H ${quotePx(x1 + radius)} A ${quotePx(radius)} ${quotePx(radius)} 0 0 1 ${quotePx(x1)} ${quotePx(y2 - radius)} Z`,
+    x1,
+    x2,
+    y2,
+    radius,
+  }
+}
+
+function appendThoughtDots(svg, { x1, x2, y2, radius, onRight }) {
+  const root = quoteRootPx()
+  const scale = (2.7 * root) / 72
+  const bigR = 13 * scale
+  const smallR = 8 * scale
+  const sign = onRight ? 1 : -1
+  const big = {
+    cx: onRight ? x2 - radius * 0.22 : x1 + radius * 0.22,
+    cy: y2 + bigR + 4.5,
+    r: bigR,
+  }
+  const small = {
+    cx: big.cx + sign * (bigR + smallR + 3),
+    cy: big.cy + bigR * 0.62 + smallR,
+    r: smallR,
+  }
+  ;[big, small].forEach((circle) => {
+    svg.append(quoteSvgEl('circle', { cx: quotePx(circle.cx), cy: quotePx(circle.cy), r: quotePx(circle.r) }))
+  })
+}
+
+function paintQuoteBubble(svg) {
+  const shell = svg.closest('.quote-bubble-shell')
+  const figure = svg.closest('.quote-bubble')
+  if (!shell || !figure) {
+    return
+  }
+
+  const w = shell.clientWidth
+  const h = shell.clientHeight
+  if (w < 2 || h < 2) {
+    return
+  }
+
+  const onRight =
+    figure.classList.contains('quote-bubble--end') && !window.matchMedia('(max-width: 680px)').matches
+  const thought = figure.classList.contains('quote-bubble--thought')
+  const key = `${thought ? 'thought' : 'speech'}:${onRight ? 'end' : 'start'}:${w}x${h}`
+  if (svg.dataset.shape === key) {
+    return
+  }
+
+  svg.dataset.shape = key
+  svg.setAttribute('viewBox', `0 0 ${w} ${h}`)
+  svg.replaceChildren()
+  if (thought) {
+    const shape = thoughtOutline(w, h)
+    svg.append(quoteSvgEl('path', { d: shape.d }))
+    appendThoughtDots(svg, { ...shape, onRight })
+    return
+  }
+
+  svg.append(quoteSvgEl('path', { d: speechOutline(w, h, onRight) }))
+}
+
+function bindQuoteBubbles() {
+  if (!bindQuoteBubbles.observer) {
+    bindQuoteBubbles.observer = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.querySelectorAll('.quote-bubble-art svg').forEach((svg) => paintQuoteBubble(svg))
+      })
+    })
+  }
+
+  bindQuoteBubbles.observer.disconnect()
+  document.querySelectorAll('.quote-bubble-shell').forEach((shell) => {
+    bindQuoteBubbles.observer.observe(shell)
+    shell.querySelectorAll('.quote-bubble-art svg').forEach((svg) => paintQuoteBubble(svg))
+  })
+}
+
 function renderQuoteBoard(quotes, extraClass = '') {
   const items = quotes?.items ?? []
   if (!items.length) {
@@ -590,17 +739,11 @@ function renderQuoteBoard(quotes, extraClass = '') {
     .map((item, index) => {
       const style = item.style === 'speech' ? 'speech' : 'thought'
       const align = index === items.length - 1 ? 'quote-bubble--end' : 'quote-bubble--start'
-      const decor =
-        style === 'thought'
-          ? `<img class="quote-shape-cap" src="${escapeHtml(`${BASE}assets/quotes/thought-cap.svg`)}" alt="" />
-              <img class="quote-shape-dots" src="${escapeHtml(`${BASE}assets/quotes/thought-dots.svg`)}" alt="" />`
-          : `<img class="quote-shape-tail" src="${escapeHtml(`${BASE}assets/quotes/speech-tail.svg`)}" alt="" />`
 
       return `<figure class="quote-bubble quote-bubble--${style} ${align}">
           <div class="quote-bubble-shell">
             <div class="quote-bubble-art" aria-hidden="true">
-              <div class="quote-shape-box"></div>
-              ${decor}
+              <svg></svg>
             </div>
             <blockquote class="quote-bubble-copy">
               <p>${escapeHtml(item.quote)}</p>
@@ -633,25 +776,57 @@ function renderHeroHeading(hero) {
         </h1>`
 }
 
+function renderCopyrightLine(text) {
+  const yearText = String(text).replace('{year}', String(new Date().getFullYear()))
+  const splitAt = yearText.lastIndexOf('. ')
+  if (splitAt === -1) return escapeHtml(yearText)
+  const lead = yearText.slice(0, splitAt + 1)
+  const tail = yearText.slice(splitAt + 2)
+  return `${escapeHtml(lead)} <span class="site-footer-rights">${escapeHtml(tail)}</span>`
+}
+
 function renderFooter(content) {
   const bar = content.topBar
   const footer = content.footer
+  const visit = content.visit
   const phoneIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>`
   const emailIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`
   const contact = footer.links[0]
-  const address = (footer.addressLines ?? []).map((line) => escapeHtml(line)).join('<br />')
+  const offices = content.offices ?? []
+  const officeBlocks = offices
+    .map(
+      (office) => `<div class="site-footer-office">
+            <p class="site-footer-office-name">${escapeHtml(office.name)}</p>
+            <address>${escapeHtml(office.street)}<br />${escapeHtml(office.city)}</address>
+            <a class="site-footer-contact" href="${escapeHtml(office.phoneHref)}">${phoneIcon}<span>${escapeHtml(office.phone)}</span></a>
+            ${
+              office.addressHref
+                ? `<a class="site-footer-directions" href="${escapeHtml(office.addressHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(footer.directionsLabel)}</a>`
+                : ''
+            }
+          </div>`,
+    )
+    .join('')
+  const fallbackAddress = (footer.addressLines ?? []).map((line) => escapeHtml(line)).join('<br />')
+  const visitBody = officeBlocks
+    ? officeBlocks
+    : `<address>${fallbackAddress}</address>${
+        bar?.addressHref
+          ? `<a class="site-footer-directions" href="${escapeHtml(bar.addressHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(footer.directionsLabel)}</a>`
+          : ''
+      }`
+  const hours = visit?.hoursSummary
+    ? `<p class="site-footer-hours"><span>${escapeHtml(content.ui.hoursLabel)}</span> ${escapeHtml(visit.hoursSummary)}</p>
+            <p class="site-footer-hours-detail">${escapeHtml(visit.hoursDetail)}</p>`
+    : ''
+  const response = visit?.responseTime ? `<p class="site-footer-hours-detail">${escapeHtml(visit.responseTime)}</p>` : ''
 
   return `<footer class="site-footer">
       <div class="site-footer-main">
         <div class="site-footer-wrap site-footer-grid">
           <div class="site-footer-col site-footer-visit">
             <p class="site-footer-label">${escapeHtml(footer.visitLabel)}</p>
-            <address>${address}</address>
-            ${
-              bar?.addressHref
-                ? `<a class="site-footer-directions" href="${escapeHtml(bar.addressHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(footer.directionsLabel)}</a>`
-                : ''
-            }
+            ${visitBody}
           </div>
           <div class="site-footer-brand">
             <a class="site-footer-logo" href="${escapeHtml(toStaticHref('/'))}">
@@ -669,20 +844,22 @@ function renderFooter(content) {
           </div>
           <div class="site-footer-col site-footer-contact-col">
             <p class="site-footer-label">${escapeHtml(footer.contactLabel)}</p>
-            <a class="site-footer-contact" href="${escapeHtml(bar?.phoneHref ?? '#')}">${phoneIcon}<span>${escapeHtml(bar?.phone ?? '')}</span></a>
             <a class="site-footer-contact" href="${escapeHtml(bar?.emailHref ?? '#')}">${emailIcon}<span>${escapeHtml(bar?.email ?? '')}</span></a>
             ${
               content.offices?.[0]?.fax
                 ? `<p class="site-footer-contact site-footer-fax"><span class="site-footer-fax-label">${escapeHtml(content.ui.faxLabel)}:</span><span>${escapeHtml(content.offices[0].fax)}</span></p>`
                 : ''
             }
+            ${hours}
+            ${response}
           </div>
         </div>
       </div>
       <div class="site-footer-bar">
         <div class="site-footer-wrap site-footer-bar-inner">
           <div class="site-footer-meta">
-            <p>${escapeHtml(footer.text.replace('{year}', String(new Date().getFullYear())))}</p>
+            <p>${renderCopyrightLine(footer.text)}</p>
+            ${footer.emergency ? `<p class="site-footer-emergency">${escapeHtml(footer.emergency)}</p>` : ''}
             <p class="site-footer-disclaimer">${escapeHtml(footer.disclaimer)}</p>
           </div>
           <nav class="site-footer-legal" aria-label="${escapeHtml(footer.legalNavLabel)}">
@@ -716,6 +893,11 @@ function renderShell(content, mainHtml) {
         <span class="visually-hidden">${escapeHtml(content.ui.openMenu)}</span>
       </button>
       <div class="header-controls">
+        ${
+          content.visit?.hoursSummary
+            ? `<p class="header-hours"><span>${escapeHtml(content.ui.hoursLabel)}</span>${escapeHtml(content.visit.hoursSummary)}</p>`
+            : ''
+        }
         ${renderLanguageSelect(content, { compact: true })}
         <nav class="utility-nav" aria-label="${escapeHtml(content.ui.utilityNavLabel ?? 'Utility actions')}">
           ${getHeaderActions(content).map(renderHeaderAction).join('\n          ')}
@@ -1125,15 +1307,20 @@ function renderProgramPanel(program, content, { open = false, compact = false, m
             </div>`
 
   const imageSrc = media && program.image ? `${BASE}${program.image.replace(/^\//, '')}` : ''
+  const availability = program.availability
+    ? `<span class="program-availability">${escapeHtml(content.ui.availabilityLabel)}: ${escapeHtml(program.availability)}</span>`
+    : ''
   const heading = imageSrc
     ? `<span class="program-panel-media" aria-hidden="true"><img src="${escapeHtml(imageSrc)}" alt="" loading="lazy" decoding="async" /></span>
               <span class="program-panel-summary">
                 <h3 class="program-panel-name">${escapeHtml(program.label)}</h3>
                 <span class="program-panel-title">${escapeHtml(program.title)}</span>
+                ${availability}
               </span>`
     : `<span class="program-panel-summary">
                 <span class="card-label">${escapeHtml(program.label)}</span>
                 <span class="program-panel-title">${escapeHtml(program.title)}</span>
+                ${availability}
               </span>`
 
   return `<details class="program-panel${imageSrc ? ' program-panel--media' : ''}" id="program-${escapeHtml(program.id)}"${open ? ' open' : ''}>
@@ -1179,7 +1366,14 @@ function renderHome(content) {
         </div>`
             : ''
         }
-        <div class="home-trust" aria-label="${escapeHtml(content.ui.trustHighlightsLabel ?? 'Trust highlights')}">${trustItems}</div>
+        <div class="home-trust-wrap">
+          <div class="home-trust" aria-label="${escapeHtml(content.ui.trustHighlightsLabel ?? 'Trust highlights')}">${trustItems}</div>
+          ${
+            content.visit?.serviceAreaSummary
+              ? `<p class="home-where">${escapeHtml(content.visit.serviceAreaSummary)}</p>`
+              : ''
+          }
+        </div>
       </section>
       <section id="services" class="section home-services">
         ${renderServicesBanner(sections.services.eyebrow, sections.services.title, sections.services.intro)}
@@ -1358,6 +1552,36 @@ function renderIntakeReceipt(content, receipt, { placement }) {
           </div>`
 }
 
+function renderFirstVisit(content) {
+  const firstVisit = content.sections.process.firstVisit
+  if (!firstVisit) {
+    return ''
+  }
+
+  const items = (firstVisit.items ?? [])
+    .map(
+      (item) => `<article class="about-pillar">
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.body)}</p>
+          </article>`,
+    )
+    .join('')
+  const school = content.sections.process.schoolNote
+  const schoolHtml = school
+    ? `<div class="visit-note"><h3>${escapeHtml(school.title)}</h3><p>${escapeHtml(school.body)}</p></div>`
+    : ''
+  const area = content.visit?.serviceAreaBody
+    ? `<div class="visit-note"><h3>${escapeHtml(content.visit.serviceAreaTitle)}</h3><p>${escapeHtml(content.visit.serviceAreaBody)}</p></div>`
+    : ''
+
+  return `<div class="first-visit">
+        ${renderSectionHeading('', firstVisit.title, firstVisit.intro)}
+        <div class="about-pillar-grid">${items}</div>
+        ${schoolHtml}
+        ${area}
+      </div>`
+}
+
 function renderProcessPage(content) {
   const process = content.sections.process
   const receipt = readIntakeReceipt()
@@ -1382,6 +1606,7 @@ function renderProcessPage(content) {
           ${primary}
           <a class="button secondary page-link-cta" href="${escapeHtml(toStaticHref(process.formsLinkHref))}">${escapeHtml(process.formsLinkLabel)}</a>
         </div>
+        ${renderFirstVisit(content)}
       </section>`
 }
 
@@ -1449,6 +1674,32 @@ function renderAboutPage(content) {
         ${about.photoCaption ? `<figcaption>${escapeHtml(about.photoCaption)}</figcaption>` : ''}
       </figure>`
     : ''
+  const languages = about.languages
+    ? `<section class="section about-languages">
+        <div class="about-mission-grid">
+          <div>
+            <p class="eyebrow">${escapeHtml(about.languages.eyebrow)}</p>
+            <p class="about-mission-statement">${escapeHtml(about.languages.title)}</p>
+          </div>
+          <p class="about-mission-body">${escapeHtml(about.languages.body)}</p>
+        </div>
+      </section>`
+    : ''
+  const people = (about.team?.people ?? [])
+    .map(
+      (person) => `<article class="team-person">
+            <h3>${escapeHtml(person.name)}</h3>
+            <p class="team-role">${escapeHtml(person.role)}</p>
+            <p>${escapeHtml(person.body)}</p>
+          </article>`,
+    )
+    .join('')
+  const team = about.team
+    ? `<section class="section about-team">
+        ${renderSectionHeading(about.team.eyebrow, about.team.title, about.team.intro)}
+        <div class="team-list">${people}</div>
+      </section>`
+    : ''
 
   return `<section class="section about-hero">
         ${renderSectionHeading(about.eyebrow, about.title, about.lede)}
@@ -1476,6 +1727,8 @@ function renderAboutPage(content) {
           <div class="about-pillar-grid">${pillars}</div>
         </div>
       </section>
+      ${languages}
+      ${team}
       ${renderQuoteBoard(about.quotes, 'about-quotes')}`
 }
 
@@ -1770,7 +2023,71 @@ function getContactPageConfig(content) {
   }
 }
 
+function renderMenuVisit(content) {
+  const visit = content.visit
+  const offices = content.offices ?? []
+  if (!visit && !offices.length) {
+    return ''
+  }
+
+  const phones = offices
+    .map(
+      (office) => `<a class="site-menu-office" href="${escapeHtml(office.phoneHref)}">
+          <span>${escapeHtml(office.name)}</span>
+          <strong>${escapeHtml(office.phone)}</strong>
+        </a>`,
+    )
+    .join('')
+
+  return `<div class="site-menu-visit">
+        ${
+          visit?.hoursSummary
+            ? `<p class="site-menu-hours"><span>${escapeHtml(content.ui.hoursLabel)}</span> ${escapeHtml(visit.hoursSummary)}</p>`
+            : ''
+        }
+        ${phones}
+      </div>`
+}
+
 function renderContactAside(content, contact) {
+  const visit = content.visit ?? {}
+  const offices = (content.offices ?? [])
+    .map(
+      (office) => `<article class="office-card">
+                <h4>${escapeHtml(office.name)}</h4>
+                <address>${escapeHtml(office.street)}<br />${escapeHtml(office.city)}</address>
+                <a class="call-button" href="${escapeHtml(office.phoneHref)}">
+                  <span>${escapeHtml(content.ui.callLabel)}</span>
+                  <strong>${escapeHtml(office.phone)}</strong>
+                </a>
+                ${
+                  office.fax
+                    ? `<p class="office-fax"><span>${escapeHtml(content.ui.faxLabel)}</span> ${escapeHtml(office.fax)}</p>`
+                    : ''
+                }
+                ${
+                  office.addressHref
+                    ? `<a class="office-directions" href="${escapeHtml(office.addressHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(content.footer.directionsLabel)}</a>`
+                    : ''
+                }
+              </article>`,
+    )
+    .join('')
+  const hours = visit.hoursSummary
+    ? `<div class="visit-note">
+                <h3>${escapeHtml(content.ui.hoursLabel)}</h3>
+                <p><strong>${escapeHtml(visit.hoursSummary)}</strong></p>
+                <p>${escapeHtml(visit.hoursDetail ?? '')}</p>
+                ${visit.responseTime ? `<p>${escapeHtml(visit.responseTime)}</p>` : ''}
+              </div>`
+    : ''
+  const area = visit.serviceAreaBody
+    ? `<div class="visit-note">
+                <h3>${escapeHtml(visit.serviceAreaTitle)}</h3>
+                <p>${escapeHtml(visit.serviceAreaBody)}</p>
+              </div>`
+    : ''
+
   return `<details class="contact-aside-panel" data-contact-aside open>
             <summary>${escapeHtml(content.ui.contactAsideLabel)}</summary>
             <div class="contact-aside-body">
@@ -1778,16 +2095,9 @@ function renderContactAside(content, contact) {
                 <p class="eyebrow">${escapeHtml(contact.callEyebrow)}</p>
                 <h3>${escapeHtml(contact.callTitle)}</h3>
                 <p>${escapeHtml(contact.callIntro)}</p>
-                <div class="call-button-list">
-                  ${content.offices
-                    .map(
-                      (office) => `<a class="call-button" href="${escapeHtml(office.phoneHref)}">
-                    <span>${escapeHtml(office.name)}</span>
-                    <strong>${escapeHtml(office.phone)}</strong>
-                  </a>`,
-                    )
-                    .join('\n                  ')}
-                </div>
+                <div class="office-card-list">${offices}</div>
+                ${hours}
+                ${area}
               </div>
             </div>
           </details>`
@@ -1848,6 +2158,11 @@ function renderContactPage(content) {
           </aside>
         </div>
         <div class="contact-form-panel">
+          ${
+            content.footer.emergency
+              ? `<p class="emergency-note">${escapeHtml(content.footer.emergency)}</p>`
+              : ''
+          }
           ${renderContactFormSwitch(content, variant)}
           <form class="request-form request-form--${escapeHtml(variant)}" data-form-type="${escapeHtml(formType)}">
           <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
@@ -2758,8 +3073,14 @@ function renderContactQuizInner(content, direction = 'none') {
           </div>
           <div class="quiz-footer-links">
             <a class="quiz-footer-call" href="${escapeHtml(phoneHref)}">${escapeHtml(quiz.callPrompt ?? 'Prefer to talk?')} ${escapeHtml(phone)}</a>
+            ${
+              content.visit?.hoursSummary
+                ? `<p class="quiz-hours"><span>${escapeHtml(content.ui.hoursLabel)}</span> ${escapeHtml(content.visit.hoursSummary)}</p>`
+                : ''
+            }
             <span class="quiz-footer-skip">${escapeHtml(quiz.skipLinkPrompt)} <a href="${escapeHtml(toStaticHref(quiz.skipLinkHref))}">${escapeHtml(quiz.skipLinkLabel)}</a></span>
           </div>
+          ${content.footer.emergency ? `<p class="emergency-note">${escapeHtml(content.footer.emergency)}</p>` : ''}
           <p class="quiz-disclaimer">${escapeHtml(quiz.disclaimer)}</p>`
 }
 
@@ -4386,35 +4707,158 @@ function bindCareerApplication(content) {
   })
 }
 
-function applyDocumentSeo(locale) {
-  const seo = window.VTCC_SEO
-  if (!seo) return
-
-  const pageKey =
-    PAGE === 'contact-request'
-      ? 'contact'
-      : PAGE === 'career-apply' || PAGE === 'careers'
-        ? 'career'
-        : PAGE
-  const url = seo.routeMap[locale]?.[pageKey] ?? seo.routeMap.en?.[pageKey]
-  const entry = url ? seo.pages[url] : null
-  if (!entry?.headLines?.length) return
-
-  document.title = entry.title ?? document.title
-
-  document.querySelectorAll('[data-vtcc-seo]').forEach((node) => node.remove())
-
-  entry.headLines.forEach((line) => {
-    if (/^<title/i.test(line)) return
-
-    const template = document.createElement('template')
-    template.innerHTML = line.trim()
-    const node = template.content.firstElementChild
-    if (!node) return
-
-    node.setAttribute('data-vtcc-seo', '')
+function upsertMeta(attr, key, value) {
+  const selector = `meta[${attr}="${key}"][data-vtcc-managed]`
+  let node = document.head.querySelector(selector)
+  if (!value) {
+    node?.remove()
+    return
+  }
+  if (!node) {
+    node = document.createElement('meta')
+    node.setAttribute(attr, key)
+    node.setAttribute('data-vtcc-managed', '')
     document.head.appendChild(node)
-  })
+  }
+  node.setAttribute('content', value)
+}
+
+function upsertLink(rel, href) {
+  let node = document.head.querySelector(`link[rel="${rel}"][data-vtcc-managed]`)
+  if (!href) {
+    node?.remove()
+    return
+  }
+  if (!node) {
+    node = document.createElement('link')
+    node.rel = rel
+    node.setAttribute('data-vtcc-managed', '')
+    document.head.appendChild(node)
+  }
+  node.href = href
+}
+
+function absoluteUrl(path) {
+  if (!path) {
+    return ''
+  }
+  if (path.startsWith('http')) {
+    return path
+  }
+  return `${window.location.origin}${path.startsWith('/') ? path : `/${path}`}`
+}
+
+function seoPageKey() {
+  if (PAGE === 'contact-request' || PAGE === 'contact-referral') {
+    return 'contact'
+  }
+  if (PAGE === 'career-apply' || PAGE === 'careers') {
+    return 'career'
+  }
+  return PAGE
+}
+
+function telephoneUrl(phoneHref) {
+  if (!phoneHref?.startsWith('tel:')) {
+    return undefined
+  }
+  return `+${phoneHref.slice(4)}`
+}
+
+function postalAddress(office) {
+  const match = String(office.city ?? '').match(/^(.*?),\s*([A-Z]{2})\s+(\d{5})/)
+  return {
+    '@type': 'PostalAddress',
+    streetAddress: office.street,
+    addressLocality: match?.[1] ?? office.city,
+    addressRegion: match?.[2] ?? 'VA',
+    postalCode: match?.[3] ?? '',
+    addressCountry: 'US',
+  }
+}
+
+function clinicSchema(content) {
+  const offices = content.offices ?? []
+  const services = (content.sections?.services?.cards ?? []).map((card) => ({
+    '@type': 'MedicalTherapy',
+    name: card.label,
+  }))
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalOrganization',
+    name: content.company.name,
+    url: `${window.location.origin}/`,
+    email: content.topBar?.email,
+    image: absoluteUrl(content.seo?.shareImage ?? '/assets/vtcc-logo.png'),
+    areaServed: 'Northern Virginia',
+    availableService: services,
+    location: offices.map((office) => ({
+      '@type': 'MedicalClinic',
+      name: `${content.company.shortName} ${office.name}`,
+      telephone: telephoneUrl(office.phoneHref),
+      address: postalAddress(office),
+    })),
+  }
+}
+
+function pageSeoEntry(content) {
+  const seo = content.seo ?? {}
+  if (PAGE === 'resource' && RESOURCE_SLUG) {
+    const category = content.sections?.resources?.categories?.find((item) => item.slug === RESOURCE_SLUG)
+    if (category) {
+      return {
+        title: `${category.title} | ${content.company.name}`,
+        description: category.intro || seo.defaultDescription,
+      }
+    }
+  }
+
+  return seo.pages?.[seoPageKey()] ?? {}
+}
+
+function applyDocumentSeo(content) {
+  document.querySelectorAll('[data-vtcc-seo]').forEach((node) => node.remove())
+  document
+    .querySelectorAll(
+      'link[rel="canonical"], meta[name="description"], meta[property^="og:"], meta[name^="twitter:"]',
+    )
+    .forEach((node) => node.remove())
+
+  if (PAGE === 'thank-you') {
+    return
+  }
+
+  const seo = content.seo ?? {}
+  const pageSeo = pageSeoEntry(content)
+  const title = pageSeo.title ?? content.company.name
+  const description = pageSeo.description ?? seo.defaultDescription ?? ''
+  const canonical = `${window.location.origin}${window.location.pathname}`
+  const image = absoluteUrl(seo.shareImage ?? '/assets/hero-banner.png')
+  const imageAlt = seo.shareImageAlt ?? content.company.name
+
+  document.title = title
+  upsertMeta('name', 'description', description)
+  upsertMeta('property', 'og:title', title)
+  upsertMeta('property', 'og:description', description)
+  upsertMeta('property', 'og:type', 'website')
+  upsertMeta('property', 'og:url', canonical)
+  upsertMeta('property', 'og:image', image)
+  upsertMeta('property', 'og:image:alt', imageAlt)
+  upsertMeta('name', 'twitter:card', 'summary_large_image')
+  upsertMeta('name', 'twitter:title', title)
+  upsertMeta('name', 'twitter:description', description)
+  upsertMeta('name', 'twitter:image', image)
+  upsertLink('canonical', canonical)
+
+  let script = document.getElementById('vtcc-schema')
+  if (!script) {
+    script = document.createElement('script')
+    script.id = 'vtcc-schema'
+    script.type = 'application/ld+json'
+    document.head.appendChild(script)
+  }
+  script.textContent = JSON.stringify(clinicSchema(content))
 }
 
 function bindProgramPanels() {
@@ -4575,7 +5019,7 @@ function render() {
   const locale = getLocale()
   const content = getContent()
   document.documentElement.lang = locale
-  applyDocumentSeo(locale)
+  applyDocumentSeo(content)
   document.getElementById('app').innerHTML = renderShell(content, renderMain(content))
 
   document.querySelectorAll('[data-language-select]').forEach((select) => {
@@ -4615,6 +5059,13 @@ function render() {
   bindInkArrival()
   bindScrollReveal()
   bindPageEnter()
+  bindQuoteBubbles()
+  document.fonts?.ready.then(() => {
+    document.querySelectorAll('.quote-bubble-art svg').forEach((svg) => {
+      delete svg.dataset.shape
+      paintQuoteBubble(svg)
+    })
+  })
 
   const toggleAll = document.querySelector('[data-faq-toggle-all]')
   const faqList = document.querySelector('[data-faq-list]')

@@ -59,7 +59,10 @@
     "programGoalsLabel": "Metas",
     "programStructureLabel": "Cómo está estructurado el programa",
     "programFaqLinkLabel": "Ver preguntas de {program}",
-    "faqProgramLinkNote": "Para ver las metas y cómo funciona el programa, visite la página de servicios."
+    "faqProgramLinkNote": "Para ver las metas y cómo funciona el programa, visite la página de servicios.",
+    "hoursLabel": "Horario",
+    "availabilityLabel": "Disponibilidad",
+    "officesLabel": "Oficinas"
   },
   "company": {
     "name": "Victoria Transcultural Clinical Center",
@@ -298,6 +301,10 @@
     {
       "title": "Pasos claros",
       "body": "Admisión, revisión de financiamiento, evaluación y planificación del tratamiento"
+    },
+    {
+      "title": "Inglés y español",
+      "body": "El sitio y el aviso de derechos del cliente están en ambos idiomas. Pregunte por un intérprete en la admisión."
     }
   ],
   "sections": {
@@ -337,7 +344,8 @@
           ],
           "linkLabel": "Conozca la ABA",
           "href": "/aba",
-          "image": "/assets/services/aba.jpg"
+          "image": "/assets/services/aba.jpg",
+          "availability": "Llame para preguntar por los cupos actuales."
         },
         {
           "id": "early-learners",
@@ -370,7 +378,8 @@
           ],
           "linkLabel": "Conozca Primeros Aprendices",
           "href": "/early-learners",
-          "image": "/assets/services/early-learners.jpg"
+          "image": "/assets/services/early-learners.jpg",
+          "availability": "Llame para preguntar por los cupos actuales."
         },
         {
           "id": "feeding",
@@ -402,7 +411,8 @@
           ],
           "linkLabel": "Conozca el programa de alimentación",
           "href": "/feeding-program",
-          "image": "/assets/services/feeding.jpg"
+          "image": "/assets/services/feeding.jpg",
+          "availability": "Llame para preguntar por los cupos actuales."
         },
         {
           "id": "social-enrichment",
@@ -434,7 +444,8 @@
           ],
           "linkLabel": "Conozca Enriquecimiento Social",
           "href": "/social-enrichment",
-          "image": "/assets/services/social-enrichment.jpg"
+          "image": "/assets/services/social-enrichment.jpg",
+          "availability": "Llame para preguntar por los cupos actuales."
         },
         {
           "id": "social-skills",
@@ -466,7 +477,8 @@
           ],
           "linkLabel": "Conozca el grupo social",
           "href": "/social-skills-group",
-          "image": "/assets/services/social-skills.jpg"
+          "image": "/assets/services/social-skills.jpg",
+          "availability": "Llame para preguntar por los cupos actuales."
         },
         {
           "id": "group-parent-training",
@@ -498,7 +510,8 @@
           ],
           "linkLabel": "Conozca la capacitación grupal para padres",
           "href": "/group-parent-training",
-          "image": "/assets/services/group-parent-training.jpg"
+          "image": "/assets/services/group-parent-training.jpg",
+          "availability": "Llame para preguntar por los cupos actuales."
         }
       ]
     },
@@ -533,7 +546,33 @@
           "title": "Comience los servicios",
           "body": "Los servicios comienzan después de la aprobación, programación y documentación requerida."
         }
-      ]
+      ],
+      "firstVisit": {
+        "title": "Su primera conversación",
+        "intro": "El primer paso es una llamada o el seguimiento de un formulario, no una sesión de tratamiento. VTCC no publica una duración fija para la primera cita.",
+        "items": [
+          {
+            "title": "Quién participa",
+            "body": "Un padre, una madre o un tutor habla con un miembro del equipo de VTCC. Un cuidador debe participar en la admisión. Si el cuidador permanece en sesiones posteriores depende del plan de tratamiento."
+          },
+          {
+            "title": "Qué tener listo",
+            "body": "Su información de contacto, la edad de su hijo, el servicio que solicita, su ciudad o condado y los datos de financiamiento si los conoce. No envíe informes de diagnóstico por el formulario del sitio."
+          },
+          {
+            "title": "Qué sigue",
+            "body": "El equipo explica los formularios, revisa el financiamiento y programa una evaluación cuando el servicio es adecuado. Los tiempos dependen del pagador y de qué tan completa esté la información."
+          },
+          {
+            "title": "Llegada",
+            "body": "Llame a la oficina de Fairfax antes de ir para conocer el estacionamiento y el registro."
+          }
+        ]
+      },
+      "schoolNote": {
+        "title": "Escuelas e IEP",
+        "body": "Las familias a menudo quieren que las habilidades se trasladen a la escuela. VTCC puede hablar con usted sobre compartir el progreso y si un informe o una reunión escolar forma parte del plan. Lo que el equipo puede compartir depende de su consentimiento, el plan de tratamiento y la fuente de financiamiento. Pregunte durante la admisión si la coordinación con la escuela es una meta."
+      }
     },
     "aba": {
       "eyebrow": "Terapia ABA",
@@ -804,7 +843,11 @@
             },
             {
               "question": "¿Qué ocurre después de que me comunico?",
-              "answer": "VTCC revisa su solicitud, confirma la compatibilidad del servicio y del financiamiento cuando es posible, y le guía a través de la documentación, la verificación, la programación de evaluaciones y la planificación del tratamiento."
+              "answer": "VTCC revisa su solicitud, confirma la compatibilidad del servicio y del financiamiento cuando es posible, y le guía a través de la documentación, la verificación, la programación de evaluaciones y la planificación del tratamiento. Un miembro del equipo da seguimiento por teléfono o correo electrónico. El tiempo depende de la solicitud y del trabajo de la oficina."
+            },
+            {
+              "question": "¿Dónde brinda servicios VTCC?",
+              "answer": "La oficina de VTCC está en Fairfax y atiende a familias en el norte de Virginia. Los programas grupales se reúnen en la clínica. La ABA individual puede incluir práctica en el hogar y en la comunidad cuando el plan de tratamiento lo indica. Llame para confirmar si podemos atender su ciudad o condado."
             },
             {
               "question": "¿Qué pasa si no estoy seguro de qué servicio necesito?",
@@ -901,7 +944,11 @@
             },
             {
               "question": "¿Qué tan rápido responderá VTCC?",
-              "answer": "Los tiempos de respuesta varían según la urgencia, la completitud de la información y la carga de trabajo de la oficina. Si hay una emergencia de seguridad inmediata, llame al 911."
+              "answer": "Un miembro del equipo da seguimiento por teléfono o correo electrónico. El tiempo depende de la solicitud y del trabajo de la oficina. Este sitio web no se supervisa las 24 horas. Si hay una emergencia de seguridad inmediata, llame al 911. Si tiene una crisis de salud mental, llame o envíe un mensaje de texto al 988."
+            },
+            {
+              "question": "¿VTCC coordina con las escuelas o los IEP?",
+              "answer": "Las familias a menudo quieren que las habilidades se trasladen a la escuela. VTCC puede hablar con usted sobre compartir el progreso y si un informe o una reunión escolar forma parte del plan. Lo que el equipo puede compartir depende de su consentimiento, el plan de tratamiento y la fuente de financiamiento. Pregunte durante la admisión si la coordinación con la escuela es una meta."
             },
             {
               "question": "¿Puede VTCC decirme si un niño es elegible antes de referir?",
@@ -1071,34 +1118,26 @@
       },
       "photoAlt": "Clínicos de VTCC trabajando uno a uno con niños en la clínica",
       "photoCaption": "Clínicos y familias practicando habilidades que viajan a casa.",
-      "quotes": {
-        "eyebrow": "",
-        "title": "Lo que dicen los padres sobre la atención en VTCC",
-        "intro": "Los padres y cuidadores comparten cómo ha sido trabajar con nuestro equipo. Estas citas son provisionales hasta que las familias compartan comentarios aprobados.",
-        "items": [
-          {
-            "quote": "Aquí irá una cita de un padre o madre sobre sentirse escuchado, apoyado e incluido durante la admisión y los servicios.",
-            "name": "Nombre del padre o madre",
-            "role": "Marcador de posición · Padre o madre de un cliente de VTCC",
-            "style": "speech"
-          },
-          {
-            "quote": "Aquí irá una cita de un cuidador sobre el progreso que notó y cómo el equipo colaboró con su familia.",
-            "name": "Nombre del padre o madre",
-            "role": "Marcador de posición · Padre o madre de un cliente de VTCC",
-            "style": "thought"
-          },
-          {
-            "quote": "Aquí irá una cita de un padre o madre sobre una atención respetuosa de la cultura y una comunicación clara con VTCC.",
-            "name": "Nombre del padre o madre",
-            "role": "Marcador de posición · Padre o madre de un cliente de VTCC",
-            "style": "speech"
-          }
-        ]
-      },
       "careersLink": {
         "label": "Ver empleo en VTCC",
         "href": "/career"
+      },
+      "languages": {
+        "eyebrow": "Idiomas",
+        "title": "Inglés y español",
+        "body": "Inglés y español. Este sitio web y el aviso de derechos del cliente están disponibles en ambos. Pregunte durante la admisión sobre apoyo en otro idioma o un intérprete."
+      },
+      "team": {
+        "eyebrow": "Liderazgo",
+        "title": "Liderazgo clínico",
+        "intro": "Leticia Basauri dirige VTCC. Se agregan otros perfiles clínicos cuando VTCC los aprueba.",
+        "people": [
+          {
+            "name": "Leticia Basauri",
+            "role": "Propietaria y directora",
+            "body": "Leticia Basauri es la propietaria y directora de Victoria Transcultural Clinical Center, que fundó en marzo de 2001. Es psicóloga con más de 30 años de experiencia trabajando con comunidades multiculturales en México, Canadá y Estados Unidos. Obtuvo dos posgrados en psicología clínica en México, completó cursos de doctorado en psicología clínica en Canadá y recibió su Maestría en Trabajo Social de George Mason University. Está trabajando para obtener su licencia de trabajo social clínico en Virginia y se ha capacitado en TF-CBT y en enfoques informados por el trauma."
+          }
+        ]
       }
     },
     "contact": {
@@ -2129,7 +2168,8 @@
       "city": "Fairfax, VA 22030",
       "phone": "703.218.6599",
       "phoneHref": "tel:17032186599",
-      "fax": "703.891.7167"
+      "fax": "703.891.7167",
+      "addressHref": "https://www.google.com/maps/search/?api=1&query=10565+Fairfax+Blvd+Ste+300,+Fairfax,+VA+22030"
     }
   ],
   "footer": {
@@ -2170,7 +2210,8 @@
         "label": "Términos de uso",
         "href": "/terms"
       }
-    ]
+    ],
+    "emergency": "Este sitio web no se supervisa para emergencias. Si usted o su hijo están en peligro, llame al 911. Si tiene una crisis de salud mental, llame o envíe un mensaje de texto al 988."
   },
   "pages": {
     "abaTherapy": {
@@ -2898,6 +2939,99 @@
             ]
           }
         ]
+      }
+    }
+  },
+  "visit": {
+    "hoursSummary": "Llame para confirmar el horario de hoy",
+    "hoursDetail": "Aún no publicamos un horario fijo. Llame a la oficina de Fairfax antes de visitar.",
+    "responseTime": "Un miembro del equipo da seguimiento a las solicitudes de servicios por teléfono o correo electrónico. El tiempo depende de la solicitud y del trabajo de la oficina.",
+    "serviceAreaTitle": "Dónde se brinda la atención",
+    "serviceAreaSummary": "La clínica está en Fairfax y atiende a familias en el norte de Virginia. Los grupos se reúnen en la clínica. Llame para confirmar sesiones en el hogar o la comunidad y si atendemos su condado.",
+    "serviceAreaBody": "La oficina de VTCC está en Fairfax y atiende a familias en el norte de Virginia. Los programas grupales se reúnen en la clínica. La ABA individual puede incluir práctica en el hogar y en la comunidad cuando el plan de tratamiento lo indica. Llame para confirmar si podemos atender su ciudad o condado, y pregunte por el estacionamiento y el registro.",
+    "languagesTitle": "Idiomas",
+    "languagesBody": "Inglés y español. Este sitio web y el aviso de derechos del cliente están disponibles en ambos. Pregunte durante la admisión sobre apoyo en otro idioma o un intérprete."
+  },
+  "seo": {
+    "shareImage": "/assets/hero-banner.png",
+    "shareImageAlt": "Victoria Transcultural Clinical Center",
+    "defaultDescription": "Servicios de salud mental y conductual para niños y familias en el norte de Virginia, desde la oficina de Fairfax.",
+    "pages": {
+      "home": {
+        "title": "Terapia ABA para niños en el norte de Virginia | VTCC",
+        "description": "VTCC ofrece terapia ABA, aprendizaje temprano, apoyo de alimentación, grupos de habilidades sociales y capacitación para padres desde la oficina de Fairfax."
+      },
+      "aba": {
+        "title": "Terapia ABA | Victoria Transcultural Clinical Center",
+        "description": "Terapia ABA individualizada con evaluación de un BCBA, capacitación para padres y seguimiento del progreso para niños y adolescentes en el norte de Virginia."
+      },
+      "early-learners": {
+        "title": "Programa de Primeros Aprendices | Victoria Transcultural Clinical Center",
+        "description": "Apoyo de preparación escolar para niños en edad preescolar mediante comunicación, juego, rutinas y habilidades de aprendizaje temprano."
+      },
+      "feeding-program": {
+        "title": "Programa de Alimentación | Victoria Transcultural Clinical Center",
+        "description": "Apoyo de alimentación basado en ABA que ayuda a los niños a ampliar los alimentos que aceptan y a crear rutinas de comida más tranquilas."
+      },
+      "social-enrichment": {
+        "title": "Enriquecimiento Social | Victoria Transcultural Clinical Center",
+        "description": "Habilidades sociales en grupo para niños de 8 a 12 años, incluidos juegos, turnos y habilidades de amistad."
+      },
+      "social-skills-group": {
+        "title": "Grupo de Habilidades Sociales | Victoria Transcultural Clinical Center",
+        "description": "Práctica guiada con compañeros en conversación, pensamiento flexible y habilidades sociales apropiadas para la edad."
+      },
+      "group-parent-training": {
+        "title": "Capacitación Grupal para Padres | Victoria Transcultural Clinical Center",
+        "description": "Los cuidadores aprenden juntos estrategias prácticas para rutinas, comunicación y momentos difíciles de cada día."
+      },
+      "get-started": {
+        "title": "Cómo comenzar | Victoria Transcultural Clinical Center",
+        "description": "Qué esperar cuando contacta a VTCC, desde la primera llamada hasta la revisión del financiamiento, la evaluación y el inicio de los servicios."
+      },
+      "insurance": {
+        "title": "Seguro y financiamiento | Victoria Transcultural Clinical Center",
+        "description": "Vías de Medicaid, atención administrada, seguro comercial y financiamiento del condado o FAPT para los servicios de VTCC. Llame para verificar su plan."
+      },
+      "about": {
+        "title": "Acerca de VTCC | Victoria Transcultural Clinical Center",
+        "description": "La misión de VTCC, el apoyo de idiomas y la directora Leticia Basauri. Servicios de salud conductual para familias diversas del norte de Virginia."
+      },
+      "career": {
+        "title": "Carreras en ABA | Victoria Transcultural Clinical Center",
+        "description": "Capacitación de RBT, horas de campo para BCBA y puestos abiertos en Victoria Transcultural Clinical Center en el norte de Virginia."
+      },
+      "contact": {
+        "title": "Contacto | Victoria Transcultural Clinical Center",
+        "description": "Solicite servicios o haga una pregunta de referencia. Oficina de Fairfax, teléfono y qué ocurre después de comunicarse."
+      },
+      "resources": {
+        "title": "Preguntas y guías | Victoria Transcultural Clinical Center",
+        "description": "Respuestas sobre terapia ABA, admisión, financiamiento, capacitación para padres, referencias y los programas especializados de VTCC."
+      },
+      "forms": {
+        "title": "Formularios | Victoria Transcultural Clinical Center",
+        "description": "Descargue formularios de admisión, cuestionarios de referencia y avisos de derechos del cliente en inglés y español."
+      },
+      "privacy": {
+        "title": "Política de privacidad del sitio web | Victoria Transcultural Clinical Center",
+        "description": "Cómo VTCC maneja la información que se recopila en este sitio web y sus formularios."
+      },
+      "terms": {
+        "title": "Términos de uso del sitio web | Victoria Transcultural Clinical Center",
+        "description": "Términos para usar el sitio web de Victoria Transcultural Clinical Center."
+      },
+      "accessibility": {
+        "title": "Declaración de accesibilidad | Victoria Transcultural Clinical Center",
+        "description": "El compromiso de VTCC de hacer este sitio más fácil de usar, y cómo pedir ayuda."
+      },
+      "nondiscrimination": {
+        "title": "No discriminación y ayuda con idiomas | Victoria Transcultural Clinical Center",
+        "description": "VTCC no discrimina y ofrece asistencia con idiomas. Hay materiales en inglés y español en este sitio."
+      },
+      "notice-of-privacy-practices": {
+        "title": "Aviso de prácticas de privacidad | Victoria Transcultural Clinical Center",
+        "description": "Cómo VTCC usa y protege la información de salud, y sus derechos según HIPAA."
       }
     }
   }

@@ -112,7 +112,11 @@
         },
         {
           "question": "What happens after I reach out?",
-          "answer": "VTCC reviews your request, confirms service and funding fit when possible, and guides you through paperwork, verification, assessment scheduling, and treatment planning."
+          "answer": "VTCC reviews your request, confirms service and funding fit when possible, and guides you through paperwork, verification, assessment scheduling, and treatment planning. A team member follows up by phone or email. How soon depends on the request and the office workload."
+        },
+        {
+          "question": "Where does VTCC provide services?",
+          "answer": "VTCC's office is in Fairfax and serves families in Northern Virginia. Group programs meet at the clinic. Individual ABA can include practice at home and in the community when the treatment plan calls for it. Call to confirm we can serve your city or county."
         },
         {
           "question": "What if I am not sure which service I need?",
@@ -209,7 +213,11 @@
         },
         {
           "question": "How quickly will VTCC respond?",
-          "answer": "Response times vary by urgency, completeness of information, and office workload. If there is an immediate safety emergency, call 911."
+          "answer": "A team member follows up by phone or email. How soon depends on the request and the office workload. This website is not monitored around the clock. If there is an immediate safety emergency, call 911. For a mental health crisis, call or text 988."
+        },
+        {
+          "question": "Does VTCC coordinate with schools or IEPs?",
+          "answer": "Families often want skills to carry into school. VTCC can talk with you about sharing progress and whether a report or a school meeting is part of the plan. What the team can share depends on your consent, the treatment plan, and the funding source. Ask during intake if school coordination is a goal."
         },
         {
           "question": "Can VTCC tell me if a child is eligible before I refer?",

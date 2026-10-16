@@ -19,7 +19,7 @@ The redesign reframes the website as a **digital front desk** — not a prettier
 These are the conceptual additions leadership should weigh:
 
 - **Service-first hero** — Headline names ABA and Intensive In-Home services, Northern Virginia geography, and funding pathways up front (replacing the generic “Every Child Is Unique” opener).
-- **Persistent utility actions** — Header always offers *Request Services*, *Refer a Client*, *Call Fairfax*, and *Call Fredericksburg* (current site has no equivalent always-visible intake actions).
+- **Persistent utility actions** — Header always offers *Request Services*, *Refer a Client*, and *Call Fairfax* (current site has no equivalent always-visible intake actions).
 - **“How to Get Started” as a dedicated page** — Seven-step intake journey from first contact through services beginning (current site never explains what happens after someone calls).
 - **“For Referrers” page and split pathways** — Explicit route for schools, pediatricians, case managers, and county partners (no referrer path exists today).
 - **Family vs. referrer choice on the homepage** — Two clear entry points instead of one undifferentiated contact flow.
@@ -51,7 +51,7 @@ Core clinical and organizational identity carries forward:
 - **ABA clinical substance** — Gold-standard framing, BCBA assessment process, parent training, behavior intervention plans, technician supervision, and progress monitoring (live ABA page content is largely retained, reorganized into plainer language).
 - **IIH purpose and philosophy** — Short-term home-based stabilization, family-system focus, out-of-home placement prevention, and strength-based care (same concepts as the current IIH page).
 - **Who VTCC serves** — Children and adolescents with behavioral, emotional, or developmental needs; Medicaid and county/FAPT populations; Northern Virginia service area.
-- **Office locations** — Fairfax (703.218.6599) and Fredericksburg (540.412.9969) addresses, phones, and shared fax.
+- **Office location** — Fairfax (703.218.6599) is the only office.
 - **Accepted payers list** — Anthem, Cigna, UnitedHealthcare, BlueCross BlueShield, Aetna Better Health, Molina, Optima, Kaiser, plus county/FAPT (subject to leadership confirmation — see note below).
 - **Downloadable intake forms** — ABA intake, IIH/FAPT intake, supervised visitation / FAPT referral questionnaire, and client-rights notices in English and Spanish.
 - **Spanish language support** — Full parallel locale (`content/locales/es.json`); not removing bilingual commitment.
