@@ -14,7 +14,7 @@ ABA and Specialized Programs for Children and Families
 
 Subheadline:
 
-VTCC supports families through individualized ABA therapy, early learning, feeding, social enrichment, social skills, and group parent training programs.
+VTCC supports families through individualized ABA therapy, early learning, feeding, social enrichment, social skills, and Safety-Care® training for families and caregivers.
 
 Primary buttons:
 
@@ -164,30 +164,28 @@ Structure:
 
 Related programs: aba, early-learners, social-enrichment, group-parent-training
 
-Group Parent Training:
+Safety-Care® for Families & Caregivers:
 
-Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions. Families learn together in a supported group setting.
+We're excited to announce that group Safety-Care® training for parents and caregivers is coming soon!
 
-Ages served: Parents and caregivers
+This training is designed to give families practical, evidence-based strategies for preventing challenging behavior, recognizing early signs of escalation, promoting safety, and responding confidently during difficult situations.
 
-The group is designed for caregivers of children who may receive VTCC services. Fit depends on current goals, funding, and authorization.
+Group trainings will provide caregivers with opportunities to learn alongside other families, practice skills, ask questions, and build confidence using proactive and safe behavioral strategies at home and in the community.
 
-Caregivers meet in a small group to learn practical tools for communication, routines, and challenging moments. The program is designed so families can use the same strategies when therapists are not present.
+Training topics may include:
 
-Goals:
+- Recognizing early signs of escalation
+- Prevention and de-escalation strategies
+- Supporting communication and cooperation
+- Responding safely to challenging behavior
+- Creating a safer and more supportive home environment
+- Hands-on practice of applicable Safety-Care® skills
 
-- Learn practical strategies for everyday routines
-- Practice skills that support communication and behavior at home
-- Receive coaching and feedback in a small-group setting
-- Carry strategies across caregivers and daily settings
+Group Sessions Coming Soon!:
 
-Structure:
+Interested in attending an upcoming caregiver group?
 
-1. A clinician confirms group fit and family priorities.
-2. Caregivers join a small group with shared learning goals.
-3. Sessions practice strategies for routines, communication, and challenging moments.
-4. Families receive guidance for using the same tools at home.
-5. Goals are updated as caregivers become more confident.
+Stay tuned for upcoming training dates, registration information, and eligibility requirements.
 
 Related programs: aba, early-learners, social-enrichment, social-skills
 
@@ -214,7 +212,7 @@ Families may contact VTCC for support with:
 - Feeding goals related to food repertoire and preferences
 - Social enrichment for children ages 8-12
 - Advanced social skills and age-appropriate peer play
-- Group parent training for caregivers who want practical strategies they can use at home
+- Safety-Care® training for caregivers, with group sessions coming soon
 - Referrals connected to Medicaid, managed care, commercial insurance, or county/FAPT funding
 
 ### Multicultural Care
@@ -447,40 +445,42 @@ Button:
 
 - Ask About Social Skills Group
 
-## Group Parent Training Page
+## Safety-Care® for Families & Caregivers
 
 ### Page Hero
 
 Headline:
 
-Learn Practical Strategies With Other Caregivers
+Safety-Care® for Families & Caregivers — Coming Soon
 
-Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions. Families learn together in a supported group setting.
+We're excited to announce that group Safety-Care® training for parents and caregivers is coming soon. This training gives families practical, evidence-based strategies for preventing challenging behavior, recognizing early signs of escalation, promoting safety, and responding confidently during difficult situations.
 
 Buttons:
 
-- Request Group Parent Training
+- Request Services
 - Ask About Eligibility
 
-### What Caregivers May Practice
+### Training topics may include
 
-Group Parent Training helps caregivers practice strategies they can use at home, during daily routines, and between therapy sessions.
+Group trainings will provide caregivers with opportunities to learn alongside other families, practice skills, ask questions, and build confidence using proactive and safe behavioral strategies at home and in the community.
 
-- Practical strategies for everyday routines
-- Skills that support communication and behavior at home
-- Coaching and feedback in a small-group setting
-- Ways to keep strategies consistent across caregivers
-### Learning With Other Families
+- Recognizing early signs of escalation
+- Prevention and de-escalation strategies
+- Supporting communication and cooperation
+- Responding safely to challenging behavior
+- Creating a safer and more supportive home environment
+- Hands-on practice of applicable Safety-Care® skills
+### Group Sessions Coming Soon!
 
-Caregivers meet in a small group with coaching from trained staff. The group is designed so families can use the same strategies when therapists are not present.
+Interested in attending an upcoming caregiver group? Stay tuned for upcoming training dates, registration information, and eligibility requirements. Build confidence. Learn practical strategies. Promote safety at home.
 
 ### Program CTA
 
-Contact VTCC to ask whether Group Parent Training may be a fit for your family and to learn about current group availability.
+Stay tuned for upcoming training dates, registration information, and eligibility requirements.
 
 Button:
 
-- Ask About Group Parent Training
+- Ask About Safety-Care® Training
 
 ## Insurance & Funding Page
 
@@ -607,7 +607,7 @@ VTCC's office is in Fairfax and serves families in Northern Virginia. Group prog
 
 What if I am not sure which service I need?
 
-That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, Social Enrichment, the Social Skills Group, Group Parent Training, or another pathway should be explored.
+That is common. Contact VTCC and describe your concerns. The team can help determine whether ABA, Early Learners, the Feeding Program, Social Enrichment, the Social Skills Group, Safety-Care® for Families & Caregivers, or another pathway should be explored.
 
 ### Medicaid and FAPT Funding Basics
 
@@ -641,9 +641,9 @@ Commercial coverage depends on the plan, service type, and authorization require
 
 Parents and caregivers are essential partners in both ABA and family-centered services.
 
-What is Group Parent Training?
+What is Safety-Care® for Families & Caregivers?
 
-Group Parent Training is a caregiver-focused program. Parents and caregivers learn practical strategies together in a supported group setting and practice using them in everyday routines.
+Safety-Care® for Families & Caregivers is group training for parents and caregivers, and group sessions are coming soon. The training teaches practical, evidence-based strategies for preventing challenging behavior, recognizing early signs of escalation, promoting safety, and responding confidently during difficult situations.
 
 Why is parent training part of ABA?
 

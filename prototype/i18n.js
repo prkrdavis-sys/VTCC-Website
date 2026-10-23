@@ -1277,22 +1277,30 @@ function renderListItems(items, ordered = false) {
     .join('')}</${tag}>`
 }
 
-function renderProgramPanel(program, content, { open = false, compact = false, media = false } = {}) {
-  const ageLabel = content.ui.ageRangeLabel
+function renderProgramBlocks(blocks) {
+  return (blocks ?? [])
+    .map((block) => {
+      const title = block.title ? `<h4>${escapeHtml(block.title)}</h4>` : ''
+      const paragraphs = (block.paragraphs ?? [])
+        .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+        .join('')
+      const items = block.items?.length ? renderListItems(block.items, Boolean(block.ordered)) : ''
+      return `<section>${title}${paragraphs}${items}</section>`
+    })
+    .join('')
+}
+
+function renderProgramStandards(program, content) {
   const ageRange = program.ageRange ?? ''
-  const body = compact
-    ? `<div class="program-panel-body">
-              <p class="program-summary">${escapeHtml(program.teaser || program.body)}</p>
-              ${renderProgramFaqCta(program, content)}
-            </div>`
-    : `<div class="program-panel-body">
-              <p class="program-summary">${escapeHtml(program.body)}</p>
-              <div class="program-copy">
-                <section>
-                  <h4>${escapeHtml(ageLabel)}</h4>
+  const ageSection = ageRange
+    ? `<section>
+                  <h4>${escapeHtml(content.ui.ageRangeLabel)}</h4>
                   <p class="program-age-range"><strong>${escapeHtml(ageRange)}</strong></p>
                   ${program.ageNote ? `<p>${escapeHtml(program.ageNote)}</p>` : ''}
-                </section>
+                </section>`
+    : ''
+
+  return `${ageSection}
                 <section>
                   <h4>${escapeHtml(content.ui.programGoalsLabel)}</h4>
                   ${program.description ? `<p>${escapeHtml(program.description)}</p>` : ''}
@@ -1301,7 +1309,22 @@ function renderProgramPanel(program, content, { open = false, compact = false, m
                 <section>
                   <h4>${escapeHtml(content.ui.programStructureLabel)}</h4>
                   ${renderListItems(program.structure, true)}
-                </section>
+                </section>`
+}
+
+function renderProgramPanel(program, content, { open = false, compact = false, media = false } = {}) {
+  const sections = program.blocks?.length
+    ? renderProgramBlocks(program.blocks)
+    : renderProgramStandards(program, content)
+  const body = compact
+    ? `<div class="program-panel-body">
+              <p class="program-summary">${escapeHtml(program.teaser || program.body)}</p>
+              ${renderProgramFaqCta(program, content)}
+            </div>`
+    : `<div class="program-panel-body">
+              <p class="program-summary">${escapeHtml(program.body)}</p>
+              <div class="program-copy">
+                ${sections}
                 ${renderProgramFaqCta(program, content)}
               </div>
             </div>`

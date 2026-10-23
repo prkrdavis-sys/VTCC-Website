@@ -65,7 +65,7 @@ es.navigation.headerGroups = [
       { label: 'Programa de Alimentación', href: '/feeding-program' },
       { label: 'Enriquecimiento Social', href: '/social-enrichment' },
       { label: 'Grupo de Habilidades Sociales', href: '/social-skills-group' },
-      { label: 'Capacitación Grupal para Padres', href: '/group-parent-training' },
+      { label: 'Safety-Care® para Familias y Cuidadores', href: '/group-parent-training' },
     ],
   },
   {
@@ -159,7 +159,7 @@ es.hero.serviceTags = [
   { label: 'Programa de Alimentación', href: '/feeding-program' },
   { label: 'Enriquecimiento Social', href: '/social-enrichment' },
   { label: 'Grupo de Habilidades Sociales', href: '/social-skills-group' },
-  { label: 'Capacitación Grupal para Padres', href: '/group-parent-training' },
+  { label: 'Safety-Care® para Familias y Cuidadores', href: '/group-parent-training' },
 ]
 
 es.hero.actions = [
@@ -546,25 +546,35 @@ es.sections.services.cards = [
   },
   {
     "id": "group-parent-training",
-    "label": "Capacitación Grupal para Padres",
-    "title": "Aprenda estrategias prácticas con otros cuidadores",
-    "body": "La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia. Las familias aprenden juntas en un entorno grupal con apoyo.",
-    "teaser": "Los cuidadores aprenden estrategias prácticas juntos en un grupo pequeño.",
-    "ageRange": "Padres y cuidadores",
-    "ageNote": "El grupo está diseñado para cuidadores de niños que pueden recibir servicios de VTCC. La compatibilidad depende de las metas actuales, el financiamiento y la autorización.",
-    "description": "Los cuidadores se reúnen en un grupo pequeño para aprender herramientas prácticas para la comunicación, las rutinas y los momentos difíciles. El programa está diseñado para que las familias usen las mismas estrategias cuando los terapeutas no están presentes.",
-    "goals": [
-      "Aprender estrategias prácticas para las rutinas diarias",
-      "Practicar habilidades que apoyan la comunicación y la conducta en casa",
-      "Recibir orientación y comentarios en un grupo pequeño",
-      "Llevar las estrategias a otros cuidadores y entornos diarios"
-    ],
-    "structure": [
-      "Un clínico confirma la compatibilidad con el grupo y las prioridades familiares.",
-      "Los cuidadores se unen a un grupo pequeño con metas de aprendizaje compartidas.",
-      "Las sesiones practican estrategias para rutinas, comunicación y momentos difíciles.",
-      "Las familias reciben guía para usar las mismas herramientas en casa.",
-      "Las metas se actualizan a medida que los cuidadores ganan confianza."
+    "label": "Safety-Care® para Familias y Cuidadores",
+    "title": "Gane confianza. Aprenda estrategias prácticas. Promueva la seguridad en casa.",
+    "body": "¡Nos entusiasma anunciar que pronto habrá capacitación grupal Safety-Care® para padres y cuidadores!",
+    "teaser": "La capacitación grupal Safety-Care® para padres y cuidadores estará disponible pronto.",
+    "blocks": [
+      {
+        "paragraphs": [
+          "Esta capacitación está diseñada para brindar a las familias estrategias prácticas y basadas en la evidencia para prevenir conductas desafiantes, reconocer las primeras señales de escalada, promover la seguridad y responder con confianza durante situaciones difíciles.",
+          "Las capacitaciones grupales ofrecerán a los cuidadores la oportunidad de aprender junto a otras familias, practicar habilidades, hacer preguntas y ganar confianza usando estrategias conductuales proactivas y seguras en el hogar y en la comunidad."
+        ]
+      },
+      {
+        "title": "Los temas de la capacitación pueden incluir",
+        "items": [
+          "Reconocer las primeras señales de escalada",
+          "Estrategias de prevención y desescalada",
+          "Apoyar la comunicación y la cooperación",
+          "Responder de forma segura ante conductas desafiantes",
+          "Crear un entorno en el hogar más seguro y de mayor apoyo",
+          "Práctica guiada de las habilidades aplicables de Safety-Care®"
+        ]
+      },
+      {
+        "title": "¡Sesiones grupales próximamente!",
+        "paragraphs": [
+          "¿Le interesa asistir a un próximo grupo para cuidadores?",
+          "Esté atento a las próximas fechas de capacitación, la información de inscripción y los requisitos de elegibilidad."
+        ]
+      }
     ],
     "related": [
       "aba",
@@ -572,7 +582,7 @@ es.sections.services.cards = [
       "social-enrichment",
       "social-skills"
     ],
-    "linkLabel": "Conozca la capacitación grupal para padres",
+    "linkLabel": "Conozca Safety-Care® para Familias y Cuidadores",
     "href": "/group-parent-training"
   }
 ].map((card) => ({
@@ -807,27 +817,29 @@ Object.assign(es.sections, {
     ],
   },
   groupParentTraining: {
-    eyebrow: 'Capacitación Grupal para Padres',
-    title: 'Aprenda estrategias prácticas con otros cuidadores',
+    eyebrow: 'Safety-Care® para Familias y Cuidadores',
+    title: 'Sesiones grupales próximamente',
     intro:
-      'La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia. Las familias aprenden juntas en un entorno grupal con apoyo.',
+      'Nos entusiasma anunciar que pronto habrá capacitación grupal Safety-Care® para padres y cuidadores. Esta capacitación brinda a las familias estrategias prácticas y basadas en la evidencia para prevenir conductas desafiantes, reconocer las primeras señales de escalada, promover la seguridad y responder con confianza durante situaciones difíciles.',
     columns: [
       {
-        title: 'Lo que pueden practicar los cuidadores',
+        title: 'Los temas de la capacitación pueden incluir',
         items: [
-          'Estrategias prácticas para las rutinas diarias',
-          'Habilidades que apoyan la comunicación y la conducta en casa',
-          'Orientación y comentarios en un grupo pequeño',
-          'Formas de mantener las estrategias consistentes entre cuidadores',
+          'Reconocer las primeras señales de escalada',
+          'Estrategias de prevención y desescalada',
+          'Apoyar la comunicación y la cooperación',
+          'Responder de forma segura ante conductas desafiantes',
+          'Crear un entorno en el hogar más seguro y de mayor apoyo',
+          'Práctica guiada de las habilidades aplicables de Safety-Care®',
         ],
       },
       {
-        title: 'Cómo está estructurado el grupo',
+        title: '¡Sesiones grupales próximamente!',
         items: [
-          'Confirmación de la compatibilidad con el grupo y las prioridades familiares',
-          'Aprendizaje en grupo pequeño con metas compartidas',
-          'Práctica para rutinas, comunicación y momentos difíciles',
-          'Guía para usar las mismas herramientas en casa',
+          'Aprender junto a otras familias, practicar habilidades y hacer preguntas',
+          'Ganar confianza con estrategias proactivas y seguras en el hogar y en la comunidad',
+          'Esté atento a las próximas fechas de capacitación, la información de inscripción y los requisitos de elegibilidad',
+          'Gane confianza. Aprenda estrategias prácticas. Promueva la seguridad en casa.',
         ],
       },
     ],
@@ -882,7 +894,7 @@ Object.assign(es.sections.whoWeServe, {
     'Metas de alimentación relacionadas con el repertorio y las preferencias alimentarias',
     'Enriquecimiento social para niños de 8 a 12 años',
     'Habilidades sociales avanzadas y juego apropiado para la edad con compañeros',
-    'Capacitación grupal para padres que quieren estrategias prácticas para usar en casa',
+    'Capacitación Safety-Care® para cuidadores, con sesiones grupales próximamente',
     'Referencias conectadas con Medicaid, atención administrada, seguro comercial o financiamiento del condado/FAPT',
   ],
 })
@@ -1037,7 +1049,7 @@ es.form.fields = [
     name: 'service',
     label: 'Interés en servicios',
     type: 'select',
-    options: ['ABA', 'Primeros Aprendices', 'Programa de Alimentación', 'Enriquecimiento Social', 'Grupo de Habilidades Sociales', 'Capacitación Grupal para Padres', 'No estoy seguro', 'Pregunta de referencia'],
+    options: ['ABA', 'Primeros Aprendices', 'Programa de Alimentación', 'Enriquecimiento Social', 'Grupo de Habilidades Sociales', 'Safety-Care® para Familias y Cuidadores', 'No estoy seguro', 'Pregunta de referencia'],
   },
   {
     name: 'funding',
@@ -1279,31 +1291,34 @@ es.pages = {
     },
   },
   groupParentTraining: {
-    title: 'Página de Capacitación Grupal para Padres',
+    title: 'Safety-Care® para Familias y Cuidadores',
     hero: {
-      headline: 'Aprenda estrategias prácticas con otros cuidadores',
-      body: 'La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia. Las familias aprenden juntas en un entorno grupal con apoyo.',
-      buttons: ['Solicitar capacitación grupal para padres', 'Preguntar sobre elegibilidad'],
+      headline: 'Safety-Care® para Familias y Cuidadores — Próximamente',
+      body: 'Nos entusiasma anunciar que pronto habrá capacitación grupal Safety-Care® para padres y cuidadores. Esta capacitación brinda a las familias estrategias prácticas y basadas en la evidencia para prevenir conductas desafiantes, reconocer las primeras señales de escalada, promover la seguridad y responder con confianza durante situaciones difíciles.',
+      buttons: ['Solicitar servicios', 'Preguntar sobre elegibilidad'],
     },
     sections: [
       {
-        title: 'Lo que pueden practicar los cuidadores',
-        intro: 'La Capacitación Grupal para Padres ayuda a los cuidadores a practicar estrategias que pueden usar en casa, durante las rutinas diarias y entre sesiones de terapia.',
+        title: 'Los temas de la capacitación pueden incluir',
+        intro:
+          'Las capacitaciones grupales ofrecerán a los cuidadores la oportunidad de aprender junto a otras familias, practicar habilidades, hacer preguntas y ganar confianza usando estrategias conductuales proactivas y seguras en el hogar y en la comunidad.',
         items: [
-          'Estrategias prácticas para las rutinas diarias',
-          'Habilidades que apoyan la comunicación y la conducta en casa',
-          'Orientación y comentarios en un grupo pequeño',
-          'Formas de mantener las estrategias consistentes entre cuidadores',
+          'Reconocer las primeras señales de escalada',
+          'Estrategias de prevención y desescalada',
+          'Apoyar la comunicación y la cooperación',
+          'Responder de forma segura ante conductas desafiantes',
+          'Crear un entorno en el hogar más seguro y de mayor apoyo',
+          'Práctica guiada de las habilidades aplicables de Safety-Care®',
         ],
       },
       {
-        title: 'Aprendizaje con otras familias',
-        body: 'Los cuidadores se reúnen en un grupo pequeño con orientación del personal capacitado. El grupo está diseñado para que las familias usen las mismas estrategias cuando los terapeutas no están presentes.',
+        title: '¡Sesiones grupales próximamente!',
+        body: '¿Le interesa asistir a un próximo grupo para cuidadores? Esté atento a las próximas fechas de capacitación, la información de inscripción y los requisitos de elegibilidad. Gane confianza. Aprenda estrategias prácticas. Promueva la seguridad en casa.',
       },
     ],
     cta: {
-      body: 'Contacte a VTCC para preguntar si la Capacitación Grupal para Padres puede ser adecuada para su familia y conocer la disponibilidad actual.',
-      button: 'Preguntar sobre la Capacitación Grupal para Padres',
+      body: 'Esté atento a las próximas fechas de capacitación, la información de inscripción y los requisitos de elegibilidad.',
+      button: 'Preguntar sobre la capacitación Safety-Care®',
     },
   },
   insuranceFunding: {
@@ -1367,13 +1382,13 @@ es.pages = {
     title: 'Página de Recursos / Preguntas Frecuentes',
     hero: {
       headline: 'Recursos para familias y socios de referencia',
-      body: 'VTCC ofrece recursos educativos para ayudar a las familias a entender la terapia ABA, el programa de Primeros Aprendices, el Programa de Alimentación, el Enriquecimiento Social, el Grupo de Habilidades Sociales, la Capacitación Grupal para Padres, la participación de los padres, los pasos de admisión y las preguntas sobre financiamiento.',
+      body: 'VTCC ofrece recursos educativos para ayudar a las familias a entender la terapia ABA, el programa de Primeros Aprendices, el Programa de Alimentación, el Enriquecimiento Social, el Grupo de Habilidades Sociales, Safety-Care® para Familias y Cuidadores, la participación de los padres, los pasos de admisión y las preguntas sobre financiamiento.',
     },
     faqs: [
       {
         question: '¿Qué servicios brinda VTCC?',
         answer:
-          'VTCC brinda terapia ABA, un programa de Primeros Aprendices, un Programa de Alimentación, Enriquecimiento Social para edades de 8 a 12 años, un Grupo de Habilidades Sociales y Capacitación Grupal para Padres para niños y familias. Los servicios dependen de la elegibilidad, el financiamiento, la necesidad clínica y la disponibilidad.',
+          'VTCC brinda terapia ABA, un programa de Primeros Aprendices, un Programa de Alimentación, Enriquecimiento Social para edades de 8 a 12 años, un Grupo de Habilidades Sociales y capacitación Safety-Care® para familias y cuidadores. Los servicios dependen de la elegibilidad, el financiamiento, la necesidad clínica y la disponibilidad.',
       },
       {
         question: '¿Qué es el programa de Primeros Aprendices?',
@@ -1396,9 +1411,9 @@ es.pages = {
           'El Grupo de Habilidades Sociales es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
       },
       {
-        question: '¿Qué es la Capacitación Grupal para Padres?',
+        question: '¿Qué es Safety-Care® para Familias y Cuidadores?',
         answer:
-          'La Capacitación Grupal para Padres es un programa centrado en los cuidadores. Los padres y cuidadores aprenden estrategias prácticas juntos en un entorno grupal con apoyo y las practican en las rutinas diarias.',
+          'Safety-Care® para Familias y Cuidadores es una capacitación grupal para padres y cuidadores, y las sesiones grupales estarán disponibles pronto. La capacitación enseña estrategias prácticas y basadas en la evidencia para prevenir conductas desafiantes, reconocer las primeras señales de escalada, promover la seguridad y responder con confianza durante situaciones difíciles.',
       },
       {
         question: '¿Dónde brinda servicios VTCC?',
@@ -1502,7 +1517,7 @@ for (const form of [es.formFamily, es.formReferral]) {
       'Programa de Alimentación',
       'Enriquecimiento Social',
       'Grupo de Habilidades Sociales',
-      'Capacitación Grupal para Padres',
+      'Safety-Care® para Familias y Cuidadores',
       'Aún no estoy seguro',
     ]
   }
@@ -1941,7 +1956,10 @@ es.footer.emergency =
   'Este sitio web no se supervisa para emergencias. Si usted o su hijo están en peligro, llame al 911. Si tiene una crisis de salud mental, llame o envíe un mensaje de texto al 988.'
 
 for (const card of es.sections.services.cards) {
-  card.availability = 'Llame para preguntar por los cupos actuales.'
+  card.availability =
+    card.id === 'group-parent-training'
+      ? 'Próximamente'
+      : 'Llame para preguntar por los cupos actuales.'
 }
 
 es.sections.process.firstVisit = {
@@ -1998,7 +2016,7 @@ const spanishSeoTitles = {
   'feeding-program': 'Programa de Alimentación | Victoria Transcultural Clinical Center',
   'social-enrichment': 'Enriquecimiento Social | Victoria Transcultural Clinical Center',
   'social-skills-group': 'Grupo de Habilidades Sociales | Victoria Transcultural Clinical Center',
-  'group-parent-training': 'Capacitación Grupal para Padres | Victoria Transcultural Clinical Center',
+  'group-parent-training': 'Safety-Care® para Familias y Cuidadores | Victoria Transcultural Clinical Center',
   'get-started': 'Cómo comenzar | Victoria Transcultural Clinical Center',
   insurance: 'Seguro y financiamiento | Victoria Transcultural Clinical Center',
   about: 'Acerca de VTCC | Victoria Transcultural Clinical Center',
@@ -2024,7 +2042,7 @@ const spanishSeoDescriptions = {
   'social-skills-group':
     'Práctica guiada con compañeros en conversación, pensamiento flexible y habilidades sociales apropiadas para la edad.',
   'group-parent-training':
-    'Los cuidadores aprenden juntos estrategias prácticas para rutinas, comunicación y momentos difíciles de cada día.',
+    'Pronto habrá capacitación grupal Safety-Care® para padres y cuidadores, con estrategias prácticas de prevención, desescalada y seguridad en casa.',
   'get-started':
     'Qué esperar cuando contacta a VTCC, desde la primera llamada hasta la revisión del financiamiento, la evaluación y el inicio de los servicios.',
   insurance:

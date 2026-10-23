@@ -198,18 +198,29 @@ ${content.sections.services.intro}
 
 ${content.sections.services.cards
   .map((program) => {
-    const goals = program.goals?.length ? `\n\nGoals:\n\n${bulletList(program.goals)}` : ''
-    const structure = program.structure?.length
-      ? `\n\nStructure:\n\n${numberedList(program.structure)}`
-      : ''
+    const blocks = (program.blocks ?? [])
+      .map((block) => {
+        const heading = block.title ? `\n\n${block.title}:` : ''
+        const paragraphs = (block.paragraphs ?? []).map((paragraph) => `\n\n${paragraph}`).join('')
+        const items = block.items?.length ? `\n\n${bulletList(block.items)}` : ''
+        return `${heading}${paragraphs}${items}`
+      })
+      .join('')
+    const goals =
+      !blocks && program.goals?.length ? `\n\nGoals:\n\n${bulletList(program.goals)}` : ''
+    const structure =
+      !blocks && program.structure?.length
+        ? `\n\nStructure:\n\n${numberedList(program.structure)}`
+        : ''
     const ages = program.ageRange ? `\n\nAges served: ${program.ageRange}` : ''
     const related = program.related?.length
       ? `\n\nRelated programs: ${program.related.join(', ')}`
       : ''
+    const narrative = blocks || (program.description ? `\n\n${program.description}` : '')
 
     return `${program.label}:\n\n${program.body}${ages}${
       program.ageNote ? `\n\n${program.ageNote}` : ''
-    }${program.description ? `\n\n${program.description}` : ''}${goals}${structure}${related}`
+    }${narrative}${goals}${structure}${related}`
   })
   .join('\n\n')}
 

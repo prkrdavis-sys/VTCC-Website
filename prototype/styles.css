@@ -6685,8 +6685,8 @@ address strong {
   }
 
   body:has(.service-subnav-band) .program-summary,
-  body:has(.service-subnav-band) .program-copy section:first-child,
-  body:has(.service-subnav-band) .program-copy section:nth-child(2) > p {
+  body:has(.service-subnav-band) .program-copy section:has(> .program-age-range),
+  body:has(.service-subnav-band) .program-copy section:has(> .program-age-range) + section > p {
     display: none;
   }
 }
