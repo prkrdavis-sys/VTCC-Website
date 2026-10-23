@@ -374,8 +374,8 @@ es.trustStrip = [
     body: 'Admisión, revisión de financiamiento, evaluación y planificación del tratamiento',
   },
   {
-    title: 'Inglés y español',
-    body: 'El sitio y el aviso de derechos del cliente están en ambos idiomas. Pregunte por un intérprete en la admisión.',
+    title: 'Apoyo multilingüe',
+    body: 'Pregunte por un intérprete en la admisión.',
   },
 ]
 
