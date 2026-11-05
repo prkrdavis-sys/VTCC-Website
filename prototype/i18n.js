@@ -561,8 +561,120 @@ function renderMobileMenu(content) {
     </aside>`
 }
 
+function motif(kind, color, extras = '') {
+  return `<span class="motif motif-${kind} motif--${color}${extras ? ` ${extras}` : ''}"></span>`
+}
+
+function renderMotifs(preset) {
+  const sets = {
+    hero: [
+      motif('blob', 'magenta', 'motif-xl motif-tl'),
+      motif('blob', 'orange', 'motif-xl motif-tr'),
+      motif('squiggle', 'magenta', 'motif-tr-in'),
+      motif('dashes', 'lime', 'motif-tr-cluster'),
+      motif('circle', 'cyan', 'motif-md motif-br'),
+      motif('circle', 'heading', 'motif-sm motif-br-shift'),
+      motif('dots', 'orange', 'motif-br-in'),
+    ],
+    grow: [
+      motif('blob', 'orange', 'motif-lg motif-tl'),
+      motif('circle', 'gold', 'motif-md motif-br'),
+      motif('squiggle', 'magenta', 'motif-tr-in'),
+      motif('circle', 'cyan', 'motif-sm motif-ml'),
+    ],
+    services: [
+      motif('circle', 'heading', 'motif-md motif-tr'),
+      motif('squiggle', 'gold', 'motif-br-in'),
+      motif('blob', 'orange', 'motif-sm motif-bl'),
+    ],
+    start: [
+      motif('circle', 'lime', 'motif-lg motif-tl'),
+      motif('squiggle', 'cyan', 'motif-tr-in'),
+      motif('dots', 'magenta', 'motif-br-in'),
+      motif('circle', 'orange', 'motif-sm motif-ml'),
+      motif('scatter', 'heading', 'motif-mr'),
+    ],
+    who: [
+      motif('squiggle', 'cyan', 'motif-tl'),
+      motif('dots', 'heading', 'motif-bl'),
+      motif('circle', 'gold', 'motif-sm motif-mr'),
+    ],
+    resources: [
+      motif('dots', 'heading', 'motif-tr'),
+      motif('blob', 'lime', 'motif-md motif-bl'),
+      motif('circle', 'orange', 'motif-sm motif-br'),
+      motif('scatter', 'cyan', 'motif-ml'),
+    ],
+    page: [
+      motif('blob', 'magenta', 'motif-lg motif-tl'),
+      motif('dots', 'heading', 'motif-tr'),
+      motif('circle', 'orange', 'motif-md motif-br'),
+      motif('circle', 'lime', 'motif-sm motif-br-shift'),
+      motif('dashes', 'gold', 'motif-bl'),
+      motif('scatter', 'orange', 'motif-mr'),
+    ],
+    program: [
+      motif('circle', 'orange', 'motif-sm motif-tr'),
+      motif('squiggle', 'cyan', 'motif-br'),
+    ],
+    contact: [
+      motif('blob', 'orange', 'motif-lg motif-tr'),
+      motif('dots', 'heading', 'motif-tr-in'),
+      motif('circle', 'magenta', 'motif-md motif-bl'),
+      motif('dashes', 'cyan', 'motif-mr'),
+    ],
+    career: [
+      motif('blob', 'magenta', 'motif-lg motif-tl'),
+      motif('blob', 'orange', 'motif-lg motif-tr'),
+      motif('dashes', 'lime', 'motif-tr-cluster'),
+      motif('circle', 'cyan', 'motif-md motif-br'),
+      motif('dots', 'cyan', 'motif-tr-in'),
+    ],
+    footer: [
+      motif('squiggle', 'magenta', 'motif-tl'),
+      motif('dots', 'heading', 'motif-bl'),
+      motif('circle', 'lime', 'motif-sm motif-tr'),
+      motif('scatter', 'cyan', 'motif-mr'),
+    ],
+  }
+
+  const items = sets[preset]
+  if (!items) {
+    return ''
+  }
+
+  return `<div class="motifs motifs--${preset}" aria-hidden="true">${items.join('')}</div>`
+}
+
+function renderCircleCluster(placement = 'br') {
+  return `<div class="motif-cluster motif-cluster--${placement}" aria-hidden="true">
+          ${motif('circle', 'cyan', 'motif-lg')}
+          ${motif('circle', 'orange', 'motif-md')}
+          ${motif('circle', 'magenta', 'motif-sm')}
+          ${motif('circle', 'heading', 'motif-xs')}
+        </div>`
+}
+
+function programThemeForPage(page = PAGE) {
+  switch (page) {
+    case 'early-learners':
+      return 'magenta'
+    case 'feeding-program':
+      return 'lime'
+    case 'social-skills-group':
+      return 'orange'
+    case 'social-enrichment':
+      return 'magenta'
+    case 'group-parent-training':
+      return 'lime'
+    default:
+      return ''
+  }
+}
+
 function renderSectionHeading(eyebrow, title, intro = '') {
   return `<div class="section-heading">
+          <span class="heading-squiggle" aria-hidden="true"></span>
           ${eyebrow ? `<p class="eyebrow">${escapeHtml(eyebrow)}</p>` : ''}
           <h2>${escapeHtml(title)}</h2>
           ${intro ? `<p>${escapeHtml(intro)}</p>` : ''}
@@ -822,6 +934,8 @@ function renderFooter(content) {
   const response = visit?.responseTime ? `<p class="site-footer-hours-detail">${escapeHtml(visit.responseTime)}</p>` : ''
 
   return `<footer class="site-footer">
+      ${renderMotifs('footer')}
+      ${renderCircleCluster('br')}
       <div class="site-footer-main">
         <div class="site-footer-wrap site-footer-grid">
           <div class="site-footer-col site-footer-visit">
@@ -876,6 +990,12 @@ function renderShell(content, mainHtml) {
 
   return `
     <header class="site-header">
+      <div class="header-motifs" aria-hidden="true">
+        <span class="header-circle header-circle--orange"></span>
+        <span class="header-circle header-circle--magenta"></span>
+        <span class="header-circle header-circle--cyan"></span>
+        <span class="header-circle header-circle--heading"></span>
+      </div>
       <div class="site-header-inner">
       <a class="brand" href="${escapeHtml(toStaticHref('/'))}" aria-label="${escapeHtml(content.company.name)} ${escapeHtml(content.ui.homeLinkLabel ?? 'home')}">
         <img class="brand-mark" src="${escapeHtml(BASE)}assets/vtcc-logo.png" alt="" />
@@ -1048,6 +1168,7 @@ function renderFormsPage(content) {
     .join('\n        ')
 
   return `<section class="section forms-section page-section">
+        ${renderMotifs('resources')}
         <div class="forms-shell">
           ${renderSectionHeading('', forms.title, forms.intro)}
           ${
@@ -1378,6 +1499,7 @@ function renderHome(content) {
 
   return `
       <section class="home-hero">
+        ${renderMotifs('hero')}
         <div class="home-hero-copy">
           ${renderHeroHeading(content.hero)}
           <div class="button-row">${heroActions.map(renderButton).join('\n            ')}</div>
@@ -1385,6 +1507,7 @@ function renderHome(content) {
         ${
           heroImage
             ? `<div class="home-hero-media">
+          <span class="motif motif-circle motif--lime motif-md motif-photo-tr" aria-hidden="true"></span>
           <img src="${escapeHtml(heroImage)}" alt="" width="800" height="800" loading="eager" />
         </div>`
             : ''
@@ -1399,6 +1522,8 @@ function renderHome(content) {
         </div>
       </section>
       <section id="services" class="section home-services">
+        ${renderMotifs('services')}
+        ${renderCircleCluster('tr')}
         ${renderServicesBanner(sections.services.eyebrow, sections.services.title, sections.services.intro)}
         <div class="program-panel-list home-service-grid">${serviceCards}</div>
         ${
@@ -1419,23 +1544,40 @@ function renderFeatureColumns(columns) {
     .join('')}</div>`
 }
 
-function renderDetailSection(section, soft = false) {
-  return `<section class="section detail-section page-section${soft ? ' soft' : ''}">
-        ${renderSectionHeading(section.eyebrow, section.title, section.intro)}
+function renderDetailSection(section, options = {}) {
+  const soft = options === true || options.soft === true
+  const theme = typeof options === 'object' ? options.theme : ''
+  const themeClass = theme ? ` program-page program-page--${theme}` : ''
+  const inner = `${renderSectionHeading(section.eyebrow, section.title, section.intro)}
         ${renderFeatureColumns(section.columns)}
-        <a class="button page-link-cta" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(getContent().hero.actions[0].label)}</a>
+        <a class="button page-link-cta" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(getContent().hero.actions[0].label)}</a>`
+
+  return `<section class="section detail-section page-section${soft ? ' soft' : ''}${themeClass}">
+        ${renderMotifs('page')}
+        ${renderCircleCluster('bl')}
+        ${
+          theme
+            ? `<div class="program-panel">
+        ${renderMotifs('program')}
+        ${inner}
+        </div>`
+            : inner
+        }
       </section>`
 }
 
 function renderProgramDetailPage(content, programId, section) {
   const program = getProgramById(content, programId)
+  const theme = programThemeForPage(PAGE)
+  const themeClass = theme ? ` program-page program-page--${theme}` : ''
   const panel = program
-    ? `<section class="section page-section program-page-intro">
+    ? `<section class="section page-section program-page-intro${themeClass}">
+        ${renderMotifs('page')}
         <div class="program-panel-list">${renderProgramPanel(program, content, { open: true })}</div>
       </section>`
     : ''
 
-  return `${panel}${renderDetailSection(section, true)}${renderServiceDisclaimer(content)}`
+  return `${panel}${renderDetailSection(section, { soft: true, theme })}${renderServiceDisclaimer(content)}`
 }
 
 function renderAbaTopicBody(topic) {
@@ -1456,6 +1598,7 @@ function renderAbaPage(content) {
   const program = getProgramById(content, 'aba')
 
   return `<section class="section aba-page page-section">
+        ${renderMotifs('page')}
         ${renderSectionHeading(aba.eyebrow, aba.title, aba.intro)}
         ${program ? `<div class="program-panel-list">${renderProgramPanel(program, content, { open: true })}</div>` : ''}
         <div class="aba-topic-list">
@@ -1475,6 +1618,8 @@ function renderAbaPage(content) {
         </div>
       </section>
       <section class="section detail-section page-section soft aba-summary">
+        ${renderMotifs('services')}
+        ${renderCircleCluster('br')}
         ${renderFeatureColumns(aba.columns)}
         <a class="button page-link-cta" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.hero.actions[0].label)}</a>
       </section>
@@ -1623,6 +1768,7 @@ function renderProcessPage(content) {
     : `<a class="button page-link-cta" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.hero.actions[0].label)}</a>`
 
   return `<section class="section split-section page-section">
+        ${renderMotifs('page')}
         ${renderSectionHeading('', process.title, process.intro)}
         <ol class="steps">${steps}</ol>
         <div class="button-row">
@@ -1652,6 +1798,7 @@ function renderInsurancePage(content) {
     .join('')
 
   return `<section class="section payer-band band band--tint">
+        ${renderMotifs('page')}
         <div class="payer-band-inner">
           <div class="payer-lead">
             ${renderSectionHeading('', funding.title, funding.intro)}
@@ -1667,6 +1814,7 @@ function renderInsurancePage(content) {
         </div>
       </section>
       <section class="section split-section page-section payer-outro">
+        ${renderMotifs('contact')}
         <div class="payer-card">
           <p class="compliance-note">${escapeHtml(funding.note)}</p>
           <a class="button page-link-cta" href="${escapeHtml(toStaticHref(funding.ctaHref ?? '/contact'))}">${escapeHtml(funding.ctaLabel)}</a>
@@ -1725,9 +1873,11 @@ function renderAboutPage(content) {
     : ''
 
   return `<section class="section about-hero">
+        ${renderMotifs('page')}
         ${renderSectionHeading(about.eyebrow, about.title, about.lede)}
       </section>
       <section class="section about-mission">
+        ${renderMotifs('who')}
         <div class="about-mission-grid">
           <div>
             <p class="eyebrow">${escapeHtml(about.mission.eyebrow)}</p>
@@ -1737,6 +1887,7 @@ function renderAboutPage(content) {
         </div>
       </section>
       <section class="section about-story">
+        ${renderCircleCluster('tr')}
         <div class="about-story-layout">
           <div class="about-story-main">
             ${renderSectionHeading(about.story.eyebrow, about.story.title)}
@@ -1906,7 +2057,9 @@ function renderCareerPage(content) {
     .join('\n          ')
 
   return `<section class="career-hero page-section">
+        ${renderMotifs('career')}
         <div class="career-hero-copy">
+          <span class="heading-squiggle" aria-hidden="true"></span>
           <h1>${escapeHtml(careers.title)}</h1>
           <p class="career-hero-intro">${escapeHtml(careers.intro)}</p>
           <div class="button-row">
@@ -1915,12 +2068,14 @@ function renderCareerPage(content) {
           </div>
         </div>
         <div class="career-hero-media">
+          <span class="motif motif-circle motif--lime motif-md motif-photo-tr" aria-hidden="true"></span>
           <img src="${escapeHtml(`${BASE}assets/career-hero.png`)}" alt="${escapeHtml(careers.heroPhotoAlt ?? '')}" width="800" height="800" loading="eager" />
         </div>
       </section>
       ${renderCareerStory(content)}
       ${renderHiringDetails(content)}
       <section class="section career-hiring" id="${escapeHtml(careers.steps.id ?? 'hiring-process')}">
+        ${renderMotifs('start')}
         ${renderSectionHeading(careers.steps.eyebrow, careers.steps.title)}
         <ol class="career-step-list">${steps}</ol>
       </section>`
@@ -2008,6 +2163,7 @@ function renderCareerApplicationPage(content) {
     .join('\n          ')
 
   return `<section class="section career-application page-section">
+        ${renderMotifs('page')}
         <div class="career-application-intro">
           <a class="back-button" href="${escapeHtml(toStaticHref(application.backHref))}">
             <span aria-hidden="true">←</span> ${escapeHtml(application.backLabel)}
@@ -2149,6 +2305,7 @@ function renderThankYouPage(content) {
     .join('')
 
   return `<section class="section thank-you-page page-section">
+        ${renderMotifs('start')}
         <div class="thank-you-card">
           <svg class="thank-you-mark" viewBox="0 0 64 64" aria-hidden="true">
             <circle cx="32" cy="32" r="30" />
@@ -2172,6 +2329,8 @@ function renderContactPage(content) {
   const { contact, form, variant } = getContactPageConfig(content)
   const formType = variant === 'referral' ? 'referral' : 'service_request'
   return `<section class="section contact-section page-section">
+        ${renderMotifs('contact')}
+        ${renderCircleCluster('bl')}
         <div class="contact-main">
           <header class="contact-intro">
             ${renderSectionHeading(contact.eyebrow, contact.title, contact.intro)}
@@ -3109,6 +3268,7 @@ function renderContactQuizInner(content, direction = 'none') {
 
 function renderContactQuizPage(content) {
   return `<section class="section quiz-section page-section">
+        ${renderMotifs('contact')}
         <div class="contact-quiz" data-contact-quiz>
           ${renderContactQuizInner(content)}
         </div>
@@ -3488,6 +3648,8 @@ function bindContactQuiz(content) {
 function renderResourcesIndex(content) {
   const resources = content.sections.resources
   return `<section class="section resources-section page-section">
+        ${renderMotifs('resources')}
+        ${renderCircleCluster('br')}
         ${renderSectionHeading('', resources.title, resources.intro)}
         <div class="faq-search-panel">
           ${renderFaqSearch(content)}
@@ -3505,6 +3667,7 @@ function renderResourceTopic(content) {
   }
 
   return `<section class="section resources-section page-section">
+        ${renderMotifs('page')}
         <a class="back-button" href="${escapeHtml(toStaticHref('/resources'))}">
           <span aria-hidden="true">←</span> ${escapeHtml(content.ui.backToResources)}
         </a>
