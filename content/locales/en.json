@@ -21,6 +21,7 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "callLabel": "Call",
+    "headerContactLabel": "Contact",
     "emailLabel": "Email",
     "guidesNavLabel": "FAQs and guides",
     "servicesNavLabel": "Services",
@@ -62,7 +63,10 @@
     "faqProgramLinkNote": "For goals and how the program works, visit the services page.",
     "hoursLabel": "Hours",
     "availabilityLabel": "Availability",
-    "officesLabel": "Offices"
+    "officesLabel": "Offices",
+    "mapsMenuLabel": "Choose Apple Maps or Google Maps",
+    "appleMapsLabel": "Apple Maps",
+    "googleMapsLabel": "Google Maps"
   },
   "company": {
     "name": "Victoria Transcultural Clinical Center",
@@ -261,7 +265,7 @@
     ],
     "subheadlineLead": "Culturally responsive behavioral and mental health services.",
     "subheadline": "VTCC supports families through individualized ABA therapy, early learning, feeding, social enrichment, social skills, and Safety-Care® training for families and caregivers.",
-    "supportingLine": "Serving families through Medicaid, managed care, commercial insurance, and county/FAPT funding pathways, pending eligibility and plan verification.",
+    "supportingLine": "VTCC accepts Medicaid, commercial insurance, and county funding. Call to confirm your plan.",
     "actions": [
       {
         "label": "Request Services",
@@ -279,10 +283,10 @@
     "title": "How VTCC Helps",
     "items": [
       "ABA therapy with individualized goals",
-      "Early Learners support for preschool-aged children",
-      "Feeding support to expand food repertoire and preferences",
-      "Social Enrichment for children ages 8-12",
-      "Social Skills Group practice for advanced peer interaction",
+      "Early Learners classroom support for children ages 3 to 5",
+      "Feeding support that starts with mealtime basics and can include practice at home",
+      "Social Enrichment for children ages 3 to 5",
+      "Social Skills Group for children ages 2 and up",
       "Safety-Care® training for families and caregivers"
     ]
   },
@@ -301,7 +305,7 @@
     },
     {
       "title": "Multilingual support",
-      "body": "Ask about an interpreter at intake."
+      "body": "Interpreters for any language. Ask at intake."
     }
   ],
   "sections": {
@@ -341,29 +345,23 @@
           "linkLabel": "Learn about ABA",
           "href": "/aba",
           "image": "/assets/services/aba.jpg",
-          "teaser": "Individualized therapy that builds communication, daily living, and social skills.",
-          "availability": "Call to ask about current openings."
+          "teaser": "Individualized therapy that builds communication, daily living, and social skills."
         },
         {
           "id": "early-learners",
           "label": "Early Learners",
-          "title": "Prepare for school and social settings",
-          "body": "The Early Learners program helps preschool-aged children practice communication, play, routines, and early learning skills for school and social settings.",
-          "ageRange": "Typically ages 2–5",
-          "ageNote": "This program is designed for preschool-aged children. Eligibility depends on assessment, funding, and authorization.",
-          "description": "Early Learners focuses on the routines and skills that help a child participate in school and social settings: communication, play, following directions, and independence.",
-          "goals": [
-            "Build school-readiness routines and transitions",
-            "Strengthen communication and early learning skills",
-            "Support play, participation, and social engagement",
-            "Practice following directions and growing independence"
-          ],
-          "structure": [
-            "A clinician reviews the child's current skills and family priorities.",
-            "Individualized goals are written for routines, communication, and play.",
-            "Sessions practice those skills in familiar settings.",
-            "Caregivers receive coaching so practice can continue at home.",
-            "Progress is monitored and the plan is updated as skills grow."
+          "title": "Prepare for a successful transition to school",
+          "body": "A structured classroom day for children ages 3 to 5 who are receiving ABA services, Monday through Friday from 10:00 a.m. to 2:00 p.m.",
+          "teaser": "Classroom-style support for children ages 3 to 5, Monday through Friday.",
+          "blocks": [
+            {
+              "paragraphs": [
+                "The Early Learners Program is designed to prepare children receiving ABA services for a successful transition to school by providing a structured routine that mirrors a typical classroom environment. Our goal is to help students build independence and require the least amount of support possible as they grow.",
+                "This program runs Monday through Friday, from 10:00 a.m. to 2:00 p.m. Children ages 3 to 5 participate in a daily schedule that includes 20-minute center rotations such as pretend play, reading, independent work, arts and crafts, and a teacher-led activity. The teacher-led activity focuses on strengthening attending skills, while all centers provide opportunities to develop play skills, creativity, and early academic foundations.",
+                "Throughout the day, children also practice social interaction with peers, learning how to share, take turns, and engage in cooperative play. This well-rounded approach supports both school readiness and overall developmental growth.",
+                "At the core of the program, Applied Behavior Analysis (ABA) teaching strategies are used to teach and reinforce these fundamental skills. By embedding ABA principles throughout the day, children receive consistent support in building communication, social, and self-help skills that promote long-term success."
+              ]
+            }
           ],
           "related": [
             "aba",
@@ -374,30 +372,23 @@
           ],
           "linkLabel": "Learn about Early Learners",
           "href": "/early-learners",
-          "image": "/assets/services/early-learners.jpg",
-          "teaser": "School readiness through play, routines, and communication.",
-          "availability": "Call to ask about current openings."
+          "image": "/assets/services/early-learners.jpg"
         },
         {
           "id": "feeding",
           "label": "Feeding Program",
-          "title": "Expand food repertoire and preferences",
-          "body": "The Feeding Program uses ABA practices to support children as they build comfort with a wider variety of foods, tastes, textures, and mealtime routines.",
-          "ageRange": "Typically ages 2–12",
-          "ageNote": "Feeding support is individualized. Age fit, goals, and duration depend on assessment, family priorities, funding, and authorization.",
-          "description": "The program uses positive, gradual practice so children can become more comfortable with new foods and more flexible at meals. Caregivers are partners in everyday mealtime routines.",
-          "goals": [
-            "Expand the variety of foods a child accepts",
-            "Build comfort with new tastes, textures, and presentation",
-            "Support calmer, more predictable mealtime routines",
-            "Practice flexible food preferences at a manageable pace"
-          ],
-          "structure": [
-            "The team assesses current eating patterns and family priorities.",
-            "Individualized goals and positive reinforcement strategies are written.",
-            "Practice happens in sessions and, when appropriate, during everyday meals.",
-            "Caregivers learn how to support new foods without extra pressure.",
-            "Progress is reviewed and the plan is adjusted based on the child's response."
+          "title": "Better mealtimes start with the basics.",
+          "body": "One Step. One Bite. One Success at a Time.",
+          "blocks": [
+            {
+              "paragraphs": [
+                "At VTCC, we believe every child, every family, and every culture deserves to feel supported at mealtime.",
+                "Feeding success is about more than simply trying new foods. We meet each child where they are and build the foundational skills that make mealtimes more comfortable, positive, and successful.",
+                "We start with the basics: coming to the table, sitting and remaining at the table during meals, and participating in simple mealtime routines. From there, we gradually build skills such as self-feeding, appropriate meal pacing, tolerating foods on the plate, exploring new textures and tastes, and increasing acceptance of new and culturally familiar foods.",
+                "Because meaningful progress happens where everyday life happens, our support can extend beyond the clinic and into the family home. We work alongside caregivers during real mealtimes, providing hands-on guidance and practical strategies that can become part of the family's natural routines.",
+                "Every Child. Every Family. Every Culture."
+              ]
+            }
           ],
           "related": [
             "aba",
@@ -408,29 +399,60 @@
           "linkLabel": "Learn about Feeding",
           "href": "/feeding-program",
           "image": "/assets/services/feeding.jpg",
-          "teaser": "Gentle, gradual support for trying new foods and textures.",
-          "availability": "Call to ask about current openings."
+          "teaser": "One step. One bite. One success at a time."
         },
         {
           "id": "social-enrichment",
           "label": "Social Enrichment",
-          "title": "Practice peer skills in a supported group",
-          "body": "The Social Enrichment program helps children ages 8-12 join group activities, build friendships, and practice everyday social skills with peers.",
-          "ageRange": "Typically ages 8-12",
-          "ageNote": "This group is designed for school-age children. Fit depends on assessment, current goals, funding, and authorization.",
-          "description": "Children practice joining games, taking turns, sharing attention, and staying engaged with peers in a small group. Practice stays structured, positive, and matched to each child's goals.",
-          "goals": [
-            "Join group games and shared activities",
-            "Practice turn-taking, waiting, and flexible play",
-            "Build conversation and friendship skills with peers",
-            "Stay engaged during group routines and transitions"
-          ],
-          "structure": [
-            "A clinician confirms group fit and current social goals.",
-            "Children join a small group with peers in the same age range.",
-            "Staff coach during games, conversation, and shared activities.",
-            "Families receive guidance so skills can be practiced at home and school.",
-            "Goals are updated as the child becomes more confident with peers."
+          "title": "Building social confidence through play",
+          "body": "A structured social learning program for children ages 3–5, led by experienced behavioral professionals.",
+          "teaser": "Guided play and friendship skills for children ages 3–5.",
+          "blocks": [
+            {
+              "paragraphs": [
+                "The Social Skills Enrichment Group is a structured social learning program for children ages 3–5 designed to promote communication, cooperation, and friendship skills through guided play and peer interaction.",
+                "Participants engage in developmentally appropriate activities that help strengthen:"
+              ],
+              "items": [
+                "Social communication",
+                "Turn-taking and sharing",
+                "Cooperative play",
+                "Following group directions",
+                "Peer engagement",
+                "Group participation skills"
+              ]
+            },
+            {
+              "paragraphs": [
+                "Led by experienced behavioral professionals, this small-group program provides children with opportunities to practice social skills in a fun, supportive, and engaging environment."
+              ]
+            },
+            {
+              "title": "Each session includes",
+              "items": [
+                "Circle time",
+                "Guided play and peer interaction",
+                "STEAM activity (science, technology, engineering, art, and math)"
+              ]
+            },
+            {
+              "title": "Program information",
+              "items": [
+                "Ages: 3–5 years old",
+                "Session length: 60 minutes",
+                "Location: 10565 Fairfax Blvd, Suite 300, Fairfax, VA 22030",
+                "Schedule: Once a week for 12 weeks. Contact VTCC for the next start date.",
+                "Program tuition: $950.00, which can be split into 3 bi-weekly payments",
+                "Registration fee (non-reimbursable): $250.00"
+              ]
+            },
+            {
+              "title": "Enrollment",
+              "paragraphs": [
+                "All prospective participants complete a brief screening to ensure the program is an appropriate fit for their current social, communication, and behavioral needs.",
+                "To learn more or begin the enrollment process, call 703.218.6599. Space is limited."
+              ]
+            }
           ],
           "related": [
             "aba",
@@ -440,30 +462,71 @@
           ],
           "linkLabel": "Learn about Social Enrichment",
           "href": "/social-enrichment",
-          "image": "/assets/services/social-enrichment.jpg",
-          "teaser": "Small-group play and friendship skills for ages 8-12.",
-          "availability": "Call to ask about current openings."
+          "image": "/assets/services/social-enrichment.jpg"
         },
         {
           "id": "social-skills",
           "label": "Social Skills Group",
-          "title": "Practice advanced social skills with peers",
-          "body": "The Social Skills Group supports clients who are ready to practice skills such as sarcasm, conversation, flexible thinking, and age-appropriate peer play.",
-          "ageRange": "Typically school-age children and adolescents",
-          "ageNote": "The group is for clients who are ready for more advanced peer practice. Fit depends on assessment, current goals, funding, and authorization.",
-          "description": "Participants practice realistic social interactions in a small group with coaching from trained staff. Families help carry the same skills into school, home, and community settings.",
-          "goals": [
-            "Understand sarcasm, humor, and implied meaning",
-            "Practice back-and-forth conversation and flexible thinking",
-            "Join age-appropriate peer play and shared activities",
-            "Repair misunderstandings and solve problems with peers"
-          ],
-          "structure": [
-            "A clinician confirms group fit and current social goals.",
-            "Sessions use small-group practice with individualized targets.",
-            "Staff coach and give positive feedback during realistic interactions.",
-            "Families receive guidance so skills can be practiced outside the group.",
-            "Goals are updated as the child or adolescent becomes more independent."
+          "title": "Build friendships, communication, and confidence",
+          "body": "A fun, supportive group where children practice social skills through structured play, role-playing, and teamwork.",
+          "teaser": "Social skills groups for children ages 2 and up.",
+          "blocks": [
+            {
+              "paragraphs": [
+                "Our Social Skills Group provides children with a fun, supportive environment to develop friendships, improve communication, build confidence, and strengthen peer relationships. Through structured play, interactive activities, role-playing, and teamwork, children learn essential social skills while practicing how to interact positively with others.",
+                "Each group is designed to meet children's developmental needs, focusing on skills such as sharing, turn-taking, expressing emotions, understanding social cues, problem-solving, and building meaningful connections."
+              ]
+            },
+            {
+              "title": "Level Up Crew (Ages 2–6)",
+              "paragraphs": [
+                "Building the foundation for friendships!",
+                "Focuses on developing early social skills through playful, hands-on activities and guided peer interactions."
+              ],
+              "items": [
+                "Parallel and cooperative play",
+                "Sharing, turn-taking, and waiting",
+                "Simple role-playing and movement games",
+                "Identifying and expressing emotions",
+                "Following group routines and initiating play"
+              ]
+            },
+            {
+              "title": "Quest Masters (Ages 6–8)",
+              "paragraphs": [
+                "Growing friendships and strengthening social connections!",
+                "Helps children build confidence in social situations while developing communication, cooperation, and friendship skills."
+              ],
+              "items": [
+                "Teamwork challenges and cooperative games",
+                "Starting and maintaining conversations",
+                "Role-playing everyday social situations",
+                "Recognizing social cues and body language",
+                "Practicing empathy, perspective-taking, and problem-solving",
+                "Learning conflict resolution and sportsmanship"
+              ]
+            },
+            {
+              "title": "Legend League (Ages 8+)",
+              "paragraphs": [
+                "Mastering social connections and becoming confident leaders!",
+                "Encourages more advanced social development through collaborative activities, peer discussions, and real-world social problem-solving."
+              ],
+              "items": [
+                "Leadership and group decision-making",
+                "Collaborative projects and strategic games",
+                "Navigating friendships and peer relationships",
+                "Understanding social cues and conversational boundaries",
+                "Managing disagreements and challenging social situations",
+                "Building self-advocacy, confidence, and independence"
+              ]
+            },
+            {
+              "title": "Our mission",
+              "paragraphs": [
+                "To create a welcoming space where children can develop meaningful friendships, strengthen social skills, build confidence, and grow into successful social communicators—all while learning, connecting, and having fun."
+              ]
+            }
           ],
           "related": [
             "aba",
@@ -473,9 +536,7 @@
           ],
           "linkLabel": "Learn about Social Skills",
           "href": "/social-skills-group",
-          "image": "/assets/services/social-skills.jpg",
-          "teaser": "Coached peer practice in conversation and flexible thinking.",
-          "availability": "Call to ask about current openings."
+          "image": "/assets/services/social-skills.jpg"
         },
         {
           "id": "group-parent-training",
@@ -517,8 +578,7 @@
           "linkLabel": "Learn about Safety-Care® for Families & Caregivers",
           "href": "/group-parent-training",
           "image": "/assets/services/group-parent-training.jpg",
-          "teaser": "Group Safety-Care® training for parents and caregivers is coming soon.",
-          "availability": "Coming soon"
+          "teaser": "Group Safety-Care® training for parents and caregivers is coming soon."
         }
       ]
     },
@@ -535,7 +595,7 @@
         },
         {
           "title": "Review funding",
-          "body": "Tell us which service you are seeking and how the service may be funded."
+          "body": "Tell us which service you are seeking and how the service may be funded. VTCC reviews insurance, Medicaid, managed care, commercial coverage, or county/FAPT funding as applicable."
         },
         {
           "title": "Complete intake",
@@ -543,11 +603,11 @@
         },
         {
           "title": "Schedule assessment",
-          "body": "VTCC reviews insurance, Medicaid, managed care, commercial coverage, or county/FAPT funding as applicable."
+          "body": "A clinical assessment or intake appointment is scheduled when the service is a fit."
         },
         {
           "title": "Build a plan",
-          "body": "A clinical assessment or intake appointment is scheduled and an individualized treatment plan is created."
+          "body": "An individualized treatment plan is created."
         },
         {
           "title": "Begin services",
@@ -569,10 +629,6 @@
           {
             "title": "What happens next",
             "body": "The team explains paperwork, reviews funding, and schedules an assessment when the service is a fit. Timelines depend on the payer and how complete the information is."
-          },
-          {
-            "title": "Arrival",
-            "body": "Call the Fairfax office before you come for parking and check-in instructions."
           }
         ]
       },
@@ -689,7 +745,7 @@
         "Kaiser Permanente Behavioral Health",
         "County/FAPT funding"
       ],
-      "note": "Before publishing, VTCC should confirm which plans are currently accepted, whether commercial coverage is active for each service, and which office or team member handles verification.",
+      "note": "VTCC accepts Medicaid, county funding, and commercial insurance. Contact VTCC to confirm your specific plan and service. Authorization still depends on the payer or funding agency.",
       "ctaLabel": "Check Insurance & Funding",
       "ctaHref": "/contact"
     },
@@ -721,10 +777,10 @@
       "items": [
         "Autism spectrum disorder and developmental needs",
         "Communication, social, daily living, or school-readiness skills",
-        "Early learners preparing for school and social settings",
-        "Feeding goals related to food repertoire and preferences",
-        "Social enrichment for children ages 8-12",
-        "Advanced social skills and age-appropriate peer play",
+        "Early Learners classroom support for children ages 3 to 5",
+        "Feeding support that starts with mealtime basics and can include practice at home",
+        "Social Enrichment for children ages 3 to 5",
+        "Social Skills Group for children ages 2 and up",
         "Safety-Care® training for caregivers, with group sessions coming soon",
         "Referrals connected to Medicaid, managed care, commercial insurance, or county/FAPT funding"
       ]
@@ -775,22 +831,22 @@
         {
           "title": "Early Learners Program",
           "slug": "early-learners",
-          "summary": "School-readiness and social-readiness support for preschool-aged children."
+          "summary": "Classroom-style support for children ages 3 to 5, Monday through Friday."
         },
         {
           "title": "Feeding Program",
           "slug": "feeding-program",
-          "summary": "How ABA practices can support a broader food repertoire and preferences."
+          "summary": "Mealtime skills that start with coming to the table and can include practice at home."
         },
         {
           "title": "Social Enrichment",
           "slug": "social-enrichment",
-          "summary": "Peer-group practice for children ages 8-12."
+          "summary": "Guided play and friendship skills for children ages 3 to 5."
         },
         {
           "title": "Social Skills Group",
           "slug": "social-skills-group",
-          "summary": "Advanced social practice for conversation, sarcasm, and age-appropriate peer play."
+          "summary": "Social skills groups for children ages 2 and up."
         }
       ],
       "categories": [
@@ -805,23 +861,23 @@
             },
             {
               "question": "Who may benefit from ABA?",
-              "answer": "ABA is often used for children and adolescents with autism spectrum disorder or related developmental needs, but every plan depends on assessment, clinical recommendation, funding, and family goals."
+              "answer": "ABA is used to support children with autism spectrum disorder and other developmental conditions. At VTCC it is typically for ages 18 months to 21 years. Every plan depends on assessment, clinical recommendation, funding, and family goals."
             },
             {
               "question": "What happens during a typical ABA session?",
-              "answer": "Sessions may include structured teaching, play-based learning, communication practice, daily living routines, and caregiver coaching. Activities depend on the child's treatment plan and current goals."
+              "answer": "Some sessions are one-on-one between the therapist and the child, and group instruction can also be used. Activities depend on the treatment plan and can include communication, social, daily living, and school-readiness skills, plus caregiver coaching. The same techniques can be used at home, during family meals, or at a neighborhood playground."
             },
             {
               "question": "How is progress measured?",
-              "answer": "The clinical team tracks progress toward specific goals over time. Plans are reviewed regularly so strategies can be updated as skills improve or new needs emerge."
+              "answer": "A BCBA monitors progress across the child's goals and meets regularly with the family and program staff to review progress and adjust the plan."
             },
             {
               "question": "How long does ABA last?",
-              "answer": "Length of services varies by child, funding authorization, and clinical need. Some families receive support for months, while others may continue longer depending on goals and plan approval."
+              "answer": "Programs often range from 20–40 hours per week for 1–3 years, depending on the clinical recommendation and authorization. Length still varies by child, goals, and funding approval."
             },
             {
               "question": "Is ABA only for young children?",
-              "answer": "No. ABA can support a wide age range depending on clinical need, funding, and service authorization. VTCC can help families understand whether ABA may be appropriate for their child."
+              "answer": "No. ABA at VTCC is typically for ages 18 months to 21 years. Early intervention often begins before age 4, and ABA can also support school-age children and adolescents when clinically appropriate. Final eligibility depends on assessment, funding, and authorization."
             }
           ]
         },
@@ -840,7 +896,7 @@
             },
             {
               "question": "What forms may be required?",
-              "answer": "Required forms depend on the service and funding source. Download the intake and referral forms from the Forms & Downloads page, or contact VTCC if you are unsure which documents apply."
+              "answer": "Required forms depend on the service and funding source. Download the intake and referral forms from the Forms page, or contact VTCC if you are unsure which documents apply."
             },
             {
               "question": "How long does intake take?",
@@ -852,7 +908,7 @@
             },
             {
               "question": "Where does VTCC provide services?",
-              "answer": "VTCC's office is in Fairfax and serves families in Northern Virginia. Group programs meet at the clinic. Individual ABA can include practice at home and in the community when the treatment plan calls for it. Call to confirm we can serve your city or county."
+              "answer": "VTCC's office is at 10565 Fairfax Blvd, Suite 300, Fairfax, and serves families in Northern Virginia. Social Enrichment meets at that clinic. ABA techniques can be used at home, during family meals, and in the community, such as a neighborhood playground. Feeding support can also take place during mealtimes at home. Call to confirm we can serve your city or county and where a service is provided."
             },
             {
               "question": "What if I am not sure which service I need?",
@@ -867,7 +923,7 @@
           "faqs": [
             {
               "question": "Does VTCC accept Medicaid?",
-              "answer": "VTCC's public materials reference Medicaid and managed care options. Families should contact VTCC to confirm current participation for their specific plan and service."
+              "answer": "Yes. VTCC accepts Medicaid, county funding, and commercial insurance. Contact VTCC to confirm your specific plan and service. Authorization still depends on the payer or funding agency."
             },
             {
               "question": "What is an MCO?",
@@ -875,7 +931,7 @@
             },
             {
               "question": "What is FAPT or county funding?",
-              "answer": "Some families may access services through county or FAPT-related funding pathways. Eligibility, required documents, and approval steps vary by locality and service."
+              "answer": "County or FAPT funding is a local pathway some families use for services. VTCC accepts this funding. Eligibility, required documents, and approval steps vary by locality and service."
             },
             {
               "question": "How do I verify my coverage?",
@@ -887,7 +943,7 @@
             },
             {
               "question": "Does commercial insurance cover these services?",
-              "answer": "Commercial coverage depends on the plan, service type, and authorization requirements. VTCC can help families understand what questions to ask, but the insurance plan makes the final coverage decision."
+              "answer": "Yes. VTCC accepts commercial insurance, along with Medicaid and county funding. Whether your plan covers a service depends on that plan and its authorization requirements. The insurance plan makes the final coverage decision."
             }
           ]
         },
@@ -898,7 +954,7 @@
           "faqs": [
             {
               "question": "What is Safety-Care® for Families & Caregivers?",
-              "answer": "Safety-Care® for Families & Caregivers is group training for parents and caregivers, and group sessions are coming soon. The training teaches practical, evidence-based strategies for preventing challenging behavior, recognizing early signs of escalation, promoting safety, and responding confidently during difficult situations."
+              "answer": "Safety-Care® for Families & Caregivers is group training for parents and caregivers. Group sessions are coming soon, and dates, registration, and eligibility requirements are not posted yet. The training is designed to give families practical, evidence-based strategies for preventing challenging behavior, recognizing early signs of escalation, promoting safety, and responding confidently during difficult situations."
             },
             {
               "question": "Why is parent training part of ABA?",
@@ -906,7 +962,7 @@
             },
             {
               "question": "Do I need to be present during every session?",
-              "answer": "Participation expectations vary by treatment plan and funding requirements. VTCC can explain what involvement is recommended for your family."
+              "answer": "A caregiver needs to take part in intake. Whether a caregiver stays for later sessions depends on the treatment plan."
             },
             {
               "question": "What if more than one caregiver supports the child?",
@@ -918,7 +974,7 @@
             },
             {
               "question": "What if English is not my first language?",
-              "answer": "VTCC was founded to support multicultural families. Ask the team about language support, translated materials, and communication options during intake."
+              "answer": "VTCC provides interpreters for any language. Ask during intake. This website and the client-rights notice are available in English and Spanish."
             },
             {
               "question": "What if I feel overwhelmed as a caregiver?",
@@ -964,76 +1020,76 @@
         {
           "slug": "early-learners",
           "title": "Early Learners Program",
-          "intro": "The Early Learners program helps preschool-aged children practice skills for school and social settings.",
+          "intro": "The Early Learners Program prepares children ages 3 to 5 who are receiving ABA services for a successful transition to school.",
           "faqs": [
             {
               "question": "What is the Early Learners program?",
-              "answer": "It is a program for preschool-aged children focused on communication, play, routines, early learning, and participation in school and social settings."
+              "answer": "It is a classroom-style program for children ages 3 to 5 who are receiving ABA services. It runs Monday through Friday, from 10:00 a.m. to 2:00 p.m., and uses a structured routine that mirrors a typical classroom. The goal is to help students build independence and need the least amount of support possible as they grow."
             },
             {
-              "question": "What skills may children practice?",
-              "answer": "Goals may include transitions, following directions, communication, play, social engagement, early learning, and independence. Goals are individualized for each child."
+              "question": "What does a day include?",
+              "answer": "Children rotate through 20-minute centers such as pretend play, reading, independent work, arts and crafts, and a teacher-led activity. The teacher-led activity strengthens attending skills. All centers support play, creativity, and early academic foundations. Children also practice sharing, turn-taking, and cooperative play."
             },
             {
-              "question": "How are caregivers involved?",
-              "answer": "Caregivers collaborate with the team so children can practice useful skills across everyday routines and prepare for settings outside the program."
+              "question": "How is ABA used?",
+              "answer": "Applied Behavior Analysis teaching strategies are embedded throughout the day to teach and reinforce communication, social, and self-help skills."
             }
           ]
         },
         {
           "slug": "feeding-program",
           "title": "Feeding Program",
-          "intro": "The Feeding Program uses ABA practices and positive support to help children expand food repertoire and preferences.",
+          "intro": "The Feeding Program builds foundational mealtime skills. It starts with coming to the table and simple routines, then grows toward self-feeding, new textures and tastes, and foods that are new or culturally familiar. Support can continue at home.",
           "faqs": [
             {
               "question": "What does the Feeding Program do?",
-              "answer": "The program supports children as they practice accepting and exploring a wider variety of foods, tastes, textures, and presentations."
+              "answer": "The program meets each child where they are. It is about more than trying new foods. It starts with coming to the table, sitting and remaining during meals, and simple mealtime routines. From there it gradually builds self-feeding, meal pacing, tolerating foods on the plate, exploring new textures and tastes, and accepting new and culturally familiar foods."
             },
             {
               "question": "How are feeding goals chosen?",
-              "answer": "Goals are individualized around the child’s current eating patterns, family priorities, and response to gradual practice and positive reinforcement."
+              "answer": "Goals start with the basics for that child and family, then build gradually. Caregivers help shape those goals so practice fits real mealtimes, including foods that are culturally familiar."
             },
             {
               "question": "Are caregivers included?",
-              "answer": "Yes. Caregiver collaboration helps connect program goals with practical mealtime routines at home."
+              "answer": "Yes. Support can extend into the family home. The team works alongside caregivers during real mealtimes and offers hands-on guidance and practical strategies for the family's routines."
             }
           ]
         },
         {
           "slug": "social-enrichment",
           "title": "Social Enrichment",
-          "intro": "Social Enrichment is a peer-group program for children ages 8-12.",
+          "intro": "The Social Skills Enrichment Group is a structured social learning program for children ages 3–5.",
           "faqs": [
             {
-              "question": "What is the Social Enrichment program?",
-              "answer": "Social Enrichment helps children ages 8-12 practice everyday social skills with peers. The group focuses on joining activities, taking turns, conversation, and staying engaged during shared play."
+              "question": "What is the Social Skills Enrichment Group?",
+              "answer": "It is a small-group program for children ages 3–5, led by experienced behavioral professionals. Children practice communication, cooperation, and friendship skills through guided play and peer interaction."
             },
             {
               "question": "How is this different from the Social Skills Group?",
-              "answer": "Social Enrichment is for ages 8-12 and focuses on everyday peer play, friendship skills, and group participation. The Social Skills Group is for clients who are ready for more advanced practice such as sarcasm, conversation, and flexible thinking."
+              "answer": "Social Enrichment is a 12-week group for ages 3–5. Each 60-minute session includes circle time, guided play, and a STEAM activity. The Social Skills Group serves ages 2 and up in three levels: Level Up Crew, Quest Masters, and Legend League."
             },
             {
-              "question": "How are caregivers involved?",
-              "answer": "Families receive guidance so the same peer skills can be practiced at home, at school, and in the community."
+              "question": "How do families enroll, and what does it cost?",
+              "answer": "Participants complete a brief screening to confirm the group fits their social, communication, and behavioral needs. Program tuition is $950.00 and can be split into 3 bi-weekly payments. The registration fee is $250.00 and is non-reimbursable. The group meets once a week for 12 weeks at 10565 Fairfax Blvd, Suite 300, Fairfax, VA 22030. Call 703.218.6599 for the next start date. Space is limited."
             }
           ]
         },
         {
           "slug": "social-skills-group",
           "title": "Social Skills Group",
-          "intro": "The Social Skills Group gives clients who are ready for advanced practice a supported setting to learn with peers.",
+          "intro": "The Social Skills Group helps children ages 2 and up build friendships, communication, confidence, and peer relationships.",
           "faqs": [
             {
               "question": "Who may be a fit for the group?",
-              "answer": "The group is for clients who are ready to work on more advanced social skills and who may benefit from supported practice with peers."
+              "answer": "The group is for children ages 2 and up. Level Up Crew is for ages 2–6, Quest Masters for ages 6–8, and Legend League for ages 8 and up. Each level is matched to the child's developmental needs."
             },
             {
               "question": "What skills may the group address?",
-              "answer": "Topics may include sarcasm, humor, conversation, flexible thinking, joining activities, problem-solving, and age-appropriate peer play."
+              "answer": "Children practice sharing, turn-taking, expressing emotions, understanding social cues, problem-solving, and building friendships through structured play, role-playing, and teamwork."
             },
             {
-              "question": "How are group goals individualized?",
-              "answer": "Staff provide coaching and feedback while each client works toward goals that match their current skills and social priorities."
+              "question": "What does each level focus on?",
+              "answer": "Level Up Crew builds early skills such as parallel and cooperative play, waiting, and simple role-play. Quest Masters adds conversation, empathy, conflict resolution, and sportsmanship. Legend League focuses on leadership, peer relationships, conversational boundaries, self-advocacy, and independence."
             }
           ]
         }
@@ -1050,7 +1106,7 @@
       "assistanceEmail": "intake@vtccmail.com",
       "assistanceText": "Need help? Call {phone} or email {email}.",
       "insuranceTitle": "Insurance and funding",
-      "insuranceBody": "VTCC accepts clients with Medicaid or county funding. Contact your local or state Medicaid office to verify your child's coverage, or call VTCC for help with verification.",
+      "insuranceBody": "VTCC accepts Medicaid, county funding, and commercial insurance. Call VTCC to confirm your plan, or contact your plan or local Medicaid office to verify your child's coverage.",
       "insuranceLinkLabel": "Learn about insurance and funding",
       "insuranceLinkHref": "/insurance",
       "categories": [
@@ -1083,7 +1139,7 @@
           ]
         }
       ],
-      "privacyNotice": "Some forms ask for private information. Please do not email completed forms to a general inbox. Call {phone} and we will explain how to return them."
+      "privacyNotice": ""
     },
     "about": {
       "eyebrow": "",
@@ -1129,8 +1185,7 @@
       },
       "languages": {
         "eyebrow": "Languages",
-        "title": "English and Spanish",
-        "body": "English and Spanish. This website and the client-rights notice are available in both. Ask during intake about other language support or an interpreter."
+        "body": "Interpreters are available for any language. Ask during intake. This website and the client-rights notice are in English and Spanish."
       },
       "team": {
         "eyebrow": "Leadership",
@@ -1200,12 +1255,12 @@
         ]
       },
       "perks": {
-        "eyebrow": "Benefits",
+        "eyebrow": "Growth",
         "title": "Support after you start",
         "items": [
           {
-            "title": "Fieldwork while you work",
-            "body": "Supervised BCBA hours through the Student Analyst Program."
+            "title": "Recognition",
+            "body": "Employee of the Month and Grounds for Greatness."
           },
           {
             "title": "Monthly PDUs",
@@ -1220,8 +1275,8 @@
             "body": "Senior Lead Behavior Technician track."
           },
           {
-            "title": "Recognition",
-            "body": "Employee of the Month and Grounds for Greatness."
+            "title": "Fieldwork while you work",
+            "body": "Supervised BCBA hours through the Student Analyst Program."
           }
         ]
       },
@@ -1267,7 +1322,7 @@
           "meta": "Full-time, part-time, or internship · Fairfax, VA",
           "summary": "Deliver ABA therapy under BCBA supervision.",
           "youWill": {
-            "title": "You'll",
+            "title": "The work",
             "items": [
               "Carry out treatment plans",
               "Collect session data",
@@ -1291,7 +1346,7 @@
           "meta": "Supervisory clinical role · Virginia license required",
           "summary": "Lead assessment, treatment, and caregiver training.",
           "youWill": {
-            "title": "You'll",
+            "title": "The work",
             "items": [
               "Assess children and write treatment plans",
               "Supervise technicians and review data",
@@ -1318,101 +1373,147 @@
     },
     "earlyLearners": {
       "eyebrow": "Early Learners Program",
-      "title": "Build confidence for school and social settings",
-      "intro": "The Early Learners program supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.",
+      "title": "Prepare for a successful transition to school",
+      "intro": "The Early Learners Program is designed to prepare children receiving ABA services for a successful transition to school by providing a structured routine that mirrors a typical classroom environment. Our goal is to help students build independence and require the least amount of support possible as they grow.",
       "columns": [
         {
-          "title": "What the program supports",
+          "title": "A classroom-style day",
+          "body": "This program runs Monday through Friday, from 10:00 a.m. to 2:00 p.m. Children ages 3 to 5 take part in 20-minute center rotations. The teacher-led activity focuses on attending skills, while every center supports play, creativity, and early academic foundations.",
           "items": [
-            "School-readiness routines and transitions",
-            "Communication and early learning skills",
-            "Play, participation, and social engagement",
-            "Following directions and building independence"
+            "Pretend play",
+            "Reading",
+            "Independent work",
+            "Arts and crafts",
+            "Teacher-led activity"
           ]
         },
         {
-          "title": "How families are included",
+          "title": "Skills throughout the day",
+          "body": "Children practice social interaction with peers and receive Applied Behavior Analysis (ABA) teaching throughout the day. ABA strategies teach and reinforce communication, social, and self-help skills that support long-term success.",
           "items": [
-            "Individualized goals based on the child’s strengths and needs",
-            "Practice across familiar routines and settings",
-            "Caregiver collaboration and skill coaching",
-            "Progress monitoring and plan adjustments"
+            "Sharing, turn-taking, and cooperative play",
+            "Play skills, creativity, and early academic foundations",
+            "Communication, social, and self-help skills",
+            "Independence and school readiness"
           ]
         }
       ]
     },
     "feedingProgram": {
       "eyebrow": "Feeding Program",
-      "title": "Make mealtimes more flexible and successful",
-      "intro": "The Feeding Program uses ABA practices to help children expand their food repertoire and preferences through individualized goals, positive support, and gradual practice.",
+      "title": "Better mealtimes start with the basics.",
+      "intro": "Feeding success is about more than simply trying new foods. The program meets each child where they are and builds the foundational skills that make mealtimes more comfortable, positive, and successful.",
       "columns": [
         {
-          "title": "What the program may support",
+          "title": "Start with the basics",
+          "body": "Support begins with coming to the table, sitting and remaining at the table during meals, and taking part in simple mealtime routines.",
           "items": [
-            "Expanding the variety of foods a child accepts",
-            "Building comfort with new tastes, textures, and presentation",
-            "Supporting positive mealtime routines",
-            "Practicing flexible food preferences at a manageable pace"
+            "Coming to the table",
+            "Sitting and remaining at the table",
+            "Simple mealtime routines"
           ]
         },
         {
-          "title": "How support is planned",
+          "title": "Build from there",
+          "body": "From those basics, skills grow gradually. That includes self-feeding, meal pacing, and comfort with foods on the plate.",
           "items": [
-            "Assessment of current eating patterns and family priorities",
-            "Individualized goals and positive reinforcement",
-            "Caregiver collaboration during everyday meals",
-            "Progress monitoring and adjustments based on the child’s response"
+            "Self-feeding",
+            "Appropriate meal pacing",
+            "Tolerating foods on the plate",
+            "Exploring new textures and tastes",
+            "Accepting new and culturally familiar foods"
           ]
+        },
+        {
+          "title": "Support at home",
+          "body": "Support can extend beyond the clinic and into the family home. The team works alongside caregivers during real mealtimes, with hands-on guidance and practical strategies for the family's routines."
         }
       ]
     },
     "socialEnrichment": {
-      "eyebrow": "Social Enrichment",
-      "title": "Practice peer skills with children ages 8-12",
-      "intro": "Social Enrichment helps children ages 8-12 join group activities, build friendships, and practice everyday social skills with peers.",
+      "eyebrow": "Social Skills Enrichment Group",
+      "title": "Building social confidence through play",
+      "intro": "The Social Skills Enrichment Group is a structured social learning program for children ages 3–5 designed to promote communication, cooperation, and friendship skills through guided play and peer interaction. Led by experienced behavioral professionals, this small-group program gives children a fun, supportive place to practice.",
       "columns": [
         {
-          "title": "What children may practice",
+          "title": "What children practice",
           "items": [
-            "Joining group games and shared activities",
-            "Turn-taking, waiting, and flexible play",
-            "Conversation and friendship skills with peers",
-            "Staying engaged during group routines and transitions"
+            "Social communication",
+            "Turn-taking and sharing",
+            "Cooperative play",
+            "Following group directions",
+            "Peer engagement",
+            "Group participation skills"
           ]
         },
         {
-          "title": "A supported group setting",
+          "title": "Each session includes",
           "items": [
-            "Small-group practice with children in the same age range",
-            "Coaching during games, conversation, and shared play",
-            "Individualized goals based on current social skills",
-            "Family guidance so practice can continue at home and school"
+            "Circle time",
+            "Guided play and peer interaction",
+            "STEAM activity (science, technology, engineering, art, and math)"
           ]
+        },
+        {
+          "title": "Program information",
+          "items": [
+            "Ages: 3–5 years old",
+            "Session length: 60 minutes",
+            "Location: 10565 Fairfax Blvd, Suite 300, Fairfax, VA 22030",
+            "Schedule: Once a week for 12 weeks. Contact VTCC for the next start date.",
+            "Program tuition: $950.00, which can be split into 3 bi-weekly payments",
+            "Registration fee (non-reimbursable): $250.00"
+          ]
+        },
+        {
+          "title": "Enrollment",
+          "body": "All prospective participants complete a brief screening to ensure the program is an appropriate fit for their current social, communication, and behavioral needs. To learn more or begin enrollment, call 703.218.6599. Space is limited."
         }
       ]
     },
     "socialSkillsGroup": {
       "eyebrow": "Social Skills Group",
-      "title": "Practice advanced social skills with peers",
-      "intro": "The Social Skills Group is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.",
+      "title": "Build friendships, communication, and confidence",
+      "intro": "Our Social Skills Group provides children with a fun, supportive environment to develop friendships, improve communication, build confidence, and strengthen peer relationships. Through structured play, interactive activities, role-playing, and teamwork, children learn essential social skills while practicing how to interact positively with others. Each group is designed to meet children's developmental needs, focusing on skills such as sharing, turn-taking, expressing emotions, understanding social cues, problem-solving, and building meaningful connections.",
       "columns": [
         {
-          "title": "Skills the group may address",
+          "title": "Level Up Crew (Ages 2–6)",
+          "body": "Building the foundation for friendships. This level focuses on early social skills through playful, hands-on activities and guided peer interactions.",
           "items": [
-            "Understanding sarcasm, humor, and implied meaning",
-            "Back-and-forth conversation and flexible thinking",
-            "Age-appropriate peer play and shared activities",
-            "Joining groups, solving problems, and repairing misunderstandings"
+            "Parallel and cooperative play",
+            "Sharing, turn-taking, and waiting",
+            "Simple role-playing and movement games",
+            "Identifying and expressing emotions",
+            "Following group routines and initiating play"
           ]
         },
         {
-          "title": "A supported group setting",
+          "title": "Quest Masters (Ages 6–8)",
+          "body": "Growing friendships and strengthening social connections. Children build confidence while developing communication, cooperation, and friendship skills.",
           "items": [
-            "Small-group practice with individualized goals",
-            "Coaching and positive feedback from trained staff",
-            "Opportunities to practice skills in realistic interactions",
-            "Family collaboration to support carryover beyond the group"
+            "Teamwork challenges and cooperative games",
+            "Starting and maintaining conversations",
+            "Role-playing everyday social situations",
+            "Recognizing social cues and body language",
+            "Practicing empathy, perspective-taking, and problem-solving",
+            "Learning conflict resolution and sportsmanship"
           ]
+        },
+        {
+          "title": "Legend League (Ages 8+)",
+          "body": "Mastering social connections and becoming confident leaders. This level uses collaborative activities, peer discussions, and real-world social problem-solving.",
+          "items": [
+            "Leadership and group decision-making",
+            "Collaborative projects and strategic games",
+            "Navigating friendships and peer relationships",
+            "Understanding social cues and conversational boundaries",
+            "Managing disagreements and challenging social situations",
+            "Building self-advocacy, confidence, and independence"
+          ]
+        },
+        {
+          "title": "Our mission",
+          "body": "To create a welcoming space where children can develop meaningful friendships, strengthen social skills, build confidence, and grow into successful social communicators—all while learning, connecting, and having fun."
         }
       ]
     },
@@ -1447,13 +1548,16 @@
   "careerApplication": {
     "title": "Apply to join our team",
     "intro": "Tell us how to reach you and which role interests you. VTCC will receive your application and follow up.",
-    "privacyTitle": "Privacy matters",
-    "privacyNote": "Please do not include client information, clinical records, Social Security numbers, or other sensitive documents. We use what you submit only to review your interest in working at VTCC.",
+    "resumeNoticeTitle": "Resume upload is coming soon",
+    "resumeNotice": "Resume upload will be added to this form soon. For now, email your resume to {email}.",
+    "resumeEmail": "recruiting@vtccmail.com",
+    "privacyTitle": "",
+    "privacyNote": "",
     "selectPlaceholder": "Select one",
     "submitLabel": "Submit application",
     "backLabel": "Back to Careers",
     "backHref": "/career",
-    "consentLabel": "I agree that VTCC may use the information I submit to review my application and contact me.",
+    "consentLabel": "",
     "fileLabel": "Resume or supporting document",
     "fileRequiredMessage": "Please attach a resume or supporting document.",
     "fileTypes": ".pdf,.doc,.docx,.txt",
@@ -1522,8 +1626,8 @@
     ]
   },
   "form": {
-    "notice": "This form is only for contacting us about services. Please do not include diagnoses, evaluation or school reports, Medicaid or insurance ID numbers, Social Security numbers, or other private health details. We will collect what we need during intake. This form is not monitored 24/7. If this is an emergency, call 911. For a mental health crisis, call or text 988.",
-    "consentLabel": "I am a parent, legal guardian, or adult contacting VTCC. I understand this form is not for emergencies or private health information, and I agree that VTCC may contact me using the information I provided.",
+    "notice": "",
+    "consentLabel": "",
     "submitLabel": "Submit Request",
     "fields": [
       {
@@ -1626,8 +1730,8 @@
     ]
   },
   "formFamily": {
-    "notice": "This form is only for contacting us about services. Please do not include diagnoses, evaluation or school reports, Medicaid or insurance ID numbers, Social Security numbers, or other private health details. We will collect what we need during intake. This form is not monitored 24/7. If this is an emergency, call 911. For a mental health crisis, call or text 988.",
-    "consentLabel": "I am a parent, legal guardian, or adult contacting VTCC. I understand this form is not for emergencies or private health information, and I agree that VTCC may contact me using the information I provided.",
+    "notice": "",
+    "consentLabel": "",
     "submitLabel": "Submit service request",
     "fields": [
       {
@@ -1731,8 +1835,8 @@
     ]
   },
   "formReferral": {
-    "notice": "This form is for referral questions only. Please do not include diagnosis reports, IEPs, evaluations, treatment records, Medicaid numbers, Social Security numbers, or urgent safety concerns. After we receive your message, VTCC will contact you about how to send referral documents. If this is an emergency, call 911.",
-    "consentLabel": "I understand this form is for referral questions only and is not for emergencies or protected health information. I am allowed to share the parent or guardian's name and contact information with VTCC.",
+    "notice": "",
+    "consentLabel": "",
     "submitLabel": "Submit referral inquiry",
     "fields": [
       {
@@ -1890,7 +1994,7 @@
     "skipLinkPrompt": "School, case manager, or other professional?",
     "skipLinkLabel": "Start a referral",
     "skipLinkHref": "/contact/referral",
-    "disclaimer": "This quiz does not determine eligibility. Final fit depends on assessment, funding, and authorization. Do not enter diagnosis reports or other protected health information here.",
+    "disclaimer": "",
     "roleQuestion": {
       "label": "I am a…",
       "options": [
@@ -2240,7 +2344,7 @@
         "href": "/terms"
       }
     ],
-    "emergency": "This website is not monitored for emergencies. If you or your child are in danger, call 911. For a mental health crisis, call or text 988."
+    "emergency": ""
   },
   "pages": {
     "abaTherapy": {
@@ -2298,7 +2402,7 @@
       "sections": [
         {
           "title": "Funding Pathways",
-          "body": "VTCC's current public website references Medicaid, managed care organizations, commercial plans, and county/FAPT funding. Before this page is published, leadership should confirm the exact accepted plans and funding requirements for each service."
+          "body": "VTCC accepts Medicaid, county funding, and commercial insurance. Contact VTCC to confirm your specific plan and service. Authorization still depends on the payer or funding agency."
         },
         {
           "title": "Verification Process",
@@ -2355,35 +2459,35 @@
       "faqs": [
         {
           "question": "What services does VTCC provide?",
-          "answer": "VTCC provides ABA therapy, an Early Learners program, a Feeding Program, Social Enrichment for ages 8-12, a Social Skills Group, and Safety-Care® training for families and caregivers. Services depend on eligibility, funding, clinical need, and availability."
+          "answer": "VTCC provides ABA therapy, an Early Learners program for ages 3 to 5, a Feeding Program, Social Enrichment for ages 3 to 5, a Social Skills Group for ages 2 and up, and Safety-Care® training for families and caregivers. Services depend on eligibility, funding, clinical need, and availability."
         },
         {
           "question": "What is the Early Learners program?",
-          "answer": "The Early Learners program is for preschool-aged children and focuses on building communication, play, routines, and early learning skills that help children participate in school and social settings."
+          "answer": "The Early Learners program prepares children ages 3 to 5 who are receiving ABA services for school. It runs Monday through Friday, from 10:00 a.m. to 2:00 p.m., with a classroom-style routine and 20-minute center rotations."
         },
         {
           "question": "What does the Feeding Program support?",
-          "answer": "The Feeding Program uses ABA practices to help children gradually expand their food repertoire and preferences through individualized goals, positive support, and caregiver collaboration."
+          "answer": "The program meets each child where they are. It starts with coming to the table, sitting and remaining during meals, and simple mealtime routines. From there it gradually builds self-feeding, meal pacing, comfort with foods on the plate, new textures and tastes, and acceptance of new and culturally familiar foods. Support can continue during mealtimes at home."
         },
         {
           "question": "What is Social Enrichment?",
-          "answer": "Social Enrichment is a peer-group program for children ages 8-12. It helps children practice joining activities, taking turns, and building friendship skills with peers."
+          "answer": "Social Enrichment is a small-group program for children ages 3 to 5. Sessions are 60 minutes, once a week for 12 weeks, and include circle time, guided play, and a STEAM activity."
         },
         {
           "question": "Who may be a fit for the Social Skills Group?",
-          "answer": "The Social Skills Group is for clients who are ready to practice more advanced social skills, such as understanding sarcasm, navigating conversation, and participating in age-appropriate peer play."
+          "answer": "The Social Skills Group is for children ages 2 and up. Level Up Crew is for ages 2–6, Quest Masters for ages 6–8, and Legend League for ages 8 and up. Each level focuses on friendships, communication, and confidence."
         },
         {
           "question": "What is Safety-Care® for Families & Caregivers?",
-          "answer": "Safety-Care® for Families & Caregivers is group training for parents and caregivers, and group sessions are coming soon. The training teaches practical, evidence-based strategies for preventing challenging behavior, recognizing early signs of escalation, promoting safety, and responding confidently during difficult situations."
+          "answer": "Safety-Care® for Families & Caregivers is group training for parents and caregivers. Group sessions are coming soon, and dates, registration, and eligibility requirements are not posted yet. The training is designed to give families practical, evidence-based strategies for preventing challenging behavior, recognizing early signs of escalation, promoting safety, and responding confidently during difficult situations."
         },
         {
           "question": "Where does VTCC provide services?",
-          "answer": "VTCC's office is in Fairfax and serves families in Northern Virginia. Group programs meet at the clinic. Individual ABA can include practice at home and in the community when the treatment plan calls for it. Call to confirm we can serve your city or county."
+          "answer": "VTCC's office is at 10565 Fairfax Blvd, Suite 300, Fairfax, and serves families in Northern Virginia. Social Enrichment meets at that clinic. ABA techniques can be used at home, during family meals, and in the community, such as a neighborhood playground. Feeding support can also take place during mealtimes at home. Call to confirm we can serve your city or county and where a service is provided."
         },
         {
           "question": "Does VTCC accept insurance?",
-          "answer": "The current site lists several Medicaid, managed care, and commercial payers, and also references county/FAPT funding. Families should contact VTCC to verify current coverage for their plan and service."
+          "answer": "Yes. VTCC accepts Medicaid, county funding, and commercial insurance. Contact VTCC to confirm your specific plan and service."
         },
         {
           "question": "What is ABA therapy?",
@@ -2406,8 +2510,8 @@
     "earlyLearners": {
       "title": "Early Learners Program Page",
       "hero": {
-        "headline": "Early Learning Support For School And Social Readiness",
-        "body": "The Early Learners program supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.",
+        "headline": "Prepare For A Successful Transition To School",
+        "body": "The Early Learners Program prepares children receiving ABA services for school with a structured routine that mirrors a typical classroom. The goal is to help students build independence and need the least amount of support possible as they grow. The program runs Monday through Friday, from 10:00 a.m. to 2:00 p.m., for children ages 3 to 5.",
         "buttons": [
           "Request Early Learners Services",
           "Ask About Eligibility"
@@ -2415,30 +2519,31 @@
       },
       "sections": [
         {
-          "title": "What Early Learners May Practice",
-          "intro": "The Early Learners program supports preschool-aged children as they practice the routines, communication, play, and early learning skills that help them participate in school and social settings.",
+          "title": "A Classroom-Style Day",
+          "intro": "Children take part in 20-minute center rotations. The teacher-led activity focuses on attending skills, while every center supports play, creativity, and early academic foundations.",
           "items": [
-            "School-readiness routines and transitions",
-            "Communication and early learning skills",
-            "Play, participation, and social engagement",
-            "Following directions and building independence"
+            "Pretend play",
+            "Reading",
+            "Independent work",
+            "Arts and crafts",
+            "Teacher-led activity"
           ]
         },
         {
-          "title": "Family Collaboration",
-          "body": "VTCC works with caregivers to identify meaningful goals and practice skills across everyday routines. Plans are adjusted as the child grows and gains confidence."
+          "title": "Skills Throughout The Day",
+          "body": "Children practice sharing, turn-taking, and cooperative play with peers. Applied Behavior Analysis (ABA) teaching strategies are used throughout the day to teach and reinforce communication, social, and self-help skills."
         }
       ],
       "cta": {
-        "body": "Contact VTCC to ask whether the Early Learners program may fit your preschool-aged child and to learn about the next intake steps.",
+        "body": "Contact VTCC to ask whether the Early Learners program may fit your child and to learn about the next intake steps.",
         "button": "Ask About Early Learners"
       }
     },
     "feedingProgram": {
       "title": "Feeding Program Page",
       "hero": {
-        "headline": "Support For A Broader Food Repertoire",
-        "body": "The Feeding Program uses ABA practices to help children expand their food repertoire and preferences through individualized goals, positive support, and gradual practice.",
+        "headline": "Better Mealtimes Start With The Basics",
+        "body": "Feeding success is about more than simply trying new foods. The program meets each child where they are and builds the foundational skills that make mealtimes more comfortable, positive, and successful.",
         "buttons": [
           "Request Feeding Program Services",
           "Ask About Eligibility"
@@ -2446,18 +2551,28 @@
       },
       "sections": [
         {
-          "title": "What the Feeding Program May Support",
-          "intro": "The Feeding Program uses ABA practices to help children expand their food repertoire and preferences through individualized goals, positive support, and gradual practice.",
+          "title": "Start With The Basics",
+          "intro": "Support begins with coming to the table, sitting and remaining at the table during meals, and taking part in simple mealtime routines.",
           "items": [
-            "Expanding the variety of foods a child accepts",
-            "Building comfort with new tastes, textures, and presentation",
-            "Supporting positive mealtime routines",
-            "Practicing flexible food preferences at a manageable pace"
+            "Coming to the table",
+            "Sitting and remaining at the table",
+            "Simple mealtime routines"
           ]
         },
         {
-          "title": "Individualized, Positive Practice",
-          "body": "The team partners with caregivers to set practical goals, use positive support, and introduce practice at a pace that respects the child’s needs and family routines."
+          "title": "Build From There",
+          "intro": "From those basics, skills grow gradually.",
+          "items": [
+            "Self-feeding",
+            "Appropriate meal pacing",
+            "Tolerating foods on the plate",
+            "Exploring new textures and tastes",
+            "Accepting new and culturally familiar foods"
+          ]
+        },
+        {
+          "title": "Support At Home",
+          "body": "Support can extend beyond the clinic and into the family home. The team works alongside caregivers during real mealtimes, with hands-on guidance and practical strategies for the family's routines."
         }
       ],
       "cta": {
@@ -2468,8 +2583,8 @@
     "socialEnrichment": {
       "title": "Social Enrichment Page",
       "hero": {
-        "headline": "Peer Skills For Children Ages 8-12",
-        "body": "Social Enrichment helps children ages 8-12 join group activities, build friendships, and practice everyday social skills with peers.",
+        "headline": "Building Social Confidence Through Play",
+        "body": "The Social Skills Enrichment Group is a structured social learning program for children ages 3–5. Led by experienced behavioral professionals, it promotes communication, cooperation, and friendship skills through guided play and peer interaction.",
         "buttons": [
           "Request Social Enrichment Services",
           "Ask About Eligibility"
@@ -2477,30 +2592,51 @@
       },
       "sections": [
         {
-          "title": "What Children May Practice",
-          "intro": "The group focuses on everyday peer skills that help children participate in games, conversation, and shared activities.",
+          "title": "What Children Practice",
+          "intro": "Participants engage in developmentally appropriate activities that help strengthen social communication, cooperation, and friendship skills.",
           "items": [
-            "Joining group games and shared activities",
-            "Turn-taking, waiting, and flexible play",
-            "Conversation and friendship skills with peers",
-            "Staying engaged during group routines and transitions"
+            "Social communication",
+            "Turn-taking and sharing",
+            "Cooperative play",
+            "Following group directions",
+            "Peer engagement",
+            "Group participation skills"
           ]
         },
         {
-          "title": "Learning With Peers",
-          "body": "Children practice in a small group with coaching from trained staff. Goals are individualized so each child can build confidence with peers at a manageable pace."
+          "title": "Each Session Includes",
+          "intro": "Sessions are 60 minutes and meet once a week for 12 weeks at 10565 Fairfax Blvd, Suite 300, Fairfax, VA 22030.",
+          "items": [
+            "Circle time",
+            "Guided play and peer interaction",
+            "STEAM activity (science, technology, engineering, art, and math)"
+          ]
+        },
+        {
+          "title": "Program Information",
+          "items": [
+            "Ages: 3–5 years old",
+            "Session length: 60 minutes",
+            "Schedule: Once a week for 12 weeks. Contact VTCC for the next start date.",
+            "Program tuition: $950.00, which can be split into 3 bi-weekly payments",
+            "Registration fee (non-reimbursable): $250.00"
+          ]
+        },
+        {
+          "title": "Enrollment",
+          "body": "All prospective participants complete a brief screening to ensure the program is an appropriate fit. To learn more or begin enrollment, call 703.218.6599. Space is limited."
         }
       ],
       "cta": {
-        "body": "Contact VTCC to ask whether Social Enrichment may be a fit for your child and to learn about current group availability.",
+        "body": "Contact VTCC to ask whether Social Enrichment may be a fit for your child and to learn about the next start date.",
         "button": "Ask About Social Enrichment"
       }
     },
     "socialSkillsGroup": {
       "title": "Social Skills Group Page",
       "hero": {
-        "headline": "Build More Advanced Social Skills With Peers",
-        "body": "The Social Skills Group is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.",
+        "headline": "Build Friendships, Communication, And Confidence",
+        "body": "Our Social Skills Group gives children a fun, supportive environment to develop friendships, improve communication, build confidence, and strengthen peer relationships through structured play, role-playing, and teamwork.",
         "buttons": [
           "Request Social Skills Group Services",
           "Ask About Eligibility"
@@ -2508,18 +2644,43 @@
       },
       "sections": [
         {
-          "title": "What the Group May Practice",
-          "intro": "The Social Skills Group is for clients who are ready to work on more advanced social skills, including understanding sarcasm, navigating conversation, and participating in age-appropriate peer play.",
+          "title": "Level Up Crew (Ages 2–6)",
+          "intro": "Building the foundation for friendships through playful, hands-on activities and guided peer interactions.",
           "items": [
-            "Understanding sarcasm, humor, and implied meaning",
-            "Back-and-forth conversation and flexible thinking",
-            "Age-appropriate peer play and shared activities",
-            "Joining groups, solving problems, and repairing misunderstandings"
+            "Parallel and cooperative play",
+            "Sharing, turn-taking, and waiting",
+            "Simple role-playing and movement games",
+            "Identifying and expressing emotions",
+            "Following group routines and initiating play"
           ]
         },
         {
-          "title": "Learning Through Supported Practice",
-          "body": "Clients receive coaching and feedback while practicing realistic interactions with peers. Group goals are individualized and designed to support carryover into school, community, and social settings."
+          "title": "Quest Masters (Ages 6–8)",
+          "intro": "Growing friendships and strengthening social connections while children build communication, cooperation, and friendship skills.",
+          "items": [
+            "Teamwork challenges and cooperative games",
+            "Starting and maintaining conversations",
+            "Role-playing everyday social situations",
+            "Recognizing social cues and body language",
+            "Practicing empathy, perspective-taking, and problem-solving",
+            "Learning conflict resolution and sportsmanship"
+          ]
+        },
+        {
+          "title": "Legend League (Ages 8+)",
+          "intro": "Mastering social connections and becoming confident leaders through collaborative activities, peer discussions, and real-world social problem-solving.",
+          "items": [
+            "Leadership and group decision-making",
+            "Collaborative projects and strategic games",
+            "Navigating friendships and peer relationships",
+            "Understanding social cues and conversational boundaries",
+            "Managing disagreements and challenging social situations",
+            "Building self-advocacy, confidence, and independence"
+          ]
+        },
+        {
+          "title": "Our Mission",
+          "body": "To create a welcoming space where children can develop meaningful friendships, strengthen social skills, build confidence, and grow into successful social communicators—all while learning, connecting, and having fun."
         }
       ],
       "cta": {
@@ -2563,7 +2724,7 @@
   },
   "thankYou": {
     "nextLabel": "What to expect next",
-    "notice": "Please do not send diagnosis reports or other private medical details by email. If this is an emergency, call 911 or go to the nearest emergency room.",
+    "notice": "",
     "homeLabel": "Back to home",
     "homeHref": "/",
     "family": {
@@ -2595,6 +2756,7 @@
       "title": "We have your application",
       "lead": "A VTCC team member will review what you sent and follow up about the role.",
       "steps": [
+        "Email your resume to recruiting@vtccmail.com. Resume upload on this form is coming soon.",
         "Watch the email you used on the application for a follow-up.",
         "Hiring continues with a conversation about the role, schedule, and location.",
         "Call the Fairfax office if you need to update your application."
@@ -2661,7 +2823,7 @@
             "items": [
               "**Service request form:** your name, email, phone, preferred contact method, your child’s age, the services you are interested in, how services may be funded, your city or county, and a short message.",
               "**Referral form:** your name, organization, role, work email and phone, preferred contact method, the parent or guardian’s name and phone (if known), the child’s age, the services requested, the funding source, the child’s city or county, and a short message.",
-              "**Job application form:** your name, email, phone, the role you are interested in, your city and state, whether you are authorized to work in the United States, what you tell us about your experience and interest, and any file you attach."
+              "**Job application form:** your name, email, phone, the role you are interested in, your city and state, whether you are authorized to work in the United States, and what you tell us about your experience and interest. If you email a resume to recruiting@vtccmail.com, we receive that email and the file you send."
             ],
             "after": [
               "With each submission we also record that you checked the consent box, the page you used, the language you were viewing the site in, and, for service and referral requests, the date and time and a reference number for your request.",
@@ -2870,7 +3032,7 @@
           {
             "heading": "Our goal",
             "paragraphs": [
-              "We are working to make our website conform to the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA. The site is available in English and Spanish and is designed to work on phones, tablets, and computers."
+              "We are working to make our website conform to the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA. The site is available in English and Spanish and is designed to work on phones, tablets, and computers. Interpreters are available for any language. Ask during intake."
             ]
           },
           {
@@ -2974,14 +3136,14 @@
     }
   },
   "visit": {
-    "hoursSummary": "Call to confirm today's hours",
-    "hoursDetail": "A fixed public schedule is not posted yet. Call the Fairfax office before you visit.",
-    "responseTime": "A team member follows up on service requests by phone or email. How soon depends on the request and the office workload.",
+    "hoursSummary": "Mon–Fri 8 a.m.–8 p.m.\nSat 8 a.m.–2 p.m.",
+    "hoursDetail": "",
+    "responseTime": "",
     "serviceAreaTitle": "Where care happens",
-    "serviceAreaSummary": "The Fairfax clinic serves families in Northern Virginia. Group programs meet at the clinic. Call to confirm home or community sessions and whether we serve your county.",
-    "serviceAreaBody": "VTCC's office is in Fairfax and serves families in Northern Virginia. Group programs meet at the clinic. Individual ABA can include practice at home and in the community when the treatment plan calls for it. Call to confirm we can serve your city or county, and ask for parking or check-in instructions.",
+    "serviceAreaSummary": "",
+    "serviceAreaBody": "",
     "languagesTitle": "Languages",
-    "languagesBody": "English and Spanish. This website and the client-rights notice are available in both. Ask during intake about other language support or an interpreter."
+    "languagesBody": "Interpreters are available for any language. Ask during intake. This website and the client-rights notice are in English and Spanish."
   },
   "seo": {
     "shareImage": "/assets/hero-banner.png",
@@ -2998,19 +3160,19 @@
       },
       "early-learners": {
         "title": "Early Learners Program | Victoria Transcultural Clinical Center",
-        "description": "School-readiness support for preschool-aged children through communication, play, routines, and early learning skills."
+        "description": "Classroom-style support for children ages 3 to 5 receiving ABA services, Monday through Friday from 10:00 a.m. to 2:00 p.m."
       },
       "feeding-program": {
         "title": "Feeding Program | Victoria Transcultural Clinical Center",
-        "description": "ABA-based feeding support that helps children expand the foods they accept and build calmer mealtime routines."
+        "description": "Feeding support that starts with coming to the table and builds toward new foods, with caregiver guidance during real mealtimes."
       },
       "social-enrichment": {
         "title": "Social Enrichment | Victoria Transcultural Clinical Center",
-        "description": "Peer-group social skills for children ages 8 to 12, including games, turn-taking, and friendship skills."
+        "description": "A social learning group for children ages 3 to 5, with guided play, peer interaction, and weekly STEAM activities."
       },
       "social-skills-group": {
         "title": "Social Skills Group | Victoria Transcultural Clinical Center",
-        "description": "Coached peer practice in conversation, flexible thinking, and age-appropriate social skills."
+        "description": "Social skills groups for children ages 2 and up: Level Up Crew, Quest Masters, and Legend League."
       },
       "group-parent-training": {
         "title": "Safety-Care® for Families & Caregivers | Victoria Transcultural Clinical Center",
@@ -3042,7 +3204,7 @@
       },
       "forms": {
         "title": "Forms | Victoria Transcultural Clinical Center",
-        "description": "Download VTCC intake forms, referral questionnaires, and client rights notices in English and Spanish."
+        "description": "Download VTCC intake forms, referral questionnaires, and client rights notices in English and Spanish. Interpreters are available for any language."
       },
       "privacy": {
         "title": "Website Privacy Policy | Victoria Transcultural Clinical Center",
@@ -3058,7 +3220,7 @@
       },
       "nondiscrimination": {
         "title": "Nondiscrimination and Language Help | Victoria Transcultural Clinical Center",
-        "description": "VTCC does not discriminate and offers language assistance. English and Spanish materials are available on this site."
+        "description": "VTCC does not discriminate and provides interpreters for any language. English and Spanish materials are available on this site."
       },
       "notice-of-privacy-practices": {
         "title": "Notice of Privacy Practices | Victoria Transcultural Clinical Center",

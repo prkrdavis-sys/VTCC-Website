@@ -16,6 +16,14 @@ function escapeHtml(value) {
     .replaceAll('"', '&quot;')
 }
 
+function renderHoursText(value) {
+  return escapeHtml(value).replaceAll('\n', '<br>')
+}
+
+function renderFooterHoursText(value) {
+  return renderHoursText(value).replaceAll('8 a.m.–8 p.m.', '8a-8p').replaceAll('8 a.m.–2 p.m.', '8a-2p')
+}
+
 function getLocale() {
   const stored = localStorage.getItem(STORAGE_KEY)
   if (stored && window.VTCC_SITE.locales[stored]) {
@@ -89,6 +97,15 @@ const PROGRAM_RESOURCE_SLUGS = {
   'social-enrichment': 'social-enrichment',
   'social-skills': 'social-skills-group',
   'group-parent-training': 'parent-training-faqs',
+}
+
+const SERVICE_PAGE_PROGRAM_IDS = {
+  aba: 'aba',
+  'early-learners': 'early-learners',
+  'feeding-program': 'feeding',
+  'social-enrichment': 'social-enrichment',
+  'social-skills-group': 'social-skills',
+  'group-parent-training': 'group-parent-training',
 }
 
 function programFaqHref(programId) {
@@ -397,6 +414,13 @@ function renderMultiSelectOption(fieldName, option, solo) {
               <span>${escapeHtml(option)}</span>
             </button>
             <input class="multi-select-input" type="checkbox" name="${escapeHtml(fieldName)}" value="${escapeHtml(option)}" tabindex="-1" />`
+}
+
+function formatFaqResultCount(content, count) {
+  const one = content.ui.faqSearchResultsCountOne
+  const many = content.ui.faqSearchResultsCount ?? '{count} matching questions'
+  const template = count === 1 && one ? one : many
+  return template.replaceAll('{count}', String(count))
 }
 
 function renderMultiSelectOptions(field) {
@@ -785,6 +809,47 @@ function renderCopyrightLine(text) {
   return `${escapeHtml(lead)} <span class="site-footer-rights">${escapeHtml(tail)}</span>`
 }
 
+function mapAppLinks(query) {
+  const encoded = encodeURIComponent(query)
+  return {
+    apple: `https://maps.apple.com/?q=${encoded}`,
+    google: `https://www.google.com/maps/search/?api=1&query=${encoded}`,
+  }
+}
+
+function mapChooserLabels(content) {
+  return {
+    menu: content.ui.mapsMenuLabel,
+    apple: content.ui.appleMapsLabel,
+    google: content.ui.googleMapsLabel,
+  }
+}
+
+function renderMapChooser(lines, query, labels) {
+  const links = mapAppLinks(query)
+  const addressHtml = lines.map((line) => escapeHtml(line)).join('<br />')
+
+  return `<details class="map-chooser">
+              <summary>
+                <span class="map-chooser-address">${addressHtml}</span>
+                <span class="visually-hidden">${escapeHtml(labels.menu)}</span>
+              </summary>
+              <div class="map-chooser-panel" role="group" aria-label="${escapeHtml(labels.menu)}">
+                <a href="${escapeHtml(links.apple)}" target="_blank" rel="noopener noreferrer">${escapeHtml(labels.apple)}</a>
+                <a href="${escapeHtml(links.google)}" target="_blank" rel="noopener noreferrer">${escapeHtml(labels.google)}</a>
+              </div>
+            </details>`
+}
+
+function renderAddressChooser(content, lines) {
+  const visibleLines = lines.filter(Boolean)
+  if (!visibleLines.length) {
+    return ''
+  }
+
+  return `<address>${renderMapChooser(visibleLines, visibleLines.join(', '), mapChooserLabels(content))}</address>`
+}
+
 function renderFooter(content) {
   const bar = content.topBar
   const footer = content.footer
@@ -797,29 +862,23 @@ function renderFooter(content) {
     .map(
       (office) => `<div class="site-footer-office">
             <p class="site-footer-office-name">${escapeHtml(office.name)}</p>
-            <address>${escapeHtml(office.street)}<br />${escapeHtml(office.city)}</address>
-            <a class="site-footer-contact" href="${escapeHtml(office.phoneHref)}">${phoneIcon}<span>${escapeHtml(office.phone)}</span></a>
-            ${
-              office.addressHref
-                ? `<a class="site-footer-directions" href="${escapeHtml(office.addressHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(footer.directionsLabel)}</a>`
-                : ''
-            }
+            ${renderAddressChooser(content, [office.street, office.city])}
           </div>`,
     )
     .join('')
-  const fallbackAddress = (footer.addressLines ?? []).map((line) => escapeHtml(line)).join('<br />')
   const visitBody = officeBlocks
     ? officeBlocks
-    : `<address>${fallbackAddress}</address>${
-        bar?.addressHref
-          ? `<a class="site-footer-directions" href="${escapeHtml(bar.addressHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(footer.directionsLabel)}</a>`
-          : ''
-      }`
+    : renderAddressChooser(content, footer.addressLines ?? [])
   const hours = visit?.hoursSummary
-    ? `<p class="site-footer-hours"><span>${escapeHtml(content.ui.hoursLabel)}</span> ${escapeHtml(visit.hoursSummary)}</p>
-            <p class="site-footer-hours-detail">${escapeHtml(visit.hoursDetail)}</p>`
+    ? `<p class="site-footer-hours"><span>${escapeHtml(content.ui.hoursLabel)}</span> ${renderFooterHoursText(visit.hoursSummary)}</p>
+            ${visit.hoursDetail ? `<p class="site-footer-hours-detail">${escapeHtml(visit.hoursDetail)}</p>` : ''}`
     : ''
   const response = visit?.responseTime ? `<p class="site-footer-hours-detail">${escapeHtml(visit.responseTime)}</p>` : ''
+  const phoneNumber = bar?.phone || offices[0]?.phone || ''
+  const phoneHref = bar?.phoneHref || offices[0]?.phoneHref || '#'
+  const phoneRow = phoneNumber
+    ? `<a class="site-footer-contact" href="${escapeHtml(phoneHref)}">${phoneIcon}<span>${escapeHtml(phoneNumber)}</span></a>`
+    : ''
 
   return `<footer class="site-footer">
       <div class="site-footer-main">
@@ -841,17 +900,18 @@ function renderFooter(content) {
                 ? `<a class="button site-footer-cta" href="${escapeHtml(toStaticHref(contact.href))}">${escapeHtml(contact.label)}</a>`
                 : ''
             }
+            ${hours}
+            ${response}
           </div>
           <div class="site-footer-col site-footer-contact-col">
             <p class="site-footer-label">${escapeHtml(footer.contactLabel)}</p>
+            ${phoneRow}
             <a class="site-footer-contact" href="${escapeHtml(bar?.emailHref ?? '#')}">${emailIcon}<span>${escapeHtml(bar?.email ?? '')}</span></a>
             ${
               content.offices?.[0]?.fax
                 ? `<p class="site-footer-contact site-footer-fax"><span class="site-footer-fax-label">${escapeHtml(content.ui.faxLabel)}:</span><span>${escapeHtml(content.offices[0].fax)}</span></p>`
                 : ''
             }
-            ${hours}
-            ${response}
           </div>
         </div>
       </div>
@@ -860,20 +920,21 @@ function renderFooter(content) {
           <div class="site-footer-meta">
             <p>${renderCopyrightLine(footer.text)}</p>
             ${footer.emergency ? `<p class="site-footer-emergency">${escapeHtml(footer.emergency)}</p>` : ''}
-            <p class="site-footer-disclaimer">${escapeHtml(footer.disclaimer)}</p>
+            ${footer.disclaimer ? `<p class="site-footer-disclaimer">${escapeHtml(footer.disclaimer)}</p>` : ''}
           </div>
-          <nav class="site-footer-legal" aria-label="${escapeHtml(footer.legalNavLabel)}">
+          ${
+            footer.legalLinks?.length
+              ? `<nav class="site-footer-legal" aria-label="${escapeHtml(footer.legalNavLabel)}">
             ${footer.legalLinks.map(renderNavLink).join('\n            ')}
-          </nav>
+          </nav>`
+              : ''
+          }
         </div>
       </div>
     </footer>`
 }
 
 function renderShell(content, mainHtml) {
-  const phone = content.topBar?.phone ?? ''
-  const phoneHref = content.topBar?.phoneHref ?? '#'
-
   return `
     <header class="site-header">
       <div class="site-header-inner">
@@ -887,17 +948,12 @@ function renderShell(content, mainHtml) {
           <small>${escapeHtml(content.company.tagline)}</small>
         </span>
       </a>
-      <a class="header-phone" href="${escapeHtml(phoneHref)}">${escapeHtml(content.ui.callLabel)}</a>
+      <a class="header-phone" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.ui.headerContactLabel ?? 'Contact')}</a>
       <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-menu-drawer">
         <span class="menu-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
         <span class="visually-hidden">${escapeHtml(content.ui.openMenu)}</span>
       </button>
       <div class="header-controls">
-        ${
-          content.visit?.hoursSummary
-            ? `<p class="header-hours"><span>${escapeHtml(content.ui.hoursLabel)}</span>${escapeHtml(content.visit.hoursSummary)}</p>`
-            : ''
-        }
         ${renderLanguageSelect(content, { compact: true })}
         <nav class="utility-nav" aria-label="${escapeHtml(content.ui.utilityNavLabel ?? 'Utility actions')}">
           ${getHeaderActions(content).map(renderHeaderAction).join('\n          ')}
@@ -1056,7 +1112,11 @@ function renderFormsPage(content) {
               : ''
           }
           <p class="forms-assistance">${renderTextWithPhone(forms.assistanceText, content, { email: forms.assistanceEmail })}</p>
-          <p class="forms-privacy-notice">${renderTextWithPhone(forms.privacyNotice, content)}</p>
+          ${
+            forms.privacyNotice
+              ? `<p class="forms-privacy-notice">${renderTextWithPhone(forms.privacyNotice, content)}</p>`
+              : ''
+          }
           <div class="forms-layout">${categories}</div>
           <aside class="forms-insurance-note">
             <p><strong>${escapeHtml(forms.insuranceTitle)}.</strong> ${escapeHtml(forms.insuranceBody)} <a href="${escapeHtml(toStaticHref(forms.insuranceLinkHref))}">${escapeHtml(forms.insuranceLinkLabel)}</a></p>
@@ -1169,7 +1229,7 @@ function bindFaqSearch(content) {
         return
       }
 
-      setStatus(content.ui.faqSearchResultsCount.replace('{count}', String(visibleCount)))
+      setStatus(formatFaqResultCount(content, visibleCount))
       return
     }
 
@@ -1213,7 +1273,7 @@ function bindFaqSearch(content) {
 
         if (hits.length > 0) {
           resultsRoot.hidden = false
-          resultsRoot.innerHTML = `<div class="faq-search-results-heading">${escapeHtml(content.ui.faqSearchResultsCount.replace('{count}', String(hits.length)))}</div>
+          resultsRoot.innerHTML = `<div class="faq-search-results-heading">${escapeHtml(formatFaqResultCount(content, hits.length))}</div>
             <div class="faq-search-results-list">${hits.join('\n')}</div>`
           setStatus('')
           return
@@ -1411,74 +1471,48 @@ function renderHome(content) {
 
 function renderFeatureColumns(columns) {
   return `<div class="feature-list">${columns
-    .map(
-      (column) => `<div><h3>${escapeHtml(column.title)}</h3><ul>${column.items
-        .map((item) => `<li>${escapeHtml(item)}</li>`)
-        .join('')}</ul></div>`,
-    )
+    .map((column) => {
+      const body = column.body ? `<p>${escapeHtml(column.body)}</p>` : ''
+      const items = column.items?.length
+        ? `<ul>${column.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
+        : ''
+      return `<div><h3>${escapeHtml(column.title)}</h3>${body}${items}</div>`
+    })
     .join('')}</div>`
+}
+
+function renderServiceDetailActions(content) {
+  const requestLink = `<a class="button page-link-cta" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.hero.actions[0].label)}</a>`
+  const programId = SERVICE_PAGE_PROGRAM_IDS[PAGE]
+  const program = programId ? getProgramById(content, programId) : undefined
+  const faqHref = program ? programFaqHref(program.id) : ''
+
+  if (!program || !faqHref) {
+    return requestLink
+  }
+
+  const faqLabel = (content.ui.programFaqLinkLabel ?? 'View {program} FAQs').replaceAll(
+    '{program}',
+    program.label,
+  )
+  const faqLink = `<a class="button ghost page-link-cta" href="${escapeHtml(toStaticHref(faqHref))}">${escapeHtml(faqLabel)}</a>`
+
+  return `<div class="button-row">
+          ${faqLink}
+          ${requestLink}
+        </div>`
 }
 
 function renderDetailSection(section, soft = false) {
   return `<section class="section detail-section page-section${soft ? ' soft' : ''}">
         ${renderSectionHeading(section.eyebrow, section.title, section.intro)}
         ${renderFeatureColumns(section.columns)}
-        <a class="button page-link-cta" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(getContent().hero.actions[0].label)}</a>
+        ${renderServiceDetailActions(getContent())}
       </section>`
 }
 
-function renderProgramDetailPage(content, programId, section) {
-  const program = getProgramById(content, programId)
-  const panel = program
-    ? `<section class="section page-section program-page-intro">
-        <div class="program-panel-list">${renderProgramPanel(program, content, { open: true })}</div>
-      </section>`
-    : ''
-
-  return `${panel}${renderDetailSection(section, true)}${renderServiceDisclaimer(content)}`
-}
-
-function renderAbaTopicBody(topic) {
-  const paragraphs = (topic.paragraphs ?? [])
-    .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
-    .join('')
-  const items = topic.items?.length
-    ? `<ul class="aba-topic-list-items">${topic.items
-        .map((item) => `<li>${escapeHtml(item)}</li>`)
-        .join('')}</ul>`
-    : ''
-
-  return `${paragraphs}${items}`
-}
-
-function renderAbaPage(content) {
-  const aba = content.sections.aba
-  const program = getProgramById(content, 'aba')
-
-  return `<section class="section aba-page page-section">
-        ${renderSectionHeading(aba.eyebrow, aba.title, aba.intro)}
-        ${program ? `<div class="program-panel-list">${renderProgramPanel(program, content, { open: true })}</div>` : ''}
-        <div class="aba-topic-list">
-          ${aba.topics
-            .map(
-              (topic, index) => `<details class="aba-topic"${index === 0 ? ' open' : ''}>
-            <summary>
-              <span class="aba-topic-question">${escapeHtml(topic.title)}</span>
-              <span class="aba-topic-indicator" aria-hidden="true"></span>
-            </summary>
-            <div class="aba-topic-body">
-              ${renderAbaTopicBody(topic)}
-            </div>
-          </details>`,
-            )
-            .join('\n          ')}
-        </div>
-      </section>
-      <section class="section detail-section page-section soft aba-summary">
-        ${renderFeatureColumns(aba.columns)}
-        <a class="button page-link-cta" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.hero.actions[0].label)}</a>
-      </section>
-      ${renderServiceDisclaimer(content)}`
+function renderProgramDetailPage(content, section) {
+  return `${renderDetailSection(section, true)}${renderServiceDisclaimer(content)}`
 }
 
 function isIntakeReceipt(value) {
@@ -1697,16 +1731,11 @@ function renderAboutPage(content) {
         ${about.photoCaption ? `<figcaption>${escapeHtml(about.photoCaption)}</figcaption>` : ''}
       </figure>`
     : ''
-  const languages = about.languages
-    ? `<section class="section about-languages">
-        <div class="about-mission-grid">
-          <div>
-            <p class="eyebrow">${escapeHtml(about.languages.eyebrow)}</p>
-            <p class="about-mission-statement">${escapeHtml(about.languages.title)}</p>
-          </div>
-          <p class="about-mission-body">${escapeHtml(about.languages.body)}</p>
-        </div>
-      </section>`
+  const languages = about.languages?.body
+    ? `<p class="about-language-note">
+        <span class="eyebrow">${escapeHtml(about.languages.eyebrow)}</span>
+        <span>${escapeHtml(about.languages.body)}</span>
+      </p>`
     : ''
   const people = (about.team?.people ?? [])
     .map(
@@ -1964,6 +1993,28 @@ function resumeUploadsEnabled() {
   return window.VTCC_SITE?.formspree?.resumeUploads === true
 }
 
+function renderCareerResumeNotice(content) {
+  if (resumeUploadsEnabled()) {
+    return ''
+  }
+
+  const application = content.careerApplication
+  if (!application?.resumeNotice) {
+    return ''
+  }
+
+  const title = application.resumeNoticeTitle
+    ? `<strong>${escapeHtml(application.resumeNoticeTitle)}</strong>`
+    : ''
+
+  return `<aside class="career-resume-note">
+              ${title}
+              <p>${renderTextWithPhone(application.resumeNotice, content, {
+                email: application.resumeEmail,
+              })}</p>
+            </aside>`
+}
+
 function renderCareerFileField(content) {
   if (!resumeUploadsEnabled()) {
     return ''
@@ -2013,21 +2064,30 @@ function renderCareerApplicationPage(content) {
             <span aria-hidden="true">←</span> ${escapeHtml(application.backLabel)}
           </a>
           ${renderSectionHeading(application.eyebrow, application.title, application.intro)}
-          <aside class="career-privacy-note">
+          ${
+            application.privacyNote
+              ? `<aside class="career-privacy-note">
             <strong>${escapeHtml(application.privacyTitle)}</strong>
             <p>${escapeHtml(application.privacyNote)}</p>
-          </aside>
+          </aside>`
+              : ''
+          }
         </div>
         <div class="career-form-panel">
           <form class="career-application-form" data-career-form data-form-type="career">
             <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
             ${fields}
             ${renderCareerFileField(content)}
-            <label class="consent-field">
+            ${renderCareerResumeNotice(content)}
+            ${
+              application.consentLabel
+                ? `<label class="consent-field">
               <input type="checkbox" name="consent" required />
               <span>${escapeHtml(application.consentLabel)} ${renderPrivacyPolicyLink(content)}</span>
-            </label>
-            <p class="form-note">${escapeHtml(application.privacyNote)}</p>
+            </label>`
+                : ''
+            }
+            ${application.privacyNote ? `<p class="form-note">${escapeHtml(application.privacyNote)}</p>` : ''}
             <button type="submit" data-default-label="${escapeHtml(application.submitLabel)}">${escapeHtml(application.submitLabel)}</button>
             <p class="form-status" data-career-form-status aria-live="polite"></p>
           </form>
@@ -2047,9 +2107,8 @@ function getContactPageConfig(content) {
 }
 
 function renderMenuVisit(content) {
-  const visit = content.visit
   const offices = content.offices ?? []
-  if (!visit && !offices.length) {
+  if (!offices.length) {
     return ''
   }
 
@@ -2063,11 +2122,6 @@ function renderMenuVisit(content) {
     .join('')
 
   return `<div class="site-menu-visit">
-        ${
-          visit?.hoursSummary
-            ? `<p class="site-menu-hours"><span>${escapeHtml(content.ui.hoursLabel)}</span> ${escapeHtml(visit.hoursSummary)}</p>`
-            : ''
-        }
         ${phones}
       </div>`
 }
@@ -2078,7 +2132,7 @@ function renderContactAside(content, contact) {
     .map(
       (office) => `<article class="office-card">
                 <h4>${escapeHtml(office.name)}</h4>
-                <address>${escapeHtml(office.street)}<br />${escapeHtml(office.city)}</address>
+                ${renderAddressChooser(content, [office.street, office.city])}
                 <a class="call-button" href="${escapeHtml(office.phoneHref)}">
                   <span>${escapeHtml(content.ui.callLabel)}</span>
                   <strong>${escapeHtml(office.phone)}</strong>
@@ -2088,19 +2142,14 @@ function renderContactAside(content, contact) {
                     ? `<p class="office-fax"><span>${escapeHtml(content.ui.faxLabel)}</span> ${escapeHtml(office.fax)}</p>`
                     : ''
                 }
-                ${
-                  office.addressHref
-                    ? `<a class="office-directions" href="${escapeHtml(office.addressHref)}" target="_blank" rel="noopener noreferrer">${escapeHtml(content.footer.directionsLabel)}</a>`
-                    : ''
-                }
               </article>`,
     )
     .join('')
   const hours = visit.hoursSummary
     ? `<div class="visit-note">
                 <h3>${escapeHtml(content.ui.hoursLabel)}</h3>
-                <p><strong>${escapeHtml(visit.hoursSummary)}</strong></p>
-                <p>${escapeHtml(visit.hoursDetail ?? '')}</p>
+                <p><strong>${renderHoursText(visit.hoursSummary)}</strong></p>
+                ${visit.hoursDetail ? `<p>${escapeHtml(visit.hoursDetail)}</p>` : ''}
                 ${visit.responseTime ? `<p>${escapeHtml(visit.responseTime)}</p>` : ''}
               </div>`
     : ''
@@ -2163,7 +2212,7 @@ function renderThankYouPage(content) {
             <a class="button" href="${escapeHtml(toStaticHref(copy.homeHref))}">${escapeHtml(copy.homeLabel)}</a>
             <a class="button secondary" href="${escapeHtml(toStaticHref(variant.secondaryHref))}">${escapeHtml(variant.secondaryLabel)}</a>
           </div>
-          <p class="thank-you-note">${escapeHtml(copy.notice)}</p>
+          ${copy.notice ? `<p class="thank-you-note">${escapeHtml(copy.notice)}</p>` : ''}
         </div>
       </section>`
 }
@@ -2192,8 +2241,12 @@ function renderContactPage(content) {
           <input type="hidden" name="hasDiagnosis" value="" />
           <input type="hidden" name="hasCde" value="" />
           ${form.fields.map((field) => renderFormField(field, content, variant)).join('')}
-          <label class="consent-field"><input type="checkbox" name="consent" required /> <span>${escapeHtml(form.consentLabel)} ${renderPrivacyPolicyLink(content)}</span></label>
-          <p class="form-note">${escapeHtml(form.notice)}</p>
+          ${
+            form.consentLabel
+              ? `<label class="consent-field"><input type="checkbox" name="consent" required /> <span>${escapeHtml(form.consentLabel)} ${renderPrivacyPolicyLink(content)}</span></label>`
+              : ''
+          }
+          ${form.notice ? `<p class="form-note">${escapeHtml(form.notice)}</p>` : ''}
           <button type="submit" data-default-label="${escapeHtml(form.submitLabel)}">${escapeHtml(form.submitLabel)}</button>
           <p class="form-status" data-form-status aria-live="polite"></p>
         </form>
@@ -2253,14 +2306,11 @@ function isAbaEligible(state) {
 }
 
 function parentProgramIds(age) {
-  const questions = []
-  if (age >= 2 && age <= 12) {
-    questions.push('feeding')
-  }
-  if (age >= 5 && age <= 17) {
+  const questions = ['feeding']
+  if (age >= 2 && age <= 21) {
     questions.push('social')
   }
-  if (age >= 2 && age <= 5) {
+  if (age >= 3 && age <= 5) {
     questions.push('classroom')
   }
   return questions
@@ -2271,16 +2321,16 @@ function parentSpecializedMatches(state) {
   if (state.childAge == null) {
     return matches
   }
-  if (state.childAge >= 2 && state.childAge <= 12 && state.feeding === 'yes') {
+  if (state.feeding === 'yes') {
     matches.push('feeding')
   }
-  if (state.childAge >= 8 && state.childAge <= 12 && state.social === 'yes') {
+  if (state.childAge >= 3 && state.childAge <= 5 && state.social === 'yes') {
     matches.push('social-enrichment')
   }
-  if (state.childAge >= 5 && state.childAge <= 17 && state.social === 'yes') {
+  if (state.childAge >= 2 && state.childAge <= 21 && state.social === 'yes') {
     matches.push('social-skills')
   }
-  if (state.childAge >= 2 && state.childAge <= 5 && state.classroom === 'yes') {
+  if (state.childAge >= 3 && state.childAge <= 5 && state.classroom === 'yes') {
     matches.push('early-learners')
   }
   return matches
@@ -3098,13 +3148,13 @@ function renderContactQuizInner(content, direction = 'none') {
             <a class="quiz-footer-call" href="${escapeHtml(phoneHref)}">${escapeHtml(quiz.callPrompt ?? 'Prefer to talk?')} ${escapeHtml(phone)}</a>
             ${
               content.visit?.hoursSummary
-                ? `<p class="quiz-hours"><span>${escapeHtml(content.ui.hoursLabel)}</span> ${escapeHtml(content.visit.hoursSummary)}</p>`
+                ? `<p class="quiz-hours"><span>${escapeHtml(content.ui.hoursLabel)}</span> ${renderHoursText(content.visit.hoursSummary)}</p>`
                 : ''
             }
             <span class="quiz-footer-skip">${escapeHtml(quiz.skipLinkPrompt)} <a href="${escapeHtml(toStaticHref(quiz.skipLinkHref))}">${escapeHtml(quiz.skipLinkLabel)}</a></span>
           </div>
           ${content.footer.emergency ? `<p class="emergency-note">${escapeHtml(content.footer.emergency)}</p>` : ''}
-          <p class="quiz-disclaimer">${escapeHtml(quiz.disclaimer)}</p>`
+          ${quiz.disclaimer ? `<p class="quiz-disclaimer">${escapeHtml(quiz.disclaimer)}</p>` : ''}`
 }
 
 function renderContactQuizPage(content) {
@@ -3144,7 +3194,6 @@ function resetDependentQuizFields(fieldName) {
 
   if (fieldName === 'childAge') {
     quizState.child18Months = ''
-    quizState.feeding = ''
     quizState.social = ''
     quizState.classroom = ''
     return
@@ -3518,26 +3567,22 @@ function renderMain(content) {
 
   switch (PAGE) {
     case 'aba':
-      mainHtml = renderAbaPage(content)
+      mainHtml = renderProgramDetailPage(content, content.sections.aba)
       break
     case 'early-learners':
-      mainHtml = renderProgramDetailPage(content, 'early-learners', content.sections.earlyLearners)
+      mainHtml = renderProgramDetailPage(content, content.sections.earlyLearners)
       break
     case 'feeding-program':
-      mainHtml = renderProgramDetailPage(content, 'feeding', content.sections.feedingProgram)
+      mainHtml = renderProgramDetailPage(content, content.sections.feedingProgram)
       break
     case 'social-enrichment':
-      mainHtml = renderProgramDetailPage(content, 'social-enrichment', content.sections.socialEnrichment)
+      mainHtml = renderProgramDetailPage(content, content.sections.socialEnrichment)
       break
     case 'social-skills-group':
-      mainHtml = renderProgramDetailPage(content, 'social-skills', content.sections.socialSkillsGroup)
+      mainHtml = renderProgramDetailPage(content, content.sections.socialSkillsGroup)
       break
     case 'group-parent-training':
-      mainHtml = renderProgramDetailPage(
-        content,
-        'group-parent-training',
-        content.sections.groupParentTraining,
-      )
+      mainHtml = renderProgramDetailPage(content, content.sections.groupParentTraining)
       break
     case 'get-started':
       mainHtml = renderProcessPage(content)
@@ -3586,6 +3631,65 @@ function renderMain(content) {
   }
 
   return mainHtml
+}
+
+function bindMapChoosers() {
+  const choosers = document.querySelectorAll('.map-chooser')
+
+  choosers.forEach((chooser) => {
+    chooser.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        chooser.open = false
+      })
+    })
+
+    chooser.addEventListener('toggle', () => {
+      if (!chooser.open) {
+        return
+      }
+
+      choosers.forEach((other) => {
+        if (other !== chooser) {
+          other.open = false
+        }
+      })
+
+      chooser.querySelector('.map-chooser-panel')?.scrollIntoView({ block: 'nearest' })
+    })
+  })
+
+  if (bindMapChoosers.outsideHandler) {
+    document.removeEventListener('click', bindMapChoosers.outsideHandler)
+  }
+
+  if (bindMapChoosers.keyHandler) {
+    document.removeEventListener('keydown', bindMapChoosers.keyHandler)
+  }
+
+  bindMapChoosers.outsideHandler = (event) => {
+    if (!(event.target instanceof Element) || event.target.closest('.map-chooser')) {
+      return
+    }
+
+    choosers.forEach((chooser) => {
+      chooser.open = false
+    })
+  }
+
+  bindMapChoosers.keyHandler = (event) => {
+    if (event.key !== 'Escape') {
+      return
+    }
+
+    choosers.forEach((chooser) => {
+      if (chooser.open) {
+        chooser.open = false
+      }
+    })
+  }
+
+  document.addEventListener('click', bindMapChoosers.outsideHandler)
+  document.addEventListener('keydown', bindMapChoosers.keyHandler)
 }
 
 function bindHeaderMenus() {
@@ -5053,6 +5157,7 @@ function render() {
   })
 
   bindHeaderMenus()
+  bindMapChoosers()
   bindHeaderLayout()
   bindHeaderOffset()
   bindMobileMenu()

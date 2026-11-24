@@ -10,8 +10,8 @@ const es = JSON.parse(JSON.stringify(en))
 Object.assign(es.ui, {
   languageLabel: 'Idioma',
   faxLabel: 'Fax',
-  payerListTitle: 'Pagadores aceptados y vías de financiamiento',
-  fullPayerListLabel: 'Ver la lista completa de pagadores y fuentes de financiamiento',
+  payerListTitle: 'Planes de salud aceptados y opciones de financiamiento',
+  fullPayerListLabel: 'Ver la lista completa de planes y fuentes de financiamiento',
   backToResources: 'Volver a todos los recursos',
   downloadLabel: 'Descargar',
   expandAll: 'Expandir todo',
@@ -31,6 +31,9 @@ Object.assign(es.ui, {
   contactSwitchReferralPrompt: '¿Va a enviar una referencia profesional?',
   contactSwitchReferralLink: 'Use el formulario de referencia',
   contactAsideLabel: 'Llame o visite nuestra oficina',
+  mapsMenuLabel: 'Elegir Apple Maps o Google Maps',
+  appleMapsLabel: 'Apple Maps',
+  googleMapsLabel: 'Google Maps',
 })
 
 Object.assign(es.company, {
@@ -44,15 +47,15 @@ es.navigation.main = [
   { label: 'Comenzar', href: '/get-started' },
   { label: 'Seguro', href: '/insurance' },
   { label: 'Referentes', href: '/contact/referral' },
-  { label: 'Preguntas y Guías', href: '/resources' },
+  { label: 'Preguntas y guías', href: '/resources' },
   { label: 'Acerca de', href: '/about' },
   { label: 'Contacto', href: '/contact' },
   { label: 'Carreras', href: '/career' },
 ]
 
 es.navigation.utility = [
-  { label: 'Solicitar Servicios', href: '/contact', style: 'cta' },
-  { label: 'Referir un Cliente', href: '/contact/referral' },
+  { label: 'Solicitar servicios', href: '/contact', style: 'cta' },
+  { label: 'Referir a un cliente', href: '/contact/referral' },
   { label: 'Llamar a Fairfax', href: 'tel:17032186599' },
 ]
 
@@ -73,7 +76,7 @@ es.navigation.headerGroups = [
     href: '/about',
   },
   {
-    label: 'Preguntas y Guías',
+    label: 'Preguntas y guías',
     href: '/resources',
     links: [
       { label: 'Comenzar', href: '/get-started' },
@@ -83,7 +86,7 @@ es.navigation.headerGroups = [
       { label: 'Programa de Alimentación', href: '/resources/feeding-program' },
       { label: 'Enriquecimiento Social', href: '/resources/social-enrichment' },
       { label: 'Grupo de Habilidades Sociales', href: '/resources/social-skills-group' },
-      { label: 'Preguntas Frecuentes sobre Capacitación para Padres', href: '/resources/parent-training-faqs' },
+      { label: 'Preguntas frecuentes sobre el entrenamiento para padres', href: '/resources/parent-training-faqs' },
     ],
   },
   {
@@ -95,7 +98,7 @@ es.navigation.headerGroups = [
     href: '/career',
   },
   {
-    label: 'Formularios de Contacto',
+    label: 'Formularios de contacto',
     links: [
       { label: 'Formularios', href: '/resources/forms' },
       { label: 'Contacto', href: '/contact' },
@@ -114,25 +117,27 @@ Object.assign(es.ui, {
   careerFileError: 'Elija un archivo PDF, DOC, DOCX o TXT de hasta 5 MB.',
   careerFileRemove: 'Eliminar archivo',
   careerFormSubmitting: 'Enviando...',
-  careerFormSuccess: 'Gracias. Recibimos su solicitud. Un miembro del equipo de VTCC dará seguimiento.',
+  careerFormSuccess: 'Gracias. Recibimos su solicitud. Un miembro del equipo de VTCC se comunicará con usted.',
   careerFormError: 'No pudimos enviar esta solicitud. Llame a VTCC o inténtelo de nuevo más tarde.',
   faqSearchLabel: 'Buscar en las preguntas frecuentes',
   faqSearchPlaceholder: 'Buscar preguntas y respuestas',
   faqSearchNoResults:
     'Ninguna pregunta coincide con su búsqueda. Pruebe otras palabras o revise los temas de abajo.',
-  faqSearchResultsCount: '{count} preguntas coincidentes',
+  faqSearchResultsCount: '{count} preguntas encontradas',
+  faqSearchResultsCountOne: '1 pregunta encontrada',
   faqSearchInTopic: 'En {topic}',
   menuLabel: 'Menú',
-  homeLinkLabel: 'inicio',
+  homeLinkLabel: 'Inicio',
   utilityNavLabel: 'Acciones del encabezado',
   mainNavLabel: 'Navegación principal',
   trustHighlightsLabel: 'Puntos de confianza',
   openMenu: 'Abrir menú',
   closeMenu: 'Cerrar menú',
   callLabel: 'Llamar',
+  headerContactLabel: 'Contacto',
   formSubmitting: 'Enviando...',
   formSuccess:
-    'Gracias. Recibimos su solicitud. Un miembro del equipo de VTCC dará seguimiento.',
+    'Gracias. Recibimos su solicitud. Un miembro del equipo de VTCC se comunicará con usted.',
   formError: 'No pudimos enviar este formulario. Llame a VTCC o inténtelo de nuevo más tarde.',
   formPhoneRequired: 'Ingrese un número de teléfono para que podamos comunicarnos con usted.',
   formEmailRequired: 'Ingrese un correo electrónico para que podamos comunicarnos con usted.',
@@ -146,11 +151,11 @@ Object.assign(es.hero, {
   headline:
     'ABA y programas especializados para niños y familias',
   headlineLead: 'Para niños, adolescentes y familias en el norte de Virginia',
-  subheadlineLead: 'Servicios conductuales y de salud mental culturalmente receptivos.',
+  subheadlineLead: 'Servicios conductuales y de salud mental que respetan la cultura de cada familia.',
   subheadline:
-    'Victoria Transcultural Clinical Center ofrece servicios conductuales y de salud mental culturalmente receptivos para niños, adolescentes y familias. Nuestro equipo apoya a las familias mediante terapia ABA individualizada, programas especializados, colaboración con padres y orientación sobre financiamiento.',
+    'VTCC apoya a las familias con terapia ABA individualizada, aprendizaje temprano, alimentación, enriquecimiento social, habilidades sociales y capacitación Safety-Care® para familias y cuidadores.',
   supportingLine:
-    'Atendemos a familias a través de Medicaid, organizaciones de atención administrada, seguros comerciales y vías de financiamiento del condado/FAPT, sujeto a elegibilidad y verificación del plan.',
+    'VTCC acepta Medicaid, seguro comercial y financiamiento del condado. Llame para confirmar su plan.',
 })
 
 es.hero.serviceTags = [
@@ -163,8 +168,7 @@ es.hero.serviceTags = [
 ]
 
 es.hero.actions = [
-  { label: 'Solicitar Servicios', href: '/contact', style: 'primary' },
-  { label: 'Referir un Cliente', href: '/contact/referral', style: 'secondary' },
+  { label: 'Solicitar servicios', href: '/contact', style: 'primary' },
   { label: 'Llamar a VTCC', href: 'tel:17032186599', style: 'ghost' },
 ]
 
@@ -191,14 +195,14 @@ es.sections.careers = {
     ],
   },
   perks: {
-    eyebrow: 'Beneficios',
+    eyebrow: 'Crecimiento',
     title: 'Apoyo después de empezar',
     items: [
-      { title: 'Trabajo de campo mientras trabaja', body: 'Horas supervisadas hacia el BCBA en el Programa de analista estudiante.' },
+      { title: 'Reconocimiento', body: 'Empleado del mes y Grounds for Greatness.' },
       { title: 'PDU mensuales', body: 'Aprendizaje continuo sobre habilidades y ética.' },
       { title: 'Certificación Safety-Care', body: 'Impartida internamente.' },
       { title: 'Espacio para crecer', body: 'Vía de técnico de conducta líder sénior.' },
-      { title: 'Reconocimiento', body: 'Empleado del mes y Grounds for Greatness.' },
+      { title: 'Trabajo de campo mientras trabaja', body: 'Horas supervisadas hacia el BCBA en el Programa de analista estudiante.' },
     ],
   },
   steps: {
@@ -207,8 +211,8 @@ es.sections.careers = {
     items: [{ title: 'Postule' }, { title: 'Hablemos del puesto' }, { title: 'Capacitación clínica' }],
   },
   closing: {
-    title: '¿Listo para postular?',
-    body: 'Toma unos minutos.',
+    title: '¿Quiere enviar su solicitud?',
+    body: 'Solo le tomará unos minutos.',
     buttonLabel: 'Solicitar empleo',
   },
   tabsLabel: 'Secciones de empleo',
@@ -222,9 +226,9 @@ es.sections.careers = {
       kicker: 'Puesto principal',
       title: 'Técnico de conducta (BT)',
       meta: 'Tiempo completo, parcial o pasantía · Fairfax, VA',
-      summary: 'Brinde terapia ABA bajo supervisión de un BCBA.',
+      summary: 'Brinda terapia ABA bajo la supervisión de un BCBA.',
       youWill: {
-        title: 'Qué hará',
+        title: 'El trabajo',
         items: [
           'Aplicar planes de tratamiento',
           'Recopilar datos de sesión',
@@ -232,7 +236,7 @@ es.sections.careers = {
         ],
       },
       requirements: {
-        title: 'Usted aporta',
+        title: 'Lo que usted aporta',
         items: ['Puntualidad y comunicación clara', 'Disposición para completar la capacitación RBT'],
       },
       applyLabel: 'Solicitar como técnico de conducta',
@@ -241,11 +245,11 @@ es.sections.careers = {
     },
     bcba: {
       kicker: 'Liderazgo clínico',
-      title: 'Analista de conducta certificado por la junta (BCBA)',
+      title: 'Analista de conducta certificado (BCBA)',
       meta: 'Puesto clínico de supervisión · Requiere licencia de Virginia',
       summary: 'Dirija evaluaciones, tratamiento y capacitación de cuidadores.',
       youWill: {
-        title: 'Qué hará',
+        title: 'El trabajo',
         items: [
           'Evaluar a los niños y redactar planes de tratamiento',
           'Supervisar a técnicos y revisar datos',
@@ -274,16 +278,18 @@ es.sections.careers = {
 es.careerApplication = {
   title: 'Solicite unirse a nuestro equipo',
   intro:
-    'Cuéntenos cómo contactarlo y qué puesto le interesa. VTCC recibirá su solicitud y dará seguimiento.',
-  privacyTitle: 'La privacidad importa',
-  privacyNote:
-    'No incluya información de clientes, expedientes clínicos, números de Seguro Social ni otros documentos confidenciales. Usamos lo que envía solo para evaluar su interés en trabajar en VTCC.',
+    'Cuéntenos cómo contactarlo y qué puesto le interesa. VTCC recibirá su solicitud y se comunicará con usted.',
+  resumeNoticeTitle: 'La carga del currículum se agregará pronto',
+  resumeNotice:
+    'Pronto podrá cargar su currículum en este formulario. Por ahora, envíe su currículum a {email}.',
+  resumeEmail: 'recruiting@vtccmail.com',
+  privacyTitle: '',
+  privacyNote: '',
   selectPlaceholder: 'Seleccione una opción',
   submitLabel: 'Enviar solicitud',
   backLabel: 'Volver a Carreras',
   backHref: '/career',
-  consentLabel:
-    'Acepto que VTCC use la información que envío para revisar mi solicitud y comunicarse conmigo.',
+  consentLabel: '',
   fileLabel: 'Currículum o documento de apoyo',
   fileRequiredMessage: 'Adjunte un currículum o documento de apoyo.',
   fileTypes: '.pdf,.doc,.docx,.txt',
@@ -354,9 +360,11 @@ Object.assign(es.heroCard, {
   title: 'Cómo ayuda VTCC',
   items: [
     'Terapia ABA con metas individualizadas',
-    'Programas especializados para las necesidades de cada niño',
-    'Orientación sobre Medicaid, MCO, seguros comerciales y FAPT pendiente de verificación',
-    'Recursos en inglés y español',
+    'Apoyo de aula de Primeros Aprendices para niños de 3 a 5 años',
+    'Apoyo de alimentación que empieza por lo básico a la hora de comer y puede incluir práctica en el hogar',
+    'Enriquecimiento Social para niños de 3 a 5 años',
+    'Grupo de Habilidades Sociales para niños de 2 años en adelante',
+    'Capacitación Safety-Care® para familias y cuidadores',
   ],
 })
 
@@ -366,7 +374,7 @@ es.trustStrip = [
     body: 'Planes de atención adaptados a las necesidades del niño y del cuidador',
   },
   {
-    title: 'Culturalmente receptivo',
+    title: 'Respeto cultural',
     body: 'Apoyo para familias diversas del norte de Virginia',
   },
   {
@@ -375,7 +383,7 @@ es.trustStrip = [
   },
   {
     title: 'Apoyo multilingüe',
-    body: 'Pregunte por un intérprete en la admisión.',
+    body: 'Intérpretes para cualquier idioma. Pregunte en la admisión.',
   },
 ]
 
@@ -383,7 +391,7 @@ Object.assign(es.sections.services, {
   eyebrow: 'Servicios',
   title: 'Cómo VTCC apoya a las familias',
   intro:
-    'Elija el programa que mejor se adapte a su familia. VTCC acompaña cada vía con pasos claros.',
+    'Elija el programa que mejor se adapte a su familia. VTCC acompaña cada camino con pasos claros.',
 })
 
 es.sections.services.cards = [
@@ -391,11 +399,11 @@ es.sections.services.cards = [
     "id": "aba",
     "label": "Terapia ABA",
     "title": "Desarrolle habilidades significativas con un plan individualizado",
-    "body": "El Análisis de Conducta Aplicado ayuda a los niños a desarrollar habilidades significativas mediante metas individualizadas, refuerzo positivo, capacitación para padres y monitoreo continuo del progreso.",
+    "body": "El análisis aplicado de la conducta ayuda a los niños a desarrollar habilidades significativas mediante metas individualizadas, refuerzo positivo, entrenamiento para padres y seguimiento continuo del progreso.",
     "teaser": "Terapia individualizada que desarrolla la comunicación, la vida diaria y las habilidades sociales.",
     "ageRange": "Por lo general, de 18 meses a 21 años",
     "ageNote": "La intervención temprana suele comenzar antes de los 4 años. ABA también puede apoyar a niños en edad escolar y adolescentes cuando es clínicamente apropiado. La elegibilidad final depende de la evaluación, el financiamiento y la autorización.",
-    "description": "ABA se construye alrededor de las fortalezas, rutinas y prioridades de cada familia. Un BCBA evalúa las habilidades actuales, escribe metas medibles y actualiza el plan a medida que el niño crece.",
+    "description": "La ABA parte de las fortalezas, las rutinas y las prioridades de cada familia. Un BCBA evalúa las habilidades actuales, escribe metas medibles y actualiza el plan a medida que el niño crece.",
     "goals": [
       "Fortalecer la comunicación, la interacción social y el juego",
       "Desarrollar habilidades de la vida diaria, autocuidado y preparación escolar",
@@ -407,7 +415,7 @@ es.sections.services.cards = [
       "Se crea un plan de tratamiento individualizado y un plan de apoyo conductual.",
       "Los técnicos de conducta brindan terapia directa bajo supervisión del BCBA.",
       "Los cuidadores reciben orientación para practicar habilidades entre sesiones.",
-      "El progreso se monitorea con regularidad y las metas se actualizan con el tiempo."
+      "El progreso se revisa con regularidad y las metas se actualizan con el tiempo."
     ],
     "related": [
       "early-learners",
@@ -422,24 +430,18 @@ es.sections.services.cards = [
   {
     "id": "early-learners",
     "label": "Primeros Aprendices",
-    "title": "Prepárese para la escuela y los entornos sociales",
-    "body": "El programa de Primeros Aprendices ayuda a niños en edad preescolar a practicar comunicación, juego, rutinas y habilidades de aprendizaje temprano para la escuela y los entornos sociales.",
-    "teaser": "Preparación escolar a través del juego, las rutinas y la comunicación.",
-    "ageRange": "Por lo general, de 2 a 5 años",
-    "ageNote": "Este programa está diseñado para niños en edad preescolar. La elegibilidad depende de la evaluación, el financiamiento y la autorización.",
-    "description": "Primeros Aprendices se centra en las rutinas y habilidades que ayudan a un niño a participar en la escuela y en entornos sociales: comunicación, juego, seguir instrucciones e independencia.",
-    "goals": [
-      "Construir rutinas y transiciones de preparación escolar",
-      "Fortalecer la comunicación y las habilidades de aprendizaje temprano",
-      "Apoyar el juego, la participación y el compromiso social",
-      "Practicar seguir instrucciones y crecer en independencia"
-    ],
-    "structure": [
-      "Un clínico revisa las habilidades actuales del niño y las prioridades de la familia.",
-      "Se escriben metas individualizadas para rutinas, comunicación y juego.",
-      "Las sesiones practican esas habilidades en entornos familiares.",
-      "Los cuidadores reciben orientación para continuar la práctica en casa.",
-      "El progreso se monitorea y el plan se actualiza a medida que crecen las habilidades."
+    "title": "Prepárese para una transición exitosa a la escuela",
+    "body": "Un día con estructura de aula para niños de 3 a 5 años que reciben servicios de ABA, de lunes a viernes, de 10:00 a.m. a 2:00 p.m.",
+    "teaser": "Apoyo con estructura de aula para niños de 3 a 5 años, de lunes a viernes.",
+    "blocks": [
+      {
+        "paragraphs": [
+          "El programa de Primeros Aprendices está diseñado para preparar a los niños que reciben servicios de ABA para una transición exitosa a la escuela, mediante una rutina estructurada que refleja un entorno típico de aula. Nuestra meta es ayudar a los estudiantes a desarrollar independencia y a necesitar la menor cantidad de apoyo posible a medida que crecen.",
+          "Este programa se ofrece de lunes a viernes, de 10:00 a.m. a 2:00 p.m. Los niños de 3 a 5 años participan en un horario diario con rotaciones de centros de 20 minutos, como juego simbólico, lectura, trabajo independiente, arte y manualidades, y una actividad dirigida por el docente. La actividad dirigida por el docente se enfoca en fortalecer las habilidades de atención, mientras que todos los centros ofrecen oportunidades para desarrollar habilidades de juego, creatividad y bases académicas tempranas.",
+          "A lo largo del día, los niños también practican la interacción social con compañeros, aprendiendo a compartir, turnarse y participar en juego cooperativo. Este enfoque integral apoya tanto la preparación escolar como el desarrollo general.",
+          "Como base del programa se utilizan estrategias de enseñanza del análisis aplicado de la conducta (ABA) para enseñar y reforzar estas habilidades fundamentales. Al integrar los principios de ABA durante todo el día, los niños reciben apoyo constante para desarrollar habilidades de comunicación, sociales y de autocuidado que favorecen el éxito a largo plazo."
+        ]
+      }
     ],
     "related": [
       "aba",
@@ -454,24 +456,19 @@ es.sections.services.cards = [
   {
     "id": "feeding",
     "label": "Programa de Alimentación",
-    "title": "Amplíe el repertorio y las preferencias alimentarias",
-    "body": "El Programa de Alimentación utiliza prácticas ABA para apoyar a los niños mientras desarrollan comodidad con una mayor variedad de alimentos, sabores, texturas y rutinas de comida.",
-    "teaser": "Apoyo gradual y amable para probar alimentos y texturas nuevas.",
-    "ageRange": "Por lo general, de 2 a 12 años",
-    "ageNote": "El apoyo de alimentación es individualizado. La edad, las metas y la duración dependen de la evaluación, las prioridades familiares, el financiamiento y la autorización.",
-    "description": "El programa usa práctica positiva y gradual para que los niños se sientan más cómodos con alimentos nuevos y más flexibles en las comidas. Los cuidadores son socios en las rutinas diarias.",
-    "goals": [
-      "Ampliar la variedad de alimentos que el niño acepta",
-      "Desarrollar comodidad con nuevos sabores, texturas y presentaciones",
-      "Apoyar rutinas de comida más tranquilas y predecibles",
-      "Practicar preferencias alimentarias flexibles a un ritmo manejable"
-    ],
-    "structure": [
-      "El equipo evalúa los patrones actuales de alimentación y las prioridades familiares.",
-      "Se escriben metas individualizadas y estrategias de refuerzo positivo.",
-      "La práctica ocurre en sesiones y, cuando es apropiado, durante las comidas diarias.",
-      "Los cuidadores aprenden a apoyar alimentos nuevos sin añadir presión.",
-      "El progreso se revisa y el plan se ajusta según la respuesta del niño."
+    "title": "Mejores momentos a la hora de comer empiezan por lo básico.",
+    "body": "Un paso. Un bocado. Un éxito a la vez.",
+    "teaser": "Un paso. Un bocado. Un éxito a la vez.",
+    "blocks": [
+      {
+        "paragraphs": [
+          "En VTCC creemos que cada niño, cada familia y cada cultura merece apoyo a la hora de comer.",
+          "El éxito en la alimentación va más allá de simplemente probar alimentos nuevos. Acompañamos a cada niño desde donde se encuentra y construimos las habilidades fundamentales que hacen que las comidas sean más cómodas, positivas y exitosas.",
+          "Empezamos con lo básico: llegar a la mesa, sentarse y permanecer en la mesa durante las comidas, y participar en rutinas simples a la hora de comer. A partir de ahí, desarrollamos gradualmente habilidades como alimentarse por sí mismo, mantener un ritmo adecuado durante la comida, tolerar los alimentos en el plato, explorar nuevas texturas y sabores, y aumentar la aceptación de alimentos nuevos y culturalmente familiares.",
+          "Como el progreso significativo ocurre donde ocurre la vida cotidiana, nuestro apoyo puede extenderse más allá de la clínica y llegar al hogar de la familia. Trabajamos junto a los cuidadores durante comidas reales, ofreciendo orientación práctica y estrategias que pueden formar parte de las rutinas naturales de la familia.",
+          "Cada niño. Cada familia. Cada cultura."
+        ]
+      }
     ],
     "related": [
       "aba",
@@ -485,24 +482,55 @@ es.sections.services.cards = [
   {
     "id": "social-enrichment",
     "label": "Enriquecimiento Social",
-    "title": "Practique habilidades con compañeros en un grupo con apoyo",
-    "body": "El programa de Enriquecimiento Social ayuda a niños de 8 a 12 años a unirse a actividades grupales, construir amistades y practicar habilidades sociales cotidianas con compañeros.",
-    "teaser": "Juego en grupo pequeño y habilidades de amistad para edades de 8 a 12 años.",
-    "ageRange": "Por lo general, de 8 a 12 años",
-    "ageNote": "Este grupo está diseñado para niños en edad escolar. La compatibilidad depende de la evaluación, las metas actuales, el financiamiento y la autorización.",
-    "description": "Los niños practican unirse a juegos, turnarse, compartir atención y mantenerse involucrados con compañeros en un grupo pequeño. La práctica se mantiene estructurada, positiva y ajustada a las metas de cada niño.",
-    "goals": [
-      "Unirse a juegos grupales y actividades compartidas",
-      "Practicar turnos, espera y juego flexible",
-      "Desarrollar conversación y habilidades de amistad con compañeros",
-      "Mantenerse involucrado durante rutinas y transiciones del grupo"
-    ],
-    "structure": [
-      "Un clínico confirma la compatibilidad con el grupo y las metas sociales actuales.",
-      "Los niños se unen a un grupo pequeño con compañeros de la misma edad.",
-      "El personal orienta durante juegos, conversación y actividades compartidas.",
-      "Las familias reciben guía para practicar las habilidades en casa y en la escuela.",
-      "Las metas se actualizan a medida que el niño gana confianza con sus compañeros."
+    "title": "Desarrolle confianza social a través del juego",
+    "body": "Un programa estructurado de aprendizaje social para niños de 3 a 5 años, dirigido por profesionales de la conducta con experiencia.",
+    "teaser": "Juego guiado y habilidades de amistad para niños de 3 a 5 años.",
+    "blocks": [
+      {
+        "paragraphs": [
+          "El Grupo de Enriquecimiento de Habilidades Sociales es un programa estructurado de aprendizaje social para niños de 3 a 5 años, diseñado para promover la comunicación, la cooperación y las habilidades de amistad mediante el juego guiado y la interacción con compañeros.",
+          "Los participantes realizan actividades apropiadas para su desarrollo que ayudan a fortalecer:"
+        ],
+        "items": [
+          "Comunicación social",
+          "Turnarse y compartir",
+          "Juego cooperativo",
+          "Seguir instrucciones del grupo",
+          "Participación con compañeros",
+          "Habilidades de participación en grupo"
+        ]
+      },
+      {
+        "paragraphs": [
+          "Dirigido por profesionales de la conducta con experiencia, este programa de grupo pequeño ofrece a los niños oportunidades para practicar habilidades sociales en un entorno divertido, de apoyo y participativo."
+        ]
+      },
+      {
+        "title": "Cada sesión incluye",
+        "items": [
+          "Tiempo en círculo",
+          "Juego guiado e interacción con compañeros",
+          "Actividad STEAM (ciencia, tecnología, ingeniería, arte y matemáticas)"
+        ]
+      },
+      {
+        "title": "Información del programa",
+        "items": [
+          "Edades: 3 a 5 años",
+          "Duración de la sesión: 60 minutos",
+          "Ubicación: 10565 Fairfax Blvd, Suite 300, Fairfax, VA 22030",
+          "Horario: una vez por semana durante 12 semanas. Contacte a VTCC para la próxima fecha de inicio.",
+          "Matrícula del programa: $950.00, que puede dividirse en 3 pagos, uno cada dos semanas",
+          "Cuota de inscripción (el seguro no la reembolsa): $250.00"
+        ]
+      },
+      {
+        "title": "Inscripción",
+        "paragraphs": [
+          "Todos los posibles participantes completan una breve revisión para confirmar que el programa es adecuado para sus necesidades sociales, de comunicación y de conducta actuales.",
+          "Para obtener más información o comenzar la inscripción, llame al 703.218.6599. El cupo es limitado."
+        ]
+      }
     ],
     "related": [
       "aba",
@@ -516,24 +544,66 @@ es.sections.services.cards = [
   {
     "id": "social-skills",
     "label": "Grupo de Habilidades Sociales",
-    "title": "Practique habilidades sociales avanzadas con compañeros",
-    "body": "El Grupo de Habilidades Sociales apoya a clientes que están listos para practicar sarcasmo, conversación, pensamiento flexible y juego apropiado para su edad con compañeros.",
-    "teaser": "Práctica guiada con compañeros en conversación y pensamiento flexible.",
-    "ageRange": "Por lo general, niños en edad escolar y adolescentes",
-    "ageNote": "El grupo es para clientes listos para una práctica más avanzada con compañeros. La compatibilidad depende de la evaluación, las metas actuales, el financiamiento y la autorización.",
-    "description": "Los participantes practican interacciones sociales reales en un grupo pequeño con orientación del personal. Las familias ayudan a llevar las mismas habilidades a la escuela, el hogar y la comunidad.",
-    "goals": [
-      "Comprender el sarcasmo, el humor y el significado implícito",
-      "Practicar la conversación de ida y vuelta y el pensamiento flexible",
-      "Unirse al juego y a actividades compartidas apropiadas para la edad",
-      "Reparar malentendidos y resolver problemas con compañeros"
-    ],
-    "structure": [
-      "Un clínico confirma la compatibilidad con el grupo y las metas sociales actuales.",
-      "Las sesiones usan práctica en grupo pequeño con objetivos individualizados.",
-      "El personal orienta y da retroalimentación positiva durante interacciones reales.",
-      "Las familias reciben guía para practicar las habilidades fuera del grupo.",
-      "Las metas se actualizan a medida que el niño o adolescente gana independencia."
+    "title": "Desarrolle amistades, comunicación y confianza",
+    "body": "Un grupo divertido y de apoyo donde los niños practican habilidades sociales mediante juego estructurado, juego de roles y trabajo en equipo.",
+    "teaser": "Grupos de habilidades sociales para niños de 2 años en adelante.",
+    "blocks": [
+      {
+        "paragraphs": [
+          "Nuestro Grupo de Habilidades Sociales ofrece a los niños un entorno divertido y de apoyo para desarrollar amistades, mejorar la comunicación, fortalecer la confianza y afianzar las relaciones con compañeros. Mediante el juego estructurado, actividades interactivas, el juego de roles y el trabajo en equipo, los niños aprenden habilidades sociales esenciales mientras practican cómo interactuar de forma positiva con los demás.",
+          "Cada grupo está diseñado para responder a las necesidades del desarrollo de los niños, con énfasis en habilidades como compartir, turnarse, expresar emociones, comprender señales sociales, resolver problemas y construir conexiones significativas."
+        ]
+      },
+      {
+        "title": "Level Up Crew (edades de 2 a 6 años)",
+        "paragraphs": [
+          "¡Construyendo la base para las amistades!",
+          "Se enfoca en desarrollar habilidades sociales tempranas mediante actividades lúdicas y prácticas, y la interacción guiada con compañeros."
+        ],
+        "items": [
+          "Juego paralelo y cooperativo",
+          "Compartir, turnarse y esperar",
+          "Juego de roles sencillo y juegos de movimiento",
+          "Identificar y expresar emociones",
+          "Seguir rutinas de grupo e iniciar el juego"
+        ]
+      },
+      {
+        "title": "Quest Masters (edades de 6 a 8 años)",
+        "paragraphs": [
+          "¡Amistades que crecen y conexiones sociales más fuertes!",
+          "Ayuda a los niños a ganar confianza en situaciones sociales mientras desarrollan comunicación, cooperación y habilidades de amistad."
+        ],
+        "items": [
+          "Desafíos de trabajo en equipo y juegos cooperativos",
+          "Iniciar y mantener conversaciones",
+          "Juego de roles de situaciones sociales cotidianas",
+          "Reconocer señales sociales y lenguaje corporal",
+          "Practicar empatía, toma de perspectiva y resolución de problemas",
+          "Aprender resolución de conflictos y deportividad"
+        ]
+      },
+      {
+        "title": "Legend League (edades de 8 años en adelante)",
+        "paragraphs": [
+          "¡Dominar las conexiones sociales y convertirse en líderes seguros!",
+          "Fomenta un desarrollo social más avanzado mediante actividades colaborativas, conversaciones entre compañeros y la resolución de problemas sociales de la vida real."
+        ],
+        "items": [
+          "Liderazgo y toma de decisiones en grupo",
+          "Proyectos colaborativos y juegos estratégicos",
+          "Orientarse en las amistades y las relaciones con compañeros",
+          "Comprender señales sociales y límites en la conversación",
+          "Manejar desacuerdos y situaciones sociales difíciles",
+          "Expresar lo que necesita, con confianza e independencia"
+        ]
+      },
+      {
+        "title": "Nuestra misión",
+        "paragraphs": [
+          "Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales, ganar confianza y crecer como comunicadores sociales exitosos, mientras aprenden, se conectan y se divierten."
+        ]
+      }
     ],
     "related": [
       "aba",
@@ -600,15 +670,18 @@ Object.assign(es.sections.process, {
 
 es.sections.process.steps = [
   { title: 'Comuníquese', body: 'Contacte a VTCC por teléfono o mediante el formulario de solicitud.' },
-  { title: 'Revise el financiamiento', body: 'Indíquenos qué servicio busca y cómo puede financiarse.' },
+  {
+    title: 'Revise el financiamiento',
+    body: 'Indíquenos qué servicio busca y cómo puede financiarse. VTCC revisa seguro, Medicaid, atención administrada, cobertura comercial o financiamiento del condado/FAPT según corresponda.',
+  },
   { title: 'Complete la admisión', body: 'Envíe la documentación de admisión o referencia.' },
   {
     title: 'Programe la evaluación',
-    body: 'VTCC revisa seguro, Medicaid, atención administrada, cobertura comercial o financiamiento del condado/FAPT según corresponda.',
+    body: 'Se programa una evaluación clínica o cita de admisión cuando el servicio es adecuado.',
   },
   {
     title: 'Elabore un plan',
-    body: 'Se programa una evaluación clínica o cita de admisión y se crea un plan de tratamiento individualizado.',
+    body: 'Se crea un plan de tratamiento individualizado.',
   },
   {
     title: 'Comience los servicios',
@@ -620,10 +693,10 @@ Object.assign(es.sections.aba, {
   eyebrow: 'Terapia ABA',
   title: 'Servicios de ABA',
   intro:
-    'El Análisis de Conducta Aplicado utiliza técnicas y principios positivos para lograr cambios conductuales significativos y positivos.',
+    'El análisis aplicado de la conducta utiliza técnicas y principios positivos para lograr cambios conductuales significativos y positivos.',
   topics: [
     {
-      title: '¿Qué es el Análisis de Conducta Aplicado (ABA)?',
+      title: '¿Qué es el análisis aplicado de la conducta (ABA)?',
       paragraphs: [
         'La ABA es una terapia conductual que se utiliza para apoyar a niños con trastorno del espectro autista (TEA) y otras afecciones del desarrollo. Se centra en desarrollar gradualmente las habilidades sociales, de comunicación y de la vida diaria mediante refuerzo positivo.',
         'VTCC cuenta con especialistas en autismo en Virginia que utilizan un enfoque basado en evidencia para mejorar la capacidad funcional y social y la calidad de vida de los niños y las familias.',
@@ -639,35 +712,35 @@ Object.assign(es.sections.aba, {
     {
       title: '¿Cómo se brinda la terapia ABA a niños con TEA o trastornos del desarrollo?',
       paragraphs: [
-        'La terapia ABA ofrece programas integrales, individualizados e intensivos de intervención temprana para niños con autismo. Estas intervenciones están diseñadas para comenzar antes de los 4 años y abordan un amplio rango de habilidades para la vida, desde la comunicación y la sociabilidad hasta el autocuidado y la preparación escolar.',
-        'Los programas suelen oscilar entre 20 y 40 horas por semana durante 1 a 3 años, según la recomendación clínica y la autorización.',
+        'La terapia ABA ofrece programas integrales, individualizados e intensivos de intervención temprana para niños con autismo. Estas intervenciones están diseñadas para comenzar antes de los 4 años y abordan un amplio rango de habilidades para la vida, desde la comunicación y las habilidades sociales hasta el autocuidado y la preparación escolar.',
+        'Los programas suelen ser de 20 a 40 horas por semana durante 1 a 3 años, según la recomendación clínica y la autorización.',
       ],
     },
     {
-      title: '¿Qué tan exitoso es la ABA como enfoque?',
+      title: '¿Qué tan eficaz es la ABA como enfoque?',
       paragraphs: [
-        'La investigación y la literatura académica indican que la ABA es una de las herramientas más eficaces disponibles para ayudar a niños con TEA. Es un esfuerzo conjunto entre terapeutas y padres para estabilizar conductas asociadas con el TEA mediante el refuerzo de conductas positivas, el fortalecimiento de habilidades de comunicación y socialización, y la capacitación de los padres para comunicarse eficazmente con sus hijos.',
-        'La ABA busca reducir síntomas, mejorar habilidades y capacidades, y maximizar la función y participación del niño en la comunidad. Es un enfoque ampliamente aceptado entre profesionales de la salud y se utiliza a nivel global.',
+        'La investigación y la literatura académica indican que la ABA es una de las herramientas más eficaces disponibles para ayudar a niños con TEA. Es un esfuerzo conjunto entre terapeutas y padres para estabilizar conductas asociadas con el TEA mediante el refuerzo de conductas positivas, el fortalecimiento de habilidades de comunicación y socialización, y el entrenamiento de los padres para comunicarse eficazmente con sus hijos.',
+        'La ABA busca reducir síntomas, mejorar habilidades y capacidades, y maximizar la función y participación del niño en la comunidad. Es un enfoque ampliamente aceptado entre profesionales de la salud y se utiliza en todo el mundo.',
         'La ABA se adapta a las necesidades específicas del niño según el análisis del entorno familiar y físico y sus efectos en las conductas del niño. El enfoque de la ABA sigue centrado en mejorar las habilidades sociales y de comunicación y en capacitar a los padres para gestionar eficazmente las conductas asociadas con el TEA. La participación y una alianza sólida entre padres y terapeutas desempeñan un papel crucial para alcanzar los hitos.',
       ],
     },
     {
       title: '¿Cuál es el proceso para recibir servicios de ABA de VTCC?',
       items: [
-        'Un Analista de Conducta Certificado por la Junta (BCBA) evalúa al niño para determinar necesidades, definir metas de tratamiento e identificar hitos beneficiosos.',
+        'Un Analista de conducta certificado (BCBA) evalúa al niño para determinar necesidades, definir metas de tratamiento e identificar hitos beneficiosos.',
         'Los padres proporcionan información adicional sobre las habilidades del niño y las áreas que le resultan difíciles.',
         'Según la evaluación, la revisión de informes y la aportación de los padres, el BCBA desarrolla el plan de tratamiento y establece metas iniciales y finales.',
         'Las metas aumentan incrementalmente las habilidades que el niño necesita aprender y le ayudan a funcionar lo mejor posible.',
         'Para disminuir conductas que interfieren, el BCBA desarrolla un plan de intervención conductual para el niño.',
         'Uno o más técnicos brindan tratamiento al niño bajo la supervisión y dirección del BCBA.',
-        'El BCBA monitorea el progreso en las metas del niño.',
+        'El BCBA revisa el progreso en las metas del niño.',
       ],
     },
     {
       title: '¿Cuáles son algunas filosofías básicas de ABA que sigue VTCC?',
       items: [
         'El analista se reúne regularmente con familiares y personal del programa para planificar, revisar el progreso y hacer ajustes según sea necesario.',
-        'Los padres y otros familiares y cuidadores reciben capacitación para apoyar el aprendizaje y la práctica de habilidades durante el día.',
+        'Los padres y otros familiares y cuidadores reciben entrenamiento para apoyar el aprendizaje y la práctica de habilidades durante el día.',
         'El día del niño se estructura para ofrecer muchas oportunidades, planificadas y naturales, de adquirir y practicar habilidades en situaciones estructuradas y no estructuradas.',
         'El niño recibe abundante refuerzo positivo por demostrar habilidades útiles y conductas socialmente apropiadas. El énfasis está en interacciones sociales positivas y un aprendizaje agradable.',
         'El niño no recibe refuerzo por conductas que causan daño o impiden el aprendizaje.',
@@ -683,7 +756,7 @@ Object.assign(es.sections.aba, {
     {
       title: '¿Quién puede brindar servicios de ABA a mi hijo o al niño que estoy refiriendo?',
       paragraphs: [
-        'En la mayoría de los casos, un terapeuta o técnico de conducta (BT) capacitado y supervisado por un BCBA brindará terapia directa a su hijo.',
+        'En la mayoría de los casos, un terapeuta o técnico de conducta (BT) capacitado y supervisado por un BCBA brindará terapia directa a su hijo o hija.',
         'El BCBA tiene un título de posgrado en psicología o análisis de conducta, está certificado mediante un examen nacional de certificación y cuenta con licencia estatal para brindar tratamiento.',
       ],
     },
@@ -697,16 +770,16 @@ es.sections.aba.columns = [
       'Comunicación e interacción social',
       'Rutinas de vida diaria y preparación escolar',
       'Habilidades de juego, ocio e independencia',
-      'Metas conductuales y comportamientos de reemplazo más seguros',
+      'Metas conductuales y conductas de reemplazo más seguros',
     ],
   },
   {
     title: 'Cómo VTCC brinda ABA',
     items: [
       'Evaluación y planificación del tratamiento',
-      'Supervisión BCBA y monitoreo del progreso',
+      'Supervisión del BCBA y seguimiento del progreso',
       'Terapia directa del personal capacitado según corresponda',
-      'Capacitación para padres y colaboración con cuidadores',
+      'Entrenamiento para padres y colaboración con cuidadores',
     ],
   },
 ]
@@ -714,105 +787,151 @@ es.sections.aba.columns = [
 Object.assign(es.sections, {
   earlyLearners: {
     eyebrow: 'Programa de Primeros Aprendices',
-    title: 'Desarrolle confianza para la escuela y los entornos sociales',
+    title: 'Prepárese para una transición exitosa a la escuela',
     intro:
-      'El programa de Primeros Aprendices apoya a niños en edad preescolar mientras practican rutinas, comunicación, juego y habilidades de aprendizaje temprano que les ayudan a participar en la escuela y en entornos sociales.',
+      'El programa de Primeros Aprendices está diseñado para preparar a los niños que reciben servicios de ABA para una transición exitosa a la escuela, mediante una rutina estructurada que refleja un entorno típico de aula. Nuestra meta es ayudar a los estudiantes a desarrollar independencia y a necesitar la menor cantidad de apoyo posible a medida que crecen.',
     columns: [
       {
-        title: 'Lo que apoya el programa',
+        title: 'Un día con estructura de aula',
+        body: 'Este programa se ofrece de lunes a viernes, de 10:00 a.m. a 2:00 p.m. Los niños de 3 a 5 años participan en rotaciones de centros de 20 minutos. La actividad dirigida por el docente se enfoca en las habilidades de atención, y todos los centros apoyan el juego, la creatividad y las bases académicas tempranas.',
         items: [
-          'Rutinas y transiciones para la preparación escolar',
-          'Comunicación y habilidades de aprendizaje temprano',
-          'Juego, participación y conexión social',
-          'Seguir instrucciones y desarrollar independencia',
+          'Juego de simulación',
+          'Lectura',
+          'Trabajo independiente',
+          'Arte y manualidades',
+          'Actividad dirigida por el docente',
         ],
       },
       {
-        title: 'Cómo participan las familias',
+        title: 'Habilidades a lo largo del día',
+        body: 'Los niños practican la interacción social con compañeros y reciben enseñanza de análisis aplicado de la conducta (ABA) durante todo el día. Las estrategias de ABA enseñan y refuerzan habilidades de comunicación, sociales y de autocuidado que apoyan el éxito a largo plazo.',
         items: [
-          'Metas individualizadas según las fortalezas y necesidades del niño',
-          'Práctica en rutinas y entornos conocidos',
-          'Colaboración y orientación para cuidadores',
-          'Seguimiento del progreso y ajustes al plan',
+          'Compartir, turnarse y juego cooperativo',
+          'Habilidades de juego, creatividad y bases académicas tempranas',
+          'Habilidades de comunicación, sociales y de autocuidado',
+          'Independencia y preparación escolar',
         ],
       },
     ],
   },
   feedingProgram: {
     eyebrow: 'Programa de Alimentación',
-    title: 'Haga que las comidas sean más flexibles y exitosas',
+    title: 'Mejores momentos a la hora de comer empiezan por lo básico.',
     intro:
-      'El Programa de Alimentación utiliza prácticas ABA para ayudar a los niños a ampliar su repertorio y sus preferencias alimentarias mediante metas individualizadas, apoyo positivo y práctica gradual.',
+      'El éxito en la alimentación va más allá de simplemente probar alimentos nuevos. El programa acompaña a cada niño desde donde se encuentra y construye las habilidades fundamentales que hacen que las comidas sean más cómodas, positivas y exitosas.',
     columns: [
       {
-        title: 'Lo que puede apoyar el programa',
+        title: 'Empezar con lo básico',
+        body: 'El apoyo comienza por llegar a la mesa, sentarse y permanecer en la mesa durante las comidas, y participar en rutinas simples a la hora de comer.',
         items: [
-          'Ampliar la variedad de alimentos que acepta el niño',
-          'Desarrollar comodidad con nuevos sabores, texturas y presentaciones',
-          'Apoyar rutinas positivas durante las comidas',
-          'Practicar preferencias alimentarias flexibles a un ritmo manejable',
+          'Llegar a la mesa',
+          'Sentarse y permanecer en la mesa',
+          'Rutinas simples a la hora de comer',
         ],
       },
       {
-        title: 'Cómo se planifica el apoyo',
+        title: 'Avanzar desde ahí',
+        body: 'A partir de esas bases, las habilidades crecen de forma gradual. Eso incluye alimentarse por sí mismo, el ritmo de la comida y la comodidad con los alimentos en el plato.',
         items: [
-          'Evaluación de los patrones actuales y las prioridades familiares',
-          'Metas individualizadas y refuerzo positivo',
-          'Colaboración con cuidadores durante las comidas cotidianas',
-          'Seguimiento del progreso y ajustes según la respuesta del niño',
+          'Alimentarse por sí mismo',
+          'Ritmo adecuado durante la comida',
+          'Tolerar los alimentos en el plato',
+          'Explorar nuevas texturas y sabores',
+          'Aceptar alimentos nuevos y culturalmente familiares',
         ],
+      },
+      {
+        title: 'Apoyo en el hogar',
+        body: 'El apoyo puede extenderse más allá de la clínica y llegar al hogar de la familia. El equipo trabaja junto a los cuidadores durante comidas reales, con orientación práctica y estrategias para las rutinas de la familia.',
       },
     ],
   },
   socialEnrichment: {
-    eyebrow: 'Enriquecimiento Social',
-    title: 'Practique habilidades con compañeros de 8 a 12 años',
+    eyebrow: 'Grupo de Enriquecimiento de Habilidades Sociales',
+    title: 'Desarrolle confianza social a través del juego',
     intro:
-      'El Enriquecimiento Social ayuda a niños de 8 a 12 años a unirse a actividades grupales, construir amistades y practicar habilidades sociales cotidianas con compañeros.',
+      'El Grupo de Enriquecimiento de Habilidades Sociales es un programa estructurado de aprendizaje social para niños de 3 a 5 años, diseñado para promover la comunicación, la cooperación y las habilidades de amistad mediante el juego guiado y la interacción con compañeros. Dirigido por profesionales de la conducta con experiencia, este programa de grupo pequeño ofrece un espacio divertido y de apoyo para practicar.',
     columns: [
       {
-        title: 'Lo que pueden practicar los niños',
+        title: 'Lo que practican los niños',
         items: [
-          'Unirse a juegos grupales y actividades compartidas',
-          'Turnos, espera y juego flexible',
-          'Conversación y habilidades de amistad con compañeros',
-          'Mantenerse involucrado durante rutinas y transiciones del grupo',
+          'Comunicación social',
+          'Turnarse y compartir',
+          'Juego cooperativo',
+          'Seguir instrucciones del grupo',
+          'Participación con compañeros',
+          'Habilidades de participación en grupo',
         ],
       },
       {
-        title: 'Un entorno grupal con apoyo',
+        title: 'Cada sesión incluye',
         items: [
-          'Práctica en grupos pequeños con niños de la misma edad',
-          'Orientación durante juegos, conversación y juego compartido',
-          'Metas individualizadas según las habilidades sociales actuales',
-          'Guía familiar para continuar la práctica en casa y en la escuela',
+          'Tiempo en círculo',
+          'Juego guiado e interacción con compañeros',
+          'Actividad STEAM (ciencia, tecnología, ingeniería, arte y matemáticas)',
         ],
+      },
+      {
+        title: 'Información del programa',
+        items: [
+          'Edades: 3 a 5 años',
+          'Duración de la sesión: 60 minutos',
+          'Ubicación: 10565 Fairfax Blvd, Suite 300, Fairfax, VA 22030',
+          'Horario: una vez por semana durante 12 semanas. Contacte a VTCC para la próxima fecha de inicio.',
+          'Matrícula del programa: $950.00, que puede dividirse en 3 pagos, uno cada dos semanas',
+          'Cuota de inscripción (el seguro no la reembolsa): $250.00',
+        ],
+      },
+      {
+        title: 'Inscripción',
+        body: 'Todos los posibles participantes completan una breve revisión para confirmar que el programa es adecuado para sus necesidades sociales, de comunicación y de conducta actuales. Para obtener más información o comenzar la inscripción, llame al 703.218.6599. El cupo es limitado.',
       },
     ],
   },
   socialSkillsGroup: {
     eyebrow: 'Grupo de Habilidades Sociales',
-    title: 'Practique habilidades sociales avanzadas con compañeros',
+    title: 'Desarrolle amistades, comunicación y confianza',
     intro:
-      'El Grupo de Habilidades Sociales es para clientes que están listos para trabajar en habilidades sociales más avanzadas, incluyendo la comprensión del sarcasmo, la conversación y el juego apropiado para su edad con compañeros.',
+      'Nuestro Grupo de Habilidades Sociales ofrece a los niños un entorno divertido y de apoyo para desarrollar amistades, mejorar la comunicación, fortalecer la confianza y afianzar las relaciones con compañeros. Mediante el juego estructurado, actividades interactivas, el juego de roles y el trabajo en equipo, los niños aprenden habilidades sociales esenciales mientras practican cómo interactuar de forma positiva con los demás. Cada grupo está diseñado para responder a las necesidades del desarrollo de los niños, con énfasis en habilidades como compartir, turnarse, expresar emociones, comprender señales sociales, resolver problemas y construir conexiones significativas.',
     columns: [
       {
-        title: 'Habilidades que puede abordar el grupo',
+        title: 'Level Up Crew (edades de 2 a 6 años)',
+        body: 'Construyendo la base para las amistades. Este nivel se enfoca en habilidades sociales tempranas mediante actividades lúdicas y prácticas, y la interacción guiada con compañeros.',
         items: [
-          'Comprender el sarcasmo, el humor y los significados implícitos',
-          'Conversación de ida y vuelta y pensamiento flexible',
-          'Juego y actividades compartidas apropiadas para la edad',
-          'Unirse a grupos, resolver problemas y reparar malentendidos',
+          'Juego paralelo y cooperativo',
+          'Compartir, turnarse y esperar',
+          'Juego de roles sencillo y juegos de movimiento',
+          'Identificar y expresar emociones',
+          'Seguir rutinas de grupo e iniciar el juego',
         ],
       },
       {
-        title: 'Un entorno grupal con apoyo',
+        title: 'Quest Masters (edades de 6 a 8 años)',
+        body: 'Amistades que crecen y conexiones sociales más fuertes. Los niños ganan confianza mientras desarrollan comunicación, cooperación y habilidades de amistad.',
         items: [
-          'Práctica en grupos pequeños con metas individualizadas',
-          'Orientación y comentarios positivos del personal capacitado',
-          'Oportunidades para practicar habilidades en interacciones realistas',
-          'Colaboración familiar para apoyar la práctica fuera del grupo',
+          'Desafíos de trabajo en equipo y juegos cooperativos',
+          'Iniciar y mantener conversaciones',
+          'Juego de roles de situaciones sociales cotidianas',
+          'Reconocer señales sociales y lenguaje corporal',
+          'Practicar empatía, toma de perspectiva y resolución de problemas',
+          'Aprender resolución de conflictos y deportividad',
         ],
+      },
+      {
+        title: 'Legend League (edades de 8 años en adelante)',
+        body: 'Dominar las conexiones sociales y convertirse en líderes seguros. Este nivel usa actividades colaborativas, conversaciones entre compañeros y la resolución de problemas sociales de la vida real.',
+        items: [
+          'Liderazgo y toma de decisiones en grupo',
+          'Proyectos colaborativos y juegos estratégicos',
+          'Orientarse en las amistades y las relaciones con compañeros',
+          'Comprender señales sociales y límites en la conversación',
+          'Manejar desacuerdos y situaciones sociales difíciles',
+          'Expresar lo que necesita, con confianza e independencia',
+        ],
+      },
+      {
+        title: 'Nuestra misión',
+        body: 'Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales, ganar confianza y crecer como comunicadores sociales exitosos, mientras aprenden, se conectan y se divierten.',
       },
     ],
   },
@@ -850,29 +969,29 @@ Object.assign(es.sections.funding, {
   eyebrow: 'Seguro y financiamiento',
   title: 'Ayuda con el seguro y el financiamiento',
   intro:
-    'VTCC puede ayudar a familias y referentes a entender las vías de financiamiento más comunes para nuestros servicios.',
-  note: 'Antes de publicar, VTCC debe confirmar qué planes se aceptan actualmente, si la cobertura comercial está activa para cada servicio y qué oficina o miembro del equipo maneja la verificación.',
+    'VTCC puede ayudar a las familias y a quienes refieren a entender las opciones de financiamiento más usadas para nuestros servicios.',
+  note: 'VTCC acepta Medicaid, financiamiento del condado y seguro comercial. Contacte a VTCC para confirmar su plan y servicio específicos. La autorización sigue dependiendo del plan o de la agencia de financiamiento.',
   ctaLabel: 'Consultar seguro y financiamiento',
 })
 
 es.sections.funding.payers[9] = 'Financiamiento del condado/FAPT'
 
 Object.assign(es.sections.referrers, {
-  eyebrow: 'Para familias y referentes',
+  eyebrow: 'Para familias y profesionales que refieren',
   title: '¿Por dónde quiere empezar?',
 })
 
 es.sections.referrers.paths = [
   {
-    title: 'Para Familias',
-    body: 'Conozca qué servicios pueden ser adecuados para su hijo, qué documentación puede necesitarse y qué esperar durante la admisión.',
+    title: 'Para familias',
+    body: 'Conozca qué servicios pueden ser adecuados para su hijo o hija, qué documentación puede necesitarse y qué esperar durante la admisión.',
     buttonLabel: 'Comenzar como familia',
     buttonStyle: 'primary',
     buttonHref: '/contact',
   },
   {
-    title: 'Para Referentes',
-    body: 'Escuelas, médicos, administradores de casos, socios del condado y profesionales comunitarios pueden contactar a VTCC para preguntar sobre elegibilidad y requisitos de referencia.',
+    title: 'Para profesionales',
+    body: 'Escuelas, médicos, administradores de casos, personal del condado y profesionales comunitarios pueden contactar a VTCC para preguntar sobre elegibilidad y requisitos de referencia.',
     buttonLabel: 'Iniciar una referencia',
     buttonStyle: 'secondary',
     buttonHref: '/contact/referral',
@@ -880,7 +999,7 @@ es.sections.referrers.paths = [
 ]
 
 Object.assign(es.sections.whoWeServe, {
-  eyebrow: 'A quién servimos',
+  eyebrow: 'A quién atendemos',
   title: 'Apoyo para niños, adolescentes y familias',
   intro:
     'VTCC atiende a niños, adolescentes y familias en el norte de Virginia que pueden necesitar apoyo conductual, del desarrollo o de salud mental.',
@@ -888,12 +1007,10 @@ Object.assign(es.sections.whoWeServe, {
   items: [
     'Trastorno del espectro autista y necesidades del desarrollo',
     'Habilidades de comunicación, sociales, de la vida diaria o de preparación escolar',
-    'Dificultades conductuales o emocionales significativas',
-    'Estrés familiar relacionado con las necesidades de cuidado del niño',
-    'Niños pequeños que se preparan para la escuela y los entornos sociales',
-    'Metas de alimentación relacionadas con el repertorio y las preferencias alimentarias',
-    'Enriquecimiento social para niños de 8 a 12 años',
-    'Habilidades sociales avanzadas y juego apropiado para la edad con compañeros',
+    'Apoyo de Primeros Aprendices con estructura de aula para niños de 3 a 5 años',
+    'Apoyo de alimentación que empieza con lo básico a la hora de comer y puede incluir práctica en el hogar',
+    'Enriquecimiento Social para niños de 3 a 5 años',
+    'Grupo de Habilidades Sociales para niños de 2 años en adelante',
     'Capacitación Safety-Care® para cuidadores, con sesiones grupales próximamente',
     'Referencias conectadas con Medicaid, atención administrada, seguro comercial o financiamiento del condado/FAPT',
   ],
@@ -912,15 +1029,15 @@ Object.assign(es.sections.about, {
   mission: {
     eyebrow: 'Nuestra misión',
     statement: 'Servir a comunidades diversas es el centro de nuestro trabajo.',
-    body: 'Cada familia aporta su propia cultura, idioma, historia y fortalezas. Encontramos a las familias en su idioma y su cultura, respetamos los valores de cada familia y hacemos que la atención sea comprensible y acogedora.',
+    body: 'Cada familia aporta su propia cultura, idioma, historia y fortalezas. Acompañamos a las familias en su idioma y su cultura, respetamos los valores de cada familia y hacemos que la atención sea comprensible y acogedora.',
   },
   story: {
     eyebrow: 'Nuestra historia',
     title: 'Habilidades fundamentales que aparecen en la vida diaria',
     paragraphs: [
-      'Las familias llegan a VTCC porque quieren que la vida diaria se sienta más fácil: las comidas, vestirse, el juego y los momentos entre medio.',
+      'Las familias llegan a VTCC porque quieren que la vida diaria se sienta más fácil: las comidas, vestirse, el juego y los ratos entre una actividad y otra.',
       'Enseñamos habilidades fundamentales que los niños pueden usar una y otra vez. Esas habilidades se generalizan de la clínica al hogar, la escuela y la comunidad.',
-      'Las familias son socias en todo el proceso. Juntos elegimos metas que importan en la vida real y practicamos hasta que el cambio se queda.',
+      'Las familias participan en todo el proceso. Juntos elegimos metas que importan en la vida real y practicamos hasta que el cambio se mantiene.',
     ],
   },
   pillars: {
@@ -929,7 +1046,7 @@ Object.assign(es.sections.about, {
     items: [
       {
         title: 'Comunicación',
-        body: 'Pedir lo que necesitan en la mesa, y ser comprendidos.',
+        body: 'Pedir lo que necesitan en la mesa y que se les entienda.',
       },
       {
         title: 'Independencia',
@@ -937,12 +1054,12 @@ Object.assign(es.sections.about, {
       },
       {
         title: 'Conexión',
-        body: 'Juego con hermanos y compañeros que se siente natural y bienvenido.',
+        body: 'Juego con hermanos y compañeros que se siente natural y en el que se sienten incluidos.',
       },
     ],
   },
   photoAlt: 'Clínicos de VTCC trabajando uno a uno con niños en la clínica',
-  photoCaption: 'Clínicos y familias practicando habilidades que viajan a casa.',
+  photoCaption: 'Clínicos y familias practicando habilidades que se llevan a casa.',
   quotes: {
     eyebrow: '',
     title: 'Lo que dicen los padres sobre la atención en VTCC',
@@ -991,9 +1108,9 @@ Object.assign(es.sections.contact, {
 
 Object.assign(es.sections.contactFamily, {
   eyebrow: 'Para familias',
-  title: 'Solicite servicios para su hijo',
+  title: 'Solicite servicios para su hijo o hija',
   intro:
-    'Díganos cómo contactarlo y un poco sobre su hijo. Un miembro del equipo de VTCC puede explicar los pasos de admisión, los formularios y la revisión de financiamiento.',
+    'Díganos cómo contactarlo y un poco sobre su hijo o hija. Un miembro del equipo de VTCC puede explicar los pasos de admisión, los formularios y la revisión de financiamiento.',
   callEyebrow: 'Llame a VTCC',
   callTitle: '¿Prefiere hablar con alguien?',
   callIntro:
@@ -1001,7 +1118,7 @@ Object.assign(es.sections.contactFamily, {
 })
 
 Object.assign(es.sections.contactReferral, {
-  eyebrow: 'Para referentes',
+  eyebrow: 'Para profesionales',
   title: 'Para médicos, personal escolar, trabajadores sociales y otros profesionales',
   intro: '',
   callEyebrow: 'Llame a VTCC',
@@ -1011,55 +1128,57 @@ Object.assign(es.sections.contactReferral, {
 })
 
 const familyFormNotices = {
-  notice:
-    'Este formulario es solo para comunicarse con nosotros sobre nuestros servicios. No incluya diagnósticos, informes de evaluación o escolares, números de Medicaid o de seguro médico, números de Seguro Social ni otros detalles médicos privados. Recopilaremos lo que necesitemos durante el proceso de admisión. Este formulario no se revisa las 24 horas. Si se trata de una emergencia, llame al 911. Si tiene una crisis de salud mental, llame o envíe un mensaje de texto al 988.',
-  consentLabel:
-    'Soy padre o madre, tutor legal o una persona adulta que se comunica con VTCC. Entiendo que este formulario no es para emergencias ni para información médica privada, y acepto que VTCC se comunique conmigo con la información que proporcioné.',
+  notice: '',
+  consentLabel: '',
 }
 
-Object.assign(es.form, familyFormNotices, { submitLabel: 'Enviar Solicitud' })
+Object.assign(es.form, familyFormNotices, { submitLabel: 'Enviar solicitud' })
 Object.assign(es.formFamily, familyFormNotices)
 Object.assign(es.formReferral, {
-  notice:
-    'Este formulario es solo para preguntas sobre referencias. No incluya informes de diagnóstico, IEP, evaluaciones, expedientes de tratamiento, números de Medicaid, números de Seguro Social ni inquietudes urgentes de seguridad. Después de recibir su mensaje, VTCC se comunicará con usted para indicarle cómo enviar los documentos de la referencia. Si se trata de una emergencia, llame al 911.',
-  consentLabel:
-    'Entiendo que este formulario es solo para preguntas sobre referencias y no es para emergencias ni para información de salud protegida. Tengo permiso para compartir con VTCC el nombre y la información de contacto del padre, la madre o el tutor.',
+  notice: '',
+  consentLabel: '',
 })
 
-es.form.fields = [
-  { name: 'name', label: 'Nombre del padre/tutor o referente', type: 'text', autocomplete: 'name' },
-  { name: 'email', label: 'Correo electrónico', type: 'email', autocomplete: 'email' },
-  { name: 'phone', label: 'Teléfono', type: 'tel', autocomplete: 'tel' },
-  {
-    name: 'preferredContact',
-    label: 'Método de contacto preferido',
-    type: 'select',
-    options: ['Teléfono', 'Correo electrónico', 'Cualquiera'],
-  },
-  {
-    name: 'ageRange',
-    label: 'Edad del niño',
-    type: 'number',
-    min: 0,
-    max: 30,
-    step: 1,
-    inputmode: 'numeric',
-  },
-  {
-    name: 'service',
-    label: 'Interés en servicios',
-    type: 'select',
-    options: ['ABA', 'Primeros Aprendices', 'Programa de Alimentación', 'Enriquecimiento Social', 'Grupo de Habilidades Sociales', 'Safety-Care® para Familias y Cuidadores', 'No estoy seguro', 'Pregunta de referencia'],
-  },
-  {
-    name: 'funding',
-    label: 'Fuente de financiamiento',
-    type: 'select',
-    options: ['Medicaid', 'MCO', 'Seguro comercial', 'Condado/FAPT', 'No estoy seguro'],
-  },
-  { name: 'location', label: 'Ciudad o condado', type: 'text' },
-  { name: 'message', label: 'Mensaje breve no sensible', type: 'textarea', rows: 4 },
-]
+const legacyFormCopy = {
+  'Parent/guardian or referrer name': 'Nombre del padre, la madre, el tutor o de quien refiere',
+  Email: 'Correo electrónico',
+  Phone: 'Teléfono',
+  'Preferred contact method': 'Método de contacto preferido',
+  Either: 'Cualquiera de los dos',
+  "Child's age": 'Edad del niño o de la niña',
+  'Service interest': 'Servicio de interés',
+  'Early Learners': 'Primeros Aprendices',
+  'Feeding Program': 'Programa de Alimentación',
+  'Social Enrichment': 'Enriquecimiento Social',
+  'Social Skills Group': 'Grupo de Habilidades Sociales',
+  'Safety-Care® for Families & Caregivers': 'Safety-Care® para Familias y Cuidadores',
+  'Not sure': 'No lo sé',
+  'Funding source': 'Fuente de financiamiento',
+  'County/FAPT': 'Condado/FAPT',
+  'Is this with Medicaid?': '¿Es con Medicaid?',
+  Yes: 'Sí',
+  No: 'No',
+  Select: 'Seleccione',
+  'City or county': 'Ciudad o condado',
+  'Short non-sensitive message': 'Mensaje breve, sin datos clínicos',
+}
+
+function translateLegacyForm(value) {
+  if (typeof value === 'string') {
+    return legacyFormCopy[value] ?? value
+  }
+  if (Array.isArray(value)) {
+    return value.map(translateLegacyForm)
+  }
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item]) => [key, translateLegacyForm(item)]),
+    )
+  }
+  return value
+}
+
+es.form.fields = translateLegacyForm(en.form.fields)
 
 es.offices = [
   {
@@ -1097,7 +1216,7 @@ Object.assign(es.legal, {
     'Por ahora, este documento está disponible solo en inglés. Si necesita ayuda en español, llame al 703-218-6599.',
   privacyLinkLabel: 'Lea nuestra Política de privacidad del sitio web',
   serviceDisclaimer:
-    'Esta página ofrece información general sobre nuestros servicios. No es un diagnóstico, un plan de tratamiento ni consejo médico, y no crea una relación entre proveedor y cliente. Cada niño es diferente y los resultados varían. La elegibilidad y la cobertura dependen de una evaluación, de las necesidades de su hijo y de la aprobación de Medicaid, su plan de salud o el equipo CSA/FAPT de su condado. Si usted o su hijo están en peligro, llame al 911. Si tiene una crisis de salud mental, llame o envíe un mensaje de texto al 988.',
+    'Esta página ofrece información general sobre nuestros servicios. No es un diagnóstico, un plan de tratamiento ni consejo médico, y no crea una relación entre proveedor y cliente. Cada niño es diferente y los resultados varían. La elegibilidad y la cobertura dependen de una evaluación, de las necesidades de su hijo o hija y de la aprobación de Medicaid, su plan de salud o el equipo CSA/FAPT de su condado. Si usted o su hijo o hija están en peligro, llame al 911. Si tiene una crisis de salud mental, llame o envíe un mensaje de texto al 988.',
 })
 es.legal.pages.privacy.title = 'Política de privacidad del sitio web'
 es.legal.pages.terms.title = 'Términos de uso del sitio web'
@@ -1138,7 +1257,7 @@ es.pages = {
     title: 'Página de Terapia ABA',
     hero: {
       headline: 'Terapia ABA diseñada en torno a cada niño',
-      body: 'El Análisis de Conducta Aplicado es un enfoque basado en evidencia que utiliza estrategias positivas para ayudar a los niños a desarrollar habilidades significativas. VTCC crea planes ABA individualizados según la evaluación, la aportación familiar y las fortalezas y necesidades de cada niño.',
+      body: 'El análisis aplicado de la conducta es un enfoque basado en evidencia que utiliza estrategias positivas para ayudar a los niños a desarrollar habilidades significativas. VTCC crea planes ABA individualizados según la evaluación, la aportación familiar y las fortalezas y necesidades de cada niño.',
       buttons: ['Solicitar servicios de ABA', 'Llamar sobre ABA'],
     },
     sections: [
@@ -1159,17 +1278,17 @@ es.pages = {
       {
         title: 'Cómo VTCC brinda ABA',
         steps: [
-          'Un Analista de Conducta Certificado por la Junta (BCBA) revisa las necesidades del niño.',
+          'Un Analista de conducta certificado (BCBA) revisa las necesidades del niño.',
           'La familia comparte información sobre fortalezas, desafíos, rutinas y prioridades.',
           'El BCBA crea metas de tratamiento y un plan de apoyo conductual cuando corresponda.',
           'Técnicos de conducta o terapeutas pueden brindar servicios directos bajo supervisión del BCBA.',
           'Los padres y cuidadores reciben orientación para practicar habilidades en las rutinas diarias.',
-          'Se monitorea el progreso y se actualizan los planes a medida que el niño crece.',
+          'Se revisa el progreso y se actualizan los planes a medida que el niño crece.',
         ],
       },
       {
-        title: 'Capacitación para padres',
-        body: 'Los padres y cuidadores son socios esenciales en la terapia ABA. VTCC apoya a las familias con estrategias que pueden usar durante rutinas diarias, transiciones, momentos de comunicación y situaciones difíciles.',
+        title: 'Entrenamiento para padres',
+        body: 'Los padres y cuidadores son parte esencial en la terapia ABA. VTCC apoya a las familias con estrategias que pueden usar durante rutinas diarias, transiciones, momentos de comunicación y situaciones difíciles.',
       },
     ],
     cta: {
@@ -1180,113 +1299,176 @@ es.pages = {
   earlyLearners: {
     title: 'Página del Programa de Primeros Aprendices',
     hero: {
-      headline: 'Apoyo para el aprendizaje temprano y la preparación social',
-      body: 'El programa de Primeros Aprendices apoya a niños en edad preescolar mientras practican rutinas, comunicación, juego y habilidades de aprendizaje temprano para la escuela y los entornos sociales.',
+      headline: 'Prepárese para una transición exitosa a la escuela',
+      body: 'El programa de Primeros Aprendices prepara a los niños que reciben servicios de ABA para la escuela con una rutina estructurada que refleja un aula típica. La meta es ayudar a los estudiantes a desarrollar independencia y a necesitar la menor cantidad de apoyo posible a medida que crecen. El programa se ofrece de lunes a viernes, de 10:00 a.m. a 2:00 p.m., para niños de 3 a 5 años.',
       buttons: ['Solicitar servicios de Primeros Aprendices', 'Preguntar sobre elegibilidad'],
     },
     sections: [
       {
-        title: 'Lo que pueden practicar los primeros aprendices',
-        intro: 'Las metas pueden incluir transiciones, instrucciones, comunicación, juego, participación social, aprendizaje temprano e independencia.',
+        title: 'Un día con estructura de aula',
+        intro:
+          'Los niños participan en rotaciones de centros de 20 minutos. La actividad dirigida por el docente se enfoca en las habilidades de atención, y todos los centros apoyan el juego, la creatividad y las bases académicas tempranas.',
         items: [
-          'Rutinas y transiciones para la preparación escolar',
-          'Comunicación y habilidades de aprendizaje temprano',
-          'Juego, participación y conexión social',
-          'Seguir instrucciones y desarrollar independencia',
+          'Juego de simulación',
+          'Lectura',
+          'Trabajo independiente',
+          'Arte y manualidades',
+          'Actividad dirigida por el docente',
         ],
       },
       {
-        title: 'Colaboración con la familia',
-        body: 'VTCC trabaja con los cuidadores para identificar metas significativas y practicar habilidades en las rutinas cotidianas. Los planes se ajustan a medida que el niño crece y desarrolla confianza.',
+        title: 'Habilidades a lo largo del día',
+        body: 'Los niños practican compartir, turnarse y el juego cooperativo con compañeros. Las estrategias de enseñanza del análisis aplicado de la conducta (ABA) se usan durante todo el día para enseñar y reforzar habilidades de comunicación, sociales y de autocuidado.',
       },
     ],
     cta: {
-      body: 'Contacte a VTCC para preguntar si el programa de Primeros Aprendices puede ser adecuado para su hijo en edad preescolar y conocer los próximos pasos de admisión.',
+      body: 'Contacte a VTCC para preguntar si el programa de Primeros Aprendices puede ser adecuado para su hijo o hija y conocer los próximos pasos de admisión.',
       button: 'Preguntar sobre Primeros Aprendices',
     },
   },
   feedingProgram: {
     title: 'Página del Programa de Alimentación',
     hero: {
-      headline: 'Apoyo para ampliar el repertorio alimentario',
-      body: 'El Programa de Alimentación utiliza prácticas ABA para ayudar a los niños a ampliar su repertorio y sus preferencias alimentarias mediante metas individualizadas, apoyo positivo y práctica gradual.',
+      headline: 'Mejores momentos a la hora de comer empiezan por lo básico',
+      body: 'El éxito en la alimentación va más allá de simplemente probar alimentos nuevos. El programa acompaña a cada niño desde donde se encuentra y construye las habilidades fundamentales que hacen que las comidas sean más cómodas, positivas y exitosas.',
       buttons: ['Solicitar servicios de alimentación', 'Preguntar sobre elegibilidad'],
     },
     sections: [
       {
-        title: 'Lo que puede apoyar el programa de alimentación',
-        intro: 'El programa ayuda a los niños a practicar la aceptación y exploración de una mayor variedad de alimentos, sabores, texturas y presentaciones.',
+        title: 'Empezar con lo básico',
+        intro:
+          'El apoyo comienza por llegar a la mesa, sentarse y permanecer en la mesa durante las comidas, y participar en rutinas simples a la hora de comer.',
         items: [
-          'Ampliar la variedad de alimentos que acepta el niño',
-          'Desarrollar comodidad con nuevos sabores y texturas',
-          'Apoyar rutinas positivas durante las comidas',
-          'Practicar preferencias alimentarias flexibles a un ritmo manejable',
+          'Llegar a la mesa',
+          'Sentarse y permanecer en la mesa',
+          'Rutinas simples a la hora de comer',
         ],
       },
       {
-        title: 'Práctica positiva e individualizada',
-        body: 'El equipo colabora con los cuidadores para establecer metas prácticas, usar apoyo positivo e introducir la práctica a un ritmo que respete las necesidades del niño y las rutinas familiares.',
+        title: 'Avanzar desde ahí',
+        intro: 'A partir de esas bases, las habilidades crecen de forma gradual.',
+        items: [
+          'Alimentarse por sí mismo',
+          'Ritmo adecuado durante la comida',
+          'Tolerar los alimentos en el plato',
+          'Explorar nuevas texturas y sabores',
+          'Aceptar alimentos nuevos y culturalmente familiares',
+        ],
+      },
+      {
+        title: 'Apoyo en el hogar',
+        body: 'El apoyo puede extenderse más allá de la clínica y llegar al hogar de la familia. El equipo trabaja junto a los cuidadores durante comidas reales, con orientación práctica y estrategias para las rutinas de la familia.',
       },
     ],
     cta: {
-      body: 'Contacte a VTCC para preguntar si el Programa de Alimentación puede ser apropiado para su hijo y conocer el proceso de admisión.',
+      body: 'Contacte a VTCC para preguntar si el Programa de Alimentación puede ser apropiado para su hijo o hija y conocer el proceso de admisión.',
       button: 'Preguntar sobre el Programa de Alimentación',
     },
   },
   socialEnrichment: {
     title: 'Página de Enriquecimiento Social',
     hero: {
-      headline: 'Habilidades con compañeros para niños de 8 a 12 años',
-      body: 'El Enriquecimiento Social ayuda a niños de 8 a 12 años a unirse a actividades grupales, construir amistades y practicar habilidades sociales cotidianas con compañeros.',
+      headline: 'Desarrolle confianza social a través del juego',
+      body: 'El Grupo de Enriquecimiento de Habilidades Sociales es un programa estructurado de aprendizaje social para niños de 3 a 5 años. Dirigido por profesionales de la conducta con experiencia, promueve la comunicación, la cooperación y las habilidades de amistad mediante el juego guiado y la interacción con compañeros.',
       buttons: ['Solicitar servicios de Enriquecimiento Social', 'Preguntar sobre elegibilidad'],
     },
     sections: [
       {
-        title: 'Lo que pueden practicar los niños',
-        intro: 'El grupo se centra en habilidades cotidianas con compañeros que ayudan a los niños a participar en juegos, conversación y actividades compartidas.',
+        title: 'Lo que practican los niños',
+        intro:
+          'Los participantes realizan actividades apropiadas para su desarrollo que fortalecen la comunicación social, la cooperación y las habilidades de amistad.',
         items: [
-          'Unirse a juegos grupales y actividades compartidas',
-          'Turnos, espera y juego flexible',
-          'Conversación y habilidades de amistad con compañeros',
-          'Mantenerse involucrado durante rutinas y transiciones del grupo',
+          'Comunicación social',
+          'Turnarse y compartir',
+          'Juego cooperativo',
+          'Seguir instrucciones del grupo',
+          'Participación con compañeros',
+          'Habilidades de participación en grupo',
         ],
       },
       {
-        title: 'Aprender con compañeros',
-        body: 'Los niños practican en un grupo pequeño con orientación del personal capacitado. Las metas son individualizadas para que cada niño gane confianza con sus compañeros a un ritmo manejable.',
+        title: 'Cada sesión incluye',
+        intro:
+          'Las sesiones duran 60 minutos y se reúnen una vez por semana durante 12 semanas en 10565 Fairfax Blvd, Suite 300, Fairfax, VA 22030.',
+        items: [
+          'Tiempo en círculo',
+          'Juego guiado e interacción con compañeros',
+          'Actividad STEAM (ciencia, tecnología, ingeniería, arte y matemáticas)',
+        ],
+      },
+      {
+        title: 'Información del programa',
+        items: [
+          'Edades: 3 a 5 años',
+          'Duración de la sesión: 60 minutos',
+          'Horario: una vez por semana durante 12 semanas. Contacte a VTCC para la próxima fecha de inicio.',
+          'Matrícula del programa: $950.00, que puede dividirse en 3 pagos, uno cada dos semanas',
+          'Cuota de inscripción (el seguro no la reembolsa): $250.00',
+        ],
+      },
+      {
+        title: 'Inscripción',
+        body: 'Todos los posibles participantes completan una breve revisión para confirmar que el programa es adecuado. Para obtener más información o comenzar la inscripción, llame al 703.218.6599. El cupo es limitado.',
       },
     ],
     cta: {
-      body: 'Contacte a VTCC para preguntar si el Enriquecimiento Social puede ser adecuado para su hijo y conocer la disponibilidad actual.',
+      body: 'Contacte a VTCC para preguntar si el Enriquecimiento Social puede ser adecuado para su hijo o hija y conocer la próxima fecha de inicio.',
       button: 'Preguntar sobre Enriquecimiento Social',
     },
   },
   socialSkillsGroup: {
     title: 'Página del Grupo de Habilidades Sociales',
     hero: {
-      headline: 'Desarrolle habilidades sociales avanzadas con compañeros',
-      body: 'El Grupo de Habilidades Sociales es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
+      headline: 'Desarrolle amistades, comunicación y confianza',
+      body: 'Nuestro Grupo de Habilidades Sociales ofrece a los niños un entorno divertido y de apoyo para desarrollar amistades, mejorar la comunicación, fortalecer la confianza y afianzar las relaciones con compañeros mediante el juego estructurado, el juego de roles y el trabajo en equipo.',
       buttons: ['Solicitar servicios del grupo social', 'Preguntar sobre elegibilidad'],
     },
     sections: [
       {
-        title: 'Lo que puede practicar el grupo',
+        title: 'Level Up Crew (edades de 2 a 6 años)',
         intro:
-          'El Grupo de Habilidades Sociales es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
+          'Construyendo la base para las amistades mediante actividades lúdicas y prácticas, y la interacción guiada con compañeros.',
         items: [
-          'Comprender el sarcasmo, el humor y los significados implícitos',
-          'Conversación de ida y vuelta y pensamiento flexible',
-          'Juego y actividades compartidas apropiadas para la edad',
-          'Unirse a grupos, resolver problemas y reparar malentendidos',
+          'Juego paralelo y cooperativo',
+          'Compartir, turnarse y esperar',
+          'Juego de roles sencillo y juegos de movimiento',
+          'Identificar y expresar emociones',
+          'Seguir rutinas de grupo e iniciar el juego',
         ],
       },
       {
-        title: 'Aprendizaje mediante práctica con apoyo',
-        body: 'Los clientes reciben orientación y comentarios mientras practican interacciones realistas con compañeros. Las metas son individualizadas y apoyan la práctica en la escuela, la comunidad y otros entornos sociales.',
+        title: 'Quest Masters (edades de 6 a 8 años)',
+        intro:
+          'Amistades que crecen y conexiones sociales más fuertes, mientras los niños desarrollan comunicación, cooperación y habilidades de amistad.',
+        items: [
+          'Desafíos de trabajo en equipo y juegos cooperativos',
+          'Iniciar y mantener conversaciones',
+          'Juego de roles de situaciones sociales cotidianas',
+          'Reconocer señales sociales y lenguaje corporal',
+          'Practicar empatía, toma de perspectiva y resolución de problemas',
+          'Aprender resolución de conflictos y deportividad',
+        ],
+      },
+      {
+        title: 'Legend League (edades de 8 años en adelante)',
+        intro:
+          'Dominar las conexiones sociales y convertirse en líderes seguros mediante actividades colaborativas, conversaciones entre compañeros y la resolución de problemas sociales de la vida real.',
+        items: [
+          'Liderazgo y toma de decisiones en grupo',
+          'Proyectos colaborativos y juegos estratégicos',
+          'Orientarse en las amistades y las relaciones con compañeros',
+          'Comprender señales sociales y límites en la conversación',
+          'Manejar desacuerdos y situaciones sociales difíciles',
+          'Expresar lo que necesita, con confianza e independencia',
+        ],
+      },
+      {
+        title: 'Nuestra misión',
+        body: 'Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales, ganar confianza y crecer como comunicadores sociales exitosos, mientras aprenden, se conectan y se divierten.',
       },
     ],
     cta: {
-      body: 'Contacte a VTCC para preguntar si el Grupo de Habilidades Sociales puede ser adecuado para su hijo y conocer la disponibilidad actual.',
+      body: 'Contacte a VTCC para preguntar si el Grupo de Habilidades Sociales puede ser adecuado para su hijo o hija y conocer la disponibilidad actual.',
       button: 'Preguntar sobre el Grupo de Habilidades Sociales',
     },
   },
@@ -1325,19 +1507,19 @@ es.pages = {
     title: 'Página de Seguro y Financiamiento',
     hero: {
       headline: 'Orientación sobre seguro y financiamiento',
-      body: 'Entender la cobertura puede resultar confuso. VTCC ayuda a familias y socios de referencia a revisar las vías de financiamiento disponibles e identificar qué información puede necesitarse antes de comenzar los servicios.',
+      body: 'Entender la cobertura puede resultar confuso. VTCC ayuda a familias y profesionales que refieren a revisar las opciones de financiamiento disponibles e identificar qué información puede necesitarse antes de comenzar los servicios.',
     },
     sections: [
       {
-        title: 'Vías de financiamiento',
-        body: 'El sitio público actual de VTCC hace referencia a Medicaid, organizaciones de atención administrada, planes comerciales y financiamiento del condado/FAPT. Antes de publicar esta página, el liderazgo debe confirmar los planes aceptados exactos y los requisitos de financiamiento para cada servicio.',
+        title: 'Opciones de financiamiento',
+        body: 'VTCC acepta Medicaid, financiamiento del condado y seguro comercial. Contacte a VTCC para confirmar su plan y servicio específicos. La autorización sigue dependiendo del plan o de la agencia de financiamiento.',
       },
       {
         title: 'Proceso de verificación',
         intro: 'Las familias pueden ayudar preparando:',
         items: [
-          'Nombre completo y fecha de nacimiento del niño',
-          'Información de contacto del padre o tutor',
+          'Nombre completo y fecha de nacimiento del niño o de la niña',
+          'Información de contacto del padre, la madre o el tutor',
           'Tarjeta de seguro o fuente de financiamiento',
           'Servicio solicitado',
           'Documentos de referencia, si se requieren',
@@ -1355,22 +1537,22 @@ es.pages = {
     title: 'Página para Referentes',
     hero: {
       headline: 'Referir un niño o una familia a VTCC',
-      body: 'VTCC recibe referencias apropiadas de familias, escuelas, pediatras, terapeutas, administradores de casos, socios del condado y profesionales comunitarios.',
+      body: 'VTCC recibe referencias apropiadas de familias, escuelas, pediatras, terapeutas, administradores de casos, personal del condado y profesionales comunitarios.',
     },
     sections: [
       {
         title: 'Información de referencia a incluir',
-        intro: 'Para ayudar a VTCC a responder con eficiencia, se puede solicitar a los referentes:',
+        intro: 'Para ayudar a VTCC a responder con eficiencia, se puede solicitar a quienes refieren:',
         items: [
-          'Nombre y edad del niño o adolescente',
-          'Información de contacto del padre o tutor',
+          'Nombre y edad del niño, de la niña o del adolescente',
+          'Información de contacto del padre, la madre o el tutor',
           'Servicio solicitado',
           'Motivo de la referencia',
           'Fuente de financiamiento o información del seguro',
           'Documentación de referencia relevante',
           'Urgencia o preocupaciones de seguridad, si corresponde',
         ],
-        note: 'No envíe documentos sensibles a través de un formulario o correo electrónico no seguro a menos que VTCC haya proporcionado un método seguro aprobado.',
+        note: 'No envíe documentos confidenciales a través de un formulario o correo electrónico no seguro a menos que VTCC haya proporcionado un método seguro aprobado.',
       },
     ],
     cta: {
@@ -1381,34 +1563,34 @@ es.pages = {
   resourcesFaq: {
     title: 'Página de Recursos / Preguntas Frecuentes',
     hero: {
-      headline: 'Recursos para familias y socios de referencia',
+      headline: 'Recursos para familias y profesionales que refieren',
       body: 'VTCC ofrece recursos educativos para ayudar a las familias a entender la terapia ABA, el programa de Primeros Aprendices, el Programa de Alimentación, el Enriquecimiento Social, el Grupo de Habilidades Sociales, Safety-Care® para Familias y Cuidadores, la participación de los padres, los pasos de admisión y las preguntas sobre financiamiento.',
     },
     faqs: [
       {
         question: '¿Qué servicios brinda VTCC?',
         answer:
-          'VTCC brinda terapia ABA, un programa de Primeros Aprendices, un Programa de Alimentación, Enriquecimiento Social para edades de 8 a 12 años, un Grupo de Habilidades Sociales y capacitación Safety-Care® para familias y cuidadores. Los servicios dependen de la elegibilidad, el financiamiento, la necesidad clínica y la disponibilidad.',
+          'VTCC brinda terapia ABA, un programa de Primeros Aprendices para edades de 3 a 5 años, un Programa de Alimentación, Enriquecimiento Social para edades de 3 a 5 años, un Grupo de Habilidades Sociales para niños de 2 años en adelante y capacitación Safety-Care® para familias y cuidadores. Los servicios dependen de la elegibilidad, el financiamiento, la necesidad clínica y la disponibilidad.',
       },
       {
         question: '¿Qué es el programa de Primeros Aprendices?',
         answer:
-          'Es un programa para niños en edad preescolar que se enfoca en desarrollar comunicación, juego, rutinas y habilidades de aprendizaje temprano para ayudarles a participar en la escuela y en entornos sociales.',
+          'El programa de Primeros Aprendices prepara a niños de 3 a 5 años que reciben servicios de ABA para la escuela. Se ofrece de lunes a viernes, de 10:00 a.m. a 2:00 p.m., con una rutina de aula y rotaciones de centros de 20 minutos.',
       },
       {
         question: '¿Qué apoya el Programa de Alimentación?',
         answer:
-          'El Programa de Alimentación utiliza prácticas ABA para ayudar a los niños a ampliar gradualmente su repertorio y sus preferencias alimentarias mediante metas individualizadas, apoyo positivo y colaboración con los cuidadores.',
+          'El programa acompaña a cada niño desde donde se encuentra. Empieza por llegar a la mesa, sentarse y permanecer durante las comidas, y rutinas simples a la hora de comer. A partir de ahí desarrolla gradualmente la autoalimentación, el ritmo de la comida, la comodidad con los alimentos en el plato, nuevas texturas y sabores, y la aceptación de alimentos nuevos y culturalmente familiares. El apoyo puede continuar durante las comidas en el hogar.',
       },
       {
         question: '¿Qué es el Enriquecimiento Social?',
         answer:
-          'El Enriquecimiento Social es un programa grupal para niños de 8 a 12 años. Ayuda a los niños a unirse a actividades, turnarse y construir habilidades de amistad con compañeros.',
+          'El Enriquecimiento Social es un programa de grupo pequeño para niños de 3 a 5 años. Las sesiones duran 60 minutos, una vez por semana durante 12 semanas, e incluyen tiempo en círculo, juego guiado y una actividad STEAM.',
       },
       {
         question: '¿Quién puede beneficiarse del Grupo de Habilidades Sociales?',
         answer:
-          'El Grupo de Habilidades Sociales es para clientes que están listos para practicar habilidades sociales más avanzadas, como comprender el sarcasmo, conversar y participar en juegos apropiados para su edad con compañeros.',
+          'El Grupo de Habilidades Sociales es para niños de 2 años en adelante. Level Up Crew es para edades de 2 a 6 años, Quest Masters para edades de 6 a 8 años y Legend League para edades de 8 años en adelante. Cada nivel se enfoca en amistades, comunicación y confianza.',
       },
       {
         question: '¿Qué es Safety-Care® para Familias y Cuidadores?',
@@ -1418,12 +1600,12 @@ es.pages = {
       {
         question: '¿Dónde brinda servicios VTCC?',
         answer:
-          'Los servicios pueden brindarse en entornos individuales y grupales según el programa, el plan de tratamiento y la disponibilidad. Contacte a VTCC para confirmar las opciones actuales para su ubicación.',
+          'La oficina de VTCC está en 10565 Fairfax Blvd, Suite 300, Fairfax, y atiende a familias en el norte de Virginia. El Enriquecimiento Social se reúne en esa clínica. Las técnicas de ABA pueden usarse en el hogar, durante las comidas familiares y en la comunidad, como en un parque del vecindario. El apoyo de alimentación también puede darse durante las comidas en el hogar. Llame para confirmar si podemos atender su ciudad o condado y dónde se brinda cada servicio.',
       },
       {
         question: '¿VTCC acepta seguros?',
         answer:
-          'Los materiales actuales enumeran varios pagadores de Medicaid, atención administrada y comerciales, y también hacen referencia al financiamiento del condado/FAPT. Contacte a VTCC para verificar la cobertura actual para su plan y servicio.',
+          'Sí. VTCC acepta Medicaid, financiamiento del condado y seguro comercial. Contacte a VTCC para confirmar su plan y servicio específicos.',
       },
       {
         question: '¿Qué es la terapia ABA?',
@@ -1443,7 +1625,7 @@ es.pages = {
       {
         question: '¿Pueden los profesionales referir a un niño?',
         answer:
-          'Sí. Escuelas, médicos, administradores de casos, socios del condado y otros profesionales pueden contactar a VTCC para preguntar sobre los requisitos de referencia.',
+          'Sí. Escuelas, médicos, administradores de casos, personal del condado y otros profesionales pueden contactar a VTCC para preguntar sobre los requisitos de referencia.',
       },
     ],
   },
@@ -1471,11 +1653,10 @@ Object.assign(es.sections.forms, {
   ],
   assistanceEmail: 'intake@vtccmail.com',
   assistanceText: '¿Necesita ayuda? Llame al {phone} o escriba a {email}.',
-  privacyNotice:
-    'Algunos formularios piden información privada. No envíe formularios completados a un correo electrónico general. Llame al {phone} y le explicaremos cómo entregarlos.',
+  privacyNotice: '',
   insuranceTitle: 'Seguro y financiamiento',
   insuranceBody:
-    'VTCC acepta clientes con Medicaid o financiamiento del condado. Contacte su oficina local o estatal de Medicaid para verificar la cobertura de su hijo, o llame a VTCC para obtener ayuda con la verificación.',
+    'VTCC acepta Medicaid, financiamiento del condado y seguro comercial. Llame a VTCC para confirmar su plan, o contacte a su plan o a la oficina local de Medicaid para verificar la cobertura de su hijo o hija.',
   insuranceLinkLabel: 'Más información sobre seguro y financiamiento',
   insuranceLinkHref: '/insurance',
   categories: [
@@ -1518,7 +1699,7 @@ for (const form of [es.formFamily, es.formReferral]) {
       'Enriquecimiento Social',
       'Grupo de Habilidades Sociales',
       'Safety-Care® para Familias y Cuidadores',
-      'Aún no estoy seguro',
+      'Aún no lo sé',
     ]
   }
 }
@@ -1528,14 +1709,14 @@ Object.assign(es.contactQuiz, {
   eyebrow: 'Contacto',
   title: 'Encuentre el siguiente paso correcto',
   intro:
-    'Responda unas preguntas. Le sugeriremos un camino y abriremos el formulario correspondiente con lo que ya compartió. Las sugerencias son un punto de partida, no una decisión clínica.',
+    'Unas preguntas. Abriremos el formulario adecuado. No es una decisión clínica.',
   callEyebrow: 'Llame a VTCC',
   callTitle: '¿Prefiere hablar con alguien?',
   callIntro:
     'Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con servicios, referencias, empleo y próximos pasos.',
   selectPlaceholder: 'Seleccione una opción',
   multiSelectPlaceholder: 'Seleccione todas las que correspondan',
-  multiSelectSelected: '{count} seleccionadas',
+  multiSelectSelected: '{count} opciones seleccionadas',
   yesLabel: 'Sí',
   noLabel: 'No',
   notSureLabel: 'No lo sé',
@@ -1549,11 +1730,10 @@ Object.assign(es.contactQuiz, {
   progressAriaLabel: 'Progreso del cuestionario',
   callPrompt: '¿Prefiere hablar?',
   ageSuffix: 'años',
-  ageHelp: 'Ingrese la edad de su hijo en años enteros.',
+  ageHelp: 'Indique la edad de su hijo o hija en años cumplidos.',
   skipLinkPrompt: '¿Escuela, administrador de casos u otro profesional?',
   skipLinkLabel: 'Iniciar una referencia',
-  disclaimer:
-    'Este cuestionario no determina la elegibilidad. La adecuación final depende de la evaluación, el financiamiento y la autorización. No ingrese informes de diagnóstico ni otra información de salud protegida aquí.',
+  disclaimer: '',
   doctorMessage: 'Cuestionario de contacto: consulta de referencia de un médico.',
 })
 es.contactQuiz.roleQuestion.label = 'Soy…'
@@ -1562,18 +1742,18 @@ es.contactQuiz.roleQuestion.options = [
   { id: 'doctor', label: 'Médico' },
   { id: 'applicant', label: 'Solicitante de empleo' },
 ]
-es.contactQuiz.parentDiagnosisQuestion.label = '¿Tiene un diagnóstico del médico de su hijo?'
-es.contactQuiz.parentAgeQuestion.label = '¿Qué edad tiene su hijo?'
-es.contactQuiz.parent18MonthsQuestion.label = '¿Su hijo tiene al menos 18 meses?'
+es.contactQuiz.parentDiagnosisQuestion.label = '¿Tiene un diagnóstico del médico de su hijo o hija?'
+es.contactQuiz.parentAgeQuestion.label = '¿Qué edad tiene su hijo o hija?'
+es.contactQuiz.parent18MonthsQuestion.label = '¿Su hijo o hija tiene al menos 18 meses?'
 es.contactQuiz.parentFeedingQuestion.label =
-  '¿Su hijo tiene rigidez con la comida o dificultad para comer suficiente nutrición?'
+  '¿Su hijo o hija tiene rigidez con la comida o dificultad para alimentarse lo suficiente?'
 es.contactQuiz.parentSocialQuestion.label =
-  '¿Su hijo necesita apoyo con habilidades sociales en grupo?'
+  '¿Su hijo o hija necesita apoyo con las habilidades sociales en grupo?'
 es.contactQuiz.parentClassroomQuestion.label =
-  '¿Su hijo está listo para el aula del programa de Primeros Aprendices?'
+  '¿Su hijo o hija puede participar en el aula del programa de Primeros Aprendices?'
 es.contactQuiz.doctorDiagnosisQuestion.label = '¿Tiene la referencia y el diagnóstico?'
 es.contactQuiz.cdeQuestion = { label: '¿Tiene la CDE?' }
-es.contactQuiz.applicantCredentialsQuestion.label = '¿Qué titulaciones tiene?'
+es.contactQuiz.applicantCredentialsQuestion.label = '¿Qué preparación tiene?'
 es.contactQuiz.applicantCredentialsQuestion.groups = [
   {
     label: 'Títulos',
@@ -1588,11 +1768,11 @@ es.contactQuiz.applicantCredentialsQuestion.groups = [
   {
     label: 'Certificaciones',
     options: [
-      { id: 'rbt', label: 'Técnico de Conducta Registrado (RBT)' },
-      { id: 'qbt', label: 'Técnico de Conducta Calificado (QBT)' },
-      { id: 'bcaba', label: 'Analista de Conducta Asistente Certificado (BCaBA)' },
-      { id: 'bcba', label: 'Analista de Conducta Certificado por la Junta (BCBA)' },
-      { id: 'bcba-d', label: 'Analista de Conducta Certificado-Doctorado (BCBA-D)' },
+      { id: 'rbt', label: 'Técnico de conducta registrado (RBT)' },
+      { id: 'qbt', label: 'Técnico de conducta calificado (QBT)' },
+      { id: 'bcaba', label: 'Analista de conducta asistente certificado (BCaBA)' },
+      { id: 'bcba', label: 'Analista de conducta certificado (BCBA)' },
+      { id: 'bcba-d', label: 'Analista de conducta certificado, nivel doctoral (BCBA-D)' },
     ],
   },
   {
@@ -1640,7 +1820,7 @@ es.contactQuiz.serviceValues = {
   feeding: 'Programa de Alimentación',
   'social-enrichment': 'Enriquecimiento Social',
   'social-skills': 'Grupo de Habilidades Sociales',
-  'not-sure': 'Aún no estoy seguro',
+  'not-sure': 'Aún no lo sé',
 }
 es.contactQuiz.programLabels = {
   aba: 'Terapia ABA',
@@ -1651,14 +1831,14 @@ es.contactQuiz.programLabels = {
 }
 es.contactQuiz.referralRoleValue = 'Médico o personal de enfermería'
 es.contactQuiz.careerRoles = {
-  bcba: 'Analista de conducta certificado por la junta (BCBA)',
+  bcba: 'Analista de conducta certificado (BCBA)',
   bcaba: 'Otro',
   masters: 'Programa de analista estudiante',
   rbt: 'Técnico de conducta registrado (RBT)',
   bt: 'Técnico de conducta (BT)',
 }
 es.contactQuiz.roleReasons = {
-  bcba: 'Su credencial de BCBA es la mejor coincidencia para la solicitud de analista de conducta certificado por la junta.',
+  bcba: 'Su credencial de BCBA es la mejor coincidencia para la solicitud de analista de conducta certificado.',
   bcaba:
     'VTCC no tiene una publicación separada para BCaBA. Solicite en Otro y mencione su credencial BCaBA.',
   masters: 'Una maestría afín encaja bien con el Programa de analista estudiante.',
@@ -1668,27 +1848,27 @@ es.contactQuiz.roleReasons = {
 Object.assign(es.contactQuiz.parentNoDiagnosis, {
   title: 'Un diagnóstico ayuda, y aún puede contactar a VTCC',
   intro:
-    'Un diagnóstico del médico de su hijo suele ser necesario para el financiamiento y la elegibilidad. No tiene que esperar para preguntar por los próximos pasos.',
+    'Un diagnóstico del médico de su hijo o hija suele ser necesario para el financiamiento y la elegibilidad. No tiene que esperar para preguntar por los próximos pasos.',
   steps: [
-    'Hable con el pediatra de su hijo sobre una evaluación del desarrollo.',
+    'Hable con el pediatra de su hijo o hija sobre una evaluación del desarrollo.',
     'Pregunte si corresponde una referencia a un especialista.',
     'Llame a VTCC o continúe al formulario de solicitud. No incluya informes de diagnóstico en el formulario.',
   ],
   resultTitle: 'Pida ayuda con los próximos pasos',
   resultBody:
-    'Envíe una solicitud no sensible para que un miembro del equipo explique la evaluación, la admisión y la revisión de financiamiento.',
+    'Envíe una solicitud sin información confidencial para que un miembro del equipo explique la evaluación, la admisión y la revisión de financiamiento.',
   ctaLabel: 'Continuar al formulario de solicitud de servicios',
   modalCtaLabel: 'Ver el formulario de solicitud',
 })
 Object.assign(es.contactQuiz.parentResult, {
   title: 'Programas que pueden ser una buena opción',
-  body: 'Según la edad de su hijo y lo que compartió, estos programas pueden valer la pena comentarlos con VTCC.',
+  body: 'Según la edad de su hijo o hija y lo que compartió, estos programas pueden valer la pena comentarlos con VTCC.',
   abaNote:
     'La terapia ABA suele ser la base. Los programas especializados se pueden agregar cuando correspondan.',
   outsideAgeTitle: 'Aún podemos ayudarle a encontrar un camino',
   outsideAgeBody:
-    'La edad de su hijo está fuera del rango típico publicado para los programas de VTCC. Aún puede enviar una solicitud para que el equipo le oriente.',
-  onlyAbaTitle: 'Está listo para comenzar con ABA',
+    'La edad de su hijo o hija está fuera del rango típico publicado para los programas de VTCC. Aún puede enviar una solicitud para que el equipo le oriente.',
+  onlyAbaTitle: 'Ya puede comenzar con ABA',
   onlyAbaBody:
     'La terapia ABA es un sólido próximo paso para su familia. Suele estar disponible de los 18 meses a los 21 años cuando es clínicamente apropiado.',
   ctaLabel: 'Continuar al formulario de solicitud de servicios',
@@ -1696,7 +1876,7 @@ Object.assign(es.contactQuiz.parentResult, {
 es.contactQuiz.parentMessages = {
   noDiagnosis: 'Cuestionario de contacto: padre, madre o tutor pregunta por los próximos pasos.',
   programs: 'Cuestionario de contacto: interés en {programs}.',
-  outsideAge: 'Cuestionario de contacto: la edad del niño está fuera del rango típico publicado.',
+  outsideAge: 'Cuestionario de contacto: la edad del niño o de la niña está fuera del rango típico publicado.',
 }
 Object.assign(es.contactQuiz.doctorYes, {
   title: 'Cómo enviar una referencia',
@@ -1705,10 +1885,10 @@ Object.assign(es.contactQuiz.doctorYes, {
   steps: [
     {
       title: 'Envíe esta consulta',
-      body: 'Envíe una pregunta breve y no sensible a través del formulario de referencia.',
+      body: 'Envíe una pregunta breve, sin información confidencial a través del formulario de referencia.',
     },
     {
-      title: 'VTCC da seguimiento',
+      title: 'VTCC se comunica con usted',
       body: 'Un miembro del equipo confirma contactos, el servicio de interés y la forma segura de enviar documentos.',
     },
     {
@@ -1728,7 +1908,7 @@ Object.assign(es.contactQuiz.doctorNo, {
   title: 'Lo que suele incluir una referencia completa',
   intro: 'Aún puede enviar una consulta. Estos datos ayudan a VTCC a dar seguimiento más rápido.',
   items: [
-    'Edad del niño',
+    'Edad del niño o de la niña',
     'Información de contacto del padre, madre o tutor',
     'Servicio solicitado',
     'Fuente de financiamiento, si se conoce',
@@ -1750,7 +1930,7 @@ if (intakeCategory) {
   const formsFaq = intakeCategory.faqs.find((faq) => /\bforms?\b/i.test(faq.question))
   if (formsFaq) {
     formsFaq.answer =
-      'Los formularios requeridos dependen del servicio y de la fuente de financiamiento. Descargue los formularios de admisión y referencia en la página de Formularios, o contacte a VTCC si no está seguro de qué documentos aplican.'
+      'Los formularios requeridos dependen del servicio y de la fuente de financiamiento. Descargue los formularios de admisión y referencia en la página de Formularios, o contacte a VTCC si no sabe qué documentos aplican.'
   }
 }
 
@@ -1768,14 +1948,13 @@ Object.assign(es.ui, {
 
 es.thankYou = {
   nextLabel: 'Qué sigue',
-  notice:
-    'No envíe informes de diagnóstico ni otros datos médicos privados por correo electrónico. Si se trata de una emergencia, llame al 911 o vaya a la sala de emergencias más cercana.',
+  notice: '',
   homeLabel: 'Volver al inicio',
   homeHref: '/',
   family: {
     eyebrow: 'Solicitud recibida',
     title: 'Recibimos su solicitud de servicios',
-    lead: 'Un miembro del equipo de VTCC dará seguimiento usando el método de contacto que eligió.',
+    lead: 'Un miembro del equipo de VTCC se comunicará con usted usando el método de contacto que eligió.',
     steps: [
       'Espere un seguimiento de VTCC por teléfono o correo electrónico.',
       'Tenga a mano su horario preferido y su fuente de financiamiento para esa conversación.',
@@ -1787,20 +1966,21 @@ es.thankYou = {
   referral: {
     eyebrow: 'Referencia recibida',
     title: 'Recibimos su consulta de referencia',
-    lead: 'Un miembro del equipo de VTCC dará seguimiento sobre los próximos pasos para la familia.',
+    lead: 'Un miembro del equipo de VTCC se comunicará con usted sobre los próximos pasos para la familia.',
     steps: [
       'VTCC se comunicará con usted al teléfono o correo de trabajo que indicó.',
       'Comparta los documentos de referencia solo por el proceso seguro aprobado por VTCC, no por este formulario.',
       'La familia también puede llamar a VTCC directamente si desea iniciar la conversación.',
     ],
-    secondaryLabel: 'Guía para referentes',
+    secondaryLabel: 'Guía para profesionales',
     secondaryHref: '/resources/referrals-and-eligibility',
   },
   career: {
     eyebrow: 'Solicitud recibida',
     title: 'Recibimos su solicitud de empleo',
-    lead: 'Un miembro del equipo de VTCC revisará lo que envió y dará seguimiento sobre el puesto.',
+    lead: 'Un miembro del equipo de VTCC revisará lo que envió y se comunicará con usted sobre el puesto.',
     steps: [
+      'Envíe su currículum a recruiting@vtccmail.com. La carga del currículum en este formulario se agregará pronto.',
       'Revise el correo que usó en la solicitud para ver el seguimiento.',
       'El proceso continúa con una conversación sobre el puesto, el horario y la ubicación.',
       'Llame a la oficina de Fairfax si necesita actualizar su solicitud.',
@@ -1811,7 +1991,7 @@ es.thankYou = {
   default: {
     eyebrow: 'Mensaje recibido',
     title: 'Gracias por comunicarse con VTCC',
-    lead: 'Un miembro del equipo de VTCC dará seguimiento.',
+    lead: 'Un miembro del equipo de VTCC se comunicará con usted.',
     steps: [
       'Esté atento al teléfono o al correo que usa con VTCC.',
       'Llame a la oficina de Fairfax si necesita comunicarse antes.',
@@ -1826,7 +2006,7 @@ const careerRoleLabels = [
   'Técnico de conducta registrado (RBT)',
   'Técnico de conducta líder sénior (SLBT)',
   'Programa de analista estudiante',
-  'Analista de conducta certificado por la junta (BCBA)',
+  'Analista de conducta certificado (BCBA)',
   'Administración u operaciones',
   'Otro',
 ]
@@ -1837,9 +2017,9 @@ if (roleField) {
 es.sections.careers.postings.bt.applyRole = careerRoleLabels[0]
 es.sections.careers.postings.bcba.applyRole = careerRoleLabels[4]
 
-const contactOptions = ['Teléfono', 'Correo electrónico', 'Cualquiera']
-const serviceSolo = ['Aún no estoy seguro']
-const fundingSolo = ['No estoy seguro']
+const contactOptions = ['Teléfono', 'Correo electrónico', 'Cualquiera de los dos']
+const serviceSolo = ['Aún no lo sé']
+const fundingSolo = ['No lo sé']
 
 function setField(form, name, updates) {
   const field = form.fields.find((item) => item.name === name)
@@ -1853,10 +2033,10 @@ setField(es.formFamily, 'email', { label: 'Correo electrónico' })
 setField(es.formFamily, 'phone', { label: 'Teléfono' })
 setField(es.formFamily, 'preferredContact', {
   label: 'Método de contacto preferido',
-  placeholder: 'Seleccionar',
+  placeholder: 'Seleccione',
   options: contactOptions,
 })
-setField(es.formFamily, 'ageRange', { label: 'Edad del niño' })
+setField(es.formFamily, 'ageRange', { label: 'Edad del niño o de la niña' })
 setField(es.formFamily, 'service', {
   label: 'Servicio que le interesa',
   solo: serviceSolo,
@@ -1867,8 +2047,8 @@ setField(es.formFamily, 'funding', {
 })
 setField(es.formFamily, 'medicaid', {
   label: '¿Es con Medicaid?',
-  placeholder: 'Seleccionar',
-  options: ['Sí', 'No', 'No estoy seguro'],
+  placeholder: 'Seleccione',
+  options: ['Sí', 'No', 'No lo sé'],
 })
 setField(es.formFamily, 'location', { label: 'Ciudad o condado' })
 setField(es.formFamily, 'message', { label: '¿En qué le gustaría que le ayudemos?' })
@@ -1883,7 +2063,7 @@ setField(es.formReferral, 'role', {
     'Médico o personal de enfermería',
     'Terapeuta o consejero',
     'Administrador de casos',
-    'Socio del condado o de FAPT',
+    'Personal del condado o de FAPT',
     'Otro profesional de la comunidad',
   ],
 })
@@ -1899,7 +2079,7 @@ setField(es.formReferral, 'parentName', {
 setField(es.formReferral, 'parentPhone', {
   label: 'Teléfono del padre, la madre o el tutor (si se conoce)',
 })
-setField(es.formReferral, 'ageRange', { label: 'Edad del niño' })
+setField(es.formReferral, 'ageRange', { label: 'Edad del niño o de la niña' })
 setField(es.formReferral, 'service', {
   label: 'Servicio solicitado',
   solo: serviceSolo,
@@ -1910,12 +2090,12 @@ setField(es.formReferral, 'funding', {
 })
 setField(es.formReferral, 'medicaid', {
   label: '¿Es con Medicaid?',
-  placeholder: 'Seleccionar',
-  options: ['Sí', 'No', 'No estoy seguro'],
+  placeholder: 'Seleccione',
+  options: ['Sí', 'No', 'No lo sé'],
 })
-setField(es.formReferral, 'location', { label: 'Ciudad o condado del niño' })
+setField(es.formReferral, 'location', { label: 'Ciudad o condado del niño o de la niña' })
 setField(es.formReferral, 'message', {
-  label: 'Motivo de la referencia (solo un resumen no confidencial)',
+  label: 'Motivo de la referencia (solo un resumen, sin información confidencial)',
 })
 es.formReferral.submitLabel = 'Enviar consulta de referencia'
 
@@ -1924,7 +2104,7 @@ for (const form of [es.formFamily, es.formReferral]) {
   if (!funding) continue
   funding.options = funding.options.map((option) => {
     if (option === 'County/FAPT') return 'Condado/FAPT'
-    if (option === 'Not sure') return 'No estoy seguro'
+    if (option === 'Not sure') return 'No lo sé'
     return option
   })
 }
@@ -1938,28 +2118,21 @@ Object.assign(es.ui, {
 })
 
 es.visit = {
-  hoursSummary: 'Llame para confirmar el horario de hoy',
-  hoursDetail: 'Aún no publicamos un horario fijo. Llame a la oficina de Fairfax antes de visitar.',
-  responseTime:
-    'Un miembro del equipo da seguimiento a las solicitudes de servicios por teléfono o correo electrónico. El tiempo depende de la solicitud y del trabajo de la oficina.',
+  hoursSummary: 'Lun–vie 8 a.m.–8 p.m.\nSáb 8 a.m.–2 p.m.',
+  hoursDetail: '',
+  responseTime: '',
   serviceAreaTitle: 'Dónde se brinda la atención',
-  serviceAreaSummary:
-    'La clínica está en Fairfax y atiende a familias en el norte de Virginia. Los grupos se reúnen en la clínica. Llame para confirmar sesiones en el hogar o la comunidad y si atendemos su condado.',
-  serviceAreaBody:
-    'La oficina de VTCC está en Fairfax y atiende a familias en el norte de Virginia. Los programas grupales se reúnen en la clínica. La ABA individual puede incluir práctica en el hogar y en la comunidad cuando el plan de tratamiento lo indica. Llame para confirmar si podemos atender su ciudad o condado, y pregunte por el estacionamiento y el registro.',
+  serviceAreaSummary: '',
+  serviceAreaBody: '',
   languagesTitle: 'Idiomas',
   languagesBody:
-    'Inglés y español. Este sitio web y el aviso de derechos del cliente están disponibles en ambos. Pregunte durante la admisión sobre apoyo en otro idioma o un intérprete.',
+    'Hay intérpretes para cualquier idioma. Pregunte durante la admisión. Este sitio web y el aviso de derechos del cliente están en inglés y español.',
 }
 
-es.footer.emergency =
-  'Este sitio web no se supervisa para emergencias. Si usted o su hijo están en peligro, llame al 911. Si tiene una crisis de salud mental, llame o envíe un mensaje de texto al 988.'
+es.footer.emergency = ''
 
 for (const card of es.sections.services.cards) {
-  card.availability =
-    card.id === 'group-parent-training'
-      ? 'Próximamente'
-      : 'Llame para preguntar por los cupos actuales.'
+  delete card.availability
 }
 
 es.sections.process.firstVisit = {
@@ -1973,11 +2146,11 @@ es.sections.process.firstVisit = {
     },
     {
       title: 'Qué tener listo',
-      body: 'Su información de contacto, la edad de su hijo, el servicio que solicita, su ciudad o condado y los datos de financiamiento si los conoce. No envíe informes de diagnóstico por el formulario del sitio.',
+      body: 'Su información de contacto, la edad de su hijo o hija, el servicio que solicita, su ciudad o condado y los datos de financiamiento si los conoce. No envíe informes de diagnóstico por el formulario del sitio.',
     },
     {
       title: 'Qué sigue',
-      body: 'El equipo explica los formularios, revisa el financiamiento y programa una evaluación cuando el servicio es adecuado. Los tiempos dependen del pagador y de qué tan completa esté la información.',
+      body: 'El equipo explica los formularios, revisa el financiamiento y programa una evaluación cuando el servicio es adecuado. Los tiempos dependen del plan y de qué tan completa esté la información.',
     },
     {
       title: 'Llegada',
@@ -1992,7 +2165,6 @@ es.sections.process.schoolNote = {
 
 es.sections.about.languages = {
   eyebrow: 'Idiomas',
-  title: 'Inglés y español',
   body: es.visit.languagesBody,
 }
 es.sections.about.team = {
@@ -2004,7 +2176,7 @@ es.sections.about.team = {
     {
       name: 'Leticia Basauri',
       role: 'Propietaria y directora',
-      body: 'Leticia Basauri es la propietaria y directora de Victoria Transcultural Clinical Center, que fundó en marzo de 2001. Es psicóloga con más de 30 años de experiencia trabajando con comunidades multiculturales en México, Canadá y Estados Unidos. Obtuvo dos posgrados en psicología clínica en México, completó cursos de doctorado en psicología clínica en Canadá y recibió su Maestría en Trabajo Social de George Mason University. Está trabajando para obtener su licencia de trabajo social clínico en Virginia y se ha capacitado en TF-CBT y en enfoques informados por el trauma.',
+      body: 'Leticia Basauri es la propietaria y directora de Victoria Transcultural Clinical Center, que fundó en marzo de 2001. Es psicóloga con más de 30 años de experiencia trabajando con comunidades multiculturales en México, Canadá y Estados Unidos. Obtuvo dos posgrados en psicología clínica en México, completó cursos de doctorado en psicología clínica en Canadá y recibió su Maestría en Trabajo Social de George Mason University. Está trabajando para obtener su licencia de trabajo social clínico en Virginia y se ha capacitado en TF-CBT y en enfoques de atención informada sobre el trauma.',
     },
   ],
 }
@@ -2031,16 +2203,16 @@ const spanishSeoTitles = {
   'notice-of-privacy-practices': 'Aviso de prácticas de privacidad | Victoria Transcultural Clinical Center',
 }
 const spanishSeoDescriptions = {
-  home: 'VTCC ofrece terapia ABA, aprendizaje temprano, apoyo de alimentación, grupos de habilidades sociales y capacitación para padres desde la oficina de Fairfax.',
-  aba: 'Terapia ABA individualizada con evaluación de un BCBA, capacitación para padres y seguimiento del progreso para niños y adolescentes en el norte de Virginia.',
+  home: 'VTCC ofrece terapia ABA, aprendizaje temprano, apoyo de alimentación, grupos de habilidades sociales y entrenamiento para padres desde la oficina de Fairfax.',
+  aba: 'Terapia ABA individualizada con evaluación de un BCBA, entrenamiento para padres y seguimiento del progreso para niños y adolescentes en el norte de Virginia.',
   'early-learners':
-    'Apoyo de preparación escolar para niños en edad preescolar mediante comunicación, juego, rutinas y habilidades de aprendizaje temprano.',
+    'Apoyo con estructura de aula para niños de 3 a 5 años que reciben servicios de ABA, de lunes a viernes, de 10:00 a.m. a 2:00 p.m.',
   'feeding-program':
-    'Apoyo de alimentación basado en ABA que ayuda a los niños a ampliar los alimentos que aceptan y a crear rutinas de comida más tranquilas.',
+    'Apoyo de alimentación que empieza por llegar a la mesa y avanza hacia alimentos nuevos, con orientación a los cuidadores durante comidas reales.',
   'social-enrichment':
-    'Habilidades sociales en grupo para niños de 8 a 12 años, incluidos juegos, turnos y habilidades de amistad.',
+    'Un grupo de aprendizaje social para niños de 3 a 5 años, con juego guiado, interacción con compañeros y actividades STEAM semanales.',
   'social-skills-group':
-    'Práctica guiada con compañeros en conversación, pensamiento flexible y habilidades sociales apropiadas para la edad.',
+    'Grupos de habilidades sociales para niños de 2 años en adelante: Level Up Crew, Quest Masters y Legend League.',
   'group-parent-training':
     'Pronto habrá capacitación grupal Safety-Care® para padres y cuidadores, con estrategias prácticas de prevención, desescalada y seguridad en casa.',
   'get-started':
@@ -2054,14 +2226,14 @@ const spanishSeoDescriptions = {
   contact:
     'Solicite servicios o haga una pregunta de referencia. Oficina de Fairfax, teléfono y qué ocurre después de comunicarse.',
   resources:
-    'Respuestas sobre terapia ABA, admisión, financiamiento, capacitación para padres, referencias y los programas especializados de VTCC.',
+    'Respuestas sobre terapia ABA, admisión, financiamiento, entrenamiento para padres, referencias y los programas especializados de VTCC.',
   forms:
-    'Descargue formularios de admisión, cuestionarios de referencia y avisos de derechos del cliente en inglés y español.',
+    'Descargue formularios de admisión, cuestionarios de referencia y avisos de derechos del cliente en inglés y español. Hay intérpretes para cualquier idioma.',
   privacy: 'Cómo VTCC maneja la información que se recopila en este sitio web y sus formularios.',
   terms: 'Términos para usar el sitio web de Victoria Transcultural Clinical Center.',
   accessibility: 'El compromiso de VTCC de hacer este sitio más fácil de usar, y cómo pedir ayuda.',
   nondiscrimination:
-    'VTCC no discrimina y ofrece asistencia con idiomas. Hay materiales en inglés y español en este sitio.',
+    'VTCC no discrimina y ofrece intérpretes para cualquier idioma. Hay materiales en inglés y español en este sitio.',
   'notice-of-privacy-practices':
     'Cómo VTCC usa y protege la información de salud, y sus derechos según HIPAA.',
 }
@@ -2082,7 +2254,7 @@ const locationFaq = es.pages?.resourcesFaq?.faqs?.find((faq) =>
 if (locationFaq) {
   locationFaq.question = '¿Dónde brinda servicios VTCC?'
   locationFaq.answer =
-    'La oficina de VTCC está en Fairfax y atiende a familias en el norte de Virginia. Los programas grupales se reúnen en la clínica. La ABA individual puede incluir práctica en el hogar y en la comunidad cuando el plan de tratamiento lo indica. Llame para confirmar si podemos atender su ciudad o condado.'
+    'La oficina de VTCC está en 10565 Fairfax Blvd, Suite 300, Fairfax, y atiende a familias en el norte de Virginia. El Enriquecimiento Social se reúne en esa clínica. Las técnicas de ABA pueden usarse en el hogar, durante las comidas familiares y en la comunidad, como en un parque del vecindario. El apoyo de alimentación también puede darse durante las comidas en el hogar. Llame para confirmar si podemos atender su ciudad o condado y dónde se brinda cada servicio.'
 }
 
 writeFileSync(join(rootDir, 'content/locales/es.json'), JSON.stringify(es, null, 2) + '\n')
