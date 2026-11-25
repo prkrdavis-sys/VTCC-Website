@@ -20,6 +20,19 @@ function renderHoursText(value) {
   return escapeHtml(value).replaceAll('\n', '<br>')
 }
 
+function renderQuizHours(summary, label) {
+  const lines = String(summary)
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
+  if (!lines.length) {
+    return ''
+  }
+
+  const lineMarkup = lines.map((line) => `<span>${escapeHtml(line)}</span>`).join('')
+  return `<p class="quiz-hours"><span class="quiz-hours-label">${escapeHtml(label)}</span><span class="quiz-hours-lines">${lineMarkup}</span></p>`
+}
+
 function renderFooterHoursText(value) {
   return renderHoursText(value).replaceAll('8 a.m.–8 p.m.', '8a-8p').replaceAll('8 a.m.–2 p.m.', '8a-2p')
 }
@@ -585,8 +598,53 @@ function renderMobileMenu(content) {
     </aside>`
 }
 
+const MOTIF_COLORS = ['magenta', 'orange', 'cyan', 'gold']
+
+function motifSpan(kind, color, extras = '') {
+  return `<span class="motif motif-${kind} motif--${color}${extras ? ` ${extras}` : ''}"></span>`
+}
+
+function cornerMotifs(index, preset = 'section') {
+  const color = (offset) => MOTIF_COLORS[(index + offset) % MOTIF_COLORS.length]
+  const pieces = preset === 'hero'
+    ? [
+        motifSpan('blob', color(0), 'motif-lg motif-tl'),
+        motifSpan('circle', color(1), 'motif-md motif-tr'),
+        motifSpan('blob', color(2), 'motif-lg motif-photo'),
+        motifSpan('dashes', color(0), 'motif-ml'),
+        motifSpan('circle', color(2), 'motif-sm motif-mr'),
+        motifSpan('dots', color(3), 'motif-tr-in'),
+      ]
+    : [
+        motifSpan('blob', color(0), 'motif-lg motif-tl'),
+        motifSpan('circle', color(1), 'motif-md motif-tr'),
+        motifSpan('dashes', color(1), 'motif-mr'),
+        motifSpan('circle', color(2), 'motif-sm motif-ml'),
+        motifSpan('blob', color(0), 'motif-md motif-br-in'),
+        motifSpan('squiggle', color(3), 'motif-tr-in'),
+      ]
+  return `<div class="motif-corners" aria-hidden="true">${pieces.join('')}</div>`
+}
+
+function sectionWantsMotifs(className) {
+  return className.split(/\s+/).some((token) => token === 'section' || token === 'home-hero' || token === 'career-hero')
+}
+
+function decorateMotifs(html) {
+  let index = 0
+  return html.replace(/<section\b([^>]*)>/g, (full, attrs) => {
+    const classMatch = attrs.match(/class="([^"]*)"/)
+    if (!classMatch || !sectionWantsMotifs(classMatch[1])) return full
+    const preset = /\b(home-hero|career-hero)\b/.test(classMatch[1]) ? 'hero' : 'section'
+    const markup = cornerMotifs(index, preset)
+    index += 1
+    return `<section${attrs}>${markup}`
+  })
+}
+
 function renderSectionHeading(eyebrow, title, intro = '') {
   return `<div class="section-heading">
+          <span class="heading-squiggle" aria-hidden="true"></span>
           ${eyebrow ? `<p class="eyebrow">${escapeHtml(eyebrow)}</p>` : ''}
           <h2>${escapeHtml(title)}</h2>
           ${intro ? `<p>${escapeHtml(intro)}</p>` : ''}
@@ -595,10 +653,12 @@ function renderSectionHeading(eyebrow, title, intro = '') {
 
 function renderServicesBanner(eyebrow, title, intro = '') {
   return `<header class="services-banner band band--deep">
+          ${cornerMotifs(1, 'section')}
           <div class="services-banner-name">
             <p class="services-banner-mark">${escapeHtml(eyebrow)}</p>
           </div>
           <div class="services-banner-copy">
+            <span class="heading-squiggle" aria-hidden="true"></span>
             <h2>${escapeHtml(title)}</h2>
             ${intro ? `<p>${escapeHtml(intro)}</p>` : ''}
           </div>
@@ -790,11 +850,12 @@ function renderQuoteBoard(quotes, extraClass = '') {
 }
 
 function renderHeroHeading(hero) {
+  const squiggle = `<span class="heading-squiggle" aria-hidden="true"></span>`
   if (!hero.headlineLead) {
-    return `<h1>${escapeHtml(hero.headline)}</h1>`
+    return `${squiggle}<h1>${escapeHtml(hero.headline)}</h1>`
   }
 
-  return `<h1 class="hero-heading">
+  return `${squiggle}<h1 class="hero-heading">
           <span class="hero-headline-main">${escapeHtml(hero.headline)}</span>
           <span class="hero-headline-lead">${escapeHtml(hero.headlineLead)}</span>
         </h1>`
@@ -881,6 +942,13 @@ function renderFooter(content) {
     : ''
 
   return `<footer class="site-footer">
+      <div class="footer-motifs" aria-hidden="true">
+        ${motifSpan('blob', 'lime', 'motif-lg motif-bl')}
+        ${motifSpan('circle', 'orange', 'motif-md motif-bl-in')}
+        ${motifSpan('dots', 'gold', 'motif-br')}
+        ${motifSpan('blob', 'magenta', 'motif-lg motif-br-in')}
+        ${motifSpan('dashes', 'lime', 'motif-mr')}
+      </div>
       <div class="site-footer-main">
         <div class="site-footer-wrap site-footer-grid">
           <div class="site-footer-col site-footer-visit">
@@ -937,8 +1005,14 @@ function renderFooter(content) {
 function renderShell(content, mainHtml) {
   return `
     <header class="site-header">
+      <div class="header-motifs" aria-hidden="true">
+        ${motifSpan('blob', 'orange', 'motif-md motif-tl')}
+        ${motifSpan('blob', 'gold', 'motif-sm motif-tr-shift')}
+        ${motifSpan('dots', 'lime', 'motif-ml')}
+      </div>
       <div class="site-header-inner">
       <a class="brand" href="${escapeHtml(toStaticHref('/'))}" aria-label="${escapeHtml(content.company.name)} ${escapeHtml(content.ui.homeLinkLabel ?? 'home')}">
+        ${motifSpan('circle', 'magenta', 'motif-sm brand-motif')}
         <img class="brand-mark" src="${escapeHtml(BASE)}assets/vtcc-logo.png" alt="" />
         <span>
           <strong>
@@ -968,7 +1042,7 @@ function renderShell(content, mainHtml) {
       ${renderSectionSubnav(content)}
     </header>
     ${renderMobileMenu(content)}
-    <main id="top">${mainHtml}</main>
+    <main id="top">${decorateMotifs(mainHtml)}</main>
     ${renderFooter(content)}
   `
 }
@@ -1290,12 +1364,11 @@ function bindFaqSearch(content) {
   searchInput.addEventListener('search', applySearch)
 }
 
-function renderResourceCards(items, cardLabel = '') {
+function renderResourceCards(items) {
   return `<div class="resource-list">
           ${items
             .map(
               (item) => `<a href="${escapeHtml(toStaticHref(`/resources/${item.slug}`))}" class="resource-card" data-summary="${escapeHtml(item.summary ?? '')}">
-            ${cardLabel ? `<span class="resource-card-kicker">${escapeHtml(cardLabel)}</span>` : ''}
             <strong>${escapeHtml(item.title)}</strong>
           </a>`,
             )
@@ -1420,6 +1493,14 @@ function renderHome(content) {
   const assets = window.VTCC_SITE?.shared?.assets ?? {}
   const heroImage = assets.heroImage ? `${BASE}${assets.heroImage.replace(/^\//, '')}` : ''
   const heroActions = content.hero.actions.filter((action) => action.style !== 'ghost')
+  const requestButton = `<div class="button-row">${heroActions.map(renderButton).join('\n            ')}</div>`
+  const receipt = readIntakeReceipt()
+  const heroActionsHtml = receipt
+    ? `<div class="home-hero-actions">
+          ${requestButton}
+          ${renderIntakeReceipt(content, receipt, { placement: 'hero' })}
+        </div>`
+    : requestButton
 
   const trustItems = content.trustStrip
     .map(
@@ -1440,7 +1521,7 @@ function renderHome(content) {
       <section class="home-hero">
         <div class="home-hero-copy">
           ${renderHeroHeading(content.hero)}
-          <div class="button-row">${heroActions.map(renderButton).join('\n            ')}</div>
+          ${heroActionsHtml}
         </div>
         ${
           heroImage
@@ -1469,16 +1550,87 @@ function renderHome(content) {
       </section>`
 }
 
-function renderFeatureColumns(columns) {
-  return `<div class="feature-list">${columns
-    .map((column) => {
-      const body = column.body ? `<p>${escapeHtml(column.body)}</p>` : ''
-      const items = column.items?.length
-        ? `<ul>${column.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
-        : ''
-      return `<div><h3>${escapeHtml(column.title)}</h3>${body}${items}</div>`
-    })
-    .join('')}</div>`
+function renderBlockContent(block) {
+  const paragraphs = (block.paragraphs ?? [])
+    .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+    .join('')
+  const items = block.items?.length ? renderListItems(block.items, Boolean(block.ordered)) : ''
+  return `${paragraphs}${items}`
+}
+
+function renderServiceDetailCards(cards) {
+  if (!cards.length) {
+    return ''
+  }
+
+  return `<div class="feature-list service-detail-copy">${cards.join('')}</div>`
+}
+
+function renderUntitledPanels(blocks) {
+  const cards = []
+
+  for (const block of blocks) {
+    for (const paragraph of block.paragraphs ?? []) {
+      cards.push(`<div><p>${escapeHtml(paragraph)}</p></div>`)
+    }
+
+    if (block.items?.length) {
+      cards.push(`<div>${renderListItems(block.items, Boolean(block.ordered))}</div>`)
+    }
+  }
+
+  return renderServiceDetailCards(cards)
+}
+
+function renderServiceDetailBody(program, content) {
+  if (program.blocks?.length) {
+    const hasTitledBlocks = program.blocks.some((block) => block.title)
+
+    if (!hasTitledBlocks) {
+      return renderUntitledPanels(program.blocks)
+    }
+
+    const cards = program.blocks
+      .map((block) => {
+        const inner = renderBlockContent(block)
+        if (!inner) {
+          return ''
+        }
+
+        const title = block.title ? `<h3>${escapeHtml(block.title)}</h3>` : ''
+        return `<div>${title}${inner}</div>`
+      })
+      .filter(Boolean)
+
+    return renderServiceDetailCards(cards)
+  }
+
+  const cards = []
+
+  if (program.ageRange) {
+    cards.push(`<div>
+          <h3>${escapeHtml(content.ui.ageRangeLabel)}</h3>
+          <p><strong>${escapeHtml(program.ageRange)}</strong></p>
+          ${program.ageNote ? `<p>${escapeHtml(program.ageNote)}</p>` : ''}
+        </div>`)
+  }
+
+  if (program.description || program.goals?.length) {
+    cards.push(`<div>
+          <h3>${escapeHtml(content.ui.programGoalsLabel)}</h3>
+          ${program.description ? `<p>${escapeHtml(program.description)}</p>` : ''}
+          ${program.goals?.length ? renderListItems(program.goals) : ''}
+        </div>`)
+  }
+
+  if (program.structure?.length) {
+    cards.push(`<div>
+          <h3>${escapeHtml(content.ui.programStructureLabel)}</h3>
+          ${renderListItems(program.structure, true)}
+        </div>`)
+  }
+
+  return renderServiceDetailCards(cards)
 }
 
 function renderServiceDetailActions(content) {
@@ -1503,16 +1655,17 @@ function renderServiceDetailActions(content) {
         </div>`
 }
 
-function renderDetailSection(section, soft = false) {
-  return `<section class="section detail-section page-section${soft ? ' soft' : ''}">
-        ${renderSectionHeading(section.eyebrow, section.title, section.intro)}
-        ${renderFeatureColumns(section.columns)}
-        ${renderServiceDetailActions(getContent())}
-      </section>`
-}
+function renderProgramDetailPage(content) {
+  const program = getProgramById(content, SERVICE_PAGE_PROGRAM_IDS[PAGE])
+  if (!program) {
+    return ''
+  }
 
-function renderProgramDetailPage(content, section) {
-  return `${renderDetailSection(section, true)}${renderServiceDisclaimer(content)}`
+  return `<section class="section detail-section page-section soft">
+        ${renderSectionHeading(program.label, program.title, program.body)}
+        ${renderServiceDetailBody(program, content)}
+        ${renderServiceDetailActions(content)}
+      </section>${renderServiceDisclaimer(content)}`
 }
 
 function isIntakeReceipt(value) {
@@ -1583,14 +1736,13 @@ function renderIntakeReceipt(content, receipt, { placement }) {
   }
 
   const ui = content.ui
-  const clear =
-    placement === 'checklist'
-      ? `<button type="button" class="intake-receipt-clear" data-clear-receipt>${escapeHtml(ui.clearReceiptLabel)}</button>`
-      : ''
-  const confirmation =
-    placement === 'checklist'
-      ? `<a href="${escapeHtml(thankYouHref(receipt.form))}">${escapeHtml(ui.viewConfirmationLabel)}</a>`
-      : ''
+  const showActions = placement === 'checklist' || placement === 'hero'
+  const clear = showActions
+    ? `<button type="button" class="intake-receipt-clear" data-clear-receipt>${escapeHtml(ui.clearReceiptLabel)}</button>`
+    : ''
+  const confirmation = showActions
+    ? `<a href="${escapeHtml(thankYouHref(receipt.form))}">${escapeHtml(ui.viewConfirmationLabel)}</a>`
+    : ''
   const actions = confirmation || clear ? `<p class="intake-receipt-actions">${confirmation}${clear}</p>` : ''
 
   return `<div class="intake-receipt intake-receipt--${escapeHtml(placement)}">
@@ -1711,77 +1863,102 @@ function renderInsurancePage(content) {
 function renderAboutPage(content) {
   const about = content.sections.about
   const aboutImage = getSharedAssetPath('aboutTeamImage')
-  const careersLink = about.careersLink
-    ? `<a class="button page-link-cta" href="${escapeHtml(toStaticHref(about.careersLink.href))}">${escapeHtml(about.careersLink.label)}</a>`
-    : ''
   const storyParagraphs = (about.story?.paragraphs ?? [])
     .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
     .join('')
-  const pillars = (about.pillars?.items ?? [])
+  const skillItems = (about.pillars?.items ?? [])
     .map(
-      (item) => `<article class="about-pillar">
+      (item) => `<li>
             <h3>${escapeHtml(item.title)}</h3>
             <p>${escapeHtml(item.body)}</p>
-          </article>`,
+          </li>`,
     )
     .join('')
+  const skills = skillItems
+    ? `<div class="about-thread">
+        ${about.pillars?.title ? `<p class="about-thread-label">${escapeHtml(about.pillars.title)}</p>` : ''}
+        <ol>${skillItems}</ol>
+      </div>`
+    : ''
   const photo = aboutImage
-    ? `<figure class="about-media">
+    ? `<figure class="about-photo">
         <img src="${escapeHtml(aboutImage)}" alt="${escapeHtml(about.photoAlt ?? '')}" width="1000" height="562" loading="lazy" />
         ${about.photoCaption ? `<figcaption>${escapeHtml(about.photoCaption)}</figcaption>` : ''}
       </figure>`
     : ''
   const languages = about.languages?.body
-    ? `<p class="about-language-note">
-        <span class="eyebrow">${escapeHtml(about.languages.eyebrow)}</span>
-        <span>${escapeHtml(about.languages.body)}</span>
-      </p>`
+    ? `<p><strong>${escapeHtml(about.languages.eyebrow)}.</strong> ${escapeHtml(about.languages.body)}</p>`
     : ''
-  const people = (about.team?.people ?? [])
-    .map(
-      (person) => `<article class="team-person">
+  const careersLink = about.careersLink
+    ? `<p class="about-next">${renderButton(about.careersLink)}</p>`
+    : ''
+  const people = about.team?.people ?? []
+  const lead =
+    about.team && people.length
+      ? `<section class="about-chapter about-lead">
+        <header>
+          ${about.team.eyebrow ? `<p class="eyebrow">${escapeHtml(about.team.eyebrow)}</p>` : ''}
+          ${
+            people.length === 1
+              ? `<div class="about-lead-name">
+            <h2>${escapeHtml(people[0].name)}</h2>
+            <p class="about-role">${escapeHtml(people[0].role)}</p>
+          </div>`
+              : `<h2>${escapeHtml(about.team.title)}</h2>`
+          }
+        </header>
+        <div class="about-prose">
+          ${
+            people.length === 1
+              ? `<p>${escapeHtml(people[0].body)}</p>`
+              : people
+                  .map(
+                    (person) => `<div class="about-person">
             <h3>${escapeHtml(person.name)}</h3>
-            <p class="team-role">${escapeHtml(person.role)}</p>
+            <p class="about-role">${escapeHtml(person.role)}</p>
             <p>${escapeHtml(person.body)}</p>
-          </article>`,
-    )
-    .join('')
-  const team = about.team
-    ? `<section class="section about-team">
-        ${renderSectionHeading(about.team.eyebrow, about.team.title, about.team.intro)}
-        <div class="team-list">${people}</div>
+          </div>`,
+                  )
+                  .join('')
+          }
+          ${careersLink}
+        </div>
       </section>`
-    : ''
+      : careersLink
+        ? `<section class="about-chapter about-lead"><div class="about-prose">${careersLink}</div></section>`
+        : ''
 
-  return `<section class="section about-hero">
-        ${renderSectionHeading(about.eyebrow, about.title, about.lede)}
-      </section>
-      <section class="section about-mission">
-        <div class="about-mission-grid">
-          <div>
-            <p class="eyebrow">${escapeHtml(about.mission.eyebrow)}</p>
-            <p class="about-mission-statement">${escapeHtml(about.mission.statement)}</p>
-          </div>
-          <p class="about-mission-body">${escapeHtml(about.mission.body)}</p>
+  return `<article class="about-page">
+      <header class="about-open">
+        <div>
+          <span class="heading-squiggle" aria-hidden="true"></span>
+          ${about.eyebrow ? `<p class="eyebrow">${escapeHtml(about.eyebrow)}</p>` : ''}
+          <h1>${escapeHtml(about.title)}</h1>
+        </div>
+        <p class="about-lede">${escapeHtml(about.lede)}</p>
+      </header>
+      <section class="about-chapter about-practice${photo ? '' : ' about-practice--copy'}">
+        ${photo}
+        <div class="about-practice-copy">
+          ${about.story?.eyebrow ? `<p class="eyebrow">${escapeHtml(about.story.eyebrow)}</p>` : ''}
+          <h2>${escapeHtml(about.story.title)}</h2>
+          <div class="about-prose">${storyParagraphs}</div>
+          ${skills}
         </div>
       </section>
-      <section class="section about-story">
-        <div class="about-story-layout">
-          <div class="about-story-main">
-            ${renderSectionHeading(about.story.eyebrow, about.story.title)}
-            <div class="about-story-copy">${storyParagraphs}</div>
-            ${careersLink}
-          </div>
-          ${photo}
+      <section class="about-chapter about-approach">
+        <div>
+          ${about.mission?.eyebrow ? `<p class="eyebrow">${escapeHtml(about.mission.eyebrow)}</p>` : ''}
+          <h2>${escapeHtml(about.mission.statement)}</h2>
         </div>
-        <div class="about-pillars">
-          ${renderSectionHeading(about.pillars.eyebrow, about.pillars.title)}
-          <div class="about-pillar-grid">${pillars}</div>
+        <div class="about-prose">
+          <p>${escapeHtml(about.mission.body)}</p>
+          ${languages}
         </div>
       </section>
-      ${languages}
-      ${team}
-      ${renderQuoteBoard(about.quotes, 'about-quotes')}`
+      ${lead}
+    </article>
+    ${renderQuoteBoard(about.quotes, 'about-quotes')}`
 }
 
 function getSharedAssetPath(assetKey) {
@@ -1936,6 +2113,7 @@ function renderCareerPage(content) {
 
   return `<section class="career-hero page-section">
         <div class="career-hero-copy">
+          <span class="heading-squiggle" aria-hidden="true"></span>
           <h1>${escapeHtml(careers.title)}</h1>
           <p class="career-hero-intro">${escapeHtml(careers.intro)}</p>
           <div class="button-row">
@@ -2217,6 +2395,14 @@ function renderThankYouPage(content) {
       </section>`
 }
 
+function renderQuizAnswerFields(form) {
+  const names = new Set((form.fields ?? []).map((field) => field.name))
+  return ['hasDiagnosis', 'hasCde']
+    .filter((name) => !names.has(name))
+    .map((name) => `<input type="hidden" name="${name}" value="" />`)
+    .join('\n          ')
+}
+
 function renderContactPage(content) {
   const { contact, form, variant } = getContactPageConfig(content)
   const formType = variant === 'referral' ? 'referral' : 'service_request'
@@ -2238,8 +2424,7 @@ function renderContactPage(content) {
           ${renderContactFormSwitch(content, variant)}
           <form class="request-form request-form--${escapeHtml(variant)}" data-form-type="${escapeHtml(formType)}">
           <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <input type="hidden" name="hasDiagnosis" value="" />
-          <input type="hidden" name="hasCde" value="" />
+          ${renderQuizAnswerFields(form)}
           ${form.fields.map((field) => renderFormField(field, content, variant)).join('')}
           ${
             form.consentLabel
@@ -3145,12 +3330,10 @@ function renderContactQuizInner(content, direction = 'none') {
             ${formShortcut ? `<a class="button ghost quiz-skip" href="${escapeHtml(toStaticHref(formShortcut.href))}" data-quiz-prefill>${escapeHtml(formShortcut.label)}</a>` : ''}
           </div>
           <div class="quiz-footer-links">
-            <a class="quiz-footer-call" href="${escapeHtml(phoneHref)}">${escapeHtml(quiz.callPrompt ?? 'Prefer to talk?')} ${escapeHtml(phone)}</a>
-            ${
-              content.visit?.hoursSummary
-                ? `<p class="quiz-hours"><span>${escapeHtml(content.ui.hoursLabel)}</span> ${renderHoursText(content.visit.hoursSummary)}</p>`
-                : ''
-            }
+            <div class="quiz-footer-primary">
+              <a class="quiz-footer-call" href="${escapeHtml(phoneHref)}">${escapeHtml(quiz.callPrompt ?? 'Prefer to talk?')} ${escapeHtml(phone)}</a>
+              ${content.visit?.hoursSummary ? renderQuizHours(content.visit.hoursSummary, content.ui.hoursLabel) : ''}
+            </div>
             <span class="quiz-footer-skip">${escapeHtml(quiz.skipLinkPrompt)} <a href="${escapeHtml(toStaticHref(quiz.skipLinkHref))}">${escapeHtml(quiz.skipLinkLabel)}</a></span>
           </div>
           ${content.footer.emergency ? `<p class="emergency-note">${escapeHtml(content.footer.emergency)}</p>` : ''}
@@ -3542,7 +3725,7 @@ function renderResourcesIndex(content) {
           ${renderFaqSearch(content)}
           <div class="faq-search-results" data-faq-search-results hidden></div>
         </div>
-        ${renderResourceCards(resources.items, resources.cardLabel)}
+        ${renderResourceCards(resources.items)}
         ${resources.formsPromo ? renderFormsPromo(resources.formsPromo, { variant: 'secondary' }) : ''}
       </section>`
 }
@@ -3567,22 +3750,12 @@ function renderMain(content) {
 
   switch (PAGE) {
     case 'aba':
-      mainHtml = renderProgramDetailPage(content, content.sections.aba)
-      break
     case 'early-learners':
-      mainHtml = renderProgramDetailPage(content, content.sections.earlyLearners)
-      break
     case 'feeding-program':
-      mainHtml = renderProgramDetailPage(content, content.sections.feedingProgram)
-      break
     case 'social-enrichment':
-      mainHtml = renderProgramDetailPage(content, content.sections.socialEnrichment)
-      break
     case 'social-skills-group':
-      mainHtml = renderProgramDetailPage(content, content.sections.socialSkillsGroup)
-      break
     case 'group-parent-training':
-      mainHtml = renderProgramDetailPage(content, content.sections.groupParentTraining)
+      mainHtml = renderProgramDetailPage(content)
       break
     case 'get-started':
       mainHtml = renderProcessPage(content)
@@ -3653,8 +3826,6 @@ function bindMapChoosers() {
           other.open = false
         }
       })
-
-      chooser.querySelector('.map-chooser-panel')?.scrollIntoView({ block: 'nearest' })
     })
   })
 
@@ -4075,9 +4246,11 @@ function bindIntakeReceipt() {
     })
   })
 
-  document.querySelector('[data-clear-receipt]')?.addEventListener('click', () => {
-    clearIntakeReceipt()
-    render()
+  document.querySelectorAll('[data-clear-receipt]').forEach((button) => {
+    button.addEventListener('click', () => {
+      clearIntakeReceipt()
+      render()
+    })
   })
 }
 
@@ -5050,17 +5223,16 @@ const REVEAL_SELECTORS = [
   '.provider-card',
   '.careers-panel',
   '.faq-category',
-  '.thank-you-mark',
-  '.thank-you-lead',
-  '.thank-you-steps',
-  '.thank-you-actions',
-  '.thank-you-note',
 ].join(',')
 
 function bindScrollReveal() {
   if (bindScrollReveal.observer) {
     bindScrollReveal.observer.disconnect()
     bindScrollReveal.observer = null
+  }
+
+  if (PAGE === 'thank-you') {
+    return
   }
 
   const nodes = [...document.querySelectorAll(REVEAL_SELECTORS)]
@@ -5146,6 +5318,7 @@ function render() {
   const locale = getLocale()
   const content = getContent()
   document.documentElement.lang = locale
+  document.body.dataset.page = PAGE
   applyDocumentSeo(content)
   document.getElementById('app').innerHTML = renderShell(content, renderMain(content))
 

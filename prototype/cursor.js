@@ -1,11 +1,11 @@
 ;(() => {
-  const BRAND = '#489d7e'
-  const LIME = '#cded82'
-  const CORAL = '#de6958'
-  const BLUE = '#389bb2'
-  const INK = '#17211d'
+  const BRAND = '#c2186a'
+  const LIME = '#c8e84a'
+  const CORAL = '#ff8a3c'
+  const BLUE = '#3ec4e0'
+  const INK = '#1c1914'
   const WHITE = '#ffffff'
-  const DEEP = '#1d5a44'
+  const DEEP = '#5b54d6'
 
   const STORAGE_KEY = 'vtcc-cursor'
   const INTERACTIVE = 'a, button, summary, input, select, textarea, label, [role="button"]'

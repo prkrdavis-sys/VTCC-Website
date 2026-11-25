@@ -27,8 +27,6 @@ VTCC accepts Medicaid, commercial insurance, and county funding. Call to confirm
 
 ### Services Overview
 
-Choose the program that fits your family. VTCC supports each path with clear next steps.
-
 ABA Therapy:
 
 Applied Behavior Analysis helps children build meaningful skills through individualized goals, positive reinforcement, parent training, and ongoing progress monitoring.

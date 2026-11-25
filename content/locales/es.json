@@ -313,7 +313,7 @@
     "services": {
       "eyebrow": "Servicios",
       "title": "Cómo VTCC apoya a las familias",
-      "intro": "Elija el programa que mejor se adapte a su familia. VTCC acompaña cada camino con pasos claros.",
+      "intro": "",
       "cards": [
         {
           "id": "aba",
@@ -481,7 +481,7 @@
             {
               "title": "Level Up Crew (edades de 2 a 6 años)",
               "paragraphs": [
-                "¡Construyendo la base para las amistades!",
+                "La base para hacer amistades.",
                 "Se enfoca en desarrollar habilidades sociales tempranas mediante actividades lúdicas y prácticas, y la interacción guiada con compañeros."
               ],
               "items": [
@@ -510,7 +510,7 @@
             {
               "title": "Legend League (edades de 8 años en adelante)",
               "paragraphs": [
-                "¡Dominar las conexiones sociales y convertirse en líderes seguros!",
+                "Relaciones sociales sólidas y liderazgo con confianza.",
                 "Fomenta un desarrollo social más avanzado mediante actividades colaborativas, conversaciones entre compañeros y la resolución de problemas sociales de la vida real."
               ],
               "items": [
@@ -525,7 +525,7 @@
             {
               "title": "Nuestra misión",
               "paragraphs": [
-                "Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales, ganar confianza y crecer como comunicadores sociales exitosos, mientras aprenden, se conectan y se divierten."
+                "Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales y ganar confianza para comunicarse, mientras aprenden, se conectan y se divierten."
               ]
             }
           ],
@@ -556,7 +556,7 @@
               "title": "Los temas de la capacitación pueden incluir",
               "items": [
                 "Reconocer las primeras señales de escalada",
-                "Estrategias de prevención y desescalada",
+                "Estrategias para prevenir la escalada y reducirla",
                 "Apoyar la comunicación y la cooperación",
                 "Responder de forma segura ante conductas desafiantes",
                 "Crear un entorno en el hogar más seguro y de mayor apoyo",
@@ -654,14 +654,14 @@
           "title": "¿Dónde se puede utilizar la ABA?",
           "paragraphs": [
             "Estas técnicas pueden utilizarse en situaciones estructuradas como en el hogar, durante las comidas familiares o en un parque del vecindario.",
-            "Algunas sesiones de ABA implican interacción individual entre el terapeuta y el niño. La instrucción grupal también puede ser útil."
+            "La mayoría de las sesiones de ABA implican interacción individual entre el terapeuta y el niño. La instrucción grupal también puede ser útil."
           ]
         },
         {
           "title": "¿Cómo se brinda la terapia ABA a niños con TEA o trastornos del desarrollo?",
           "paragraphs": [
             "La terapia ABA ofrece programas integrales, individualizados e intensivos de intervención temprana para niños con autismo. Estas intervenciones están diseñadas para comenzar antes de los 4 años y abordan un amplio rango de habilidades para la vida, desde la comunicación y las habilidades sociales hasta el autocuidado y la preparación escolar.",
-            "Los programas suelen ser de 20 a 40 horas por semana durante 1 a 3 años, según la recomendación clínica y la autorización."
+            "Los programas van de 9 a 40 horas por semana durante 1 a 3 años, según la recomendación clínica y la autorización."
           ]
         },
         {
@@ -866,15 +866,15 @@
             },
             {
               "question": "¿Qué ocurre durante una sesión típica de ABA?",
-              "answer": "Algunas sesiones son individuales entre el terapeuta y el niño, y la instrucción grupal también puede utilizarse. Las actividades dependen del plan de tratamiento y pueden incluir habilidades de comunicación, sociales, de la vida diaria y de preparación escolar, además de orientación para cuidadores. Las mismas técnicas pueden usarse en el hogar, durante las comidas familiares o en un parque del vecindario."
+              "answer": "La mayoría de las sesiones son individuales entre el terapeuta y el niño, y la instrucción grupal también puede utilizarse. Las actividades dependen del plan de tratamiento y pueden incluir habilidades de comunicación, sociales, de la vida diaria y de preparación escolar, además de orientación para cuidadores. Las mismas técnicas pueden usarse en el hogar, durante las comidas familiares o en un parque del vecindario."
             },
             {
               "question": "¿Cómo se mide el progreso?",
-              "answer": "Un BCBA revisa el progreso en las metas del niño y se reúne con regularidad con la familia y el personal del programa para revisar el progreso y ajustar el plan."
+              "answer": "VTCC usa puntos de datos cuantificables para medir la conducta a lo largo del tiempo. Un BCBA revisa esos datos con la familia y el personal del programa y ajusta el plan a medida que el niño progresa."
             },
             {
               "question": "¿Cuánto dura la ABA?",
-              "answer": "Los programas suelen ser de 20 a 40 horas por semana durante 1 a 3 años, según la recomendación clínica y la autorización. La duración también varía según el niño, las metas y la aprobación del financiamiento."
+              "answer": "Los programas van de 9 a 40 horas por semana y a menudo duran de 1 a 3 años, según la recomendación clínica y la autorización."
             },
             {
               "question": "¿La ABA es solo para niños pequeños?",
@@ -897,11 +897,11 @@
             },
             {
               "question": "¿Qué formularios pueden ser necesarios?",
-              "answer": "Los formularios requeridos dependen del servicio y de la fuente de financiamiento. Descargue los formularios de admisión y referencia en la página de Formularios, o contacte a VTCC si no sabe qué documentos aplican."
+              "answer": "La página de Formularios indica qué descargar, imprimir y devolver a VTCC antes de la cita de admisión: el formulario de admisión de VTCC para servicios ABA y cuestionario para fuentes de referencia, el cuestionario para fuentes de referencia de visitas supervisadas y/o servicios FAPT, y el aviso de derechos del cliente titulado Es su derecho, en inglés y en español. Cuál corresponde depende del servicio y de la fuente de financiamiento."
             },
             {
               "question": "¿Cuánto tarda la admisión?",
-              "answer": "Los plazos varían. Algunos pasos avanzan rápidamente después del contacto, mientras que la verificación de financiamiento, la autorización y la programación pueden tardar más según el plan o la fuente de referencia."
+              "answer": "VTCC no publica un plazo fijo para la admisión. El tiempo depende de la revisión del financiamiento, la autorización, la documentación y la programación, y de qué tan completa esté la información cuando usted se comunica."
             },
             {
               "question": "¿Qué ocurre después de que me comunico?",
@@ -932,11 +932,11 @@
             },
             {
               "question": "¿Qué es FAPT o financiamiento del condado?",
-              "answer": "El financiamiento del condado o FAPT es una vía local que algunas familias usan para los servicios. VTCC acepta este financiamiento. La elegibilidad, los documentos requeridos y los pasos de aprobación varían según la localidad y el servicio."
+              "answer": "FAPT es el Family Assessment and Planning Team, el equipo del condado que revisa las solicitudes de servicios bajo la Children’s Services Act (CSA) de Virginia. VTCC acepta este financiamiento del condado. El equipo decide la elegibilidad y la aprobación, y los documentos y pasos requeridos varían según la localidad y el servicio."
             },
             {
               "question": "¿Cómo verifico mi cobertura?",
-              "answer": "Tenga lista su información de seguro o financiamiento cuando contacte a VTCC. El equipo puede ayudar a identificar qué puede necesitarse antes de que comiencen los servicios, aunque la aprobación final depende del plan o de la agencia de financiamiento."
+              "answer": "Llame a VTCC con los datos de su plan o financiamiento, o contacte a su plan o a la oficina local de Medicaid. VTCC puede ayudar a identificar qué puede necesitarse antes de que comiencen los servicios. El plan de seguros, la organización de atención administrada o la agencia de financiamiento toma la decisión final de cobertura."
             },
             {
               "question": "¿Qué pasa si mi plan no aparece en el sitio web?",
@@ -963,7 +963,7 @@
             },
             {
               "question": "¿Debo estar presente en cada sesión?",
-              "answer": "Un cuidador debe participar en la admisión. Si el cuidador permanece en sesiones posteriores depende del plan de tratamiento."
+              "answer": "No. Un cuidador debe participar en la admisión. Si el cuidador permanece en sesiones posteriores depende del plan de tratamiento."
             },
             {
               "question": "¿Qué pasa si más de un cuidador apoya al niño?",
@@ -1002,19 +1002,19 @@
             },
             {
               "question": "¿Cómo deben enviarse los documentos?",
-              "answer": "Use solo los métodos de contacto que VTCC proporciona para documentos de referencia y admisión. No envíe información confidencial a través de un formulario o correo no seguro a menos que VTCC haya aprobado un proceso seguro."
+              "answer": "Descargue, imprima y devuelva a VTCC el formulario de admisión o de referencia completo antes de la cita de admisión. No envíe informes de diagnóstico ni otros registros confidenciales por el formulario del sitio web ni por un correo no seguro. Después de que usted llama o envía una referencia, VTCC explica su proceso seguro aprobado para esos registros."
             },
             {
               "question": "¿Qué tan rápido responderá VTCC?",
-              "answer": "Un miembro del equipo se comunica con usted por teléfono o correo electrónico. El tiempo depende de la solicitud y de la carga de trabajo de la oficina. Este sitio web no se supervisa las 24 horas. Si hay una emergencia de seguridad inmediata, llame al 911. Si tiene una crisis de salud mental, llame o envíe un mensaje de texto al 988."
+              "answer": "VTCC no publica un tiempo de respuesta fijo. Un miembro del equipo se comunica con usted por teléfono o correo electrónico, y el tiempo depende de la solicitud y de la carga de trabajo de la oficina. Este sitio web no se supervisa las 24 horas. Si hay una emergencia de seguridad inmediata, llame al 911. Si tiene una crisis de salud mental, llame o envíe un mensaje de texto al 988."
             },
             {
               "question": "¿VTCC coordina con las escuelas o los IEP?",
-              "answer": "Las familias a menudo quieren que las habilidades se trasladen a la escuela. VTCC puede hablar con usted sobre compartir el progreso y si un informe o una reunión escolar forma parte del plan. Lo que el equipo puede compartir depende de su consentimiento, el plan de tratamiento y la fuente de financiamiento. Pregunte durante la admisión si la coordinación con la escuela es una meta."
+              "answer": "Sí, cuando forma parte del plan. VTCC puede hablar con usted sobre compartir el progreso y si un informe o una reunión escolar está incluido. Lo que el equipo puede compartir depende de su consentimiento, el plan de tratamiento y la fuente de financiamiento. Pregunte durante la admisión si la coordinación con la escuela es una meta."
             },
             {
               "question": "¿Puede VTCC decirme si un niño es elegible antes de referir?",
-              "answer": "VTCC a menudo puede comentar si el servicio es adecuado en general y explicar los próximos pasos, pero la elegibilidad final puede depender de la autorización de financiamiento, la evaluación clínica y la documentación."
+              "answer": "VTCC puede comentar si el servicio es adecuado en general y explicar los próximos pasos antes de que usted refiera. La elegibilidad final depende de la autorización de financiamiento, la evaluación clínica y la documentación."
             }
           ]
         },
@@ -1179,7 +1179,7 @@
         ]
       },
       "photoAlt": "Clínicos de VTCC trabajando uno a uno con niños en la clínica",
-      "photoCaption": "Clínicos y familias practicando habilidades que se llevan a casa.",
+      "photoCaption": "Clínicos practicando habilidades que se llevan a casa.",
       "careersLink": {
         "label": "Ver empleo en VTCC",
         "href": "/career"
@@ -1191,7 +1191,6 @@
       "team": {
         "eyebrow": "Liderazgo",
         "title": "Liderazgo clínico",
-        "intro": "Leticia Basauri dirige VTCC. Se agregan otros perfiles clínicos cuando VTCC los aprueba.",
         "people": [
           {
             "name": "Leticia Basauri",
@@ -1273,11 +1272,11 @@
           },
           {
             "title": "Espacio para crecer",
-            "body": "Vía de técnico de conducta líder sénior."
+            "body": "Trayectoria hacia técnico de conducta líder."
           },
           {
             "title": "Trabajo de campo mientras trabaja",
-            "body": "Horas supervisadas hacia el BCBA en el Programa de analista estudiante."
+            "body": "Horas supervisadas para el BCBA en el programa para analistas en formación."
           }
         ]
       },
@@ -1327,7 +1326,7 @@
             "items": [
               "Aplicar planes de tratamiento",
               "Recopilar datos de sesión",
-              "Orientar a los cuidadores"
+              "Trabajo de terapia conductual directa 1:1"
             ]
           },
           "requirements": {
@@ -1381,7 +1380,7 @@
           "title": "Un día con estructura de aula",
           "body": "Este programa se ofrece de lunes a viernes, de 10:00 a.m. a 2:00 p.m. Los niños de 3 a 5 años participan en rotaciones de centros de 20 minutos. La actividad dirigida por el docente se enfoca en las habilidades de atención, y todos los centros apoyan el juego, la creatividad y las bases académicas tempranas.",
           "items": [
-            "Juego de simulación",
+            "Juego simbólico",
             "Lectura",
             "Trabajo independiente",
             "Arte y manualidades",
@@ -1479,7 +1478,7 @@
       "columns": [
         {
           "title": "Level Up Crew (edades de 2 a 6 años)",
-          "body": "Construyendo la base para las amistades. Este nivel se enfoca en habilidades sociales tempranas mediante actividades lúdicas y prácticas, y la interacción guiada con compañeros.",
+          "body": "La base para hacer amistades. Este nivel se enfoca en habilidades sociales tempranas mediante actividades lúdicas y prácticas, y la interacción guiada con compañeros.",
           "items": [
             "Juego paralelo y cooperativo",
             "Compartir, turnarse y esperar",
@@ -1502,7 +1501,7 @@
         },
         {
           "title": "Legend League (edades de 8 años en adelante)",
-          "body": "Dominar las conexiones sociales y convertirse en líderes seguros. Este nivel usa actividades colaborativas, conversaciones entre compañeros y la resolución de problemas sociales de la vida real.",
+          "body": "Relaciones sociales sólidas y liderazgo con confianza. Este nivel usa actividades colaborativas, conversaciones entre compañeros y la resolución de problemas sociales de la vida real.",
           "items": [
             "Liderazgo y toma de decisiones en grupo",
             "Proyectos colaborativos y juegos estratégicos",
@@ -1514,7 +1513,7 @@
         },
         {
           "title": "Nuestra misión",
-          "body": "Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales, ganar confianza y crecer como comunicadores sociales exitosos, mientras aprenden, se conectan y se divierten."
+          "body": "Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales y ganar confianza para comunicarse, mientras aprenden, se conectan y se divierten."
         }
       ]
     },
@@ -1527,7 +1526,7 @@
           "title": "Los temas de la capacitación pueden incluir",
           "items": [
             "Reconocer las primeras señales de escalada",
-            "Estrategias de prevención y desescalada",
+            "Estrategias para prevenir la escalada y reducirla",
             "Apoyar la comunicación y la cooperación",
             "Responder de forma segura ante conductas desafiantes",
             "Crear un entorno en el hogar más seguro y de mayor apoyo",
@@ -1590,7 +1589,7 @@
           "Técnico de conducta (BT)",
           "Técnico de conducta registrado (RBT)",
           "Técnico de conducta líder sénior (SLBT)",
-          "Programa de analista estudiante",
+          "Programa para analistas en formación",
           "Analista de conducta certificado (BCBA)",
           "Administración u operaciones",
           "Otro"
@@ -1772,6 +1771,17 @@
         "max": 30,
         "step": 1,
         "inputmode": "numeric"
+      },
+      {
+        "name": "hasCde",
+        "label": "¿Tiene una CDE?",
+        "type": "select",
+        "placeholder": "Seleccione",
+        "options": [
+          "Sí",
+          "No",
+          "No lo sé"
+        ]
       },
       {
         "name": "service",
@@ -1984,9 +1994,9 @@
     "closeLabel": "Cerrar",
     "backLabel": "Atrás",
     "continueLabel": "Continuar",
-    "skipToRequestLabel": "Saltar al formulario de solicitud",
-    "skipToReferralLabel": "Saltar al formulario de referencia",
-    "skipToApplicationLabel": "Saltar a la solicitud",
+    "skipToRequestLabel": "Ir al formulario de solicitud",
+    "skipToReferralLabel": "Ir al formulario de referencia",
+    "skipToApplicationLabel": "Ir a la solicitud",
     "progressLabel": "Pregunta {n} de {total}",
     "progressAriaLabel": "Progreso del cuestionario",
     "callPrompt": "¿Prefiere hablar?",
@@ -2029,7 +2039,7 @@
       "label": "¿Su hijo o hija necesita apoyo con las habilidades sociales en grupo?"
     },
     "parentClassroomQuestion": {
-      "label": "¿Su hijo o hija puede participar en el aula del programa de Primeros Aprendices?"
+      "label": "¿Su hijo o hija está listo o lista para el aula del programa de Primeros Aprendices?"
     },
     "doctorDiagnosisQuestion": {
       "label": "¿Tiene la referencia y el diagnóstico?"
@@ -2212,14 +2222,14 @@
     "careerRoles": {
       "bcba": "Analista de conducta certificado (BCBA)",
       "bcaba": "Otro",
-      "masters": "Programa de analista estudiante",
+      "masters": "Programa para analistas en formación",
       "rbt": "Técnico de conducta registrado (RBT)",
       "bt": "Técnico de conducta (BT)"
     },
     "roleReasons": {
       "bcba": "Su credencial de BCBA es la mejor coincidencia para la solicitud de analista de conducta certificado.",
-      "bcaba": "VTCC no tiene una publicación separada para BCaBA. Solicite en Otro y mencione su credencial BCaBA.",
-      "masters": "Una maestría afín encaja bien con el Programa de analista estudiante.",
+      "bcaba": "VTCC no tiene un puesto aparte para BCaBA. Solicite en Otro y mencione su credencial de BCaBA.",
+      "masters": "Una maestría afín encaja bien con el Programa para analistas en formación.",
       "rbt": "Su credencial de RBT o QBT coincide con el puesto de técnico de conducta registrado.",
       "bt": "El puesto de técnico de conducta suele ser el punto de partida con esta formación."
     },
@@ -2239,45 +2249,45 @@
     "parentResult": {
       "title": "Programas que pueden ser una buena opción",
       "body": "Según la edad de su hijo o hija y lo que compartió, estos programas pueden valer la pena comentarlos con VTCC.",
-      "abaNote": "La terapia ABA suele ser la base. Los programas especializados se pueden agregar cuando correspondan.",
+      "abaNote": "La terapia ABA suele ser la base. Los programas especializados se pueden sumar cuando sean adecuados.",
       "outsideAgeTitle": "Aún podemos ayudarle a encontrar un camino",
       "outsideAgeBody": "La edad de su hijo o hija está fuera del rango típico publicado para los programas de VTCC. Aún puede enviar una solicitud para que el equipo le oriente.",
       "onlyAbaTitle": "Ya puede comenzar con ABA",
-      "onlyAbaBody": "La terapia ABA es un sólido próximo paso para su familia. Suele estar disponible de los 18 meses a los 21 años cuando es clínicamente apropiado.",
+      "onlyAbaBody": "La terapia ABA es un buen siguiente paso para su familia. Suele estar disponible de los 18 meses a los 21 años cuando es clínicamente apropiado.",
       "ctaLabel": "Continuar al formulario de solicitud de servicios"
     },
     "parentMessages": {
-      "noDiagnosis": "Cuestionario de contacto: padre, madre o tutor pregunta por los próximos pasos.",
-      "programs": "Cuestionario de contacto: interés en {programs}.",
-      "outsideAge": "Cuestionario de contacto: la edad del niño o de la niña está fuera del rango típico publicado."
+      "noDiagnosis": "Me gustaría recibir orientación sobre los próximos pasos para los servicios.",
+      "programs": "Me interesa {programs}.",
+      "outsideAge": "La edad de mi hijo o hija está fuera del rango habitual de los programas, y me gustaría orientación sobre los próximos pasos."
     },
     "doctorYes": {
       "title": "Cómo enviar una referencia",
-      "intro": "Use primero esta consulta. No adjunte informes de diagnóstico, IEP ni otra información de salud protegida en el formulario web.",
+      "intro": "No adjunte informes de diagnóstico, IEP ni registros de salud.",
       "steps": [
         {
-          "title": "Envíe esta consulta",
-          "body": "Envíe una pregunta breve, sin información confidencial a través del formulario de referencia."
+          "title": "Envíe el formulario de referencia",
+          "body": ""
         },
         {
-          "title": "VTCC se comunica con usted",
-          "body": "Un miembro del equipo confirma contactos, el servicio de interés y la forma segura de enviar documentos."
+          "title": "Le explicamos cómo enviar los documentos",
+          "body": ""
         },
         {
-          "title": "Envíe documentos de forma segura",
-          "body": "Comparta la referencia y el diagnóstico a través del proceso seguro aprobado por VTCC, no en este formulario."
+          "title": "Envíe los registros por el proceso seguro de VTCC",
+          "body": ""
         },
         {
-          "title": "Evaluación y autorización",
-          "body": "VTCC revisa el financiamiento y describe los próximos pasos para la evaluación cuando corresponda."
+          "title": "Revisamos el financiamiento y los próximos pasos",
+          "body": ""
         }
       ],
-      "notice": "Este formulario es solo para preguntas de referencia. Use el proceso seguro aprobado por VTCC para documentos protegidos.",
+      "notice": "",
       "ctaLabel": "Continuar al formulario de referencia"
     },
     "doctorNo": {
       "title": "Lo que suele incluir una referencia completa",
-      "intro": "Aún puede enviar una consulta. Estos datos ayudan a VTCC a dar seguimiento más rápido.",
+      "intro": "Aún puede enviar una consulta. Estos datos ayudan a que VTCC le responda más pronto.",
       "items": [
         "Edad del niño o de la niña",
         "Información de contacto del padre, madre o tutor",
@@ -2287,9 +2297,9 @@
       ],
       "ctaLabel": "Continuar al formulario de referencia"
     },
-    "doctorMessage": "Cuestionario de contacto: consulta de referencia de un médico.",
+    "doctorMessage": "Me gustaría iniciar una referencia.",
     "applicantResult": {
-      "title": "Un puesto que coincide con sus titulaciones",
+      "title": "Un puesto acorde con su preparación",
       "body": "Esta es una sugerencia inicial. Puede cambiar el puesto en el formulario de solicitud.",
       "ctaLabel": "Continuar a la solicitud",
       "experienceLabel": "Experiencia del cuestionario de contacto"
@@ -2409,7 +2419,7 @@
           "title": "Un día con estructura de aula",
           "intro": "Los niños participan en rotaciones de centros de 20 minutos. La actividad dirigida por el docente se enfoca en las habilidades de atención, y todos los centros apoyan el juego, la creatividad y las bases académicas tempranas.",
           "items": [
-            "Juego de simulación",
+            "Juego simbólico",
             "Lectura",
             "Trabajo independiente",
             "Arte y manualidades",
@@ -2532,7 +2542,7 @@
       "sections": [
         {
           "title": "Level Up Crew (edades de 2 a 6 años)",
-          "intro": "Construyendo la base para las amistades mediante actividades lúdicas y prácticas, y la interacción guiada con compañeros.",
+          "intro": "La base para hacer amistades, con actividades lúdicas y prácticas, y la interacción guiada con compañeros.",
           "items": [
             "Juego paralelo y cooperativo",
             "Compartir, turnarse y esperar",
@@ -2555,7 +2565,7 @@
         },
         {
           "title": "Legend League (edades de 8 años en adelante)",
-          "intro": "Dominar las conexiones sociales y convertirse en líderes seguros mediante actividades colaborativas, conversaciones entre compañeros y la resolución de problemas sociales de la vida real.",
+          "intro": "Relaciones sociales sólidas y liderazgo con confianza, mediante actividades colaborativas, conversaciones entre compañeros y la resolución de problemas sociales de la vida real.",
           "items": [
             "Liderazgo y toma de decisiones en grupo",
             "Proyectos colaborativos y juegos estratégicos",
@@ -2567,7 +2577,7 @@
         },
         {
           "title": "Nuestra misión",
-          "body": "Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales, ganar confianza y crecer como comunicadores sociales exitosos, mientras aprenden, se conectan y se divierten."
+          "body": "Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales y ganar confianza para comunicarse, mientras aprenden, se conectan y se divierten."
         }
       ],
       "cta": {
@@ -2591,7 +2601,7 @@
           "intro": "Las capacitaciones grupales ofrecerán a los cuidadores la oportunidad de aprender junto a otras familias, practicar habilidades, hacer preguntas y ganar confianza usando estrategias conductuales proactivas y seguras en el hogar y en la comunidad.",
           "items": [
             "Reconocer las primeras señales de escalada",
-            "Estrategias de prevención y desescalada",
+            "Estrategias para prevenir la escalada y reducirla",
             "Apoyar la comunicación y la cooperación",
             "Responder de forma segura ante conductas desafiantes",
             "Crear un entorno en el hogar más seguro y de mayor apoyo",
@@ -3177,7 +3187,7 @@
       },
       "group-parent-training": {
         "title": "Safety-Care® para Familias y Cuidadores | Victoria Transcultural Clinical Center",
-        "description": "Pronto habrá capacitación grupal Safety-Care® para padres y cuidadores, con estrategias prácticas de prevención, desescalada y seguridad en casa."
+        "description": "Pronto habrá capacitación grupal Safety-Care® para padres y cuidadores, con estrategias prácticas de prevención, reducción de la escalada y seguridad en casa."
       },
       "get-started": {
         "title": "Cómo comenzar | Victoria Transcultural Clinical Center",

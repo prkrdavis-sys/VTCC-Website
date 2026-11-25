@@ -201,8 +201,8 @@ es.sections.careers = {
       { title: 'Reconocimiento', body: 'Empleado del mes y Grounds for Greatness.' },
       { title: 'PDU mensuales', body: 'Aprendizaje continuo sobre habilidades y ética.' },
       { title: 'Certificación Safety-Care', body: 'Impartida internamente.' },
-      { title: 'Espacio para crecer', body: 'Vía de técnico de conducta líder sénior.' },
-      { title: 'Trabajo de campo mientras trabaja', body: 'Horas supervisadas hacia el BCBA en el Programa de analista estudiante.' },
+      { title: 'Espacio para crecer', body: 'Trayectoria hacia técnico de conducta líder.' },
+      { title: 'Trabajo de campo mientras trabaja', body: 'Horas supervisadas para el BCBA en el programa para analistas en formación.' },
     ],
   },
   steps: {
@@ -390,8 +390,7 @@ es.trustStrip = [
 Object.assign(es.sections.services, {
   eyebrow: 'Servicios',
   title: 'Cómo VTCC apoya a las familias',
-  intro:
-    'Elija el programa que mejor se adapte a su familia. VTCC acompaña cada camino con pasos claros.',
+  intro: '',
 })
 
 es.sections.services.cards = [
@@ -557,7 +556,7 @@ es.sections.services.cards = [
       {
         "title": "Level Up Crew (edades de 2 a 6 años)",
         "paragraphs": [
-          "¡Construyendo la base para las amistades!",
+          "La base para hacer amistades.",
           "Se enfoca en desarrollar habilidades sociales tempranas mediante actividades lúdicas y prácticas, y la interacción guiada con compañeros."
         ],
         "items": [
@@ -586,7 +585,7 @@ es.sections.services.cards = [
       {
         "title": "Legend League (edades de 8 años en adelante)",
         "paragraphs": [
-          "¡Dominar las conexiones sociales y convertirse en líderes seguros!",
+          "Relaciones sociales sólidas y liderazgo con confianza.",
           "Fomenta un desarrollo social más avanzado mediante actividades colaborativas, conversaciones entre compañeros y la resolución de problemas sociales de la vida real."
         ],
         "items": [
@@ -601,7 +600,7 @@ es.sections.services.cards = [
       {
         "title": "Nuestra misión",
         "paragraphs": [
-          "Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales, ganar confianza y crecer como comunicadores sociales exitosos, mientras aprenden, se conectan y se divierten."
+          "Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales y ganar confianza para comunicarse, mientras aprenden, se conectan y se divierten."
         ]
       }
     ],
@@ -631,7 +630,7 @@ es.sections.services.cards = [
         "title": "Los temas de la capacitación pueden incluir",
         "items": [
           "Reconocer las primeras señales de escalada",
-          "Estrategias de prevención y desescalada",
+          "Estrategias para prevenir la escalada y reducirla",
           "Apoyar la comunicación y la cooperación",
           "Responder de forma segura ante conductas desafiantes",
           "Crear un entorno en el hogar más seguro y de mayor apoyo",
@@ -706,14 +705,14 @@ Object.assign(es.sections.aba, {
       title: '¿Dónde se puede utilizar la ABA?',
       paragraphs: [
         'Estas técnicas pueden utilizarse en situaciones estructuradas como en el hogar, durante las comidas familiares o en un parque del vecindario.',
-        'Algunas sesiones de ABA implican interacción individual entre el terapeuta y el niño. La instrucción grupal también puede ser útil.',
+        'La mayoría de las sesiones de ABA implican interacción individual entre el terapeuta y el niño. La instrucción grupal también puede ser útil.',
       ],
     },
     {
       title: '¿Cómo se brinda la terapia ABA a niños con TEA o trastornos del desarrollo?',
       paragraphs: [
         'La terapia ABA ofrece programas integrales, individualizados e intensivos de intervención temprana para niños con autismo. Estas intervenciones están diseñadas para comenzar antes de los 4 años y abordan un amplio rango de habilidades para la vida, desde la comunicación y las habilidades sociales hasta el autocuidado y la preparación escolar.',
-        'Los programas suelen ser de 20 a 40 horas por semana durante 1 a 3 años, según la recomendación clínica y la autorización.',
+        'Los programas van de 9 a 40 horas por semana durante 1 a 3 años, según la recomendación clínica y la autorización.',
       ],
     },
     {
@@ -795,7 +794,7 @@ Object.assign(es.sections, {
         title: 'Un día con estructura de aula',
         body: 'Este programa se ofrece de lunes a viernes, de 10:00 a.m. a 2:00 p.m. Los niños de 3 a 5 años participan en rotaciones de centros de 20 minutos. La actividad dirigida por el docente se enfoca en las habilidades de atención, y todos los centros apoyan el juego, la creatividad y las bases académicas tempranas.',
         items: [
-          'Juego de simulación',
+          'Juego simbólico',
           'Lectura',
           'Trabajo independiente',
           'Arte y manualidades',
@@ -896,7 +895,7 @@ Object.assign(es.sections, {
     columns: [
       {
         title: 'Level Up Crew (edades de 2 a 6 años)',
-        body: 'Construyendo la base para las amistades. Este nivel se enfoca en habilidades sociales tempranas mediante actividades lúdicas y prácticas, y la interacción guiada con compañeros.',
+        body: 'La base para hacer amistades. Este nivel se enfoca en habilidades sociales tempranas mediante actividades lúdicas y prácticas, y la interacción guiada con compañeros.',
         items: [
           'Juego paralelo y cooperativo',
           'Compartir, turnarse y esperar',
@@ -919,7 +918,7 @@ Object.assign(es.sections, {
       },
       {
         title: 'Legend League (edades de 8 años en adelante)',
-        body: 'Dominar las conexiones sociales y convertirse en líderes seguros. Este nivel usa actividades colaborativas, conversaciones entre compañeros y la resolución de problemas sociales de la vida real.',
+        body: 'Relaciones sociales sólidas y liderazgo con confianza. Este nivel usa actividades colaborativas, conversaciones entre compañeros y la resolución de problemas sociales de la vida real.',
         items: [
           'Liderazgo y toma de decisiones en grupo',
           'Proyectos colaborativos y juegos estratégicos',
@@ -931,7 +930,7 @@ Object.assign(es.sections, {
       },
       {
         title: 'Nuestra misión',
-        body: 'Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales, ganar confianza y crecer como comunicadores sociales exitosos, mientras aprenden, se conectan y se divierten.',
+        body: 'Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales y ganar confianza para comunicarse, mientras aprenden, se conectan y se divierten.',
       },
     ],
   },
@@ -945,7 +944,7 @@ Object.assign(es.sections, {
         title: 'Los temas de la capacitación pueden incluir',
         items: [
           'Reconocer las primeras señales de escalada',
-          'Estrategias de prevención y desescalada',
+          'Estrategias para prevenir la escalada y reducirla',
           'Apoyar la comunicación y la cooperación',
           'Responder de forma segura ante conductas desafiantes',
           'Crear un entorno en el hogar más seguro y de mayor apoyo',
@@ -1059,7 +1058,7 @@ Object.assign(es.sections.about, {
     ],
   },
   photoAlt: 'Clínicos de VTCC trabajando uno a uno con niños en la clínica',
-  photoCaption: 'Clínicos y familias practicando habilidades que se llevan a casa.',
+  photoCaption: 'Clínicos practicando habilidades que se llevan a casa.',
   quotes: {
     eyebrow: '',
     title: 'Lo que dicen los padres sobre la atención en VTCC',
@@ -1309,7 +1308,7 @@ es.pages = {
         intro:
           'Los niños participan en rotaciones de centros de 20 minutos. La actividad dirigida por el docente se enfoca en las habilidades de atención, y todos los centros apoyan el juego, la creatividad y las bases académicas tempranas.',
         items: [
-          'Juego de simulación',
+          'Juego simbólico',
           'Lectura',
           'Trabajo independiente',
           'Arte y manualidades',
@@ -1427,7 +1426,7 @@ es.pages = {
       {
         title: 'Level Up Crew (edades de 2 a 6 años)',
         intro:
-          'Construyendo la base para las amistades mediante actividades lúdicas y prácticas, y la interacción guiada con compañeros.',
+          'La base para hacer amistades, con actividades lúdicas y prácticas, y la interacción guiada con compañeros.',
         items: [
           'Juego paralelo y cooperativo',
           'Compartir, turnarse y esperar',
@@ -1452,7 +1451,7 @@ es.pages = {
       {
         title: 'Legend League (edades de 8 años en adelante)',
         intro:
-          'Dominar las conexiones sociales y convertirse en líderes seguros mediante actividades colaborativas, conversaciones entre compañeros y la resolución de problemas sociales de la vida real.',
+          'Relaciones sociales sólidas y liderazgo con confianza, mediante actividades colaborativas, conversaciones entre compañeros y la resolución de problemas sociales de la vida real.',
         items: [
           'Liderazgo y toma de decisiones en grupo',
           'Proyectos colaborativos y juegos estratégicos',
@@ -1464,7 +1463,7 @@ es.pages = {
       },
       {
         title: 'Nuestra misión',
-        body: 'Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales, ganar confianza y crecer como comunicadores sociales exitosos, mientras aprenden, se conectan y se divierten.',
+        body: 'Crear un espacio acogedor donde los niños puedan desarrollar amistades significativas, fortalecer sus habilidades sociales y ganar confianza para comunicarse, mientras aprenden, se conectan y se divierten.',
       },
     ],
     cta: {
@@ -1486,7 +1485,7 @@ es.pages = {
           'Las capacitaciones grupales ofrecerán a los cuidadores la oportunidad de aprender junto a otras familias, practicar habilidades, hacer preguntas y ganar confianza usando estrategias conductuales proactivas y seguras en el hogar y en la comunidad.',
         items: [
           'Reconocer las primeras señales de escalada',
-          'Estrategias de prevención y desescalada',
+          'Estrategias para prevenir la escalada y reducirla',
           'Apoyar la comunicación y la cooperación',
           'Responder de forma segura ante conductas desafiantes',
           'Crear un entorno en el hogar más seguro y de mayor apoyo',
@@ -1723,9 +1722,9 @@ Object.assign(es.contactQuiz, {
   closeLabel: 'Cerrar',
   backLabel: 'Atrás',
   continueLabel: 'Continuar',
-  skipToRequestLabel: 'Saltar al formulario de solicitud',
-  skipToReferralLabel: 'Saltar al formulario de referencia',
-  skipToApplicationLabel: 'Saltar a la solicitud',
+  skipToRequestLabel: 'Ir al formulario de solicitud',
+  skipToReferralLabel: 'Ir al formulario de referencia',
+  skipToApplicationLabel: 'Ir a la solicitud',
   progressLabel: 'Pregunta {n} de {total}',
   progressAriaLabel: 'Progreso del cuestionario',
   callPrompt: '¿Prefiere hablar?',
@@ -1734,7 +1733,7 @@ Object.assign(es.contactQuiz, {
   skipLinkPrompt: '¿Escuela, administrador de casos u otro profesional?',
   skipLinkLabel: 'Iniciar una referencia',
   disclaimer: '',
-  doctorMessage: 'Cuestionario de contacto: consulta de referencia de un médico.',
+  doctorMessage: 'Me gustaría iniciar una referencia.',
 })
 es.contactQuiz.roleQuestion.label = 'Soy…'
 es.contactQuiz.roleQuestion.options = [
@@ -1750,7 +1749,7 @@ es.contactQuiz.parentFeedingQuestion.label =
 es.contactQuiz.parentSocialQuestion.label =
   '¿Su hijo o hija necesita apoyo con las habilidades sociales en grupo?'
 es.contactQuiz.parentClassroomQuestion.label =
-  '¿Su hijo o hija puede participar en el aula del programa de Primeros Aprendices?'
+  '¿Su hijo o hija está listo o lista para el aula del programa de Primeros Aprendices?'
 es.contactQuiz.doctorDiagnosisQuestion.label = '¿Tiene la referencia y el diagnóstico?'
 es.contactQuiz.cdeQuestion = { label: '¿Tiene la CDE?' }
 es.contactQuiz.applicantCredentialsQuestion.label = '¿Qué preparación tiene?'
@@ -1833,15 +1832,15 @@ es.contactQuiz.referralRoleValue = 'Médico o personal de enfermería'
 es.contactQuiz.careerRoles = {
   bcba: 'Analista de conducta certificado (BCBA)',
   bcaba: 'Otro',
-  masters: 'Programa de analista estudiante',
+  masters: 'Programa para analistas en formación',
   rbt: 'Técnico de conducta registrado (RBT)',
   bt: 'Técnico de conducta (BT)',
 }
 es.contactQuiz.roleReasons = {
   bcba: 'Su credencial de BCBA es la mejor coincidencia para la solicitud de analista de conducta certificado.',
   bcaba:
-    'VTCC no tiene una publicación separada para BCaBA. Solicite en Otro y mencione su credencial BCaBA.',
-  masters: 'Una maestría afín encaja bien con el Programa de analista estudiante.',
+    'VTCC no tiene un puesto aparte para BCaBA. Solicite en Otro y mencione su credencial de BCaBA.',
+  masters: 'Una maestría afín encaja bien con el Programa para analistas en formación.',
   rbt: 'Su credencial de RBT o QBT coincide con el puesto de técnico de conducta registrado.',
   bt: 'El puesto de técnico de conducta suele ser el punto de partida con esta formación.',
 }
@@ -1864,49 +1863,36 @@ Object.assign(es.contactQuiz.parentResult, {
   title: 'Programas que pueden ser una buena opción',
   body: 'Según la edad de su hijo o hija y lo que compartió, estos programas pueden valer la pena comentarlos con VTCC.',
   abaNote:
-    'La terapia ABA suele ser la base. Los programas especializados se pueden agregar cuando correspondan.',
+    'La terapia ABA suele ser la base. Los programas especializados se pueden sumar cuando sean adecuados.',
   outsideAgeTitle: 'Aún podemos ayudarle a encontrar un camino',
   outsideAgeBody:
     'La edad de su hijo o hija está fuera del rango típico publicado para los programas de VTCC. Aún puede enviar una solicitud para que el equipo le oriente.',
   onlyAbaTitle: 'Ya puede comenzar con ABA',
   onlyAbaBody:
-    'La terapia ABA es un sólido próximo paso para su familia. Suele estar disponible de los 18 meses a los 21 años cuando es clínicamente apropiado.',
+    'La terapia ABA es un buen siguiente paso para su familia. Suele estar disponible de los 18 meses a los 21 años cuando es clínicamente apropiado.',
   ctaLabel: 'Continuar al formulario de solicitud de servicios',
 })
 es.contactQuiz.parentMessages = {
-  noDiagnosis: 'Cuestionario de contacto: padre, madre o tutor pregunta por los próximos pasos.',
-  programs: 'Cuestionario de contacto: interés en {programs}.',
-  outsideAge: 'Cuestionario de contacto: la edad del niño o de la niña está fuera del rango típico publicado.',
+  noDiagnosis: 'Me gustaría recibir orientación sobre los próximos pasos para los servicios.',
+  programs: 'Me interesa {programs}.',
+  outsideAge: 'La edad de mi hijo o hija está fuera del rango habitual de los programas, y me gustaría orientación sobre los próximos pasos.',
 }
 Object.assign(es.contactQuiz.doctorYes, {
   title: 'Cómo enviar una referencia',
   intro:
-    'Use primero esta consulta. No adjunte informes de diagnóstico, IEP ni otra información de salud protegida en el formulario web.',
+    'No adjunte informes de diagnóstico, IEP ni registros de salud.',
   steps: [
-    {
-      title: 'Envíe esta consulta',
-      body: 'Envíe una pregunta breve, sin información confidencial a través del formulario de referencia.',
-    },
-    {
-      title: 'VTCC se comunica con usted',
-      body: 'Un miembro del equipo confirma contactos, el servicio de interés y la forma segura de enviar documentos.',
-    },
-    {
-      title: 'Envíe documentos de forma segura',
-      body: 'Comparta la referencia y el diagnóstico a través del proceso seguro aprobado por VTCC, no en este formulario.',
-    },
-    {
-      title: 'Evaluación y autorización',
-      body: 'VTCC revisa el financiamiento y describe los próximos pasos para la evaluación cuando corresponda.',
-    },
+    { title: 'Envíe el formulario de referencia', body: '' },
+    { title: 'Le explicamos cómo enviar los documentos', body: '' },
+    { title: 'Envíe los registros por el proceso seguro de VTCC', body: '' },
+    { title: 'Revisamos el financiamiento y los próximos pasos', body: '' },
   ],
-  notice:
-    'Este formulario es solo para preguntas de referencia. Use el proceso seguro aprobado por VTCC para documentos protegidos.',
+  notice: '',
   ctaLabel: 'Continuar al formulario de referencia',
 })
 Object.assign(es.contactQuiz.doctorNo, {
   title: 'Lo que suele incluir una referencia completa',
-  intro: 'Aún puede enviar una consulta. Estos datos ayudan a VTCC a dar seguimiento más rápido.',
+  intro: 'Aún puede enviar una consulta. Estos datos ayudan a que VTCC le responda más pronto.',
   items: [
     'Edad del niño o de la niña',
     'Información de contacto del padre, madre o tutor',
@@ -1917,7 +1903,7 @@ Object.assign(es.contactQuiz.doctorNo, {
   ctaLabel: 'Continuar al formulario de referencia',
 })
 Object.assign(es.contactQuiz.applicantResult, {
-  title: 'Un puesto que coincide con sus titulaciones',
+  title: 'Un puesto acorde con su preparación',
   body: 'Esta es una sugerencia inicial. Puede cambiar el puesto en el formulario de solicitud.',
   ctaLabel: 'Continuar a la solicitud',
   experienceLabel: 'Experiencia del cuestionario de contacto',
@@ -1930,7 +1916,7 @@ if (intakeCategory) {
   const formsFaq = intakeCategory.faqs.find((faq) => /\bforms?\b/i.test(faq.question))
   if (formsFaq) {
     formsFaq.answer =
-      'Los formularios requeridos dependen del servicio y de la fuente de financiamiento. Descargue los formularios de admisión y referencia en la página de Formularios, o contacte a VTCC si no sabe qué documentos aplican.'
+      'La página de Formularios indica qué descargar, imprimir y devolver a VTCC antes de la cita de admisión: el formulario de admisión de VTCC para servicios ABA y cuestionario para fuentes de referencia, el cuestionario para fuentes de referencia de visitas supervisadas y/o servicios FAPT, y el aviso de derechos del cliente, Es su derecho, en inglés y en español. Cuál corresponde depende del servicio y de la fuente de financiamiento.'
   }
 }
 
@@ -2005,7 +1991,7 @@ const careerRoleLabels = [
   'Técnico de conducta (BT)',
   'Técnico de conducta registrado (RBT)',
   'Técnico de conducta líder sénior (SLBT)',
-  'Programa de analista estudiante',
+  'Programa para analistas en formación',
   'Analista de conducta certificado (BCBA)',
   'Administración u operaciones',
   'Otro',
@@ -2037,6 +2023,11 @@ setField(es.formFamily, 'preferredContact', {
   options: contactOptions,
 })
 setField(es.formFamily, 'ageRange', { label: 'Edad del niño o de la niña' })
+setField(es.formFamily, 'hasCde', {
+  label: '¿Tiene una CDE?',
+  placeholder: 'Seleccione',
+  options: ['Sí', 'No', 'No lo sé'],
+})
 setField(es.formFamily, 'service', {
   label: 'Servicio que le interesa',
   solo: serviceSolo,
@@ -2170,8 +2161,6 @@ es.sections.about.languages = {
 es.sections.about.team = {
   eyebrow: 'Liderazgo',
   title: 'Liderazgo clínico',
-  intro:
-    'Leticia Basauri dirige VTCC. Se agregan otros perfiles clínicos cuando VTCC los aprueba.',
   people: [
     {
       name: 'Leticia Basauri',
@@ -2214,7 +2203,7 @@ const spanishSeoDescriptions = {
   'social-skills-group':
     'Grupos de habilidades sociales para niños de 2 años en adelante: Level Up Crew, Quest Masters y Legend League.',
   'group-parent-training':
-    'Pronto habrá capacitación grupal Safety-Care® para padres y cuidadores, con estrategias prácticas de prevención, desescalada y seguridad en casa.',
+    'Pronto habrá capacitación grupal Safety-Care® para padres y cuidadores, con estrategias prácticas de prevención, reducción de la escalada y seguridad en casa.',
   'get-started':
     'Qué esperar cuando contacta a VTCC, desde la primera llamada hasta la revisión del financiamiento, la evaluación y el inicio de los servicios.',
   insurance:
