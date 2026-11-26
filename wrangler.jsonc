@@ -6,7 +6,8 @@
   "compatibility_date": "2026-10-06",
   "assets": {
     "directory": "./prototype",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
   },
   "durable_objects": {
     "bindings": [

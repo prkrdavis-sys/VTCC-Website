@@ -83,6 +83,21 @@
       "source": "/hipaa",
       "destination": "/notice-of-privacy-practices",
       "permanent": true
+    },
+    {
+      "source": "/careers",
+      "destination": "/career",
+      "permanent": true
+    },
+    {
+      "source": "/careers/",
+      "destination": "/career",
+      "permanent": true
+    },
+    {
+      "source": "/careers.html",
+      "destination": "/career",
+      "permanent": true
     }
   ]
 }

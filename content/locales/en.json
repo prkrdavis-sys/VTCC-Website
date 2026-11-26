@@ -12,9 +12,14 @@
     "faqSearchPlaceholder": "Search questions and answers",
     "faqSearchNoResults": "No FAQs match your search. Try different keywords or browse the topics below.",
     "faqSearchResultsCount": "{count} matching questions",
+    "faqSearchResultsCountOne": "1 matching question",
     "faqSearchInTopic": "In {topic}",
     "menuLabel": "Menu",
     "homeLinkLabel": "home",
+    "skipToContent": "Skip to content",
+    "notFoundTitle": "Page not found",
+    "notFoundBody": "That page does not exist, or it has moved. Try the menu, or go back to the home page.",
+    "notFoundHome": "Back to home",
     "utilityNavLabel": "Utility actions",
     "mainNavLabel": "Main navigation",
     "trustHighlightsLabel": "Trust highlights",
@@ -42,7 +47,7 @@
     "copyReferenceLabel": "Copy",
     "copiedReferenceLabel": "Copied",
     "keepReferenceNote": "Keep this number. Share it when you call VTCC about this request.",
-    "stepCompleteLabel": "Step 1 completed",
+    "stepCompleteLabel": "Request Submitted",
     "clearReceiptLabel": "Not you? Clear this",
     "viewConfirmationLabel": "View confirmation",
     "careerFileChoose": "Choose a file",
@@ -183,6 +188,22 @@
             "href": "/resources/what-is-aba-therapy"
           },
           {
+            "label": "What To Expect During Intake",
+            "href": "/resources/what-to-expect-during-intake"
+          },
+          {
+            "label": "Medicaid and FAPT Funding Basics",
+            "href": "/resources/medicaid-fapt-funding-basics"
+          },
+          {
+            "label": "Parent Training FAQs",
+            "href": "/resources/parent-training-faqs"
+          },
+          {
+            "label": "Referrals and Eligibility",
+            "href": "/resources/referrals-and-eligibility"
+          },
+          {
             "label": "Early Learners Program",
             "href": "/resources/early-learners"
           },
@@ -197,10 +218,6 @@
           {
             "label": "Social Skills Group",
             "href": "/resources/social-skills-group"
-          },
-          {
-            "label": "Parent Training FAQs",
-            "href": "/resources/parent-training-faqs"
           }
         ]
       },
@@ -746,7 +763,7 @@
         "County/FAPT funding"
       ],
       "note": "VTCC accepts Medicaid, county funding, and commercial insurance. Contact VTCC to confirm your specific plan and service. Authorization still depends on the payer or funding agency.",
-      "ctaLabel": "Check Insurance & Funding",
+      "ctaLabel": "Contact VTCC",
       "ctaHref": "/contact"
     },
     "referrers": {
@@ -954,7 +971,7 @@
           "faqs": [
             {
               "question": "What is Safety-Care® for Families & Caregivers?",
-              "answer": "Safety-Care® for Families & Caregivers is group training for parents and caregivers. Group sessions are coming soon, and dates, registration, and eligibility requirements are not posted yet. The training is designed to give families practical, evidence-based strategies for preventing challenging behavior, recognizing early signs of escalation, promoting safety, and responding confidently during difficult situations."
+              "answer": "Safety-Care® for Families & Caregivers is group training for parents and caregivers. The training is designed to give families practical, evidence-based strategies for preventing challenging behavior, recognizing early signs of escalation, promoting safety, and responding confidently during difficult situations."
             },
             {
               "question": "Why is parent training part of ABA?",
@@ -1225,7 +1242,7 @@
     },
     "careers": {
       "title": "Grow your career in ABA",
-      "intro": "Training included, real mentorship, and work that matters to Northern Virginia families.",
+      "intro": "RBT Training included, a caring team that feels like family making an impact on Northern VA.",
       "photoAlt": "VTCC staff gathered outdoors around a table at a team event, with the clinic banner behind them.",
       "heroPhotoAlt": "Adults smiling together around a table during a training meeting.",
       "applyLabel": "Apply Now",
@@ -1556,7 +1573,7 @@
     "submitLabel": "Submit application",
     "backLabel": "Back to Careers",
     "backHref": "/career",
-    "consentLabel": "",
+    "consentLabel": "I agree that VTCC may use this information to respond to this application.",
     "fileLabel": "Resume or supporting document",
     "fileRequiredMessage": "Please attach a resume or supporting document.",
     "fileTypes": ".pdf,.doc,.docx,.txt",
@@ -1626,7 +1643,7 @@
   },
   "form": {
     "notice": "",
-    "consentLabel": "",
+    "consentLabel": "I agree that VTCC may use this information to respond to this request.",
     "submitLabel": "Submit Request",
     "fields": [
       {
@@ -1730,7 +1747,7 @@
   },
   "formFamily": {
     "notice": "",
-    "consentLabel": "",
+    "consentLabel": "I agree that VTCC may use this information to respond to this request.",
     "submitLabel": "Submit service request",
     "fields": [
       {
@@ -1846,7 +1863,7 @@
   },
   "formReferral": {
     "notice": "",
-    "consentLabel": "",
+    "consentLabel": "I agree that VTCC may use this information to respond to this referral.",
     "submitLabel": "Submit referral inquiry",
     "fields": [
       {
@@ -1980,7 +1997,7 @@
   "contactQuiz": {
     "eyebrow": "Contact",
     "title": "Find the right next step",
-    "intro": "A few questions. We’ll open the right form. Not a clinical decision.",
+    "intro": "Answer a few questions, and we’ll open the form that fits.",
     "callEyebrow": "Call VTCC",
     "callTitle": "Prefer to talk with someone?",
     "callIntro": "Call our Fairfax office. A team member can help with services, referrals, careers, and next steps.",
@@ -2489,7 +2506,7 @@
         },
         {
           "question": "What is Safety-Care® for Families & Caregivers?",
-          "answer": "Safety-Care® for Families & Caregivers is group training for parents and caregivers. Group sessions are coming soon, and dates, registration, and eligibility requirements are not posted yet. The training is designed to give families practical, evidence-based strategies for preventing challenging behavior, recognizing early signs of escalation, promoting safety, and responding confidently during difficult situations."
+          "answer": "Safety-Care® for Families & Caregivers is group training for parents and caregivers. The training is designed to give families practical, evidence-based strategies for preventing challenging behavior, recognizing early signs of escalation, promoting safety, and responding confidently during difficult situations."
         },
         {
           "question": "Where does VTCC provide services?",

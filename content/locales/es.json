@@ -15,6 +15,10 @@
     "faqSearchInTopic": "En {topic}",
     "menuLabel": "Menú",
     "homeLinkLabel": "Inicio",
+    "skipToContent": "Saltar al contenido",
+    "notFoundTitle": "Página no encontrada",
+    "notFoundBody": "Esa página no existe o se movió. Use el menú o vuelva a la página de inicio.",
+    "notFoundHome": "Volver al inicio",
     "utilityNavLabel": "Acciones del encabezado",
     "mainNavLabel": "Navegación principal",
     "trustHighlightsLabel": "Puntos de confianza",
@@ -42,7 +46,7 @@
     "copyReferenceLabel": "Copiar",
     "copiedReferenceLabel": "Copiado",
     "keepReferenceNote": "Guarde este número. Compártalo cuando llame a VTCC sobre esta solicitud.",
-    "stepCompleteLabel": "Paso 1 completado",
+    "stepCompleteLabel": "Solicitud enviada",
     "clearReceiptLabel": "¿No es usted? Borrar esto",
     "viewConfirmationLabel": "Ver confirmación",
     "careerFileChoose": "Elegir un archivo",
@@ -184,6 +188,22 @@
             "href": "/resources/what-is-aba-therapy"
           },
           {
+            "label": "Qué esperar durante la admisión",
+            "href": "/resources/what-to-expect-during-intake"
+          },
+          {
+            "label": "Conceptos básicos de Medicaid y el financiamiento FAPT",
+            "href": "/resources/medicaid-fapt-funding-basics"
+          },
+          {
+            "label": "Preguntas frecuentes sobre el entrenamiento para padres",
+            "href": "/resources/parent-training-faqs"
+          },
+          {
+            "label": "Referencias y elegibilidad",
+            "href": "/resources/referrals-and-eligibility"
+          },
+          {
             "label": "Programa de Primeros Aprendices",
             "href": "/resources/early-learners"
           },
@@ -198,10 +218,6 @@
           {
             "label": "Grupo de Habilidades Sociales",
             "href": "/resources/social-skills-group"
-          },
-          {
-            "label": "Preguntas frecuentes sobre el entrenamiento para padres",
-            "href": "/resources/parent-training-faqs"
           }
         ]
       },
@@ -747,7 +763,7 @@
         "Financiamiento del condado/FAPT"
       ],
       "note": "VTCC acepta Medicaid, financiamiento del condado y seguro comercial. Contacte a VTCC para confirmar su plan y servicio específicos. La autorización sigue dependiendo del plan o de la agencia de financiamiento.",
-      "ctaLabel": "Consultar seguro y financiamiento",
+      "ctaLabel": "Contactar a VTCC",
       "ctaHref": "/contact"
     },
     "referrers": {
@@ -955,7 +971,7 @@
           "faqs": [
             {
               "question": "¿Qué es Safety-Care® para Familias y Cuidadores?",
-              "answer": "Safety-Care® para Familias y Cuidadores es una capacitación grupal para padres y cuidadores. Las sesiones grupales estarán disponibles pronto, y todavía no se publican las fechas, la inscripción ni los requisitos de elegibilidad. La capacitación está diseñada para ofrecer estrategias prácticas y basadas en la evidencia para prevenir conductas desafiantes, reconocer las primeras señales de escalada, promover la seguridad y responder con confianza durante situaciones difíciles."
+              "answer": "Safety-Care® para Familias y Cuidadores es una capacitación grupal para padres y cuidadores. La capacitación está diseñada para ofrecer estrategias prácticas y basadas en la evidencia para prevenir conductas desafiantes, reconocer las primeras señales de escalada, promover la seguridad y responder con confianza durante situaciones difíciles."
             },
             {
               "question": "¿Por qué el entrenamiento para padres forma parte de la ABA?",
@@ -1226,7 +1242,7 @@
     },
     "careers": {
       "title": "Haga crecer su carrera en ABA",
-      "intro": "Capacitación incluida, mentoría real y un trabajo que importa a las familias del norte de Virginia.",
+      "intro": "Capacitación de RBT incluida, un equipo atento que se siente como familia y genera un impacto en el norte de Virginia.",
       "photoAlt": "El personal de VTCC reunido al aire libre alrededor de una mesa en un evento del equipo, con el banner de la clínica detrás.",
       "heroPhotoAlt": "Adultos sonriendo juntos alrededor de una mesa durante una reunión de capacitación.",
       "applyLabel": "Solicitar empleo",
@@ -1557,7 +1573,7 @@
     "submitLabel": "Enviar solicitud",
     "backLabel": "Volver a Carreras",
     "backHref": "/career",
-    "consentLabel": "",
+    "consentLabel": "Acepto que VTCC use esta información para responder a esta solicitud de empleo.",
     "fileLabel": "Currículum o documento de apoyo",
     "fileRequiredMessage": "Adjunte un currículum o documento de apoyo.",
     "fileTypes": ".pdf,.doc,.docx,.txt",
@@ -1627,7 +1643,7 @@
   },
   "form": {
     "notice": "",
-    "consentLabel": "",
+    "consentLabel": "Acepto que VTCC use esta información para responder a esta solicitud.",
     "submitLabel": "Enviar solicitud",
     "fields": [
       {
@@ -1731,7 +1747,7 @@
   },
   "formFamily": {
     "notice": "",
-    "consentLabel": "",
+    "consentLabel": "Acepto que VTCC use esta información para responder a esta solicitud.",
     "submitLabel": "Enviar solicitud de servicios",
     "fields": [
       {
@@ -1847,7 +1863,7 @@
   },
   "formReferral": {
     "notice": "",
-    "consentLabel": "",
+    "consentLabel": "Acepto que VTCC use esta información para responder a esta referencia.",
     "submitLabel": "Enviar consulta de referencia",
     "fields": [
       {
@@ -1981,7 +1997,7 @@
   "contactQuiz": {
     "eyebrow": "Contacto",
     "title": "Encuentre el siguiente paso correcto",
-    "intro": "Unas preguntas. Abriremos el formulario adecuado. No es una decisión clínica.",
+    "intro": "Responda unas preguntas y abriremos el formulario que corresponde.",
     "callEyebrow": "Llame a VTCC",
     "callTitle": "¿Prefiere hablar con alguien?",
     "callIntro": "Llame a nuestra oficina de Fairfax. Un miembro del equipo puede ayudar con servicios, referencias, empleo y próximos pasos.",
@@ -2704,7 +2720,7 @@
         },
         {
           "question": "¿Qué es Safety-Care® para Familias y Cuidadores?",
-          "answer": "Safety-Care® para Familias y Cuidadores es una capacitación grupal para padres y cuidadores. Las sesiones grupales estarán disponibles pronto, y todavía no se publican las fechas, la inscripción ni los requisitos de elegibilidad. La capacitación está diseñada para ofrecer estrategias prácticas y basadas en la evidencia para prevenir conductas desafiantes, reconocer las primeras señales de escalada, promover la seguridad y responder con confianza durante situaciones difíciles."
+          "answer": "Safety-Care® para Familias y Cuidadores es una capacitación grupal para padres y cuidadores. La capacitación está diseñada para ofrecer estrategias prácticas y basadas en la evidencia para prevenir conductas desafiantes, reconocer las primeras señales de escalada, promover la seguridad y responder con confianza durante situaciones difíciles."
         },
         {
           "question": "¿Dónde brinda servicios VTCC?",

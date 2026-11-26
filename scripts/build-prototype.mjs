@@ -20,8 +20,13 @@ function publicPath(file) {
 
 function staticHead(entry) {
   if (entry.noindex) {
-    return `    <title>Request received | Victoria Transcultural Clinical Center</title>
-    <meta name="robots" content="noindex" />
+    const noindexTitle =
+      entry.page === 'thank-you'
+        ? 'Request received | Victoria Transcultural Clinical Center'
+        : `${entry.title ?? 'Page not found'} | ${english.company.name}`
+    const inkScript =
+      entry.page === 'thank-you'
+        ? `
     <script>
       (function () {
         try {
@@ -39,7 +44,10 @@ function staticHead(entry) {
           root.style.setProperty('--ink-y', data.y + 'px')
         } catch (error) {}
       })()
-    </script>
+    </script>`
+        : ''
+    return `    <title>${noindexTitle}</title>
+    <meta name="robots" content="noindex" />${inkScript}
 `
   }
 
@@ -90,6 +98,7 @@ function staticHead(entry) {
 for (const obsoleteFile of [
   'intensive-in-home.html',
   'referrers.html',
+  'careers.html',
   'seo-content.js',
   join('resources', 'intensive-in-home-basics.html'),
 ]) {
@@ -124,7 +133,6 @@ const pages = [
   { file: 'insurance.html', page: 'insurance', base: '' },
   { file: 'about.html', page: 'about', base: '' },
   { file: 'career.html', page: 'career', base: '' },
-  { file: 'careers.html', page: 'career', base: '', seoPage: 'career' },
   { file: join('career', 'apply.html'), page: 'career-apply', base: '../', seoPage: 'career' },
   { file: 'contact.html', page: 'contact', base: '', noAnalytics: true },
   {
@@ -136,6 +144,7 @@ const pages = [
   },
   { file: join('contact', 'referral.html'), page: 'contact-referral', base: '../', noAnalytics: true },
   { file: 'thank-you.html', page: 'thank-you', base: '', noindex: true, noAnalytics: true },
+  { file: '404.html', page: 'not-found', base: '', noindex: true, title: 'Page not found' },
   { file: 'privacy.html', page: 'privacy', base: '', title: 'Website Privacy Policy' },
   { file: 'terms.html', page: 'terms', base: '', title: 'Website Terms of Use' },
   { file: 'accessibility.html', page: 'accessibility', base: '', title: 'Accessibility Statement' },

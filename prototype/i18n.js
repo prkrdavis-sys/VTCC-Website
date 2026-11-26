@@ -34,7 +34,7 @@ function renderQuizHours(summary, label) {
 }
 
 function renderFooterHoursText(value) {
-  return renderHoursText(value).replaceAll('8 a.m.–8 p.m.', '8a-8p').replaceAll('8 a.m.–2 p.m.', '8a-2p')
+  return renderHoursText(value)
 }
 
 function getLocale() {
@@ -426,7 +426,7 @@ function renderMultiSelectOption(fieldName, option, solo) {
               <span class="multi-select-mark" aria-hidden="true"></span>
               <span>${escapeHtml(option)}</span>
             </button>
-            <input class="multi-select-input" type="checkbox" name="${escapeHtml(fieldName)}" value="${escapeHtml(option)}" tabindex="-1" />`
+            <input class="multi-select-input" type="checkbox" name="${escapeHtml(fieldName)}" value="${escapeHtml(option)}" tabindex="-1" aria-hidden="true" />`
 }
 
 function formatFaqResultCount(content, count) {
@@ -463,11 +463,12 @@ function renderMultiSelectField(field, content) {
   const placeholder = quiz.multiSelectPlaceholder ?? 'Select all that apply'
   const selectedTemplate = quiz.multiSelectSelected ?? '{count} selected'
   const labelId = `multi-${field.name}-label`
+  const summaryId = `multi-${field.name}-summary`
 
   return `<div class="multi-select" data-multi-select data-name="${escapeHtml(field.name)}" data-placeholder="${escapeHtml(placeholder)}" data-selected-template="${escapeHtml(selectedTemplate)}">
           <span class="multi-select-heading" id="${escapeHtml(labelId)}">${escapeHtml(field.label)}</span>
-          <button type="button" class="multi-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="${escapeHtml(labelId)}">
-            <span data-multi-summary>${escapeHtml(placeholder)}</span>
+          <button type="button" class="multi-select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="${escapeHtml(labelId)} ${escapeHtml(summaryId)}">
+            <span id="${escapeHtml(summaryId)}" data-multi-summary>${escapeHtml(placeholder)}</span>
           </button>
           <div class="multi-select-panel" role="listbox" aria-multiselectable="true" aria-labelledby="${escapeHtml(labelId)}" hidden>
             ${renderMultiSelectOptions(field)}
@@ -642,11 +643,12 @@ function decorateMotifs(html) {
   })
 }
 
-function renderSectionHeading(eyebrow, title, intro = '') {
+function renderSectionHeading(eyebrow, title, intro = '', { pageTitle = false } = {}) {
+  const tag = pageTitle ? 'h1' : 'h2'
   return `<div class="section-heading">
           <span class="heading-squiggle" aria-hidden="true"></span>
           ${eyebrow ? `<p class="eyebrow">${escapeHtml(eyebrow)}</p>` : ''}
-          <h2>${escapeHtml(title)}</h2>
+          <${tag}>${escapeHtml(title)}</${tag}>
           ${intro ? `<p>${escapeHtml(intro)}</p>` : ''}
         </div>`
 }
@@ -1004,6 +1006,7 @@ function renderFooter(content) {
 
 function renderShell(content, mainHtml) {
   return `
+    <a class="skip-link" href="#top">${escapeHtml(content.ui.skipToContent ?? 'Skip to content')}</a>
     <header class="site-header">
       <div class="header-motifs" aria-hidden="true">
         ${motifSpan('blob', 'orange', 'motif-md motif-tl')}
@@ -1011,7 +1014,7 @@ function renderShell(content, mainHtml) {
         ${motifSpan('dots', 'lime', 'motif-ml')}
       </div>
       <div class="site-header-inner">
-      <a class="brand" href="${escapeHtml(toStaticHref('/'))}" aria-label="${escapeHtml(content.company.name)} ${escapeHtml(content.ui.homeLinkLabel ?? 'home')}">
+      <a class="brand" href="${escapeHtml(toStaticHref('/'))}">
         ${motifSpan('circle', 'magenta', 'motif-sm brand-motif')}
         <img class="brand-mark" src="${escapeHtml(BASE)}assets/vtcc-logo.png" alt="" />
         <span>
@@ -1021,6 +1024,7 @@ function renderShell(content, mainHtml) {
           </strong>
           <small>${escapeHtml(content.company.tagline)}</small>
         </span>
+        <span class="visually-hidden">${escapeHtml(content.ui.homeLinkLabel ?? 'home')}</span>
       </a>
       <a class="header-phone" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.ui.headerContactLabel ?? 'Contact')}</a>
       <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-menu-drawer">
@@ -1179,7 +1183,7 @@ function renderFormsPage(content) {
 
   return `<section class="section forms-section page-section">
         <div class="forms-shell">
-          ${renderSectionHeading('', forms.title, forms.intro)}
+          ${renderSectionHeading('', forms.title, forms.intro, { pageTitle: true })}
           ${
             steps
               ? `<ol class="forms-steps" aria-label="${escapeHtml(forms.title)}">${steps}</ol>`
@@ -1662,7 +1666,7 @@ function renderProgramDetailPage(content) {
   }
 
   return `<section class="section detail-section page-section soft">
-        ${renderSectionHeading(program.label, program.title, program.body)}
+        ${renderSectionHeading(program.label, program.title, program.body, { pageTitle: true })}
         ${renderServiceDetailBody(program, content)}
         ${renderServiceDetailActions(content)}
       </section>${renderServiceDisclaimer(content)}`
@@ -1809,7 +1813,7 @@ function renderProcessPage(content) {
     : `<a class="button page-link-cta" href="${escapeHtml(toStaticHref('/contact'))}">${escapeHtml(content.hero.actions[0].label)}</a>`
 
   return `<section class="section split-section page-section">
-        ${renderSectionHeading('', process.title, process.intro)}
+        ${renderSectionHeading('', process.title, process.intro, { pageTitle: true })}
         <ol class="steps">${steps}</ol>
         <div class="button-row">
           ${primary}
@@ -1840,7 +1844,7 @@ function renderInsurancePage(content) {
   return `<section class="section payer-band band band--tint">
         <div class="payer-band-inner">
           <div class="payer-lead">
-            ${renderSectionHeading('', funding.title, funding.intro)}
+            ${renderSectionHeading('', funding.title, funding.intro, { pageTitle: true })}
           </div>
           <h2 class="payer-band-title">${escapeHtml(content.ui.payerListTitle)}</h2>
           <div class="provider-grid">
@@ -2241,7 +2245,7 @@ function renderCareerApplicationPage(content) {
           <a class="back-button" href="${escapeHtml(toStaticHref(application.backHref))}">
             <span aria-hidden="true">←</span> ${escapeHtml(application.backLabel)}
           </a>
-          ${renderSectionHeading(application.eyebrow, application.title, application.intro)}
+          ${renderSectionHeading(application.eyebrow, application.title, application.intro, { pageTitle: true })}
           ${
             application.privacyNote
               ? `<aside class="career-privacy-note">
@@ -2259,10 +2263,10 @@ function renderCareerApplicationPage(content) {
             ${renderCareerResumeNotice(content)}
             ${
               application.consentLabel
-                ? `<label class="consent-field">
-              <input type="checkbox" name="consent" required />
-              <span>${escapeHtml(application.consentLabel)} ${renderPrivacyPolicyLink(content)}</span>
-            </label>`
+                ? `<div class="consent-field">
+              <input type="checkbox" id="career-consent" name="consent" required />
+              <span><label for="career-consent">${escapeHtml(application.consentLabel)}</label> ${renderPrivacyPolicyLink(content)}</span>
+            </div>`
                 : ''
             }
             ${application.privacyNote ? `<p class="form-note">${escapeHtml(application.privacyNote)}</p>` : ''}
@@ -2381,7 +2385,7 @@ function renderThankYouPage(content) {
             <circle cx="32" cy="32" r="30" />
             <path d="M18 33.5 27.5 43 46 22" />
           </svg>
-          ${renderSectionHeading(variant.eyebrow, variant.title, '')}
+          ${renderSectionHeading(variant.eyebrow, variant.title, '', { pageTitle: true })}
           <p class="thank-you-lead">${escapeHtml(variant.lead)}</p>
           ${renderIntakeReceipt(content, readThankYouReceipt(), { placement: 'confirm' })}
           <h3>${escapeHtml(copy.nextLabel)}</h3>
@@ -2409,7 +2413,7 @@ function renderContactPage(content) {
   return `<section class="section contact-section page-section">
         <div class="contact-main">
           <header class="contact-intro">
-            ${renderSectionHeading(contact.eyebrow, contact.title, contact.intro)}
+            ${renderSectionHeading(contact.eyebrow, contact.title, contact.intro, { pageTitle: true })}
           </header>
           <aside class="contact-aside">
             ${renderContactAside(content, contact)}
@@ -2428,7 +2432,7 @@ function renderContactPage(content) {
           ${form.fields.map((field) => renderFormField(field, content, variant)).join('')}
           ${
             form.consentLabel
-              ? `<label class="consent-field"><input type="checkbox" name="consent" required /> <span>${escapeHtml(form.consentLabel)} ${renderPrivacyPolicyLink(content)}</span></label>`
+              ? `<div class="consent-field"><input type="checkbox" id="request-consent" name="consent" required /> <span><label for="request-consent">${escapeHtml(form.consentLabel)}</label> ${renderPrivacyPolicyLink(content)}</span></div>`
               : ''
           }
           ${form.notice ? `<p class="form-note">${escapeHtml(form.notice)}</p>` : ''}
@@ -3313,7 +3317,7 @@ function renderContactQuizInner(content, direction = 'none') {
   const stage = showingResult || !step ? renderQuizResult(quizState, quiz) : renderQuizStep(step, quiz)
 
   return `<header class="quiz-intro">
-            <h2>${escapeHtml(quiz.title)}</h2>
+            <h1>${escapeHtml(quiz.title)}</h1>
             <p>${escapeHtml(quiz.intro)}</p>
           </header>
           <div class="quiz-progress">
@@ -3720,7 +3724,7 @@ function bindContactQuiz(content) {
 function renderResourcesIndex(content) {
   const resources = content.sections.resources
   return `<section class="section resources-section page-section">
-        ${renderSectionHeading('', resources.title, resources.intro)}
+        ${renderSectionHeading('', resources.title, resources.intro, { pageTitle: true })}
         <div class="faq-search-panel">
           ${renderFaqSearch(content)}
           <div class="faq-search-results" data-faq-search-results hidden></div>
@@ -3743,6 +3747,13 @@ function renderResourceTopic(content) {
         ${renderFaqCategory(category, content)}
       </section>
       ${renderServiceDisclaimer(content)}`
+}
+
+function renderNotFound(content) {
+  return `<section class="section page-section not-found-page">
+        ${renderSectionHeading('', content.ui.notFoundTitle, content.ui.notFoundBody, { pageTitle: true })}
+        <a class="button" href="${escapeHtml(toStaticHref('/'))}">${escapeHtml(content.ui.notFoundHome)}</a>
+      </section>`
 }
 
 function renderMain(content) {
@@ -3798,6 +3809,9 @@ function renderMain(content) {
     case 'nondiscrimination':
     case 'notice-of-privacy-practices':
       mainHtml = renderLegalPage(content, LEGAL_PAGE_KEYS[PAGE])
+      break
+    case 'not-found':
+      mainHtml = renderNotFound(content)
       break
     default:
       mainHtml = renderHome(content)
@@ -4408,7 +4422,9 @@ function buildFormspreePayload(formType, fields, receipt = null) {
     payload[label] = value
   }
 
-  payload.Consent = 'Yes'
+  if (fields.consent) {
+    payload.Consent = 'Yes'
+  }
   payload.Language = getLocale() === 'es' ? 'Spanish' : 'English'
   payload.Page = PAGE_SECTION_PATHS[PAGE] ?? window.location.pathname
 
@@ -5114,6 +5130,17 @@ function pageSeoEntry(content) {
     }
   }
 
+  if (PAGE === 'contact-request' || PAGE === 'contact-referral') {
+    const key = PAGE === 'contact-referral' ? 'contactReferral' : 'contactFamily'
+    const contact = content.sections?.[key] ?? content.sections?.contact
+    if (contact?.title) {
+      return {
+        title: `${contact.title} | ${content.company.name}`,
+        description: contact.intro || seo.defaultDescription,
+      }
+    }
+  }
+
   return seo.pages?.[seoPageKey()] ?? {}
 }
 
@@ -5126,6 +5153,12 @@ function applyDocumentSeo(content) {
     .forEach((node) => node.remove())
 
   if (PAGE === 'thank-you') {
+    return
+  }
+
+  if (PAGE === 'not-found') {
+    document.title = `${content.ui.notFoundTitle} | ${content.company.name}`
+    upsertMeta('name', 'robots', 'noindex')
     return
   }
 
@@ -5349,7 +5382,7 @@ function render() {
     }
     const variant = content.thankYou?.[readThankYouVariant()] ?? content.thankYou?.default
     if (variant?.title) {
-      document.title = `${variant.title} | ${content.company.shortName}`
+      document.title = `${variant.title} | ${content.company.name}`
     }
   }
   if (LEGAL_PAGE_KEYS[PAGE]) {

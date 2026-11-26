@@ -82,11 +82,14 @@ es.navigation.headerGroups = [
       { label: 'Comenzar', href: '/get-started' },
       { label: 'Seguro', href: '/insurance' },
       { label: '¿Qué es la Terapia ABA?', href: '/resources/what-is-aba-therapy' },
+      { label: 'Qué esperar durante la admisión', href: '/resources/what-to-expect-during-intake' },
+      { label: 'Conceptos básicos de Medicaid y el financiamiento FAPT', href: '/resources/medicaid-fapt-funding-basics' },
+      { label: 'Preguntas frecuentes sobre el entrenamiento para padres', href: '/resources/parent-training-faqs' },
+      { label: 'Referencias y elegibilidad', href: '/resources/referrals-and-eligibility' },
       { label: 'Programa de Primeros Aprendices', href: '/resources/early-learners' },
       { label: 'Programa de Alimentación', href: '/resources/feeding-program' },
       { label: 'Enriquecimiento Social', href: '/resources/social-enrichment' },
       { label: 'Grupo de Habilidades Sociales', href: '/resources/social-skills-group' },
-      { label: 'Preguntas frecuentes sobre el entrenamiento para padres', href: '/resources/parent-training-faqs' },
     ],
   },
   {
@@ -174,7 +177,7 @@ es.hero.actions = [
 
 es.sections.careers = {
   title: 'Haga crecer su carrera en ABA',
-  intro: 'Capacitación incluida, mentoría real y un trabajo que importa a las familias del norte de Virginia.',
+  intro: 'Capacitación de RBT incluida, un equipo atento que se siente como familia y genera un impacto en el norte de Virginia.',
   photoAlt:
     'El personal de VTCC reunido al aire libre alrededor de una mesa en un evento del equipo, con el banner de la clínica detrás.',
   heroPhotoAlt: 'Adultos sonriendo juntos alrededor de una mesa durante una reunión de capacitación.',
@@ -970,7 +973,7 @@ Object.assign(es.sections.funding, {
   intro:
     'VTCC puede ayudar a las familias y a quienes refieren a entender las opciones de financiamiento más usadas para nuestros servicios.',
   note: 'VTCC acepta Medicaid, financiamiento del condado y seguro comercial. Contacte a VTCC para confirmar su plan y servicio específicos. La autorización sigue dependiendo del plan o de la agencia de financiamiento.',
-  ctaLabel: 'Consultar seguro y financiamiento',
+  ctaLabel: 'Contactar a VTCC',
 })
 
 es.sections.funding.payers[9] = 'Financiamiento del condado/FAPT'
@@ -1594,7 +1597,7 @@ es.pages = {
       {
         question: '¿Qué es Safety-Care® para Familias y Cuidadores?',
         answer:
-          'Safety-Care® para Familias y Cuidadores es una capacitación grupal para padres y cuidadores, y las sesiones grupales estarán disponibles pronto. La capacitación enseña estrategias prácticas y basadas en la evidencia para prevenir conductas desafiantes, reconocer las primeras señales de escalada, promover la seguridad y responder con confianza durante situaciones difíciles.',
+          'Safety-Care® para Familias y Cuidadores es una capacitación grupal para padres y cuidadores. La capacitación enseña estrategias prácticas y basadas en la evidencia para prevenir conductas desafiantes, reconocer las primeras señales de escalada, promover la seguridad y responder con confianza durante situaciones difíciles.',
       },
       {
         question: '¿Dónde brinda servicios VTCC?',
@@ -1708,7 +1711,7 @@ Object.assign(es.contactQuiz, {
   eyebrow: 'Contacto',
   title: 'Encuentre el siguiente paso correcto',
   intro:
-    'Unas preguntas. Abriremos el formulario adecuado. No es una decisión clínica.',
+    'Responda unas preguntas y abriremos el formulario que corresponde.',
   callEyebrow: 'Llame a VTCC',
   callTitle: '¿Prefiere hablar con alguien?',
   callIntro:
@@ -1927,7 +1930,7 @@ Object.assign(es.ui, {
   copyReferenceLabel: 'Copiar',
   copiedReferenceLabel: 'Copiado',
   keepReferenceNote: 'Guarde este número. Compártalo cuando llame a VTCC sobre esta solicitud.',
-  stepCompleteLabel: 'Paso 1 completado',
+  stepCompleteLabel: 'Solicitud enviada',
   clearReceiptLabel: '¿No es usted? Borrar esto',
   viewConfirmationLabel: 'Ver confirmación',
 })

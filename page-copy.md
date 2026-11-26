@@ -27,6 +27,8 @@ VTCC accepts Medicaid, commercial insurance, and county funding. Call to confirm
 
 ### Services Overview
 
+
+
 ABA Therapy:
 
 Applied Behavior Analysis helps children build meaningful skills through individualized goals, positive reinforcement, parent training, and ongoing progress monitoring.
@@ -252,7 +254,7 @@ VTCC accepts Medicaid, county funding, and commercial insurance. Contact VTCC to
 
 Button:
 
-- Check Insurance & Funding
+- Contact VTCC
 
 ### Family And Referrer Split
 
@@ -623,15 +625,15 @@ ABA is used to support children with autism spectrum disorder and other developm
 
 What happens during a typical ABA session?
 
-Some sessions are one-on-one between the therapist and the child, and group instruction can also be used. Activities depend on the treatment plan and can include communication, social, daily living, and school-readiness skills, plus caregiver coaching. The same techniques can be used at home, during family meals, or at a neighborhood playground.
+Most sessions are one-on-one between the therapist and the child, and group instruction can also be used. Activities depend on the treatment plan and can include communication, social, daily living, and school-readiness skills, plus caregiver coaching. The same techniques can be used at home, during family meals, or at a neighborhood playground.
 
 How is progress measured?
 
-A BCBA monitors progress across the child's goals and meets regularly with the family and program staff to review progress and adjust the plan.
+VTCC uses quantifiable data points to measure behavior over time. A BCBA reviews that data with the family and program staff and adjusts the plan as the child progresses.
 
 How long does ABA last?
 
-Programs often range from 20–40 hours per week for 1–3 years, depending on the clinical recommendation and authorization. Length still varies by child, goals, and funding approval.
+Programs range from 9 to 40 hours per week and often last 1–3 years, depending on the clinical recommendation and authorization.
 
 Is ABA only for young children?
 
@@ -651,11 +653,11 @@ It helps to have parent or guardian contact information, the child's age, the se
 
 What forms may be required?
 
-Required forms depend on the service and funding source. Download the intake and referral forms from the Forms page, or contact VTCC if you are unsure which documents apply.
+The Forms page lists what to download, print, and return before the intake appointment: the ABA services VTCC intake form and referral source questionnaire, the supervised visitation and/or FAPT services referral source questionnaire, and the client-rights notice titled It is Your Right, in English and Spanish. Which of these applies depends on the service and funding source.
 
 How long does intake take?
 
-Timelines vary. Some steps move quickly after contact, while funding verification, authorization, and scheduling may take longer depending on the payer or referral source.
+VTCC does not publish a fixed turnaround for intake. Timing depends on funding review, authorization, paperwork, and scheduling, and on how complete the information is when you reach out.
 
 What happens after I reach out?
 
@@ -683,11 +685,11 @@ A managed care organization, or MCO, administers Medicaid benefits for many Virg
 
 What is FAPT or county funding?
 
-County or FAPT funding is a local pathway some families use for services. VTCC accepts this funding. Eligibility, required documents, and approval steps vary by locality and service.
+FAPT is the Family Assessment and Planning Team, the county team that reviews service requests under Virginia's Children's Services Act (CSA). VTCC accepts this county funding. The team decides eligibility and approval, and required documents and steps vary by locality and service.
 
 How do I verify my coverage?
 
-Have your insurance or funding information ready when you contact VTCC. The team can help identify what may be needed before services begin, though final approval depends on the payer or funding agency.
+Call VTCC with your plan or funding details, or contact your plan or local Medicaid office. VTCC can help identify what may be needed before services begin. The insurance plan, managed care organization, or funding agency makes the final coverage decision.
 
 What if my plan is not listed on the website?
 
@@ -703,7 +705,7 @@ Parents and caregivers are essential partners in both ABA and family-centered se
 
 What is Safety-Care® for Families & Caregivers?
 
-Safety-Care® for Families & Caregivers is group training for parents and caregivers. Group sessions are coming soon, and dates, registration, and eligibility requirements are not posted yet. The training is designed to give families practical, evidence-based strategies for preventing challenging behavior, recognizing early signs of escalation, promoting safety, and responding confidently during difficult situations.
+Safety-Care® for Families & Caregivers is group training for parents and caregivers. The training is designed to give families practical, evidence-based strategies for preventing challenging behavior, recognizing early signs of escalation, promoting safety, and responding confidently during difficult situations.
 
 Why is parent training part of ABA?
 
@@ -711,7 +713,7 @@ Children practice skills across daily routines at home, school, and in the commu
 
 Do I need to be present during every session?
 
-A caregiver needs to take part in intake. Whether a caregiver stays for later sessions depends on the treatment plan.
+No. A caregiver needs to take part in intake. Whether a caregiver stays for later sessions depends on the treatment plan.
 
 What if more than one caregiver supports the child?
 
@@ -747,19 +749,19 @@ Yes. A parent or guardian can contact VTCC directly to ask about services, intak
 
 How should documents be sent?
 
-Use only the contact methods VTCC provides for referral and intake documents. Do not send sensitive records through an unsecured form or email unless VTCC has approved a secure process.
+Download, print, and return the completed intake or referral form to VTCC before the intake appointment. Do not send diagnosis reports or other sensitive records through the website form or an unsecured email. After you call or submit a referral, VTCC explains its approved secure process for those records.
 
 How quickly will VTCC respond?
 
-A team member follows up by phone or email. How soon depends on the request and the office workload. This website is not monitored around the clock. If there is an immediate safety emergency, call 911. For a mental health crisis, call or text 988.
+VTCC does not publish a fixed response time. A team member follows up by phone or email, and timing depends on the request and the office workload. This website is not monitored around the clock. If there is an immediate safety emergency, call 911. For a mental health crisis, call or text 988.
 
 Does VTCC coordinate with schools or IEPs?
 
-Families often want skills to carry into school. VTCC can talk with you about sharing progress and whether a report or a school meeting is part of the plan. What the team can share depends on your consent, the treatment plan, and the funding source. Ask during intake if school coordination is a goal.
+Yes, when it is part of the plan. VTCC can talk with you about sharing progress and whether a report or a school meeting is included. What the team can share depends on your consent, the treatment plan, and the funding source. Ask during intake if school coordination is a goal.
 
 Can VTCC tell me if a child is eligible before I refer?
 
-VTCC can often discuss general service fit and required next steps, but final eligibility may depend on funding authorization, clinical assessment, and documentation.
+VTCC can discuss general service fit and required next steps before you refer. Final eligibility depends on funding authorization, clinical assessment, and documentation.
 
 ### Early Learners Program
 
@@ -831,7 +833,7 @@ Level Up Crew builds early skills such as parallel and cooperative play, waiting
 
 Grow your career in ABA
 
-Training included, real mentorship, and work that matters to Northern Virginia families.
+RBT Training included, a caring team that feels like family making an impact on Northern VA.
 
 ### Training included
 
